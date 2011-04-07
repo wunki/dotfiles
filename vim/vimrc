@@ -1,0 +1,158 @@
+" Vim configuration file by Petar Radosevic
+
+set cmdheight=2
+set nocompatible            " use vim defaults
+set encoding=utf-8
+set fileencoding=utf-8
+set bg=dark
+syntax on                   " enable syntax highlighting
+
+" Pathogen
+filetype off
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
+
+" GUI
+if has("gui_running")
+  set guioptions-=e
+  set guioptions-=T
+  set guioptions-=m
+  set guioptions-=r
+  set guioptions-=L
+  set guioptions-=b
+  set guioptions+=a
+  set guioptions+=c
+  colorscheme BusyBee
+  set guifont=DejaVu\ Sans\ Mono:h16
+  set columns=160
+  set lines=56
+  set visualbell          " please, no sound
+  set anti                " anti-aliasing
+  set mousehide           " hide the mouse when typing 
+  set fuopt+=maxhorz      " macvim fullscreen settings
+else
+  set t_Co=256
+  colorscheme xoria256
+  set mouse=a
+  set ttymouse=xterm
+  set termencoding=utf-8
+endif
+
+" Editor configuration
+set shell=/bin/zsh
+set showmatch               " show matching brackets (), {}' []
+set showcmd                 " show command
+set modeline
+set modelines=5
+set ignorecase              " case-insensitive search
+set smartcase               " upper-case sensitive search
+set laststatus=2            " occasions to show status line, 2=always.
+set hidden                  " move buffer to background without saving
+set number                  " show line numbers
+set wrap                    " set long-line wrapping
+set textwidth=0             " disable automatic text-width
+set history=1000            " more history
+set shortmess=atI           " shorten confirmation messages
+set bs=2                    " fix backspace in FreeBSD
+set scrolloff=3             " keep 3 lines below/above cursor
+
+" ` is more useful than ' but less accessible.
+nnoremap ' `
+nnoremap ` '
+
+" Bash-like filename completion
+set wildmenu
+set wildmode=list:longest
+set wildignore=*.o,*.fasl,*.tmp,.git,*.pyc,*.jpg,*.gif,*.png,*.mo
+
+" Look for the file in the current directory, then south until you reach home.
+set tags=tags;~/
+
+" Auto-backup files and .swp files don't go to pwd
+set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+
+" Faster scrolling
+nnoremap <C-e> 3<C-e>
+nnoremap <C-y> 3<C-y>
+
+" Whitespace
+set nowrap
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set listchars=tab:▸\ ,trail:·,eol:¬
+
+let mapleader=','
+
+" Toggle whitespace invisibles
+nmap <leader>l :set list!<CR>
+
+" NERDTree
+map <leader>n :NERDTreeToggle<cr>
+let NERDTreeIgnore=['\~$', '.pyc$']
+
+" Fugitive
+map <leader>g :Gstatus<cr>
+
+" Textile settings
+au BufRead *.tex set tw=79
+
+" Mutt settings
+au BufRead /tmp/mutt-* set tw=72 formatoptions=tcql
+
+" Markdown
+augroup mkd
+  autocmd BufRead *.mkd set ai tw=79 spell filetype=pdc formatoptions=tcroqn2 shiftwidth=4 tabstop=4 comments=n:>
+augroup END
+
+" RestructuredText
+augroup rst
+  autocmd BufRead *.rst set ai tw=79 spell filetype=rst formatoptions=tcroqn2 comments=n:>
+augroup END
+
+" JSON
+au! BufRead,BufNewFile *.json setfiletype json 
+
+" Setup statusline with git
+set laststatus=2
+set statusline=
+set statusline+=%-3.3n\ " buffer number
+set statusline+=%f\ " file name
+set statusline+=%h%m%r%w                        " flags
+set statusline+=\[%{strlen(&ft)?&ft:'none'},    " filetype
+set statusline+=%{&encoding},                   " encoding
+set statusline+=%{&fileformat}]                 " file format
+set statusline+=\ %{fugitive#statusline()}      " git branch
+set statusline+=%=                              " right align
+set statusline+=%-14.(%l,%c%V%)\ %<%P           " offset
+
+" Shortcuts
+map <C-j> gqip
+map <C-f10> :1,$!tidy -config ~/.tidy <cr><cr>
+map <leader>q :Bclose <cr>
+map <leader>v :sp $MYVIMRC<cr>
+noremap <f1> :bprev!<cr>
+noremap <f2> :bnext!<cr>
+noremap <f3> :Bclose<cr>
+noremap <f4> :set invfu<cr>
+
+" Reload vim config on save
+au! BufWritePost $MYVIMRC source %
+
+" Haskell
+au Bufenter *.hs compiler ghc
+
+" Show when going over 80 characters
+highlight OverLength ctermbg=red ctermfg=white guibg=#592929
+match OverLength /\%81v.*/
+
+" Remove .py whitespace
+autocmd BufWritePre *.py :%s/\s\+$//e
+
+" Command-T configuration
+let g:CommandTMaxHeight=20
+
+" Clojure
+let vimclojure#HighlightBuiltins=1  " Highlight Clojure's builtins
+let vimclojure#ParenRainbow=1       " Rainbow parentheses'!

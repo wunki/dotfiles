@@ -1,0 +1,27 @@
+[user]
+	name = Petar Radosevic
+	email = petar@wunki.org
+[color]
+	status = auto
+	diff = auto
+	branch = auto
+[color "branch"]
+	current = yellow reverse
+	local = yellow
+	remote = green
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red bold
+	new = green bold
+[color "status"]
+	added = yellow
+	changed = green
+	untracked = cyan
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+    pl = log --pretty=format:'%C(bold)%s%n%C(cyan)%an%Creset commited %C(green)%h%Creset about %C(cyan)%ar%Creset.%n' -n 4
+[core]
+	excludesfile = /Users/petar/.gitignore

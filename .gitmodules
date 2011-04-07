@@ -1,0 +1,30 @@
+[submodule "vim/vim/bundle/command-t"]
+	path = vim/vim/bundle/command-t
+	url = http://github.com/wincent/Command-T.git
+[submodule "vim/vim/bundle/nerdcommenter"]
+	path = vim/vim/bundle/nerdcommenter
+	url = http://github.com/scrooloose/nerdcommenter.git
+[submodule "vim/vim/bundle/fugitive"]
+	path = vim/vim/bundle/fugitive
+	url = http://github.com/tpope/vim-fugitive.git
+[submodule "vim/vim/bundle/nerdtree"]
+	path = vim/vim/bundle/nerdtree
+	url = http://github.com/scrooloose/nerdtree.git
+[submodule "vim/vim/bundle/cocoa"]
+	path = vim/vim/bundle/cocoa
+	url = http://github.com/msanders/cocoa.vim.git
+[submodule "zsh/oh-my-zsh"]
+	path = zsh/oh-my-zsh
+	url = git://github.com/robbyrussell/oh-my-zsh.git
+[submodule "vim/vim/bundle/vim-markdown"]
+	path = vim/vim/bundle/vim-markdown
+	url = https://github.com/plasticboy/vim-markdown.git
+[submodule "vim/vim/bundle/vim-coffee-script"]
+	path = vim/vim/bundle/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "vim/vim/bundle/ack"]
+	path = vim/vim/bundle/ack
+	url = https://github.com/mileszs/ack.vim.git
+[submodule "vim/vim/bundle/vim-colors-solarized"]
+	path = vim/vim/bundle/vim-colors-solarized
+	url = git://github.com/altercation/vim-colors-solarized.git

@@ -1,5 +1,4 @@
 " Vim configuration file by Petar Radosevic
-
 set cmdheight=2
 set nocompatible            " use vim defaults
 set encoding=utf-8
@@ -92,6 +91,9 @@ nmap <leader>l :set list!<CR>
 map <leader>n :NERDTreeToggle<cr>
 let NERDTreeIgnore=['\~$', '.pyc$']
 
+" Markdown detection
+autocmd BufNewFile,BufReadPost *.mkd,*.markdown,*.md set filetype=markdown
+
 " Fugitive
 map <leader>g :Gstatus<cr>
 
@@ -100,11 +102,6 @@ au BufRead *.tex set tw=79
 
 " Mutt settings
 au BufRead /tmp/mutt-* set tw=72 formatoptions=tcql
-
-" Markdown
-augroup mkd
-  autocmd BufRead *.mkd set ai tw=79 spell filetype=pdc formatoptions=tcroqn2 shiftwidth=4 tabstop=4 comments=n:>
-augroup END
 
 " RestructuredText
 augroup rst

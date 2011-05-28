@@ -9,6 +9,7 @@ alias gvim="gvim --remote-tab-silent"
 alias rmpyc="find . -name '*.pyc' | xargs rm"
 alias gun="gunicorn_django --workers=2"
 alias upac="source ../bin/activate && git pull origin"
+alias flushdns="dscacheutil -flushcache"
 
 # Python servers
 alias "smtpd"="python -m smtpd -n -c DebuggingServer localhost:1025"
@@ -30,3 +31,7 @@ alias gd='git diff | mvim'
 # Directory bookmarks
 alias cdsi='cd /Volumes/Sites/'
 alias cdso='cd /Volumes/Sources/'
+
+# PostgreSQL
+alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'

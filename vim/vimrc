@@ -22,7 +22,7 @@ if has("gui_running")
   set guioptions-=b
   set guioptions+=a
   set guioptions+=c
-  colorscheme BusyBee
+  colorscheme zenburn
   set guifont=DejaVu\ Sans\ Mono:h16
   set columns=160
   set lines=56

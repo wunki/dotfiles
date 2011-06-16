@@ -1,5 +1,5 @@
 DOTFILES = $(PWD)
-all:: git vim zsh mail
+all:: git vim zsh tmux
 
 git::
 	@ln -fs $(DOTFILES)/git/gitignore       ${HOME}/.gitignore
@@ -17,17 +17,6 @@ zsh::
 	@ln -fs $(DOTFILES)/zsh/zshenv ${HOME}/.zshenv
 	@ln -fns $(DOTFILES)/zsh/oh-my-zsh ${HOME}/.oh-my-zsh
 	@echo ZSH is symlinked.
-
-mail::
-	@ln -fns $(DOTFILES)/mail/mutt ${HOME}/.mutt
-	@ln -fns $(DOTFILES)/mail/imapfilter ${HOME}/.imapfilter
-	@ln -fs $(DOTFILES)/mail/muttrc ${HOME}/.muttrc
-	@ln -fs $(DOTFILES)/mail/sync_mailboxes ${HOME}/.bin/sync_mailboxes
-	@ln -fs $(DOTFILES)/mail/lbdbrc ${HOME}/.lbdbrc
-	@ln -fs $(DOTFILES)/mail/mailcap ${HOME}/.mailcap
-	@ln -fs $(DOTFILES)/mail/msmtprc ${HOME}/.msmtprc
-	@ln -fs $(DOTFILES)/mail/offlineimaprc ${HOME}/.offlineimaprc
-	@echo Mail is symlinked.
 
 tmux::
 	@ln -fs $(DOTFILES)/tmux/tmux.conf ${HOME}/.tmux

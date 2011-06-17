@@ -5,4 +5,4 @@
 (color-theme-zenburn)
 
 ; set the default font
-(set-default-font "Inconsolata-g-17")
+(set-default-font "Inconsolata-g-16")

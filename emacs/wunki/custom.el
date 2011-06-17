@@ -7,6 +7,9 @@
 ; flash instead of bell
 (setq visible-bell t)
 
+; add bin directory from homebrew
+(push "/usr/local/bin" exec-path)
+
 ; disable scrollbars
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))

@@ -6,6 +6,8 @@
 (when (file-exists-p custom-file) (load custom-file))
 
 (load "wunki/defuns")
+(load "wunki/bindings")
+(load "wunki/modes")
 (load "wunki/theme")
 (load "wunki/temp_files")
 

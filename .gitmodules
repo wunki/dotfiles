@@ -28,3 +28,6 @@
 [submodule "vim/vim/bundle/vim-colors-solarized"]
 	path = vim/vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "emacs/vendor/twilight-emacs"]
+	path = emacs/vendor/twilight-emacs
+	url = https://github.com/crafterm/twilight-emacs.git

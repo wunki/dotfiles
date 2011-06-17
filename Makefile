@@ -11,6 +11,11 @@ vim::
 	@ln -fns $(DOTFILES)/vim/vim         ${HOME}/.vim
 	@echo Vim is symlinked.
 
+emacs::
+	@ln -fs $(DOTFILES)/emacs/emacs.el	${HOME}/.emacs
+	@ln -fns $(DOTFILES)/emacs					${HOME}/.emacs.d
+	@echo Emacs is symlinked.
+
 zsh::
 	@ln -fs $(DOTFILES)/zsh/zshrc ${HOME}/.zshrc
 	@ln -fs $(DOTFILES)/zsh/zshalias ${HOME}/.zshalias

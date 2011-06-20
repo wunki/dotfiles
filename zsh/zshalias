@@ -11,6 +11,7 @@ alias gun="gunicorn_django --workers=2"
 alias upac="source ../bin/activate && git pull origin"
 alias flushdns="dscacheutil -flushcache"
 alias clj="rlwrap clj"
+alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 
 # Python servers
 alias "smtpd"="python -m smtpd -n -c DebuggingServer localhost:1025"

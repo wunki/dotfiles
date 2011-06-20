@@ -35,5 +35,3 @@ venv_cd () {
 }
 alias cd="venv_cd"
 
-# Vim keybindings
-bindkey -v

@@ -1,6 +1,6 @@
 ; customization file, containing personal preferences.
 (prefer-coding-system 'utf-8)
-(setq-default tab-width 2 indent-tabs-mode nil)
+(setq-default tab-width 4 indent-tabs-mode nil)
 (column-number-mode 1) ;; show column numbers
 (setq user-mail-address "petar@wunki.org")
 
@@ -39,3 +39,6 @@
 
 ; truncate long lines
 (setq-default truncate-lines nil)
+
+; run the emacs server
+(server-start)

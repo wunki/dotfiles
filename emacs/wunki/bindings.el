@@ -16,7 +16,6 @@
 (global-unset-key [(down)])
 (global-unset-key [(left)])
 (global-unset-key [(right)])
-(global-unset-key "\C-x\C-b")
 
 ; set the command key as meta
 (setq mac-command-modifier 'meta)

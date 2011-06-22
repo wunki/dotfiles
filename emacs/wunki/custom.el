@@ -7,6 +7,9 @@
 ; flash instead of bell
 (setq visible-bell t)
 
+; don't blink the cursor
+(blink-cursor-mode -1)
+
 ; add bin directory from homebrew
 (push "/usr/local/bin" exec-path)
 

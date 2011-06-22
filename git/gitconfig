@@ -24,4 +24,4 @@
 	co = checkout
     pl = log --pretty=format:'%C(bold)%s%n%C(cyan)%an%Creset commited %C(green)%h%Creset about %C(cyan)%ar%Creset.%n' -n 4
 [core]
-	excludesfile = /Users/petar/.gitignore
+	excludesfile = /Users/wunki/.gitignore

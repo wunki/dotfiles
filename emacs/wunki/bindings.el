@@ -8,7 +8,6 @@
 
 ; kill word and avoid using the backspace
 (global-set-key "\C-w" 'backward-kill-word)
-(global-set-key "\C-x\C-k" 'kill-region)
 (global-set-key "\C-c\C-k" 'kill-region)
 
 ; temporary disable arrow keys so I'm forced to learn emacs movements
@@ -18,7 +17,7 @@
 (global-unset-key [(right)])
 
 ; set the command key as meta
-(setq mac-command-modifier 'meta)
+; (setq mac-command-modifier 'meta)
 
 ; no mailing, thanks
 (global-unset-key (kbd "C-x m"))

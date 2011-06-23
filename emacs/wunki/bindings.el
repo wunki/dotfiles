@@ -17,7 +17,7 @@
 (global-unset-key [(right)])
 
 ; set the command key as meta
-; (setq mac-command-modifier 'meta)
+(setq mac-command-modifier 'meta)
 
 ; no mailing, thanks
 (global-unset-key (kbd "C-x m"))

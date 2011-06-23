@@ -1,18 +1,21 @@
 ; custom place to save customizations
-(setq custom-file "~/.emacs.d/wunki/custom.el")
+(setq custom-file "~/.emacs.d/wunki/custom.el"
+      marmalade-server "http://marmalade-repo.org/")
+
 (when (file-exists-p custom-file) (load custom-file))
 
 ; packages
 (when (not (require 'package nil t))
   (load-file "/Users/wunki/.emacs.d/package-23.el"))
 
-(require 'package)
 (add-to-list 'package-archives
 	           '("marmalade" . "http://marmalade-repo.org/packages/"))
+
 (package-initialize)
 
 (dolist (p '(clojure-mode magit color-theme-zenburn))
   (when (not (package-installed-p p))
+    (package-refresh-contents)
     (package-install p)))
 
 (load "wunki/defuns")

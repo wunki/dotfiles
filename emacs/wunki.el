@@ -1,15 +1,19 @@
-; third party plugins
-(add-to-list 'load-path "~/.emacs.d/vendor")
-
 ; custom place to save customizations
 (setq custom-file "~/.emacs.d/wunki/custom.el")
 (when (file-exists-p custom-file) (load custom-file))
 
-; packages with the help of marmalade
+; packages
+(when (not (require 'package nil t))
+  (load-file "/Users/wunki/.emacs.d/package-23.el"))
+
 (require 'package)
 (add-to-list 'package-archives
 	           '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
+
+(dolist (p '(clojure-mode magit color-theme-zenburn))
+  (when (not (package-installed-p p))
+    (package-install p)))
 
 (load "wunki/defuns")
 (load "wunki/bindings")

@@ -11,6 +11,9 @@ alias gun="gunicorn_django --workers=2"
 alias upac="source ../bin/activate && git pull origin"
 alias flushdns="dscacheutil -flushcache"
 alias clj="rlwrap clj"
+
+# Emacs
+alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 
 # Python servers

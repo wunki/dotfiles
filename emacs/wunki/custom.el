@@ -44,7 +44,8 @@
 (setq-default truncate-lines nil)
 
 ; run the emacs server
-(server-start)
+(load "server")
+(unless (server-running-p) (server-start))
 
 ; ido-mode
 (setq ido-enable-flex-matching t)

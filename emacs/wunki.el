@@ -15,7 +15,6 @@
 
 (dolist (p '(clojure-mode magit color-theme-zenburn))
   (when (not (package-installed-p p))
-    (package-refresh-contents)
     (package-install p)))
 
 (load "wunki/defuns")
@@ -23,3 +22,5 @@
 (load "wunki/modes")
 (load "wunki/theme")
 (load "wunki/temp_files")
+
+(vendor 'markdown-mode)

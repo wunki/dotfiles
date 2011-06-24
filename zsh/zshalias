@@ -13,6 +13,7 @@ alias flushdns="dscacheutil -flushcache"
 alias clj="rlwrap clj"
 
 # Emacs
+alias em="emacs"
 alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
 alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 

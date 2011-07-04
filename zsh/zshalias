@@ -16,7 +16,7 @@ alias redis-server="redis-server /usr/local/etc/redis.conf"
 # Emacs
 alias em="emacs"
 
-if [ `uname` == 'Darwin' ]; then
+if [ `uname` = "Darwin" ]; then
     alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
     alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
 fi

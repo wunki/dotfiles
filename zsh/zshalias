@@ -11,11 +11,15 @@ alias gun="gunicorn_django --workers=2"
 alias upac="source ../bin/activate && git pull origin"
 alias flushdns="dscacheutil -flushcache"
 alias clj="rlwrap clj"
+alias redis-server="redis-server /usr/local/etc/redis.conf"
 
 # Emacs
 alias em="emacs"
-alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
-alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+
+if [ `uname` == 'Darwin' ]; then
+    alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
+    alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+fi
 
 # Python servers
 alias "smtpd"="python -m smtpd -n -c DebuggingServer localhost:1025"

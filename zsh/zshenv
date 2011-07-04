@@ -19,7 +19,7 @@ export MM_CHARSET=UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Paths
-export PATH="${HOME}/.bin:/usr/local/bin:$PATH"
+export PATH="${HOME}/.bin:/usr/local/bin:${HOME}/.cabal/bin:$PATH"
 
 # Paths on MacOSX
 if [ `uname` = "Darwin" ]; then

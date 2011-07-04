@@ -6,7 +6,7 @@
 
 ; packages
 (when (not (require 'package nil t))
-  (load-file "/Users/wunki/.emacs.d/package-23.el"))
+  (load-file "~/.emacs.d/package-23.el"))
 
 (add-to-list 'package-archives
 	           '("marmalade" . "http://marmalade-repo.org/packages/"))

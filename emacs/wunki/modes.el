@@ -14,3 +14,7 @@
                              "~/Documents/Notes/personal.org"))
 (setq org-directory (expand-file-name "~/Documents/Notes"))
 (setq org-log-done 'time)
+
+; puppet mode
+(autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")
+(add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))

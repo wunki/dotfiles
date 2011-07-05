@@ -18,9 +18,13 @@
     (package-install p)))
 
 (load "wunki/defuns")
+
+(vendor 'markdown-mode)
+(vendor 'puppet-mode)
+
 (load "wunki/bindings")
 (load "wunki/modes")
 (load "wunki/theme")
 (load "wunki/temp_files")
 
-(vendor 'markdown-mode)
+

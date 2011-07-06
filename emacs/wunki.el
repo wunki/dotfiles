@@ -13,7 +13,7 @@
 
 (package-initialize)
 
-(dolist (p '(clojure-mode magit color-theme-zenburn))
+(dolist (p '(clojure-mode magit color-theme-zenburn gist))
   (when (not (package-installed-p p))
     (package-install p)))
 

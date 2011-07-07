@@ -20,6 +20,7 @@
 ; org-mode
 (define-key global-map (kbd "C-c l") 'org-store-link)
 (define-key global-map (kbd "C-c a") 'org-agenda)
+(define-key global-map (kbd "C-c c") 'org-capture)
 
 ; gist.github.com
 (define-key global-map (kbd "C-c p") 'gist-buffer)

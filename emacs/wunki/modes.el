@@ -14,6 +14,7 @@
                              "~/Documents/Notes/personal.org"))
 (setq org-directory (expand-file-name "~/Documents/Notes"))
 (setq org-log-done 'time)
+(setq org-default-notes-file (concat org-directory "/inbox.org"))
 
 ; puppet mode
 (autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")

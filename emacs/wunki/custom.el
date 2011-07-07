@@ -4,6 +4,9 @@
 (column-number-mode 1) ;; show column numbers
 (setq user-mail-address "petar@wunki.org")
 
+; Unicode
+(prefer-coding-system 'utf-8)
+
 ; flash instead of bell
 (setq visible-bell t)
 

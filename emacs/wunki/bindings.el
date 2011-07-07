@@ -22,5 +22,5 @@
 (define-key global-map (kbd "C-c a") 'org-agenda)
 
 ; gist.github.com
-(define-key global-map (kbd "C-c p") 'gist-buffer-private)
-(define-key global-map (kbd "C-c C-p") 'gist-region-private)
+(define-key global-map (kbd "C-c p") 'gist-buffer)
+(define-key global-map (kbd "C-c C-p") 'gist-region)

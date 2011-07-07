@@ -1,10 +1,5 @@
 DOTFILES = $(PWD)
-all:: git vim zsh tmux
-
-git::
-	@ln -fs $(DOTFILES)/git/gitignore       ${HOME}/.gitignore
-	@ln -fs $(DOTFILES)/git/gitconfig       ${HOME}/.gitconfig
-	@echo Git is symlinked.
+all:: vim emacs zsh tmux
 
 vim::
 	@ln -fs $(DOTFILES)/vim/vimrc        ${HOME}/.vimrc

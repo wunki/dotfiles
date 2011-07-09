@@ -57,3 +57,7 @@
 
 ; european dates
 (setq calendar-date-style 'european)
+
+; spelling
+(setq ispell-program-name "aspell")
+(setq ispell-list-command "list")

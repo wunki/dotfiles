@@ -22,7 +22,7 @@ if has("gui_running")
   set guioptions+=a
   set guioptions+=c
   colorscheme zenburn
-  set guifont=DejaVu\ Sans\ Mono:h16
+  set guifont=DejaVu\ Sans\ Mono:h15
   set columns=160
   set lines=56
   set visualbell          " please, no sound

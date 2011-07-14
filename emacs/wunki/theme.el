@@ -6,4 +6,4 @@
 (color-theme-zenburn)
 
 ; set the default font
-(set-default-font "Inconsolata-g-15")
+(set-default-font "Deja-Vu-Sans-Mono-14")

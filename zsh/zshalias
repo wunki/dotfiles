@@ -14,12 +14,13 @@ alias clj="rlwrap clj"
 alias redis-server="redis-server /usr/local/etc/redis.conf"
 
 # Emacs
-alias em="emacs"
-
 if [ `uname` = "Darwin" ]; then
-    alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs -nw"
-    alias emacsclient="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient"
+    alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
+    alias emacsclient="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/bin/emacsclient -nw"
 fi
+
+alias em="emacs"
+alias ec="emacsclient"
 
 # Python servers
 alias "smtpd"="python -m smtpd -n -c DebuggingServer localhost:1025"
@@ -36,7 +37,7 @@ alias pyup='python setup.py sdist register upload'
 alias mongod='mongod run --config /usr/local/Cellar/mongodb/1.8.0-x86_64/mongod.conf'
 
 # Git
-alias gd='git diff | mvim'
+alias gd='git diff | emacsclient'
 
 # Directory bookmarks
 alias cdsi='cd /Volumes/Sites/'

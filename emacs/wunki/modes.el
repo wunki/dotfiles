@@ -22,3 +22,17 @@
 
 ; vagrant
 (add-to-list 'auto-mode-alist '("VagrantFile" . ruby-mode))
+
+; mutt
+(add-to-list 'auto-mode-alist '(".*mutt.*" . message-mode))                                                                   
+  (setq mail-header-separator "")                                                                                               
+  (add-hook 'message-mode-hook
+          'turn-on-auto-fill
+          (lambda ()
+             (progn
+               (local-unset-key (kbd "C-c C-c"))
+               (define-key message-mode-map (kbd "C-c C-c") '(lambda ()
+                                                               "save and exit quickly"
+                                                               (interactive)
+                                                               (save-buffer)
+                                                               (server-edit))))))

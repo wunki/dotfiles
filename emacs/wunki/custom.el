@@ -51,9 +51,12 @@
 (unless (server-running-p) (server-start))
 
 ; ido-mode
-(setq ido-enable-flex-matching t)
-(setq ido-everywhere t)
 (ido-mode 1)
+(setq ido-enable-prefix nil
+      ido-enable-flex-matching t
+      ido-create-new-buffer 'always
+      ido-use-filename-at-point 'guess
+      ido-max-prospects 10)
 
 ; european dates
 (setq calendar-date-style 'european)
@@ -61,3 +64,15 @@
 ; spelling
 (setq ispell-program-name "aspell")
 (setq ispell-list-command "list")
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(sendmail-query-once-function (quote sendmail-send-it) t))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )

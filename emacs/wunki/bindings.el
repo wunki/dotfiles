@@ -1,5 +1,6 @@
 ; shortcuts
 (global-set-key (kbd "C-c g") 'magit-status)
+(global-set-key (kbd "M-RET") 'ns-toggle-fullscreen)
 
 ; map execute command to the C-key
 ; less hand movement with this command

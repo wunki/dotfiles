@@ -6,4 +6,4 @@
 (color-theme-zenburn)
 
 ; set the default font
-(set-default-font "Deja-Vu-Sans-Mono-14")
+(set-default-font "Menlo-15")

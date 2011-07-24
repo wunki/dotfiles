@@ -15,12 +15,15 @@ alias redis-server="redis-server /usr/local/etc/redis.conf"
 
 # Emacs
 if [ `uname` = "Darwin" ]; then
-    alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
-    alias emacsclient="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/bin/emacsclient -nw"
+    # Emacs
+    alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs"
+    
+    # EmacsClient in shell
+    alias em="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/bin/emacsclient -t -a /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
+    
+    # EmacsClient in windowed frame
+    alias ec="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/bin/emacsclient -n -c -a /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs"
 fi
-
-alias em="emacs"
-alias ec="emacsclient"
 
 # Python servers
 alias "smtpd"="python -m smtpd -n -c DebuggingServer localhost:1025"

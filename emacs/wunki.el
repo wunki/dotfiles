@@ -14,7 +14,7 @@
 (package-initialize)
 
 (dolist (p '(slime slime-repl clojure-mode magit 
-                   color-theme-zenburn gist))
+                   color-theme-zenburn gist haskell-mode))
   (when (not (package-installed-p p))
     (package-install p)))
 
@@ -22,10 +22,12 @@
 
 (vendor 'markdown-mode)
 (vendor 'puppet-mode)
+(vendor 'pandoc-mode)
+(vendor 'color-theme-twilight)
 
 (load "wunki/bindings")
 (load "wunki/modes")
 (load "wunki/theme")
 (load "wunki/temp_files")
-
+(load "wunki/gnus")
 

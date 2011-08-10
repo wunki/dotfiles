@@ -12,6 +12,7 @@ export GREP_OPTIONS='--color=auto'
 export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 export TERM=xterm-256color
+export PORT=8080
 
 # UTF-8 Locales
 export LANG=en_US.UTF-8
@@ -39,7 +40,6 @@ if [ -e "$HOME/.aws" ]; then
   export EC2_CERT="$(/bin/ls $HOME/.aws/cert-*.pem)"
   export EC2_URL="https://eu-west-1.ec2.amazonaws.com"
   export EC2_REGION="eu-west-1"
-
 
   if [ `uname` = "Darwin" ]; then
     export AWS_RDS_HOME="/usr/local/Cellar/rds-command-line-tools/1.3.003/jars"

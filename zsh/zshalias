@@ -37,7 +37,7 @@ alias tst='./manage.py test'
 alias pyup='python setup.py sdist register upload'
 
 # MongoDB
-alias mongod='mongod run --config /usr/local/Cellar/mongodb/1.8.0-x86_64/mongod.conf'
+alias mongod='mongod run --config /usr/local/Cellar/mongodb/1.8.2-x86_64/mongod.conf'
 
 # Git
 alias gd='git diff | emacsclient'

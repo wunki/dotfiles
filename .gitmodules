@@ -29,12 +29,12 @@
 [submodule "vim/vim/bundle/vim-colors-solarized"]
 	path = vim/vim/bundle/vim-colors-solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
-[submodule "emacs/vendor/twilight-emacs"]
-	path = emacs/vendor/twilight-emacs
-	url = https://github.com/crafterm/twilight-emacs.git
 [submodule "emacs/vendor/magit"]
 	path = emacs/vendor/magit
 	url = https://github.com/technomancy/magit.git
 [submodule "emacs/vendor/markdown-mode"]
 	path = emacs/vendor/markdown-mode
 	url = http://jblevins.org/git/markdown-mode.git
+[submodule "emacs/vendor/color-theme-twilight"]
+	path = emacs/vendor/color-theme-twilight
+	url = https://github.com/crafterm/twilight-emacs.git

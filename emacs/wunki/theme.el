@@ -3,7 +3,8 @@
 
 (load-file "~/.emacs.d/elpa/color-theme-zenburn-0.3/color-theme-zenburn.el")
 (load-file "~/.emacs.d/elpa/color-theme-github-0.0.3/color-theme-github.elc")
+(load-file "~/.emacs.d/elpa/color-theme-solarized-1.0.0/color-theme-solarized.elc")
 (color-theme-zenburn)
 
 ; set the default font
-(set-default-font "Inconsolata-g-16")
+(set-default-font "Menlo-15")

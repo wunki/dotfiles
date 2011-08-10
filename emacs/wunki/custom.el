@@ -1,12 +1,12 @@
 ; customization file, containing personal preferences.
-(prefer-coding-system 'utf-8)
 (setq-default tab-width 2 indent-tabs-mode nil)
 (column-number-mode 1) ;; show column numbers
 (setq user-mail-address "petar@wunki.org")
 
 ; Unicode
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
-(setq slime-net-coding-system 'utf-8-unix)
 
 ; flash instead of bell
 (setq visible-bell t)
@@ -57,7 +57,9 @@
       ido-enable-flex-matching t
       ido-create-new-buffer 'always
       ido-use-filename-at-point 'guess
-      ido-max-prospects 10)
+      ido-max-prospects 10
+      ido-create-new-buffer 'always
+      ido-ignore-files '(".hi"))
 
 ; european dates
 (setq calendar-date-style 'european)

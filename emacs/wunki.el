@@ -13,8 +13,9 @@
 
 (package-initialize)
 
-(dolist (p '(slime slime-repl clojure-mode magit 
-                   color-theme-zenburn gist haskell-mode))
+(dolist (p '(slime slime-repl clojure-mode clojure-test-mode
+                   magit gist haskell-mode
+                   color-theme-zenburn color-theme-twilight))
   (when (not (package-installed-p p))
     (package-install p)))
 

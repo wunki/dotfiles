@@ -7,7 +7,7 @@
 (load-file "~/.emacs.d/elpa/color-theme-zenburn-0.3/color-theme-zenburn.el")
 
 ; select the colorscheme
-(color-theme-twilight)
+(color-theme-github)
 
 ; set the default font
 (set-default-font "Menlo-16")

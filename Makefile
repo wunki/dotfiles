@@ -18,6 +18,11 @@ zsh::
 	@ln -fns $(DOTFILES)/zsh/oh-my-zsh ${HOME}/.oh-my-zsh
 	@echo ZSH is symlinked.
 
+mutt::
+	@ln -fs $(DOTFILES)/mutt/muttrc ${HOME}/.muttrc
+	@ln -fns $(DOTFILES)/mutt/mutt ${HOME}/.mutt
+	@echo mutt is symlinked
+
 tmux::
 	@ln -fs $(DOTFILES)/tmux/tmux.conf ${HOME}/.tmux
 	@echo tmux is symlinked.

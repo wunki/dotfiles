@@ -1,7 +1,8 @@
 ; shortcuts
 (global-set-key (kbd "C-c C-g") 'magit-status)
-(global-set-key (kbd "C-c C-o") 'ff-find-other-file)
 (global-set-key (kbd "M-RET") 'ns-toggle-fullscreen)
+(add-hook 'objc-mode-hook '(lambda ()
+                            (local-set-key (kbd "C-c o") 'ff-find-other-file)))
 
 ; map execute command to the C-key
 ; less hand movement with this command

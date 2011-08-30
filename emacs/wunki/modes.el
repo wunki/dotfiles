@@ -4,6 +4,11 @@
 (add-hook 'objc-mode-hook '(lambda ()
   (local-set-key (kbd "RET") 'newline-and-indent)))
 
+; let's ff-find-other-file also find objective-c header files
+(add-hook 'objc-mode-hook
+          (lambda ()
+            (set (make-local-variable 'cc-other-file-alist)  '(("\\.m\\'" (".h")) ("\\.h\\'" (".m" ".c" ".cpp"))))))
+
 ;; haskell mode
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
@@ -62,3 +67,15 @@
 
 ;; vagrant
 (add-to-list 'auto-mode-alist '("VagrantFile" . ruby-mode))
+
+;; mutt
+(add-to-list 'auto-mode-alist '(".*mutt.*" . mail-mode))
+(add-hook 'mail-mode-hook 'turn-on-auto-fill)
+(add-hook
+ 'mail-mode-hook
+ (lambda ()
+   (define-key mail-mode-map [(control c) (control c)]
+     (lambda ()
+       (interactive)
+       (save-buffer)
+       (server-edit)))))

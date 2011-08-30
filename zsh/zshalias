@@ -16,13 +16,13 @@ alias redis-server="redis-server /usr/local/etc/redis.conf"
 # Emacs
 if [ `uname` = "Darwin" ]; then
     # Emacs
-    alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs"
+    alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
     
     # EmacsClient in shell
-    alias em="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/bin/emacsclient -t -a /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
+    alias em="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -t -a /Applications/Emacs.app/Contents/MacOS/Emacs -nw"
     
     # EmacsClient in windowed frame
-    alias ec="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/bin/emacsclient -n -c -a /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs"
+    alias ec="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n -c -a /Applications/Emacs.app/Contents/MacOS/Emacs"
 fi
 
 # Python servers
@@ -37,7 +37,7 @@ alias tst='./manage.py test'
 alias pyup='python setup.py sdist register upload'
 
 # MongoDB
-alias mongod='mongod run --config /usr/local/Cellar/mongodb/1.8.2-x86_64/mongod.conf'
+alias mongod='mongod run --config /usr/local/Cellar/mongodb/1.8.3-x86_64/mongod.conf'
 
 # Git
 alias gd='git diff | emacsclient'

@@ -2,10 +2,12 @@
 (setq color-theme-is-global t)
 
 (load-file "~/.emacs.d/elpa/color-theme-zenburn-0.3/color-theme-zenburn.el")
-(load-file "~/.emacs.d/elpa/color-theme-solarized-1.0.0/color-theme-solarized.elc")
+(load-file "~/Dropbox/Sources/solarized/emacs-colors-solarized/color-theme-solarized.el")
 
 ; select the colorscheme
-(color-theme-solarized-dark)
+(if window-system
+    (color-theme-solarized-dark)
+    (color-theme-zenburn))
 
 ; set the default font
-(set-default-font "Menlo-15")
+(set-default-font "Meslo LG M DZ-15")

@@ -17,12 +17,12 @@
 ; don't ignore groups
 (setq gnus-ignored-newsgroups "")
 
-; receiving mail
-(setq gnus-select-method
-      '(nnimap "wunki"
-               (nnimap-address "secure.emailsrvr.com")
-               (nnimap-server-port 993)
-               (nnimap-stream ssl)))
+; reading mail
+(setq gnus-select-method 
+      '(nnmaildir "wunki" 
+                  (directory "~/Mail/")
+                  (directory-files nnheader-directory-files-safe) 
+                  (get-new-mail nil)))
 
 ; sending mail
 (setq message-send-mail-function 'smtpmail-send-it
@@ -34,8 +34,6 @@
       starttls-use-gnutls t)
 
 ; sent messages
-(setq gnus-message-archive-method '(nnimap "wunki"))
-(setq gnus-message-archive-group "nnimap+wunki:Sent")
 (setq gnus-gcc-mark-as-read t) 
 
 ; attractive summary view

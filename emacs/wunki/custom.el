@@ -59,7 +59,7 @@
       ido-use-filename-at-point 'guess
       ido-max-prospects 10
       ido-create-new-buffer 'always
-      ido-ignore-files '(".hi"))
+      ido-ignore-files '(".hi" ".DS_Store" ".pyc"))
 
 ; european dates
 (setq calendar-date-style 'european)

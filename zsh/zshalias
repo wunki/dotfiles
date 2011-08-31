@@ -13,6 +13,10 @@ alias flushdns="dscacheutil -flushcache"
 alias clj="rlwrap clj"
 alias redis-server="redis-server /usr/local/etc/redis.conf"
 
+# Postgresql
+alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+
 # Emacs
 if [ `uname` = "Darwin" ]; then
     # Emacs

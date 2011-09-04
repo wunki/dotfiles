@@ -38,3 +38,6 @@
 [submodule "emacs/vendor/color-theme-twilight"]
 	path = emacs/vendor/color-theme-twilight
 	url = https://github.com/crafterm/twilight-emacs.git
+[submodule "mutt/mutt/themes/mutt-colors-solarized"]
+	path = mutt/mutt/themes/mutt-colors-solarized
+	url = https://github.com/altercation/mutt-colors-solarized.git

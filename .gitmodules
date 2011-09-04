@@ -41,3 +41,6 @@
 [submodule "mutt/mutt/themes/mutt-colors-solarized"]
 	path = mutt/mutt/themes/mutt-colors-solarized
 	url = https://github.com/altercation/mutt-colors-solarized.git
+[submodule "emacs/vendor/solarized"]
+	path = emacs/vendor/solarized
+	url = https://github.com/altercation/solarized.git

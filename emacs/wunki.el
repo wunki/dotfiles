@@ -16,7 +16,7 @@
 (package-initialize)
 
 (dolist (p '(slime slime-repl clojure-mode clojure-test-mode
-                   paredit magit gist haskell-mode
+                   paredit magit gist haskell-mode org org-magit
                    color-theme-zenburn color-theme-twilight))
   (when (not (package-installed-p p))
     (package-install p)))

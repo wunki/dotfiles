@@ -26,7 +26,7 @@ set header_cache="~/.mutt/header_cache/"    # header cache directory
 set certificate_file=~/.mutt/certificates   # certificate file
 
 # Emacs as my editor
-set editor="~/.bin/emacs-mutt"
+set editor="vim -c 'set tw=70 et' '+/^$'""
 
 # Address book, currently abook
 set alias_file="~/Dropbox/Documents/Contacts/aliases"           # address book

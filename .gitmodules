@@ -50,3 +50,6 @@
 [submodule "vim/vim/bundle/vim-haskell"]
 	path = vim/vim/bundle/vim-haskell
 	url = https://github.com/wlangstroth/vim-haskell.git
+[submodule "vim/vim/bundle/gist-vim"]
+	path = vim/vim/bundle/gist-vim
+	url = https://github.com/mattn/gist-vim.git

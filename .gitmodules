@@ -47,3 +47,6 @@
 [submodule "vim/vim/bundle/solarized"]
 	path = vim/vim/bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "vim/vim/bundle/vim-haskell"]
+	path = vim/vim/bundle/vim-haskell
+	url = https://github.com/wlangstroth/vim-haskell.git

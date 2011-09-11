@@ -44,3 +44,6 @@
 [submodule "emacs/vendor/solarized"]
 	path = emacs/vendor/solarized
 	url = https://github.com/altercation/solarized.git
+[submodule "vim/vim/bundle/solarized"]
+	path = vim/vim/bundle/solarized
+	url = https://github.com/altercation/vim-colors-solarized.git

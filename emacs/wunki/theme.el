@@ -7,4 +7,4 @@
 (color-theme-solarized-dark)
 
 ; set the default font
-(set-default-font "Meslo LG M DZ-15")
+(set-default-font "DejaVu Sans Mono-15")

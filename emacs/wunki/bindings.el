@@ -29,3 +29,6 @@
 ; gist.github.com
 (define-key global-map (kbd "C-c p") 'gist-buffer)
 (define-key global-map (kbd "C-c C-p") 'gist-region)
+
+; deft
+(define-key global-map (kbd "C-c C-n") 'deft)

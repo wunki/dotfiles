@@ -3,7 +3,7 @@ set cmdheight=2
 set nocompatible            " use vim defaults
 set encoding=utf-8
 set fileencoding=utf-8
-set bg=light
+set bg=dark
 syntax on                   " enable syntax highlighting
 
 " Pathogen
@@ -23,8 +23,8 @@ if has("gui_running")
   set guioptions+=c
   colorscheme solarized
   set guifont=DejaVu\ Sans\ Mono:h15
-  set columns=160
-  set lines=56
+  set columns=80
+  set lines=40
   set visualbell          " please, no sound
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing 
@@ -41,19 +41,31 @@ endif
 set shell=/bin/zsh
 set showmatch               " show matching brackets (), {}' []
 set showcmd                 " show command
-set modeline
-set modelines=5
+set modelines=0             " don't use modelines
 set ignorecase              " case-insensitive search
 set smartcase               " upper-case sensitive search
 set laststatus=2            " occasions to show status line, 2=always.
 set hidden                  " move buffer to background without saving
 set number                  " show line numbers
 set wrap                    " set long-line wrapping
-set textwidth=0             " disable automatic text-width
+set textwidth=79            " disable automatic text-width
 set history=1000            " more history
 set shortmess=atI           " shorten confirmation messages
 set bs=2                    " fix backspace in FreeBSD
 set scrolloff=3             " keep 3 lines below/above cursor
+set showmode
+set showcmd
+set ttyfast                 " improved remote connections
+set ruler
+set backspace=indent,eol,start
+set relativenumber          " show line numbering relative to current position
+set undofile                " create undofiles
+set formatoptions=qrn1
+set colorcolumn=80
+
+" Use normal regular expressions
+nnoremap / /\v
+vnoremap / /\v
 
 " ` is more useful than ' but less accessible.
 nnoremap ' `
@@ -132,6 +144,10 @@ noremap <f1> :bprev!<cr>
 noremap <f2> :bnext!<cr>
 noremap <f3> :Bclose<cr>
 noremap <f4> :set invfu<cr>
+nnoremap ; :
+nnoremap j gj
+nnoremap k gk
+nnoremap <leader>a :Ack
 
 " Reload vim config on save
 au! BufWritePost $MYVIMRC source %

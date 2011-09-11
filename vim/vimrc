@@ -3,7 +3,7 @@ set cmdheight=2
 set nocompatible            " use vim defaults
 set encoding=utf-8
 set fileencoding=utf-8
-set bg=dark
+set bg=light
 syntax on                   " enable syntax highlighting
 
 " Pathogen
@@ -21,7 +21,7 @@ if has("gui_running")
   set guioptions-=b
   set guioptions+=a
   set guioptions+=c
-  colorscheme zenburn
+  colorscheme solarized
   set guifont=DejaVu\ Sans\ Mono:h15
   set columns=160
   set lines=56
@@ -31,7 +31,7 @@ if has("gui_running")
   set fuopt+=maxhorz      " macvim fullscreen settings
 else
   set t_Co=256
-  colorscheme xoria256
+  colorscheme solarized
   set mouse=a
   set ttymouse=xterm
   set termencoding=utf-8
@@ -58,6 +58,9 @@ set scrolloff=3             " keep 3 lines below/above cursor
 " ` is more useful than ' but less accessible.
 nnoremap ' `
 nnoremap ` '
+
+" use jj for escaping
+inoremap jj <ESC>
 
 " Bash-like filename completion
 set wildmenu
@@ -86,10 +89,6 @@ let mapleader=','
 
 " Toggle whitespace invisibles
 nmap <leader>l :set list!<CR>
-
-" NERDTree
-map <leader>n :NERDTreeToggle<cr>
-let NERDTreeIgnore=['\~$', '.pyc$']
 
 " Markdown detection
 autocmd BufNewFile,BufReadPost *.mkd,*.markdown,*.md set filetype=markdown
@@ -146,9 +145,6 @@ match OverLength /\%81v.*/
 
 " Remove .py whitespace
 autocmd BufWritePre *.py :%s/\s\+$//e
-
-" Command-T configuration
-let g:CommandTMaxHeight=20
 
 " Clojure
 let vimclojure#HighlightBuiltins=1  " Highlight Clojure's builtins

@@ -46,7 +46,6 @@ set ignorecase              " case-insensitive search
 set smartcase               " upper-case sensitive search
 set laststatus=2            " occasions to show status line, 2=always.
 set hidden                  " move buffer to background without saving
-set number                  " show line numbers
 set wrap                    " set long-line wrapping
 set textwidth=79            " disable automatic text-width
 set history=1000            " more history
@@ -166,4 +165,4 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 
 " Clojure
 let vimclojure#HighlightBuiltins=1  " Highlight Clojure's builtins
-let vimclojure#ParenRainbow=1       " Rainbow parentheses'!
+" let vimclojure#ParenRainbow=1       " Rainbow parentheses'!

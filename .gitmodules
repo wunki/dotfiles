@@ -53,3 +53,6 @@
 [submodule "vim/vim/bundle/gist-vim"]
 	path = vim/vim/bundle/gist-vim
 	url = https://github.com/mattn/gist-vim.git
+[submodule "vim/vim/bundle/vim-rooter"]
+	path = vim/vim/bundle/vim-rooter
+	url = https://github.com/airblade/vim-rooter.git

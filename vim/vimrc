@@ -143,7 +143,6 @@ noremap <f1> :bprev!<cr>
 noremap <f2> :bnext!<cr>
 noremap <f3> :Bclose<cr>
 noremap <f4> :set invfu<cr>
-nnoremap ; :
 nnoremap j gj
 nnoremap k gk
 nnoremap <leader>a :Ack

@@ -151,9 +151,6 @@ nnoremap <leader>a :Ack
 au! BufWritePost $MYVIMRC source %
 
 " Haskell
-au Bufenter *.hs compiler ghc
-let g:haddock_browser = "open"
-let g:haddock_browser_callformat = "%s %s"
 
 " Show when going over 80 characters
 highlight OverLength ctermbg=red ctermfg=white guibg=#592929

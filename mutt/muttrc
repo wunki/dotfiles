@@ -25,8 +25,8 @@ set tmpdir=~/.mutt/tmp                      # mutt temporary directory
 set header_cache="~/.mutt/header_cache/"    # header cache directory
 set certificate_file=~/.mutt/certificates   # certificate file
 
-# Emacs as my editor
-set editor="vim -c 'set tw=70 et' '+/^$'""
+# Vim as my editor
+set editor="vim -c 'set spell spelllang=nl,en tw=70 et' '+/^$'""
 
 # Address book, currently abook
 set alias_file="~/Dropbox/Documents/Contacts/aliases"           # address book

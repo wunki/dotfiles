@@ -70,9 +70,6 @@ vnoremap / /\v
 nnoremap ' `
 nnoremap ` '
 
-" use jj for escaping
-inoremap jj <ESC>
-
 " Bash-like filename completion
 set wildmenu
 set wildmode=list:longest
@@ -136,29 +133,19 @@ set statusline+=%-14.(%l,%c%V%)\ %<%P           " offset
 
 " Shortcuts
 map <C-j> gqip
-map <C-f10> :1,$!tidy -config ~/.tidy <cr><cr>
-map <leader>q :Bclose <cr>
 map <leader>v :sp $MYVIMRC<cr>
 noremap <f1> :bprev!<cr>
 noremap <f2> :bnext!<cr>
-noremap <f3> :Bclose<cr>
-noremap <f4> :set invfu<cr>
+noremap <f3> :set invfu<cr>
 nnoremap j gj
 nnoremap k gk
-nnoremap <leader>a :Ack
+nnoremap <leader>a :Ack 
 
 " Reload vim config on save
 au! BufWritePost $MYVIMRC source %
-
-" Haskell
-
-" Show when going over 80 characters
-highlight OverLength ctermbg=red ctermfg=white guibg=#592929
-match OverLength /\%81v.*/
 
 " Remove .py whitespace
 autocmd BufWritePre *.py :%s/\s\+$//e
 
 " Clojure
 let vimclojure#HighlightBuiltins=1  " Highlight Clojure's builtins
-" let vimclojure#ParenRainbow=1       " Rainbow parentheses'!

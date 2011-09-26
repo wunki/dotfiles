@@ -35,4 +35,6 @@ venv_cd () {
 }
 alias cd="venv_cd"
 
+# Bindings
 bindkey -v
+bindkey "^r" history-incremental-search-backward

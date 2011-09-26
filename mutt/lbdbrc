@@ -1,0 +1,86 @@
+#
+## This is the main configuration file of the little brothers database lbdb
+#
+## Everything you configure here can be overridden by the users config
+# file which can be found at
+# # ~/.lbdbrc
+# # ~/.lbdb/lbdbrc
+# # ~/.lbdb/rc
+# # (evaluated with ascending priority!)
+# # 
+# # (c) 1999-2004 Roland Rosenfeld <roland@spinnaker.de>
+# #
+# # $Id: lbdb.rc.in,v 1.15 2004/02/23 11:39:54 roland Exp $
+# #
+#
+# #
+# # Select which methods you want to use in which order (ascending priority):
+# # (a space separated list)
+# #
+# # - m_inmail   search the database created by lbdb-fetchaddr(1)
+# # - m_finger   finger some hosts defined in variable M_FINGER_HOSTS
+# # - m_passwd   search the local /etc/passwd file.
+# # - m_yppasswd   search the NIS password database.
+# # - m_nispasswd  search the NIS+ password database.
+# # - m_getent   search the password database (whatever is configured).
+# # - m_pgp2   search your PGP 2.* keyring
+# # - m_pgp5   search your PGP 5.* keyring
+# # - m_gpg  search your GnuPG keyring
+# # - m_fido   search the Fido nodelist converted by nodelist2lbdb(1)
+# # - m_abook  query abook(1), the text based address book application.
+# # - m_addr_email query addr-email(1) from addressbook Tk-program.
+# # - m_muttalias  search $MUTTALIAS_FILES for aliases.
+# # - m_pine   search pine(1) addressbook files for aliases.
+# # - m_palm   search your Palm addressbook file.
+# # - m_gnomecard  search your GnomeCard address database files.
+# # - m_bbdb   search your BBDB (big brother database).
+# # - m_ldap       query an LDAP server 
+# # - m_wanderlust search your wanderlust ~/.addresses file.
+# # - m_osx_addressbook  search the OS X addressbook (only available on OS X).
+# # - m_evolution  search in the Ximan Evolution addressbook.
+#
+METHODS="m_muttalias m_osx_addressbook"
+#
+#
+# # If it isn't possible to find out the correct mail domain name of
+# # your system in /etc/mailname, by reading sendmail.cf, /etc/hostname
+# # or /etc/HOSTNAME, you can specify it in the variable
+# # MAIL_DOMAIN_NAME. This overrides all other mechanisms.
+# #
+# MAIL_DOMAIN_NAME=linsec.ca
+#
+# # - m_muttalias      query set of mutt alias files:
+# #
+# # Set MUTTALIAS_FILES below to list of files in MUTT_DIRECTORY that
+# # contain mutt aliases. File names without leading slash will have
+# # $MUTT_DIRECTORY (defaults to $HOME/.mutt or $HOME, if ~/.mutt does
+# # not exist) prepended before the file name. Absolute file names
+# # (beginning with /) will be taken direct.
+# #
+# MUTT_DIRECTORY="$HOME/.mutt"
+# MUTTALIAS_FILES="aliases"
+#
+#
+# # If you want to use private modules set the MODULES_PATH to find them:
+# # (a space separated list):
+# #
+# MODULES_PATH="/sw/lib/lbdb"
+#
+#
+# #
+# # Do you want the output to be sorted?
+# # If you set this to "false" or "no", lbdbq won't sort the addresses
+# # but returns them in reverse order (which means that the most recent
+# # address in m_inmail database is first).
+# # If you set this to "name", lbdbq sorts the output by real name.
+# # If you set this to "comment", lbdbq sorts the output by comment (column 3).
+# # If you set this to "address", lbdbq sorts the output by addresses
+# # (that's the default).
+# #
+# SORT_OUTPUT=name
+#
+# #
+# # Do you want to see duplicate mail addresses (with multiple real
+# # names or different comment fields)?  Default is "no".
+# #
+# #KEEP_DUPES=no

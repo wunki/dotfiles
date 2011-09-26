@@ -22,7 +22,7 @@ if has("gui_running")
   set guioptions+=a
   set guioptions+=c
   colorscheme solarized
-  set guifont=DejaVu\ Sans\ Mono:h15
+  set guifont=Inconsolata-g:h16
   set columns=80
   set lines=40
   set visualbell          " please, no sound

@@ -26,12 +26,12 @@ set header_cache="~/.mutt/header_cache/"    # header cache directory
 set certificate_file=~/.mutt/certificates   # certificate file
 
 # Vim as my editor
-set editor="vim -c 'set spell spelllang=nl,en tw=70 et' '+/^$'""
+set editor="vim -c 'set spell spelllang=nl,en tw=70 et' '+/^$' '++1'""
 
 # Address book, currently abook
 set alias_file="~/Dropbox/Documents/Contacts/aliases"           # address book
 source "~/Dropbox/Documents/Contacts/aliases"                            
-set query_command = "abook --mutt-query '%s'"                   # abook for query
+set query_command="/usr/local/bin/lbdbq '%s'" # use lbdb for querying
 macro generic,index,pager \ca "<shell-escape>abook<return>"     # launch abook"
 macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
 

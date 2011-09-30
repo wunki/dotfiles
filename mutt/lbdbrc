@@ -58,7 +58,7 @@ METHODS="m_muttalias m_osx_addressbook"
 # # (beginning with /) will be taken direct.
 # #
 # MUTT_DIRECTORY="$HOME/.mutt"
-# MUTTALIAS_FILES="aliases"
+MUTTALIAS_FILES="~/Dropbox/Documents/Contacts/aliases"
 #
 #
 # # If you want to use private modules set the MODULES_PATH to find them:
@@ -77,7 +77,7 @@ METHODS="m_muttalias m_osx_addressbook"
 # # If you set this to "address", lbdbq sorts the output by addresses
 # # (that's the default).
 # #
-# SORT_OUTPUT=name
+SORT_OUTPUT=name
 #
 # #
 # # Do you want to see duplicate mail addresses (with multiple real

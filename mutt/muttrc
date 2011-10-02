@@ -97,7 +97,9 @@ source ~/.mutt/accounts/breadandpepper.conf
 folder-hook =breadandpepper source ~/.mutt/accounts/breadandpepper.conf
 
 # Mailinglists
-subscribe clojure@googlegroups.com
-subscribe compojure@googlegroups.com
-subscribe congomongo-dev@googlegroups.com
 subscribe beginners@haskell.org
+
+# Hooks for replying in mailinglists.
+folder-hook =wunki/haskell-beginners \
+  bind index r list-reply ;\
+  bind pager r list-reply ;

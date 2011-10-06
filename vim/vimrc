@@ -47,7 +47,7 @@ set smartcase               " upper-case sensitive search
 set laststatus=2            " occasions to show status line, 2=always.
 set hidden                  " move buffer to background without saving
 set wrap                    " set long-line wrapping
-set textwidth=79            " disable automatic text-width
+set textwidth=80            " disable automatic text-width
 set history=1000            " more history
 set shortmess=atI           " shorten confirmation messages
 set bs=2                    " fix backspace in FreeBSD
@@ -60,7 +60,7 @@ set backspace=indent,eol,start
 set relativenumber          " show line numbering relative to current position
 set undofile                " create undofiles
 set formatoptions=qrn1
-set colorcolumn=80
+set colorcolumn=81
 
 " Use normal regular expressions
 nnoremap / /\v
@@ -88,8 +88,8 @@ nnoremap <C-y> 3<C-y>
 
 " Whitespace
 set nowrap
-set tabstop=2
-set shiftwidth=2
+set tabstop=4
+set shiftwidth=4
 set expandtab
 set listchars=tab:▸\ ,trail:·,eol:¬
 

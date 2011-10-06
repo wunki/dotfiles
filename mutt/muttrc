@@ -83,7 +83,7 @@ set tilde						                        # show tildes like in vim
 unset markers						                    # no ugly plus signs
 auto_view text/html					                # view html automatically
 alternative_order text/enriched text/plain text/html	# save html for last
-set attribution 	= "%n wrote the following on %d:"	  # set attribution in quotes
+set attribution 	= "%n wrote on %d:"	      # set attribution in quotes
 
 # Themes
 source ~/Dropbox/Sources/solarized/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc

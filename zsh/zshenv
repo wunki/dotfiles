@@ -55,8 +55,3 @@ fi
 
 # Python's nose
 export NOSE_WITH_COVERAGE=true
-
-# Temp. Xcode4 fix.
-if [ `uname` = "Darwin" ]; then
-  export ARCHFLAGS="-arch i386 -arch x86_64"
-fi

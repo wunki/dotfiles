@@ -141,6 +141,13 @@ nnoremap j gj
 nnoremap k gk
 nnoremap <leader>a :Ack 
 
+" Haskell settings
+au BufEnter *.hs compiler ghc
+let g:haddock_browser = "open"
+let g:haddock_browser_callformat = "%s %s"
+let g:ghc="/usr/local/bin/ghc"
+let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
+
 " Reload vim config on save
 au! BufWritePost $MYVIMRC source %
 

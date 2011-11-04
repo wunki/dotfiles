@@ -60,7 +60,7 @@ unset sort_re						                    # thread whenever possible
 # Composing mail
 set edit_headers                            # show headers when composing
 set fast_reply                              # skip to compose when replying
-set askcc                                   # ask for CC:
+unset askcc                                 # don't ask for CC:
 set fcc_attach                              # forward attachments
 set forward_format 	= "Fwd: %s"             # format for subject when forwarding
 unset metoo                                 # don't reply to me

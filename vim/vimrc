@@ -21,7 +21,7 @@ if has("gui_running")
   set guioptions-=b
   set guioptions+=a
   set guioptions+=c
-  colorscheme zenburn
+  colorscheme solarized
   set guifont=Inconsolata-g:h16
   set columns=80
   set lines=40
@@ -30,8 +30,9 @@ if has("gui_running")
   set mousehide           " hide the mouse when typing 
   set fuopt+=maxhorz      " macvim fullscreen settings
 else
+  set bg=light
   set t_Co=256
-  colorscheme zenburn
+  colorscheme solarized
   set mouse=a
   set ttymouse=xterm
   set termencoding=utf-8

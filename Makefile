@@ -22,8 +22,20 @@ mutt::
 	@ln -fs $(DOTFILES)/mutt/muttrc ${HOME}/.muttrc
 	@ln -fns $(DOTFILES)/mutt/mutt ${HOME}/.mutt
 	@ln -fs $(DOTFILES)/mutt/lbdbrc ${HOME}/.lbdbrc
-	@echo mutt is symlinked
+	@echo mutt is symlinked.
 
 tmux::
 	@ln -fs $(DOTFILES)/tmux/tmux.conf ${HOME}/.tmux
 	@echo tmux is symlinked.
+
+xmonad::
+	@mkdir -p ${HOME}/.xmonad
+	@ln -fs $(DOTFILES)/xmonad/xmobarrc ${HOME}/.xmobarrc
+	@ln -fns $(DOTFILES)/xmonad/xmonad.hs ${HOME}/.xmonad/xmonad.hs
+	@echo XMonad is symlinked.
+
+xorg::
+	@ln -fs $(DOTFILES)/xorg/Xdefaults ${HOME}/.Xdefaults
+	@ln -fs $(DOTFILES)/xorg/Xresources ${HOME}/.Xresources
+	@ln -fs $(DOTFILES)/xorg/xinitrc ${HOME}/.xinitrc
+	@echo Xorg is symlinked.

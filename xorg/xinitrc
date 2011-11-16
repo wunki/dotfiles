@@ -1,0 +1,30 @@
+#!/bin/sh
+
+# X Settings
+xrdb -merge .Xresources
+xrdb -merge .Xdefaults
+
+# Turn on numlock
+numlockx on &
+
+# Disable PC-Speaker
+xset b off &
+
+# Disable power-saving
+xset -dpms
+
+# Set background
+feh --bg-scale ~/pictures/wallpapers/current
+
+# Set dvorak keymapping
+setxkbmap -layout us -variant dvorak
+
+# Start rvxt-unicode server
+urxvtd -o -q -f &
+
+# Custom settings only used on that pc. 
+# For ex. nvidia settings for a pc with an nvidia card.
+exec ~/.xinitrc-custom &
+
+# Start xmonad
+xmonad > $HOME/.xmonad.log 2>&1

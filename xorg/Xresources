@@ -1,0 +1,5 @@
+Xft.antialias:  true
+Xft.hinting:    true
+Xft.hintstyle:  hintfull
+Xft.lcdfilter:  lcdfilterleegacy
+Xft.rgba:       rgb

@@ -1,0 +1,64 @@
+Xcursor.theme: Jimmac
+*customization: -color
+
+! XFT Settings
+Xft.autohint: false
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintfull
+Xft.hinting: true
+Xft.antialias: true
+Xft.dpi: 96
+Xft.rgba: rgb
+
+! RXVT-Unicode Fake transparency
+urxvt.depth: 24
+urxvt.inheritPixmap: true
+urxvt.transparent: true
+urxvt.background: black
+urxvt.shading: 10
+
+! Urxvt fonts
+urxvt.font:            xft:DejaVu Sans Mono:size=10
+urxvt.boldFont:        xft:DejaVu Sans Mono:bold:size=10
+urxvt.italicFont:	   xft:DejaVu Sans Mono:italic:size=10
+urxvt.boldItalicFont:  xft:DejaVu Sans Mono:bolditalic:size=10
+
+urxvt.foreground: White
+urxvt.jumpScroll: True
+urxvt.fading: 50
+urxvt.scrollBar: False
+urxvt.scrollTtyOutput: False
+urxvt.scrollTtyKeypress: True
+urxvt.saveLines: 1000
+urxvt.borderLess: False
+urxvt.pointerBlank: True
+urxvt.scrollWithBuffer: False
+urxvt.print-pipe: cat > $HOME/rxvt.print
+urxvt.termName: rxvt-256color
+ 
+! Urls
+urxvt.perl-ext: default,matcher
+urxvt.urlLauncher: uzbl_launch.sh
+urxvt.matcher.button:   1
+urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
+
+! Colors
+! Theme 10
+*foreground: rgb:aa/aa/aa
+*background: rgb:00/00/00
+*color0:     rgb:30/34/30
+*color1:     rgb:bf/79/79
+*color2:     rgb:97/b2/6b
+*color3:     rgb:cd/cd/c1
+*color4:     rgb:86/a2/be
+*color5:     rgb:d9/b7/98
+*color6:     rgb:a1/b5/cd
+*color7:     rgb:ff/ff/ff
+*color8:     rgb:cd/b5/cd
+*color9:     rgb:f4/a4/5f
+*color10:    rgb:c5/f7/79
+*color11:    rgb:ff/ff/ef
+*color12:    rgb:98/af/d9
+*color13:    rgb:d7/d9/98
+*color14:    rgb:a1/b5/cd
+*color15:    rgb:de/de/de

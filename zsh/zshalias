@@ -7,11 +7,11 @@ alias ..="cd .."
 alias rh="runhaskell"
 alias rmpyc="find . -name '*.pyc' | xargs rm"
 alias gun="gunicorn_django --workers=2"
-alias upac="source ../bin/activate && git pull origin"
 alias flushdns="dscacheutil -flushcache"
 alias clj="rlwrap clj"
 alias redis-server="redis-server /usr/local/etc/redis.conf"
 alias vim="/usr/local/Cellar/macvim/7.3-62/MacVim.app/Contents/MacOS/Vim"
+alias brup="brew update; brew upgrade"
 
 # Git
 alias gs="git status"
@@ -40,6 +40,7 @@ alias "fileserver"="python -m SimpleHTTPServer"
 
 # Django
 alias rs='./manage.py runserver 127.0.0.1:8000'
+alias rsp='./manage.py runserver 127.0.0.1:8000 --settings=settings_production'
 alias tst='./manage.py test'
 
 # Pypi

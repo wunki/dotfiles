@@ -52,3 +52,6 @@
 [submodule "vim/vim/bundle/haskellmode-vim"]
 	path = vim/vim/bundle/haskellmode-vim
 	url = https://github.com/lukerandall/haskellmode-vim.git
+[submodule "vim/vim/bundle/html5"]
+	path = vim/vim/bundle/html5
+	url = https://github.com/othree/html5.vim.git

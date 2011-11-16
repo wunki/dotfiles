@@ -63,6 +63,9 @@ set undofile                " create undofiles
 set formatoptions=qrn1
 set colorcolumn=81
 
+" Ignore these files in netrw
+let g:netrw_list_hide= '.*\.swp$,.*\~$,.*\.pyc$'
+
 " Use normal regular expressions
 nnoremap / /\v
 vnoremap / /\v

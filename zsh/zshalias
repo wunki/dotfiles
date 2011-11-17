@@ -7,32 +7,43 @@ alias ..="cd .."
 alias rh="runhaskell"
 alias rmpyc="find . -name '*.pyc' | xargs rm"
 alias gun="gunicorn_django --workers=2"
-alias flushdns="dscacheutil -flushcache"
 alias clj="rlwrap clj"
-alias redis-server="redis-server /usr/local/etc/redis.conf"
-alias vim="/usr/local/Cellar/macvim/7.3-62/MacVim.app/Contents/MacOS/Vim"
-alias brup="brew update; brew upgrade"
+
+# Only for Mac
+if [ `uname` = "Darwin" ]; then
+    # Redis
+    alias redis-server="redis-server /usr/local/etc/redis.conf"
+
+    # Flush DNS
+    alias flushdns="dscacheutil -flushcache"
+
+    # Macvim
+    alias vim="/usr/local/Cellar/macvim/7.3-62/MacVim.app/Contents/MacOS/Vim"
+
+    # Homebrew
+    alias brup="brew update; brew upgrade"
+
+    # Postgresql
+    alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+    alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
+
+    # Emacs
+    alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
+    alias em="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -t -a /Applications/Emacs.app/Contents/MacOS/Emacs -nw"
+    alias ec="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n -c -a /Applications/Emacs.app/Contents/MacOS/Emacs"
+    
+    # MongoDB
+    alias mongod='mongod run --config /usr/local/Cellar/mongodb/2.0.1-x86_64/mongod.conf'
+
+    # PostgreSQL
+    alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
+    alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+fi
 
 # Git
 alias gs="git status"
 alias gp="git pull origin master"
 alias gu="git push origin master"
-
-# Postgresql
-alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
-alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
-
-# Emacs
-if [ `uname` = "Darwin" ]; then
-    # Emacs
-    alias emacs="/Applications/Emacs.app/Contents/MacOS/Emacs"
-    
-    # EmacsClient in shell
-    alias em="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -t -a /Applications/Emacs.app/Contents/MacOS/Emacs -nw"
-    
-    # EmacsClient in windowed frame
-    alias ec="/Applications/Emacs.app/Contents/MacOS/bin/emacsclient -n -c -a /Applications/Emacs.app/Contents/MacOS/Emacs"
-fi
 
 # Python servers
 alias "smtpd"="python -m smtpd -n -c DebuggingServer localhost:1025"
@@ -46,16 +57,5 @@ alias tst='./manage.py test'
 # Pypi
 alias pyup='python setup.py sdist register upload'
 
-# MongoDB
-alias mongod='mongod run --config /usr/local/Cellar/mongodb/2.0.1-x86_64/mongod.conf'
-
 # Git
 alias gd='git diff | emacsclient'
-
-# Directory bookmarks
-alias cdsi='cd /Volumes/Sites/'
-alias cdso='cd /Volumes/Sources/'
-
-# PostgreSQL
-alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
-alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'

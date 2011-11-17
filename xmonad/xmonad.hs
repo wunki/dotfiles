@@ -43,7 +43,7 @@ main = do
         , borderWidth = 1
         , normalBorderColor  = "#222222"
         , focusedBorderColor = "#99CCFF"
-        , workspaces = ["1:Shell", "2:Vim", "3:WWW", "4:Mutt", "5:General"]
+        , workspaces = ["1:Shell", "2:Editor", "3:Web", "4:Mail", "5:General"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
         }
@@ -57,8 +57,8 @@ standardLayout = tiled ||| Full ||| Grid
 
 fullLayout = layoutHints(noBorders Full)
 
-myLayout = onWorkspace "2:Vim" fullLayout $
-	       onWorkspace "3:WWW" Full $
+myLayout = onWorkspace "2:Editor" fullLayout $
+	       onWorkspace "3:Web" Full $
 	       standardLayout
 
 -- Float & Window setup
@@ -67,9 +67,8 @@ myManageHook = composeAll . concat $
     [ [ className =? c                      --> doFloat | c <- myFloats ]
     , [ title     =? t                      --> doFloat | t <- myOtherFloats ]
     , [ resource  =? r                      --> doIgnore | r <- myIgnores ]
-    , [ className =? "GVIM"                 --> doF (W.shift "2:Vim") ]
+    , [ className =? "GVIM"                 --> doF (W.shift "2:Editor") ]
     , [ className =? "Thunar"               --> doF (W.shift "5:General") ]
-    , [ className =? "uzbl"                 --> doF (W.shift "3:WWW") ]
     ]
     where
         myIgnores = ["panel", "trayer", "xfce4-notifyd"]

@@ -31,7 +31,7 @@ color index      color174 color237 ~D
 
 # header stuff
 color hdrdefault color223 color237
-color header     color144 color237 "^Subject"
+color header     color223 color237 "^Subject"
 
 # gpg stuff
 color body       color188 color237 "^gpg: Good signature.*"
@@ -66,3 +66,4 @@ color quoted6    color108 color237
 color quoted7    color116 color237
 color quoted8    color247 color237
 color quoted9    color108 color237
+

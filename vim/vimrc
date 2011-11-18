@@ -21,7 +21,7 @@ if has("gui_running")
   set guioptions-=b
   set guioptions+=a
   set guioptions+=c
-  colorscheme solarized
+  colorscheme zenburn
   set guifont=Inconsolata-g:h16
   set columns=80
   set lines=40
@@ -30,7 +30,6 @@ if has("gui_running")
   set mousehide           " hide the mouse when typing 
   " set fuopt+=maxhorz      " macvim fullscreen settings
 else
-  set bg=light
   set t_Co=256
   colorscheme zenburn
   set mouse=a
@@ -136,7 +135,7 @@ set statusline+=%=                              " right align
 set statusline+=%-14.(%l,%c%V%)\ %<%P           " offset
 
 " Shortcuts
-map <C-j> gqip
+map <C-i> gqip
 map <leader>v :sp $MYVIMRC<cr>
 noremap <f1> :bprev!<cr>
 noremap <f2> :bnext!<cr>

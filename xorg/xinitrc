@@ -14,7 +14,7 @@ xset b off &
 xset -dpms
 
 # Set background
-feh --bg-scale ~/pictures/wallpapers/current
+feh --bg-scale ~/Pictures/wallpapers/current
 
 # Transparency!
 xcompmgr -c -t-5 -l-5 -r4.2 -o.80 &

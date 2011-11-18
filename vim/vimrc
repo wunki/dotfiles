@@ -28,11 +28,11 @@ if has("gui_running")
   set visualbell          " please, no sound
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing 
-  set fuopt+=maxhorz      " macvim fullscreen settings
+  " set fuopt+=maxhorz      " macvim fullscreen settings
 else
   set bg=light
   set t_Co=256
-  colorscheme solarized
+  colorscheme zenburn
   set mouse=a
   set ttymouse=xterm
   set termencoding=utf-8

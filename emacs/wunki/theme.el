@@ -4,7 +4,7 @@
 (setq color-theme-is-global t)
 
 ; select the colorscheme
-(color-theme-solarized-dark)
+(color-theme-twilight)
 
 ; set the default font
-(set-default-font "DejaVu Sans Mono-15")
+(set-default-font "Liberation Mono-13")

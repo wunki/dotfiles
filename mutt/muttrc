@@ -29,8 +29,8 @@ set certificate_file=~/.mutt/certificates   # certificate file
 set editor="vim -c 'set spell spelllang=nl,en tw=70 et' '+/^$' '++1'""
 
 # Address book, currently abook
-set alias_file="~/Documents/Contacts/aliases"           # address book
-source "~/Documents/Contacts/aliases"                            
+set alias_file="~/Dropbox/.aliases"           # address book
+source "~/Dropbox/.aliases"                            
 set query_command="/usr/local/bin/lbdbq '%s'" # use lbdb for querying
 macro generic,index,pager \ca "<shell-escape>abook<return>"     # launch abook"
 macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"

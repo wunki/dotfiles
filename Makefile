@@ -1,5 +1,5 @@
 DOTFILES = $(PWD)
-all:: vim emacs zsh tmux
+all:: vim emacs zsh tmux xmonad xorg gtk irssi
 
 vim::
 	@ln -fs $(DOTFILES)/vim/vimrc        ${HOME}/.vimrc

@@ -4,9 +4,10 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 
 # Common
-export EDITOR=vim                                           # Vim as editor
-export VISUAL=vim
-export PAGER=less                                           # Vimpager
+export ALTERNATE_EDITRO=''
+export EDITOR='emacsclient -t'
+export VISUAL='emacsclient -t'
+export PAGER=less
 export COLORTERM=yes
 export GREP_OPTIONS='--color=auto'
 export CLICOLOR=1

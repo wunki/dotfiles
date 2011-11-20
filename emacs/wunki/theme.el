@@ -7,4 +7,7 @@
 (color-theme-twilight)
 
 ; set the default font
-(set-default-font "Inconsolata-g-16")
+; fonts on the mac are a bit smaller
+(if (eq system-type 'darwin)
+  (set-default-font "Inconsolata-g-16")
+  (set-default-font "Inconsolata-g-13"))

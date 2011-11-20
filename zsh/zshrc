@@ -16,7 +16,15 @@ export CASE_SENSITIVE="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git brew lein osx)
+
+plugins=(git)
+if [ `uname` = "Darwin" ]; then
+   plugins+=(brew osx)
+fi
+
+if [ `uname` = "Linux" ]; then
+   plugins+=(archlinux)
+fi
 
 source $ZSH/oh-my-zsh.sh
 
@@ -36,5 +44,8 @@ venv_cd () {
 alias cd="venv_cd"
 
 # Bindings
-bindkey -v
-bindkey "^r" history-incremental-search-backward
+bindkey -e
+
+# If vim mode, than bind this key, can't live without
+# CTRL-R
+# bindkey "^r" history-incremental-search-backward

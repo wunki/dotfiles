@@ -7,6 +7,9 @@ xrdb -merge .Xdefaults
 # Turn on numlock
 numlockx on &
 
+# Hide the mouse when not used
+unclutter &
+
 # Disable PC-Speaker
 xset b off &
 

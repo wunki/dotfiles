@@ -18,7 +18,7 @@ URxvt.background: rgba:1111/1111/1111/dddd
 ! Urxvt fonts
 urxvt.font:            xft:DejaVu Sans Mono:size=12
 urxvt.boldFont:        xft:DejaVu Sans Mono:bold:size=12
-urxvt.italicFont:	   xft:DejaVu Sans Mono:italic:size=12
+urxvt.italicFont:	     xft:DejaVu Sans Mono:italic:size=12
 urxvt.boldItalicFont:  xft:DejaVu Sans Mono:bolditalic:size=12
 
 urxvt.foreground: White
@@ -36,7 +36,7 @@ urxvt.termName: rxvt-256color
  
 ! Urls
 urxvt.perl-ext: default,matcher
-urxvt.urlLauncher: uzbl_launch.sh
+urxvt.urlLauncher: chromium
 urxvt.matcher.button:   1
 urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 

@@ -58,3 +58,6 @@
 [submodule "vim/vim/bundle/colorscheme-wombat"]
 	path = vim/vim/bundle/colorscheme-wombat
 	url = https://github.com/cschlueter/vim-wombat.git
+[submodule "emacs/vendor/virthualenv"]
+	path = emacs/vendor/virthualenv
+	url = https://github.com/Paczesiowa/virthualenv.git

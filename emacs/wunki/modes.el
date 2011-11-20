@@ -10,8 +10,9 @@
             (set (make-local-variable 'cc-other-file-alist)  '(("\\.m\\'" (".h")) ("\\.h\\'" (".m" ".c" ".cpp"))))))
 
 ;; haskell mode
+(load "~/.emacs.d/elpa/haskell-mode-2.8.0/haskell-site-file")
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+(add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 
 ;; po-mode
 (setq auto-mode-alist

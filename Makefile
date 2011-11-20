@@ -39,3 +39,12 @@ xorg::
 	@ln -fs $(DOTFILES)/xorg/Xresources ${HOME}/.Xresources
 	@ln -fs $(DOTFILES)/xorg/xinitrc ${HOME}/.xinitrc
 	@echo Xorg is symlinked.
+
+gtk::  
+	@ln -fs $(DOTFILES)/gtk/gtkrc-2.0 ${HOME}/.gtkrc-2.0
+	@ln -fs $(DOTFILES)/gtk/gtkrc.mine ${HOME}/.gtkrc.mine
+	@ln -fns $(DOTFILES)/gtk/themes ${HOME}/.themes
+	@echo GTK is symlinked.
+
+irssi::
+	@ln -fns $(DOTFILES)/irssi ${HOME}/.irssi

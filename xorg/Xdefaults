@@ -2,26 +2,24 @@ Xcursor.theme: Jimmac
 *customization: -color
 
 ! XFT Settings
-Xft.autohint: false
-Xft.lcdfilter: lcddefault
-Xft.hintstyle: hintfull
-Xft.hinting: true
-Xft.antialias: true
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
 Xft.dpi: 96
 Xft.rgba: rgb
 
-! RXVT-Unicode Fake transparency
-urxvt.depth: 24
-urxvt.inheritPixmap: true
-urxvt.transparent: true
-urxvt.background: black
+! RXVT-Unicode Transparency
 urxvt.shading: 10
+URxvt.depth: 32
+URxvt.background: rgba:1111/1111/1111/dddd
 
 ! Urxvt fonts
-urxvt.font:            xft:DejaVu Sans Mono:size=10
-urxvt.boldFont:        xft:DejaVu Sans Mono:bold:size=10
-urxvt.italicFont:	   xft:DejaVu Sans Mono:italic:size=10
-urxvt.boldItalicFont:  xft:DejaVu Sans Mono:bolditalic:size=10
+urxvt.font:            xft:DejaVu Sans Mono:size=12
+urxvt.boldFont:        xft:DejaVu Sans Mono:bold:size=12
+urxvt.italicFont:	   xft:DejaVu Sans Mono:italic:size=12
+urxvt.boldItalicFont:  xft:DejaVu Sans Mono:bolditalic:size=12
 
 urxvt.foreground: White
 urxvt.jumpScroll: True

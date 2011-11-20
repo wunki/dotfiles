@@ -13,18 +13,34 @@ xset b off &
 # Disable power-saving
 xset -dpms
 
+# Key repeat
+xset r rate 240 90
+
+# Set the left cursor as default
+xsetroot -cursor_name left_ptr
+
 # Set background
-feh --bg-scale ~/pictures/wallpapers/current
+feh --bg-scale ~/Pictures/wallpapers/current
+
+# Transparency!
+xcompmgr -c -t-5 -l-5 -r4.2 -o.80 &
+
+# Dropbox
+dropboxd &
 
 # Set dvorak keymapping
 setxkbmap -layout us -variant dvorak
 
+# Add keys to SSH agent
+key=$HOME/.ssh/id_rsa
+if [ -x /usr/bin/ssh-agent ] && [ -f $key ];
+then
+    eval `ssh-agent -s`
+    ssh-add < /dev/null
+fi
+
 # Start rvxt-unicode server
 urxvtd -o -q -f &
-
-# Custom settings only used on that pc. 
-# For ex. nvidia settings for a pc with an nvidia card.
-exec ~/.xinitrc-custom &
 
 # Start xmonad
 xmonad > $HOME/.xmonad.log 2>&1

@@ -4,6 +4,10 @@
 (add-hook 'objc-mode-hook '(lambda ()
                             (local-set-key (kbd "C-c o") 'ff-find-other-file)))
 
+; who needs shift when using forward/backwards paragraph
+(global-set-key (kbd "M-[") 'backward-paragraph)
+(global-set-key (kbd "M-]") 'forward-paragraph)
+
 ; map execute command to the C-key
 ; less hand movement with this command
 (global-set-key (kbd "C-x C-m") 'execute-extended-command)

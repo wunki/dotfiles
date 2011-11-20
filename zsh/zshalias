@@ -33,6 +33,7 @@ if [ `uname` = "Darwin" ]; then
 
     # Emacs
     alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs"
+    alias emacsclient="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/bin/emacsclient"
     alias ec="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/bin/emacsclient -t -a /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
     alias ef="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/bin/emacsclient -n -c -a /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs"
     

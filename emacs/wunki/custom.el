@@ -9,7 +9,8 @@
 (prefer-coding-system 'utf-8)
 
 ; flash instead of bell
-(setq visible-bell t)
+; (setq visible-bell t)
+(setq ring-bell-function (lambda nil (message "")))
 
 ; don't blink the cursor
 (blink-cursor-mode -1)

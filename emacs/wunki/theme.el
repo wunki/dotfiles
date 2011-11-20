@@ -7,4 +7,4 @@
 (color-theme-twilight)
 
 ; set the default font
-(set-default-font "Liberation Mono-13")
+(set-default-font "Inconsolata-g-16")

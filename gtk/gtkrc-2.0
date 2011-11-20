@@ -1,2 +1,2 @@
-include "/usr/home/petar/.themes/MurrinaGilouche/gtk-2.0/gtkrc"
-include "/usr/home/petar/.gtkrc.mine"
+include "/home/wunki/.themes/MurrinaGilouche/gtk-2.0/gtkrc"
+include "/home/wunki/.gtkrc.mine"

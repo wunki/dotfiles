@@ -96,5 +96,5 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     -- cycle through workspaces
     , ((modMask, xK_e), moveTo Next (WSIs (return $ not . (=="SP") . W.tag)))
     , ((modMask, xK_a), moveTo Prev (WSIs (return $ not . (=="SP") . W.tag)))
-    , ((modMask, xK_p), spawn "exe=`dmenu_path | dmenu -fn '-*-Inconsolata-medium-r-normal-*-12-*-*-*-*-*-*-*' -nb '#000000' -nf '#FFFFFF' -sb '#ffff00' -sf '#000000' ` && eval \"exec $exe\"") -- %! Launch dmenu
+    , ((modMask, xK_p), spawn "exe=`dmenu_path | dmenu -fn '-*-Inconsolata-medium-r-normal-*-13-*-*-*-*-*-*-*' -nb '#000000' -nf '#FFFFFF' -sb '#ffff00' -sf '#000000' ` && eval \"exec $exe\"") -- %! Launch dmenu
     ]

@@ -45,3 +45,6 @@ gtk::
 	@ln -fs $(DOTFILES)/gtk/gtkrc.mine ${HOME}/.gtkrc.mine
 	@ln -fns $(DOTFILES)/gtk/themes ${HOME}/.themes
 	@echo GTK is symlinked.
+
+irssi::
+	@ln -fns $(DOTFILES)/irssi ${HOME}/.irssi

@@ -10,6 +10,9 @@ import XMonad.Hooks.UrgencyHook
 import XMonad.Hooks.SetWMName
 import XMonad.Hooks.FadeInactive
 
+-- Actions
+import XMonad.Actions.SpawnOn
+
 -- Layouts
 import XMonad.Layout.PerWorkspace
 import XMonad.Layout.ResizableTile
@@ -78,6 +81,14 @@ myManageHook = composeAll . concat $
 manageHook' :: ManageHook
 manageHook' = (doF W.swapDown) <+> manageDocks <+> manageHook defaultConfig <+> myManageHook
 
+{- spawn windows on launched workspace (instead of current workspace) -}
+myDmenu :: X ()
+myDmenu = do
+  sp <- mkSpawner
+  currentWorkspace <- fmap W.currentTag (gets windowset)
+  {- spawnOn sp currentWorkspace "exe=`dmenu_path | dmenu ` && eval \"exec $exe\"" -}
+  spawnOn sp currentWorkspace "exe=`IFS=:;lsx $PATH|sort -u|dmenu -fn '-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*' -nb '#000000' -nf '#FFFFFF' -sb '#ffff00' -sf '#000000'` && eval \"exec $exe\""
+
 myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     [ ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 1-") -- Lower volume
     , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q sset Master 1+") -- Raise volume
@@ -96,5 +107,5 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     -- cycle through workspaces
     , ((modMask, xK_e), moveTo Next (WSIs (return $ not . (=="SP") . W.tag)))
     , ((modMask, xK_a), moveTo Prev (WSIs (return $ not . (=="SP") . W.tag)))
-    , ((modMask, xK_p), spawn "exe=`dmenu_path | dmenu -fn '-*-Inconsolata-medium-r-normal-*-13-*-*-*-*-*-*-*' -nb '#000000' -nf '#FFFFFF' -sb '#ffff00' -sf '#000000' ` && eval \"exec $exe\"") -- %! Launch dmenu
+    , ((modMask, xK_p), myDmenu) -- %! Launch dmenu
     ]

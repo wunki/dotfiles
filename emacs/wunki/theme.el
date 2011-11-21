@@ -4,7 +4,7 @@
 (setq color-theme-is-global t)
 
 ; select the colorscheme
-(color-theme-github)
+(color-theme-twilight)
 
 ; set the default font
 ; fonts on the mac are a bit smaller

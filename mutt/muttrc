@@ -38,7 +38,6 @@ set query_command="/usr/local/bin/lbdbq '%s'" # use lbdb for querying
 macro generic,index,pager \ca "<shell-escape>abook<return>"     # launch abook"
 macro index,pager A "<pipe-message>abook --add-email-quiet<return>" "add the sender address to abook"
 
-
 # General
 set reverse_name                            # reply with same address as adressed to
 set mail_check=60                           # check mailboxes every 60 seconds
@@ -102,7 +101,9 @@ folder-hook =breadandpepper source ~/.mutt/accounts/breadandpepper.conf
 # Mailinglists
 subscribe beginners@haskell.org
 
+# Custom keys to mimic Emacs
+bind index,pager,generic \Cn next-entry
+bind index,pager,generic \Cp previous-entry
+
 # Hooks for replying in mailinglists.
-folder-hook =wunki/haskell-beginners \
-  bind index r list-reply ;\
-  bind pager r list-reply ;
+folder-hook =wunki/haskell-beginners bind index,pager r list-reply

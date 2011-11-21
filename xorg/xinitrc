@@ -17,7 +17,7 @@ xset b off &
 xset -dpms
 
 # Key repeat
-xset r rate 240 90
+xset r rate 300 60
 
 # Set the left cursor as default
 xsetroot -cursor_name left_ptr

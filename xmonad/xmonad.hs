@@ -46,7 +46,7 @@ main = do
         , borderWidth = 1
         , normalBorderColor  = "#222222"
         , focusedBorderColor = "#99CCFF"
-        , workspaces = ["1:Shell", "2:Editor", "3:Web", "4:Mail", "5:General"]
+        , workspaces = ["1:Shell", "2:Editor", "3:Web", "4:Mail", "5:IRC", "6:General"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
         }
@@ -66,17 +66,16 @@ myLayout = onWorkspace "2:Editor" fullLayout $
 
 -- Float & Window setup
 myManageHook :: ManageHook
-myManageHook = composeAll . concat $
-    [ [ className =? c                      --> doFloat | c <- myFloats ]
-    , [ title     =? t                      --> doFloat | t <- myOtherFloats ]
-    , [ resource  =? r                      --> doIgnore | r <- myIgnores ]
-    , [ className =? "GVIM"                 --> doF (W.shift "2:Editor") ]
-    , [ className =? "Thunar"               --> doF (W.shift "5:General") ]
+myManageHook = manageDocks <+> composeAll
+    [ title     =? "mutt"                 --> doF (W.shift "4:Mail")
+    , title     =? "irssi"                --> doF (W.shift "5:Chat")
+    , className =? "Chromium"             --> doF (W.shift "3:Web")
+    , className =? "Firefox-bin"          --> doF (W.shift "4:Web")
+    , className =? "Firefox"              --> doF (W.shift "4:Web")
+    , className =? "Emacs"                --> doF (W.shift "2:Editor")
+    , className =? "GVIM"                 --> doF (W.shift "2:Editor")
+    , className =? "Thunar"               --> doF (W.shift "6:General")
     ]
-    where
-        myIgnores = ["panel", "trayer", "xfce4-notifyd"]
-        myFloats = ["feh"]
-        myOtherFloats = ["alsamixer"]
  
 manageHook' :: ManageHook
 manageHook' = (doF W.swapDown) <+> manageDocks <+> manageHook defaultConfig <+> myManageHook

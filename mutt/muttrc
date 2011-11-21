@@ -1,6 +1,10 @@
 # vim: set ft=muttrc:
 source ~/.mutt/gpg.rc                 # GnuPG settings
 
+# Sometimes I compile mutt with extra patches, thus extra settings.
+# These I put in a seperate file per O.S.
+source ~/.muttrc-custom.conf
+
 # GnuPG
 set pgp_autosign
 unset pgp_autoencrypt
@@ -9,8 +13,6 @@ unset pgp_replysign
 set pgp_sign_as=0x6B5B20F0
 set pgp_timeout=3600
 set pgp_verify_sig=yes
-set pgp_mime_signature_filename="wunki.asc"
-set pgp_mime_signature_description="Signature of Petar Radosevic"
 
 # Custom headers
 my_hdr X-Attribution: Petar Radosevic
@@ -37,8 +39,7 @@ source "~/Dropbox/.aliases"
 
 set query_command = "abook --mutt-query '%s'"
 macro generic,index,pager \ca "<shell-escape>abook<return>" "launch abook"
-macro index,pager A "<pipe-message>abook --add-email<return>" "add the sender
-address to abook"
+macro index,pager A "<pipe-message>abook --add-email<return>" "add the sender address to abook"
 
 # General
 set reverse_name                            # reply with same address as adressed to

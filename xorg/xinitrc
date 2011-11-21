@@ -25,6 +25,9 @@ xsetroot -cursor_name left_ptr
 # Set background
 feh --bg-scale ~/Pictures/wallpapers/current
 
+# Be nice for my eyes
+redshift -l 52:4 -t 6000:4800 -m vidmode &
+
 # Transparency!
 xcompmgr -c -t-5 -l-5 -r4.2 -o.80 &
 

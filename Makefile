@@ -22,6 +22,7 @@ mutt::
 	@ln -fs $(DOTFILES)/mutt/muttrc ${HOME}/.muttrc
 	@ln -fns $(DOTFILES)/mutt/mutt ${HOME}/.mutt
 	@ln -fs $(DOTFILES)/mutt/lbdbrc ${HOME}/.lbdbrc
+	@touch ~/.muttrc-custom.conf
 	@echo mutt is symlinked.
 
 tmux::

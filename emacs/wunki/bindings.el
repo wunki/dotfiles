@@ -22,7 +22,7 @@
 (global-unset-key (kbd "C-z"))
 
 ; set the command key as meta
-(setq mac-command-modifier 'meta)
+; (setq mac-command-modifier 'meta)
 
 ; org-mode
 (define-key global-map (kbd "C-c l") 'org-store-link)

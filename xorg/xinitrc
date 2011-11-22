@@ -22,6 +22,9 @@ xset r rate 300 60
 # Set the left cursor as default
 xsetroot -cursor_name left_ptr
 
+# Clipboard functionality
+parcellite &
+
 # Set background
 feh --bg-scale ~/Pictures/wallpapers/current
 

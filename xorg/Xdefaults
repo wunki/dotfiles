@@ -10,6 +10,15 @@ Xft.antialias: 1
 Xft.dpi: 96
 Xft.rgba: rgb
 
+! RXVT Scripts
+URxvt.perl-lib: /home/wunki/.urxvt-scripts/
+URxvt.perl-ext-common: clipboard
+
+! RXVT Clipboard
+URxvt.keysym.M-c:   perl:clipboard:copy
+URxvt.keysym.M-v:   perl:clipboard:paste
+URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+
 ! RXVT-Unicode Transparency
 urxvt.shading: 10
 URxvt.depth: 32

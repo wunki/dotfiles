@@ -99,8 +99,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((0, xF86XK_Sleep),     spawn "sudo /usr/sbin/pm-suspend") -- Sleep
     , ((modMask, xK_b),       sendMessage ToggleStruts) -- Hide top bar
     , ((modMask, xK_q),       spawn "killall conky dzen2" >> restart "xmonad" True)
-    , ((modMask, xK_Print),   spawn "scrot -q90 /home/wunki/Pictures/screenshots/%Y-%m-%d.png")
-    , ((modMask .|. controlMask, xK_p ), sendMessage MagnifyMore)
+    , ((modMask .|. controlMask, xK_s), spawn "scrot -q90 /home/wunki/Pictures/screenshots/%Y-%m-%d-%H%M%S.png")
+    , ((modMask .|. controlMask, xK_p), sendMessage MagnifyMore)
     , ((modMask .|. controlMask, xK_l), sendMessage MagnifyLess)
     , ((modMask .|. controlMask, xK_m), sendMessage Toggle)
     -- cycle through workspaces

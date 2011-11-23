@@ -46,7 +46,7 @@ if [ `uname` = "Darwin" ]; then
 fi
 
 # Git
-alias gs="git status"
+alias gs="git status --ignore-submodules=dirty"
 alias gp="git pull origin master"
 alias gu="git push origin master"
 

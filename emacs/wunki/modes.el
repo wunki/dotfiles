@@ -4,35 +4,51 @@
 (add-hook 'objc-mode-hook '(lambda ()
   (local-set-key (kbd "RET") 'newline-and-indent)))
 
-; let's ff-find-other-file also find objective-c header files
+;; let's ff-find-other-file also find objective-c header files
 (add-hook 'objc-mode-hook
           (lambda ()
             (set (make-local-variable 'cc-other-file-alist)  '(("\\.m\\'" (".h")) ("\\.h\\'" (".m" ".c" ".cpp"))))))
 
-;; haskell mode
+; ido mode
+(ido-mode 1)
+(setq ido-enable-prefix nil
+      ido-enable-flex-matching t
+      ido-use-filename-at-point 'guess
+      ido-max-prospects 10
+      ; ido-create-new-buffer 'always
+      ido-ignore-buffers
+      '("\\` " "^\\*ESS\\*" "^\\*Messages\\*" "^\\*Help\\*" "^\\*Buffer"
+        "^\\*.*Completions\\*$" "^\\*Ediff" "^\\*tramp" "^\\*cvs-"
+        "_region_" " output\\*$" "^TAGS$" "^\*Ido")      
+      ido-ignore-directories
+      '("\\`auto/" "\\`auto-save-list/" "\\`backups/" "\\`semanticdb/" "\\`target/" "\\`\\.git/" "\\`\\.svn/" "\\`CVS/" "\\`\\.\\./" "\\`\\./")
+      ido-ignore-files
+      '("\\`auto/" "\\.prv/" "_region_" "\\.class/"  "\\`CVS/" "\\`#" "\\`.#" "\\`\\.\\./" "\\`\\./"))
+
+; haskell mode
 (load "~/.emacs.d/elpa/haskell-mode-2.8.0/haskell-site-file")
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
 (add-hook 'haskell-mode-hook 'turn-on-haskell-indent)
 
-;; po-mode
-(setq auto-mode-alist
+; po-mode
+(setq auto-mode-alist 
       (cons '("\\.po\\'\\|\\.po\\." . po-mode) auto-mode-alist))
 (autoload 'po-mode "po-mode" "Major mode for translators to edit PO files" t)
 
-;; deft
+; deft
 (setq deft-directory "~/Dropbox/Documents/Notes/")
 (setq deft-text-mode 'markdown-mode)
 
-;; paredit
+; paredit
 (defun turn-on-paredit () (paredit-mode 1))
 (add-hook 'clojure-mode-hook 'turn-on-paredit)
 
-;; markdown mode
+; markdown mode
 (setq auto-mode-alist (cons '("\\.markdown" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
 (add-hook 'markdown-mode-hook 'turn-on-pandoc)
 
-;; org-mode
+; org-mode
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 (setq org-agenda-files (list "~/Dropbox/Documents/Org/personal.org"
                              "~/Dropbox/Documents/Org/bread-and-pepper.org"
@@ -57,7 +73,7 @@
 (setq org-refile-allow-creating-parent-nodes (quote confirm))
 
 ; use IDO for both buffer and file completion and ido-everywhere to t
-(setq org-completion-use-ido t)
+(setq org-completion-use-ido t
 
 ; org-babel
 (org-babel-do-load-languages
@@ -75,14 +91,14 @@
 (setq org-src-fontify-natively t)
 (setq org-src-tab-acts-natively t)
 
-;; puppet mode
+; puppet mode
 (autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")
 (add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
 
-;; vagrant
+; vagrant
 (add-to-list 'auto-mode-alist '("VagrantFile" . ruby-mode))
 
-;; mutt
+; mutt
 (add-to-list 'auto-mode-alist '(".*mutt.*" . mail-mode))
 (add-hook 'mail-mode-hook 'turn-on-auto-fill)
 (add-hook

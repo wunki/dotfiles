@@ -21,9 +21,12 @@
         "^\\*.*Completions\\*$" "^\\*Ediff" "^\\*tramp" "^\\*cvs-"
         "_region_" " output\\*$" "^TAGS$" "^\*Ido")      
       ido-ignore-directories
-      '("\\`auto/" "\\`auto-save-list/" "\\`backups/" "\\`semanticdb/" "\\`target/" "\\`\\.git/" "\\`\\.svn/" "\\`CVS/" "\\`\\.\\./" "\\`\\./")
+      '("\\`auto/" "\\`auto-save-list/" "\\`backups/" "\\`semanticdb/"
+        "\\`target/" "\\`\\.git/" "\\`\\.svn/" "\\`CVS/" "\\`\\.\\./"
+        "\\`\\./")
       ido-ignore-files
-      '("\\`auto/" "\\.prv/" "_region_" "\\.class/"  "\\`CVS/" "\\`#" "\\`.#" "\\`\\.\\./" "\\`\\./"))
+      '("\\`auto/" "\\.prv/" "_region_" "\\.class/"  "\\`CVS/" "\\`#"
+        "\\`.#" "\\`\\.\\./" "\\`\\./"))
 
 ; haskell mode
 (load "~/.emacs.d/elpa/haskell-mode-2.8.0/haskell-site-file")
@@ -73,7 +76,7 @@
 (setq org-refile-allow-creating-parent-nodes (quote confirm))
 
 ; use IDO for both buffer and file completion and ido-everywhere to t
-(setq org-completion-use-ido t
+(setq org-completion-use-ido t)
 
 ; org-babel
 (org-babel-do-load-languages

@@ -27,7 +27,7 @@
 (vendor 'puppet-mode)
 (vendor 'pandoc-mode)
 (vendor 'color-theme-twilight)
-(vendor 'virthualenv)
+(vendor 'hsenv)
 
 (load "wunki/modes")
 (load "wunki/theme")

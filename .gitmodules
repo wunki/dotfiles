@@ -55,6 +55,3 @@
 [submodule "vim/vim/bundle/html5"]
 	path = vim/vim/bundle/html5
 	url = https://github.com/othree/html5.vim.git
-[submodule "emacs/vendor/virthualenv"]
-	path = emacs/vendor/virthualenv
-	url = https://github.com/Paczesiowa/virthualenv.git

@@ -26,7 +26,7 @@
         "\\`\\./")
       ido-ignore-files
       '("\\`auto/" "\\.prv/" "_region_" "\\.class/"  "\\`CVS/" "\\`#"
-        "\\`.#" "\\`\\.\\./" "\\`\\./"))
+        "\\`.#" "\\`\\.\\./" "\\`\\./" "\\.hi$"))
 
 ; haskell mode
 (load "~/.emacs.d/elpa/haskell-mode-2.8.0/haskell-site-file")

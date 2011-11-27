@@ -47,8 +47,8 @@ fi
 
 # Git
 alias gs="git status --ignore-submodules=dirty"
-alias gp="git pull origin master"
-alias gu="git push origin master"
+alias gp="git push origin master"
+alias gf="git pull origin master"
 
 # Python servers
 alias "smtpd"="python -m smtpd -n -c DebuggingServer localhost:1025"

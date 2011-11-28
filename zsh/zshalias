@@ -11,7 +11,7 @@ alias clj="rlwrap clj"
 alias ec="emacsclient -t"
 
 # Temporary
-alias clear='echo Just use CTRL-L'
+alias clear='echo "CTRL-L"'
 
 # Only for Mac
 if [ `uname` = "Darwin" ]; then
@@ -22,7 +22,7 @@ if [ `uname` = "Darwin" ]; then
     alias flushdns="dscacheutil -flushcache"
 
     # Macvim
-    alias vim="/usr/local/Cellar/macvim/7.3-62/MacVim.app/Contents/MacOS/Vim"
+    alias vim="/usr/local/Cellar/macvim/7.3-63/MacVim.app/Contents/MacOS/Vim"
 
     # Homebrew
     alias brup="brew update; brew upgrade"
@@ -32,10 +32,10 @@ if [ `uname` = "Darwin" ]; then
     alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 
     # Emacs
-    alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs"
-    alias emacsclient="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/bin/emacsclient"
-    alias ec="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/bin/emacsclient -t -a /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
-    alias ef="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/bin/emacsclient -n -c -a /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs"
+    alias emacs="/usr/local/Cellar/emacs/23.3b/Emacs.app/Contents/MacOS/Emacs"
+    alias emacsclient="/usr/local/Cellar/emacs/23.3b/Emacs.app/Contents/MacOS/bin/emacsclient"
+    alias ec="/usr/local/Cellar/emacs/23.3b/Emacs.app/Contents/MacOS/bin/emacsclient -t -a /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
+    alias ef="/usr/local/Cellar/emacs/23.3b/Emacs.app/Contents/MacOS/bin/emacsclient -n -c -a /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs"
     
     # MongoDB
     alias mongod='mongod run --config /usr/local/Cellar/mongodb/2.0.1-x86_64/mongod.conf'

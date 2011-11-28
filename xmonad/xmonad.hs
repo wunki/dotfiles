@@ -49,6 +49,7 @@ main = do
         , workspaces = ["1:Shell", "2:Editor", "3:Web", "4:Mail", "5:IRC", "6:General"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
+        , startupHook = myStartupHook
         }
 
 -- Layouts
@@ -108,3 +109,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((modMask, xK_a), moveTo Prev (WSIs (return $ not . (=="SP") . W.tag)))
     , ((modMask, xK_p), myDmenu) -- %! Launch dmenu
     ]
+
+-- | Perform an arbitrary action at xmonad startup.
+myStartupHook :: X ()
+myStartupHook = return ()

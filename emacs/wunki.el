@@ -28,6 +28,7 @@
 (vendor 'pandoc-mode)
 (vendor 'color-theme-twilight)
 (vendor 'hsenv)
+(vendor 'virtualenv)
 
 (load "wunki/modes")
 (load "wunki/theme")

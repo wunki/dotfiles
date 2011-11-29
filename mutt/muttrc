@@ -91,7 +91,7 @@ alternative_order text/enriched text/plain text/html	# save html for last
 set attribution 	= "%n wrote on %d:"	      # set attribution in quotes
 
 # Themes
-source ~/.mutt/themes/zenburn.muttrc
+source ~/.mutt/themes/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
 
 # Wunki account
 source ~/.mutt/accounts/wunki.conf

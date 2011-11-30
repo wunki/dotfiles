@@ -11,5 +11,5 @@
 ; set the default font
 ; fonts on the mac are a bit smaller
 (if (eq system-type 'darwin)
-  (set-default-font "Inconsolata-g-16")
+  (set-default-font "Consolas-18")
   (set-default-font "Inconsolata-g-13"))

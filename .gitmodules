@@ -28,15 +28,9 @@
 [submodule "emacs/vendor/markdown-mode"]
 	path = emacs/vendor/markdown-mode
 	url = http://jblevins.org/git/markdown-mode.git
-[submodule "emacs/vendor/color-theme-twilight"]
-	path = emacs/vendor/color-theme-twilight
-	url = https://github.com/crafterm/twilight-emacs.git
 [submodule "mutt/mutt/themes/mutt-colors-solarized"]
 	path = mutt/mutt/themes/mutt-colors-solarized
 	url = https://github.com/altercation/mutt-colors-solarized.git
-[submodule "emacs/vendor/solarized"]
-	path = emacs/vendor/solarized
-	url = https://github.com/altercation/solarized.git
 [submodule "vim/vim/bundle/solarized"]
 	path = vim/vim/bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized.git

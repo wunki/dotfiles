@@ -1,5 +1,7 @@
-(load-file "~/.emacs.d/vendor/solarized/emacs-colors-solarized/color-theme-solarized.el")
 (load-file "~/.emacs.d/elpa/color-theme-github-0.0.3/color-theme-github.elc")
+(load-file "~/.emacs.d/elpa/color-theme-twilight-0.1/color-theme-twilight.elc")
+(load-file "~/.emacs.d/elpa/color-theme-wombat+-0.0.2/color-theme-wombat+.elc")
+
 ; color theme is global
 (setq color-theme-is-global t)
 

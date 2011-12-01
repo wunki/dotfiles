@@ -4,6 +4,9 @@
 xrdb -merge .Xresources
 xrdb -merge .Xdefaults
 
+# QT must be able to find my theme
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"   
+
 # Turn on numlock
 numlockx on &
 
@@ -47,4 +50,4 @@ eval `ssh-agent -s`
 urxvtd -o -q -f &
 
 # Start xmonad
-xmonad > $HOME/.xmonad.log 2>&1
+exec ck-launch-session xmonad > $HOME/.xmonad.log 2>&1

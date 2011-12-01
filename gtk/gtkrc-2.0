@@ -1,2 +1,4 @@
 include "/home/wunki/.themes/MurrinaGilouche/gtk-2.0/gtkrc"
 include "/home/wunki/.gtkrc.mine"
+
+gtk-theme-name = "MurrinaGilouche"

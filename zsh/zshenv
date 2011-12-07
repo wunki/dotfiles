@@ -49,16 +49,15 @@ if [ -e "$HOME/.aws" ]; then
 fi
 
 # Virtualenvwrapper
-if [ -e "/usr/local/bin/virtualenvwrapper.sh" ] || [ -e "/usr/bin/virtualenvwrapper.sh" ]; then
-  export WORKON_HOME=$HOME/.virtualenvs       
-  if [ `uname` = "Darwin" ]; then
-    source /usr/local/bin/virtualenvwrapper.sh
-  fi
+export WORKON_HOME=$HOME/.virtualenvs
 
-  if [ `uname` = "Linux" ]; then
-    export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python2.7"
-    source /usr/bin/virtualenvwrapper.sh
-  fi
+if [ -e "/usr/local/bin/virtualenvwrapper.sh" ]; then
+   source /usr/local/bin/virtualenvwrapper.sh
+fi
+
+if [ -e "/usr/bin/virtualenvwrapper.sh" ]; then
+   export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python2.7"
+   source /usr/bin/virtualenvwrapper.sh
 fi
 
 # Python's nose

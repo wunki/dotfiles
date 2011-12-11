@@ -25,9 +25,6 @@
 [submodule "emacs/vendor/magit"]
 	path = emacs/vendor/magit
 	url = https://github.com/technomancy/magit.git
-[submodule "emacs/vendor/markdown-mode"]
-	path = emacs/vendor/markdown-mode
-	url = http://jblevins.org/git/markdown-mode.git
 [submodule "mutt/mutt/themes/mutt-colors-solarized"]
 	path = mutt/mutt/themes/mutt-colors-solarized
 	url = https://github.com/altercation/mutt-colors-solarized.git

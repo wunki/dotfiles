@@ -14,6 +14,11 @@ export CLICOLOR=1
 export LSCOLORS=GxFxCxDxBxegedabagaced
 export TERM=xterm-256color
 
+# Default browser
+if [ -n "$DISPLAY" ]; then
+    BROWSER=firefox
+fi
+
 # UTF-8 Locales
 export LANG=en_US.UTF-8
 export MM_CHARSET=UTF-8

@@ -16,4 +16,4 @@
 ; fonts on the mac are a bit smaller
 (if (eq system-type 'darwin)
   (set-default-font "Consolas-19")
-  (set-default-font "Consolas-16"))
+  (set-default-font "Consolas-15"))

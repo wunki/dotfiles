@@ -28,6 +28,9 @@
       '("\\`auto/" "\\.prv/" "_region_" "\\.class/"  "\\`CVS/" "\\`#"
         "\\`.#" "\\`\\.\\./" "\\`\\./" "\\.hi$"))
 
+; html
+(add-hook 'html-mode-hook 'turn-off-auto-fill)
+
 ; haskell mode
 (load "~/.emacs.d/elpa/haskell-mode-2.8.0/haskell-site-file")
 (add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)

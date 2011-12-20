@@ -13,7 +13,7 @@
 (color-theme-twilight)
 
 ; set the default font
-; fonts on the mac are a bit smaller
+; fonts on the mac are rendered smaller.
 (if (eq system-type 'darwin)
-  (set-default-font "Consolas-19")
+  (set-default-font "Consolas-20")
   (set-default-font "Consolas-15"))

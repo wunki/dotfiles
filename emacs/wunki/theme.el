@@ -1,3 +1,5 @@
+(require 'color-theme)
+
 ;(load-file "~/.emacs.d/elpa/color-theme-github-0.0.3/color-theme-github.elc")
 ;(load-file "~/.emacs.d/elpa/color-theme-wombat+-0.0.2/color-theme-wombat+.elc")
 ;(load-file "~/.emacs.d/elpa/color-theme-zenburn-0.3/color-theme-zenburn.el")

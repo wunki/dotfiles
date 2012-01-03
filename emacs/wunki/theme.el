@@ -10,8 +10,9 @@
 ; color theme is global
 (setq color-theme-is-global t)
 
-; select the colorscheme
-(color-theme-solarized-dark)
+; select the colorscheme on systems other than FreeBSD
+(if (not (eq system-type 'berkeley-unix))
+    (color-theme-solarized-dark))
 
 ; set the default font
 ; fonts on the mac are rendered smaller.

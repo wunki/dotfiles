@@ -19,18 +19,12 @@
 [submodule "vim/vim/bundle/ack"]
 	path = vim/vim/bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
-[submodule "vim/vim/bundle/vim-colors-solarized"]
-	path = vim/vim/bundle/vim-colors-solarized
-	url = git://github.com/altercation/vim-colors-solarized.git
 [submodule "emacs/vendor/magit"]
 	path = emacs/vendor/magit
 	url = https://github.com/technomancy/magit.git
 [submodule "mutt/mutt/themes/mutt-colors-solarized"]
 	path = mutt/mutt/themes/mutt-colors-solarized
 	url = https://github.com/altercation/mutt-colors-solarized.git
-[submodule "vim/vim/bundle/solarized"]
-	path = vim/vim/bundle/solarized
-	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "vim/vim/bundle/gist-vim"]
 	path = vim/vim/bundle/gist-vim
 	url = https://github.com/mattn/gist-vim.git

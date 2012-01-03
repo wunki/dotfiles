@@ -17,7 +17,7 @@
 ; set the default font
 ; fonts on the mac are rendered smaller.
 (if (eq system-type 'darwin)
-  (set-default-font "Consolas-20")
+  (set-default-font "Consolas-18")
   (set-default-font "Consolas-15"))
 
 (defun toggle-dark-light-theme ()

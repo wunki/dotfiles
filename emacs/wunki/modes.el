@@ -56,12 +56,12 @@
 
 ; org-mode
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
-(setq org-agenda-files (list "~/Dropbox/Documents/Org/personal.org"
-                             "~/Dropbox/Documents/Org/bread-and-pepper.org"
-                             "~/Dropbox/Documents/Org/books.org"
-                             "~/Dropbox/Documents/Org/inbox.org"))
+(setq org-agenda-files (list "~/Documents/Org/personal.org"
+                             "~/Documents/Org/bread-and-pepper.org"
+                             "~/Documents/Org/books.org"
+                             "~/Documents/Org/inbox.org"))
 
-(setq org-directory (expand-file-name "~/Dropbox/Documents/Org"))
+(setq org-directory (expand-file-name "~/Documents/Org"))
 (setq org-log-done 'time)
 (setq org-default-notes-file (concat org-directory "/inbox.org"))
 

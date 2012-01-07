@@ -20,16 +20,16 @@
 ; reading mail
 (setq gnus-select-method 
       '(nnmaildir "wunki" 
-                  (directory "~/Mail/")
+                  (directory "~/Mail/wunki")
                   (directory-files nnheader-directory-files-safe) 
                   (get-new-mail nil)))
 
 ; sending mail
 (setq message-send-mail-function 'smtpmail-send-it
-      smtpmail-starttls-credentials '(("secure.emailsrvr.com" 587 nil nil))
-      smtpmail-auth-credentials '(("secure.emailsrvr.com" 587 "petar@wunki.org" nil))
-      smtpmail-default-smtp-server "secure.emailsrvr.com"
-      smtpmail-smtp-server "secure.emailsrvr.com"
+      smtpmail-starttls-credentials '(("mail.messagingengine.com" 587 nil nil))
+      smtpmail-auth-credentials '(("mail.messagingengine.com" 587 "wunki@fastmail.fm" nil))
+      smtpmail-default-smtp-server "mail.messagingengine.com"
+      smtpmail-smtp-server "mail.messagingengine.com"
       smtpmail-smtp-service 587
       starttls-use-gnutls t)
 
@@ -86,9 +86,7 @@
       gnus-message-replysignencrypted t
       gnus-treat-x-pgp-sig t
       mm-verify-option 'always
-      mm-decrypt-option 'always
-)
+      mm-decrypt-option 'always)
 
 ; sign all my e-mails
 (add-hook 'gnus-message-setup-hook 'mml-secure-message-sign-pgpmime) ; sign all messages
-

@@ -25,12 +25,6 @@
 ; set the command key as meta
 ; (setq mac-command-modifier 'meta)
 
-; org-mode
-(define-key global-map (kbd "C-c l") 'org-store-link)
-(define-key global-map (kbd "C-c a") 'org-agenda)
-(define-key global-map (kbd "C-c c") 'org-capture)
-(define-key global-map (kbd "C-,") 'org-cycle-agenda-files)
-
 ; gist.github.com
 (define-key global-map (kbd "C-c p") 'gist-buffer)
 (define-key global-map (kbd "C-c C-p") 'gist-region)

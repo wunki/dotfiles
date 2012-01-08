@@ -63,7 +63,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("04fd52af504d80a42d9487e3e6aa96b6937255d1" "1f392dc4316da3e648c6dc0f4aad1a87d4be556c" "5600dc0bb4a2b72a613175da54edb4ad770105aa" "0174d99a8f1fdc506fa54403317072982656f127" default)))
+ '(custom-safe-themes (quote ("7fe1e3de3e04afc43f9a3d3a8d38cd0a0efd9d4c" "d14db41612953d22506af16ef7a23c4d112150e5" "04fd52af504d80a42d9487e3e6aa96b6937255d1" "1f392dc4316da3e648c6dc0f4aad1a87d4be556c" "5600dc0bb4a2b72a613175da54edb4ad770105aa" "0174d99a8f1fdc506fa54403317072982656f127" default)))
  '(safe-local-variable-values (quote ((pony-settings make-pony-project :python "/Users/wunki/.virtualenvs/invy-promo/bin/python" :settings "settings") (pony-settings make-pony-project :python "/Users/wunki/.virtualenvs/invy-web/bin/python")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

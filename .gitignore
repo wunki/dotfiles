@@ -2,3 +2,4 @@
 *.spl
 mail/imapfilter/certificates
 emacs/bookmarks
+emacs/.org-id-locations

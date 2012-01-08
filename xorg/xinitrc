@@ -50,4 +50,4 @@ eval `ssh-agent -s`
 urxvtd -o -q -f &
 
 # Start xmonad
-exec ck-launch-session xmonad > $HOME/.xmonad.log 2>&1
+exec ck-launch-session bash -c "udiskie & xmonad" > $HOME/.xmonad.log 2>&1

@@ -8,43 +8,43 @@
          ("X-URL" "http://www.wunki.org"))))
 
 ; spell check on sent
-(add-hook 'message-send-hook 'ispell-message) ; spell check on sent
-
-; location of mail
-(setq nnml-directory "~/Mail")
-(setq message-directory "~/Mail")
+; (add-hook 'message-send-hook 'ispell-message) ; spell check on sent
 
 ; don't ignore groups
 (setq gnus-ignored-newsgroups "")
 
+; show headings for when using multiple mail boxes
+(add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
+
 ; reading mail
 (setq gnus-select-method 
-      '(nnmaildir "wunki" 
-                  (directory "~/Mail/wunki")
-                  (directory-files nnheader-directory-files-safe) 
-                  (get-new-mail nil)))
+      '(nnimap "wunki"
+               (nnimap-address "localhost")
+               (nnimap-stream network)
+               (nnimap-authenticator login)))
 
 ; sending mail
-(setq message-send-mail-function 'smtpmail-send-it
-      smtpmail-starttls-credentials '(("mail.messagingengine.com" 587 nil nil))
-      smtpmail-auth-credentials '(("mail.messagingengine.com" 587 "wunki@fastmail.fm" nil))
-      smtpmail-default-smtp-server "mail.messagingengine.com"
-      smtpmail-smtp-server "mail.messagingengine.com"
-      smtpmail-smtp-service 587
-      starttls-use-gnutls t)
+(setq sendmail-program "/usr/local/bin/msmtpq"
+      message-send-mail-function 'message-send-mail-with-sendmail
+      message-sendmail-extra-arguments '("-a" "wunki")
+      mail-specify-envelope-from t
+      message-sendmail-f-is-evil nil                
+      mail-envelope-from 'header
+      ;; don't wait for a response
+      mail-interactive nil
+      message-sendmail-envelope-from 'header)
 
-; sent messages
+; mark send messages as read
 (setq gnus-gcc-mark-as-read t) 
 
 ; attractive summary view
-; TODO why doesn't this character display │
 (when window-system
   (setq gnus-sum-thread-tree-indent "  ")
-  (setq gnus-sum-thread-tree-root "") ;; "● ")
-  (setq gnus-sum-thread-tree-false-root "") ;; "◯ ")
-  (setq gnus-sum-thread-tree-single-indent "") ;; "◎ ")
+  (setq gnus-sum-thread-tree-root "● ")
+  (setq gnus-sum-thread-tree-false-root "◯ ")
+  (setq gnus-sum-thread-tree-single-indent "◎ ")
   (setq gnus-sum-thread-tree-vertical        "│")
-  (setq gnus-sum-thread-tree-leaf-with-other "├─► ")
+  (setq gnus-sum-thread-tree-leaf-with-other "│─► ")
   (setq gnus-sum-thread-tree-single-leaf     "╰─► "))
 
 
@@ -89,4 +89,4 @@
       mm-decrypt-option 'always)
 
 ; sign all my e-mails
-(add-hook 'gnus-message-setup-hook 'mml-secure-message-sign-pgpmime) ; sign all messages
+; (add-hook 'gnus-message-setup-hook 'mml-secure-message-sign-pgpmime) ; sign all messages

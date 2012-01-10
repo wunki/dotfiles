@@ -1,16 +1,13 @@
 ; some manually installed themes
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
-; solarized theme requires common-lisp
-(require 'cl)
-
 ; default theme
-(load-theme 'sanityinc-solarized-dark)
+(load-theme 'sanityinc-tomorrow-night)
 
 ; set the default font
 ; fonts on the mac are rendered smaller.
 (if (eq system-type 'darwin)
-  (set-default-font "Consolas-19")
+  (set-default-font "DejaVu Sans Mono-17")
   (set-default-font "Consolas-15"))
 
 (defun toggle-dark-light-theme ()

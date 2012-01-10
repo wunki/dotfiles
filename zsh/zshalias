@@ -22,7 +22,7 @@ if [ `uname` = "Darwin" ]; then
     alias flushdns="dscacheutil -flushcache"
 
     # Macvim
-    alias vim="/usr/local/Cellar/macvim/7.3-63/MacVim.app/Contents/MacOS/Vim"
+    alias vim="/usr/local/Cellar/macvim/7.3-64/MacVim.app/Contents/MacOS/Vim"
 
     # Homebrew
     alias brup="brew update; brew upgrade"

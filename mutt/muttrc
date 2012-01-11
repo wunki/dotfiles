@@ -20,15 +20,16 @@ my_hdr X-PGP-Key: http://www.wunki.org/files/wunki.asc
 my_hdr X-PGP-Key-FingerPrint: 5FED A312 1A0B D577 57C3  05A7 C6FC 5FC9 6B5B 20F0
 
 # Directories, files and software
-set mbox_type=Maildir                       # use the Maildir format
-set folder=~/Mail                           # folder where the email is stored
-set spoolfile="+wunki/inbox"                # folder where the inbox is stored
+set mbox_type=Maildir                                # use the Maildir format
+set folder="imap://user:pass@127.0.0.1/INBOX"    # folder where the email is stored
+set spoolfile="imap://user:pass@127.0.0.1/INBOX" # automatic login to this folder
+
+# Caching
 set tmpdir=~/.mutt/tmp                      # mutt temporary directory
 set header_cache="~/.mutt/header_cache/"    # header cache directory
-set certificate_file=~/.mutt/certificates   # certificate file
 
-# Vim as editor
-# set editor="vim -c 'set spell spelllang=nl,en tw=70 et' '+/^$' '++1'""
+# Certificates
+set certificate_file=~/.mutt/certificates   # certificate file
 
 # Emacs as editor
 set editor="emacsclient -t %s"
@@ -93,16 +94,19 @@ set attribution 	= "%n wrote on %d:"	      # set attribution in quotes
 # Themes
 source ~/.mutt/themes/zenburn.muttrc
 
+# Base hook to reset account variables to known state before activating new ones
+account-hook . 'unset preconnect imap_user imap_pass imap_authenticators;'
+
 # Wunki account
 source ~/.mutt/accounts/wunki.conf
-folder-hook =wunki source ~/.mutt/accounts/wunki.conf
+account-hook imap://wunki@127.0.0.1 source ~/.mutt/accounts/wunki.conf
 
 # Bread & Pepper account
-source ~/.mutt/accounts/breadandpepper.conf
-folder-hook =breadandpepper source ~/.mutt/accounts/breadandpepper.conf
+account-hook imap://breadandpepper@127.0.0.1 source ~/.mutt/accounts/breadandpepper.conf
 
 # Mailinglists
 subscribe beginners@haskell.org
+subscribe haskell-cafe@haskell.org
 
 # Custom keys to mimic Emacs
 bind index,pager,generic \Cn next-entry
@@ -110,3 +114,4 @@ bind index,pager,generic \Cp previous-entry
 
 # Hooks for replying in mailinglists.
 folder-hook =wunki/haskell-beginners bind index,pager r list-reply
+folder-hook =wunki/haskell-cafe bind index,pager r list-reply

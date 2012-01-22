@@ -3,15 +3,59 @@
 ; identification
 (setq gnus-posting-styles
       '((".*"
-         (name "Petar Radosevic")
+         (name "Petar Radosevic"))
+        ("INBOX.*"
          (address "petar@wunki.org")
-         ("X-URL" "http://www.wunki.org"))))
+         (organization "Wunki")
+         (signature-file "~/.signature-wunki")
+         (x-url "http://www.wunki.org")
+         (eval (setq message-sendmail-extra-arguments '("-a" "wunki"))))
+        (".+breadandpepper.+"
+         (address "petar@breadandpepper.com")
+         (organization "Bread & Pepper")
+         (signature-file "~/.signature-bp")
+         (x-url "http://breadandpepper.com")
+         (eval (setq message-sendmail-extra-arguments '("-a" "breadandpepper"))))))
+
+; parameters
+(setq gnus-parameters
+      '(("INBOX.*"
+         (gcc-self . "INBOX.Sent Items"))
+        (".+breadandpepper.+"
+         (gcc-self . nil))))
 
 ; spell check on sent
-; (add-hook 'message-send-hook 'ispell-message) ; spell check on sent
+(add-hook 'message-send-hook 'ispell-message) ; spell check on sent
 
 ; don't ignore groups
-(setq gnus-ignored-newsgroups "")
+(setq gnus-ignored-newsgroups ""
+      gnus-subscribe-newsgroup-method (quote gnus-subscribe-topics))
+
+; don't ask me how much to download
+(setq gnus-large-newsgroup 'nil)
+
+; bbdb
+(add-to-list 'load-path "~/.emacs.d/vendor/bbdb-2.35/lisp/")
+(require 'bbdb)
+(require 'bbdb-autoloads)
+(bbdb-initialize)
+(add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
+
+(setq
+ bbdb-file "~/Dropbox/Contacts/bbdb"
+ bbdb-offer-save 'auto
+ bbdb-complete-name-full-completion t
+ bbdb-completion-type 'primary-or-name
+ bbdb-notice-auto-save-file t
+ bbdb-expand-mail-aliases t
+ bbdb-canonicalize-redundant-nets-p t
+ bbdb-always-add-addresses t
+ bbdb-complete-name-allow-cycling t
+ bbdb-send-mail-style 'gnus
+ ;; make bbdb really small
+ bbdb-use-pop-up t
+ bbdb-electric-p t
+ bbdb-popup-target-lines 1)
 
 ; show headings for when using multiple mail boxes
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
@@ -19,14 +63,28 @@
 ; reading mail
 (setq gnus-select-method 
       '(nnimap "wunki"
-               (nnimap-address "localhost")
+               (nnimap-address "127.0.0.1")
                (nnimap-stream network)
                (nnimap-authenticator login)))
+
+(setq gnus-secondary-select-methods
+      '((nnimap "breadandpepper"
+                (nnimap-address "127.0.0.1")
+                (nnimap-stream network)
+                (nnimap-authenticator login))))
+
+; I prefer reading e-mail in plain text
+(eval-after-load "mm-decode"
+ '(progn 
+      (add-to-list 'mm-discouraged-alternatives "text/html")
+      (add-to-list 'mm-discouraged-alternatives "text/richtext")))
+
+; warn me if I try to reply in a newsgroup
+(setq gnus-confirm-mail-reply-to-news t)
 
 ; sending mail
 (setq sendmail-program "/usr/local/bin/msmtpq"
       message-send-mail-function 'message-send-mail-with-sendmail
-      message-sendmail-extra-arguments '("-a" "wunki")
       mail-specify-envelope-from t
       message-sendmail-f-is-evil nil                
       mail-envelope-from 'header

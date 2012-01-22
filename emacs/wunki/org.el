@@ -2,23 +2,30 @@
 (define-key global-map (kbd "C-c l") 'org-store-link)
 (define-key global-map (kbd "C-c a") 'org-agenda)
 (define-key global-map (kbd "C-c c") 'org-capture)
-(define-key global-map (kbd "C-,") 'org-cycle-agenda-files)
+(define-key global-map (kbd "C-.") 'org-cycle-agenda-files)
 
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 
-; Path to save my files
+; save path
 (setq org-directory (expand-file-name "~/Documents/Org"))
 
-; Org-mobile
+; mobile
 (setq org-mobile-inbox-for-pull (concat org-directory "/inbox.org"))
 (setq org-mobile-directory "~/Dropbox/MobileOrg")
 
+; org-files
 (setq org-agenda-files (list (concat org-directory "/personal.org")
                              (concat org-directory "/bread-and-pepper.org")
                              (concat org-directory "/books.org")
-                             (concat org-directory "/inbox.org")))
+                             (concat org-directory "/inbox.org"))
+      org-default-notes-file (concat org-directory "/inbox.org"))
+
+; always use indent-mode
+(setq org-startup-indented t)
+
+; log the time
 (setq org-log-done 'time)
-(setq org-default-notes-file (concat org-directory "/inbox.org"))
+
 
 ; Stop using paths for refile targets - we file directly with IDO
 (setq org-refile-use-outline-path nil)

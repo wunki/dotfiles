@@ -18,8 +18,7 @@
 (global-set-key (kbd "C-w") 'backward-kill-word)
 (global-set-key (kbd "C-c C-k") 'kill-region)
 
-; no mailing, thanks
-(global-unset-key (kbd "C-x m"))
+; don't suspend emacs
 (global-unset-key (kbd "C-z"))
 
 ; set the command key as meta

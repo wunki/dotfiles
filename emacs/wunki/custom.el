@@ -1,6 +1,9 @@
 ; customization file, containing personal preferences.
 (setq-default tab-width 2 indent-tabs-mode nil)
 (column-number-mode 1) ;; show column numbers
+
+; email settings
+(setq user-full-name "Petar Radosevic")
 (setq user-mail-address "petar@wunki.org")
 
 ; Unicode
@@ -15,8 +18,9 @@
 ; don't blink the cursor
 (blink-cursor-mode -1)
 
-; add bin directory from homebrew
+; add bin directory from homebrew and cabal
 (push "/usr/local/bin" exec-path)
+(push "~/.cabal/bin" exec-path)
 
 ; disable scrollbars
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))

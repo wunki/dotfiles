@@ -41,8 +41,8 @@ if [ `uname` = "Darwin" ]; then
     alias mongod='mongod run --config /usr/local/Cellar/mongodb/2.0.2-x86_64/mongod.conf'
 
     # PostgreSQL
-    alias pgstart='pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start'
-    alias pgstop='pg_ctl -D /usr/local/var/postgres stop -s -m fast'
+    alias pgstart="pg_ctl -D /usr/local/var/postgres -l /usr/local/var/postgres/server.log start"
+    alias pgstop="pg_ctl -D /usr/local/var/postgres stop -s -m fast"
 fi
 
 # Git

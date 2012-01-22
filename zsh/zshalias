@@ -56,12 +56,12 @@ alias "smtpd"="python -m smtpd -n -c DebuggingServer localhost:1025"
 alias "fileserver"="python -m SimpleHTTPServer"
 
 # Django
-alias rs='./manage.py runserver 127.0.0.1:8000'
-alias rsp='./manage.py runserver 127.0.0.1:8000 --settings=settings_production'
+alias rs='./manage.py runserver 0.0.0.0:8000'
+alias rsp='./manage.py runserver 0.0.0.0:8000 --settings=settings_production'
 alias tst='./manage.py test'
 
 # Pypi
 alias pyup='python setup.py sdist register upload'
 
 # Git
-alias gd='git diff | emacsclient'
+alias gd='git diff | subl -w'

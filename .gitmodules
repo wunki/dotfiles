@@ -46,3 +46,6 @@
 [submodule "emacs/vendor/django-mode"]
 	path = emacs/vendor/django-mode
 	url = https://github.com/myfreeweb/django-mode.git
+[submodule "vim/vim/bundle/solarized"]
+	path = vim/vim/bundle/solarized
+	url = https://github.com/altercation/vim-colors-solarized

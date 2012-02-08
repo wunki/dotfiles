@@ -21,17 +21,17 @@ if has("gui_running")
   set guioptions-=b
   set guioptions+=a
   set guioptions+=c
-  colorscheme zenburn
-  set guifont=Inconsolata-g:h16
+  colorscheme solarized
+  set guifont=Consolas:h18
   set columns=80
   set lines=40
   set visualbell          " please, no sound
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing 
-  " set fuopt+=maxhorz      " macvim fullscreen settings
 else
+  " 256 colors setting
   set t_Co=256
-  colorscheme zenburn
+  colorscheme solarized
   set mouse=a
   set ttymouse=xterm
   set termencoding=utf-8
@@ -52,15 +52,15 @@ set history=1000            " more history
 set shortmess=atI           " shorten confirmation messages
 set bs=2                    " fix backspace in FreeBSD
 set scrolloff=3             " keep 3 lines below/above cursor
-set showmode
-set showcmd
+set showmode                " shows the mode i'm currently in
+set showcmd                 " shows partial command in the last line
 set ttyfast                 " improved remote connections
-set ruler
+set ruler                   " show the line and column number of the cursor
 set backspace=indent,eol,start
 set relativenumber          " show line numbering relative to current position
 set undofile                " create undofiles
 set formatoptions=qrn1
-set colorcolumn=81
+set colorcolumn=80
 
 " Ignore these files in netrw
 let g:netrw_list_hide= '.*\.swp$,.*\~$,.*\.pyc$'

@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 
 # Set to the name theme to load.
 # Look in ~/.oh-my-zsh/themes/
-export ZSH_THEME="sorin"
+export ZSH_THEME="norm"
 
 # Set to this to use case-sensitive completion
 export CASE_SENSITIVE="true"
@@ -44,8 +44,8 @@ venv_cd () {
 alias cd="venv_cd"
 
 # Bindings
-bindkey -e
+bindkey -v
 
 # If vim mode, than bind this key, can't live without
 # CTRL-R
-# bindkey "^r" history-incremental-search-backward
+bindkey "^r" history-incremental-search-backward

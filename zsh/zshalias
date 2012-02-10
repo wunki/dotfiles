@@ -45,7 +45,9 @@ if [ `uname` = "Darwin" ]; then
 fi
 
 # Git
-alias git="hub"
+if [ -e "/usr/local/bin/hub" ]; then
+  alias git="hub"
+fi
 alias gs="git status --ignore-submodules=dirty"
 alias gp="git push origin master"
 alias gf="git pull origin master"

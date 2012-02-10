@@ -8,7 +8,6 @@ alias rh="runhaskell"
 alias rmpyc="find . -name '*.pyc' | xargs rm"
 alias gun="gunicorn_django --workers=2"
 alias clj="rlwrap clj"
-alias ec="emacsclient -t"
 
 # Temporary
 alias clear='echo "CTRL-L"'

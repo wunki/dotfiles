@@ -4,9 +4,9 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 
 # Common
-export ALTERNATE_EDITOR='vim'
-export EDITOR='subl -w'
-export VISUAL='subl -w'
+export ALTERNATE_EDITOR='ed'
+export EDITOR='vim'
+export VISUAL='vim'
 export PAGER=less
 export COLORTERM=yes
 export GREP_OPTIONS='--color=auto'

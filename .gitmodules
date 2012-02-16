@@ -49,3 +49,6 @@
 [submodule "vim/vim/bundle/solarized"]
 	path = vim/vim/bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized
+[submodule "vim/vim/bundle/powerline"]
+	path = vim/vim/bundle/powerline
+	url = https://github.com/Lokaltog/vim-powerline.git

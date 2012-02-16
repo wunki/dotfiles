@@ -22,7 +22,7 @@ if has("gui_running")
   set guioptions+=a
   set guioptions+=c
   colorscheme solarized
-  set guifont=DejaVu\ Sans\ Mono:h17
+  set guifont=Menlo\ Regular\ for\ Powerline:h16
   set columns=80
   set lines=40
   set visualbell          " please, no sound
@@ -57,7 +57,8 @@ set showcmd                 " shows partial command in the last line
 set ttyfast                 " improved remote connections
 set ruler                   " show the line and column number of the cursor
 set backspace=indent,eol,start
-set relativenumber          " show line numbering relative to current position
+"set relativenumber          " show line numbering relative to current position
+set number                  " show line numbering
 set undofile                " create undofiles
 set formatoptions=qrn1
 set colorcolumn=80
@@ -164,6 +165,9 @@ let g:haddock_browser = "open"
 let g:haddock_browser_callformat = "%s %s"
 let g:ghc="/usr/local/bin/ghc"
 let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
+
+" Powerline settings
+let g:Powerline_symbols = 'fancy'
 
 " Reload vim config on save
 au! BufWritePost $MYVIMRC source %

@@ -38,7 +38,7 @@ else
 endif
 
 " Editor configuration
-set shell=/bin/zsh
+set shell=/usr/local/bin/zsh
 set showmatch               " show matching brackets (), {}' []
 set showcmd                 " show command
 set modelines=0             " don't use modelines

@@ -67,3 +67,6 @@ fi
 
 # Python's nose
 export NOSE_WITH_COVERAGE=true
+
+# PIP
+export PIP_DOWNLOAD_CACHE=$HOME/.pip-cache

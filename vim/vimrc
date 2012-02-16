@@ -82,8 +82,12 @@ set wildignore=*.o,*.fasl,*.tmp,.git,*.pyc,*.jpg,*.gif,*.png,*.mo
 set tags=tags;~/
 
 " Auto-backup files and .swp files don't go to pwd
-set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
-set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
+" Backup settings
+set undodir=~/.vim/tmp/undo//     " undo files
+set backupdir=~/.vim/tmp/backup// " backups
+set directory=~/.vim/tmp/swap//   " swap files
+set backup                        " enable backups
+set noswapfile                    " no swapping
 
 " Faster scrolling
 nnoremap <C-e> 3<C-e>

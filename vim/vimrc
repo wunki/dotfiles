@@ -21,7 +21,7 @@ if has("gui_running")
   set guioptions-=b
   set guioptions+=a
   set guioptions+=c
-  colorscheme solarized
+  colorscheme Tomorrow-Night
   set guifont=Menlo\ Regular\ for\ Powerline:h16
   set columns=80
   set lines=40
@@ -31,7 +31,7 @@ if has("gui_running")
 else
   " 256 colors setting
   set t_Co=256
-  colorscheme solarized
+  colorscheme Tomorrow-Night
   set mouse=a
   set ttymouse=xterm
   set termencoding=utf-8

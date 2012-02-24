@@ -1,0 +1,13 @@
+{
+	"auto_upgrade_last_run": 1330117475,
+	"installed_packages":
+	[
+		"Djaneiro",
+		"Gist",
+		"Git",
+		"Package Control",
+		"sublime-github",
+		"Theme - Soda",
+		"VintageEx"
+	]
+}

@@ -29,11 +29,15 @@ export PATH="${HOME}/.bin:/usr/local/bin::/usr/local/sbin:${HOME}/.cabal/bin:$PA
 
 # Paths on MacOSX
 if [ `uname` = "Darwin" ]; then
+  # Haskell
   export PATH="${HOME}/Library/Haskell/bin:$PATH"
 
   # Node.js path
   export PATH="/usr/local/share/npm/bin:$PATH"
   export NODE_PATH="/usr/local/lib/node"
+
+  # RVM
+  export PATH="${HOME}/.rvm/bin:$PATH"
 
   # Clojure
   export CLASSPATH="$CLASSPATH:/usr/local/Cellar/clojure-contrib/1.2.0/clojure-contrib.jar"
@@ -53,16 +57,21 @@ if [ -e "$HOME/.aws" ]; then
   fi
 fi
 
+# RVM
+if [ -e "/Users/wunki/.rvm/scripts/rvm" ]; then
+    source /Users/wunki/.rvm/scripts/rvm
+fi
+
 # Virtualenvwrapper
 export WORKON_HOME=$HOME/.virtualenvs
 
 if [ -e "/usr/local/bin/virtualenvwrapper.sh" ]; then
-   source /usr/local/bin/virtualenvwrapper.sh
+    source /usr/local/bin/virtualenvwrapper.sh
 fi
 
 if [ -e "/usr/bin/virtualenvwrapper.sh" ]; then
-   export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python2.7"
-   source /usr/bin/virtualenvwrapper.sh
+    export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python2.7"
+    source /usr/bin/virtualenvwrapper.sh
 fi
 
 # Python's nose
@@ -70,3 +79,4 @@ export NOSE_WITH_COVERAGE=true
 
 # PIP
 export PIP_DOWNLOAD_CACHE=$HOME/.pip-cache
+

@@ -21,7 +21,7 @@ if has("gui_running")
   set guioptions-=b
   set guioptions+=a
   set guioptions+=c
-  colorscheme solarized
+  colorscheme Tomorrow-Night
   set guifont=Ubuntu\ Mono:h20
   set columns=80
   set lines=40
@@ -57,7 +57,7 @@ set showcmd                 " shows partial command in the last line
 set ttyfast                 " improved remote connections
 set ruler                   " show the line and column number of the cursor
 set backspace=indent,eol,start
-"set relativenumber          " show line numbering relative to current position
+"set relativenumber         " show line numbering relative to current position
 set number                  " show line numbering
 set undofile                " create undofiles
 set formatoptions=qrn1

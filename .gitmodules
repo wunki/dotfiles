@@ -54,4 +54,4 @@
 	url = https://github.com/Lokaltog/vim-powerline.git
 [submodule "vim/vim/bundle/tomorrow-theme"]
 	path = vim/vim/bundle/tomorrow-theme
-	url = https://github.com/chriskempson/Vim-Tomorrow-Theme.git
+	url = https://github.com/chriskempson/vim-tomorrow-theme.git

@@ -14,7 +14,7 @@ filetype plugin indent on
 " GUI
 if has("gui_running")
   if has('unix')
-    set guifont=Ubuntu\ Mono\ 14
+    set guifont=Ubuntu\ Mono\ 13
   else
     set guifont=Ubuntu\ Mono:16
   endif

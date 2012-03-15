@@ -1,7 +1,7 @@
 gtk-icon-theme-name="Tango"
-gtk-font-name = "DejaVu Sans 9"
+gtk-font-name = "Ubuntu 10"
 style "user-font"
 {
-    font_name = "DejaVu Sans 9"
+    font_name = "Ubuntu 10"
 }
 widget_class "*" style "user-font"

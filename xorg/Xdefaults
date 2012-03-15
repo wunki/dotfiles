@@ -1,34 +1,34 @@
-Xcursor.theme: Jimmac
+xcursor.theme: Jimmac
 *customization: -color
 
 ! XFT Settings
-Xft.autohint: 0
-Xft.lcdfilter:  lcddefault
-Xft.hintstyle:  hintfull
-Xft.hinting: 1
-Xft.antialias: 1
-Xft.dpi: 96
-Xft.rgba: rgb
+xft.autohint: 0
+xft.lcdfilter:  lcddefault
+xft.hintstyle:  hintfull
+xft.hinting: 1
+xft.antialias: 1
+xft.dpi: 96
+xft.rgba: rgb
 
 ! RXVT Scripts
-URxvt.perl-lib: /home/wunki/.urxvt-scripts/
-URxvt.perl-ext-common: clipboard
+urxvt.perl-lib: /home/wunki/.urxvt-scripts/
+urxvt.perl-ext-common: clipboard
 
 ! RXVT Clipboard
-URxvt.keysym.M-c:   perl:clipboard:copy
-URxvt.keysym.M-v:   perl:clipboard:paste
-URxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+urxvt.keysym.M-c:   perl:clipboard:copy
+urxvt.keysym.M-v:   perl:clipboard:paste
+urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 ! RXVT-Unicode Transparency
 urxvt.shading: 10
-URxvt.depth: 32
-URxvt.background: rgba:1111/1111/1111/dddd
+urxvt.depth: 32
+urxvt.background: rgba:1111/1111/1111/eeee
 
 ! Urxvt fonts
-urxvt.font:            xft:Ubuntu Mono:size=14
-urxvt.boldFont:        xft:Ubuntu Mono:bold:size=14
-urxvt.italicFont:	   xft:Ubuntu Mono:italic:size=14
-urxvt.boldItalicFont:  xft:Ubuntu Mono:bolditalic:size=14
+urxvt.font:            xft:Ubuntu Mono:size=13
+urxvt.boldFont:        xft:Ubuntu Mono:bold:size=13
+urxvt.italicFont:	   xft:Ubuntu Mono:italic:size=13
+urxvt.boldItalicFont:  xft:Ubuntu Mono:bolditalic:size=13
 
 urxvt.foreground: White
 urxvt.jumpScroll: True

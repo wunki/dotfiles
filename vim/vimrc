@@ -29,7 +29,7 @@ if has("gui_running")
   colorscheme Tomorrow-Night
   set columns=80
   set lines=40
-  set visualbell          " please, no sound
+  set novisualbell        " please, no visuals
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing 
 else

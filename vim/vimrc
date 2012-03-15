@@ -13,6 +13,11 @@ filetype plugin indent on
 
 " GUI
 if has("gui_running")
+  if has('unix')
+    set guifont=Ubuntu\ Mono\ 14
+  else
+    set guifont=Ubuntu\ Mono:16
+  endif
   set guioptions-=e
   set guioptions-=T
   set guioptions-=m
@@ -22,7 +27,6 @@ if has("gui_running")
   set guioptions+=a
   set guioptions+=c
   colorscheme Tomorrow-Night
-  set guifont=Ubuntu\ Mono:h20
   set columns=80
   set lines=40
   set visualbell          " please, no sound
@@ -38,7 +42,11 @@ else
 endif
 
 " Editor configuration
-set shell=/usr/local/bin/zsh
+if has('unix')
+  set shell=/bin/zsh
+else
+  set shell=/usr/local/bin/zsh
+endif
 set showmatch               " show matching brackets (), {}' []
 set showcmd                 " show command
 set modelines=0             " don't use modelines
@@ -165,9 +173,6 @@ let g:haddock_browser = "open"
 let g:haddock_browser_callformat = "%s %s"
 let g:ghc="/usr/local/bin/ghc"
 let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
-
-" Powerline settings
-let g:Powerline_symbols = 'fancy'
 
 " Reload vim config on save
 au! BufWritePost $MYVIMRC source %

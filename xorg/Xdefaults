@@ -25,10 +25,10 @@ URxvt.depth: 32
 URxvt.background: rgba:1111/1111/1111/dddd
 
 ! Urxvt fonts
-urxvt.font:            xft:DejaVu Sans Mono:size=12
-urxvt.boldFont:        xft:DejaVu Sans Mono:bold:size=12
-urxvt.italicFont:	   xft:DejaVu Sans Mono:italic:size=12
-urxvt.boldItalicFont:  xft:DejaVu Sans Mono:bolditalic:size=12
+urxvt.font:            xft:Ubuntu Mono:size=14
+urxvt.boldFont:        xft:Ubuntu Mono:bold:size=14
+urxvt.italicFont:	   xft:Ubuntu Mono:italic:size=14
+urxvt.boldItalicFont:  xft:Ubuntu Mono:bolditalic:size=14
 
 urxvt.foreground: White
 urxvt.jumpScroll: True
@@ -45,7 +45,7 @@ urxvt.termName: rxvt-256color
  
 ! Urls
 urxvt.perl-ext: default,matcher
-urxvt.urlLauncher: firefox
+urxvt.urlLauncher: chromium
 urxvt.matcher.button:   1
 urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 

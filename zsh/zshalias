@@ -9,6 +9,9 @@ alias rmpyc="find . -name '*.pyc' | xargs rm"
 alias gun="gunicorn_django --workers=2"
 alias clj="rlwrap clj"
 
+# Don't correct sudo for me
+alias sudo='nocorrect sudo'
+
 # Temporary
 alias clear='echo "CTRL-L"'
 

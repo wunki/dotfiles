@@ -1,5 +1,5 @@
 import XMonad
-import XMonad.Util.Run(spawnPipe)
+import XMonad.Util.Run(spawnPipe, runInTerm)
 import qualified XMonad.StackSet as W -- to shift and float windows
 import XMonad.Actions.CycleWS
 
@@ -12,6 +12,7 @@ import XMonad.Hooks.FadeInactive
 
 -- Actions
 import XMonad.Actions.SpawnOn
+import XMonad.Actions.WindowGo
 
 -- Layouts
 import XMonad.Layout.PerWorkspace
@@ -46,7 +47,7 @@ main = do
         , borderWidth = 1
         , normalBorderColor  = "#586e75"
         , focusedBorderColor = "#93a1a1"
-        , workspaces = ["1:Shell", "2:Editor", "3:Web", "4:Mail", "5:IRC", "6:General"]
+        , workspaces = ["1:Shell", "2:Vim", "3:Web", "4:Mail", "5:IRC", "6:General"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
         , startupHook = myStartupHook
@@ -69,24 +70,17 @@ myLayout = onWorkspace "2:Editor" fullLayout $
 myManageHook :: ManageHook
 myManageHook = manageDocks <+> composeAll
     [ title     =? "mutt"                 --> doF (W.shift "4:Mail")
-    , title     =? "irssi"                --> doF (W.shift "5:Chat")
+    , title     =? "irssi"                --> doF (W.shift "5:IRC")
     , className =? "Chromium"             --> doF (W.shift "3:Web")
-    , className =? "Firefox-bin"          --> doF (W.shift "4:Web")
-    , className =? "Firefox"              --> doF (W.shift "4:Web")
-    , className =? "Emacs"                --> doF (W.shift "2:Editor")
-    , className =? "GVIM"                 --> doF (W.shift "2:Editor")
+    , className =? "Firefox-bin"          --> doF (W.shift "3:Web")
+    , className =? "Firefox"              --> doF (W.shift "3:Web")
+    , className =? "Emacs"                --> doF (W.shift "2:Vim")
+    , className =? "GVIM"                 --> doF (W.shift "2:Vim")
     , className =? "Thunar"               --> doF (W.shift "6:General")
     ]
  
 manageHook' :: ManageHook
 manageHook' = (doF W.swapDown) <+> manageDocks <+> manageHook defaultConfig <+> myManageHook
-
-{- spawn windows on launched workspace (instead of current workspace) -}
-myDmenu :: X ()
-myDmenu = do
-  currentWorkspace <- fmap W.currentTag (gets windowset)
-  {- spawnOn currentWorkspace "exe=`dmenu_path | dmenu ` && eval \"exec $exe\"" -}
-  spawnOn currentWorkspace "exe=`IFS=:;lsx $PATH|sort -u|dmenu -fn '-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*' -nb '#000000' -nf '#FFFFFF' -sb '#ffff00' -sf '#000000'` && eval \"exec $exe\""
 
 myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     [ ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 1-") -- Lower volume
@@ -103,10 +97,12 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((modMask .|. controlMask, xK_p), sendMessage MagnifyMore)
     , ((modMask .|. controlMask, xK_l), sendMessage MagnifyLess)
     , ((modMask .|. controlMask, xK_m), sendMessage Toggle)
+    , ((modMask .|. controlMask, xK_m), raiseMaybe (runInTerm "-title mutt" "mutt") (title =? "mutt"))
+    , ((modMask .|. controlMask, xK_i), raiseMaybe (runInTerm "-title irssi" "irssi") (title =? "irssi"))
     -- cycle through workspaces
     , ((modMask, xK_e), moveTo Next (WSIs (return $ not . (=="SP") . W.tag)))
     , ((modMask, xK_a), moveTo Prev (WSIs (return $ not . (=="SP") . W.tag)))
-    , ((modMask, xK_p), myDmenu) -- %! Launch dmenu
+    , ((modMask, xK_p), spawn "dmenu_run -i -b -fn Ubuntu-12 -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#268bd2' -p '>' ") -- %! Launch dmenu
     ]
 
 -- | Perform an arbitrary action at xmonad startup.

@@ -1,4 +1,4 @@
-Config { font = "xft:Inconsolata-11"
+Config { font = "xft:Ubuntu Mono-10"
        , bgColor = "black"
        , fgColor = "grey"
        , position = Top

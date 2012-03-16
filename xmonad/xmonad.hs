@@ -84,10 +84,9 @@ manageHook' = (doF W.swapDown) <+> manageDocks <+> manageHook defaultConfig <+> 
 {- spawn windows on launched workspace (instead of current workspace) -}
 myDmenu :: X ()
 myDmenu = do
-  sp <- mkSpawner
   currentWorkspace <- fmap W.currentTag (gets windowset)
-  {- spawnOn sp currentWorkspace "exe=`dmenu_path | dmenu ` && eval \"exec $exe\"" -}
-  spawnOn sp currentWorkspace "exe=`IFS=:;lsx $PATH|sort -u|dmenu -fn '-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*' -nb '#000000' -nf '#FFFFFF' -sb '#ffff00' -sf '#000000'` && eval \"exec $exe\""
+  {- spawnOn currentWorkspace "exe=`dmenu_path | dmenu ` && eval \"exec $exe\"" -}
+  spawnOn currentWorkspace "exe=`IFS=:;lsx $PATH|sort -u|dmenu -fn '-*-dina-medium-r-*-*-10-*-*-*-*-*-*-*' -nb '#000000' -nf '#FFFFFF' -sb '#ffff00' -sf '#000000'` && eval \"exec $exe\""
 
 myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     [ ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 1-") -- Lower volume

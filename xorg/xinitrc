@@ -10,9 +10,6 @@ export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 # Turn on numlock
 numlockx on &
 
-# Hide the mouse when not used
-unclutter &
-
 # Disable PC-Speaker
 xset b off &
 
@@ -25,21 +22,6 @@ xset r rate 300 60
 # Set the left cursor as default
 xsetroot -cursor_name left_ptr
 
-# Clipboard functionality
-parcellite &
-
-# Set background
-feh --bg-scale ~/Pictures/wallpapers/current
-
-# Be nice for my eyes
-redshift -l 52:4 -t 6000:4800 -m vidmode &
-
-# Transparency!
-xcompmgr -c -t-5 -l-5 -r4.2 -o.80 &
-
-# Dropbox
-dropboxd &
-
 # Set dvorak keymapping
 setxkbmap -layout us -variant dvorak
 
@@ -49,5 +31,26 @@ eval `ssh-agent -s`
 # Start rvxt-unicode server
 urxvtd -o -q -f &
 
-# Start xmonad
-exec ck-launch-session bash -c "udiskie & xmonad" > $HOME/.xmonad.log 2>&1
+# 
+# Nice to haves
+#
+
+# Clipboard functionality
+# parcellite &
+
+# Set background
+feh --bg-scale ~/dropbox/Dropbox/Pictures/Wallpapers/Vim\ Dark\ Squares.png
+
+# Be nice for my eyes
+# redshift -l 52:4 -t 6000:4800 -m vidmode &
+
+# Transparency!
+xcompmgr -c -t-5 -l-5 -r4.2 -o.80 &
+
+# Dropbox
+dropboxd &
+
+#
+# Start XMonad
+#
+exec ck-launch-session xmonad > $HOME/.xmonad.log 2>&1

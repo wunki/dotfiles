@@ -36,13 +36,13 @@ urxvtd -o -q -f &
 #
 
 # Clipboard functionality
-# parcellite &
+parcellite &
 
 # Set background
-feh --bg-scale ~/dropbox/Dropbox/Pictures/Wallpapers/Vim\ Dark\ Squares.png
+feh --bg-tile ~/dropbox/Dropbox/Pictures/Wallpapers/Solarized\ Tiles.png
 
 # Be nice for my eyes
-# redshift -l 52:4 -t 6000:4800 -m vidmode &
+redshift -l 52:4 -t 6000:4800 -m vidmode &
 
 # Transparency!
 xcompmgr -c -t-5 -l-5 -r4.2 -o.80 &

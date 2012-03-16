@@ -1,12 +1,14 @@
-Config { font = "xft:Ubuntu Mono-10"
-       , bgColor = "black"
-       , fgColor = "grey"
-       , position = Top
+Config { font = "xft:ubuntu\ mono:size=11:antialias=true"
+       , bgColor = "#002b36"
+       , fgColor = "#657b83"
+       , position = TopSize L 100 30
+       , border = BottomB
+       , borderColor = "#073642"
        , lowerOnStart = True
-       , commands = [ Run StdinReader
-    		        , Run Date "%A, %_d %B %Y | %H:%M:%S" "date" 10
+       , commands = [ Run Network "eth0" ["-t", "<rx> KB | <tx> KB", "-L", "0","-H", "100", "--normal", "green", "--high", "red"] 10
+                    , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ <fc=#99CCFF>%date%</fc>"
+       , template = "%StdinReader% }{ %eth0% "
        }

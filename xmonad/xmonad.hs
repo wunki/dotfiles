@@ -40,12 +40,12 @@ main = do
         , layoutHook = avoidStruts $ myLayout
         , logHook = dynamicLogWithPP $ xmobarPP 
                     { ppOutput = UTF8.hPutStrLn xmobar
-                    , ppUrgent = xmobarColor "#FF0000" ""
-                    , ppTitle = xmobarColor "#FFFF00" ""
+                    , ppUrgent = xmobarColor "#586e75" ""
+                    , ppTitle = xmobarColor "#93a1a1" ""
                     }
         , borderWidth = 1
-        , normalBorderColor  = "#222222"
-        , focusedBorderColor = "#99CCFF"
+        , normalBorderColor  = "#586e75"
+        , focusedBorderColor = "#93a1a1"
         , workspaces = ["1:Shell", "2:Editor", "3:Web", "4:Mail", "5:IRC", "6:General"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c

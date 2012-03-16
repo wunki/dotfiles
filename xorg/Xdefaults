@@ -1,14 +1,14 @@
-xcursor.theme: Human
+Xcursor.theme: Jimmac
 *customization: -color
 
 ! XFT Settings
-xft.autohint: 0
-xft.lcdfilter:  lcddefault
-xft.hintstyle:  hintfull
-xft.hinting: 1
-xft.antialias: 1
-xft.dpi: 96
-xft.rgba: rgb
+Xft.autohint: 0
+Xft.lcdfilter:  lcddefault
+Xft.hintstyle:  hintfull
+Xft.hinting: 1
+Xft.antialias: 1
+Xft.dpi: 96
+Xft.rgba: rgb
 
 ! RXVT Scripts
 urxvt.perl-lib: /home/wunki/.urxvt-scripts/
@@ -19,20 +19,17 @@ urxvt.keysym.M-c:   perl:clipboard:copy
 urxvt.keysym.M-v:   perl:clipboard:paste
 urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
-! RXVT-Unicode Transparency
-urxvt.shading: 10
-urxvt.depth: 32
-urxvt.background: rgba:1111/1111/1111/eeee
 
 ! Urxvt fonts
 urxvt.font:            xft:Ubuntu Mono:size=13
 urxvt.boldFont:        xft:Ubuntu Mono:bold:size=13
 urxvt.italicFont:	   xft:Ubuntu Mono:italic:size=13
-urxvt.boldItalicFont:  xft:Ubuntu Mono:bolditalic:size=13
+urxvt.boldItalicFont:  xft:Ubunte Mono:bolditalic:size=13
 
-urxvt.foreground: White
+! Urxvt settings
+urxvt.depth: 32
 urxvt.jumpScroll: True
-urxvt.fading: 50
+urxvt.fading: 20
 urxvt.scrollBar: False
 urxvt.scrollTtyOutput: False
 urxvt.scrollTtyKeypress: True
@@ -45,27 +42,63 @@ urxvt.termName: rxvt-256color
  
 ! Urls
 urxvt.perl-ext: default,matcher
-urxvt.urlLauncher: chromium
+urxvt.urlLauncher: firefox
 urxvt.matcher.button:   1
 urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 
-! Colors
-! Theme 10
-*foreground: rgb:aa/aa/aa
-*background: rgb:00/00/00
-*color0:     rgb:30/34/30
-*color1:     rgb:bf/79/79
-*color2:     rgb:97/b2/6b
-*color3:     rgb:cd/cd/c1
-*color4:     rgb:86/a2/be
-*color5:     rgb:d9/b7/98
-*color6:     rgb:a1/b5/cd
-*color7:     rgb:ff/ff/ff
-*color8:     rgb:cd/b5/cd
-*color9:     rgb:f4/a4/5f
-*color10:    rgb:c5/f7/79
-*color11:    rgb:ff/ff/ef
-*color12:    rgb:98/af/d9
-*color13:    rgb:d7/d9/98
-*color14:    rgb:a1/b5/cd
-*color15:    rgb:de/de/de
+!! Solarized dark
+
+#define S_base03        #002b36
+#define S_base02        #073642
+#define S_base01        #586e75
+#define S_base00        #657b83
+#define S_base0         #839496
+#define S_base1         #93a1a1
+#define S_base2         #eee8d5
+#define S_base3         #fdf6e3
+#define S_yellow        #b58900
+#define S_orange        #cb4b16
+#define S_red           #dc322f
+#define S_magenta       #d33682
+#define S_violet        #6c71c4
+#define S_blue          #268bd2
+#define S_cyan          #2aa198
+#define S_green         #859900
+
+*background:            S_base03
+*foreground:            S_base00
+*cursorColor:           S_base1
+*pointerColorBackground:S_base01
+*pointerColorForeground:S_base1
+
+!! black dark/light
+*color0:                S_base02
+*color8:                S_base03
+
+!! red dark/light
+*color1:                S_red
+*color9:                S_orange
+
+!! green dark/light
+*color2:                S_green
+*color10:               S_base01
+
+!! yellow dark/light
+*color3:                S_yellow
+*color11:               S_base00
+
+!! blue dark/light
+*color4:                S_blue
+*color12:               S_base0
+
+!! magenta dark/light
+*color5:                S_magenta
+*color13:               S_violet
+
+!! cyan dark/light
+*color6:                S_cyan
+*color14:               S_base1
+
+!! white dark/light
+*color7:                S_base2
+*color15:               S_base3

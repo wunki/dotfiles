@@ -22,7 +22,7 @@ if has("gui_running")
   set guioptions+=a
   set guioptions+=c
   colorscheme Tomorrow-Night
-  set guifont=Ubuntu\ Mono:h20
+  set guifont=Ubuntu\ Mono:h19
   set columns=80
   set lines=40
   set visualbell          " please, no sound

@@ -16,7 +16,7 @@ if has("gui_running")
   if has('mac')
     set guifont=Ubuntu\ Mono:h18
   else
-    set guifont=Ubuntu\ Mono\ 14
+    set guifont=Ubuntu\ Mono\ 13
   endif
   set guioptions-=e
   set guioptions-=T
@@ -27,8 +27,6 @@ if has("gui_running")
   set guioptions+=a
   set guioptions+=c
   colorscheme solarized
-  set columns=80
-  set lines=40
   set novisualbell        " please, no visuals
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing 

@@ -2,3 +2,8 @@ include "/home/wunki/.themes/MurrinaGilouche/gtk-2.0/gtkrc"
 include "/home/wunki/.gtkrc.mine"
 
 gtk-theme-name = "MurrinaGilouche"
+
+style "vimfix" {
+  bg[NORMAL] = "#002b36" # this matches my gvim theme 'Normal' bg color.
+}
+widget "vim-main-window.*GtkForm" style "vimfix"

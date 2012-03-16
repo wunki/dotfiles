@@ -13,10 +13,10 @@ filetype plugin indent on
 
 " GUI
 if has("gui_running")
-  if has('unix')
-    set guifont=Ubuntu\ Mono\ 13
+  if has('mac')
+    set guifont=Ubuntu\ Mono:h16
   else
-    set guifont=Ubuntu\ Mono:16
+    set guifont=Ubuntu\ Mono\ 14
   endif
   set guioptions-=e
   set guioptions-=T
@@ -32,6 +32,7 @@ if has("gui_running")
   set novisualbell        " please, no visuals
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing 
+  let g:Powerline_symbols = 'fancy' "pretty symbols for powerline
 else
   " 256 colors setting
   set t_Co=256

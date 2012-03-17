@@ -35,6 +35,9 @@ urxvtd -o -q -f &
 # Nice to haves
 #
 
+# Hide the mouse cursor
+unclutter &
+
 # Clipboard functionality
 parcellite &
 

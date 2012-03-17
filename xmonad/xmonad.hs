@@ -43,6 +43,7 @@ main = do
                     { ppOutput = UTF8.hPutStrLn xmobar
                     , ppUrgent = xmobarColor "#586e75" ""
                     , ppTitle = xmobarColor "#93a1a1" ""
+                    , ppCurrent = xmobarColor "#268bd2" ""
                     }
         , borderWidth = 1
         , normalBorderColor  = "#586e75"

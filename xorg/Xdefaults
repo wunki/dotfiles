@@ -1,12 +1,11 @@
-Xcursor.theme: Jimmac
-*customization: -color
+Xcursor.theme: Vanilla-DMZ-AA
+Xcursor.size:  22
 
 ! XFT Settings
 Xft.autohint: 0
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintslight
 Xft.hinting: 1
-Xft.antialias: 1
 Xft.dpi: 96
 Xft.rgba: rgb
 
@@ -42,7 +41,7 @@ urxvt.termName: rxvt-256color
  
 ! Urls
 urxvt.perl-ext: default,matcher
-urxvt.urlLauncher: firefox
+urxvt.urlLauncher: chromium
 urxvt.matcher.button:   1
 urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 
@@ -66,7 +65,7 @@ urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 #define S_green         #859900
 
 *background:            S_base03
-*foreground:            S_base00
+*foreground:            S_base2
 *cursorColor:           S_base1
 *pointerColorBackground:S_base01
 *pointerColorForeground:S_base1

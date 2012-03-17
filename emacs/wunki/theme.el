@@ -8,7 +8,7 @@
 ; fonts on the mac are rendered smaller.
 (if (eq system-type 'darwin)
   (set-default-font "DejaVu Sans Mono-17")
-  (set-default-font "Consolas-15"))
+  (set-default-font "Monaco-12"))
 
 (defun toggle-dark-light-theme ()
   "Switch between dark and light theme."

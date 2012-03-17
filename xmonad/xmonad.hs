@@ -61,11 +61,11 @@ standardLayout = tiled ||| Full ||| Grid
           ratio     = 3/5
           delta     = 3/100
 
-fullLayout = layoutHints(noBorders Full)
+fullBorders = noBorders Full
 
-myLayout = onWorkspace "2:Editor" fullLayout $
-	       onWorkspace "3:Web" Full $
-	       standardLayout
+myLayout = onWorkspace "2:Editor" fullBorders $
+	   onWorkspace "3:Web" Full $
+	   standardLayout
 
 -- Float & Window setup
 myManageHook :: ManageHook

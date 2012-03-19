@@ -8,13 +8,13 @@
          (address "petar@wunki.org")
          (organization "Wunki")
          (signature-file "~/.signature-wunki")
-         (x-url "http://www.wunki.org")
+         (x-url "https://www.wunki.org")
          (eval (setq message-sendmail-extra-arguments '("-a" "wunki"))))
         (".+breadandpepper.+"
          (address "petar@breadandpepper.com")
          (organization "Bread & Pepper")
          (signature-file "~/.signature-bp")
-         (x-url "http://breadandpepper.com")
+         (x-url "http://www.breadandpepper.com")
          (eval (setq message-sendmail-extra-arguments '("-a" "breadandpepper"))))))
 
 ; parameters
@@ -34,6 +34,18 @@
 ; don't ask me how much to download
 (setq gnus-large-newsgroup 'nil)
 
+; expire news
+(setq nnmail-expiry-wait-function
+           (lambda (group)
+            (cond ((string= group "nnimap:wunki")
+                    31)
+                  ((string= group "mail.junk")
+                    1)
+                  ((string= group "important")
+                    'never)
+                  (t
+                    6))))
+
 ; bbdb
 (add-to-list 'load-path "~/.emacs.d/vendor/bbdb-2.35/lisp/")
 (require 'bbdb)
@@ -42,7 +54,7 @@
 (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
 
 (setq
- bbdb-file "~/Dropbox/Contacts/bbdb"
+ bbdb-file "~/dropbox/Dropbox/Contacts/bbdb"
  bbdb-offer-save 'auto
  bbdb-complete-name-full-completion t
  bbdb-completion-type 'primary-or-name
@@ -61,7 +73,7 @@
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 
 ; reading mail
-(setq gnus-select-method 
+(setq gnus-select-method
       '(nnimap "wunki"
                (nnimap-address "127.0.0.1")
                (nnimap-stream network)
@@ -83,7 +95,7 @@
 (setq gnus-confirm-mail-reply-to-news t)
 
 ; sending mail
-(setq sendmail-program "/usr/local/bin/msmtpq"
+(setq sendmail-program "/usr/bin/msmtpq"
       message-send-mail-function 'message-send-mail-with-sendmail
       mail-specify-envelope-from t
       message-sendmail-f-is-evil nil                

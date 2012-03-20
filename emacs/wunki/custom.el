@@ -63,6 +63,12 @@
 (setq ispell-program-name "aspell")
 (setq ispell-list-command "list")
 
+; ack aliases
+(defalias 'ack 'ack-and-a-half)
+(defalias 'ack-same 'ack-and-a-half-same)
+(defalias 'ack-find-file 'ack-and-a-half-find-file)
+(defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
+
 ; save that theme is safe
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

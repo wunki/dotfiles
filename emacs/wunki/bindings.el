@@ -4,6 +4,7 @@
 (global-set-key (kbd "M-/") 'hippie-expand)
 (add-hook 'objc-mode-hook '(lambda ()
                             (local-set-key (kbd "C-c o") 'ff-find-other-file)))
+(global-set-key (kbd "<f10>") 'global-linum-mode)
 
 ; who needs shift when using forward/backwards paragraph
 (global-set-key (kbd "M-[") 'backward-paragraph)

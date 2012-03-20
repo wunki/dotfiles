@@ -6,7 +6,7 @@
 
 ; set the default font
 ; fonts on the mac are rendered smaller.
-(if (eq system-type 'darwin)dd
+(if (eq system-type 'darwin)
   (set-default-font "DejaVu Sans Mono-17")
   (set-default-font "DejaVu Sans Mono-11"))
 

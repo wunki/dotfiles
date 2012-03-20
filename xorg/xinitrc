@@ -25,6 +25,9 @@ xsetroot -cursor_name left_ptr
 # Set dvorak keymapping
 setxkbmap -layout us -variant dvorak
 
+# Replace Caps Lock by Control
+xmodmap ~/.xmodmap
+
 # Add keys to SSH agent
 eval `ssh-agent -s`
 

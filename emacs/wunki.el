@@ -16,7 +16,8 @@
 (package-initialize)
 
 (dolist (p '(slime slime-repl clojure-mode clojure-test-mode
-             paredit magit gist haskell-mode deft markdown-mode))
+             paredit magit gist haskell-mode deft markdown-mode
+             ack-and-a-half))
   (when (not (package-installed-p p))
     (package-install p)))
 

@@ -1,5 +1,22 @@
 (require 'gnus)
 
+; general settings
+(setq gnus-directory "~/news/"
+      gnus-article-save-directory "~/news/")
+
+; mail servers
+(setq gnus-select-method
+      '(nnimap "wunki"
+               (nnimap-address "127.0.0.1")
+               (nnimap-stream network)
+               (nnimap-authenticator login)))
+
+(setq gnus-secondary-select-methods
+      '((nnimap "breadandpepper"
+                (nnimap-address "127.0.0.1")
+                (nnimap-stream network)
+                (nnimap-authenticator login))))
+
 ; identification
 (setq gnus-posting-styles
       '((".*"
@@ -34,18 +51,6 @@
 ; don't ask me how much to download
 (setq gnus-large-newsgroup 'nil)
 
-; expire news
-(setq nnmail-expiry-wait-function
-           (lambda (group)
-            (cond ((string= group "nnimap:wunki")
-                    31)
-                  ((string= group "mail.junk")
-                    1)
-                  ((string= group "important")
-                    'never)
-                  (t
-                    6))))
-
 ; bbdb
 (add-to-list 'load-path "~/.emacs.d/vendor/bbdb-2.35/lisp/")
 (require 'bbdb)
@@ -71,19 +76,6 @@
 
 ; show headings for when using multiple mail boxes
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
-
-; reading mail
-(setq gnus-select-method
-      '(nnimap "wunki"
-               (nnimap-address "127.0.0.1")
-               (nnimap-stream network)
-               (nnimap-authenticator login)))
-
-(setq gnus-secondary-select-methods
-      '((nnimap "breadandpepper"
-                (nnimap-address "127.0.0.1")
-                (nnimap-stream network)
-                (nnimap-authenticator login))))
 
 ; I prefer reading e-mail in plain text
 (eval-after-load "mm-decode"

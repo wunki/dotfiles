@@ -2,6 +2,7 @@
 (global-set-key (kbd "C-c C-g") 'magit-status)
 (global-set-key (kbd "M-RET") 'ns-toggle-fullscreen)
 (global-set-key (kbd "M-/") 'hippie-expand)
+(global-set-key (kbd "C-x C-g") 'goto-line)
 (add-hook 'objc-mode-hook '(lambda ()
                             (local-set-key (kbd "C-c o") 'ff-find-other-file)))
 

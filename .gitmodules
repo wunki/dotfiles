@@ -55,3 +55,6 @@
 [submodule "vim/vim/bundle/powerline"]
 	path = vim/vim/bundle/powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
+[submodule "emacs/vendor/haskell-mode"]
+	path = emacs/vendor/haskell-mode
+	url = https://github.com/chrisdone/emacs.git

@@ -100,6 +100,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((modMask .|. controlMask, xK_l), sendMessage MagnifyLess)
     , ((modMask .|. controlMask, xK_m), sendMessage Toggle)
     , ((modMask .|. controlMask, xK_w), spawn "chromium")
+    , ((modMask .|. controlMask, xK_e), spawn "emacs")
     , ((modMask .|. controlMask, xK_m), raiseMaybe (runInTerm "-title mutt" "mutt") (title =? "mutt"))
     , ((modMask .|. controlMask, xK_c), raiseMaybe (runInTerm "-title irssi" "irssi") (title =? "irssi"))
     -- cycle through workspaces

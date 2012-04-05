@@ -16,4 +16,4 @@
   (if (eq (frame-parameter (next-frame) 'background-mode) 'dark)
       (load-theme 'solarized-light)
     (load-theme 'solarized-dark)))
-(global-set-key (kbd "<f8>") 'toggle-dark-light-theme)
+(global-set-key (kbd "<f10>") 'toggle-dark-light-theme)

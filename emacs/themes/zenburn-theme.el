@@ -4,7 +4,7 @@
 
 ;; Author: Bozhidar Batsov <bozhidar.batsov@gmail.com>
 ;; URL: http://github.com/bbatsov/zenburn-emacs
-;; Version: 0.1
+;; Version: 1.4
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -159,6 +159,12 @@
 
    ;;; external
 
+   ;; full-ack
+   `(ack-separator ((,class (:foreground ,zenburn-fg))))
+   `(ack-file ((,class (:foreground ,zenburn-blue))))
+   `(ack-line ((,class (:foreground ,zenburn-yellow))))
+   `(ack-match ((,class (:foreground ,zenburn-orange :background ,zenburn-bg-1 :weigth bold))))
+
    ;; auto-complete
    `(ac-candidate-face ((,class (:background ,zenburn-bg+3 :foreground "black"))))
    `(ac-selection-face ((,class (:background ,zenburn-blue-4 :foreground ,zenburn-fg))))
@@ -288,7 +294,7 @@
    `(ido-subdir ((,class (:foreground ,zenburn-yellow))))
 
    ;; linum-mode
-   `(linum ((,class (:foreground ,zenburn-fg-1 :background ,zenburn-bg-1))))
+   `(linum ((,class (:foreground ,zenburn-green+2 :background ,zenburn-bg))))
 
    ;; magit
    `(magit-section-title ((,class (:foreground ,zenburn-yellow :weight bold))))
@@ -427,7 +433,7 @@
    `(whitespace-trailing ((,class (:foreground ,zenburn-red :background ,zenburn-bg))))
    `(whitespace-line ((,class (:background ,zenburn-bg-05 :foreground ,zenburn-magenta))))
    `(whitespace-space-before-tab ((,class (:background ,zenburn-orange :foreground ,zenburn-orange))))
-   `(whitespace-indentation ((,class (:background ,zenburn-yellow, :foreground ,zenburn-red))))
+   `(whitespace-indentation ((,class (:background ,zenburn-yellow :foreground ,zenburn-red))))
    `(whitespace-empty ((,class (:background ,zenburn-yellow :foreground ,zenburn-red))))
    `(whitespace-space-after-tab ((,class (:background ,zenburn-yellow :foreground ,zenburn-red))))
 
@@ -461,12 +467,21 @@
    `(wl-highlight-summary-displaying-face ((,class (:underline t :weight bold))))
 
    ;; which-func-mode
-   `(which-func ((,class (:foreground ,zenburn-green+1))))))
+   `(which-func ((,class (:foreground ,zenburn-green+1)))))
 
-(custom-theme-set-variables
- 'zenburn
- '(ansi-color-names-vector [zenburn-bg zenburn-red zenburn-green zenburn-yellow
-                                       zenburn-blue zenburn-magenta zenburn-cyan zenburn-fg]))
+  ;;; custom theme variables
+  (custom-theme-set-variables
+   'zenburn
+   `(ansi-color-names-vector [,zenburn-bg ,zenburn-red ,zenburn-green ,zenburn-yellow
+                                          ,zenburn-blue ,zenburn-magenta ,zenburn-cyan ,zenburn-fg])
+
+   ;; fill-column-indicator
+   `(fci-rule-color ,zenburn-bg-05)))
+
+;;;###autoload
+(when load-file-name
+  (add-to-list 'custom-theme-load-path
+               (file-name-as-directory (file-name-directory load-file-name))))
 
 (provide-theme 'zenburn)
 

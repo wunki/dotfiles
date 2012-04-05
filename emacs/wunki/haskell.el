@@ -1,8 +1,5 @@
-;; Add the current dir for loading haskell-site-file.
-(add-to-list 'load-path ".")
-;; Always load via this. If you contribute you should run `make all`
-;; to regenerate this.
-(load "haskell-site-file")
+;; Load the general haskell file
+(load "~/.emacs.d/vendor/haskell-mode/haskell-site-file")
 
 ;; Customization
 (custom-set-variables
@@ -13,6 +10,7 @@
  ;; Cabal commands or generally things worth notifying.
  '(haskell-notify-p t))
 
+;; Add the settings below to the haskell-hook
 (add-hook 'haskell-mode-hook 'haskell-hook)
 (add-hook 'haskell-cabal-mode-hook 'haskell-cabal-hook)
 

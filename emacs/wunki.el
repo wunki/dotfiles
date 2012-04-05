@@ -33,4 +33,5 @@
 (load "wunki/theme")
 (load "wunki/temp_files")
 (load "wunki/org")
+(load "wunki/haskell")
 (load "wunki/gnus")

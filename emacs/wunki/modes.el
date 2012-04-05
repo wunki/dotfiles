@@ -31,11 +31,6 @@
 ; html
 (add-hook 'html-mode-hook 'turn-off-auto-fill)
 
-; haskell mode
-(load "~/.emacs.d/vendor/haskell-mode/haskell-site-file")
-(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-simple-indent)
-
 ; po-mode
 (setq auto-mode-alist 
       (cons '("\\.po\\'\\|\\.po\\." . po-mode) auto-mode-alist))

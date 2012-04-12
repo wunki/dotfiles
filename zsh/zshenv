@@ -25,7 +25,10 @@ export MM_CHARSET=UTF-8
 export LC_ALL=en_US.UTF-8
 
 # Paths
-export PATH="${HOME}/.bin:/usr/local/bin:/usr/local/sbin:${HOME}/.cabal/bin:${HOME}/.gem/ruby/1.9.1/bin:$PATH:"
+export PATH="${HOME}/.bin:/usr/local/bin:/usr/local/sbin:${HOME}/.gem/ruby/1.9.1/bin:$PATH:"
+
+# Haskell
+export PATH="${HOME}/.cabal/bin:${HOME}/Library/Haskell/bin:$PATH"
 
 # Perl
 export PATH="/usr/bin/vendor_perl:$PATH"

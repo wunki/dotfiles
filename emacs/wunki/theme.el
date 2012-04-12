@@ -2,12 +2,12 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
 ; default theme
-(load-theme 'zenburn)
+(load-theme 'solarized-light)
 
 ; set the default font
 ; fonts on the mac are rendered smaller.
 (if (eq system-type 'darwin)
-  (set-default-font "Monaco-17")
+  (set-default-font "Ubuntu Mono-20")
   (set-default-font "Ubuntu Mono-14"))
 
 (defun toggle-dark-light-theme ()

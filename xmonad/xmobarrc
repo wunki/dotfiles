@@ -1,4 +1,4 @@
-Config { font = "xft:inconsolata:size=9:antialias=true"
+Config { font = "xft:Ubuntu Mono:size=12:antialias=true"
        , bgColor = "#002b36"
        , fgColor = "#657b83"
        , position = TopSize L 100 30

@@ -1,5 +1,5 @@
 DOTFILES = $(PWD)
-all:: vim emacs zsh tmux xmonad xorg gtk irssi
+all:: vim emacs zsh tmux xmonad xorg gtk
 
 vim::
 	@ln -fs $(DOTFILES)/vim/vimrc        ${HOME}/.vimrc
@@ -47,6 +47,3 @@ gtk::
 	@ln -fs $(DOTFILES)/gtk/gtkrc.mine ${HOME}/.gtkrc.mine
 	@ln -fns $(DOTFILES)/gtk/themes ${HOME}/.themes
 	@echo GTK is symlinked.
-
-irssi::
-	@ln -fns $(DOTFILES)/irssi ${HOME}/.irssi

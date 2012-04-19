@@ -1,15 +1,16 @@
-Config { font = "xft:inconsolata:size=11:antialias=true"
+Config { font = "xft:inconsolata:size=9:antialias=true"
        , bgColor = "#002b36"
        , fgColor = "#657b83"
        , position = TopSize L 100 30
        , border = BottomB
        , borderColor = "#073642"
        , lowerOnStart = True
-       , commands = [ Run Network "eth0" ["-t", "<rx> KB | <tx> KB", "-L", "0","-H", "100", "--normal", "#859900", "--high", "#cb4b16"] 10
+       , commands = [ Run Network "wlan0" ["-t", "<rx> KB | <tx> KB", "-L", "0","-H", "100", "--normal", "#859900", "--high", "#cb4b16"] 10
                     , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    , Run Battery ["-t", "Battery: <left>"] 10
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %eth0% | %date% "
+       , template = "%StdinReader% }{ %battery% | %wlan0% | %date% "
        }

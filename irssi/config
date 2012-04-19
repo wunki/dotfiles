@@ -170,6 +170,13 @@ statusbar = {
       };
     };
     chanact = { items = { }; };
+    awl_0 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
   };
 };
 settings = {

@@ -2,7 +2,7 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
 ; default theme
-(load-theme 'solarized-light)
+(load-theme 'zenburn)
 
 ; set the default font
 ; fonts on the mac are rendered smaller.

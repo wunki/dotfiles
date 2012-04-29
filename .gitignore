@@ -2,5 +2,6 @@
 *.spl
 mail/imapfilter/certificates
 emacs/bookmarks
+emacs/var
 emacs/.org-id-locations
 *.dat

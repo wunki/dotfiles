@@ -6,14 +6,10 @@
 
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 
-; save path
-(setq org-directory (expand-file-name "~/Documents/Org"))
-
-; mobile
-(setq org-mobile-inbox-for-pull (concat org-directory "/inbox.org"))
-(setq org-mobile-directory "~/Dropbox/MobileOrg")
-
 ; org-files
+(setq org-directory (if (equal system-type 'gnu/linux)
+                        (expand-file-name "~/dropbox/Dropbox/Org/")
+                      (expand-file-name "~/Dropbox/Org")))
 (setq org-agenda-files (list (concat org-directory "/personal.org")
                              (concat org-directory "/bread-and-pepper.org")
                              (concat org-directory "/books.org")
@@ -25,7 +21,6 @@
 
 ; log the time
 (setq org-log-done 'time)
-
 
 ; Stop using paths for refile targets - we file directly with IDO
 (setq org-refile-use-outline-path nil)

@@ -125,7 +125,7 @@ map <leader>g :Gstatus<cr>
 au BufRead *.tex set tw=79
 
 " Mutt settings
-au BufRead /tmp/mutt-* set tw=72 formatoptions=tcql
+au BufRead ~/.mutt/tmp/mutt-* set tw=72 formatoptions=tcql colorcolumn=73
 
 " RestructuredText
 augroup rst

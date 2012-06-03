@@ -107,9 +107,9 @@ nnoremap <C-y> 3<C-y>
 
 " Whitespace
 set nowrap
-set tabstop=4
-set shiftwidth=4
-set expandtab
+set tabstop=4                     " tab width is 4 spaces
+set shiftwidth=4                  " indent is also with 4 spaces
+set expandtab                     " expand tabs to spaces
 set listchars=tab:▸\ ,trail:·,eol:¬
 
 let mapleader=','
@@ -130,7 +130,7 @@ au BufRead *.tex set tw=79
 au BufRead ~/.mutt/tmp/mutt-* set tw=72 formatoptions=tcql
 
 " C settings
-au FileType C set shiftwidth=4
+au FileType C setlocal shiftwidth=4 tabstop=4 cindent
 
 " RestructuredText
 augroup rst

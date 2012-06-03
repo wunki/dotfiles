@@ -4,6 +4,7 @@
 (define-key global-map (kbd "C-c c") 'org-capture)
 (define-key global-map (kbd "C-.") 'org-cycle-agenda-files)
 
+; archive method
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 
 ; org-files
@@ -17,7 +18,7 @@
       org-default-notes-file (concat org-directory "/inbox.org"))
 
 ; always use indent-mode
-(setq org-startup-indented t)
+; (setq org-startup-indented t)
 
 ; log the time
 (setq org-log-done 'time)

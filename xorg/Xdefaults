@@ -21,7 +21,7 @@ urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 ! Urxvt fonts
 urxvt.font:            xft:Ubuntu Mono:size=13
-urxvt.boldFont:        xft:Ubuntu Mono:bold:size=13
+urxvt.boldFont:        xft:Ubuntu Mono:size=13
 urxvt.italicFont:	   xft:Ubuntu Mono:italic:size=13
 urxvt.boldItalicFont:  xft:Ubunte Mono:bolditalic:size=13
 
@@ -41,7 +41,7 @@ urxvt.termName: rxvt-256color
  
 ! Urls
 urxvt.perl-ext: default,matcher
-urxvt.urlLauncher: chromium
+urxvt.urlLauncher: firefox
 urxvt.matcher.button:   1
 urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 

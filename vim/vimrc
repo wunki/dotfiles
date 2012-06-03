@@ -1,12 +1,12 @@
 " Vim configuration file by Petar Radosevic
-set cmdheight=2
+set cmdheight=2             " lower command line two lines high
 set nocompatible            " use vim defaults
-set encoding=utf-8
+set encoding=utf-8          " utf-8 encoding
 set fileencoding=utf-8
-set bg=dark
+set bg=dark                 " dark background
 syntax on                   " enable syntax highlighting
 
-" Pathogen
+" Pathogen for plugins
 filetype off
 call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
@@ -16,7 +16,7 @@ if has("gui_running")
   if has('mac')
     set guifont=Ubuntu\ Mono:h19
   else
-    set guifont=Ubuntu\ Mono\ 13
+    set guifont=Ubuntu\ Mono\ 14
   endif
   set guioptions-=e
   set guioptions-=T
@@ -26,14 +26,14 @@ if has("gui_running")
   set guioptions-=b
   set guioptions+=a
   set guioptions+=c
-  colorscheme solarized
+  colorscheme molokai
   set novisualbell        " please, no visuals
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing 
 else
   " 256 colors setting
   set t_Co=256
-  colorscheme solarized
+  colorscheme molokai
   set mouse=a
   set ttymouse=xterm
   set termencoding=utf-8

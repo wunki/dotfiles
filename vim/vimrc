@@ -40,11 +40,7 @@ else
 endif
 
 " Powerline settings
-if has("gui_running")
-  let g:Powerline_symbols = 'fancy' "pretty symbols for powerline
-endif
-"let g:Powerline_theme='solarized'
-"let g:Powerline_colorscheme='solarized'
+let g:Powerline_symbols = 'fancy' "pretty symbols for powerline
 
 " Editor configuration
 if has('unix')
@@ -129,7 +125,7 @@ map <leader>g :Gstatus<cr>
 au BufRead *.tex set tw=79
 
 " Mutt settings
-au BufRead /tmp/mutt-* set tw=72 formatoptions=tcql
+au BufRead ~/.mutt/tmp/mutt-* set tw=72 formatoptions=tcql colorcolumn=73
 
 " RestructuredText
 augroup rst

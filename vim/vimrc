@@ -27,20 +27,22 @@ if has("gui_running")
   set guioptions-=b
   set guioptions+=a
   set guioptions+=c
-  colorscheme twilight
+  colorscheme solarized
   set novisualbell        " please, no visuals
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing 
 else
   " 256 colors setting
   set t_Co=256
-  colorscheme twilight
+  colorscheme solarized
   set mouse=a
   set ttymouse=xterm
   set termencoding=utf-8
 endif
 
 " Powerline settings
+let g:Powerline_theme='skwp'
+let g:Powerline_colorscheme='skwp'
 if has('mac')
   let g:Powerline_symbols = 'fancy' "pretty symbols for powerline
 endif
@@ -73,10 +75,11 @@ set backspace=indent,eol,start
 set nonumber                " show line numbering
 set undofile                " create undofiles
 set formatoptions=qrn1
+set cursorline              " show me the line where the cursor is
 
 " colorcolumn
 set colorcolumn=+1          " color column one further than textwidth
-hi ColorColumn guibg=#2d2d2d
+hi ColorColumn guibg=#073642
 
 " Ignore these files in netrw
 let g:netrw_list_hide= '.*\.swp$,.*\~$,.*\.pyc$'
@@ -133,7 +136,7 @@ au BufRead *.tex set tw=79
 au BufRead ~/.mutt/tmp/mutt-* set tw=72 formatoptions=tcql
 
 " C settings
-au FileType C setlocal shiftwidth=4 tabstop=4 cindent
+au FileType C setlocal shiftwidth=4 tabstop=4 softtabstop=4 cindent
 
 " RestructuredText
 augroup rst

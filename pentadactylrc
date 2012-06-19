@@ -10,7 +10,7 @@ highlight CmdOutput font: normal 14px 'Menlo' !important;
 highlight CompItem font: normal 14px 'Menlo' !important;
 
 " Highlight all search matches, not just the first.
-set hlfind
+" set hlfind
 
 " Don't show name in title
 set titlestring=''

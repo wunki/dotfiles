@@ -10,12 +10,13 @@ syntax on                   " enable syntax highlighting
 " Pathogen for plugins
 filetype off
 call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 filetype plugin indent on
 
 " GUI
 if has("gui_running")
   if has('mac')
-    set guifont=Ubuntu\ Mono:h19
+    set guifont=Ubuntu\ Mono\ for\ Powerline:h19
   else
     set guifont=Ubuntu\ Mono\ 14
   endif

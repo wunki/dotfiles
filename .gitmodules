@@ -52,3 +52,6 @@
 [submodule "vim/vim/bundle/ctrlp"]
 	path = vim/vim/bundle/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git
+[submodule "vim/vim/bundle/gundo"]
+	path = vim/vim/bundle/gundo
+	url = http://github.com/sjl/gundo.vim.git

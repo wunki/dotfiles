@@ -10,6 +10,10 @@ alias gun="gunicorn_django --workers=2"
 alias clj="rlwrap clj"
 alias ec="emacsclient -t"
 
+# Pager
+alias less=$PAGER
+alias zless=$PAGER 
+
 # Don't correct sudo for me
 alias sudo='nocorrect sudo'
 

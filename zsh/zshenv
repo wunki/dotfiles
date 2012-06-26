@@ -7,7 +7,7 @@ export SAVEHIST=10000
 export ALTERNATE_EDITOR='ed'
 export EDITOR='vim'
 export VISUAL='vim'
-export PAGER=less
+export PAGER=vimpager
 export COLORTERM=yes
 export GREP_OPTIONS='--color=auto'
 export CLICOLOR=1

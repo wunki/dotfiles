@@ -54,6 +54,9 @@ xcompmgr -c -t-5 -l-5 -r4.2 -o.80 &
 # Dropbox
 dropboxd &
 
+# Start pulse audio
+# start-pulseaudio-x11 &
+
 #
 # Start XMonad
 #

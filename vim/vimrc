@@ -169,6 +169,7 @@ noremap <f3> :set invfu<cr>
 nnoremap j gj
 nnoremap k gk
 nnoremap <leader>a :Ack 
+nnoremap <F5> :GundoToggle<CR>
 
 " Switching windows
 map <C-k> <C-w><Up>

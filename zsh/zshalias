@@ -11,6 +11,10 @@ alias clj="rlwrap clj"
 alias ec="emacsclient -t"
 alias td="todo.sh -d ${HOME}/.todo.cfg"
 
+# Pager
+alias less=$PAGER
+alias zless=$PAGER 
+
 # Don't correct sudo for me
 alias sudo='nocorrect sudo'
 

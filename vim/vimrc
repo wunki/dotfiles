@@ -28,7 +28,7 @@ if has("gui_running")
   set guioptions-=b
   set guioptions+=a
   set guioptions+=c
-  colorscheme solarized
+  colorscheme twilight
   set novisualbell        " please, no visuals
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing 
@@ -42,8 +42,10 @@ else
 endif
 
 " Powerline settings
-let g:Powerline_theme='skwp'
-let g:Powerline_colorscheme='skwp'
+if !has("gui_running")
+  let g:Powerline_theme='skwp'
+  let g:Powerline_colorscheme='skwp'
+endif
 if has('mac')
   let g:Powerline_symbols = 'fancy' "pretty symbols for powerline
 endif
@@ -80,7 +82,7 @@ set cursorline              " show me the line where the cursor is
 
 " colorcolumn
 set colorcolumn=+1          " color column one further than textwidth
-hi ColorColumn guibg=#073642
+hi ColorColumn guibg=#303030
 
 " Ignore these files in netrw
 let g:netrw_list_hide= '.*\.swp$,.*\~$,.*\.pyc$'

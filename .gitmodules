@@ -55,3 +55,9 @@
 [submodule "vim/vim/bundle/gundo"]
 	path = vim/vim/bundle/gundo
 	url = http://github.com/sjl/gundo.vim.git
+[submodule "vim/vim/bundle/vim-orgmode"]
+	path = vim/vim/bundle/vim-orgmode
+	url = git://github.com/jceb/vim-orgmode.git
+[submodule "vim/vim/bundle/speeddating"]
+	path = vim/vim/bundle/speeddating
+	url = git://github.com/tpope/vim-speeddating.git

@@ -28,14 +28,14 @@ if has("gui_running")
   set guioptions-=b
   set guioptions+=a
   set guioptions+=c
-  colorscheme twilight
+  colorscheme badwolf
   set novisualbell        " please, no visuals
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing 
 else
   " 256 colors setting
   set t_Co=256
-  colorscheme solarized
+  colorscheme badwolf
   set mouse=a
   set ttymouse=xterm
   set termencoding=utf-8
@@ -49,6 +49,11 @@ endif
 if has('mac')
   let g:Powerline_symbols = 'fancy' "pretty symbols for powerline
 endif
+
+" Org mode
+let g:org_plugins = ['ShowHide', '|', 'Navigator', 'EditStructure', '|', 'Todo', 'Date', 'Misc']
+let g:org_todo_keywords = ['TODO', '|', 'DONE']
+let g:org_debug = 1
 
 " Editor configuration
 if has('unix')
@@ -172,6 +177,7 @@ nnoremap j gj
 nnoremap k gk
 nnoremap <leader>a :Ack 
 nnoremap <F5> :GundoToggle<CR>
+nnoremap <leader>t :vsplit $DROPBOX_PATH/Org<cr>3j
 
 " Switching windows
 map <C-k> <C-w><Up>

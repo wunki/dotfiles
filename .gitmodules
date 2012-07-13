@@ -61,3 +61,6 @@
 [submodule "vim/vim/bundle/speeddating"]
 	path = vim/vim/bundle/speeddating
 	url = git://github.com/tpope/vim-speeddating.git
+[submodule "vim/vim/bundle/badwolf"]
+	path = vim/vim/bundle/badwolf
+	url = git://github.com/sjl/badwolf.git

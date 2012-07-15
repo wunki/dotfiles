@@ -5,9 +5,9 @@ export SAVEHIST=10000
 
 # Common
 export ALTERNATE_EDITOR='ed'
-export EDITOR='vim'
-export VISUAL='vim'
-export PAGER=vimpager
+export EDITOR='emacsclient -t'
+export VISUAL='emacsclient -t'
+export PAGER=less
 export COLORTERM=yes
 export GREP_OPTIONS='--color=auto'
 export CLICOLOR=1

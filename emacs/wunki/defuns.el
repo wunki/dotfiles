@@ -10,3 +10,7 @@
      ((file-exists-p suffix) (require library)))
     (when (file-exists-p (concat wunki ".el"))
       (load wunki))))
+
+(defun string-rtrim (str)
+  "Remove trailing whitespace from `STR'."
+  (replace-regexp-in-string "[ \t\n]*$" "" str))

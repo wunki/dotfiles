@@ -14,6 +14,6 @@
   "Switch between dark and light theme."
   (interactive)
   (if (eq (frame-parameter (next-frame) 'background-mode) 'dark)
-      (load-theme 'sanityinc-solarized-light)
-    (load-theme 'sanityinc-solarized-dark)))
+      (load-theme 'sanityinc-tomorrow-day)
+    (load-theme 'sanityinc-tomorrow-night)))
 (global-set-key (kbd "<f10>") 'toggle-dark-light-theme)

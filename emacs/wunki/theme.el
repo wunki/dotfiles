@@ -2,7 +2,7 @@
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 
 ; default theme
-(load-theme 'sanityinc-solarized-light)
+(load-theme 'sanityinc-tomorrow-night)
 
 ; set the default font
 ; fonts on the mac are rendered smaller.

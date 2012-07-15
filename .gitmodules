@@ -28,9 +28,6 @@
 [submodule "vim/vim/bundle/vim-rooter"]
 	path = vim/vim/bundle/vim-rooter
 	url = https://github.com/airblade/vim-rooter.git
-[submodule "vim/vim/bundle/vimroom"]
-	path = vim/vim/bundle/vimroom
-	url = https://github.com/mikewest/vimroom.git
 [submodule "vim/vim/bundle/haskellmode-vim"]
 	path = vim/vim/bundle/haskellmode-vim
 	url = https://github.com/lukerandall/haskellmode-vim.git

@@ -7,7 +7,9 @@ This is particularly useful under Mac OSX, where GUI apps are not started from a
     (setenv "PATH" path-from-shell)
     (setq exec-path (split-string path-from-shell path-separator))))
 
-(when (and (eq system-type 'darwin) window-system)
-  (set-exec-path-from-shell-PATH))
+(if (and (eq system-type 'darwin) window-system)
+  (set-exec-path-from-shell-PATH)
+  (setq exec-path (append exec-path '("/home/wunki/.cabal/bin"
+                                      "/usr/lib/ghc/bin"))))
 
 (provide 'init-exec-path)

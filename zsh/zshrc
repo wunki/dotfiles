@@ -29,8 +29,8 @@ venv_cd () {
 }
 alias cd="venv_cd"
 
-# Bindings for Vim
-bindkey -v
+# Bindings for Emacs
+bindkey -e
 
 # CTRL-R for backwards history search
 bindkey "^r" history-incremental-search-backward

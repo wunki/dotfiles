@@ -1,16 +1,21 @@
 ;; Load the general haskell file
 (load "~/.emacs.d/vendor/haskell-mode/haskell-site-file")
 
-;; Customization
+; Customization
 (custom-set-variables
  ;; Use cabal-dev for the GHCi session. Ensures our dependencies are in scope.
  '(haskell-process-type 'cabal-dev)
  
  ;; Use notify.el (if you have it installed) at the end of running
  ;; Cabal commands or generally things worth notifying.
- '(haskell-notify-p t))
+ '(haskell-notify-p t)
 
-;; Add the settings below to the haskell-hook
+ ;; To enable tags generation on save.
+ '(haskell-tags-on-save t)
+
+ ;; To enable stylish on save.
+ '(haskell-stylish-on-save t))
+
 (add-hook 'haskell-mode-hook 'haskell-hook)
 (add-hook 'haskell-cabal-mode-hook 'haskell-cabal-hook)
 
@@ -42,8 +47,8 @@
   (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
 
   ;; Contextually do clever things on the space key, in particular:
-  ;;   1. Complete imports, letting you choose the module name.
-  ;;   2. Show the type of the symbol after the space.
+  ;; 1. Complete imports, letting you choose the module name.
+  ;; 2. Show the type of the symbol after the space.
   (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
 
   ;; Jump to the imports. Keep tapping to jump between import
@@ -55,7 +60,7 @@
 
   ;; Save the current buffer and generate etags (a TAGS file) for the
   ;; whole project.
-  (define-key haskell-mode-map (kbd "C-x C-s") 'haskell-mode-save-buffer-and-tags)
+  (define-key haskell-mode-map (kbd "C-x C-s") 'haskell-mode-save-buffer)
 
   ;; Indent the below lines on columns after the current column.
   (define-key haskell-mode-map (kbd "C-<right>")

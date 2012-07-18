@@ -43,9 +43,6 @@
 [submodule "vim/vim/bundle/powerline"]
 	path = vim/vim/bundle/powerline
 	url = https://github.com/Lokaltog/vim-powerline.git
-[submodule "emacs/vendor/haskell-mode"]
-	path = emacs/vendor/haskell-mode
-	url = https://github.com/haskell/haskell-mode.git
 [submodule "vim/vim/bundle/ctrlp"]
 	path = vim/vim/bundle/ctrlp
 	url = git://github.com/kien/ctrlp.vim.git

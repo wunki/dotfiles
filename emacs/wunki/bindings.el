@@ -24,7 +24,7 @@
 (global-unset-key (kbd "C-z"))
 
 ; set the command key as meta
-; (setq mac-command-modifier 'meta)
+;(setq mac-command-modifier 'meta)
 
 ; gist.github.com
 (define-key global-map (kbd "C-c p") 'gist-buffer)

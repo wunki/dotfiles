@@ -43,7 +43,7 @@ unclutter &
 parcellite &
 
 # Set background
-feh --bg-tile ~/dropbox/Dropbox/Pictures/Wallpapers/Solarized\ Tiles.png
+feh --bg-tile ~/Dropbox/Pictures/Wallpapers/Solarized\ Tiles.png
 
 # Be nice for my eyes
 redshift -l 52:4 -t 6000:4800 -m vidmode &

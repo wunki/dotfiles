@@ -5,11 +5,11 @@ Config { font = "xft:Ubuntu Mono:size=11:antialias=true"
        , border = BottomB
        , borderColor = "#073642"
        , lowerOnStart = True
-       , commands = [ Run Network "wlan0" ["-t", "<rx> DOWN | <tx> UP", "-L", "0","-H", "100", "--normal", "#859900", "--high", "#cb4b16"] 10
+       , commands = [ Run Network "eth0" ["-t", "<rx> DOWN | <tx> UP", "-L", "0","-H", "100", "--normal", "#859900", "--high", "#cb4b16"] 10
                     , Run Date "%H:%M:%S" "date" 10
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %wlan0% | %date% "
+       , template = "%StdinReader% }{ %eth0% | %date% "
        }

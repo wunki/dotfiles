@@ -58,3 +58,6 @@
 [submodule "vim/vim/bundle/badwolf"]
 	path = vim/vim/bundle/badwolf
 	url = git://github.com/sjl/badwolf.git
+[submodule "emacs/vendor/haskell-mode"]
+	path = emacs/vendor/haskell-mode
+	url = git://github.com/haskell/haskell-mode.git

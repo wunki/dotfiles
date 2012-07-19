@@ -5,7 +5,9 @@
       wl-stay-folder-window t                    ;; show the folder pane (left)
       wl-folder-window-width 25                  ;; toggle on/off with 'i'
       wl-fcc-force-as-read t
+      wl-draft-folder ".Wunki/Drafts"
       wl-default-folder ".Wunki/Inbox"
+      wl-queue-folder ".Wunki/Queue"
       wl-temporary-file-directory "~/.tmp/"
       wl-user-mail-address-list (quote ("petar@wunki.org" "petar@breadandpepper.com")))
 
@@ -26,6 +28,8 @@
          ("From" . wl-from)
          (signature-file-name . "~/.signature-wunki")
          (wl-smtp-posting-user . "petar@wunki.org")
+         (wl-local-domain . "wunki.org")
+         (wl-message-id-domain . "messagingengine.com")
          
          (wl-fcc . ".Wunki/Sent")
          (wl-draft-folder . ".Wunki/Drafts")
@@ -39,6 +43,7 @@
          (wl-smtp-posting-user . "petar@breadandpepper.com")
          (wl-smtp-posting-server . "mail.company.com")
          (wl-local-domain . "breadandpepper.com")
+         (wl-message-id-domain . "smtp.gmail.com")
 
          ("Fcc" . ".Bread & Pepper/Sent")
          (wl-draft-folder . ".Bread & Pepper/Drafts")
@@ -89,7 +94,6 @@
                                              '("-a" "wunki")
                                            '("-a" "breadandpepper"))))
 (add-hook 'wl-draft-send-hook 'choose-msmtp-account)
-
 
 ;; cycle through templates with arrow keys
 ;; (define-key wl-template-mode-map (kbd "<right>") 'wl-template-next)

@@ -31,7 +31,7 @@
          (wl-local-domain . "wunki.org")
          (wl-message-id-domain . "messagingengine.com")
          
-         (wl-fcc . ".Wunki/Sent")
+         ("Fcc" . ".Wunki/Sent")
          (wl-draft-folder . ".Wunki/Drafts")
          (wl-trash-folder . ".Wunki/Trash")
          (wl-queue-folder . ".Wunki/Queue"))
@@ -43,7 +43,7 @@
          (wl-smtp-posting-user . "petar@breadandpepper.com")
          (wl-smtp-posting-server . "mail.company.com")
          (wl-local-domain . "breadandpepper.com")
-         (wl-message-id-domain . "smtp.gmail.com")
+         (wl-message-id-domain . "gmail.com")
 
          ("Fcc" . ".Bread & Pepper/Sent")
          (wl-draft-folder . ".Bread & Pepper/Drafts")
@@ -96,5 +96,5 @@
 (add-hook 'wl-draft-send-hook 'choose-msmtp-account)
 
 ;; cycle through templates with arrow keys
-;; (define-key wl-template-mode-map (kbd "<right>") 'wl-template-next)
-;; (define-key wl-template-mode-map (kbd "<left>") 'wl-template-prev)
+(define-key wl-template-mode-map (kbd "<right>") 'wl-template-next)
+(define-key wl-template-mode-map (kbd "<left>") 'wl-template-prev)

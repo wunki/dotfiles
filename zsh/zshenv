@@ -17,7 +17,7 @@ export PORT=8000
 
 # Default browser
 if [ -n "$DISPLAY" ]; then
-    BROWSER=firefox
+    BROWSER=chromium
 fi
 
 # UTF-8 Locales

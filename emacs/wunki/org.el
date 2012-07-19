@@ -9,8 +9,8 @@
 
 ; org-files
 (setq org-directory (expand-file-name "~/Dropbox/Org"))
-(setq org-agenda-files (list (concat org-directory "/personal.org")
-                             (concat org-directory "/bread-and-pepper.org")
+(setq org-agenda-files (list (concat org-directory "/bread-and-pepper.org")
+                             (concat org-directory "/personal.org")
                              (concat org-directory "/books.org")
                              (concat org-directory "/inbox.org"))
       org-default-notes-file (concat org-directory "/inbox.org"))

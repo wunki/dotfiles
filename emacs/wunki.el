@@ -16,7 +16,8 @@
 (package-initialize)
 
 (dolist (p '(slime slime-repl clojure-mode clojure-test-mode
-             paredit magit gist deft markdown-mode ack-and-a-half))
+             paredit magit gist deft markdown-mode ack-and-a-half
+             color-theme-sanityinc-tomorrow))
   (when (not (package-installed-p p))
     (package-install p)))
 
@@ -25,7 +26,8 @@
 (vendor 'markdown-mode)
 (vendor 'puppet-mode)
 (vendor 'pandoc-mode)
-(vendor 'color-theme-tomorrow)
+(when (< emacs-major-version 24)
+  (vendor 'color-theme-tomorrow))
 (vendor 'hsenv)
 (vendor 'virtualenv)
 

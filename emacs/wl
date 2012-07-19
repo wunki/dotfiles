@@ -92,5 +92,5 @@
 
 
 ;; cycle through templates with arrow keys
-(define-key wl-template-mode-map (kbd "<right>") 'wl-template-next)
-(define-key wl-template-mode-map (kbd "<left>") 'wl-template-prev)
+;; (define-key wl-template-mode-map (kbd "<right>") 'wl-template-next)
+;; (define-key wl-template-mode-map (kbd "<left>") 'wl-template-prev)

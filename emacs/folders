@@ -1,0 +1,17 @@
+Wunki {
+      .Wunki/Inbox              "Inbox"
+      .Wunki/Sent               "Sent Mail"
+      .Wunki/Drafts             "Drafts"
+      .Wunki/Trash              "Trash"
+      .Wunki/Haskell Beginners  "Haskell Beginners"
+      .Wunki/Haskell Cafe       "Haskell Cafe"
+}
+
+Bread & Pepper {
+      .Bread & Pepper/Inbox     "Inbox"
+      .Bread & Pepper/Drafts    "Drafts"
+      .Bread & Pepper/Archive   "Archive"
+      .Bread & Pepper/Junk      "Junk"
+      .Bread & Pepper/Sent      "Sent"
+      .Bread & Pepper/Trash     "Trash"
+}

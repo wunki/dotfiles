@@ -25,7 +25,7 @@
 (vendor 'markdown-mode)
 (vendor 'puppet-mode)
 (vendor 'pandoc-mode)
-(vendor 'color-theme-twilight)
+(vendor 'color-theme-tomorrow)
 (vendor 'hsenv)
 (vendor 'virtualenv)
 

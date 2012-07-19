@@ -1,8 +1,11 @@
 ; some manually installed themes
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-
-; default theme
-(load-theme 'sanityinc-tomorrow-night)
+(if (>= emacs-major-version 24)
+  (progn
+    (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
+    (load-theme 'sanityinc-tomorow-night))
+  (progn
+    (require 'color-theme)
+    (color-theme-tomorrow-night)))
 
 ; set the default font
 ; fonts on the mac are rendered smaller.

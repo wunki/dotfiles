@@ -1,7 +1,11 @@
 ;; Load the general haskell file
 (load "~/.emacs.d/vendor/haskell-mode/haskell-site-file")
 
-; Customization
+;; Load ghc-mod
+(autoload 'ghc-init "ghc" nil t)
+(add-hook 'haskell-mode-hook (lambda () (ghc-init)))
+
+;; Customization
 (custom-set-variables
  ;; Use cabal-dev for the GHCi session. Ensures our dependencies are in scope.
  '(haskell-process-type 'cabal-dev)

@@ -5,7 +5,9 @@
 
 ; customization file, containing personal preferences.
 (setq-default tab-width 2 indent-tabs-mode nil)
-(column-number-mode 1) ;; show column numbers
+
+; show column numbers
+(column-number-mode 1) 
 
 ; email settings
 (setq user-full-name "Petar Radosevic")
@@ -16,13 +18,13 @@
 (autoload 'wl-other-frame "wl" "Wanderlust on new frame." t)
 (autoload 'wl-draft "wl-draft" "Write draft with Wanderlust." t)
 
-; Unicode
+; unicode
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
 ; flash instead of bell
-; (setq visible-bell t)
+(setq visible-bell t)
 (setq ring-bell-function (lambda nil (message "")))
 
 ; don't blink the cursor

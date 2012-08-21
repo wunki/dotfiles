@@ -9,7 +9,6 @@ alias rmpyc="find . -name '*.pyc' | xargs rm"
 alias gun="gunicorn_django --workers=2"
 alias clj="rlwrap clj"
 alias ec="emacsclient -t"
-alias td="todo.sh"
 
 # Pager
 alias less=$PAGER

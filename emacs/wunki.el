@@ -17,7 +17,7 @@
 
 (dolist (p '(slime slime-repl clojure-mode clojure-test-mode
              paredit magit gist deft markdown-mode ack-and-a-half
-             color-theme-sanityinc-tomorrow))
+             color-theme-sanityinc-tomorrow zenburn-theme))
   (when (not (package-installed-p p))
     (package-install p)))
 

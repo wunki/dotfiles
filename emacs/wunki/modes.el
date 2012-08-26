@@ -55,3 +55,6 @@
 
 ; vagrant
 (add-to-list 'auto-mode-alist '("VagrantFile" . ruby-mode))
+
+; twittering mode
+(setq twittering-use-master-password t)

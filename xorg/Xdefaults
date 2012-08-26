@@ -22,7 +22,7 @@ urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 ! Urxvt fonts
 urxvt.font:            xft:Ubuntu Mono:size=13
 urxvt.boldFont:        xft:Ubuntu Mono:size=13
-urxvt.italicFont:	   xft:Ubuntu Mono:italic:size=13
+urxvt.italicFont:	     xft:Ubuntu Mono:italic:size=13
 urxvt.boldItalicFont:  xft:Ubunte Mono:bolditalic:size=13
 
 ! Urxvt settings
@@ -38,10 +38,16 @@ urxvt.pointerBlank: True
 urxvt.scrollWithBuffer: False
 urxvt.print-pipe: cat > $HOME/rxvt.print
 urxvt.termName: rxvt-256color
+
+! Emacs
+Emacs.fontBackend: xft
+Emacs.menuBar: off
+Emacs.toolBar: off
+Emacs.verticalScrollBars: off
  
 ! Urls
 urxvt.perl-ext: default,matcher
-urxvt.urlLauncher: firefox
+urxvt.urlLauncher: iceweasel
 urxvt.matcher.button:   1
 urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 

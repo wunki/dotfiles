@@ -63,7 +63,7 @@ standardLayout = tiled ||| Full ||| Grid
 
 fullBorders = noBorders Full
 
-myLayout = onWorkspace "2:Editor" fullBorders $
+myLayout = onWorkspace "2:Code" fullBorders $
 	   onWorkspace "3:Web" Full $
 	   standardLayout
 
@@ -74,6 +74,7 @@ myManageHook = manageDocks <+> composeAll
     , className =? "Chromium"             --> doF (W.shift "3:Web")
     , className =? "Firefox-bin"          --> doF (W.shift "3:Web")
     , className =? "Firefox"              --> doF (W.shift "3:Web")
+    , className =? "Iceweasel"            --> doF (W.shift "3:Web")
     , className =? "Emacs"                --> doF (W.shift "2:Code")
     , className =? "Emacsclient"          --> doF (W.shift "2:Code")
     , className =? "GVIM"                 --> doF (W.shift "2:Code")

@@ -86,10 +86,3 @@ export NOSE_WITH_COVERAGE=true
 
 # PIP
 export PIP_DOWNLOAD_CACHE=$HOME/.pip-cache
-
-# Dropbox
-if [ `uname` = "Linux" ]; then
-    export DROPBOX_PATH="${HOME}/dropbox/Dropbox"
-else
-    export DROPBOX_PATH="${HOME}/dropbox"
-fi

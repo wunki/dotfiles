@@ -42,9 +42,6 @@ unclutter &
 # Clipboard functionality
 # parcellite &
 
-# Set background
-feh --bg-fill ~/pictures/wet-grass.jpg
-
 # Be nice for my eyes
 # redshift -l 52:4 -t 6000:4800 -m vidmode &
 
@@ -52,9 +49,13 @@ feh --bg-fill ~/pictures/wet-grass.jpg
 # xcompmgr -c -t-5 -l-5 -r4.2 -o.80 &
 
 # Dropbox
-# dropboxd &
+/home/wunki/.dropbox-dist/dropboxd &
 
+# Start VMWare user
 vmware-user &
+
+# Set background
+feh --bg-tile ~/Dropbox/dropbox/Pictures/Wallpapers/Solarized\ Tiles.png
 
 #
 # Start XMonad

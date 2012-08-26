@@ -9,7 +9,11 @@
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 
 ; org-files
-(setq org-directory (expand-file-name "~/Dropbox/Org"))
+; call me nuts but I only want lowercase on my linux system
+(setq org-directory (if (string-equal system-type "gnu/linux")
+                        (expand-file-name "~/dropbox/Dropbox/Org")
+                      (expand-file-name "~/Dropbox/Org")))
+
 (setq org-agenda-files (list (concat org-directory "/bread-and-pepper.org")
                              (concat org-directory "/personal.org")
                              (concat org-directory "/books.org")

@@ -1,9 +1,18 @@
 (require 'gnus)
 
-
 ; general settings
-(setq gnus-directory "~/news/"
-      gnus-article-save-directory "~/news/")
+(setq gnus-directory "~/.gnus/news/"
+      gnus-article-save-directory "~/.gnus/news/"
+
+      ;; annoying mail folders
+      message-auto-save-directory "~/.gnus/archive"
+      nndraft-directory "~/.gnus/archive"
+
+      gnus-message-archive-method
+      '(nnfolder "archive"
+                 (nnfolder-inhibit-expiry t)
+                 (nnfolder-active-file "~/.gnus/archive/active")
+                 (nnfolder-directory "~/.gnus/archive")))
 
 ; mail servers
 (setq gnus-select-method
@@ -14,9 +23,20 @@
 
 (setq gnus-secondary-select-methods
       '((nnimap "breadandpepper"
-                (nnimap-address "127.0.0.1")
+                (nnimap-address "debian.wunki.org")
                 (nnimap-stream network)
                 (nnimap-authenticator login))))
+
+; archiving the messages
+(setq gnus-message-archive-group
+           '(("^INBOX.*" "nnimap+wunki:INBOX.Sent Items")
+             (".*" "nnimap+wunki:INBOX.Sent Items")))
+
+(setq gnus-parameters
+      '(("^INBOX.*" 
+         (gcc-self . "nnimap+wunki:INBOX.Sent Items"))
+        (".*"
+         (gcc-self . "nnimap+wunki:INBOX.Sent Items"))))
 
 ; identification
 (setq gnus-posting-styles
@@ -25,22 +45,15 @@
         ("INBOX.*"
          (address "petar@wunki.org")
          (organization "Wunki")
-         (signature-file "~/.signature-wunki")
+         (signature-file "~/.gnus/signature-wunki")
          (x-url "https://www.wunki.org")
          (eval (setq message-sendmail-extra-arguments '("-a" "wunki"))))
         (".+breadandpepper.+"
          (address "petar@breadandpepper.com")
          (organization "Bread & Pepper")
-         (signature-file "~/.signature-bp")
+         (signature-file "~/.gnus/signature-bp")
          (x-url "http://www.breadandpepper.com")
          (eval (setq message-sendmail-extra-arguments '("-a" "breadandpepper"))))))
-
-; parameters
-(setq gnus-parameters
-      '(("INBOX.*"
-         (gcc-self . "INBOX.Sent Items"))
-        (".+breadandpepper.+"
-         (gcc-self . nil))))
 
 ; spell check on sent
 (add-hook 'message-send-hook 'ispell-message) ; spell check on sent
@@ -60,7 +73,7 @@
 (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
 
 (setq
- bbdb-file "~/dropbox/Dropbox/Contacts/bbdb"
+ bbdb-file "~/.gnus/contacts/bbdb"
  bbdb-offer-save 'auto
  bbdb-complete-name-full-completion t
  bbdb-completion-type 'primary-or-name
@@ -88,7 +101,7 @@
 (setq gnus-confirm-mail-reply-to-news t)
 
 ; sending mail
-(setq sendmail-program "/usr/bin/msmtpq"
+(setq sendmail-program "/home/wunki/.bin/msmtpq"
       message-send-mail-function 'message-send-mail-with-sendmail
       mail-specify-envelope-from t
       message-sendmail-f-is-evil nil                
@@ -153,18 +166,3 @@
 
 ; sign all my e-mails
 ; (add-hook 'gnus-message-setup-hook 'mml-secure-message-sign-pgpmime) ; sign all messages
-
-; use mail mode with mutt
-(defun mutt-mail-mode-hook ()
-  (turn-on-auto-fill) ;;; Auto-Fill is necessary for mails
-  (turn-on-font-lock) ;;; Font-Lock is always cool *g*
-  (flush-lines "^\\(> \n\\)*> -- \n\\(\n?> .*\\)*") 
-                      ;;; Kills quoted sigs.
-  (not-modified)      ;;; We haven't changed the buffer, haven't we? *g*
-  (mail-text)         ;;; Jumps to the beginning of the mail text
-  (setq make-backup-files nil)
-                      ;;; No backups necessary.
-)
-(or (assoc "mutt-" auto-mode-alist) 
-    (setq auto-mode-alist (cons '("mutt-" . mail-mode) auto-mode-alist)))
-(add-hook 'mail-mode-hook 'mutt-mail-mode-hook)

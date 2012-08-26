@@ -1,37 +1,37 @@
-import XMonad
-import XMonad.Util.Run(spawnPipe, runInTerm)
-import qualified XMonad.StackSet as W -- to shift and float windows
-import XMonad.Actions.CycleWS
+import           XMonad
+import           XMonad.Actions.CycleWS
+import qualified XMonad.StackSet              as W
+import           XMonad.Util.Run              (runInTerm, spawnPipe)
 
 -- Hooks
-import XMonad.Hooks.ManageDocks
-import XMonad.Hooks.DynamicLog
-import XMonad.Hooks.UrgencyHook
-import XMonad.Hooks.SetWMName
-import XMonad.Hooks.FadeInactive
+import           XMonad.Hooks.DynamicLog
+import           XMonad.Hooks.FadeInactive
+import           XMonad.Hooks.ManageDocks
+import           XMonad.Hooks.SetWMName
+import           XMonad.Hooks.UrgencyHook
 
 -- Actions
-import XMonad.Actions.SpawnOn
-import XMonad.Actions.WindowGo
+import           XMonad.Actions.SpawnOn
+import           XMonad.Actions.WindowGo
 
 -- Layouts
-import XMonad.Layout.PerWorkspace
-import XMonad.Layout.ResizableTile
-import XMonad.Layout.Grid
-import XMonad.Layout.IM
-import XMonad.Layout.NoBorders
-import XMonad.Layout.DwmStyle
-import XMonad.Layout.Magnifier
-import XMonad.Layout.StackTile
-import XMonad.Layout.LayoutHints
+import           XMonad.Layout.DwmStyle
+import           XMonad.Layout.Grid
+import           XMonad.Layout.IM
+import           XMonad.Layout.LayoutHints
+import           XMonad.Layout.Magnifier
+import           XMonad.Layout.NoBorders
+import           XMonad.Layout.PerWorkspace
+import           XMonad.Layout.ResizableTile
+import           XMonad.Layout.StackTile
 
 -- Keys
-import Graphics.X11.ExtraTypes.XF86
-import qualified Data.Map as M
+import qualified Data.Map                     as M
+import           Graphics.X11.ExtraTypes.XF86
 
-import System.IO
-import Data.IORef
-import qualified System.IO.UTF8 as UTF8
+import           Data.IORef
+import           System.IO
+import qualified System.IO.UTF8               as UTF8
 
 main = do
     xmobar <- spawnPipe "xmobar"  -- start xmobar
@@ -39,7 +39,7 @@ main = do
         { manageHook = manageHook'
         , modMask = mod4Mask
         , layoutHook = avoidStruts $ myLayout
-        , logHook = dynamicLogWithPP $ xmobarPP 
+        , logHook = dynamicLogWithPP $ xmobarPP
                     { ppOutput = UTF8.hPutStrLn xmobar
                     , ppUrgent = xmobarColor "#586e75" ""
                     , ppTitle = xmobarColor "#93a1a1" ""
@@ -79,7 +79,7 @@ myManageHook = manageDocks <+> composeAll
     , className =? "GVIM"                 --> doF (W.shift "2:Code")
     , className =? "Thunar"               --> doF (W.shift "5:General")
     ]
- 
+
 manageHook' :: ManageHook
 manageHook' = (doF W.swapDown) <+> manageDocks <+> manageHook defaultConfig <+> myManageHook
 
@@ -105,7 +105,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     -- cycle through workspaces
     , ((modMask, xK_e), moveTo Next (WSIs (return $ not . (=="SP") . W.tag)))
     , ((modMask, xK_a), moveTo Prev (WSIs (return $ not . (=="SP") . W.tag)))
-    , ((modMask, xK_p), spawn "dmenu_run -i -b -fn Ubuntu-12 -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#268bd2' -p '>' ") -- %! Launch dmenu
+    , ((modMask, xK_t), spawn "dmenu_run -i -b -fn Ubuntu-15 -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#268bd2' -p '>' ") -- %! Launch dmenu
     ]
 
 -- | Perform an arbitrary action at xmonad startup.

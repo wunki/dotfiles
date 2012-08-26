@@ -27,7 +27,7 @@ setxkbmap -layout us -variant dvorak
 setxkbmap -option ctrl:nocaps 
 
 # Add keys to SSH agent
-# eval `ssh-agent -s`
+eval `ssh-agent -s`
 
 # Start rvxt-unicode server
 urxvtd -o -q -f &

@@ -17,7 +17,7 @@
       org-default-notes-file (concat org-directory "/inbox.org"))
 
 ; always use indent-mode
-; (setq org-startup-indented t)
+(setq org-startup-indented t)
 
 ; log the time
 (setq org-log-done 'time)

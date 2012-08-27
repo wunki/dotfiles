@@ -14,9 +14,9 @@
 (setq user-mail-address "petar@wunki.org")
 
 ; wanderlust
-(autoload 'wl "wl" "Wanderlust" t)
-(autoload 'wl-other-frame "wl" "Wanderlust on new frame." t)
-(autoload 'wl-draft "wl-draft" "Write draft with Wanderlust." t)
+;; (autoload 'wl "wl" "Wanderlust" t)
+;; (autoload 'wl-other-frame "wl" "Wanderlust on new frame." t)
+;; (autoload 'wl-draft "wl-draft" "Write draft with Wanderlust." t)
 
 ; unicode
 (set-terminal-coding-system 'utf-8)

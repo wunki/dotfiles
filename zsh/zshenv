@@ -73,12 +73,12 @@ fi
 export WORKON_HOME=$HOME/.virtualenvs
 
 if [ -e "/usr/local/bin/virtualenvwrapper.sh" ]; then
-    source /usr/local/bin/virtualenvwrapper.sh
+   source /usr/local/bin/virtualenvwrapper.sh
 fi
 
 if [ -e "/usr/bin/virtualenvwrapper.sh" ]; then
-    export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python2.7"
-    source /usr/bin/virtualenvwrapper.sh
+   export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python2.7"
+   source /usr/bin/virtualenvwrapper.sh
 fi
 
 # Python's nose

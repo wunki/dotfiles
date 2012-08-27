@@ -1,12 +1,13 @@
-; disable scrollbars and menu bar
-; only on mac, because we do this in .Xdefaults in linux
-(if (string-equal system-type "darwin")
-    ((if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-     (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-     (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))))
+; disable scrollbars and menu bar on the mac
+; disable it with .Xdefaults in linux
+(when (string-equal system-type "darwin")
+  (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+  (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+  (when (fboundp 'menu-bar-mode) (menu-bar-mode -1)))
 
-; customization file, containing personal preferences.
-(setq-default tab-width 2 indent-tabs-mode nil)
+; default tab-width is two spaces
+(setq-default tab-width 2
+              indent-tabs-mode nil)
 
 ; show column numbers
 (column-number-mode 1) 
@@ -14,11 +15,6 @@
 ; email settings
 (setq user-full-name "Petar Radosevic")
 (setq user-mail-address "petar@wunki.org")
-
-; wanderlust
-;; (autoload 'wl "wl" "Wanderlust" t)
-;; (autoload 'wl-other-frame "wl" "Wanderlust on new frame." t)
-;; (autoload 'wl-draft "wl-draft" "Write draft with Wanderlust." t)
 
 ; unicode
 (set-terminal-coding-system 'utf-8)

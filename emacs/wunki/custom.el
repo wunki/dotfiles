@@ -1,7 +1,9 @@
 ; disable scrollbars and menu bar
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+; only on mac, because we do this in .Xdefaults in linux
+(if (string-equal system-type "darwin")
+    ((if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+     (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+     (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))))
 
 ; customization file, containing personal preferences.
 (setq-default tab-width 2 indent-tabs-mode nil)

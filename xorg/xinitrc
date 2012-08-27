@@ -5,10 +5,10 @@ xrdb -merge .Xresources
 xrdb -merge .Xdefaults
 
 # QT must be able to find my theme
-export GTK2_RC_FILES="$HOME/.gtkrc-2.0"   
+# export GTK2_RC_FILES="$HOME/.gtkrc-2.0"   
 
 # Turn on numlock
-numlockx on &
+# numlockx on &
 
 # Disable PC-Speaker
 xset b off &
@@ -40,22 +40,22 @@ urxvtd -o -q -f &
 unclutter &
 
 # Clipboard functionality
-parcellite &
-
-# Set background
-feh --bg-tile ~/Dropbox/Pictures/Wallpapers/Solarized\ Tiles.png
+# parcellite &
 
 # Be nice for my eyes
-redshift -l 52:4 -t 6000:4800 -m vidmode &
+# redshift -l 52:4 -t 6000:4800 -m vidmode &
 
 # Transparency!
-xcompmgr -c -t-5 -l-5 -r4.2 -o.80 &
+# xcompmgr -c -t-5 -l-5 -r4.2 -o.80 &
 
 # Dropbox
-dropboxd &
+/home/wunki/.dropbox-dist/dropboxd &
 
-# Start pulse audio
-# start-pulseaudio-x11 &
+# Start VMWare user
+vmware-user &
+
+# Set background
+feh --bg-tile ~/Dropbox/dropbox/Pictures/Wallpapers/Solarized\ Tiles.png
 
 #
 # Start XMonad

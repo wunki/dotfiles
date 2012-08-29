@@ -30,9 +30,6 @@
 (define-key global-map (kbd "C-c p") 'gist-buffer)
 (define-key global-map (kbd "C-c C-p") 'gist-region)
 
-; deft
-(define-key global-map (kbd "C-c C-n") 'deft)
-
 ; quickly edit emacs config with ido
 (define-key global-map (kbd "C-c C-e") 
   '(lambda () 

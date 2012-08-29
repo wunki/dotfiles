@@ -4,6 +4,7 @@
 (define-key global-map (kbd "C-c c") 'org-capture)
 (define-key global-map (kbd "C-c b") 'org-iswitchb)
 (define-key global-map (kbd "C-.") 'org-cycle-agenda-files)
+(define-key global-map (kbd "<f8>") 'org-agenda)
 
 ; archive method
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
@@ -57,3 +58,36 @@
 (setq org-confirm-babel-evaluate nil)
 (setq org-src-fontify-natively t)
 (setq org-src-tab-acts-natively t)
+
+; capture templates
+
+(setq org-capture-templates
+      (quote (("t" "todo" entry (file (concat org-directory "inbox.org"))
+               "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
+              ("n" "note" entry (file (concat org-directory "inbox.org"))
+               "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
+              ("j" "journal" entry (file+datetree (concat org-directory "diary.org"))
+               "* %?\n%U\n" :clock-in t :clock-resume t))))
+
+; tags
+; Tags with fast selection keys
+(setq org-tag-alist (quote ((:startgroup)
+                            ("@errand" . ?e)
+                            ("@office" . ?o)
+                            ("@home" . ?h)
+                            (:endgroup)
+                            ("phone" . ?m)
+                            ("waiting" . ?w)
+                            ("hold" . ?p)
+                            ("personal" . ?p)
+                            ("work" . ?b)
+                            ("tweak" . ?t)
+                            ("note" . ?n)
+                            ("cancelled" . ?c)
+                            ("flagged" . ??))))
+
+; allow setting single tags without the menu
+(setq org-fast-tag-selection-single-key (quote expert))
+
+; For tag searches ignore tasks with scheduled and deadline dates
+(setq org-agenda-tags-todo-honor-ignore-options t)

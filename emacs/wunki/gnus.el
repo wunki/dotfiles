@@ -1,5 +1,8 @@
 (require 'gnus)
 
+; hotkey for gnus
+(define-key global-map (kbd "<f7>") 'gnus)
+
 ; general settings
 (setq gnus-directory "~/.gnus/news/"
       gnus-article-save-directory "~/.gnus/news/"

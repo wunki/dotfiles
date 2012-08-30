@@ -15,8 +15,8 @@
 	           '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 
-(dolist (p '(slime slime-repl clojure-mode clojure-test-mode
-             paredit magit gist deft markdown-mode ack-and-a-half
+(dolist (p '(nrepl clojure-mode clojure-test-mode
+             paredit magit gist org markdown-mode ack-and-a-half
              color-theme-sanityinc-tomorrow zenburn-theme))
   (when (not (package-installed-p p))
     (package-install p)))

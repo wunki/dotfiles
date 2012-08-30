@@ -23,14 +23,14 @@
 
 (setq gnus-secondary-select-methods
       '((nnimap "breadandpepper"
-                (nnimap-address "debian.wunki.org")
+                (nnimap-address "arch.wunki.org")
                 (nnimap-stream network)
                 (nnimap-authenticator login))))
 
 ; archiving the messages
 (setq gnus-message-archive-group
-           '(("^INBOX.*" "nnimap+wunki:INBOX.Sent Items")
-             (".*" "nnimap+wunki:INBOX.Sent Items")))
+           '(("^INBOX.*" "nnimap+breadandpepper:sent")
+             (".*" "nnimap+wunki:sent")))
 
 (setq gnus-parameters
       '(("^INBOX.*" 

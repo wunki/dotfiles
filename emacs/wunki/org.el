@@ -11,7 +11,7 @@
 ; org-files
 ; call me nuts but I only want lowercase on my linux system
 (setq org-directory (if (string-equal system-type "gnu/linux")
-                        (expand-file-name "~/dropbox/Dropbox/Org")
+                        (expand-file-name "~/dropbox/Org")
                       (expand-file-name "~/Dropbox/Org")))
 
 (setq org-agenda-files (list (concat org-directory "/bread-and-pepper.org")

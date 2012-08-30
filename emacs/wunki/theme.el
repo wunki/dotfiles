@@ -11,7 +11,7 @@
 ; fonts on the mac are rendered smaller.
 (if (eq system-type 'darwin)
   (set-default-font "Ubuntu Mono-19")
-  (set-default-font "Ubuntu Mono-14"))
+  (set-default-font "Monospace-13"))
 
 (defun toggle-dark-light-theme-tomorrow ()
   "Switch between dark and light theme."
@@ -27,3 +27,7 @@
       (load-theme 'solarized-light)
     (load-theme 'solarized-dark)))
 (global-set-key (kbd "<f10>") 'toggle-dark-light-theme-solarized)
+
+; needed this because italic was also underlined, no idea why...
+(custom-set-faces
+ '(italic ((t (:slant italic)))))

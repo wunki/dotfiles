@@ -5,10 +5,10 @@ xrdb -merge .Xresources
 xrdb -merge .Xdefaults
 
 # QT must be able to find my theme
-# export GTK2_RC_FILES="$HOME/.gtkrc-2.0"   
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"   
 
 # Turn on numlock
-# numlockx on &
+numlockx on &
 
 # Disable PC-Speaker
 xset b off &
@@ -49,15 +49,12 @@ unclutter &
 # xcompmgr -c -t-5 -l-5 -r4.2 -o.80 &
 
 # Dropbox
-/home/wunki/.dropbox-dist/dropboxd &
-
-# Start VMWare user
-vmware-user &
+dropboxd &
 
 # Set background
-feh --bg-tile ~/Dropbox/dropbox/Pictures/Wallpapers/Solarized\ Tiles.png
+feh --bg-tile ~/dropbox/Pictures/Wallpapers/Solarized\ Tiles.png
 
 #
 # Start XMonad
 #
-exec ck-launch-session xmonad > $HOME/.xmonad.log 2>&1
+exec xmonad > $HOME/.xmonad.log 2>&1

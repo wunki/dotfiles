@@ -99,15 +99,14 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((modMask .|. controlMask, xK_p), sendMessage MagnifyMore)
     , ((modMask .|. controlMask, xK_l), sendMessage MagnifyLess)
     , ((modMask .|. controlMask, xK_m), sendMessage Toggle)
-    , ((modMask .|. controlMask, xK_w), spawn "chromium")
+    , ((modMask .|. controlMask, xK_w), spawn "firefox")
     , ((modMask .|. controlMask, xK_e), spawn "emacs")
     , ((modMask .|. controlMask, xK_m), raiseMaybe (runInTerm "-title mutt" "mutt") (title =? "mutt"))
     , ((modMask .|. controlMask, xK_c), raiseMaybe (runInTerm "-title irssi" "irssi") (title =? "irssi"))
     -- cycle through workspaces
     , ((modMask, xK_e), moveTo Next (WSIs (return $ not . (=="SP") . W.tag)))
     , ((modMask, xK_a), moveTo Prev (WSIs (return $ not . (=="SP") . W.tag)))
-    -- , ((modMask, xK_p), spawn "dmenu_run -i -b -fn Ubuntu-15 -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#268bd2' -p '>' ") -- %! Launch dmenu
-    , ((modMask, xK_p), spawn "gmrun") -- %! Launch gmrun
+    , ((modMask, xK_p), spawn "dmenu_run -i -b -fn Ubuntu-Mono-12 -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#268bd2' -p '>' ") -- %! Launch dmenu
     ]
 
 -- | Perform an arbitrary action at xmonad startup.

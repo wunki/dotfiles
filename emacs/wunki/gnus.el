@@ -32,14 +32,14 @@
 
 ; archiving the messages
 (setq gnus-message-archive-group
-           '(("^INBOX.*" "nnimap+breadandpepper:sent")
-             (".*" "nnimap+wunki:sent")))
+           '(("wunki" "nnimap+wunki:sent")
+             ("breadandpepper" nil)))
 
 (setq gnus-parameters
-      '(("^INBOX.*" 
-         (gcc-self . "nnimap+wunki:INBOX.Sent Items"))
-        (".*"
-         (gcc-self . "nnimap+wunki:INBOX.Sent Items"))))
+      '(("wunki" 
+         (gcc-self . "nnimap+wunki:sent"))
+        ("breadandpepper"
+         (gcc-self . nil))))
 
 ; identification
 (setq gnus-posting-styles

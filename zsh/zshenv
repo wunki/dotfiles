@@ -15,6 +15,9 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 export TERM=xterm-256color
 export PORT=8000
 
+# I don't want the e-mail notification
+unset MAILCHECK
+
 # Default browser
 if [ -n "$DISPLAY" ]; then
     BROWSER=chromium

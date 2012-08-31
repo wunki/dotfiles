@@ -11,8 +11,8 @@
 (when (not (require 'package nil t))
   (load-file "~/.emacs.d/package-23.el"))
 
-(add-to-list 'package-archives
-	           '("marmalade" . "http://marmalade-repo.org/packages/"))
+(setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 
 (dolist (p '(nrepl clojure-mode clojure-test-mode

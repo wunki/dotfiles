@@ -32,8 +32,8 @@
 
 ; archiving the messages
 (setq gnus-message-archive-group
-           '(("wunki" "nnimap+wunki:sent")
-             ("breadandpepper" nil)))
+           '((".*breadandpepper.*" nil)
+             (".*" "nnimap+wunki:sent")))
 
 (setq gnus-parameters
       '(("wunki" 
@@ -58,9 +58,6 @@
          (x-url "http://www.breadandpepper.com")
          (eval (setq message-sendmail-extra-arguments '("-a" "breadandpepper"))))))
 
-; spell check on sent
-(add-hook 'message-send-hook 'ispell-message) ; spell check on sent
-
 ; don't ignore groups
 (setq gnus-ignored-newsgroups ""
       gnus-subscribe-newsgroup-method (quote gnus-subscribe-topics))
@@ -69,10 +66,7 @@
 (setq gnus-large-newsgroup 'nil)
 
 ; bbdb
-(add-to-list 'load-path "~/.emacs.d/vendor/bbdb-2.35/lisp/")
-(require 'bbdb)
-(require 'bbdb-autoloads)
-(bbdb-initialize)
+(bbdb-initialize 'gnus 'message)
 (add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
 
 (setq

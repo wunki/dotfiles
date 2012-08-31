@@ -62,11 +62,11 @@
 ; capture templates
 
 (setq org-capture-templates
-      (quote (("t" "todo" entry (file (concat org-directory "inbox.org"))
+      (quote (("t" "todo" entry (file (concat org-directory "/inbox.org"))
                "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
-              ("n" "note" entry (file (concat org-directory "inbox.org"))
+              ("n" "note" entry (file (concat org-directory "/inbox.org"))
                "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
-              ("j" "journal" entry (file+datetree (concat org-directory "diary.org"))
+              ("j" "journal" entry (file+datetree (concat org-directory "/diary.org"))
                "* %?\n%U\n" :clock-in t :clock-resume t))))
 
 ; tags

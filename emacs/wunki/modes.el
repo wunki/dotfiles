@@ -43,6 +43,7 @@
 ; paredit
 (defun turn-on-paredit () (paredit-mode 1))
 (add-hook 'clojure-mode-hook 'turn-on-paredit)
+(add-hook 'emacs-lisp-mode-hook 'turn-on-paredit)
 
 ; markdown mode
 (setq auto-mode-alist (cons '("\\.markdown" . markdown-mode) auto-mode-alist))

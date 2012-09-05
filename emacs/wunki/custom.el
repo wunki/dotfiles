@@ -10,7 +10,7 @@
               indent-tabs-mode nil)
 
 ; show column numbers
-(column-number-mode 1) 
+(column-number-mode 1)
 
 ; email settings
 (setq user-full-name "Petar Radosevic")
@@ -20,6 +20,10 @@
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
+
+; browser
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "chromium")
 
 ; easily switch between windows
 (require 'windmove)

@@ -12,7 +12,12 @@ alias ec="emacsclient -t"
 
 # Pager
 alias less=$PAGER
-alias zless=$PAGER 
+alias zless=$PAGER
+
+# Pacman on Arch Linux
+if [ -e "/usr/bin/pacman-color" ]; then
+   alias pacman='pacman-color'
+fi
 
 # Don't correct sudo for me
 alias sudo='nocorrect sudo'

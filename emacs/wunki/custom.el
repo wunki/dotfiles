@@ -21,6 +21,10 @@
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
+; easily switch between windows
+(require 'windmove)
+(windmove-default-keybindings 'meta)
+
 ; flash instead of bell
 (setq visible-bell t)
 (setq ring-bell-function (lambda nil (message "")))

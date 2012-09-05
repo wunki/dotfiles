@@ -16,9 +16,6 @@
 [submodule "vim/vim/bundle/ack"]
 	path = vim/vim/bundle/ack
 	url = https://github.com/mileszs/ack.vim.git
-[submodule "emacs/vendor/magit"]
-	path = emacs/vendor/magit
-	url = https://github.com/technomancy/magit.git
 [submodule "mutt/mutt/themes/mutt-colors-solarized"]
 	path = mutt/mutt/themes/mutt-colors-solarized
 	url = https://github.com/altercation/mutt-colors-solarized.git
@@ -34,9 +31,6 @@
 [submodule "vim/vim/bundle/html5"]
 	path = vim/vim/bundle/html5
 	url = https://github.com/othree/html5.vim.git
-[submodule "emacs/vendor/django-mode"]
-	path = emacs/vendor/django-mode
-	url = https://github.com/myfreeweb/django-mode.git
 [submodule "vim/vim/bundle/solarized"]
 	path = vim/vim/bundle/solarized
 	url = https://github.com/altercation/vim-colors-solarized
@@ -58,6 +52,3 @@
 [submodule "vim/vim/bundle/badwolf"]
 	path = vim/vim/bundle/badwolf
 	url = git://github.com/sjl/badwolf.git
-[submodule "emacs/vendor/haskell-mode"]
-	path = emacs/vendor/haskell-mode
-	url = git://github.com/haskell/haskell-mode.git

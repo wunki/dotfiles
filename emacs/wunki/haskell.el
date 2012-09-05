@@ -1,5 +1,5 @@
-;; Load the general haskell file
-(load "~/.emacs.d/vendor/haskell-mode/haskell-site-file")
+;; TEMP required common list to be able to run haskell-mode
+(require 'cl)
 
 ;; Load ghc-mod
 (autoload 'ghc-init "ghc" nil t)

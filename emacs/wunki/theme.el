@@ -2,7 +2,7 @@
 (if (>= emacs-major-version 24)
   (progn
     (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-    (load-theme 'sanityinc-tomorrow-day))
+    (load-theme 'zenburn))
   (progn
     (require 'color-theme)
     (color-theme-tomorrow-night)))
@@ -11,7 +11,7 @@
 ; fonts on the mac are rendered smaller.
 (if (eq system-type 'darwin)
   (set-default-font "Ubuntu Mono-19")
-  (set-default-font "DejaVu Sans Mono-11"))
+  (set-default-font "Ubuntu Mono-14"))
 
 (defun toggle-dark-light-theme-tomorrow ()
   "Switch between dark and light theme."

@@ -27,9 +27,6 @@
 ; don't suspend emacs
 (global-unset-key (kbd "C-z"))
 
-; set the command key as meta
-;(setq mac-command-modifier 'meta)
-
 ; gist.github.com
 (define-key global-map (kbd "C-c p") 'gist-buffer)
 (define-key global-map (kbd "C-c C-p") 'gist-region)

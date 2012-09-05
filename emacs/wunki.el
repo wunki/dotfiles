@@ -38,4 +38,5 @@
 (load "wunki/shell")
 (load "wunki/haskell")
 (load "wunki/gnus")
+(load "wunki/bbdb")
 (load "wunki/erc")

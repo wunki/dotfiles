@@ -10,16 +10,11 @@
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 
 ; org-files
-; call me nuts but I only want lowercase on my linux system
-(setq org-directory (if (string-equal system-type "gnu/linux")
-                        (expand-file-name "~/dropbox/Org")
-                      (expand-file-name "~/Dropbox/Org")))
-
-(setq org-agenda-files (list (concat org-directory "/bread-and-pepper.org")
-                             (concat org-directory "/personal.org")
-                             (concat org-directory "/books.org")
-                             (concat org-directory "/inbox.org"))
-      org-default-notes-file (concat org-directory "/inbox.org"))
+(setq org-agenda-files (list (concat dropbox-directory "/Org/bread-and-pepper.org")
+                             (concat dropbox-directory "/Org/personal.org")
+                             (concat dropbox-directory "/Org/books.org")
+                             (concat dropbox-directory "/Org/inbox.org"))
+      org-default-notes-file (concat dropbox-directory "/Org/inbox.org"))
 
 ; always use indent-mode
 (setq org-startup-indented t)
@@ -62,11 +57,11 @@
 ; capture templates
 
 (setq org-capture-templates
-      (quote (("t" "todo" entry (file (concat org-directory "/inbox.org"))
+      (quote (("t" "todo" entry (file (concat dropbox-directory "/Org/inbox.org"))
                "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
-              ("n" "note" entry (file (concat org-directory "/inbox.org"))
+              ("n" "note" entry (file (concat dropbox-directory "/Org/inbox.org"))
                "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
-              ("j" "journal" entry (file+datetree (concat org-directory "/diary.org"))
+              ("j" "journal" entry (file+datetree (concat dropbox-directory "/Org/diary.org"))
                "* %?\n%U\n" :clock-in t :clock-resume t))))
 
 ; tags

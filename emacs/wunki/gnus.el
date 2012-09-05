@@ -65,26 +65,6 @@
 ; don't ask me how much to download
 (setq gnus-large-newsgroup 'nil)
 
-; bbdb
-(bbdb-initialize 'gnus 'message)
-(add-hook 'gnus-startup-hook 'bbdb-insinuate-gnus)
-
-(setq
- bbdb-file "~/.gnus/contacts/bbdb"
- bbdb-offer-save 'auto
- bbdb-complete-name-full-completion t
- bbdb-completion-type 'primary-or-name
- bbdb-notice-auto-save-file t
- bbdb-expand-mail-aliases t
- bbdb-canonicalize-redundant-nets-p t
- bbdb-always-add-addresses t
- bbdb-complete-name-allow-cycling t
- bbdb-send-mail-style 'gnus
- ;; make bbdb really small
- bbdb-use-pop-up t
- bbdb-electric-p t
- bbdb-popup-target-lines 1)
-
 ; show headings for when using multiple mail boxes
 (add-hook 'gnus-group-mode-hook 'gnus-topic-mode)
 

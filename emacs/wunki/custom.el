@@ -73,6 +73,11 @@
 (defalias 'ack-find-file 'ack-and-a-half-find-file)
 (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
 
+; call me nuts but I only want lowercase on my linux system
+(setq dropbox-directory (if (string-equal system-type "gnu/linux")
+                            (expand-file-name "~/dropbox")
+                          (expand-file-name "~/Dropbox")))
+
 ; save that theme is safe
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

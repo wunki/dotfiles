@@ -1,6 +1,10 @@
 ; shortcuts
 (global-set-key (kbd "C-c C-g") 'magit-status)
-(global-set-key (kbd "M-RET") 'ns-toggle-fullscreen)
+
+; fullscreen on mac
+(if (eq system-type 'darwin)
+    (global-set-key (kbd "<f3>") 'ns-toggle-fullscreen))
+
 (global-set-key (kbd "M-/") 'hippie-expand)
 (global-set-key (kbd "C-x C-g") 'goto-line)
 (add-hook 'objc-mode-hook '(lambda ()
@@ -31,7 +35,7 @@
 (define-key global-map (kbd "C-c C-p") 'gist-region)
 
 ; quickly edit emacs config with ido
-(define-key global-map (kbd "C-c C-e") 
+(define-key global-map (kbd "C-c C-x C-e") 
   '(lambda () 
      (interactive)
      (ido-find-file-in-dir "~/.emacs.d/wunki")))

@@ -20,10 +20,10 @@ urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 
 ! Urxvt fonts
-urxvt.font:            xft:Ubuntu Mono:size=14
-urxvt.boldFont:        xft:Ubuntu Mono:size=14
-urxvt.italicFont:	   xft:Ubuntu Mono:italic:size=14
-urxvt.boldItalicFont:  xft:Ubunte Mono:bolditalic:size=14
+urxvt.font:            xft:Ubuntu Mono:size=13
+urxvt.boldFont:        xft:Ubuntu Mono:size=13
+urxvt.italicFont:	   xft:Ubuntu Mono:italic:size=13
+urxvt.boldItalicFont:  xft:Ubunte Mono:bolditalic:size=13
 
 ! Urxvt settings
 urxvt.depth: 32
@@ -47,7 +47,7 @@ Emacs.verticalScrollBars: off
  
 ! Urls
 urxvt.perl-ext: default,matcher
-urxvt.urlLauncher: firefox
+urxvt.urlLauncher: chromium
 urxvt.matcher.button:   1
 urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 

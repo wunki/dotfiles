@@ -48,7 +48,7 @@ main = do
         , borderWidth = 1
         , normalBorderColor  = "#586e75"
         , focusedBorderColor = "#93a1a1"
-        , workspaces = ["1:Shell", "2:Code", "3:Web", "4:IRC", "5:General"]
+        , workspaces = ["1:Shell", "2:Emacs", "3:Web", "4:IRC", "5:General"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
         , startupHook = myStartupHook
@@ -63,7 +63,7 @@ standardLayout = tiled ||| Full ||| Grid
 
 fullBorders = noBorders Full
 
-myLayout = onWorkspace "2:Code" fullBorders $
+myLayout = onWorkspace "2:Emacs" fullBorders $
 	   onWorkspace "3:Web" Full $
 	   standardLayout
 
@@ -75,9 +75,8 @@ myManageHook = manageDocks <+> composeAll
     , className =? "Firefox-bin"          --> doF (W.shift "3:Web")
     , className =? "Firefox"              --> doF (W.shift "3:Web")
     , className =? "Iceweasel"            --> doF (W.shift "3:Web")
-    , className =? "Emacs"                --> doF (W.shift "2:Code")
-    , className =? "Emacsclient"          --> doF (W.shift "2:Code")
-    , className =? "GVIM"                 --> doF (W.shift "2:Code")
+    , className =? "Emacs"                --> doF (W.shift "2:Emacs")
+    , className =? "GVIM"                 --> doF (W.shift "2:Emacs")
     , className =? "Thunar"               --> doF (W.shift "5:General")
     ]
 

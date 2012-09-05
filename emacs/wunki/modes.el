@@ -36,10 +36,6 @@
       (cons '("\\.po\\'\\|\\.po\\." . po-mode) auto-mode-alist))
 (autoload 'po-mode "po-mode" "Major mode for translators to edit PO files" t)
 
-; deft
-(setq deft-directory "~/Dropbox/Documents/Notes/")
-(setq deft-text-mode 'markdown-mode)
-
 ; paredit
 (defun turn-on-paredit () (paredit-mode 1))
 (add-hook 'clojure-mode-hook 'turn-on-paredit)
@@ -47,6 +43,7 @@
 ; markdown mode
 (setq auto-mode-alist (cons '("\\.markdown" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
+(setq auto-mode-alist (cons '("\\.page" . markdown-mode) auto-mode-alist))
 (add-hook 'markdown-mode-hook 'turn-on-pandoc)
 
 ; puppet mode

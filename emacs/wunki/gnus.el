@@ -163,3 +163,8 @@
 
 ; sign all my e-mails
 ; (add-hook 'gnus-message-setup-hook 'mml-secure-message-sign-pgpmime) ; sign all messages
+
+(define-key gnus-summary-mode-map (kbd "C-c C-k")
+  '(lambda ()
+     (interactive) 
+     (gnus-summary-move-article nil "nnimap+breadandpepper:trash")))

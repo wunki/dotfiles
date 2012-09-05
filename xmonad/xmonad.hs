@@ -48,7 +48,7 @@ main = do
         , borderWidth = 1
         , normalBorderColor  = "#586e75"
         , focusedBorderColor = "#93a1a1"
-        , workspaces = ["1:Shell", "2:Emacs", "3:Web", "4:IRC", "5:General"]
+        , workspaces = ["1:Shell", "2:Emacs", "3:Web", "4:General"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
         , startupHook = myStartupHook
@@ -70,14 +70,13 @@ myLayout = onWorkspace "2:Emacs" fullBorders $
 -- Float & Window setup
 myManageHook :: ManageHook
 myManageHook = manageDocks <+> composeAll
-    [ title     =? "irssi"                --> doF (W.shift "4:IRC")
-    , className =? "Chromium"             --> doF (W.shift "3:Web")
+    [ className =? "Chromium"             --> doF (W.shift "3:Web")
     , className =? "Firefox-bin"          --> doF (W.shift "3:Web")
     , className =? "Firefox"              --> doF (W.shift "3:Web")
     , className =? "Iceweasel"            --> doF (W.shift "3:Web")
     , className =? "Emacs"                --> doF (W.shift "2:Emacs")
     , className =? "GVIM"                 --> doF (W.shift "2:Emacs")
-    , className =? "Thunar"               --> doF (W.shift "5:General")
+    , className =? "Thunar"               --> doF (W.shift "4:General")
     ]
 
 manageHook' :: ManageHook

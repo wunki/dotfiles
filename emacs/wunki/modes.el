@@ -32,7 +32,7 @@
 (add-hook 'html-mode-hook 'turn-off-auto-fill)
 (add-hook 'clojure-mode-hook 'turn-on-auto-fill)
 (add-hook 'python-mode-hook 'turn-on-auto-fill)
-(setq comment-auto-fill-only-comments t)
+;(setq comment-auto-fill-only-comments t)
 
 ; po-mode
 (setq auto-mode-alist 

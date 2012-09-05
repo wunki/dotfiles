@@ -55,16 +55,14 @@
 (setq org-src-tab-acts-natively t)
 
 ; capture templates
-
 (setq org-capture-templates
-      (quote (("t" "todo" entry (file (concat dropbox-directory "/Org/inbox.org"))
-               "* TODO %?\n%U\n%a\n" :clock-in t :clock-resume t)
-              ("n" "note" entry (file (concat dropbox-directory "/Org/inbox.org"))
-               "* %? :NOTE:\n%U\n%a\n" :clock-in t :clock-resume t)
-              ("j" "journal" entry (file+datetree (concat dropbox-directory "/Org/diary.org"))
-               "* %?\n%U\n" :clock-in t :clock-resume t))))
+      '(("t" "Todo" entry (file+headline (concat dropbox-directory "/Org/inbox.org") "Tasks")
+             "* TODO %?\n  %i\n  %a")
+        ("j" "Journal" entry (file+datetree (concat dropbox-directory "/Org/journal.org"))
+             "* %?\nEntered on %U\n  %i\n  %a")
+        ("n" "Note" entry (file (concat dropbox-directory "/Org/notes.org"))
+         "* NOTE %?\n  %i\n  %a")))
 
-; tags
 ; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup)
                             ("@errand" . ?e)

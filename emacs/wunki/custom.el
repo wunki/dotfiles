@@ -21,9 +21,10 @@
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-; browser
-(setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "chromium")
+; browser on Arch Linux
+(if (string-equal system-type "gnu/linux")
+    (setq browse-url-browser-function 'browse-url-generic
+          browse-url-generic-program "chromium"))
 
 ; easily switch between windows
 (require 'windmove)

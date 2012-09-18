@@ -33,3 +33,4 @@
 (load "wunki/gnus")
 (load "wunki/bbdb")
 (load "wunki/erc")        ; irc
+(load "wunki/jabber")     ; jabber

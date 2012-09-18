@@ -16,7 +16,7 @@
 (package-initialize)
 
 (dolist (p '(nrepl clojure-mode clojure-test-mode bbdb haskell-mode
-             paredit magit gist org markdown-mode ack-and-a-half markdown-mode
+             paredit magit gist org ack-and-a-half markdown-mode
              color-theme-sanityinc-tomorrow zenburn-theme pandoc-mode))
   (when (not (package-installed-p p))
     (package-install p)))

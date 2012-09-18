@@ -16,7 +16,7 @@ alias zless=$PAGER
 
 # Pacman on Arch Linux
 if [ -e "/usr/bin/pacman-color" ]; then
-   alias pacman='pacman-color'
+   alias pacman='sudo pacman-color'
 fi
 
 # Don't correct sudo for me

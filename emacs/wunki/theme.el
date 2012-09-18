@@ -2,7 +2,7 @@
 (if (>= emacs-major-version 24)
   (progn
     (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-    (load-theme 'zenburn))
+    (load-theme 'sanityinc-tomorrow-blue))
   (progn
     (require 'color-theme)
     (color-theme-tomorrow-night)))
@@ -24,8 +24,8 @@
   "Switch between dark and light theme."
   (interactive)
   (if (eq (frame-parameter (next-frame) 'background-mode) 'dark)
-      (load-theme 'solarized-light)
-    (load-theme 'solarized-dark)))
+      (load-theme 'sanityinc-solarized-light)
+    (load-theme 'sanityinc-solarized-dark)))
 (global-set-key (kbd "<f10>") 'toggle-dark-light-theme-solarized)
 
 ; needed this because italic was also underlined, no idea why...

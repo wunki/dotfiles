@@ -1,5 +1,7 @@
 import           XMonad
 import           XMonad.Actions.CycleWS
+import           XMonad.Prompt
+import           XMonad.Prompt.Window
 import qualified XMonad.StackSet              as W
 import           XMonad.Util.Run              (runInTerm, spawnPipe)
 
@@ -105,6 +107,8 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((modMask, xK_e), moveTo Next (WSIs (return $ not . (=="SP") . W.tag)))
     , ((modMask, xK_a), moveTo Prev (WSIs (return $ not . (=="SP") . W.tag)))
     , ((modMask, xK_p), spawn "dmenu_run -i -b -fn Ubuntu-Mono-12 -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#268bd2' -p '>' ") -- %! Launch dmenu
+    , ((modMask, xK_g), windowPromptGoto  defaultXPConfig)
+    , ((modMask, xK_c), windowPromptBring defaultXPConfig)
     ]
 
 -- | Perform an arbitrary action at xmonad startup.

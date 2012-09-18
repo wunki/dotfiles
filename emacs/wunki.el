@@ -4,7 +4,8 @@
 
 (when (file-exists-p custom-file) (load custom-file))
 
-; bindings are important, load them first
+; functions and bindings are important, load them first
+(load "wunki/defuns")
 (load "wunki/bindings")
 
 ; packages
@@ -15,13 +16,11 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 
-(dolist (p '(nrepl clojure-mode clojure-test-mode bbdb haskell-mode
-             paredit magit gist org markdown-mode ack-and-a-half markdown-mode
-             color-theme-sanityinc-tomorrow zenburn-theme pandoc-mode))
+(dolist (p '(nrepl ac-nrepl clojure-mode clojure-test-mode cljdoc bbdb haskell-mode
+                   paredit magit gist org markdown-mode ack-and-a-half markdown-mode
+                   color-theme-sanityinc-tomorrow zenburn-theme pandoc-mode auto-complete))
   (when (not (package-installed-p p))
     (package-install p)))
-
-(load "wunki/defuns")
 
 (when (< emacs-major-version 24)
   (vendor 'color-theme-tomorrow))

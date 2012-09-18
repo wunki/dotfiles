@@ -36,3 +36,9 @@
   '(lambda () 
      (interactive)
      (ido-find-file-in-dir "~/.emacs.d/wunki")))
+
+; quickly edit org files with ido
+(define-key global-map (kbd "C-c C-x C-t") 
+  '(lambda () 
+     (interactive)
+     (ido-find-file-in-dir (concat dropbox-directory "/Org"))))

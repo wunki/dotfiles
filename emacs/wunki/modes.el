@@ -44,6 +44,13 @@
 (add-hook 'clojure-mode-hook 'turn-on-paredit)
 (add-hook 'emacs-lisp-mode-hook 'turn-on-paredit)
 (add-hook 'nrepl-mode-hook 'turn-on-paredit)
+(add-hook 'scheme-mode-hook 'turn-on-paredit)
+
+; clojure
+(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+(add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'nrepl-mode))
 
 ; markdown mode
 (setq auto-mode-alist (cons '("\\.markdown" . markdown-mode) auto-mode-alist))

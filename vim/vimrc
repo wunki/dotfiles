@@ -28,32 +28,16 @@ if has("gui_running")
   set guioptions-=b
   set guioptions+=a
   set guioptions+=c
-  colorscheme badwolf
   set novisualbell        " please, no visuals
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing 
 else
   " 256 colors setting
   set t_Co=256
-  colorscheme badwolf
   set mouse=a
   set ttymouse=xterm
   set termencoding=utf-8
 endif
-
-" Powerline settings
-if !has("gui_running")
-  let g:Powerline_theme='skwp'
-  let g:Powerline_colorscheme='skwp'
-endif
-if has('mac')
-  let g:Powerline_symbols = 'fancy' "pretty symbols for powerline
-endif
-
-" Org mode
-let g:org_plugins = ['ShowHide', '|', 'Navigator', 'EditStructure', '|', 'Todo', 'Date', 'Misc']
-let g:org_todo_keywords = ['TODO', '|', 'DONE']
-let g:org_debug = 1
 
 " Editor configuration
 if has('unix')
@@ -84,10 +68,6 @@ set nonumber                " show line numbering
 set undofile                " create undofiles
 set formatoptions=qrn1
 set cursorline              " show me the line where the cursor is
-
-" colorcolumn
-set colorcolumn=+1          " color column one further than textwidth
-hi ColorColumn guibg=#303030
 
 " Ignore these files in netrw
 let g:netrw_list_hide= '.*\.swp$,.*\~$,.*\.pyc$'
@@ -134,9 +114,6 @@ nmap <leader>l :set list!<CR>
 " Markdown detection
 autocmd BufNewFile,BufReadPost *.mkd,*.markdown,*.md set filetype=markdown
 
-" Fugitive
-map <leader>g :Gstatus<cr>
-
 " Textile settings
 au BufRead *.tex set tw=79
 
@@ -154,19 +131,6 @@ augroup END
 " JSON
 au! BufRead,BufNewFile *.json setfiletype json 
 
-" Setup statusline with git
-set laststatus=2
-set statusline=
-set statusline+=%-3.3n\ " buffer number
-set statusline+=%f\ " file name
-set statusline+=%h%m%r%w                        " flags
-set statusline+=\[%{strlen(&ft)?&ft:'none'},    " filetype
-set statusline+=%{&encoding},                   " encoding
-set statusline+=%{&fileformat}]                 " file format
-set statusline+=\ %{fugitive#statusline()}      " git branch
-set statusline+=%=                              " right align
-set statusline+=%-14.(%l,%c%V%)\ %<%P           " offset
-
 " Shortcuts
 map <C-i> gqip
 map <leader>v :sp $MYVIMRC<cr>
@@ -175,9 +139,6 @@ noremap <f2> :bnext!<cr>
 noremap <f3> :set invfu<cr>
 nnoremap j gj
 nnoremap k gk
-nnoremap <leader>a :Ack 
-nnoremap <F5> :GundoToggle<CR>
-nnoremap <leader>t :vsplit $DROPBOX_PATH/Org<cr>3j
 
 " Switching windows
 map <C-k> <C-w><Up>

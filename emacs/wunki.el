@@ -23,9 +23,6 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-(when (< emacs-major-version 24)
-  (vendor 'color-theme-tomorrow))
-
 (load "wunki/modes")
 (load "wunki/theme")
 (load "wunki/temp_files")

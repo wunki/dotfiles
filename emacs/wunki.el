@@ -16,9 +16,10 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (package-initialize)
 
-(dolist (p '(nrepl ac-nrepl clojure-mode clojure-test-mode cljdoc bbdb haskell-mode
-                   paredit magit gist org markdown-mode ack-and-a-half markdown-mode
-                   color-theme-sanityinc-tomorrow zenburn-theme pandoc-mode auto-complete))
+(dolist (p '(nrepl ac-nrepl clojure-mode clojure-test-mode cljdoc bbdb 
+                   haskell-mode paredit magit gist org markdown-mode
+                   ack-and-a-half markdown-mode color-theme-sanityinc-tomorrow
+                   zenburn-theme pandoc-mode auto-complete jabber))
   (when (not (package-installed-p p))
     (package-install p)))
 

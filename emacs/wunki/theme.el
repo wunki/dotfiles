@@ -11,7 +11,7 @@
 ; fonts on the mac are rendered smaller.
 (if (eq system-type 'darwin)
   (set-default-font "Ubuntu Mono-20")
-  (set-default-font "Ubuntu Mono-14"))
+  (set-default-font "Droid Sans Mono-12"))
 
 (defun toggle-dark-light-theme-tomorrow ()
   "Switch between dark and light theme."

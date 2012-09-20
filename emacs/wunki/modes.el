@@ -34,6 +34,12 @@
 (add-hook 'python-mode-hook 'turn-on-auto-fill)
 ;(setq comment-auto-fill-only-comments t)
 
+; flyspell
+(add-hook 'clojure-mode-hook 'flyspell-prog-mode)
+(add-hook 'haskell-mode-hook 'flyspell-prog-mode)
+(add-hook 'python-mode-hook 'flyspell-prog-mode)
+(add-hook 'message-mode-hook 'flyspell-mode)
+
 ; po-mode
 (setq auto-mode-alist 
       (cons '("\\.po\\'\\|\\.po\\." . po-mode) auto-mode-alist))
@@ -48,6 +54,7 @@
 
 ; clojure
 (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
+(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
 (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'nrepl-mode))

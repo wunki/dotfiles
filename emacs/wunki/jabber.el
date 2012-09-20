@@ -1,12 +1,12 @@
 (setq jabber-account-list
-    `((,secret-jabber-doo-username
+    `((,jabber-doo-username
        (:network-server . "im.doo.net")
-       (:password . ,secret-jabber-doo-password))
-      (,secret-jabber-bp-username
-       (:password . ,secret-jabber-bp-password)
+       (:password . ,jabber-doo-password))
+      (,jabber-bp-username
+       (:password . ,jabber-bp-password)
        (:network-server . "talk.google.com")
        (:connection-type . ssl))))
 
 (setq jabber-muc-default-nicknames 
-      `((,secret-jabber-doo-username . "Petar Radosevic")
-        (,secret-jabber-bp-username . "Petar Radosevic")))
+      `((,jabber-doo-username . "Petar Radosevic")
+        (,jabber-bp-username . "Petar Radosevic")))

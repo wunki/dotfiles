@@ -23,7 +23,6 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-(load "wunki/secrets")    ; contains passwords and server settings
 (load "wunki/modes")      ; settings for specific modes
 (load "wunki/theme")      ; set the theme and font
 (load "wunki/temp_files") ; temporary files
@@ -32,5 +31,10 @@
 (load "wunki/haskell")
 (load "wunki/gnus")
 (load "wunki/bbdb")
+
+; my passwords
+(load-library "wunki/secrets.el.gpg")
+(provide 'secrets)
+
 (load "wunki/erc")        ; irc
 (load "wunki/jabber")     ; jabber

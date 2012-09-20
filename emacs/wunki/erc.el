@@ -17,7 +17,7 @@
            :port 7000 
            :nick "wunki" 
            :full-name "Petar Radosevic"
-           :password erc-wunki))))
+           :password secret-erc-wunki))))
 
 ;; switch to ERC with Ctrl+c e
 (global-set-key (kbd "C-c e") 'erc-start-or-switch) ;; ERC

@@ -10,7 +10,7 @@
 ; set the default font
 ; fonts on the mac are rendered smaller.
 (if (eq system-type 'darwin)
-  (set-default-font "Ubuntu Mono-20")
+  (set-default-font "Bitstream Vera Sans Mono-16")
   (set-default-font "Ubuntu Mono-14"))
 
 (defun toggle-dark-light-theme-tomorrow ()

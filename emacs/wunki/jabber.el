@@ -6,3 +6,7 @@
        (:password . ,secret-jabber-bp-password)
        (:network-server . "talk.google.com")
        (:connection-type . ssl))))
+
+(setq jabber-muc-default-nicknames 
+      `((,secret-jabber-doo-username . "Petar Radosevic")
+        (,secret-jabber-bp-username . "Petar Radosevic")))

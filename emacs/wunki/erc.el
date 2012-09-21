@@ -13,6 +13,7 @@
   (if (get-buffer "wunki.org:7000") ;; ERC already active?
       (erc-track-switch-buffer 1) ;; yes: switch to last active
     (when (y-or-n-p "Start ERC? ") ;; no: maybe start ERC
+      (require 'secrets "wunki/secrets.el")
       (erc :server "wunki.org"
            :port 7000 
            :nick "wunki" 
@@ -20,4 +21,4 @@
            :password erc-wunki))))
 
 ;; switch to ERC with Ctrl+c e
-(global-set-key (kbd "C-c e") 'erc-start-or-switch) ;; ERC
+(global-set-key (kbd "C-c e") 'erc-start-or-switch)

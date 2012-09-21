@@ -31,10 +31,5 @@
 (load "wunki/haskell")
 (load "wunki/gnus")
 (load "wunki/bbdb")
-
-; my passwords
-(load-library "wunki/secrets.el.gpg")
-(provide 'secrets)
-
 (load "wunki/erc")        ; irc
 (load "wunki/jabber")     ; jabber

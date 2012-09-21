@@ -35,10 +35,10 @@
 ;(setq comment-auto-fill-only-comments t)
 
 ; flyspell
-(add-hook 'clojure-mode-hook 'flyspell-prog-mode)
-(add-hook 'haskell-mode-hook 'flyspell-prog-mode)
-(add-hook 'python-mode-hook 'flyspell-prog-mode)
-(add-hook 'message-mode-hook 'flyspell-mode)
+;(add-hook 'clojure-mode-hook 'flyspell-prog-mode)
+;(add-hook 'haskell-mode-hook 'flyspell-prog-mode)
+;(add-hook 'python-mode-hook 'flyspell-prog-mode)
+;(add-hook 'message-mode-hook 'flyspell-mode)
 
 ; po-mode
 (setq auto-mode-alist 

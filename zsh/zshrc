@@ -32,5 +32,15 @@ alias cd="venv_cd"
 # Bindings for Emacs
 bindkey -e
 
+# Don't use autocorrect
+unsetopt correct_all
+
+# Evaluate keychan
+if [ `uname` = "Darwin" ]; then
+   eval `keychain --eval --agents ssh --inherit any id_rsa`
+else
+   eval `keychain --eval --agents ssh id_rsa`
+fi
+
 # CTRL-R for backwards history search
 bindkey "^r" history-incremental-search-backward

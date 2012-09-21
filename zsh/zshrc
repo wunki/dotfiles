@@ -3,7 +3,7 @@ export ZSH=$HOME/.oh-my-zsh
 export ZSH_THEME="kphoen"
 export CASE_SENSITIVE="true"
 
-plugins=(git)
+plugins=(git lein)
 if [ `uname` = "Darwin" ]; then
    plugins+=(brew osx)
 fi
@@ -34,6 +34,9 @@ bindkey -e
 
 # Don't use autocorrect
 unsetopt correct_all
+
+# Completions
+fpath=(path/to/zsh-completions/src $fpath)
 
 # Evaluate keychan
 if [ `uname` = "Darwin" ]; then

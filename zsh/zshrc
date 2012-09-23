@@ -38,10 +38,8 @@ unsetopt correct_all
 # Completions
 fpath=(path/to/zsh-completions/src $fpath)
 
-# Evaluate keychan
-if [ `uname` = "Darwin" ]; then
-   eval `keychain --eval --agents ssh --inherit any id_rsa`
-else
+# Evaluate keychain on Linux
+if [ `uname` = "Linux" ]; then
    eval `keychain --eval --agents ssh id_rsa`
 fi
 

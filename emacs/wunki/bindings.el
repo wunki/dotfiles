@@ -24,6 +24,10 @@
 (global-set-key (kbd "C-w") 'backward-kill-word)
 (global-set-key (kbd "C-c C-k") 'kill-region)
 
+; ace-jump and idomenu for moving around
+(define-key global-map (kbd "C-&") 'ace-jump-mode)
+(define-key global-map (kbd "C-*") 'idomenu)
+
 ; don't suspend emacs
 (global-unset-key (kbd "C-z"))
 

@@ -20,10 +20,10 @@ urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 
 ! Urxvt fonts
-urxvt.font:            xft:Droid Sans Mono:size=12
-urxvt.boldFont:        xft:Droid Sans Mono:size=12
-urxvt.italicFont:      xft:Droid Sans Mono:italic:size=12
-urxvt.boldItalicFont:  xft:Droid Sans Mono:bolditalic:size=12
+urxvt.font:            xft:Bitstream Vera Sans Mono:size=11
+urxvt.boldFont:        xft:Bitstream Vera Sans Mono:size=11
+urxvt.italicFont:      xft:Bitstream Vera Sans Mono:italic:size=11
+urxvt.boldItalicFont:  xft:Bitstream Vera Sans Mono:bolditalic:size=11
 
 ! Urxvt settings
 urxvt.depth: 32

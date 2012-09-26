@@ -1,15 +1,17 @@
-Config { font = "xft:Ubuntu Mono:size=11:antialias=true"
+Config { font = "xft:Bitstream Vera Sans Mono:size=10:antialias=true"
        , bgColor = "#002b36"
        , fgColor = "#657b83"
-       , position = TopSize L 100 26
-       , border = BottomB
+       , position = BottomSize L 100 26
+       , border = TopB
        , borderColor = "#073642"
        , lowerOnStart = True
-       , commands = [ Run Network "eth0" ["-t", "<rx> | <tx>", "-L", "0","-H", "100", "--normal", "#859900", "--high", "#cb4b16"] 10
+       , commands = [ Run Network "wlan0" ["-t", "<rx> - <tx>", "-L", "0","-H", "100", "--normal", "#859900", "--high", "#cb4b16"] 10
                     , Run Date "%H:%M:%S" "date" 10
                     , Run StdinReader
+                    , Run Battery ["-t", "Batt: <timeleft>", "-L", "50", "-H", "75", "--normal", "#859900", "--high", "#cb4b16"] 10
+                    , Run Com "/home/wunki/.bin/current-volume" [] "volume" 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %eth0% | %date% "
+       , template = "%StdinReader% }{ Vol: %volume% | Net: %wlan0% | %battery% | %date% "
        }

@@ -4,6 +4,31 @@ load_paths.unshift("chrome://conkeror-contrib/content/");
 // my custom keys
 define_key(text_keymap, 'C-w', 'cmd_deleteWordBackward');
 
+// hint keys close to homerow
+hint_digits = "aoeuhtns";
+
+// load the mono theme
+theme_load("mono");
+
+// big hint codes
+register_user_stylesheet(
+    "data:text/css," +
+	escape(
+	  "span.__conkeror_hint {" +
+		" font-size: 14px !important;" +
+		" line-height: 16px !important;" +
+		"}"));
+
+// hint's color
+register_user_stylesheet(
+    "data:text/css," +
+	escape (
+	  "span.__conkeror_hint {" +
+		" border: 1px solid #dddddd !important;" +
+		" color: #333 !important;" +
+		" background-color: #fefefe !important;" +
+		"}"));
+
 // teach me something whenever I start my browser
 homepage = "about:blank";
 

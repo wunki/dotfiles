@@ -7,8 +7,9 @@ alias ..="cd .."
 alias rh="runhaskell"
 alias rmpyc="find . -name '*.pyc' | xargs rm"
 alias gun="gunicorn_django --workers=2"
-alias clj="rlwrap clj"
 alias ec="emacsclient -t"
+alias wl="wicd-curses"
+alias clj="clojure"
 
 # Pager
 alias less=$PAGER

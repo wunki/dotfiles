@@ -1,5 +1,5 @@
 DOTFILES = $(PWD)
-all:: vim emacs zsh tmux xmonad xorg gtk pentadactyl
+all:: vim emacs zsh tmux xmonad xorg gtk conkeror
 
 vim::
 	@ln -fs $(DOTFILES)/vim/vimrc        ${HOME}/.vimrc
@@ -43,5 +43,6 @@ gtk::
 	@ln -fns $(DOTFILES)/gtk/themes ${HOME}/.themes
 	@echo GTK is symlinked.
 
-pentadactyl::
-	@ln -fs $(DOTFILES)/pentadactylrc ${HOME}/.pentadactylrc
+conkeror::
+	@ln -fs $(DOTFILES)/conkerorrc.js ${HOME}/.conkerorrc
+	@echo Conkeror is symlinked.

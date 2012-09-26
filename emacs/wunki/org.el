@@ -6,6 +6,9 @@
 (define-key global-map (kbd "C-.") 'org-cycle-agenda-files)
 (define-key global-map (kbd "<f8>") 'org-agenda)
 
+; load org-protocol for external calls
+(require 'org-protocol)
+
 ; archive method
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 
@@ -61,7 +64,9 @@
         ("j" "Journal" entry (file+datetree (concat dropbox-directory "/Org/journal.org"))
              "* %?\nEntered on %U\n  %i\n  %a")
         ("n" "Note" entry (file (concat dropbox-directory "/Org/notes.org"))
-         "* NOTE %?\n  %i\n  %a")))
+         "* NOTE %?\n  %i\n  %a")
+        ("w" "" entry (file+headline (concat dropbox-directory "/Org/www.org") "Notes")
+         "* %^{Title}\n\n  Source: %u, %c\n\n  %i")))
 
 ; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup)
@@ -81,6 +86,3 @@
 
 ; allow setting single tags without the menu
 (setq org-fast-tag-selection-single-key (quote expert))
-
-; For tag searches ignore tasks with scheduled and deadline dates
-(setq org-agenda-tags-todo-honor-ignore-options t)

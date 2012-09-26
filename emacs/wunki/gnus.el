@@ -26,7 +26,7 @@
 
 (setq gnus-secondary-select-methods
       '((nnimap "breadandpepper"
-                (nnimap-address "arch.wunki.org")
+                (nnimap-address "thinkpad.wunki.org")
                 (nnimap-stream network)
                 (nnimap-authenticator login))))
 
@@ -78,7 +78,7 @@
 (setq gnus-confirm-mail-reply-to-news t)
 
 ; sending mail
-(setq sendmail-program "/home/wunki/.bin/msmtpq"
+(setq sendmail-program "/home/wunki/bin/msmtpq"
       message-send-mail-function 'message-send-mail-with-sendmail
       mail-specify-envelope-from t
       message-sendmail-f-is-evil nil                

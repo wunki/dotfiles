@@ -55,7 +55,7 @@ dropboxd &
 feh --bg-tile ~/dropbox/Pictures/Wallpapers/Solarized\ Tiles.png
 
 # Start the screensaver
-xscreensaver -no-splash &
+# xscreensaver -no-splash &
 
 #
 # Start XMonad

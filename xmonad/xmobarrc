@@ -6,10 +6,10 @@ Config { font = "xft:Bitstream Vera Sans Mono:size=10:antialias=true"
        , borderColor = "#073642"
        , lowerOnStart = True
        , commands = [ Run Network "wlan0" ["-t", "<rx> - <tx>", "-L", "0","-H", "100", "--normal", "#859900", "--high", "#cb4b16"] 10
+                    , Run Battery ["-t", "Batt: <timeleft>", "-L", "50", "-H", "75", "--normal", "#859900", "--high", "#cb4b16"] 600
+                    , Run Com "/home/wunki/bin/current-volume" [] "volume" 5
                     , Run Date "%H:%M:%S" "date" 10
                     , Run StdinReader
-                    , Run Battery ["-t", "Batt: <timeleft>", "-L", "50", "-H", "75", "--normal", "#859900", "--high", "#cb4b16"] 10
-                    , Run Com "/home/wunki/.bin/current-volume" [] "volume" 10
                     ]
        , sepChar = "%"
        , alignSep = "}{"

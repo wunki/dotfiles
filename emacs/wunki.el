@@ -2,10 +2,11 @@
 (setq custom-file "~/.emacs.d/wunki/custom.el"
       marmalade-server "http://marmalade-repo.org/")
 
-(when (file-exists-p custom-file) (load custom-file))
-
-; functions and bindings are important, load them first
+; my own functions
 (load "wunki/defuns")
+
+; load main custom file
+(when (file-exists-p custom-file) (load custom-file))
 (load "wunki/bindings")
 
 ; packages

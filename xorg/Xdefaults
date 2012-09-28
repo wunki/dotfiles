@@ -18,12 +18,11 @@ urxvt.keysym.M-c:   perl:clipboard:copy
 urxvt.keysym.M-v:   perl:clipboard:paste
 urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
-
 ! Urxvt fonts
-urxvt.font:            xft:DejaVu Sans Mono:size=11
-urxvt.boldFont:        xft:DejaVu Sans Mono:size=11
-urxvt.italicFont:      xft:DejaVu Sans Mono:italic:size=11
-urxvt.boldItalicFont:  xft:DejaVu Sans Mono:bolditalic:size=11
+urxvt.font:            xft:Consolas:size=12
+urxvt.boldFont:        xft:Consolas:bold:size=12
+urxvt.italicFont:      xft:Consolas:italic:size=12
+urxvt.boldItalicFont:  xft:Consolas:bolditalic:size=12
 
 ! Urxvt settings
 urxvt.depth: 32

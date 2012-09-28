@@ -30,7 +30,7 @@
 
 ; auto-fill mode
 (add-hook 'html-mode-hook 'turn-off-auto-fill)
-(add-hook 'clojure-mode-hook 'turn-on-auto-fill)
+;(add-hook 'clojure-mode-hook 'turn-on-auto-fill)
 (add-hook 'python-mode-hook 'turn-on-auto-fill)
 ;(setq comment-auto-fill-only-comments t)
 
@@ -39,6 +39,10 @@
 ;(add-hook 'haskell-mode-hook 'flyspell-prog-mode)
 ;(add-hook 'python-mode-hook 'flyspell-prog-mode)
 ;(add-hook 'message-mode-hook 'flyspell-mode)
+
+; parenthesis colors
+(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
 
 ; po-mode
 (setq auto-mode-alist 

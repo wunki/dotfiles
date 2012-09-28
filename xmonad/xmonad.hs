@@ -18,6 +18,7 @@ import           XMonad.Actions.WindowGo
 
 -- Layouts
 import           XMonad.Layout.DwmStyle
+import           XMonad.Layout.Fullscreen
 import           XMonad.Layout.Grid
 import           XMonad.Layout.IM
 import           XMonad.Layout.LayoutHints
@@ -63,7 +64,7 @@ standardLayout = tiled ||| Full ||| Grid
           ratio     = 3/5
           delta     = 3/100
 
-fullBorders = noBorders Full
+fullBorders = noBorders (fullscreenFull Full)
 
 myLayout = onWorkspace "2:Emacs" fullBorders $
 	   onWorkspace "3:Web" Full $
@@ -91,11 +92,9 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((0, xF86XK_AudioPlay), spawn "mpc toggle") -- Play/pause
     , ((0, xF86XK_AudioPrev), spawn "mpc prev") -- Previous song
     , ((0, xF86XK_AudioNext), spawn "mpc next") -- Next song
-    , ((0, xF86XK_PowerOff),  spawn "sudo /sbin/halt") -- Shutdown
-    , ((0, xF86XK_Sleep),     spawn "sudo /usr/sbin/pm-suspend") -- Sleep
+    , ((0, xF86XK_Launch1),   spawn "/usr/bin/conkeror") -- Launch Conkeror
     , ((modMask, xK_b),       sendMessage ToggleStruts) -- Hide top bar
-    , ((modMask, xK_q),       spawn "killall conky dzen2" >> restart "xmonad" True)
-    , ((modMask .|. controlMask, xK_s), spawn "scrot -q90 /home/wunki/Pictures/screenshots/%Y-%m-%d-%H%M%S.png")
+    , ((modMask, xK_Print),   spawn "scrot -q90 /home/wunki/pictures/screenshots/%Y-%m-%d-%H%M%S.png")
     , ((modMask .|. controlMask, xK_p), sendMessage MagnifyMore)
     , ((modMask .|. controlMask, xK_l), sendMessage MagnifyLess)
     , ((modMask .|. controlMask, xK_m), sendMessage Toggle)
@@ -106,7 +105,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     -- cycle through workspaces
     , ((modMask, xK_e), moveTo Next (WSIs (return $ not . (=="SP") . W.tag)))
     , ((modMask, xK_a), moveTo Prev (WSIs (return $ not . (=="SP") . W.tag)))
-    , ((modMask, xK_p), spawn "dmenu_run -i -fn 'Monospace-11:normal' -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#268bd2' -p '>' ") -- %! Launch dmenu
+    , ((modMask, xK_p), spawn "dmenu_run -i -fn 'Consolas-11:normal' -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#268bd2' -p '>' ") -- %! Launch dmenu
     , ((modMask, xK_g), windowPromptGoto  defaultXPConfig)
     , ((modMask, xK_c), windowPromptBring defaultXPConfig)
     ]

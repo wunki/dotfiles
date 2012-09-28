@@ -4,19 +4,35 @@ load_paths.unshift("chrome://conkeror-contrib/content/");
 // my custom keys
 define_key(text_keymap, 'C-w', 'cmd_deleteWordBackward');
 
-// hint keys close to homerow
+// improve hint keys
+hint_background_color = "transparent";
 hint_digits = "aoeuhtns";
 
 // load the mono theme
 theme_load("mono");
 
-// big hint codes
+// Don't require a whitelist to install extensions
+session_pref("xpinstall.whitelist.required", false);
+
+// Adblock plus
+require("adblockplus.js");
+
+// Save my passwords
+session_pref("signon.rememberSignons", true);
+session_pref("signon.expireMasterPassword", false);
+session_pref("signon.SignonFileName", "signons.txt");
+Cc["@mozilla.org/login-manager;1"].getService(Ci.nsILoginManager);
+
 register_user_stylesheet(
     "data:text/css," +
 	escape(
 	  "span.__conkeror_hint {" +
-		" font-size: 14px !important;" +
-		" line-height: 16px !important;" +
+		" font-size: 10px !important;" +
+		" line-height: 12px !important;" +
+    " opacity: 0.9 !important;" +
+    " padding: 2px !important;" +
+    " -moz-border-radius: 2px;" +
+    " font-weight: normal !important;" +
 		"}"));
 
 // hint's color
@@ -24,9 +40,9 @@ register_user_stylesheet(
     "data:text/css," +
 	escape (
 	  "span.__conkeror_hint {" +
-		" border: 1px solid #dddddd !important;" +
+		" border: 1px solid black !important;" +
 		" color: #333 !important;" +
-		" background-color: #fefefe !important;" +
+		" background-color: yellow !important;" +
 		"}"));
 
 // teach me something whenever I start my browser

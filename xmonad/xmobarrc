@@ -1,4 +1,4 @@
-Config { font = "xft:Bitstream Vera Sans Mono:size=10:antialias=true"
+Config { font = "xft:Consolas:size=10:antialias=true"
        , bgColor = "#002b36"
        , fgColor = "#657b83"
        , position = BottomSize L 100 26
@@ -13,5 +13,5 @@ Config { font = "xft:Bitstream Vera Sans Mono:size=10:antialias=true"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ Vol: %volume% | Net: %wlan0% | %battery% | %date% "
+       , template = " %StdinReader% }{ Vol: %volume% | Net: %wlan0% | %battery% | %date% "
        }

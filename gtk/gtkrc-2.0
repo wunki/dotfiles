@@ -7,3 +7,14 @@ style "vimfix" {
   bg[NORMAL] = "#1c1b1a" # this matches my gvim theme 'Normal' bg color.
 }
 widget "vim-main-window.*GtkForm" style "vimfix"
+
+# Disable scrollbars in Firefox
+style "noscrollbars" {
+  GtkScrollbar::slider-width=0
+  GtkScrollbar::trough-border=0
+  GtkScrollbar::has-backward-stepper=0
+  GtkScrollbar::has-forward-stepper=0
+  GtkScrollbar::has-secondary-backward-stepper=0
+  GtkScrollbar::has-secondary-forward-stepper=0
+}
+widget "MozillaGtkWidget.*" style "noscrollbars"

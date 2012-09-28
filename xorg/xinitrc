@@ -37,7 +37,7 @@ urxvtd -o -q -f &
 #
 
 # Hide the mouse cursor
-unclutter &
+unclutter -idle 3 &
 
 # Clipboard functionality
 # parcellite &
@@ -52,7 +52,8 @@ unclutter &
 dropboxd &
 
 # Set background
-feh --bg-tile ~/dropbox/Pictures/Wallpapers/Solarized\ Tiles.png
+#feh --bg-tile ~/dropbox/Pictures/Wallpapers/Solarized\ Tiles.png
+feh --bg-fill ~/dropbox/Pictures/Wallpapers/Blue\ Space.jpg
 
 # Start the screensaver
 # xscreensaver -no-splash &

@@ -1,6 +1,7 @@
 ; load and fire
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 (require 'mu4e)
+(require 'sendmail)
 
 ;; org-mode integration
 (require 'org-mu4e)
@@ -28,7 +29,8 @@
        '(("/inbox"            . ?i)
          ("/bread-and-pepper" . ?b)
          ("/archive"          . ?a)
-         ("/sent"             . ?s)))
+         ("/sent"             . ?s)
+         ("/trash"            . ?t)))
 
 ; sending mail
 (setq message-send-mail-function 'smtpmail-send-it
@@ -42,5 +44,7 @@
       smtpmail-queue-dir   "~/mail/queue/cur")
 
 (setq mu4e-get-mail-command "offlineimap -a wunki"
+      mu4e-confirm-quit nil
+      mu4e-headers-date-format "%d %b, %Y at %H:%M" ;; date format
       message-signature "Petar Radosevic | @wunki"
-      message-kill-buffer-on-exit t) ;; don' keep message buffers around
+      message-kill-buffer-on-exit t)                ;; don' keep message buffers around

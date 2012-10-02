@@ -11,6 +11,7 @@
 
 ; load contacts with org
 (require 'org-contacts)
+(setq org-contacts-files (list (concat dropbox-directory "/Org/contacts.org")))
 
 ; archive method
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))

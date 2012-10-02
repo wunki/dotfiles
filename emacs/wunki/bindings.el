@@ -8,8 +8,8 @@
 (global-set-key (kbd "M-/") 'hippie-expand)
 (global-set-key (kbd "C-x C-g") 'goto-line)
 
-(global-set-key (kbd "<f9>") 'start-jabber)
-(global-set-key (kbd "<f10>") 'gnus)
+(global-set-key (kbd "<f9>") 'mu4e)
+(global-set-key (kbd "<f10>") 'start-jabber)
 
 ; who needs shift when using forward/backwards paragraph
 (global-set-key (kbd "M-[") 'backward-paragraph)

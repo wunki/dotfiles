@@ -14,13 +14,14 @@
   (load-file "~/.emacs.d/package-23.el"))
 
 (setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")))
+                         ("melpa" . "http://melpa.milkbox.net/packages/")
+                         ("org" . "http://orgmode.org/elpa/")))
 (package-initialize)
 
 (dolist (p '(nrepl ac-nrepl clojure-mode clojure-test-mode cljdoc
              bbdb haskell-mode paredit magit gist org markdown-mode
              ack-and-a-half markdown-mode color-theme-sanityinc-tomorrow
-             zenburn-theme pandoc-mode auto-complete jabber))
+             zenburn-theme pandoc-mode auto-complete jabber clojurescript-mode))
   (when (not (package-installed-p p))
     (package-install p)))
 
@@ -30,7 +31,6 @@
 (load "wunki/org")        ; org-mode
 (load "wunki/shell")      ; shell mode
 (load "wunki/haskell")
-(load "wunki/gnus")
-(load "wunki/bbdb")
+(load "wunki/mu4e")       ; email
 (load "wunki/erc")        ; irc
-(load "wunki/jabber")     ; jabber
+(load "wunki/jabber")     ; jabberj

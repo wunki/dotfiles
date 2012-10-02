@@ -52,11 +52,10 @@ unclutter -idle 3 &
 dropboxd &
 
 # Set background
-#feh --bg-tile ~/dropbox/Pictures/Wallpapers/Solarized\ Tiles.png
-feh --bg-fill ~/dropbox/Pictures/Wallpapers/Blue\ Space.jpg
+feh --bg-tile ~/dropbox/Pictures/Wallpapers/Solarized\ Tiles.png
 
-# Start the screensaver
-# xscreensaver -no-splash &
+# Screensaver
+xscreensaver -no-splash &
 
 #
 # Start XMonad

@@ -3,11 +3,14 @@
 (define-key global-map (kbd "C-c a") 'org-agenda)
 (define-key global-map (kbd "C-c c") 'org-capture)
 (define-key global-map (kbd "C-c b") 'org-iswitchb)
-(define-key global-map (kbd "C-.") 'org-cycle-agenda-files)
-(define-key global-map (kbd "<f8>") 'org-agenda)
+(define-key global-map (kbd "<f12>") 'org-cycle-agenda-files)
+(define-key global-map (kbd "<f11>") 'org-agenda)
 
 ; load org-protocol for external calls
 (require 'org-protocol)
+
+; load contacts with org
+(require 'org-contacts)
 
 ; archive method
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
@@ -15,6 +18,7 @@
 ; org-files
 (setq org-agenda-files (list (concat dropbox-directory "/Org/bread-and-pepper.org")
                              (concat dropbox-directory "/Org/personal.org")
+                             (concat dropbox-directory "/Org/today.org")
                              (concat dropbox-directory "/Org/books.org")
                              (concat dropbox-directory "/Org/inbox.org"))
       org-default-notes-file (concat dropbox-directory "/Org/inbox.org"))
@@ -71,17 +75,16 @@
 ; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup)
                             ("@errand" . ?e)
-                            ("@office" . ?o)
+                            ("@work" . ?w)
                             ("@home" . ?h)
                             (:endgroup)
-                            ("phone" . ?m)
-                            ("waiting" . ?w)
-                            ("hold" . ?p)
-                            ("personal" . ?p)
-                            ("work" . ?b)
-                            ("tweak" . ?t)
+                            ("mail" . ?m)
+                            ("phone" . ?c)
+                            ("waiting" . ?.)
+                            ("hold" . ?h)
+                            ("code" . ?c)
                             ("note" . ?n)
-                            ("cancelled" . ?c)
+                            ("cancelled" . ?a)
                             ("flagged" . ??))))
 
 ; allow setting single tags without the menu

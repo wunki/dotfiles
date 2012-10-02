@@ -89,3 +89,7 @@ export NOSE_WITH_COVERAGE=true
 
 # PIP
 export PIP_DOWNLOAD_CACHE=$HOME/.pip-cache
+
+# Clojure
+export LEIN_REPL_HOST="127.0.0.1"
+export LEIN_REPL_PORT="4001"

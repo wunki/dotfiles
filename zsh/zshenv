@@ -67,6 +67,13 @@ if [ -e "$HOME/.aws" ]; then
   fi
 fi
 
+# AWS credentials
+export AWS_ACCESS_KEY_ID="$(cat $HOME/.aws-key)"
+export AWS_SECRET_ACCESS_KEY="$(cat $HOME/.aws-secret)"
+
+# Pinky
+export PINKY_BUCKET="wunki-pinky"
+
 # RVM
 if [ -e "/Users/wunki/.rvm/scripts/rvm" ]; then
     source /Users/wunki/.rvm/scripts/rvm

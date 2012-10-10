@@ -30,7 +30,8 @@
 (load "wunki/temp_files") ; temporary files
 (load "wunki/org")        ; org-mode
 (load "wunki/shell")      ; shell mode
-(load "wunki/haskell")
+(load "wunki/lisp")       ; lisp languages
+(load "wunki/haskell")    ; haskell
 (load "wunki/mu4e")       ; email
 (load "wunki/erc")        ; irc
 (load "wunki/jabber")     ; jabberj

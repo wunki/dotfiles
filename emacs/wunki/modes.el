@@ -40,28 +40,10 @@
 ;(add-hook 'python-mode-hook 'flyspell-prog-mode)
 ;(add-hook 'message-mode-hook 'flyspell-mode)
 
-; parenthesis colors
-(add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
-(add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
-
 ; po-mode
 (setq auto-mode-alist 
       (cons '("\\.po\\'\\|\\.po\\." . po-mode) auto-mode-alist))
 (autoload 'po-mode "po-mode" "Major mode for translators to edit PO files" t)
-
-; paredit
-(defun turn-on-paredit () (paredit-mode 1))
-(add-hook 'clojure-mode-hook 'turn-on-paredit)
-(add-hook 'emacs-lisp-mode-hook 'turn-on-paredit)
-(add-hook 'nrepl-mode-hook 'turn-on-paredit)
-(add-hook 'scheme-mode-hook 'turn-on-paredit)
-
-; clojure
-(add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
-(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
-(add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'nrepl-mode))
 
 ; markdown mode
 (setq auto-mode-alist (cons '("\\.markdown" . markdown-mode) auto-mode-alist))

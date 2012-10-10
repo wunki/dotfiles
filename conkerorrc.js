@@ -101,3 +101,12 @@ interactive("org-capture", "Clip url, title, and selection to capture via org-pr
           });
 // capture with C-c c
 define_key(content_buffer_normal_keymap, "C-c c", "org-capture");
+
+// clear history
+
+function history_clear () {
+    var history = Cc["@mozilla.org/browser/nav-history-service;1"]
+        .getService(Ci.nsIBrowserHistory);
+    history.removeAllPages();
+};
+interactive("history-clear", "Clear the history.", history_clear);

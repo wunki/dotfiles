@@ -47,4 +47,5 @@
       mu4e-confirm-quit nil
       mu4e-headers-date-format "%d %b, %Y at %H:%M" ;; date format
       message-signature "Petar Radosevic | @wunki"
-      message-kill-buffer-on-exit t)                ;; don' keep message buffers around
+      message-kill-buffer-on-exit t                 ;; don' keep message buffers around
+      mu4e-html2text-command "html2text -utf8 -width 72")

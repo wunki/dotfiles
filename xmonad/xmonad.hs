@@ -77,6 +77,7 @@ myManageHook = manageDocks <+> composeAll
     , className =? "Firefox-bin"          --> doF (W.shift "3:Web")
     , className =? "Firefox"              --> doF (W.shift "3:Web")
     , className =? "Iceweasel"            --> doF (W.shift "3:Web")
+    , className =? "Conkeror"             --> doF (W.shift "3:Web")
     , className =? "Emacs"                --> doF (W.shift "2:Emacs")
     , className =? "GVIM"                 --> doF (W.shift "2:Emacs")
     , className =? "Thunar"               --> doF (W.shift "4:General")

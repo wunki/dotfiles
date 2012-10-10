@@ -60,7 +60,7 @@ fi
 
 # Git
 if [ -e "/usr/local/bin/hub" ] || [ -e "/home/wunki/bin/hub" ] || [ -e "/usr/bin/hub" ]; then
-  alias git="hub"
+  function git(){hub $@}
 fi
 alias gs="git status --ignore-submodules=dirty"
 alias gp="git push origin master"

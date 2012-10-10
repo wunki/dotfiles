@@ -57,7 +57,10 @@ feh --bg-tile ~/dropbox/Pictures/Wallpapers/Solarized\ Tiles.png
 # Screensaver
 xscreensaver -no-splash &
 
+# Thunar
+thunar --daemon &
+
 #
 # Start XMonad
 #
-exec xmonad > $HOME/.xmonad.log 2>&1
+exec dbus-launch xmonad > $HOME/.xmonad.log 2>&1

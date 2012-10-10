@@ -19,6 +19,7 @@
 ; org-files
 (setq org-agenda-files (list (concat dropbox-directory "/Org/bread-and-pepper.org")
                              (concat dropbox-directory "/Org/personal.org")
+                             (concat dropbox-directory "/Org/doo.org")
                              (concat dropbox-directory "/Org/today.org")
                              (concat dropbox-directory "/Org/books.org")
                              (concat dropbox-directory "/Org/inbox.org"))
@@ -52,6 +53,7 @@
  '((emacs-lisp . t)
    (C . t)
    (sh . t)
+   (ditaa . t)
    (ruby . t)
    (python . t)
    (js . t)
@@ -61,6 +63,7 @@
 (setq org-confirm-babel-evaluate nil)
 (setq org-src-fontify-natively t)
 (setq org-src-tab-acts-natively t)
+(setq org-ditaa-jar-path "/usr/share/ditaa/ditaa.jar")
 
 ; capture templates
 (setq org-capture-templates

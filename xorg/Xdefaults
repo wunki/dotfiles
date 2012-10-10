@@ -19,10 +19,10 @@ urxvt.keysym.M-v:   perl:clipboard:paste
 urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 ! Urxvt fonts
-urxvt.font:            xft:Consolas:size=12
-urxvt.boldFont:        xft:Consolas:bold:size=12
-urxvt.italicFont:      xft:Consolas:italic:size=12
-urxvt.boldItalicFont:  xft:Consolas:bolditalic:size=12
+urxvt.font:            xft:Consolas:size=11
+urxvt.boldFont:        xft:Consolas:bold:size=11
+urxvt.italicFont:      xft:Consolas:italic:size=11
+urxvt.boldItalicFont:  xft:Consolas:bolditalic:size=11
 
 ! Urxvt settings
 urxvt.depth: 32
@@ -46,7 +46,7 @@ Emacs.verticalScrollBars: off
  
 ! Urls
 urxvt.perl-ext: default,matcher
-urxvt.urlLauncher: /home/wunki/bin/conkeror
+urxvt.urlLauncher: conkerer
 urxvt.matcher.button:   1
 urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 

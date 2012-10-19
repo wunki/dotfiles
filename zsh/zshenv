@@ -34,6 +34,11 @@ export PATH="${HOME}/bin:/usr/local/bin:/usr/local/sbin:${HOME}/.gem/ruby/1.9.1/
 # Haskell
 export PATH="${HOME}/.cabal/bin:${HOME}/Library/Haskell/bin:$PATH"
 
+# Heroku
+if [ -d "/usr/local/heroku/bin" ]; then
+  export PATH="$PATH:/usr/local/heroku/bin"
+fi
+
 # Perl
 export PATH="/usr/bin/vendor_perl:$PATH"
 
@@ -95,7 +100,7 @@ fi
 export NOSE_WITH_COVERAGE=true
 
 # PIP
-export PIP_DOWNLOAD_CACHE=$HOME/.pip-cache
+export PIP_DOWNLOAD_CACHE=$HOME/.cache/pip
 
 # Clojure
 export LEIN_REPL_HOST="127.0.0.1"

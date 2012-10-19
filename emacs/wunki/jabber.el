@@ -17,6 +17,9 @@
       jabber-avatar-cache-directory "/tmp/jabber-avatars"
       jabber-username "Petar Radosevic")
 
+;; don't show any presence notifications
+(setq jabber-alert-presence-hooks '())
+
 ;; colors
 (custom-set-faces
  '(jabber-chat-prompt-foreign ((t (:foreground "red"))))
@@ -28,13 +31,6 @@
 
 ;; join rooms
 (setq jabber-muc-autojoin '("server@conference.im.doo.net"))
-
-(defun egh:jabber-google-groupchat-create ()
-      (interactive)
-      (let ((group (apply 'format "private-chat-%x%x%x%x%x%x%x%x-%x%x%x%x-%x%x%x%x-%x%x%x%x-%x%x%x%x%x%x%x%x%x%x%x%x@groupchat.google.com"
-                          (mapcar (lambda (x) (random x)) (make-list 32 15))))
-            (account (jabber-read-account)))
-        (jabber-groupchat-join account group (jabber-muc-read-my-nickname account group) t)))
 
 (defun jabber-start ()
   "Wrapper for starting jabber because we need the passwords"

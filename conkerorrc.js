@@ -17,6 +17,9 @@ session_pref("xpinstall.whitelist.required", false);
 // Adblock plus
 require("adblockplus.js");
 
+// firefox user agent
+session_pref("general.useragent.compatMode.firefox", true);
+
 // Save my passwords
 session_pref("signon.rememberSignons", true);
 session_pref("signon.expireMasterPassword", false);

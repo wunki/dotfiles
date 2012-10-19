@@ -43,9 +43,10 @@
 (setq smtpmail-queue-mail  nil  ;; start in non-queue mode
       smtpmail-queue-dir   "~/mail/queue/cur")
 
-(setq mu4e-get-mail-command "offlineimap -a wunki"
+(setq mu4e-get-mail-command "offlineimap"
       mu4e-confirm-quit nil
-      mu4e-headers-date-format "%d %b, %Y at %H:%M" ;; date format
+      mu4e-headers-date-format "%d %b, %Y at %H:%M" ; date format
       message-signature "Petar Radosevic | @wunki"
-      message-kill-buffer-on-exit t                 ;; don' keep message buffers around
-      mu4e-html2text-command "html2text -utf8 -width 72")
+      message-kill-buffer-on-exit t                 ; don' keep message buffers around
+      mu4e-html2text-command "html2text -utf8 -width 72"
+)

@@ -19,13 +19,14 @@ urxvt.keysym.M-v:   perl:clipboard:paste
 urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 ! Urxvt fonts
-urxvt.font:            xft:Consolas:size=11
-urxvt.boldFont:        xft:Consolas:bold:size=11
-urxvt.italicFont:      xft:Consolas:italic:size=11
-urxvt.boldItalicFont:  xft:Consolas:bolditalic:size=11
+urxvt.font:            xft:Ubuntu Mono:size=13
+urxvt.boldFont:        xft:Ubuntu Mono:bold:size=13
+urxvt.italicFont:      xft:Ubuntu Mono:italic:size=13
+urxvt.boldItalicFont:  xft:Ubuntu Mono:bolditalic:size=13
 
 ! Urxvt settings
 urxvt.depth: 32
+urxvt.background: [95]#002b36
 urxvt.jumpScroll: True
 urxvt.fading: 20
 urxvt.scrollBar: False
@@ -68,7 +69,7 @@ urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 #define S_cyan          #2aa198
 #define S_green         #859900
 
-*background:            S_base03
+!*background:            S_base03
 *foreground:            S_base2
 *cursorColor:           S_base1
 *pointerColorBackground:S_base01

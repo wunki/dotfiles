@@ -26,15 +26,8 @@ xsetroot -cursor_name left_ptr
 setxkbmap -layout us -variant dvorak
 setxkbmap -option ctrl:nocaps 
 
-# Add keys to SSH agent
-# eval `ssh-agent -s`
-
 # Start rvxt-unicode server
 urxvtd -o -q -f &
-
-# 
-# Nice to haves
-#
 
 # Hide the mouse cursor
 unclutter -idle 3 &
@@ -42,14 +35,17 @@ unclutter -idle 3 &
 # Clipboard functionality
 # parcellite &
 
-# Be nice for my eyes
-# redshift -l 52:4 -t 6000:4800 -m vidmode &
+# Be nice for my eyes at night
+redshift -l 52:4 -t 6000:4800 -m vidmode &
 
 # Transparency!
-# xcompmgr -c -t-5 -l-5 -r4.2 -o.80 &
+xcompmgr -c -C -t-5 -l-5 -r4.2 -o.80 &
 
 # Dropbox
 dropboxd &
+
+# Emacs
+emacs --daemon &
 
 # Set background
 feh --bg-tile ~/dropbox/Pictures/Wallpapers/Solarized\ Tiles.png

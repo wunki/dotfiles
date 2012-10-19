@@ -14,3 +14,15 @@
 (defun string-rtrim (str)
   "Remove trailing whitespace from `STR'."
   (replace-regexp-in-string "[ \t\n]*$" "" str))
+
+(defun exit-emacs-client ()
+  "consistent exit emacsclient.
+   if not in emacs client, echo a message in minibuffer, don't exit emacs.
+   if in server mode
+      and editing file, do C-x # server-edit
+      else do C-x 5 0 delete-frame"
+  (interactive)
+  (if server-buffer-clients
+      (server-edit)
+    (delete-frame)))
+(global-set-key (kbd "C-x C-c") 'exit-emacs-client)

@@ -40,6 +40,9 @@
 ;(add-hook 'python-mode-hook 'flyspell-prog-mode)
 ;(add-hook 'message-mode-hook 'flyspell-mode)
 
+; scheme
+(setq scheme-program-name "csi -:c")
+
 ; po-mode
 (setq auto-mode-alist 
       (cons '("\\.po\\'\\|\\.po\\." . po-mode) auto-mode-alist))

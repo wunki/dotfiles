@@ -11,7 +11,10 @@
 ; fonts on the mac are rendered smaller.
 (if (eq system-type 'darwin)
   (set-default-font "Droid Sans Mono-16")
-  (set-default-font "Droid Sans Mono-11"))
+  (set-default-font "Ubuntu Mono-13"))
+
+; when creating a new frame
+(setq default-frame-alist '((font . "Ubuntu Mono 13")))
 
 (defun toggle-dark-light-theme-tomorrow ()
   "Switch between dark and light theme."

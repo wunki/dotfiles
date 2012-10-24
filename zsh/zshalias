@@ -13,6 +13,10 @@ alias wl="wicd-curses"
 alias clj="clojure"
 alias ssh="ssh-mosh"
 
+# Get shit done
+alias gsdw="sudo ~/bin/get-shit-done work"
+alias gsdp="sudo ~/bin/get-shit-done play"
+
 # Pager
 alias less=$PAGER
 alias zless=$PAGER

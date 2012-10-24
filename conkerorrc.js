@@ -20,6 +20,9 @@ require("adblockplus.js");
 // firefox user agent
 session_pref("general.useragent.compatMode.firefox", true);
 
+// don't enable formfill
+session_pref("browser.formfill.enable", false);
+
 // Save my passwords
 session_pref("signon.rememberSignons", true);
 session_pref("signon.expireMasterPassword", false);

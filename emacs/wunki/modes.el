@@ -43,6 +43,9 @@
 ; scheme
 (setq scheme-program-name "csi -:c")
 
+; lisp
+(setq inferior-lisp-program "/usr/bin/sbcl --noinform")
+
 ; po-mode
 (setq auto-mode-alist 
       (cons '("\\.po\\'\\|\\.po\\." . po-mode) auto-mode-alist))

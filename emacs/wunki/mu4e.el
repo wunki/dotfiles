@@ -14,6 +14,14 @@
 ; set default mail agent
 (setq mail-user-agent 'mu4e-user-agent)
 
+; set bookmarks
+(setq mu4e-bookmarks 
+  '(("flag:unread AND NOT flag:trashed" "Unread messages"      ?u)
+    ("date:today..now"                  "Today's messages"     ?t)
+    ("date:7d..now"                     "Last 7 days"          ?w)
+    ("mime:image/*"                     "Messages with images" ?p)
+    ("flag:flagged"                     "Flagged messages"     ?f)))
+
 (setq mu4e-user-mail-address-regexp
       "petar@wunki\.org\\|petar@breadandpepper\.com")
 

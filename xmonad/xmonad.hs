@@ -94,6 +94,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((0, xF86XK_AudioPrev), spawn "mpc prev") -- Previous song
     , ((0, xF86XK_AudioNext), spawn "mpc next") -- Next song
     , ((0, xF86XK_Launch1),   spawn "/usr/bin/conkeror") -- Launch Conkeror
+    , ((0, xF86XK_WakeUp),    spawn "/usr/bin/xscreensaver-command -lock")  -- Lock the screen
     , ((modMask, xK_b),       sendMessage ToggleStruts) -- Hide top bar
     , ((modMask, xK_Print),   spawn "scrot -q90 /home/wunki/pictures/screenshots/%Y-%m-%d-%H%M%S.png")
     , ((modMask .|. controlMask, xK_p), sendMessage MagnifyMore)

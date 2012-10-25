@@ -22,12 +22,12 @@
 
 ;; colors
 (custom-set-faces
- '(jabber-chat-prompt-foreign ((t (:foreground "red"))))
- '(jabber-chat-prompt-local ((t (:foreground "blue"))))
- '(jabber-chat-prompt-system ((t (:foreground "dark green" :weight bold))))
- '(jabber-roster-user-away ((t (:foreground "orange"))))
- '(jabber-roster-user-chatty ((t (:foreground "green"))))
- '(jabber-roster-user-online ((t (:foreground "dark green")))))
+ '(jabber-chat-prompt-foreign ((t (:foreground "#dfaf8f"))))
+ '(jabber-chat-prompt-local ((t (:foreground "#f0dfaf"))))
+ '(jabber-chat-prompt-system ((t (:foreground "#8fb28f" :weight bold))))
+ '(jabber-roster-user-away ((t (:foreground "#bc8383"))))
+ '(jabber-roster-user-chatty ((t (:foreground "#9fc59f"))))
+ '(jabber-roster-user-online ((t (:foreground "#bfebbf")))))
 
 ;; join rooms
 (setq jabber-muc-autojoin '("server@conference.im.doo.net"))

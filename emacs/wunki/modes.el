@@ -11,6 +11,7 @@
 
 ; ido mode
 (ido-mode 1)
+(ido-ubiquitous-mode t)
 (setq ido-enable-prefix nil
       ido-enable-flex-matching t
       ido-use-filename-at-point 'guess

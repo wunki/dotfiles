@@ -7,6 +7,11 @@
 ;; don't show any of this
 (setq erc-hide-list '("JOIN" "PART" "QUIT" "NICK"))
 
+; automagically resize the window
+(add-hook 'window-configuration-change-hook 
+	   '(lambda ()
+	      (setq erc-fill-column (- (window-width) 2))))
+
 (defun erc-start-or-switch ()
   "Connect to ERC, or switch to last active buffer"
   (interactive)

@@ -35,6 +35,7 @@ xorg::
 	@ln -fs $(DOTFILES)/xorg/Xresources 		${HOME}/.Xresources
 	@ln -fs $(DOTFILES)/xorg/xinitrc 				${HOME}/.xinitrc
 	@ln -fns $(DOTFILES)/xorg/urxvt-scripts ${HOME}/.urxvt-scripts
+	@ln -fns $(DOTFILES)/xorg/fonts.conf	  ${HOME}/.fonts.conf
 	@echo Xorg is symlinked.
 
 gtk::  

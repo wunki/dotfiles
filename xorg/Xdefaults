@@ -3,6 +3,7 @@ Xcursor.size:  22
 
 ! XFT Settings
 Xft.autohint: 0
+Xft.antialias: 1
 Xft.lcdfilter:  lcddefault
 Xft.hintstyle:  hintslight
 Xft.hinting: 1

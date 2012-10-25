@@ -26,3 +26,13 @@
       (server-edit)
     (delete-frame)))
 (global-set-key (kbd "C-x C-c") 'exit-emacs-client)
+
+(defun select-next-window ()
+  "Switch to the next window" 
+  (interactive)
+  (select-window (next-window)))
+
+(defun select-previous-window ()
+  "Switch to the previous window" 
+  (interactive)
+  (select-window (previous-window)))

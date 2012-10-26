@@ -44,9 +44,6 @@ xcompmgr -c -C -t-5 -l-5 -r4.2 -o.80 &
 # Dropbox
 dropbox start &
 
-# Emacs
-emacs --daemon &
-
 # Set background
 feh --bg-tile ~/dropbox/Pictures/Wallpapers/Solarized\ Tiles.png
 
@@ -56,7 +53,13 @@ xscreensaver -no-splash &
 # Thunar
 thunar --daemon &
 
+# SSH agent
+eval `ssh-agent`
+
+# Emacs
+emacs --daemon &
+
 #
 # Start XMonad
 #
-exec ssh-agent dbus-launch xmonad > $HOME/.xmonad.log 2>&1
+exec dbus-launch xmonad > $HOME/.xmonad.log 2>&1

@@ -23,6 +23,9 @@ session_pref("general.useragent.compatMode.firefox", true);
 // don't enable formfill
 session_pref("browser.formfill.enable", false);
 
+// default directory
+session_pref("cwd", "~/downloads");
+
 // Save my passwords
 session_pref("signon.rememberSignons", true);
 session_pref("signon.expireMasterPassword", false);
@@ -59,6 +62,9 @@ require("clicks-in-new-buffer.js");
 clicks_in_new_buffer_target = OPEN_NEW_BUFFER_BACKGROUND; 
 clicks_in_new_buffer_button = 1;
 
+// instapaper
+require("/home/wunki/src/wunki-dotfiles/instapaper.js");
+
 // auto completion in the minibuffer
 minibuffer_auto_complete_default = true;
 url_completion_use_history = true;
@@ -78,7 +84,7 @@ add_hook("mode_line_hook", mode_line_adder(loading_count_widget), true);
 remove_hook("mode_line_hook", mode_line_adder(clock_widget));
 
 // smart links
-define_webjump("gs",    "https://encrypted.google.com/?q=%s");
+define_webjump("gs", "https://encrypted.google.com/?q=%s");
 
 // reload conkerorrc with C-c r
 interactive("reload-config", "reload conkerorrc",
@@ -105,11 +111,11 @@ interactive("org-capture", "Clip url, title, and selection to capture via org-pr
                           encodeURIComponent(I.buffer.top_frame.getSelection()),
                           I.window);
           });
+
 // capture with C-c c
 define_key(content_buffer_normal_keymap, "C-c c", "org-capture");
 
 // clear history
-
 function history_clear () {
     var history = Cc["@mozilla.org/browser/nav-history-service;1"]
         .getService(Ci.nsIBrowserHistory);

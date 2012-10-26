@@ -36,12 +36,7 @@ bindkey -e
 unsetopt correct_all
 
 # Completions
-fpath=(path/to/zsh-completions/src $fpath)
-
-# Evaluate keychain on Linux
-if [ `uname` = "Linux" ]; then
-   eval `keychain --eval --agents ssh id_rsa`
-fi
+fpath=(/home/wunki/src/zsh-completions/src $fpath)
 
 # CTRL-R for backwards history search
 bindkey "^r" history-incremental-search-backward

@@ -16,7 +16,8 @@
 
 ; set bookmarks
 (setq mu4e-bookmarks 
-  '(("flag:unread AND NOT flag:trashed" "Unread messages"      ?u)
+  '(("maildir:/bread-and-pepper OR maildir:/inbox flag:unread" "New messages" ?n)
+    ("flag:unread AND NOT flag:trash"   "All unread messages"  ?u)
     ("date:today..now"                  "Today's messages"     ?t)
     ("date:7d..now"                     "Last 7 days"          ?w)
     ("mime:image/*"                     "Messages with images" ?p)
@@ -33,7 +34,7 @@
 (setq mu4e-trash-folder  "/trash")
 
 ; shortcuts
-(setq  mu4e-maildir-shortcuts
+(setq mu4e-maildir-shortcuts
        '(("/inbox"            . ?i)
          ("/bread-and-pepper" . ?b)
          ("/archive"          . ?a)

@@ -59,4 +59,4 @@ thunar --daemon &
 #
 # Start XMonad
 #
-exec dbus-launch xmonad > $HOME/.xmonad.log 2>&1
+exec ssh-agent dbus-launch xmonad > $HOME/.xmonad.log 2>&1

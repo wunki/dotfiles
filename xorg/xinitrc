@@ -45,7 +45,7 @@ xcompmgr -c -C -t-5 -l-5 -r4.2 -o.80 &
 dropbox start &
 
 # Set background
-feh --bg-tile ~/dropbox/Pictures/Wallpapers/Solarized\ Tiles.png
+feh --bg-tile ~/dropbox/Pictures/Wallpapers/Patterns/noisy_net.png
 
 # Screensaver
 xscreensaver -no-splash &

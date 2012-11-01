@@ -8,7 +8,10 @@
 ;;training wheels
 (global-unset-key (kbd "C-x o"))
 
-; fullscreen on mac
+;;search forward regexp
+(global-set-key (kbd "C-c C-s") 'search-forward-regexp)
+
+;;fullscreen on mac
 (if (eq system-type 'darwin)
     (global-set-key (kbd "<f3>") 'ns-toggle-fullscreen))
 
@@ -29,12 +32,15 @@
 (define-key global-map (kbd "C-&") 'ace-jump-mode)
 (define-key global-map (kbd "C-*") 'idomenu)
 
+;;helm
+(global-set-key (kbd "C-c h") 'helm-projectile)
+
 ;;don't suspend emacs
 (global-unset-key (kbd "C-z"))
 
 ;;gist.github.com
-(define-key global-map (kbd "C-c p") 'gist-buffer)
-(define-key global-map (kbd "C-c C-p") 'gist-region)
+(define-key global-map (kbd "C-c C-c C-g") 'gist-buffer)
+(define-key global-map (kbd "C-c C-c C-p") 'gist-region)
 
 ;;quickly edit emacs config with ido
 (define-key global-map (kbd "C-c C-x C-e") 

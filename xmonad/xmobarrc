@@ -1,13 +1,13 @@
 Config { font = "xft:Consolas:pixelsize=14:antialias=true"
-       , bgColor = "#002b36"
-       , fgColor = "#657b83"
+       , bgColor = "#1d1f21"
+       , fgColor = "#969896"
        , position = BottomSize L 100 26
        , border = TopB
-       , borderColor = "#073642"
+       , borderColor = "#282a2e"
        , lowerOnStart = True
-       , commands = [ Run Network "wlan0" ["-t", "<rx> - <tx>", "-L", "0","-H", "100", "--normal", "#859900", "--high", "#cb4b16"] 10
-                    , Run Battery ["-t", "Batt: <timeleft>", "-L", "50", "-H", "75", "--normal", "#859900", "--high", "#cb4b16"] 600
-                    , Run Cpu ["-L", "3", "-H", "50", "--normal", "#859900", "--high", "#cb4b16"] 10
+       , commands = [ Run Network "wlan0" ["-t", "<rx> - <tx>", "-L", "0","-H", "100", "--normal", "#969896", "--high", "#de935f"] 10
+                    , Run Battery ["-t", "Batt: <timeleft>", "-L", "50", "-H", "75", "--normal", "#969896", "--high", "#de935f"] 600
+                    , Run Cpu ["-L", "3", "-H", "50", "--normal", "#969896", "--high", "#de935f"] 10
                     , Run Com "/home/wunki/bin/current-volume" [] "volume" 5
                     , Run Date "%H:%M:%S" "date" 10
                     , Run StdinReader

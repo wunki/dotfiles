@@ -16,12 +16,13 @@
 
 ; set bookmarks
 (setq mu4e-bookmarks 
-  '(("maildir:/bread-and-pepper OR maildir:/inbox flag:unread" "New messages" ?n)
-    ("flag:unread AND NOT flag:trash"   "All unread messages"  ?u)
-    ("date:today..now"                  "Today's messages"     ?t)
-    ("date:7d..now"                     "Last 7 days"          ?w)
-    ("mime:image/*"                     "Messages with images" ?p)
-    ("flag:flagged"                     "Flagged messages"     ?f)))
+  '(("flag:new maildir:/inbox"            "New Personal"         ?p)
+    ("flag:new maildir:/bread-and-pepper" "New Bread & Pepper"   ?b)
+    ("flag:unread AND NOT flag:trash"     "All unread messages"  ?u)
+    ("date:today..now"                    "Today's messages"     ?t)
+    ("date:7d..now"                       "Last 7 days"          ?w)
+    ("mime:image/*"                       "Messages with images" ?i)
+    ("flag:flagged"                       "Flagged messages"     ?f)))
 
 (setq mu4e-user-mail-address-regexp
       "petar@wunki\.org\\|petar@breadandpepper\.com")

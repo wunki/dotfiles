@@ -21,7 +21,7 @@ zsh::
 	@echo ZSH is symlinked.
 
 tmux::
-	@ln -fs $(DOTFILES)/tmux/tmux.conf ${HOME}/.tmux
+	@ln -fs $(DOTFILES)/tmux/tmux.conf ${HOME}/.tmux.conf
 	@echo tmux is symlinked.
 
 xmonad::

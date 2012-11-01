@@ -44,13 +44,13 @@ main = do
         , layoutHook = avoidStruts $ myLayout
         , logHook = dynamicLogWithPP $ xmobarPP
                     { ppOutput = UTF8.hPutStrLn xmobar
-                    , ppUrgent = xmobarColor "#586e75" ""
-                    , ppTitle = xmobarColor "#93a1a1" ""
-                    , ppCurrent = xmobarColor "#268bd2" ""
+                    , ppUrgent = xmobarColor "#de935f" ""
+                    , ppTitle = xmobarColor "#c5c8c6" ""
+                    , ppCurrent = xmobarColor "#81a2be" ""
                     }
         , borderWidth = 1
-        , normalBorderColor  = "#586e75"
-        , focusedBorderColor = "#93a1a1"
+        , normalBorderColor  = "#373b41"
+        , focusedBorderColor = "#81a2be"
         , workspaces = ["1:Shell", "2:Emacs", "3:Web", "4:General"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
@@ -94,7 +94,6 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((0, xF86XK_AudioPrev), spawn "mpc prev") -- Previous song
     , ((0, xF86XK_AudioNext), spawn "mpc next") -- Next song
     , ((0, xF86XK_Launch1),   spawn "/usr/bin/conkeror") -- Launch Conkeror
-    , ((0, xF86XK_WakeUp),    spawn "/usr/bin/xscreensaver-command -lock")  -- Lock the screen
     , ((modMask, xK_b),       sendMessage ToggleStruts) -- Hide top bar
     , ((modMask, xK_Print),   spawn "scrot -q90 /home/wunki/pictures/screenshots/%Y-%m-%d-%H%M%S.png")
     , ((modMask .|. controlMask, xK_p), sendMessage MagnifyMore)

@@ -1,3 +1,17 @@
+!TomorrowNight
+#define t_background        #1d1f21
+#define t_current_line      #282a2e
+#define t_selection      	  #373b41
+#define t_foreground      	#c5c8c6
+#define t_comment	     	    #969896
+#define t_red		     	      #cc6666
+#define t_orange	     	    #de935f
+#define t_yellow        	  #f0c674
+#define t_green	        	  #b5bd68
+#define t_aqua	        	  #8abeb7
+#define t_blue	        	  #81a2be
+#define t_purple        	  #b294bb
+
 Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size:  22
 
@@ -27,7 +41,7 @@ urxvt.boldItalicFont:  xft:Ubuntu Mono:bolditalic:size=13
 
 ! Urxvt settings
 urxvt.depth: 32
-urxvt.background: [95]#002b36
+urxvt.background: [80]t_background
 urxvt.jumpScroll: True
 urxvt.fading: 20
 urxvt.scrollBar: False
@@ -48,62 +62,42 @@ Emacs.verticalScrollBars: off
  
 ! Urls
 urxvt.perl-ext: default,matcher
-urxvt.urlLauncher: conkerer
+urxvt.urlLauncher: /home/wunki/bin/conk
 urxvt.matcher.button:   1
 urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 
-!! Solarized dark
-#define S_base03        #002b36
-#define S_base02        #073642
-#define S_base01        #586e75
-#define S_base00        #657b83
-#define S_base0         #839496
-#define S_base1         #93a1a1
-#define S_base2         #eee8d5
-#define S_base3         #fdf6e3
-#define S_yellow        #b58900
-#define S_orange        #cb4b16
-#define S_red           #dc322f
-#define S_magenta       #d33682
-#define S_violet        #6c71c4
-#define S_blue          #268bd2
-#define S_cyan          #2aa198
-#define S_green         #859900
+*.foreground:   t_foreground
+*.background:   t_background
+*.cursorColor:  #aeafad
 
-!*background:            S_base03
-*foreground:            S_base2
-*cursorColor:           S_base1
-*pointerColorBackground:S_base01
-*pointerColorForeground:S_base1
+! Black / Grey
+*.color0:       #000000
+*.color8:       #666666
 
-!! black dark/light
-*color0:                S_base02
-*color8:                S_base03
+! Red / Bright Red
+*.color1:       t_red
+*.color9:       #FF3334
 
-!! red dark/light
-*color1:                S_red
-*color9:                S_orange
+! Green + Bright Green
+*.color2:       t_green
+*.color10:      #9ec400
 
-!! green dark/light
-*color2:                S_green
-*color10:               S_base01
+! Yellow (Orange) + Bright Yellow (Yellow)
+*.color3:       t_orange
+*.color11:      t_yellow
 
-!! yellow dark/light
-*color3:                S_yellow
-*color11:               S_base00
+! Blue + Bright Blue
+*.color4:       t_blue
+*.color12:      t_blue
 
-!! blue dark/light
-*color4:                S_blue
-*color12:               S_base0
+! Magenta (Purple) + Bright Magenta
+*.color5:       t_purple
+*.color13:      #b777e0
 
-!! magenta dark/light
-*color5:                S_magenta
-*color13:               S_violet
+! Cyan (Aqua) + Bright Cyan
+*.color6:       t_aqua
+*.color14:      #54ced6
 
-!! cyan dark/light
-*color6:                S_cyan
-*color14:               S_base1
-
-!! white dark/light
-*color7:                S_base2
-*color15:               S_base3
+! Light Grey (Selection) + White (Current Line)
+*.color7:       t_selection
+*.color15:      t_current_line

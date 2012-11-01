@@ -9,7 +9,13 @@
           (lambda ()
             (set (make-local-variable 'cc-other-file-alist)  '(("\\.m\\'" (".h")) ("\\.h\\'" (".m" ".c" ".cpp"))))))
 
-; ido mode
+;;projectile
+(projectile-global-mode)
+
+;;recentf
+(recentf-mode 1)
+
+;;ido mode
 (ido-mode 1)
 (ido-ubiquitous-mode t)
 (setq ido-enable-prefix nil

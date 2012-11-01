@@ -20,7 +20,7 @@ unset MAILCHECK
 
 # Default browser
 if [ -n "$DISPLAY" ]; then
-    BROWSER=conkeror
+    BROWSER=/home/wunki/bin/conk
 fi
 
 # UTF-8 Locales

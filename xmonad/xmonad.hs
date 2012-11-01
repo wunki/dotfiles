@@ -87,13 +87,13 @@ manageHook' :: ManageHook
 manageHook' = (doF W.swapDown) <+> manageDocks <+> manageHook defaultConfig <+> myManageHook
 
 myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
-    [ ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 1-") -- Lower volume
-    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q sset Master 1+") -- Raise volume
-    , ((0, xF86XK_AudioMute), spawn "amixer -q sset Master toggle") -- Mute
+    [ ((0, xF86XK_AudioLowerVolume), spawn "/home/wunki/bin/volume decrease") -- Lower volume
+    , ((0, xF86XK_AudioRaiseVolume), spawn "/home/wunki/bin/volume increase") -- Raise volume
+    , ((0, xF86XK_AudioMute), spawn "/home/wunki/bin/volume mute") -- Mute
     , ((0, xF86XK_AudioPlay), spawn "mpc toggle") -- Play/pause
     , ((0, xF86XK_AudioPrev), spawn "mpc prev") -- Previous song
     , ((0, xF86XK_AudioNext), spawn "mpc next") -- Next song
-    , ((0, xF86XK_Launch1),   spawn "/usr/bin/conkeror") -- Launch Conkeror
+    , ((0, xF86XK_Launch1),   spawn "/home/wunki/bin/conk") -- Launch Conkeror
     , ((modMask, xK_b),       sendMessage ToggleStruts) -- Hide top bar
     , ((modMask, xK_Print),   spawn "scrot -q90 /home/wunki/pictures/screenshots/%Y-%m-%d-%H%M%S.png")
     , ((modMask .|. controlMask, xK_p), sendMessage MagnifyMore)
@@ -104,7 +104,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     -- cycle through workspaces
     , ((modMask, xK_e), moveTo Next (WSIs (return $ not . (=="SP") . W.tag)))
     , ((modMask, xK_a), moveTo Prev (WSIs (return $ not . (=="SP") . W.tag)))
-    , ((modMask, xK_p), spawn "dmenu_run -i -fn 'Consolas-11:normal' -nb '#002b36' -nf '#839496' -sb '#073642' -sf '#268bd2' -p '>' ") -- %! Launch dmenu
+    , ((modMask, xK_p), spawn "dmenu_run -i -fn 'Consolas-11:normal' -nb '#1d1f21' -nf '#c5c8c6' -sb '#1d1f21' -sf '#de935f' -p '>' ") -- %! Launch dmenu
     , ((modMask, xK_g), windowPromptGoto  defaultXPConfig)
     , ((modMask, xK_c), windowPromptBring defaultXPConfig)
     ]

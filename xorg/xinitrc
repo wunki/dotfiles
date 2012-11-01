@@ -45,13 +45,16 @@ xcompmgr -c -C -t-5 -l-5 -r4.2 -o.80 &
 dropbox start &
 
 # Set background
-feh --bg-tile ~/dropbox/Pictures/Wallpapers/Patterns/noisy_net.png
+feh --bg-tile ~/dropbox/Pictures/Wallpapers/Patterns/stressed_linen.png
 
 # Screensaver
 xscreensaver -no-splash &
 
 # Thunar
 thunar --daemon &
+
+# Sound
+#/usr/bin/start-pulseaudio-x11 &
 
 # SSH agent
 eval `ssh-agent`

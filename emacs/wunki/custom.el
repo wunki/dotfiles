@@ -21,6 +21,8 @@
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
+(setq vc-follow-symlinks t) ; follow symlinks and don't ask
+
 ; browser on Arch Linux
 (if (string-equal system-type "gnu/linux")
     (setq browse-url-browser-function 'browse-url-generic
@@ -86,20 +88,22 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("4d66773cc6d32566eaf2c9c7ce11269d9eb26e428a1a4fa10e97bae46ff615da" "d05303816026cec734e26b59e72bb9e46480205e15a8a011c62536a537c29a1a" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "be7eadb2971d1057396c20e2eebaa08ec4bfd1efe9382c12917c6fe24352b7c1" default)))
+ '(custom-safe-themes (quote ("bb08c73af94ee74453c90422485b29e5643b73b05e8de029a6909af6a3fb3f58" "4d66773cc6d32566eaf2c9c7ce11269d9eb26e428a1a4fa10e97bae46ff615da" "d05303816026cec734e26b59e72bb9e46480205e15a8a011c62536a537c29a1a" "82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "06f0b439b62164c6f8f84fdda32b62fb50b6d00e8b01c2208e55543a6337433a" "4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" "4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" "fc5fcb6f1f1c1bc01305694c59a1a861b008c534cae8d0e48e4d5e81ad718bc6" "be7eadb2971d1057396c20e2eebaa08ec4bfd1efe9382c12917c6fe24352b7c1" default)))
  '(haskell-notify-p t)
  '(haskell-process-type (quote cabal-dev))
  '(haskell-stylish-on-save t)
  '(haskell-tags-on-save t))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(italic ((t (:slant italic))))
- '(jabber-chat-prompt-foreign ((t (:foreground "#dfaf8f"))) t)
- '(jabber-chat-prompt-local ((t (:foreground "#f0dfaf"))) t)
- '(jabber-chat-prompt-system ((t (:foreground "#8fb28f" :weight bold))) t)
- '(jabber-roster-user-away ((t (:foreground "#bc8383"))) t)
- '(jabber-roster-user-chatty ((t (:foreground "#9fc59f"))) t)
- '(jabber-roster-user-online ((t (:foreground "#bfebbf"))) t))
+
+ ;; ;; custom-set-faces was added by Custom.
+ ;; ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; ;; Your init file should contain only one such instance.
+ ;; ;; If there is more than one, they won't work right.
+ ;; '(italic ((t (:slant italic))))
+ ;; '(jabber-chat-prompt-foreign ((t (:foreground "#dfaf8f"))))
+ ;; '(jabber-chat-prompt-local ((t (:foreground "#f0dfaf"))))
+ ;; '(jabber-chat-prompt-system ((t (:foreground "#8fb28f" :weight bold))))
+ ;; '(jabber-rare-time-face ((t (:foreground "969896"))))
+ ;; '(jabber-roster-user-away ((t (:foreground "#bc8383"))))
+ ;; '(jabber-roster-user-chatty ((t (:foreground "#9fc59f"))))
+ ;; '(jabber-roster-user-online ((t (:foreground "#bfebbf"))))
+ ;; '(mu4e-title-face ((t (:inherit font-lock-type-face :weight bold)))))

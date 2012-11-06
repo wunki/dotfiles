@@ -12,6 +12,7 @@ alias ec="emacsclient -t -a vi"
 alias wl="wicd-curses"
 alias clj="clojure"
 alias ssh="ssh-mosh"
+alias nh="sudo nethogs wlan0"
 
 # Get shit done
 alias gsdw="sudo ~/bin/get-shit-done work"

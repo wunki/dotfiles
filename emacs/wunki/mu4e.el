@@ -36,11 +36,13 @@
 
 ; shortcuts
 (setq mu4e-maildir-shortcuts
-       '(("/inbox"            . ?i)
-         ("/bread-and-pepper" . ?b)
-         ("/archive"          . ?a)
-         ("/sent"             . ?s)
-         ("/trash"            . ?t)))
+       '(("/inbox"             . ?i)
+         ("/bread-and-pepper"  . ?b)
+         ("/archive"           . ?a)
+         ("/sent"              . ?s)
+         ("/clojure"           . ?c)
+         ("/haskell-beginners" . ?h)
+         ("/trash"             . ?t)))
 
 ; sending mail
 (setq message-send-mail-function 'smtpmail-send-it

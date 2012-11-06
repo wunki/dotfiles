@@ -41,9 +41,9 @@ urxvt.boldItalicFont:  xft:Ubuntu Mono:bolditalic:size=13
 
 ! Urxvt settings
 urxvt.depth: 32
-urxvt.background: [80]t_background
+urxvt.background: [85]t_background
 urxvt.jumpScroll: True
-urxvt.fading: 20
+urxvt.fading: 30
 urxvt.scrollBar: False
 urxvt.scrollTtyOutput: False
 urxvt.scrollTtyKeypress: True

@@ -15,9 +15,12 @@
 (if (eq system-type 'darwin)
     (global-set-key (kbd "<f3>") 'ns-toggle-fullscreen))
 
-; who needs shift when using forward/backwards paragraph
+;;who needs shift when using forward/backwards paragraph
 (global-set-key (kbd "M-[") 'backward-paragraph)
 (global-set-key (kbd "M-]") 'forward-paragraph)
+
+;;find recent files quickly
+(global-set-key (kbd "C-x C-r") 'recentf-ido-find-file)
 
 ;;map execute command to the C-key
 ;;less hand movement with this command
@@ -65,8 +68,8 @@
                                        (buf-move-up)))
 
 ;;resize windows
-(global-set-key (kbd "C-M-l") 'shrink-window-horizontally)
-(global-set-key (kbd "C-M-h") 'enlarge-window-horizontally)
+(global-set-key (kbd "C-M-h") 'shrink-window-horizontally)
+(global-set-key (kbd "C-M-l") 'enlarge-window-horizontally)
 (global-set-key (kbd "C-M-<down>") 'shrink-window)
 (global-set-key (kbd "C-M-<up>") 'enlarge-window)
 

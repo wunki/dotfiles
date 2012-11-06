@@ -14,7 +14,8 @@
       jabber-show-resources nil
       jabber-show-offline-contacts nil
       jabber-avatar-cache-directory "/tmp/jabber-avatars"
-      jabber-username "Petar Radosevic")
+      jabber-username "Petar Radosevic"
+      jabber-events-request-these (quote (delivered displayed composing)))
 
 ;;don't show any presence notifications
 (setq jabber-alert-presence-hooks '())

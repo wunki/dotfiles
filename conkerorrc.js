@@ -24,7 +24,7 @@ session_pref("general.useragent.compatMode.firefox", true);
 session_pref("browser.formfill.enable", false);
 
 // default directory
-session_pref("cwd", "/home/wunki/downloads");
+cwd = make_file("/home/wunki/downloads");
 
 // Save my passwords
 session_pref("signon.rememberSignons", true);

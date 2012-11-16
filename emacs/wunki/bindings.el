@@ -11,6 +11,9 @@
 ;;search forward regexp
 (global-set-key (kbd "C-c C-s") 'search-forward-regexp)
 
+;;move around changes
+(global-set-key (kbd "C-c C-n") 'goto-last-change)
+
 ;;fullscreen on mac
 (if (eq system-type 'darwin)
     (global-set-key (kbd "<f3>") 'ns-toggle-fullscreen))

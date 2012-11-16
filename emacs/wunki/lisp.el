@@ -12,13 +12,15 @@
 (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
 (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
 (add-hook 'nrepl-mode-hook 'enable-paredit-mode)
+(add-hook 'lisp-mode-hook 'enable-paredit-mode)
 
-;;enable colors in the repl
+;;nrepl
 (add-hook 'slime-repl-mode-hook
           (defun clojure-mode-slime-font-lock ()
             (require 'clojure-mode)
             (let (font-lock-mode)
               (clojure-mode-font-lock-setup))))
+(setq nrepl-port 4001)
 
 ;;eldoc
 ;(add-hook 'clojure-mode-hook 'eldoc-mode)

@@ -1,8 +1,8 @@
 ;;show column numbers
-(column-number-mode 1)
+(column-number-mode t)
 
 ;;highlight the current line
-(global-hl-line-mode 1)
+(global-hl-line-mode t)
 
 ;;projectile
 (projectile-global-mode)
@@ -13,7 +13,7 @@
 (add-to-list 'recentf-exclude "\\/tmp\\'")
 
 ;;ido
-(ido-mode 1)
+(ido-mode t)
 (ido-ubiquitous-mode t)
 (setq ido-enable-prefix nil
       ido-enable-flex-matching t

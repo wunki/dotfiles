@@ -8,10 +8,6 @@ if [ `uname` = "Darwin" ]; then
    plugins+=(brew osx)
 fi
 
-if [ `uname` = "Linux" ]; then
-   plugins+=(archlinux)
-fi
-
 source $ZSH/oh-my-zsh.sh
 
 # Aliasen and environment

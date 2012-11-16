@@ -22,7 +22,7 @@
              bbdb haskell-mode paredit magit gist org markdown-mode
              ack-and-a-half markdown-mode color-theme-sanityinc-tomorrow
              zenburn-theme pandoc-mode auto-complete jabber clojurescript-mode
-             buffer-move ido-ubiquitous s projectile))
+             buffer-move ido-ubiquitous s projectile goto-last-change))
   (when (not (package-installed-p p))
     (package-install p)))
 

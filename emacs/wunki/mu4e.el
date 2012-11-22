@@ -11,8 +11,19 @@
 (add-to-list 'mu4e-view-actions
              '("org-contact-add" . mu4e-action-add-org-contact) t)
 
-; set default mail agent
+;; Set mu4e as default mail agent
 (setq mail-user-agent 'mu4e-user-agent)
+
+;; Apply all the marks when leaving
+(setq mu4e-headers-leave-behavior 'apply)
+
+;; Headers
+(setq mu4e-headers-fields
+      '((:maildir       .   8) 
+        (:date          .  24)
+        (:flags         .   6)
+        (:from          .  24)
+        (:subject       .  nil)))
 
 ; set bookmarks
 (setq mu4e-bookmarks 

@@ -14,7 +14,13 @@
 ;;move around changes
 (global-set-key (kbd "C-c C-n") 'goto-last-change)
 
-;;fullscreen on mac
+;; Expand region (increases selected region by semantic units)
+(global-set-key (kbd "C-'") 'er/expand-region)
+
+;; Edit file with sudo
+(global-set-key (kbd "C-c C-f") 'sudo-edit)
+
+;; fullscreen on mac
 (if (eq system-type 'darwin)
     (global-set-key (kbd "<f3>") 'ns-toggle-fullscreen))
 

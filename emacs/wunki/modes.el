@@ -1,18 +1,21 @@
-;;show column numbers
+;; Show column numbers
 (column-number-mode t)
 
-;;highlight the current line
+;; Highlight the current line
 (global-hl-line-mode t)
 
-;;projectile
+;; Projectile for project management
 (projectile-global-mode)
+
+;; Deletes region when starting typing
+(pending-delete-mode t)
 
 ;;recentf
 (recentf-mode 1)
 (setq recentf-max-saved-items 30)
 (add-to-list 'recentf-exclude "\\/tmp\\'")
 
-;;ido
+;; Ido, Emacs can't do without it
 (ido-mode t)
 (ido-ubiquitous-mode t)
 (setq ido-enable-prefix nil

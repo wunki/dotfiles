@@ -39,6 +39,11 @@ if [ -d "/usr/local/heroku/bin" ]; then
   export PATH="$PATH:/usr/local/heroku/bin"
 fi
 
+# Vagrant
+if [ -d "/opt/vagrant/bin" ]; then
+  export PATH="$PATH:/opt/vagrant/bin"
+fi
+
 # Perl
 export PATH="/usr/bin/vendor_perl:$PATH"
 

@@ -31,8 +31,11 @@ bindkey -e
 # Don't use autocorrect
 unsetopt correct_all
 
-# Completions
+# Extra completions
 fpath=(/home/wunki/src/zsh-completions/src $fpath)
+
+# Git flow completions
+source ~/src/git-flow-completion/git-flow-completion.zsh
 
 # CTRL-R for backwards history search
 bindkey "^r" history-incremental-search-backward

@@ -14,13 +14,16 @@
 (add-hook 'nrepl-mode-hook 'enable-paredit-mode)
 (add-hook 'lisp-mode-hook 'enable-paredit-mode)
 
+;; Clojure
+(add-hook 'clojure-mode-hook 'flyspell-prog-mode)
+
 ;;nrepl
 (add-hook 'slime-repl-mode-hook
           (defun clojure-mode-slime-font-lock ()
             (require 'clojure-mode)
             (let (font-lock-mode)
               (clojure-mode-font-lock-setup))))
-(setq nrepl-port 4001)
+(setq nrepl-port "4005")
 
 ;;eldoc
 ;(add-hook 'clojure-mode-hook 'eldoc-mode)

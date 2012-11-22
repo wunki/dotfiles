@@ -11,6 +11,12 @@
     (when (file-exists-p (concat wunki ".el"))
       (load wunki))))
 
+(defun sudo-edit (&optional arg)
+  (interactive "p")
+  (if (or arg (not buffer-file-name))
+      (find-file (concat "/sudo:root@localhost:" (ido-read-file-name "File: ")))
+    (find-alternate-file (concat "/sudo:root@localhost:" buffer-file-name))))
+
 (defun string-rtrim (str)
   "Remove trailing whitespace from `STR'."
   (replace-regexp-in-string "[ \t\n]*$" "" str))

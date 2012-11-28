@@ -20,6 +20,9 @@
 ;; Edit file with sudo
 (global-set-key (kbd "C-c C-f") 'sudo-edit)
 
+;; Join line command is very handy
+(global-set-key (kbd "C-c j") 'join-line)
+
 ;; fullscreen on mac
 (if (eq system-type 'darwin)
     (global-set-key (kbd "<f3>") 'ns-toggle-fullscreen))
@@ -30,6 +33,9 @@
 
 ;;find recent files quickly
 (global-set-key (kbd "C-x C-r") 'recentf-ido-find-file)
+
+;; rotate slime buffers
+(global-set-key (kbd "C-c C-x n") 'slime-cycle-connections)
 
 ;;map execute command to the C-key
 ;;less hand movement with this command

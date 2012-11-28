@@ -13,7 +13,10 @@
   (set-default-font "Droid Sans Mono-16")
   (set-default-font "Ubuntu Mono-13"))
 
-;;font on a new client frame
+;; enable powerline mode
+(powerline-default)
+
+;; font on a new client frame
 (setq default-frame-alist '((font . "Ubuntu Mono 13")))
 
 ;;easy switch between dark and light

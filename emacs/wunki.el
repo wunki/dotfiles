@@ -23,7 +23,7 @@
              ack-and-a-half markdown-mode color-theme-sanityinc-tomorrow
              zenburn-theme pandoc-mode auto-complete jabber clojurescript-mode
              buffer-move ido-ubiquitous s projectile goto-last-change
-             expand-region))
+             expand-region git-commit-mode powerline))
   (when (not (package-installed-p p))
     (package-install p)))
 
@@ -36,4 +36,5 @@
 (load "wunki/haskell")    ; haskell
 (load "wunki/mu4e")       ; email
 (load "wunki/erc")        ; irc
+(load "wunki/hippie")     ; hippie expand
 (load "wunki/jabber")     ; jabberj

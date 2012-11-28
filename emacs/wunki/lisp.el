@@ -14,8 +14,8 @@
 (add-hook 'nrepl-mode-hook 'enable-paredit-mode)
 (add-hook 'lisp-mode-hook 'enable-paredit-mode)
 
-;; Clojure
-(add-hook 'clojure-mode-hook 'flyspell-prog-mode)
+;; Clojure (disable for now, I think I need an even faster computer for this)
+;; (add-hook 'clojure-mode-hook 'flyspell-prog-mode)
 
 ;;nrepl
 (add-hook 'slime-repl-mode-hook

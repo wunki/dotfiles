@@ -38,3 +38,6 @@
 (load "wunki/erc")        ; irc
 (load "wunki/hippie")     ; hippie expand
 (load "wunki/jabber")     ; jabberj
+
+(vendor 'slime)           ; older versions of slime which work with swank
+(vendor 'slime-repl)

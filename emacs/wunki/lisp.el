@@ -29,10 +29,12 @@
 ;(add-hook 'clojure-mode-hook 'eldoc-mode)
 ;(add-hook 'nrepl-interaction-mode-hook 'nrepl-turn-on-eldoc-mode)
 
-;;nrepl
+;; slime
+(slime-setup '(slime-repl))
+
+;; nrepl
 (add-hook 'nrepl-mode-hook 'ac-nrepl-setup)
 (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'nrepl-mode))
-
 (setq nrepl-lein-command "/home/wunki/bin/lein2")

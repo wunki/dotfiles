@@ -53,9 +53,6 @@ xscreensaver -no-splash &
 # Thunar
 thunar --daemon &
 
-# Sound
-#/usr/bin/start-pulseaudio-x11 &
-
 # SSH agent
 eval `ssh-agent`
 

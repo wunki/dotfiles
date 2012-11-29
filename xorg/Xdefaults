@@ -18,20 +18,24 @@ Xcursor.size:  22
 ! XFT Settings
 Xft.autohint: 0
 Xft.antialias: 1
-Xft.lcdfilter:  lcddefault
-Xft.hintstyle:  hintslight
+Xft.lcdfilter: lcddefault
+Xft.hintstyle: hintslight
 Xft.hinting: 1
 Xft.dpi: 96
 Xft.rgba: rgb
 
 ! RXVT Scripts
-urxvt.perl-lib: /home/wunki/.urxvt-scripts/
-urxvt.perl-ext-common: clipboard
+URxvt.perl-lib: /home/wunki/.urxvt-perls/
+urxvt.perl-ext-common: clipboard,keyboard-select
 
 ! RXVT Clipboard
 urxvt.keysym.M-c:   perl:clipboard:copy
 urxvt.keysym.M-v:   perl:clipboard:paste
 urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+
+! RXVT Keyboard select
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s:      perl:keyboard-select:search
 
 ! Urxvt fonts
 urxvt.font:            xft:Ubuntu Mono:size=13

@@ -27,6 +27,9 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
+(vendor 'slime)           ; older versions of slime which work with swank
+(vendor 'slime-repl)
+
 (load "wunki/modes")      ; settings for specific modes
 (load "wunki/theme")      ; set the theme and font
 (load "wunki/temp_files") ; temporary files
@@ -38,6 +41,3 @@
 (load "wunki/erc")        ; irc
 (load "wunki/hippie")     ; hippie expand
 (load "wunki/jabber")     ; jabberj
-
-(vendor 'slime)           ; older versions of slime which work with swank
-(vendor 'slime-repl)

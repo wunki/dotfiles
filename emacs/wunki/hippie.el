@@ -9,7 +9,7 @@
   (interactive)
   (if (looking-at "\\_>")
       ;; skip message output
-      (flet ((message (format-string &rest args) nil))
+      (cl-flet ((message (format-string &rest args) nil))
         (hippie-expand nil))
     ;; otherwise indent line
     (indent-for-tab-command)))
@@ -19,7 +19,7 @@
   (interactive)
   (if (looking-at "\\_>")
       ;; skip message output
-      (flet ((message (format-string &rest args) nil))
+      (cl-flet ((message (format-string &rest args) nil))
         (hippie-expand nil)))
   ;; always indent line
   (indent-for-tab-command))

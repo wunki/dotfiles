@@ -35,7 +35,9 @@ unsetopt correct_all
 fpath=(/home/wunki/src/zsh-completions/src $fpath)
 
 # Git flow completions
-source ~/src/git-flow-completion/git-flow-completion.zsh
+if [ -e "$HOME/src/git-flow-completion" ]; then
+  source /$HOME/src/git-flow-completion/git-flow-completion.zsh
+fi
 
 # CTRL-R for backwards history search
 bindkey "^r" history-incremental-search-backward

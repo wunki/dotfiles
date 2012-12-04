@@ -16,6 +16,9 @@
     (setq browse-url-browser-function 'browse-url-generic
           browse-url-generic-program "/home/wunki/bin/conk"))
 
+;; don't show the menubar
+(menu-bar-mode -1)
+
 ;;warnings
 (setq visible-bell t)
 (setq ring-bell-function (lambda nil (message "")))

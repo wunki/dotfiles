@@ -78,8 +78,10 @@ if [ -e "$HOME/.aws" ]; then
 fi
 
 # AWS credentials
-export AWS_ACCESS_KEY_ID="$(cat $HOME/.aws-key)"
-export AWS_SECRET_ACCESS_KEY="$(cat $HOME/.aws-secret)"
+if [ -f "$HOME/.aws-key" ]; then
+  export AWS_ACCESS_KEY_ID="$(cat $HOME/.aws-key)"
+  export AWS_SECRET_ACCESS_KEY="$(cat $HOME/.aws-secret)"
+fi
 
 # Pinky
 export PINKY_BUCKET="wunki-pinky"

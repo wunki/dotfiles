@@ -1,6 +1,5 @@
 ; custom place to save customizations
-(setq custom-file "~/.emacs.d/wunki/custom.el"
-      marmalade-server "http://marmalade-repo.org/")
+(setq custom-file "~/.emacs.d/wunki/custom.el")
 
 ; my own functions
 (load "wunki/defuns")
@@ -39,5 +38,5 @@
 (load "wunki/haskell")    ; haskell
 (load "wunki/mu4e")       ; email
 (load "wunki/erc")        ; irc
-(load "wunki/hippie")     ; hippie expand
-(load "wunki/jabber")     ; jabberj
+(load "wunki/jabber")     ; jabber
+;;(load "wunki/hippie")     ; hippie expand

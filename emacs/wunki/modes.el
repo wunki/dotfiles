@@ -15,6 +15,12 @@
 (setq recentf-max-saved-items 30)
 (add-to-list 'recentf-exclude "\\/tmp\\'")
 
+;; auto-completion
+(require 'auto-complete-config)
+(ac-config-default)
+(setq ac-auto-start nil)    ; don't automatically trigger auto-complete
+(ac-set-trigger-key "TAB")  ; only trigger auto-completion on TAB
+
 ;; Ido, Emacs can't do without it
 (ido-mode t)
 (ido-ubiquitous-mode t)

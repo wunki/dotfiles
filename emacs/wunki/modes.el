@@ -10,12 +10,15 @@
 ;; Deletes region when starting typing
 (pending-delete-mode t)
 
-;;recentf
+;; Auto revert changes on disk
+(global-auto-revert-mode t)
+
+;; Recentf
 (recentf-mode 1)
 (setq recentf-max-saved-items 30)
 (add-to-list 'recentf-exclude "\\/tmp\\'")
 
-;; auto-completion
+;; Auto completion
 (require 'auto-complete-config)
 (ac-config-default)
 (setq ac-auto-start nil)    ; don't automatically trigger auto-complete
@@ -41,7 +44,7 @@
       '("\\`auto/" "\\.prv/" "_region_" "\\.class/"  "\\`CVS/" "\\`#"
         "\\`.#" "\\`\\.\\./" "\\`\\./" "\\.hi$"))
 
-; auto-fill
+; Auto-fill
 (add-hook 'html-mode-hook 'turn-off-auto-fill)
 ;(add-hook 'clojure-mode-hook 'turn-on-auto-fill)
 (add-hook 'python-mode-hook 'turn-on-auto-fill)
@@ -53,28 +56,28 @@
 ;(add-hook 'python-mode-hook 'flyspell-prog-mode)
 ;(add-hook 'message-mode-hook 'flyspell-mode)
 
-;;scheme
+;; Scheme
 (setq scheme-program-name "csi -:c")
 
-;;lisp
+;; Lisp
 (setq inferior-lisp-program "/usr/bin/sbcl --noinform")
 
-;;po
+;; PO
 (setq auto-mode-alist 
       (cons '("\\.po\\'\\|\\.po\\." . po-mode) auto-mode-alist))
 (autoload 'po-mode "po-mode" "Major mode for translators to edit PO files" t)
 
-;;markdown
+;; Markdown
 (setq auto-mode-alist (cons '("\\.markdown" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.page" . markdown-mode) auto-mode-alist))
 (add-hook 'markdown-mode-hook 'turn-on-pandoc)
 
-;;puppet
+;; Puppet
 (autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")
 (add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
 
-;;twittering
+;; Twittering
 (setq twittering-use-master-password t)
 (add-hook 'twittering-edit-mode-hook
           (lambda ()

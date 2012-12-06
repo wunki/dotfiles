@@ -18,7 +18,7 @@
 (package-initialize)
 
 (dolist (p '(nrepl ac-nrepl clojure-mode clojure-test-mode cljdoc
-             bbdb haskell-mode paredit magit gist org markdown-mode
+             haskell-mode paredit magit gist org markdown-mode org org-plus-contrib
              ack-and-a-half markdown-mode color-theme-sanityinc-tomorrow
              zenburn-theme pandoc-mode auto-complete jabber clojurescript-mode
              buffer-move ido-ubiquitous s projectile goto-last-change

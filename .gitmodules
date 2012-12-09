@@ -1,21 +1,9 @@
 [submodule "zsh/oh-my-zsh"]
 	path = zsh/oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
-[submodule "vim/bundle/vim-markdown"]
-	path = vim/bundle/vim-markdown
-	url = https://github.com/plasticboy/vim-markdown.git
-[submodule "vim/bundle/ack"]
-	path = vim/bundle/ack
-	url = https://github.com/mileszs/ack.vim.git
 [submodule "mutt/mutt/themes/mutt-colors-solarized"]
 	path = mutt/mutt/themes/mutt-colors-solarized
 	url = https://github.com/altercation/mutt-colors-solarized.git
-[submodule "vim/bundle/ctrlp"]
-	path = vim/bundle/ctrlp
-	url = git://github.com/kien/ctrlp.vim.git
 [submodule "xorg/urxvt-perls"]
 	path = xorg/urxvt-perls
 	url = git://github.com/muennich/urxvt-perls.git
-[submodule "vim/bundle/vundle"]
-	path = vim/bundle/vundle
-	url = git://github.com/gmarik/vundle.git

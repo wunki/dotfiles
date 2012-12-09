@@ -13,6 +13,9 @@
 ;; Auto revert changes on disk
 (global-auto-revert-mode t)
 
+;; Evil mode (vim emulation)
+(evil-mode t)
+
 ;; Recentf
 (recentf-mode 1)
 (setq recentf-max-saved-items 30)

@@ -2,8 +2,8 @@ DOTFILES = $(PWD)
 all:: vim emacs zsh tmux xmonad xorg gtk conkeror
 
 vim::
-	@ln -fs $(DOTFILES)/vim/vimrc        ${HOME}/.vimrc
-	@ln -fns $(DOTFILES)/vim/vim         ${HOME}/.vim
+	@ln -fs $(DOTFILES)/vim/vimrc    ${HOME}/.vimrc
+	@ln -fns $(DOTFILES)/vim         ${HOME}/.vim
 	@echo Vim is symlinked.
 
 emacs::

@@ -1,14 +1,15 @@
-; custom place to save customizations
+;; place to save customizations
 (setq custom-file "~/.emacs.d/wunki/custom.el")
 
-; my own functions
+;; handy functions
 (load "wunki/defuns")
 
-; load main custom file
-(when (file-exists-p custom-file) (load custom-file))
+;; load main configuration
+(when (file-exists-p custom-file)
+  (load custom-file))
 (load "wunki/bindings")
 
-; packages
+;; packages
 (when (not (require 'package nil t))
   (load-file "~/.emacs.d/package-23.el"))
 
@@ -26,9 +27,11 @@
   (when (not (package-installed-p p))
     (package-install p)))
 
-(vendor 'slime)           ; older versions of slime which work with swank
+;; older versions of slime which work with swank
+(vendor 'slime)
 (vendor 'slime-repl)
 
+;; configuration files
 (load "wunki/modes")      ; settings for specific modes
 (load "wunki/theme")      ; set the theme and font
 (load "wunki/temp_files") ; temporary files
@@ -39,4 +42,3 @@
 (load "wunki/mu4e")       ; email
 (load "wunki/erc")        ; irc
 (load "wunki/jabber")     ; jabber
-;;(load "wunki/hippie")     ; hippie expand

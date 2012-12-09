@@ -1,6 +1,5 @@
-" vim: tabstop=2 expandtab shiftwidth=2 filetype=vim
-
 " Vim configuration file by Petar Radosevic
+
 set cmdheight=2             " lower command line two lines high
 set nocompatible            " use vim defaults
 set encoding=utf-8          " utf-8 encoding
@@ -18,8 +17,11 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'VimClojure'
-Bundle 'slimv.vim'
 Bundle 'sjl/badwolf'
+Bundle 'paredit.vim'
+Bundle 'ack.vim'
+Bundle 'scrooloose/nerdtree'
+Bundle 'commentary.vim'
 
 filetype plugin indent on 
 
@@ -159,11 +161,10 @@ map <C-i> gqip
 map <leader>v :sp $MYVIMRC<cr>
 noremap <f1> :bprev!<cr>
 noremap <f2> :bnext!<cr>
-noremap <f3> :set invfu<cr>
+noremap <f3> :set nu!<cr>
+noremap <f4> :set relativenumber!<cr>
 nnoremap j gj
 nnoremap k gk
-
-map <leader>l :set nu!<cr>
 
 " Switching windows
 map <C-k> <C-w><Up>
@@ -201,3 +202,27 @@ autocmd BufWritePre *.py :%s/\s\+$//e
 
 " Badwolf theme settings
 let g:badwolf_darkgutter = 1
+
+" NerdTree
+noremap  <F2> :NERDTreeToggle<cr>
+inoremap <F2> <esc>:NERDTreeToggle<cr>
+let NERDTreeHighlightCursorline = 1
+let NERDTreeIgnore = ['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$', 'whoosh_index']
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDChristmasTree = 1
+let NERDTreeChDirMode = 2
+let NERDTreeMapJumpFirstChild = 'gK'
+
+" Commentary
+nmap <leader>c <Plug>CommentaryLine
+xmap <leader>c <Plug>Commentary
+
+augroup plugin_commentary
+    au!
+    au FileType htmldjango setlocal commentstring={#\ %s\ #}
+    au FileType clojurescript setlocal commentstring=;\ %s
+    au FileType lisp setlocal commentstring=;\ %s
+    au FileType puppet setlocal commentstring=#\ %s
+    au FileType fish setlocal commentstring=#\ %s
+augroup END

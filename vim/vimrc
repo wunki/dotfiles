@@ -13,11 +13,14 @@ filetype off            " don't detect the filetype, required for vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
-" My bundles
 Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
+Bundle 'VimClojure'
+Bundle 'slimv.vim'
+Bundle 'sjl/badwolf'
+
 filetype plugin indent on 
 
 " GUI
@@ -38,14 +41,14 @@ if has("gui_running")
   set novisualbell        " please, no visuals
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing 
-  colorscheme Tomorrow-Night
+  colorscheme badwolf
 else
   " 256 colors setting
   set t_Co=256
   set mouse=a
   set ttymouse=xterm
   set termencoding=utf-8
-  colorscheme Tomorrow-Night
+  colorscheme badwolf
 endif
 
 " Editor configuration
@@ -160,6 +163,8 @@ noremap <f3> :set invfu<cr>
 nnoremap j gj
 nnoremap k gk
 
+map <leader>l :set nu!<cr>
+
 " Switching windows
 map <C-k> <C-w><Up>
 map <C-j> <C-w><Down>
@@ -193,3 +198,6 @@ au! BufWritePost $MYVIMRC source % | :PowerlineReloadColorscheme
 
 " Remove .py whitespace
 autocmd BufWritePre *.py :%s/\s\+$//e
+
+" Badwolf theme settings
+let g:badwolf_darkgutter = 1

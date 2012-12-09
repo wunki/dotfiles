@@ -54,10 +54,12 @@ else
 endif
 
 " Editor configuration
-if has('unix')
-  set shell=/bin/zsh
-else
+if has('bsd')
   set shell=/usr/local/bin/zsh
+elseif has('mac')
+  set shell=/usr/local/bin/zsh
+else
+  set shell=/usr/bin/zsh
 endif
 set showmatch               " show matching brackets (), {}' []
 set showcmd                 " show command

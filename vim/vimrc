@@ -1,3 +1,5 @@
+" vim: tabstop=2 expandtab shiftwidth=2 filetype=vim
+
 " Vim configuration file by Petar Radosevic
 set cmdheight=2             " lower command line two lines high
 set nocompatible            " use vim defaults
@@ -7,17 +9,23 @@ set bg=dark                 " dark background
 syntax on                   " enable syntax highlighting
 
 " Vundle for managing bundles
-set filetype=off            " don't detect the filetype, required for vundle
+filetype off            " don't detect the filetype, required for vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-set filetype=on
+
+" My bundles
+Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-fugitive'
+Bundle 'kien/ctrlp.vim'
+Bundle 'Lokaltog/vim-powerline'
+filetype plugin indent on 
 
 " GUI
 if has("gui_running")
   if has('mac')
     set guifont=Ubuntu\ Mono:h18
   else
-    set guifont=Ubuntu\ Mono\ 13
+    set guifont=Ubuntu\ Mono\ for\ Powerline\ 13
   endif
   set guioptions-=e
   set guioptions-=T
@@ -112,6 +120,17 @@ let mapleader=','
 " Toggle whitespace invisibles
 nmap <leader>l :set list!<CR>
 
+" Powerline
+if has("gui_running")
+  let g:Powerline_symbols = 'fancy'
+endif
+let g:Powerline_cache_enabled = 1
+
+" All the things I want to ignore
+" Clojure/Leiningen
+set wildignore+=classes
+set wildignore+=lib
+
 " Markdown detection
 autocmd BufNewFile,BufReadPost *.mkd,*.markdown,*.md set filetype=markdown
 
@@ -147,6 +166,17 @@ map <C-j> <C-w><Down>
 map <C-l> <C-w><Right>
 map <C-h> <C-w><Left>
 
+" Fugitive
+nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gs :Gstatus<cr>
+nnoremap <leader>gw :Gwrite<cr>
+nnoremap <leader>ga :Gadd<cr>
+nnoremap <leader>gb :Gblame<cr>
+nnoremap <leader>gco :Gcheckout<cr>
+nnoremap <leader>gci :Gcommit<cr>
+nnoremap <leader>gm :Gmove<cr>
+nnoremap <leader>gr :Gremove<cr>
+
 " Switch to alternate file
 map <C-Tab> :bnext<cr>
 map <C-S-Tab> :bprevious<cr>
@@ -159,10 +189,7 @@ let g:ghc="/usr/local/bin/ghc"
 let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
 
 " Reload vim config on save
-au! BufWritePost $MYVIMRC source %
+au! BufWritePost $MYVIMRC source % | :PowerlineReloadColorscheme
 
 " Remove .py whitespace
 autocmd BufWritePre *.py :%s/\s\+$//e
-
-" Clojure
-let vimclojure#HighlightBuiltins=1  " Highlight Clojure's builtins

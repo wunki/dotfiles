@@ -1,4 +1,4 @@
-;;set theme
+;; set theme
 (if (>= emacs-major-version 24)
   (progn
     (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
@@ -11,15 +11,15 @@
 ;;fonts on the mac are rendered smaller.
 (if (eq system-type 'darwin)
   (set-default-font "Droid Sans Mono-16")
-  (set-default-font "DejaVu Sans Mono-11"))
+  (set-default-font "Ubuntu Mono-13"))
 
 ;; enable powerline mode
 (powerline-default)
 
 ;; font on a new client frame
-(setq default-frame-alist '((font . "DejaVu Sans Mono 11")))
+(setq default-frame-alist '((font . "Ubuntu Mono 13")))
 
-;;easy switch between dark and light
+;; easy switch between dark and light
 (defun toggle-dark-light-theme-tomorrow ()
   "Switch between dark and light theme."
   (interactive)
@@ -34,6 +34,6 @@
       (load-theme 'sanityinc-solarized-light)
     (load-theme 'sanityinc-solarized-dark)))
 
-;;need this because italic was also underlined, no idea why...
+;; need this because italic was also underlined, no idea why...
 (custom-set-faces
  '(italic ((t (:slant italic)))))

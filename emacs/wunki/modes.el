@@ -1,30 +1,39 @@
-;; Show column numbers
+;; show column numbers
 (column-number-mode t)
 
-;; Highlight the current line
+;; don't show the menubar
+(menu-bar-mode -1)
+
+;; highlight the current line
 (global-hl-line-mode t)
 
-;; Projectile for project management
+;; projectile for project management
 (projectile-global-mode)
 
-;; Deletes region when starting typing
+;; deletes region when starting typing
 (pending-delete-mode t)
 
-;; Auto revert changes on disk
+;; auto revert changes on disk
 (global-auto-revert-mode t)
 
-;; Recentf
+;; recentf
 (recentf-mode 1)
 (setq recentf-max-saved-items 30)
 (add-to-list 'recentf-exclude "\\/tmp\\'")
 
-;; Auto completion
+;; auto completion
 (require 'auto-complete-config)
 (ac-config-default)
 (setq ac-auto-start nil)    ; don't automatically trigger auto-complete
 (ac-set-trigger-key "TAB")  ; only trigger auto-completion on TAB
 
-;; Ido, Emacs can't do without it
+;; ack
+(defalias 'ack 'ack-and-a-half)
+(defalias 'ack-same 'ack-and-a-half-same)
+(defalias 'ack-find-file 'ack-and-a-half-find-file)
+(defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
+
+;; ido
 (ido-mode t)
 (ido-ubiquitous-mode t)
 (setq ido-enable-prefix nil
@@ -44,7 +53,7 @@
       '("\\`auto/" "\\.prv/" "_region_" "\\.class/"  "\\`CVS/" "\\`#"
         "\\`.#" "\\`\\.\\./" "\\`\\./" "\\.hi$"))
 
-; Auto-fill
+; auto-fill
 (add-hook 'html-mode-hook 'turn-off-auto-fill)
 ;(add-hook 'clojure-mode-hook 'turn-on-auto-fill)
 (add-hook 'python-mode-hook 'turn-on-auto-fill)
@@ -56,10 +65,10 @@
 ;(add-hook 'python-mode-hook 'flyspell-prog-mode)
 ;(add-hook 'message-mode-hook 'flyspell-mode)
 
-;; Scheme
+;; scheme
 (setq scheme-program-name "csi -:c")
 
-;; Lisp
+;; lisp
 (setq inferior-lisp-program "/usr/bin/sbcl --noinform")
 
 ;; PO
@@ -67,17 +76,17 @@
       (cons '("\\.po\\'\\|\\.po\\." . po-mode) auto-mode-alist))
 (autoload 'po-mode "po-mode" "Major mode for translators to edit PO files" t)
 
-;; Markdown
+;; markdown
 (setq auto-mode-alist (cons '("\\.markdown" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.page" . markdown-mode) auto-mode-alist))
 (add-hook 'markdown-mode-hook 'turn-on-pandoc)
 
-;; Puppet
+;; puppet
 (autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")
 (add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
 
-;; Twittering
+;; twittering
 (setq twittering-use-master-password t)
 (add-hook 'twittering-edit-mode-hook
           (lambda ()

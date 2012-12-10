@@ -1,81 +1,68 @@
-;;default tab-width is two spaces
+;; default tab-width is two spaces
 (setq-default tab-width 2
               indent-tabs-mode nil)
 
-;;email
+;; email
 (setq user-full-name "Petar Radosevic")
 (setq user-mail-address "petar@wunki.org")
 
-;;unicode
+;; unicode
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-;;browser on Linux
+;; browser on Linux
 (if (string-equal system-type "gnu/linux")
     (setq browse-url-browser-function 'browse-url-generic
           browse-url-generic-program "/home/wunki/bin/conk"))
 
-;; don't show the menubar
-(menu-bar-mode -1)
-
-;;warnings
+;; warnings
 (setq visible-bell t)
 (setq ring-bell-function (lambda nil (message "")))
-(setq vc-follow-symlinks t) ;;follow symlinks and don't ask
+(setq vc-follow-symlinks t) ;; follow symlinks and don't ask
 
-;;always show the region
+;; always show the region
 (setq transient-mark-mode t)
 
-;;format the title-bar to always include the buffer name
+;; format the title-bar to always include the buffer name
 (setq frame-title-format " %b (%m)")
 
-;;autoselect window with mouse
+;; autoselect window with mouse
 (setq mouse-autoselect-window t)
 
-;;dont show the GNU splash screen
+;; dont show the GNU splash screen
 (setq inhibit-startup-message t)
 
-;;dont ask for yes or no, just use y or n
+;; dont ask for yes or no, just use y or n
 (fset 'yes-or-no-p 'y-or-n-p)
 
-;;auto-fill
+;; auto-fill
 (setq-default fill-column 78)
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 
-;;truncate long lines
+;; truncate long lines
 (setq-default truncate-lines nil)
 
-;;run the emacs server
-(load "server")
-(unless (server-running-p) (server-start))
-
-;;european dates
+;; european dates
 (setq calendar-date-style 'european)
 
-;;spelling
+;; spelling
 (setq ispell-program-name "aspell")
 (setq ispell-list-command "list")
 
-;;ack aliases
-(defalias 'ack 'ack-and-a-half)
-(defalias 'ack-same 'ack-and-a-half-same)
-(defalias 'ack-find-file 'ack-and-a-half-find-file)
-(defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
-
-;;call me crazy but I only want lowercase on my linux system
+;; call me crazy but I only want lowercase on my linux system
 (setq dropbox-directory (if (string-equal system-type "gnu/linux")
                             (expand-file-name "~/dropbox")
                           (expand-file-name "~/Dropbox")))
 
-;;disable scrollbars and menu bar on the mac
-;;disable it with .Xdefaults in linux
+;; disable scrollbars and menu bar on the mac
+;; disable it with .Xdefaults in linux
 (when (string-equal system-type "darwin")
   (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
   (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
   (when (fboundp 'menu-bar-mode) (menu-bar-mode -1)))
 
-;;theme security by emacs
+;; theme security by emacs
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

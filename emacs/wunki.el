@@ -23,7 +23,7 @@
              ack-and-a-half markdown-mode color-theme-sanityinc-tomorrow
              zenburn-theme pandoc-mode auto-complete jabber clojurescript-mode
              buffer-move ido-ubiquitous s projectile goto-last-change
-             expand-region git-commit-mode powerline evil surround))
+             expand-region git-commit-mode powerline evil surround idomenu))
   (when (not (package-installed-p p))
     (package-install p)))
 

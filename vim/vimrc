@@ -21,8 +21,7 @@ Bundle 'ack.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'commentary.vim'
 Bundle 'surround.vim'
-Bundle 'wunki/slimv-sjl'
-
+Bundle 'VimClojure'
 filetype plugin indent on 
 
 " GUI
@@ -168,12 +167,6 @@ noremap <f4> :set relativenumber!<cr>
 nnoremap j gj
 nnoremap k gk
 
-" Switching windows
-map <C-k> <C-w><Up>
-map <C-j> <C-w><Down>
-map <C-l> <C-w><Right>
-map <C-h> <C-w><Left>
-
 " Fugitive
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gs :Gstatus<cr>
@@ -195,8 +188,6 @@ let g:haddock_browser = "open"
 let g:haddock_browser_callformat = "%s %s"
 let g:ghc="/usr/local/bin/ghc"
 let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
-
-" Reload vim config on save
 
 " Remove .py whitespace
 autocmd BufWritePre *.py :%s/\s\+$//e
@@ -228,23 +219,11 @@ augroup plugin_commentary
     au FileType fish setlocal commentstring=#\ %s
 augroup END
 
-" VimClojure
-augroup ft_clojure
-    au!
+" Clojure
+let g:vimclojure#WantNailgun = 1          " enable nailgun server for repl
+let g:vimclojure#SplitPos = "bottom"      " open repl at the bottom
+let g:vimclojure#SplitSize = 10           " size in lines of the repl window
+let g:vimclojure#HighlightBuiltins = 1    " highlight Clojure keywords
+let g:vimclojure#ParenRainbow = 1         " enable colored parenthesis
 
-    au FileType clojure compiler clojure
-    au FileType clojure setlocal report=100000
 
-    au BufWinEnter            SLIMV.REPL setlocal nolist
-    au BufNewFile,BufReadPost SLIMV.REPL setlocal nowrap foldlevel=99
-    au BufNewFile,BufReadPost SLIMV.REPL nnoremap <buffer> A GA
-    au BufNewFile,BufReadPost SLIMV.REPL nnoremap <buffer> <localleader>R :emenu REPL.<Tab>
-
-    " Fix the eval mappings.
-    au FileType clojure nnoremap <buffer> <localleader>ef :call SlimvEvalExp()<cr>
-    au FileType clojure nnoremap <buffer> <localleader>ee :call SlimvEvalDefun()<cr>
-    au FileType clojure nnoremap <buffer> <localleader>en mzgg:call SlimvEvalDefun()<cr>`z
-
-    " And the inspect mapping.
-    au FileType clojure nmap <buffer> \i \di
-augroup END

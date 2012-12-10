@@ -38,10 +38,10 @@ URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.M-s:      perl:keyboard-select:search
 
 ! Urxvt fonts
-urxvt.font:            xft:Ubuntu Mono:size=13
-urxvt.boldFont:        xft:Ubuntu Mono:bold:size=13
-urxvt.italicFont:      xft:Ubuntu Mono:italic:size=13
-urxvt.boldItalicFont:  xft:Ubuntu Mono:bolditalic:size=13
+urxvt.font:            xft:Ubuntu Mono:size=12
+urxvt.boldFont:        xft:Ubuntu Mono:bold:size=12
+urxvt.italicFont:      xft:Ubuntu Mono:italic:size=12
+urxvt.boldItalicFont:  xft:Ubuntu Mono:bolditalic:size=12
 
 ! Urxvt settings
 urxvt.depth: 32
@@ -66,7 +66,7 @@ Emacs.verticalScrollBars: off
  
 ! Urls
 urxvt.perl-ext: default,matcher
-urxvt.urlLauncher: /home/wunki/bin/conk
+urxvt.urlLauncher: chromium
 urxvt.matcher.button:   1
 urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 

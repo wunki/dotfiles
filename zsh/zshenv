@@ -112,3 +112,4 @@ export PIP_DOWNLOAD_CACHE=$HOME/.cache/pip
 # Clojure
 export LEIN_REPL_HOST="127.0.0.1"
 export LEIN_REPL_PORT="4001"
+export VIMCLOJURE_SERVER_JAR="$HOME/dev/vimclojure/server-2.3.6.jar"

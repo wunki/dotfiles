@@ -23,7 +23,7 @@
              ack-and-a-half markdown-mode color-theme-sanityinc-tomorrow
              zenburn-theme pandoc-mode auto-complete jabber clojurescript-mode
              buffer-move ido-ubiquitous s projectile goto-last-change
-             expand-region git-commit-mode powerline))
+             expand-region git-commit-mode powerline evil surround))
   (when (not (package-installed-p p))
     (package-install p)))
 
@@ -42,3 +42,4 @@
 (load "wunki/mu4e")       ; email
 (load "wunki/erc")        ; irc
 (load "wunki/jabber")     ; jabber
+(load "wunki/evil")       ; vim emulation

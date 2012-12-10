@@ -16,12 +16,12 @@ Bundle 'gmarik/vundle'
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 Bundle 'Lokaltog/vim-powerline'
-Bundle 'VimClojure'
 Bundle 'sjl/badwolf'
-Bundle 'paredit.vim'
 Bundle 'ack.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'commentary.vim'
+Bundle 'surround.vim'
+Bundle 'wunki/slimv-sjl'
 
 filetype plugin indent on 
 
@@ -54,9 +54,7 @@ else
 endif
 
 " Editor configuration
-if has('bsd')
-  set shell=/usr/local/bin/zsh
-elseif has('mac')
+if has('mac')
   set shell=/usr/local/bin/zsh
 else
   set shell=/usr/bin/zsh
@@ -158,9 +156,11 @@ augroup END
 " JSON
 au! BufRead,BufNewFile *.json setfiletype json 
 
+" Quick edit
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+
 " Shortcuts
 map <C-i> gqip
-map <leader>v :sp $MYVIMRC<cr>
 noremap <f1> :bprev!<cr>
 noremap <f2> :bnext!<cr>
 noremap <f3> :set nu!<cr>
@@ -197,7 +197,6 @@ let g:ghc="/usr/local/bin/ghc"
 let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
 
 " Reload vim config on save
-au! BufWritePost $MYVIMRC source % | :PowerlineReloadColorscheme
 
 " Remove .py whitespace
 autocmd BufWritePre *.py :%s/\s\+$//e
@@ -227,4 +226,25 @@ augroup plugin_commentary
     au FileType lisp setlocal commentstring=;\ %s
     au FileType puppet setlocal commentstring=#\ %s
     au FileType fish setlocal commentstring=#\ %s
+augroup END
+
+" VimClojure
+augroup ft_clojure
+    au!
+
+    au FileType clojure compiler clojure
+    au FileType clojure setlocal report=100000
+
+    au BufWinEnter            SLIMV.REPL setlocal nolist
+    au BufNewFile,BufReadPost SLIMV.REPL setlocal nowrap foldlevel=99
+    au BufNewFile,BufReadPost SLIMV.REPL nnoremap <buffer> A GA
+    au BufNewFile,BufReadPost SLIMV.REPL nnoremap <buffer> <localleader>R :emenu REPL.<Tab>
+
+    " Fix the eval mappings.
+    au FileType clojure nnoremap <buffer> <localleader>ef :call SlimvEvalExp()<cr>
+    au FileType clojure nnoremap <buffer> <localleader>ee :call SlimvEvalDefun()<cr>
+    au FileType clojure nnoremap <buffer> <localleader>en mzgg:call SlimvEvalDefun()<cr>`z
+
+    " And the inspect mapping.
+    au FileType clojure nmap <buffer> \i \di
 augroup END

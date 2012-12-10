@@ -41,3 +41,9 @@ fi
 
 # CTRL-R for backwards history search
 bindkey "^r" history-incremental-search-backward
+
+# Tricks to make ZSH faster
+# Git completion
+__git_files () { 
+    _wanted files expl 'local files' _files 
+}

@@ -11,11 +11,6 @@
 (set-keyboard-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
-;; browser on Linux
-(if (string-equal system-type "gnu/linux")
-    (setq browse-url-browser-function 'browse-url-generic
-          browse-url-generic-program "/home/wunki/bin/conk"))
-
 ;; warnings
 (setq visible-bell t)
 (setq ring-bell-function (lambda nil (message "")))

@@ -1,5 +1,5 @@
 DOTFILES = $(PWD)
-all:: vim emacs zsh tmux xmonad xorg gtk conkeror
+all:: vim emacs bin zsh tmux xmonad xorg gtk conkeror
 
 vim::
 	@ln -fs $(DOTFILES)/vim/vimrc    ${HOME}/.vimrc
@@ -12,6 +12,10 @@ emacs::
 	@ln -fs $(DOTFILES)/emacs/wl						  ${HOME}/.wl
 	@ln -fs $(DOTFILES)/emacs/folders					${HOME}/.folders
 	@echo Emacs is symlinked.
+
+bin::
+	@ln -fns $(DOTFILES)/bin		${HOME}/bin
+	@echo bin files are linked to homedir.
 
 zsh::
 	@ln -fs $(DOTFILES)/zsh/zshrc 			${HOME}/.zshrc

@@ -46,7 +46,7 @@
 
 ;; kill word and avoid using the backspace
 (global-set-key (kbd "C-w") 'backward-kill-word)
-(global-set-key (kbd "C-c C-k") 'kill-region)
+(global-set-key (kbd "C-x C-k") 'kill-region)
 
 ;; ace-jump and idomenu for moving around
 (define-key global-map (kbd "C-&") 'ace-jump-mode)

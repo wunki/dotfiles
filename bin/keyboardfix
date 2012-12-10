@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+setxkbmap -option ctrl:nocaps
+xset r rate 300 60
+xset b off

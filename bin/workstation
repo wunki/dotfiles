@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+/home/wunki/bin/xrandr-big
+/home/wunki/bin/keyboardfix

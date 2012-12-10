@@ -1,0 +1,1 @@
+/usr/bin/firefox -app /usr/share/conkeror/application.ini $@

@@ -6,6 +6,10 @@
 (setq user-full-name "Petar Radosevic")
 (setq user-mail-address "petar@wunki.org")
 
+;; conkeror as browser
+(setq browse-url-browser-function 'browse-url-generic
+      browse-url-generic-program "/home/wunki/bin/conk")
+
 ;; unicode
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)

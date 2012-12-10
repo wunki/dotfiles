@@ -66,7 +66,7 @@ Emacs.verticalScrollBars: off
  
 ! Urls
 urxvt.perl-ext: default,matcher
-urxvt.urlLauncher: chromium
+urxvt.urlLauncher: /home/wunki/bin/conk
 urxvt.matcher.button:   1
 urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 

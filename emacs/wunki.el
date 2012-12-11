@@ -42,4 +42,4 @@
 (load "wunki/mu4e")       ; email
 (load "wunki/erc")        ; irc
 (load "wunki/jabber")     ; jabber
-(load "wunki/evil")       ; vim emulation
+;(load "wunki/evil")      ; vim emulation

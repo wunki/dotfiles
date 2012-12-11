@@ -1,7 +1,7 @@
 ;; evil mode (vim emulation)
 ;; going to try this out one day
-(evil-mode -1)
-(global-surround-mode -1)
+(evil-mode t)
+(global-surround-mode t)
 
 (mapc (lambda (mode) (evil-set-initial-state mode 'emacs))
        '(inferior-emacs-lisp-mode

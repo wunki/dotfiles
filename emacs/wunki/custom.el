@@ -18,7 +18,9 @@
 ;; warnings
 (setq visible-bell t)
 (setq ring-bell-function (lambda nil (message "")))
-(setq vc-follow-symlinks t) ;; follow symlinks and don't ask
+
+;; follow symlinks and don't ask questions
+(setq vc-follow-symlinks t) 
 
 ;; always show the region
 (setq transient-mark-mode t)

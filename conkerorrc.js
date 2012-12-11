@@ -84,8 +84,13 @@ add_hook("mode_line_hook", mode_line_adder(loading_count_widget), true);
 // who wants a clock?
 remove_hook("mode_line_hook", mode_line_adder(clock_widget));
 
-// smart links
+// Searches
 define_webjump("gs", "https://encrypted.google.com/?q=%s");
+define_webjump("gh", "http://github.com/search?q=%s&type=Everything");
+define_webjump("cl", "http://clojuredocs.org/search?x=0&y=0&q=%s");
+define_webjump("imdb", "http://imdb.com/find?q=%s");
+define_webjump("yt", "http://www.youtube.com/results?search_query=%s&search=Search");
+define_webjump("yc", "http://www.hnsearch.com/search#request/all&q=%s");
 
 // reload conkerorrc with C-c r
 interactive("reload-config", "reload conkerorrc",
@@ -96,7 +101,7 @@ interactive("reload-config", "reload conkerorrc",
 );
 define_key(default_global_keymap, "C-c r", "reload-config");
 
-// org-protocol stuff
+// org-protocol
 function org_capture (url, title, selection, window) {
     var cmd_str = 'emacsclient \"org-protocol:/capture:/w/'+url+'/'+title+'/'+selection+'\"';
     if (window != null) {
@@ -105,21 +110,21 @@ function org_capture (url, title, selection, window) {
     shell_command_blind(cmd_str);
 }
 
+// capture to org-mode with C-c c
 interactive("org-capture", "Clip url, title, and selection to capture via org-protocol",
           function (I) {
               org_capture(encodeURIComponent(I.buffer.display_uri_string),
                           encodeURIComponent(I.buffer.document.title),
                           encodeURIComponent(I.buffer.top_frame.getSelection()),
                           I.window);
-          });
-
-// capture with C-c c
+          }
+);
 define_key(content_buffer_normal_keymap, "C-c c", "org-capture");
 
 // clear history
-function history_clear () {
+function clear_history () {
     var history = Cc["@mozilla.org/browser/nav-history-service;1"]
         .getService(Ci.nsIBrowserHistory);
     history.removeAllPages();
 };
-interactive("history-clear", "Clear the history.", history_clear);
+interactive("clear-history", "Clear the history.", clear_history);

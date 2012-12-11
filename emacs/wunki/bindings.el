@@ -17,7 +17,7 @@
 (global-set-key (kbd "C-c C-t") 'twittering-update-status-interactive)
 
 ;; expand region (increases selected region by semantic units)
-(global-set-key (kbd "C-'") 'er/expand-region)
+(global-set-key (kbd "C-c e") 'er/expand-region)
 
 ;; edit file with sudo
 (global-set-key (kbd "C-c C-f") 'sudo-edit)

@@ -34,4 +34,4 @@
            :password erc-wunki))))
 
 ;; switch to ERC with Ctrl+c e
-(global-set-key (kbd "C-c e") 'erc-start-or-switch)
+(global-set-key (kbd "C-c C-e") 'erc-start-or-switch)

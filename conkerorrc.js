@@ -3,6 +3,7 @@ load_paths.unshift("chrome://conkeror-contrib/content/");
 
 // my custom keys
 define_key(text_keymap, 'C-w', 'cmd_deleteWordBackward');
+define_key(default_global_keymap, 'C-x C-m', 'execute-extended-command');
 
 // improve hint keys
 hint_background_color = "transparent";

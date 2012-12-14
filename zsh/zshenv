@@ -10,8 +10,8 @@ export SAVEHIST=10000
 
 # Common
 export ALTERNATE_EDITOR='ed'
-export EDITOR='vim'
-export VISUAL='vim'
+export EDITOR='emacsclient -t -a emacs'
+export VISUAL='emacsclient -t -a emacs'
 export PAGER=less
 export COLORTERM=yes
 export GREP_OPTIONS='--color=auto'

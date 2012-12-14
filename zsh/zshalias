@@ -1,3 +1,5 @@
+# -*- mode: sh -*-
+
 # Common
 alias cd..="cd .."
 alias c="clear"
@@ -7,7 +9,6 @@ alias ..="cd .."
 alias rh="runhaskell"
 alias rmpyc="find . -name '*.pyc' | xargs rm"
 alias gun="gunicorn_django --workers=2"
-alias ec="emacsclient -t -a vi"
 alias wl="wicd-curses"
 alias clj="clojure"
 alias nh="sudo nethogs wlan0"
@@ -19,6 +20,10 @@ alias gsdp="sudo ~/bin/get-shit-done play"
 # Pager
 alias less=$PAGER
 alias zless=$PAGER
+
+# Emacs
+alias ec="emacsclient -t -a emacs"
+alias em="emacsclient -n -c -a emacs"
 
 # Pacman on Arch Linux
 if [ -e "/usr/bin/pacman-color" ]; then

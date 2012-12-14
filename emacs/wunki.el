@@ -39,7 +39,8 @@
 (load "wunki/shell")      ; shell mode
 (load "wunki/lisp")       ; lisp languages
 (load "wunki/haskell")    ; haskell
-(load "wunki/mu4e")       ; email
+(when (not (eq system-type 'berkeley-unix))
+  (load "wunki/mu4e"))    ; load email on my local box
 (load "wunki/erc")        ; irc
 (load "wunki/jabber")     ; jabber
 ;(load "wunki/evil")      ; vim emulation

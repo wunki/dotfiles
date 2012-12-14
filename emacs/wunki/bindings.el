@@ -18,11 +18,13 @@
 
 ;; expand region (increases selected region by semantic units)
 (global-set-key (kbd "C-c e") 'er/expand-region)
+(global-set-key (kbd "M-i") 'change-inner)
+(global-set-key (kbd "M-o") 'change-outer)
 
 ;; edit file with sudo
 (global-set-key (kbd "C-c C-f") 'sudo-edit)
 
-;; join line command is very handy
+;; join line command
 (global-set-key (kbd "C-c j") 'join-line)
 
 ;; fullscreen on mac
@@ -34,7 +36,7 @@
 (global-set-key (kbd "M-]") 'forward-paragraph)
 
 ;; find recent files quickly
-(global-set-key (kbd "C-x C-r") 'recentf-ido-find-file)
+(global-set-key (kbd "C-c C-r") 'recentf-ido-find-file)
 
 ;; rotate slime buffers
 (global-set-key (kbd "C-c C-x n") 'slime-cycle-connections)

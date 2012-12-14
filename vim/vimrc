@@ -49,7 +49,7 @@ else
   set mouse=a
   set ttymouse=xterm
   set termencoding=utf-8
-  colorscheme badwolf
+  colorscheme zenburn
 endif
 
 " Editor configuration

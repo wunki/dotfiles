@@ -1,4 +1,4 @@
-//allow for 'contrib' stuff
+// use 'contrib' stuff
 load_paths.unshift("chrome://conkeror-contrib/content/");
 
 // my custom keys
@@ -9,13 +9,13 @@ define_key(default_global_keymap, 'C-x C-m', 'execute-extended-command');
 hint_background_color = "transparent";
 hint_digits = "aoeuhtns";
 
-// load the mono theme
+// monospace theme
 theme_load("mono");
 
-// Don't require a whitelist to install extensions
+// don't require a whitelist to install extensions
 session_pref("xpinstall.whitelist.required", false);
 
-// Adblock plus
+// adblock plus
 require("adblockplus.js");
 
 // firefox user agent
@@ -27,7 +27,7 @@ session_pref("browser.formfill.enable", false);
 // default directory
 cwd = make_file("/home/wunki/downloads");
 
-// Save my passwords
+// save my passwords
 session_pref("signon.rememberSignons", true);
 session_pref("signon.expireMasterPassword", false);
 session_pref("signon.SignonFileName", "signons.txt");
@@ -84,7 +84,7 @@ add_hook("mode_line_hook", mode_line_adder(loading_count_widget), true);
 // who wants a clock?
 remove_hook("mode_line_hook", mode_line_adder(clock_widget));
 
-// Searches
+// searches
 define_webjump("gs", "https://encrypted.google.com/?q=%s");
 define_webjump("gh", "http://github.com/search?q=%s&type=Everything");
 define_webjump("cl", "http://clojuredocs.org/search?x=0&y=0&q=%s");

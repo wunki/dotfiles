@@ -7,8 +7,8 @@
     (require 'color-theme)
     (color-theme-tomorrow-night)))
 
-;;set the default font
-;;fonts on the mac are rendered smaller.
+;; set the default font
+;; fonts on the mac are rendered smaller.
 (if (eq system-type 'darwin)
   (set-default-font "Droid Sans Mono-16")
   (set-default-font "Ubuntu Mono-13"))

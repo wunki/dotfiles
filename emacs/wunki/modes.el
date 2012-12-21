@@ -91,3 +91,7 @@
 (add-hook 'twittering-edit-mode-hook
           (lambda ()
             (auto-fill-mode -1)))
+
+;; diminish
+(diminish 'projectile-mode)
+(diminish 'auto-complete-mode)

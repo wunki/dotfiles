@@ -22,7 +22,9 @@
                              (concat dropbox-directory "/Org/doo.org")
                              (concat dropbox-directory "/Org/today.org")
                              (concat dropbox-directory "/Org/books.org")
-                             (concat dropbox-directory "/Org/inbox.org"))
+                             (concat dropbox-directory "/Org/inbox.org")
+                             ;; source code
+                             "~/clojure/pinki/pinki.org")
       org-default-notes-file (concat dropbox-directory "/Org/inbox.org"))
 
 ; always use indent-mode

@@ -15,6 +15,7 @@
 
 ;; enable powerline mode
 (powerline-default)
+(setq powerline-arrow-shape 'curve)
 
 ;; font on a new client frame
 (setq default-frame-alist '((font . "Ubuntu Mono 13")))

@@ -38,8 +38,14 @@ fpath=(/home/wunki/src/zsh-completions/src $fpath)
 
 # Git flow completions
 if [ -e "$HOME/src/git-flow-completion" ]; then
-  source /$HOME/src/git-flow-completion/git-flow-completion.zsh
+  source $HOME/src/git-flow-completion/git-flow-completion.zsh
 fi
+
+# Directories with Z
+if [ -e "$HOME/src/z/z.sh" ]; then
+  . $HOME/src/z/z.sh
+fi
+
 
 # CTRL-R for backwards history search
 bindkey "^r" history-incremental-search-backward

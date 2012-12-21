@@ -18,17 +18,17 @@
                          ("org" . "http://orgmode.org/elpa/")))
 (package-initialize)
 
-(dolist (p '(nrepl ac-nrepl clojure-mode clojure-test-mode cljdoc
+(dolist (p '(nrepl ac-nrepl ac-slime clojure-mode clojure-test-mode cljdoc
              haskell-mode paredit magit gist org markdown-mode org org-plus-contrib
              ack-and-a-half markdown-mode color-theme-sanityinc-tomorrow
              zenburn-theme pandoc-mode auto-complete jabber clojurescript-mode
              buffer-move ido-ubiquitous s projectile goto-last-change
-             expand-region git-commit-mode powerline evil surround idomenu))
+             expand-region git-commit-mode powerline evil surround idomenu
+             rust-mode diminish))
   (when (not (package-installed-p p))
     (package-install p)))
 
-;; older versions of slime which work with swank
-(vendor 'slime)
+(vendor 'slime)           ; older version of slime which works with swank
 (vendor 'slime-repl)
 
 ;; configuration files
@@ -39,8 +39,7 @@
 (load "wunki/shell")      ; shell mode
 (load "wunki/lisp")       ; lisp languages
 (load "wunki/haskell")    ; haskell
-(when (not (eq system-type 'berkeley-unix))
-  (load "wunki/mu4e"))    ; load email on my local box
 (load "wunki/erc")        ; irc
 (load "wunki/jabber")     ; jabber
-;(load "wunki/evil")      ; vim emulation
+(when (not (eq system-type 'berkeley-unix))
+  (load "wunki/mu4e"))    ; load email on my local box

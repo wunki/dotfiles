@@ -16,9 +16,16 @@
 (setq erc-hide-list '("JOIN" "PART" "QUIT" "NICK"))
 
 ; automagically resize the window
-(add-hook 'window-configuration-change-hook 
+(make-variable-buffer-local 'erc-fill-column)
+ (add-hook 'window-configuration-change-hook 
 	   '(lambda ()
-	      (setq erc-fill-column (- (window-width) 2))))
+	      (save-excursion
+	        (walk-windows
+		 (lambda (w)
+		   (let ((buffer (window-buffer w)))
+		     (set-buffer buffer)
+		     (when (eq major-mode 'erc-mode)
+		       (setq erc-fill-column (- (window-width w) 2)))))))))
 
 (defun erc-start-or-switch ()
   "Connect to ERC, or switch to last active buffer"
@@ -31,7 +38,7 @@
            :port 7000 
            :nick "wunki" 
            :full-name "Petar Radosevic"
-           :password erc-wunki))))
+           :password irc-wunki))))
 
 ;; switch to ERC with Ctrl+c e
 (global-set-key (kbd "C-c C-e") 'erc-start-or-switch)

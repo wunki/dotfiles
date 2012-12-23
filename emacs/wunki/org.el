@@ -19,10 +19,10 @@
 ; org-files
 (setq org-agenda-files (list "~/org/bread-and-pepper.org"
                              "~/org/personal.org"
-                             "~/org/doo.org"
-                             "~/org/today.org"
                              "~/org/books.org"
+                             "~/org/today.org"
                              "~/org/inbox.org"
+                             "~/org/doo.org"
 
                              ;; code
                              "~/clojure/pinki/pinki.org")

@@ -21,6 +21,16 @@
 (setq recentf-max-saved-items 30)
 (add-to-list 'recentf-exclude "\\/tmp\\'")
 
+;; whitespace
+(setq whitespace-style
+      '(face tabs spaces trailing lines space-before-tab
+             newline indentation space-after-tab tab-mark newline-mark)
+      whitespace-display-mappings
+      '((space-mark   ?\    [?\xB7]     [?.])     ; space
+        (space-mark   ?\xA0 [?\xA4]     [?_])     ; hard space
+        (newline-mark ?\n   [?\xAB ?\n] [?$ ?\n]) ; end-of-line
+        ))
+
 ;; auto completion
 (require 'auto-complete-config)
 (ac-config-default)
@@ -44,7 +54,7 @@
       ido-ignore-buffers
       '("\\` " "^\\*ESS\\*" "^\\*Messages\\*" "^\\*Help\\*" "^\\*Buffer"
         "^\\*.*Completions\\*$" "^\\*Ediff" "^\\*tramp" "^\\*cvs-"
-        "_region_" " output\\*$" "^TAGS$" "^\*Ido")      
+        "_region_" " output\\*$" "^TAGS$" "^\*Ido")
       ido-ignore-directories
       '("\\`auto/" "\\`auto-save-list/" "\\`backups/" "\\`semanticdb/"
         "\\`target/" "\\`\\.git/" "\\`\\.svn/" "\\`CVS/" "\\`\\.\\./"
@@ -72,7 +82,7 @@
 (setq inferior-lisp-program "/usr/bin/sbcl --noinform")
 
 ;; PO
-(setq auto-mode-alist 
+(setq auto-mode-alist
       (cons '("\\.po\\'\\|\\.po\\." . po-mode) auto-mode-alist))
 (autoload 'po-mode "po-mode" "Major mode for translators to edit PO files" t)
 

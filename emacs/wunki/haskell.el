@@ -9,11 +9,11 @@
 ;; Customization
 (custom-set-variables
  ;; Use cabal-dev for the GHCi session. Ensures our dependencies are in scope.
- '(haskell-process-type 'cabal-dev)
+ '(haskell-process-type 'ghci)
  
  ;; Use notify.el (if you have it installed) at the end of running
  ;; Cabal commands or generally things worth notifying.
- '(haskell-notify-p t)
+ '(haskell-notify-p -1)
 
  ;; To enable tags generation on save.
  '(haskell-tags-on-save t)

@@ -38,7 +38,12 @@
            :port 7000 
            :nick "wunki" 
            :full-name "Petar Radosevic"
-           :password irc-wunki))))
+           :password irc-wunki)
+      (erc :server "wunki.org"
+           :port 7000 
+           :nick "wunki-mozilla" 
+           :full-name "Petar Radosevic"
+           :password irc-wunki-mozilla))))
 
 ;; switch to ERC with Ctrl+c e
 (global-set-key (kbd "C-c C-e") 'erc-start-or-switch)

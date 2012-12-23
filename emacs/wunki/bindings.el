@@ -54,6 +54,11 @@
 (define-key global-map (kbd "C-&") 'ace-jump-mode)
 (define-key global-map (kbd "C-*") 'idomenu)
 
+;; newline and indent on some modes
+(defun set-newline-and-indent ()
+  (local-set-key (kbd "RET") 'newline-and-indent))
+(add-hook 'rust-mode 'set-newline-and-indent)
+
 ;; helm
 (global-set-key (kbd "C-c h") 'helm-projectile)
 
@@ -91,9 +96,3 @@
 (global-set-key (kbd "C-M-l") 'enlarge-window-horizontally)
 (global-set-key (kbd "C-M-<down>") 'shrink-window)
 (global-set-key (kbd "C-M-<up>") 'enlarge-window)
-
-;; quickly edit org files with ido
-(define-key global-map (kbd "C-c C-x C-t") 
-  '(lambda () 
-     (interactive)
-     (ido-find-file-in-dir (concat dropbox-directory "/Org"))))

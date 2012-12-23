@@ -11,24 +11,25 @@
 
 ; load contacts with org
 (require 'org-contacts)
-(setq org-contacts-files (list (concat dropbox-directory "/Org/contacts.org")))
+(setq org-contacts-files (list "~/org/contacts.org"))
 
 ; archive method
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 
 ; org-files
-(setq org-agenda-files (list (concat dropbox-directory "/Org/bread-and-pepper.org")
-                             (concat dropbox-directory "/Org/personal.org")
-                             (concat dropbox-directory "/Org/doo.org")
-                             (concat dropbox-directory "/Org/today.org")
-                             (concat dropbox-directory "/Org/books.org")
-                             (concat dropbox-directory "/Org/inbox.org")
-                             ;; source code
+(setq org-agenda-files (list "~/org/bread-and-pepper.org"
+                             "~/org/personal.org"
+                             "~/org/doo.org"
+                             "~/org/today.org"
+                             "~/org/books.org"
+                             "~/org/inbox.org"
+
+                             ;; code
                              "~/clojure/pinki/pinki.org")
-      org-default-notes-file (concat dropbox-directory "/Org/inbox.org"))
+      org-default-notes-file "~/org/inbox.org")
 
 ; always use indent-mode
-(setq org-startup-indented t)
+; (setq org-startup-indented t)
 
 ; log the time
 (setq org-log-done 'time)
@@ -56,9 +57,7 @@
    (C . t)
    (sh . t)
    (ditaa . t)
-   (ruby . t)
    (python . t)
-   (js . t)
    (haskell . t)
    (clojure . t)))
 
@@ -69,13 +68,13 @@
 
 ; capture templates
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline (concat dropbox-directory "/Org/inbox.org") "Tasks")
+      '(("t" "Todo" entry (file+headline "~/org/inbox.org" "Tasks")
              "* TODO %?\n  %i\n  %a")
-        ("j" "Journal" entry (file+datetree (concat dropbox-directory "/Org/journal.org"))
+        ("j" "Journal" entry (file+datetree "~/org/journal.org")
              "* %?\nEntered on %U\n  %i\n  %a")
-        ("n" "Note" entry (file (concat dropbox-directory "/Org/notes.org"))
+        ("n" "Note" entry (file "~/org/notes.org")
          "* NOTE %?\n  %i\n  %a")
-        ("w" "" entry (file+headline (concat dropbox-directory "/Org/www.org") "Notes")
+        ("w" "" entry (file+headline "~/org/websites.org" "Notes")
          "* %^{Title}\n\n  Source: %u, %c\n\n  %i")))
 
 ; Tags with fast selection keys

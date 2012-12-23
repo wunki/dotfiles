@@ -36,6 +36,7 @@
 (load "wunki/theme")      ; set the theme and font
 (load "wunki/temp_files") ; temporary files
 (load "wunki/org")        ; org-mode
+(load "wunki/magit")      ; magit
 (load "wunki/shell")      ; shell mode
 (load "wunki/lisp")       ; lisp languages
 (load "wunki/haskell")    ; haskell

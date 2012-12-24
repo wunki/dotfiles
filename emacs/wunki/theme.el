@@ -11,14 +11,14 @@
 ;; fonts on the mac are rendered smaller.
 (if (eq system-type 'darwin)
   (set-default-font "Droid Sans Mono-16")
-  (set-default-font "Consolas-11"))
+  (set-default-font "Ubuntu Mono-12"))
 
 ;; enable powerline mode
 (powerline-default)
 (setq powerline-arrow-shape 'curve)
 
 ;; font on a new client frame
-(setq default-frame-alist '((font . "Consolas 11")))
+(setq default-frame-alist '((font . "Ubuntu Mono 11")))
 
 ;; easy switch between dark and light
 (defun toggle-dark-light-theme-tomorrow ()

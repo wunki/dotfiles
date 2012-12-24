@@ -12,10 +12,17 @@
 ;; kill buffers for server messages after quitting the server
 (setq erc-kill-server-buffer-on-quit t)
 
-;; don't show any of this
-(setq erc-hide-list '("JOIN" "PART" "QUIT" "NICK"))
+;; only show notifications in the modeline when my name is used
+(setq erc-current-nick-highlight-type 'nick)
+(setq erc-keywords '("\\wunki[-a-z]*\\b" "\\petar[-a-z]*\\b"))
+(setq erc-track-exclude-types '("JOIN" "PART" "QUIT" "NICK" "MODE"))
+(setq erc-track-use-faces t)
+(setq erc-track-exclude-server-buffer t)
+(setq erc-track-faces-priority-list
+      '(erc-current-nick-face erc-keyword-face))
+(setq erc-track-priority-faces-only 'all)
 
-; automagically resize the window
+;; automagically resize the window
 (make-variable-buffer-local 'erc-fill-column)
  (add-hook 'window-configuration-change-hook 
 	   '(lambda ()
@@ -27,6 +34,7 @@
 		     (when (eq major-mode 'erc-mode)
 		       (setq erc-fill-column (- (window-width w) 2)))))))))
 
+;; starts the ERC server or switches to it.
 (defun erc-start-or-switch ()
   "Connect to ERC, or switch to last active buffer"
   (interactive)
@@ -44,6 +52,4 @@
            :nick "wunki-mozilla" 
            :full-name "Petar Radosevic"
            :password irc-wunki-mozilla))))
-
-;; switch to ERC with Ctrl+c e
 (global-set-key (kbd "C-c C-e") 'erc-start-or-switch)

@@ -108,6 +108,12 @@ if [ -e "/usr/bin/virtualenvwrapper.sh" ]; then
    source /usr/bin/virtualenvwrapper.sh
 fi
 
+# Auto environment
+if [ -e "/usr/local/bin/activate.sh" ]; then
+   source /usr/local/bin/activate.sh
+fi
+
+
 # Python's nose
 export NOSE_WITH_COVERAGE=true
 

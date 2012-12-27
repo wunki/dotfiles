@@ -1,5 +1,5 @@
 DOTFILES = $(PWD)
-all:: vim emacs bin zsh tmux xmonad xorg gtk conkeror
+all:: vim emacs bin zsh tmux xmonad xorg gtk mplayer conkeror
 
 vim::
 	@ln -fs $(DOTFILES)/vim/vimrc    ${HOME}/.vimrc
@@ -47,6 +47,9 @@ gtk::
 	@ln -fs $(DOTFILES)/gtk/gtkrc.mine ${HOME}/.gtkrc.mine
 	@ln -fns $(DOTFILES)/gtk/themes ${HOME}/.themes
 	@echo GTK is symlinked.
+
+mplayer::
+	@ln -fs $(DOTFILES)/mplayer/config ${HOME}/.mplayer
 
 conkeror::
 	@ln -fs $(DOTFILES)/conkerorrc.js ${HOME}/.conkerorrc

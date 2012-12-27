@@ -18,7 +18,7 @@
 (setq powerline-arrow-shape 'curve)
 
 ;; font on a new client frame
-(setq default-frame-alist '((font . "Ubuntu Mono 11")))
+(setq default-frame-alist '((font . "Ubuntu Mono 12")))
 
 ;; easy switch between dark and light
 (defun toggle-dark-light-theme-tomorrow ()

@@ -16,17 +16,6 @@ source $ZSH/oh-my-zsh.sh
 source ~/.zshalias
 source ~/.zshenv
 
-# Check for a .venv file. If it's there, activate it.
-has_virtualenv() {
-  if [ -e .venv ] && [ -z "$VIRTUAL_ENV" ]; then
-    workon "$@" `cat .venv`
-  fi
-}
-venv_cd () {
-  cd "$@" && has_virtualenv
-}
-alias cd="venv_cd"
-
 # Bindings for Emacs
 bindkey -e
 

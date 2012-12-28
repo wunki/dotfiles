@@ -10,7 +10,7 @@ software:
 * [tmux]
 * [Zsh]
 * [Mplayer]
-* Miscelanious...
+* Miscellaneous...
 
 [@wunki]: https://twitter.com/wunki
 [Emacs]: http://www.gnu.org/software/emacs/ "Emacs homepage"
@@ -66,5 +66,5 @@ Shell which is I use with [oh-my-zsh] configuration.
 
 ## Mplayer
 
-Simple and powerfull media player. I have it configured to display subtitles
-beatifully and 
+Simple and powerful media player. I have it configured to display subtitles
+beautifully and 

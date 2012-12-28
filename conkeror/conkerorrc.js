@@ -64,7 +64,7 @@ clicks_in_new_buffer_target = OPEN_NEW_BUFFER_BACKGROUND;
 clicks_in_new_buffer_button = 1;
 
 // instapaper
-require("/home/wunki/src/wunki-dotfiles/instapaper.js");
+require("/home/wunki/src/wunki-dotfiles/conkeror/instapaper.js");
 
 // auto completion in the minibuffer
 minibuffer_auto_complete_default = true;

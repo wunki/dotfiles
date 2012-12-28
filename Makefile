@@ -53,5 +53,5 @@ mplayer::
 	@echo MPlayer is symlinked.
 
 conkeror::
-	@ln -fs $(DOTFILES)/conkerorrc.js ${HOME}/.conkerorrc
+	@ln -fs $(DOTFILES)/conkeror/conkerorrc.js ${HOME}/.conkerorrc
 	@echo Conkeror is symlinked.

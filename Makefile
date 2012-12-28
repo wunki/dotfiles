@@ -49,7 +49,8 @@ gtk::
 	@echo GTK is symlinked.
 
 mplayer::
-	@ln -fs $(DOTFILES)/mplayer/config ${HOME}/.mplayer
+	@ln -fns $(DOTFILES)/mplayer ${HOME}/.mplayer
+	@echo MPlayer is symlinked.
 
 conkeror::
 	@ln -fs $(DOTFILES)/conkerorrc.js ${HOME}/.conkerorrc

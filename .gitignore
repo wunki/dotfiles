@@ -8,3 +8,4 @@ emacs/swank
 *.dat
 /emacs/eshell/lastdir
 /bin/lein
+mplayer/gui*

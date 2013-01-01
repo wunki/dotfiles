@@ -25,7 +25,8 @@
                              "~/org/doo.org"
 
                              ;; code
-                             "~/clojure/pinki/pinki.org")
+                             "~/clojure/pinki/pinki.org"
+                             "~/src/wunki-dotfiles/TODO.org")
       org-default-notes-file "~/org/inbox.org")
 
 ; always use indent-mode

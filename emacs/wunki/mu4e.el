@@ -5,7 +5,7 @@
 
 ;; org-mode integration
 (require 'org-mu4e)
-(setq mu4e-org-contacts-file (concat dropbox-directory "/Org/contacts.org"))
+(setq mu4e-org-contacts-file "~/org/contacts.org")
 (add-to-list 'mu4e-headers-actions
              '("org-contact-add" . mu4e-action-add-org-contact) t)
 (add-to-list 'mu4e-view-actions

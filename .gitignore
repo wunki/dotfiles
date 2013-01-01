@@ -9,3 +9,4 @@ emacs/swank
 /emacs/eshell/lastdir
 /bin/lein
 mplayer/gui*
+/vim/haskellmode.config

@@ -11,17 +11,27 @@ syntax on                   " enable syntax highlighting
 filetype off            " don't detect the filetype, required for vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-
 Bundle 'gmarik/vundle'
-Bundle 'tpope/vim-fugitive'
+
+" All modes
 Bundle 'kien/ctrlp.vim'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'sjl/badwolf'
+Bundle 'tpope/vim-fugitive'
 Bundle 'ack.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'commentary.vim'
 Bundle 'surround.vim'
-Bundle 'VimClojure'
+
+" Looks
+Bundle 'Lokaltog/vim-powerline'
+Bundle 'sjl/badwolf'
+
+" Clojure
+Bundle 'guns/vim-clojure-static'
+Bundle 'kien/rainbow_parentheses.vim'
+
+" Haskell
+Bundle 'lukerandall/haskellmode-vim'
+
 filetype plugin indent on 
 
 " GUI
@@ -29,7 +39,7 @@ if has("gui_running")
   if has('mac')
     set guifont=Ubuntu\ Mono:h18
   else
-    set guifont=Ubuntu\ Mono\ for\ Powerline\ 13
+    set guifont=Ubuntu\ Mono\ for\ Powerline\ 12
   endif
   set guioptions-=e
   set guioptions-=T
@@ -218,12 +228,4 @@ augroup plugin_commentary
     au FileType puppet setlocal commentstring=#\ %s
     au FileType fish setlocal commentstring=#\ %s
 augroup END
-
-" Clojure
-let g:vimclojure#WantNailgun = 1          " enable nailgun server for repl
-let g:vimclojure#SplitPos = "bottom"      " open repl at the bottom
-let g:vimclojure#SplitSize = 10           " size in lines of the repl window
-let g:vimclojure#HighlightBuiltins = 1    " highlight Clojure keywords
-let g:vimclojure#ParenRainbow = 1         " enable colored parenthesis
-
 

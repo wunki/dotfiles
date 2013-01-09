@@ -3,7 +3,6 @@ AMIX=$(which amixer)
 MUTED=`cat ${HOME}/.pulse/mute`
 MAX_VOL=65536
 
-
 function get_volume {
     $AMIX | egrep -i "^ *front left:" | cut -f 6 -d " " | head -n 1
 }

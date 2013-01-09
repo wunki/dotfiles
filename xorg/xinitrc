@@ -38,8 +38,8 @@ unclutter -idle 3 &
 # Be nice for my eyes at night
 redshift -l 52:4 -t 6000:4800 -m vidmode &
 
-# Transparency!
-xcompmgr -c -C -t-5 -l-5 -r4.2 -o.80 &
+# Transparency
+# xcompmgr -c -C -t-5 -l-5 -r4.2 -o.80 &
 
 # Dropbox
 dropbox start &

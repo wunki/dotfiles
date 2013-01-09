@@ -24,6 +24,10 @@ zsh::
 	@ln -fns $(DOTFILES)/zsh/oh-my-zsh 	${HOME}/.oh-my-zsh
 	@echo ZSH is symlinked.
 
+fish::
+	@ln -fns $(DOTFILES)/fish ${HOME}/.config/fish
+	@echo Fish is symlinked.
+
 tmux::
 	@ln -fs $(DOTFILES)/tmux/tmux.conf ${HOME}/.tmux.conf
 	@echo tmux is symlinked.

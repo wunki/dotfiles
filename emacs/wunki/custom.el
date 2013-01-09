@@ -8,7 +8,7 @@
 
 ;; conkeror as browser
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "/home/wunki/bin/conk")
+      browse-url-generic-program "chromium")
 
 ;; unicode
 (set-terminal-coding-system 'utf-8)

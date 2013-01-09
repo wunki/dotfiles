@@ -9,7 +9,7 @@ Config { font = "xft:Consolas:pixelsize=14:antialias=true"
                     , Run Battery ["-t", "Batt: <timeleft>", "-L", "50", "-H", "75", "--normal", "#969896", "--high", "#de935f"] 600
                     , Run Cpu ["-L", "3", "-H", "50", "--normal", "#969896", "--high", "#de935f"] 10
                     , Run Com "/home/wunki/bin/current-volume" [] "volume" 5
-                    , Run Date "%H:%M:%S" "date" 10
+                    , Run Date "%a %_d %b | %H:%M" "date" 10
                     , Run StdinReader
                     ]
        , sepChar = "%"

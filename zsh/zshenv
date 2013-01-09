@@ -10,9 +10,10 @@ export SAVEHIST=10000
 
 # Common
 export ALTERNATE_EDITOR='ed'
-export EDITOR='emacsclient -t -a emacs'
-export VISUAL='emacsclient -t -a emacs'
+export EDITOR='vim'
+export VISUAL='vim'
 export PAGER=less
+export MANPAGER="/bin/sh -c \"col -b | vim -c 'set ft=man ts=8 nomod nolist nonu noma' -\""
 export COLORTERM=yes
 export GREP_OPTIONS='--color=auto'
 export CLICOLOR=1

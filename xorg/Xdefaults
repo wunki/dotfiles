@@ -1,16 +1,16 @@
 !TomorrowNight
-#define t_background        #1d1f21
-#define t_current_line      #282a2e
-#define t_selection      	  #373b41
-#define t_foreground      	#c5c8c6
-#define t_comment	     	    #969896
-#define t_red		     	      #cc6666
-#define t_orange	     	    #de935f
-#define t_yellow        	  #f0c674
-#define t_green	        	  #b5bd68
-#define t_aqua	        	  #8abeb7
-#define t_blue	        	  #81a2be
-#define t_purple        	  #b294bb
+#define t_background   #1d1f21
+#define t_current_line #282a2e
+#define t_selection    #373b41
+#define t_foreground   #c5c8c6
+#define t_comment      #969896
+#define t_red          #cc6666
+#define t_orange       #de935f
+#define t_yellow       #f0c674
+#define t_green        #b5bd68
+#define t_aqua         #8abeb7
+#define t_blue         #81a2be
+#define t_purple       #b294bb
 
 Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size:  22
@@ -45,7 +45,8 @@ urxvt.boldItalicFont:  xft:Ubuntu Mono:bolditalic:size=12
 
 ! Urxvt settings
 urxvt.depth: 32
-urxvt.background: [85]t_background
+! urxvt.background: [95]t_background
+urxvt.background: t_background
 urxvt.jumpScroll: True
 urxvt.fading: 30
 urxvt.scrollBar: False
@@ -66,7 +67,7 @@ Emacs.verticalScrollBars: off
  
 ! Urls
 urxvt.perl-ext: default,matcher
-urxvt.urlLauncher: /home/wunki/bin/conk
+urxvt.urlLauncher: chromium
 urxvt.matcher.button:   1
 urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
 

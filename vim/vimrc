@@ -1,31 +1,36 @@
 " Vim configuration file by Petar Radosevic
 
-set cmdheight=2             " lower command line two lines high
 set nocompatible            " use vim defaults
+set cmdheight=2             " lower command line two lines high
 set encoding=utf-8          " utf-8 encoding
 set fileencoding=utf-8      " save files as utf-8
 set bg=dark                 " dark background
 syntax on                   " enable syntax highlighting
 
 " Vundle for managing bundles
-filetype off            " don't detect the filetype, required for vundle
+filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
-" All modes
+" Essentials
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'ack.vim'
-Bundle 'scrooloose/nerdtree'
 Bundle 'commentary.vim'
 Bundle 'surround.vim'
+Bundle 'godlygeek/tabular'
+Bundle 'vim-orgmode'
 
 " Looks
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'sjl/badwolf'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'noahfrederick/Hemisu'
 
 " Clojure
+Bundle 'tpope/vim-foreplay'
+Bundle 'tpope/vim-classpath'
 Bundle 'guns/vim-clojure-static'
 Bundle 'kien/rainbow_parentheses.vim'
 
@@ -55,17 +60,17 @@ if has("gui_running")
   set guioptions-=b
   set guioptions+=a
   set guioptions+=c
-  set novisualbell        " please, no visuals
+  set novisualbell        " please, no visual bell
   set anti                " anti-aliasing
-  set mousehide           " hide the mouse when typing 
-  colorscheme badwolf
+  set mousehide           " hide the mouse when typing
+  colorscheme Tomorrow-Night
 else
   " 256 colors setting
   set t_Co=256
   set mouse=a
   set ttymouse=xterm
   set termencoding=utf-8
-  colorscheme zenburn
+  colorscheme Tomorrow-Night
 endif
 
 " Editor configuration
@@ -92,11 +97,13 @@ set showcmd                 " shows partial command in the last line
 set ttyfast                 " improves remote connections
 set ruler                   " show the line and column number of the cursor
 set backspace=indent,eol,start
-"set relativenumber         " show line numbering relative to current position
 set nonumber                " show line numbering
 set undofile                " create undofiles
 set formatoptions=qrn1
 set cursorline              " show me the line where the cursor is
+
+" show whitespace
+
 
 " Ignore these files in netrw
 let g:netrw_list_hide= '.*\.swp$,.*\~$,.*\.pyc$'
@@ -112,10 +119,30 @@ nnoremap ` '
 " Bash-like filename completion
 set wildmenu
 set wildmode=list:longest
-set wildignore=*.o,*.fasl,*.tmp,.git,*.pyc,*.jpg,*.gif,*.png,*.mo
+
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
+set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
+set wildignore+=*.spl                            " compiled spelling word lists
+set wildignore+=*.sw?                            " Vim swap files
+set wildignore+=*.DS_Store                       " OSX
+set wildignore+=*.pyc                            " Python byte code
+set wildignore+=*.orig                           " Merge resolution files
+set wildignore+=classes                          " java/clojure classes
+set wildignore+=lib                              " library files
+set wildignore+=cabal-dev                        " cabal
+set wildignore+=dist                             " cabal distrubition
 
 " Look for the file in the current directory, then south until you reach home.
 set tags=tags;~/
+
+" Only show the cursorline on the active window 
+augroup cline
+    au!
+    au WinLeave,InsertEnter * set nocursorline
+    au WinEnter,InsertLeave * set cursorline
+augroup END
 
 " Backup settings
 set undodir=~/.vim/tmp/undo//     " undo files
@@ -133,8 +160,8 @@ set nowrap
 set tabstop=4                     " tab width is 4 spaces
 set shiftwidth=4                  " indent is also with 4 spaces
 set expandtab                     " expand tabs to spaces
-set listchars=tab:▸\ ,trail:·,eol:¬
 
+" Change mapleader to comma
 let mapleader=','
 
 " Toggle whitespace invisibles
@@ -145,11 +172,13 @@ if has("gui_running")
   let g:Powerline_symbols = 'fancy'
 endif
 let g:Powerline_cache_enabled = 1
+let g:Powerline_colorscheme = 'badwolf'
 
-" All the things I want to ignore
-" Clojure/Leiningen
+" Things to ignore
 set wildignore+=classes
 set wildignore+=lib
+set wildignore+=dist
+set wildignore+=cabal-dev
 
 " Markdown detection
 autocmd BufNewFile,BufReadPost *.mkd,*.markdown,*.md set filetype=markdown
@@ -174,14 +203,20 @@ au! BufRead,BufNewFile *.json setfiletype json
 " Quick edit
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 
-" Shortcuts
-map <C-i> gqip
-noremap <f1> :bprev!<cr>
-noremap <f2> :bnext!<cr>
+" Line numbers
 noremap <f3> :set nu!<cr>
 noremap <f4> :set relativenumber!<cr>
+
+" Go up/down a display line, instead of actual line
 nnoremap j gj
 nnoremap k gk
+
+" Formatting
+nnoremap Q gqip
+vnoremap Q gq
+
+" CtrlP for Buffer switching
+map <C-b> :CtrlPBuffer<CR>
 
 " Fugitive
 nnoremap <leader>gd :Gdiff<cr>
@@ -194,9 +229,12 @@ nnoremap <leader>gci :Gcommit<cr>
 nnoremap <leader>gm :Gmove<cr>
 nnoremap <leader>gr :Gremove<cr>
 
-" Switch to alternate file
-map <C-Tab> :bnext<cr>
-map <C-S-Tab> :bprevious<cr>
+" Org-mode
+augroup ft_org
+    au!
+
+    au Filetype org nmap <buffer> Q vahjgq
+augroup END
 
 " Haskell settings
 au BufEnter *.hs compiler ghc
@@ -205,22 +243,8 @@ let g:haddock_browser_callformat = "%s %s"
 let g:ghc="/usr/local/bin/ghc"
 let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
 
-" Remove .py whitespace
-autocmd BufWritePre *.py :%s/\s\+$//e
-
 " Badwolf theme settings
 let g:badwolf_darkgutter = 1
-
-" NerdTree
-noremap  <F2> :NERDTreeToggle<cr>
-inoremap <F2> <esc>:NERDTreeToggle<cr>
-let NERDTreeHighlightCursorline = 1
-let NERDTreeIgnore = ['.vim$', '\~$', '.*\.pyc$', 'pip-log\.txt$', 'whoosh_index']
-let NERDTreeMinimalUI = 1
-let NERDTreeDirArrows = 1
-let NERDChristmasTree = 1
-let NERDTreeChDirMode = 2
-let NERDTreeMapJumpFirstChild = 'gK'
 
 " Commentary
 nmap <leader>c <Plug>CommentaryLine
@@ -231,7 +255,5 @@ augroup plugin_commentary
     au FileType htmldjango setlocal commentstring={#\ %s\ #}
     au FileType clojurescript setlocal commentstring=;\ %s
     au FileType lisp setlocal commentstring=;\ %s
-    au FileType puppet setlocal commentstring=#\ %s
-    au FileType fish setlocal commentstring=#\ %s
 augroup END
 

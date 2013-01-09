@@ -4,12 +4,12 @@
 (require 'sendmail)
 
 ;; org-mode integration
-(require 'org-mu4e)
-(setq mu4e-org-contacts-file "~/org/contacts.org")
-(add-to-list 'mu4e-headers-actions
-             '("org-contact-add" . mu4e-action-add-org-contact) t)
-(add-to-list 'mu4e-view-actions
-             '("org-contact-add" . mu4e-action-add-org-contact) t)
+;;(require 'org-mu4e)
+;;(setq mu4e-org-contacts-file "/home/wunki/org/contacts.org")
+;; (add-to-list 'mu4e-headers-actions
+;;              '("org-contact-add" . mu4e-action-add-org-contact) t)
+;; (add-to-list 'mu4e-view-actions
+;;              '("org-contact-add" . mu4e-action-add-org-contact) t)
 
 ;; Set mu4e as default mail agent
 (setq mail-user-agent 'mu4e-user-agent)

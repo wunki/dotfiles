@@ -10,7 +10,6 @@ import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.FadeInactive
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.SetWMName
-import           XMonad.Hooks.UrgencyHook
 
 -- Actions
 import           XMonad.Actions.SpawnOn
@@ -49,9 +48,9 @@ main = do
                     , ppCurrent = xmobarColor "#81a2be" ""
                     }
         , borderWidth = 1
-        , normalBorderColor  = "#373b41"
-        , focusedBorderColor = "#81a2be"
-        , workspaces = ["1:Shell", "2:Emacs", "3:Web", "4:General"]
+        , normalBorderColor  = "#1a1a1a"
+        , focusedBorderColor = "#373b41"
+        , workspaces = ["1:Shell", "2:Editor", "3:Web", "4:General"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
         , startupHook = myStartupHook
@@ -64,11 +63,8 @@ standardLayout = tiled ||| Full ||| Grid
           ratio     = 3/5
           delta     = 3/100
 
-fullBorders = noBorders (fullscreenFull Full)
-
-myLayout = onWorkspace "2:Emacs" fullBorders $
-	   onWorkspace "3:Web" Full $
-	   standardLayout
+myLayout = onWorkspace "3:Web" Full $
+           standardLayout
 
 -- Float & Window setup
 myManageHook :: ManageHook
@@ -76,10 +72,11 @@ myManageHook = manageDocks <+> composeAll
     [ className =? "Chromium"             --> doF (W.shift "3:Web")
     , className =? "Firefox-bin"          --> doF (W.shift "3:Web")
     , className =? "Firefox"              --> doF (W.shift "3:Web")
+    , className =? "Chromium"             --> doF (W.shift "3:Web")
     , className =? "Iceweasel"            --> doF (W.shift "3:Web")
     , className =? "Conkeror"             --> doF (W.shift "3:Web")
-    , className =? "Emacs"                --> doF (W.shift "2:Emacs")
-    , className =? "GVIM"                 --> doF (W.shift "2:Emacs")
+    , className =? "Emacs"                --> doF (W.shift "2:Editor")
+    , className =? "GVIM"                 --> doF (W.shift "2:Editor")
     , className =? "Thunar"               --> doF (W.shift "4:General")
     ]
 
@@ -89,12 +86,12 @@ manageHook' = (doF W.swapDown) <+> manageDocks <+> manageHook defaultConfig <+> 
 myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     [ ((0, xF86XK_AudioLowerVolume), spawn "/home/wunki/bin/volume decrease") -- Lower volume
     , ((0, xF86XK_AudioRaiseVolume), spawn "/home/wunki/bin/volume increase") -- Raise volume
-    , ((0, xF86XK_AudioMute), spawn "/home/wunki/bin/volume mute") -- Mute
-    , ((0, xF86XK_AudioPlay), spawn "mpc toggle") -- Play/pause
-    , ((0, xF86XK_AudioPrev), spawn "mpc prev") -- Previous song
-    , ((0, xF86XK_AudioNext), spawn "mpc next") -- Next song
-    , ((0, xF86XK_Launch1),   spawn "/home/wunki/bin/conk") -- Launch Conkeror
-    , ((modMask, xK_b),       sendMessage ToggleStruts) -- Hide top bar
+    , ((0, xF86XK_AudioMute), spawn "/home/wunki/bin/volume mute")            -- Mute
+    , ((0, xF86XK_AudioPlay), spawn "mpc toggle")                             -- Play/pause
+    , ((0, xF86XK_AudioPrev), spawn "mpc prev")                               -- Previous song
+    , ((0, xF86XK_AudioNext), spawn "mpc next")                               -- Next song
+    , ((0, xF86XK_Launch1),   spawn "/usr/bin/chromium")                      -- Launch Conkeror
+    , ((modMask, xK_b),       sendMessage ToggleStruts)                       -- Hide top bar
     , ((modMask, xK_Print),   spawn "scrot -q90 /home/wunki/pictures/screenshots/%Y-%m-%d-%H%M%S.png")
     , ((modMask .|. controlMask, xK_p), sendMessage MagnifyMore)
     , ((modMask .|. controlMask, xK_l), sendMessage MagnifyLess)

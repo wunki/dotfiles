@@ -40,6 +40,9 @@ Bundle 'lukerandall/haskellmode-vim'
 " Rust
 Bundle 'bryanjswift/vim-rust'
 
+" Fish syntax
+Bundle 'aliva/vim-fish'
+
 " CFEngine
 Bundle 'neilhwatson/vim_cf3'
 

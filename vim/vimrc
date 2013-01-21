@@ -26,7 +26,6 @@ Bundle 'vim-orgmode'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'sjl/badwolf'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'noahfrederick/Hemisu'
 
 " Clojure
 Bundle 'tpope/vim-foreplay'
@@ -36,9 +35,10 @@ Bundle 'kien/rainbow_parentheses.vim'
 
 " Haskell
 Bundle 'lukerandall/haskellmode-vim'
+Bundle 'Twinside/vim-syntax-haskell-cabal'
 
 " Rust
-Bundle 'bryanjswift/vim-rust'
+Bundle 'wting/rust.vim'
 
 " Fish syntax
 Bundle 'aliva/vim-fish'
@@ -165,7 +165,8 @@ set shiftwidth=4                  " indent is also with 4 spaces
 set expandtab                     " expand tabs to spaces
 
 " Change mapleader to comma
-let mapleader=','
+let mapleader = ","
+let maplocalleader = "\\"
 
 " Toggle whitespace invisibles
 nmap <leader>l :set list!<CR>

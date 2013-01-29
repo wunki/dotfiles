@@ -1,12 +1,16 @@
-# Aliases
-alias e "exit"
-alias rmpyc "find . -name '*.pyc' | xargs rm"
-alias gs "git status --ignore-submodules=dirty"
-alias gp "git push origin master"
-alias gf "git pull origin master"
-alias l1 'tree --dirsfirst -ChFL 1'
-alias l2 'tree --dirsfirst -ChFL 2'
-alias l3 'tree --dirsfirst -ChFL 3'
+# functiones
+function rmpyc; find . -name '*.pyc' | xargs rm; end
+function gs; git status --ignore-submodules=dirty; end
+function gp; git push origin master; end
+function gf; git pull origin master; end
+function l1; tree --dirsfirst -ChFL 1; end
+function l2; tree --dirsfirst -ChFL 2; end
+function l3; tree --dirsfirst -ChFL 3; end
+function gsdw; sudo ~/bin/get-shit-done work; end
+function gsdp; sudo ~/bin/get-shit-done play; end
+function wl; wicd-curses; end
+function weechat; weechat-curses $argv; end
+function res; erl -pz ebin deps/*/ebin $argv; end
 
 # Environment variables
 set -g -x fish_greeting ""

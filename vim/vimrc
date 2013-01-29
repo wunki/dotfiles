@@ -21,6 +21,8 @@ Bundle 'commentary.vim'
 Bundle 'surround.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'vim-orgmode'
+Bundle 'tpope/vim-speeddating'
+Bundle 'Lokaltog/vim-easymotion'
 
 " Looks
 Bundle 'Lokaltog/vim-powerline'
@@ -40,7 +42,10 @@ Bundle 'Twinside/vim-syntax-haskell-cabal'
 " Rust
 Bundle 'wting/rust.vim'
 
-" Fish syntax
+" Erlang
+Bundle 'jimenezrick/vimerl'
+
+" Fish shell syntax
 Bundle 'aliva/vim-fish'
 
 " CFEngine
@@ -53,7 +58,7 @@ if has("gui_running")
   if has('mac')
     set guifont=Ubuntu\ Mono:h18
   else
-    set guifont=Ubuntu\ Mono\ for\ Powerline\ 12
+    set guifont=Ubuntu\ Mono\ for\ Powerline\ 13
   endif
   set guioptions-=e
   set guioptions-=T
@@ -77,11 +82,7 @@ else
 endif
 
 " Editor configuration
-if has('mac')
-  set shell=/usr/local/bin/zsh
-else
-  set shell=/usr/bin/zsh
-endif
+set shell=/bin/bash
 set showmatch               " show matching brackets (), {}' []
 set showcmd                 " show command
 set modelines=0             " don't use modelines
@@ -95,18 +96,15 @@ set history=1000            " more history
 set shortmess=atI           " shorten confirmation messages
 set bs=2                    " fix backspace in FreeBSD
 set scrolloff=3             " keep 3 lines below/above cursor
-set showmode                " shows the mode i'm currently in
+set noshowmode              " no need for the mode, powerline shows it
 set showcmd                 " shows partial command in the last line
 set ttyfast                 " improves remote connections
 set ruler                   " show the line and column number of the cursor
 set backspace=indent,eol,start
-set nonumber                " show line numbering
+set number                " show line numbering
 set undofile                " create undofiles
 set formatoptions=qrn1
 set cursorline              " show me the line where the cursor is
-
-" show whitespace
-
 
 " Ignore these files in netrw
 let g:netrw_list_hide= '.*\.swp$,.*\~$,.*\.pyc$'
@@ -123,6 +121,7 @@ nnoremap ` '
 set wildmenu
 set wildmode=list:longest
 
+" Ignore these things
 set wildignore+=.hg,.git,.svn                    " Version control
 set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
@@ -172,11 +171,8 @@ let maplocalleader = "\\"
 nmap <leader>l :set list!<CR>
 
 " Powerline
-if has("gui_running")
-  let g:Powerline_symbols = 'fancy'
-endif
+let g:Powerline_symbols = 'fancy'
 let g:Powerline_cache_enabled = 1
-let g:Powerline_colorscheme = 'badwolf'
 
 " Things to ignore
 set wildignore+=classes
@@ -206,6 +202,7 @@ au! BufRead,BufNewFile *.json setfiletype json
 
 " Quick edit
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>et :vsplit ~/org/today.org<cr>
 
 " Line numbers
 noremap <f3> :set nu!<cr>
@@ -259,5 +256,12 @@ augroup plugin_commentary
     au FileType htmldjango setlocal commentstring={#\ %s\ #}
     au FileType clojurescript setlocal commentstring=;\ %s
     au FileType lisp setlocal commentstring=;\ %s
+    au FileType rust setlocal commentstring=//\ %s
 augroup END
+
+" Chicken scheme
+let g:is_chicken=1
+setl lispwords+=let-values,condition-case,with-input-from-string
+setl lispwords+=with-output-to-string,handle-exceptions,call/cc,rec,receive
+setl lispwords+=call-with-output-file
 

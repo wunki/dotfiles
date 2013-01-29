@@ -42,5 +42,6 @@
 (load "wunki/haskell")    ; haskell
 (load "wunki/erc")        ; irc
 (load "wunki/jabber")     ; jabber
+;; (load "wunki/evil")       ; evil mode
 (when (not (eq system-type 'berkeley-unix))
   (load "wunki/mu4e"))    ; load email on my local box

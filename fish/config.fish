@@ -11,6 +11,7 @@ function gsdp; sudo ~/bin/get-shit-done play; end
 function wl; wicd-curses; end
 function weechat; weechat-curses $argv; end
 function res; erl -pz ebin deps/*/ebin $argv; end
+function nstat; sudo nethogs wlan0 $argv; end
 
 # Environment variables
 set -g -x fish_greeting ""
@@ -39,3 +40,29 @@ set -g -x WORKON_HOME "$HOME/.virtualenvs"
 # Haskell
 prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.cabal/.bin"
+
+# Git prompt
+set __fish_git_prompt_showdirtystate 'yes'
+set __fish_git_prompt_showstashstate 'yes'
+set __fish_git_prompt_showupstream 'yes'
+set __fish_git_prompt_color_branch yellow
+
+# Status Chars
+set __fish_git_prompt_char_dirtystate '⚡'
+set __fish_git_prompt_char_stagedstate '→'
+set __fish_git_prompt_char_stashstate '↩'
+set __fish_git_prompt_char_upstream_ahead '↑'
+set __fish_git_prompt_char_upstream_behind '↓'
+
+
+function fish_prompt
+  set last_status $status
+
+  set_color $fish_color_cwd
+  printf '%s' (prompt_pwd)
+  set_color normal
+
+  printf '%s ' (__fish_git_prompt)
+
+  set_color normal
+end

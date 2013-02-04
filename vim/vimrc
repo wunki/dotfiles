@@ -42,6 +42,10 @@ Bundle 'Twinside/vim-syntax-haskell-cabal'
 " Rust
 Bundle 'wting/rust.vim'
 
+" Gist
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
+
 " Erlang
 Bundle 'jimenezrick/vimerl'
 
@@ -105,6 +109,7 @@ set number                " show line numbering
 set undofile                " create undofiles
 set formatoptions=qrn1
 set cursorline              " show me the line where the cursor is
+set nofoldenable            " don't do any folding for now
 
 " Ignore these files in netrw
 let g:netrw_list_hide= '.*\.swp$,.*\~$,.*\.pyc$'
@@ -199,6 +204,9 @@ augroup END
 
 " JSON
 au! BufRead,BufNewFile *.json setfiletype json 
+
+" CFEngine
+au! BufRead,BufNewFile *.cf setfiletype cf3
 
 " Quick edit
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>

@@ -46,10 +46,4 @@
            :port 7000 
            :nick "wunki" 
            :full-name "Petar Radosevic"
-           :password irc-wunki)
-      (erc :server "wunki.org"
-           :port 7000 
-           :nick "wunki-mozilla" 
-           :full-name "Petar Radosevic"
-           :password irc-wunki-mozilla))))
-(global-set-key (kbd "C-c C-e") 'erc-start-or-switch)
+           :password irc-wunki))))

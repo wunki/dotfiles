@@ -50,4 +50,6 @@
 (add-hook 'nrepl-mode-hook 'set-auto-complete-as-completion-at-point-function)
 (add-hook 'nrepl-interaction-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
-(setq nrepl-lein-command "/home/wunki/bin/lein2")
+;; bindings
+;; (add-hook 'nrepl-mode-hook
+;;           '(define-key 'nrepl-mode-map (kbd "C-c C-d") 'nrepl-make-repl-connection-default))

@@ -1,2 +1,0 @@
-#!/usr/bin/env sh
-xrandr --output HDMI1 --off --output LVDS1 --auto

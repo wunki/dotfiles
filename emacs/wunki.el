@@ -40,6 +40,7 @@
 (load "wunki/shell")      ; shell mode
 (load "wunki/lisp")       ; lisp languages
 (load "wunki/haskell")    ; haskell
+(load "wunki/erlang")     ; erlang
 (load "wunki/erc")        ; irc
 (load "wunki/jabber")     ; jabber
 ;; (load "wunki/evil")       ; evil mode

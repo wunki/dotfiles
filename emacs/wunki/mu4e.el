@@ -4,12 +4,12 @@
 (require 'sendmail)
 
 ;; org-mode integration
-;;(require 'org-mu4e)
-;;(setq mu4e-org-contacts-file "/home/wunki/org/contacts.org")
-;; (add-to-list 'mu4e-headers-actions
-;;              '("org-contact-add" . mu4e-action-add-org-contact) t)
-;; (add-to-list 'mu4e-view-actions
-;;              '("org-contact-add" . mu4e-action-add-org-contact) t)
+(require 'org-mu4e)
+(setq mu4e-org-contacts-file "/home/wunki/org/contacts.org")
+(add-to-list 'mu4e-headers-actions
+             '("org-contact-add" . mu4e-action-add-org-contact) t)
+(add-to-list 'mu4e-view-actions
+             '("org-contact-add" . mu4e-action-add-org-contact) t)
 
 ;; Set mu4e as default mail agent
 (setq mail-user-agent 'mu4e-user-agent)
@@ -27,33 +27,33 @@
 
 ; set bookmarks
 (setq mu4e-bookmarks 
-  '(("flag:new maildir:/inbox"            "New Personal"         ?p)
-    ("flag:new maildir:/bread-and-pepper" "New Bread & Pepper"   ?b)
-    ("flag:unread AND NOT flag:trash"     "All unread messages"  ?u)
-    ("date:today..now"                    "Today's messages"     ?t)
-    ("date:7d..now"                       "Last 7 days"          ?w)
-    ("mime:image/*"                       "Messages with images" ?i)
-    ("flag:flagged"                       "Flagged messages"     ?f)))
+  '(("flag:new maildir:/wunki/inbox"            "New Personal"         ?p)
+    ("flag:new maildir:/bread-and-pepper/inbox" "New Bread & Pepper"   ?b)
+    ("flag:unread AND NOT flag:trash"           "All unread messages"  ?u)
+    ("date:today..now"                          "Today's messages"     ?t)
+    ("date:7d..now"                             "Last 7 days"          ?w)
+    ("mime:image/*"                             "Messages with images" ?i)
+    ("flag:flagged"                             "Flagged messages"     ?f)))
 
 (setq mu4e-user-mail-address-regexp
       "petar@wunki\.org\\|petar@breadandpepper\.com")
 
 ; maildir locations
 (setq mu4e-maildir "/home/wunki/mail")
-(setq mu4e-refile-folder "/archive")
-(setq mu4e-sent-folder   "/sent")
-(setq mu4e-drafts-folder "/drafts")
-(setq mu4e-trash-folder  "/trash")
+(setq mu4e-refile-folder "/wunki/archive")
+(setq mu4e-sent-folder   "/wunki/sent")
+(setq mu4e-drafts-folder "/wunki/drafts")
+(setq mu4e-trash-folder  "/wunki/trash")
 
 ; shortcuts
 (setq mu4e-maildir-shortcuts
-       '(("/inbox"             . ?i)
-         ("/bread-and-pepper"  . ?b)
-         ("/archive"           . ?a)
-         ("/sent"              . ?s)
-         ("/clojure"           . ?c)
-         ("/haskell-beginners" . ?h)
-         ("/trash"             . ?t)))
+       '(("/wunki/inbox"             . ?i)
+         ("/bread-and-pepper/inbox"  . ?b)
+         ("/wunki/archive"           . ?a)
+         ("/wunki/sent"              . ?s)
+         ("/wunki/clojure"           . ?c)
+         ("/wunki/haskell-beginners" . ?h)
+         ("/wunki/trash"             . ?t)))
 
 ; sending mail
 (setq message-send-mail-function 'smtpmail-send-it

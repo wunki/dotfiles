@@ -1,0 +1,96 @@
+#! /bin/bash
+## start/stop Riak dev instances
+## http://docs.basho.com/riak/latest/tutorials/fast-track/Building-a-Development-Environment/
+ 
+set -e
+ 
+RIAK_HOME=$HOME/dev/riak
+RIAKDEVDIR=$RIAK_HOME/dev
+DEVDIRS=(dev1 dev2 dev3 dev4)
+ 
+do_start () {
+  if pidof beam.smp >/dev/null; then
+    echo "Riak already running! PIDs:"
+    pidof beam.smp
+    exit
+  elif [ -d $RIAKDEVDIR ]; then
+    echo "Starting Riak in $RIAKDEVDIR ..."
+    for dir in ${DEVDIRS[@]}; do
+      echo "Starting $dir instance ..."
+      $RIAKDEVDIR/$dir/bin/riak start || return 2
+    done
+    echo "Riak started!"
+    $RIAKDEVDIR/${DEVDIRS[0]}/bin/riak-admin member-status
+    echo "Done."
+  else
+    echo "Cannot find $RIAKDEVDIR ... no start for you!"
+    exit 1
+  fi
+}
+
+do_stop () {
+  echo "Stopping Riak in $RIAKDEVDIR ..."
+  for dir in ${DEVDIRS[@]}; do
+    echo "Stopping $dir instance ..."
+    $RIAKDEVDIR/$dir/bin/riak stop || return 2
+  done
+  echo "Stopping epmd ..."
+  epmd -kill
+  echo "Done."
+}
+
+ask_commit() {
+  echo "The new plan is this:"
+  $RIAKDEVDIR/dev1/bin/riak-admin cluster plan || return 2
+  while true; do
+    read -p "Do you want to commit this change? [y/n] " yn
+    case $yn in
+        [Yy]* ) $RIAKDEVDIR/dev1/bin/riak-admin cluster commit || return 2 ; break;;
+        [Nn]* ) $RIAKDEVDIR/dev1/bin/riak-admin cluster clear || return 2 ; break;;
+        * ) echo "Please answer yes or no.";;
+    esac
+  done
+}
+
+do_join () {
+  echo "Adding nodes to cluster ..."
+  for dir in ${DEVDIRS[@]:1}; do
+    echo "Joining $dir instance to cluster ..."
+    $RIAKDEVDIR/$dir/bin/riak-admin cluster join dev1@127.0.0.1 || return 2
+  done
+  ask_commit
+}
+
+do_leave () {
+  for dir in ${DEVDIRS[@]:1}; do
+    echo "Removing $dir from cluster ..."
+    $RIAKDEVDIR/$dir/bin/riak-admin cluster leave || return 2
+  done
+  ask_commit
+}
+
+do_member_status () {
+  $RIAKDEVDIR/dev1/bin/riak-admin member-status || return 2
+}
+ 
+case "$1" in
+  start)
+    do_start
+    ;;
+  stop)
+    do_stop
+    ;;
+  join)
+    do_join
+    ;;
+  leave)
+    do_leave
+    ;;
+  member-status)
+    do_member_status
+    ;;
+  *)
+    echo "Usage: $0 {start|stop|join|leave|member-status}" >&2
+    exit 1
+    ;;
+esac

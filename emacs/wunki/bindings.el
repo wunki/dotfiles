@@ -2,7 +2,8 @@
 (global-set-key (kbd "C-c C-g") 'magit-status)
 (global-set-key (kbd "M-/") 'hippie-expand)
 (global-set-key (kbd "<f9>") 'mu4e)
-(global-set-key (kbd "<f10>") 'jabber-start)
+(global-set-key (kbd "<f10>") 'erc-start-or-switch)
+(global-set-key (kbd "<f11>") 'jabber-start)
 
 ;; training wheels
 (global-unset-key (kbd "C-x o"))

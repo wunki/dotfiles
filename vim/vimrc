@@ -16,6 +16,7 @@ Bundle 'gmarik/vundle'
 " Essentials
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-eunuch'
 Bundle 'ack.vim'
 Bundle 'commentary.vim'
 Bundle 'surround.vim'
@@ -23,11 +24,13 @@ Bundle 'godlygeek/tabular'
 Bundle 'vim-orgmode'
 Bundle 'tpope/vim-speeddating'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'scrooloose/syntastic'
 
 " Looks
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'sjl/badwolf'
 Bundle 'altercation/vim-colors-solarized'
+Bundle 'nanotech/jellybeans.vim'
 
 " Clojure
 Bundle 'tpope/vim-foreplay'
@@ -136,6 +139,7 @@ set wildignore+=*.sw?                            " Vim swap files
 set wildignore+=*.DS_Store                       " OSX
 set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.orig                           " Merge resolution files
+set wildignore+=*.beam                           " Erlang object code
 set wildignore+=classes                          " java/clojure classes
 set wildignore+=lib                              " library files
 set wildignore+=cabal-dev                        " cabal
@@ -241,7 +245,6 @@ nnoremap <leader>gr :Gremove<cr>
 " Org-mode
 augroup ft_org
     au!
-
     au Filetype org nmap <buffer> Q vahjgq
 augroup END
 
@@ -265,6 +268,7 @@ augroup plugin_commentary
     au FileType clojurescript setlocal commentstring=;\ %s
     au FileType lisp setlocal commentstring=;\ %s
     au FileType rust setlocal commentstring=//\ %s
+    au FileType cf3 setlocal commentstring=\#\ %s
 augroup END
 
 " Chicken scheme
@@ -272,4 +276,11 @@ let g:is_chicken=1
 setl lispwords+=let-values,condition-case,with-input-from-string
 setl lispwords+=with-output-to-string,handle-exceptions,call/cc,rec,receive
 setl lispwords+=call-with-output-file
+
+" Clojure
+let g:clojure_align_multiline_strings=1
+
+" Erlang
+au BufRead,BufNewFile rebar.config set filetype=erlang
+au BufRead,BufNewFile *.dtl set filetype=htmldjango
 

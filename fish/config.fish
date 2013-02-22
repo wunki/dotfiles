@@ -12,6 +12,7 @@ function wl; wicd-curses; end
 function weechat; weechat-curses $argv; end
 function res; erl -pz ebin deps/*/ebin $argv; end
 function nstat; sudo nethogs wlan0 $argv; end
+function git; hub $argv; end
 
 # Environment variables
 set -g -x fish_greeting ""
@@ -32,14 +33,14 @@ prepend_to_path "/usr/bin"
 prepend_to_path "/usr/local/bin"
 prepend_to_path "/usr/local/sbin"
 
+# Haskell
+prepend_to_path "$HOME/bin"
+prepend_to_path "$HOME/.cabal/.bin"
+
 # Python
 set -g -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
 set -g -x WORKON_HOME "$HOME/.virtualenvs"
 . ~/.config/fish/virtualenv.fish
-
-# Haskell
-prepend_to_path "$HOME/bin"
-prepend_to_path "$HOME/.cabal/.bin"
 
 # Git prompt
 set __fish_git_prompt_showdirtystate 'yes'

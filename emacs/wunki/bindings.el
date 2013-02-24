@@ -71,7 +71,7 @@
 (define-key global-map (kbd "C-c C-c C-p") 'gist-region)
 
 ;; quickly edit emacs config with ido
-(define-key global-map (kbd "C-c C-x C-e") 
+(define-key global-map (kbd "C-c C-C C-e") 
   '(lambda () 
      (interactive)
      (ido-find-file-in-dir "~/.emacs.d/wunki")))

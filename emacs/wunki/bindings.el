@@ -56,18 +56,13 @@
   (local-set-key (kbd "RET") 'newline-and-indent))
 (add-hook 'rust-mode 'set-newline-and-indent)
 
-;; helm
-(global-set-key (kbd "C-c h") 'helm-projectile)
-
-;; don't suspend emacs
-(global-unset-key (kbd "C-z"))
-
-;; gist.github.com
-(define-key global-map (kbd "C-c C-c C-g") 'gist-buffer)
-(define-key global-map (kbd "C-c C-c C-p") 'gist-region)
+;; github gists
+(define-key global-map (kbd "C-S-c g") 'gist-buffer-private)
+(define-key global-map (kbd "C-S-c b") 'gist-buffer)
+(define-key global-map (kbd "C-S-c r") 'gist-region)
 
 ;; quickly edit emacs config with ido
-(define-key global-map (kbd "C-c C-C C-e") 
+(define-key global-map (kbd "C-c C-e C-e") 
   '(lambda () 
      (interactive)
      (ido-find-file-in-dir "~/.emacs.d/wunki")))

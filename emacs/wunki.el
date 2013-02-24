@@ -43,6 +43,9 @@
 (load "wunki/erlang")     ; erlang
 (load "wunki/erc")        ; irc
 (load "wunki/jabber")     ; jabber
-;; (load "wunki/evil")       ; evil mode
-(when (not (eq system-type 'berkeley-unix))
-  (load "wunki/mu4e"))    ; load email on my local box
+(if (eq system-type 'darwin)
+    (load "wunki/mac"))   ; mac settings
+
+;; load email only on my local computer
+(when (string-equal system-name "thinkpad.wunki.org")
+  (load "wunki/mu4e"))

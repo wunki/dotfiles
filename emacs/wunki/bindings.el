@@ -28,10 +28,6 @@
 ;; join line command
 (global-set-key (kbd "C-c j") 'join-line)
 
-;; fullscreen on mac
-(if (eq system-type 'darwin)
-    (global-set-key (kbd "<f3>") 'ns-toggle-fullscreen))
-
 ;; who needs shift when using forward/backwards paragraph
 (global-set-key (kbd "M-[") 'backward-paragraph)
 (global-set-key (kbd "M-]") 'forward-paragraph)

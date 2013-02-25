@@ -96,8 +96,11 @@
 (autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")
 (add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
 
+;; cfengine
+(add-to-list 'auto-mode-alist '("\\.cf$" . cfengine3-mode))
+
 ;; twittering
-(setq twittering-use-master-password t)
+(setq twittering-use-master-password nil)
 (add-hook 'twittering-edit-mode-hook
           (lambda ()
             (auto-fill-mode -1)))

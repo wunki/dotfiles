@@ -1,4 +1,4 @@
-; load and fire
+;; load and fire
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 (require 'mu4e)
 (require 'sendmail)
@@ -67,15 +67,15 @@
         (:from          .  24)
         (:subject       .  nil)))
 
-; set bookmarks
+;; set bookmarks
 (setq mu4e-bookmarks 
-  '(("flag:new maildir:/wunki/inbox"            "New Personal"         ?p)
-    ("flag:new maildir:/bread-and-pepper/inbox" "New Bread & Pepper"   ?b)
-    ("flag:unread AND NOT flag:trash"           "All unread messages"  ?u)
-    ("date:today..now"                          "Today's messages"     ?t)
-    ("date:7d..now"                             "Last 7 days"          ?w)
-    ("mime:image/*"                             "Messages with images" ?i)
-    ("flag:flagged"                             "Flagged messages"     ?f)))
+  '(("flag:new maildir:/wunki/inbox"              "New Personal"         ?p)
+    ("flag:new maildir:/bread-and-pepper/inbox"   "New Bread & Pepper"   ?b)
+    ("flag:unread AND NOT flag:trash AND NOT maildir:/wunki/junk AND NOT maildir:/bread-and-pepper/archive"  "All unread messages"  ?u)
+    ("date:today..now"                            "Today's messages"     ?t)
+    ("date:7d..now"                               "Last 7 days"          ?w)
+    ("mime:image/*"                               "Messages with images" ?i)
+    ("flag:flagged"                               "Flagged messages"     ?f)))
 
 (setq mu4e-user-mail-address-regexp
       "petar@wunki\.org\\|petar@breadandpepper\.com")
@@ -92,14 +92,14 @@
          ("/bread-and-pepper/trash"   . ?T)
          ("/wunki/clojure"            . ?c)
          ("/wunki/haskell-beginners"  . ?h)
-         ("/wunki/rust"               . ?h)))
+         ("/wunki/rust-development"   . ?h)))
 
 ;; sending mail
 (setq message-send-mail-function 'smtpmail-send-it
       smtpmail-stream-type 'starttls
       smtpmail-smtp-service 587)
 
-; queue that mail
+;; queue that mail
 (setq smtpmail-queue-mail  nil  ;; start in non-queue mode
       smtpmail-queue-dir   "~/mail/queue/cur")
 

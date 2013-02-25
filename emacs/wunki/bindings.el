@@ -74,10 +74,13 @@
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
 ;; move between windows
-(global-set-key (kbd "M-N") 'select-next-window)
-(global-set-key (kbd "M-P") 'select-previous-window)
+(windmove-default-keybindings)
+(global-set-key (kbd "<s-right>") 'windmove-right)
+(global-set-key (kbd "<s-left>") 'windmove-left)
+(global-set-key (kbd "<s-up>") 'windmove-up)
+(global-set-key (kbd "<s-down>") 'windmove-down)
 
-;; focus on this window
+;; move current window into focus
 (global-set-key (kbd "C-M-<return>") (lambda ()
                                        (interactive)
                                        (buf-move-left)

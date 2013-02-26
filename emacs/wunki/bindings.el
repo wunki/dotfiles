@@ -58,6 +58,9 @@
 (define-key global-map (kbd "C-&") 'ace-jump-mode)
 (define-key global-map (kbd "C-*") 'idomenu)
 
+;; toggle between light and dark theme
+(define-key global-map (kbd "C-c C-t") 'toggle-dark-light-theme)
+
 ;; newline and indent on some modes
 (defun set-newline-and-indent ()
   (local-set-key (kbd "RET") 'newline-and-indent))

@@ -43,6 +43,11 @@
 (defalias 'ack-find-file 'ack-and-a-half-find-file)
 (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
 
+;; dired
+(require 'dired-details)
+(setq-default dired-details-hidden-string "--- ")
+(dired-details-install)
+
 ;; ido
 (ido-mode t)
 (ido-ubiquitous-mode t)

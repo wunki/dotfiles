@@ -16,6 +16,10 @@
 ;; auto revert changes on disk
 (global-auto-revert-mode t)
 
+;; enable powerline mode
+(powerline-default)
+(setq powerline-arrow-shape 'curve)
+
 ;; recentf
 (recentf-mode 1)
 (setq recentf-max-saved-items 30)

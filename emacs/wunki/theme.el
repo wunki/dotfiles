@@ -11,10 +11,6 @@
 (set-default-font "Ubuntu Mono-12")
 (setq default-frame-alist '((font . "Ubuntu Mono 12")))
 
-;; enable powerline mode
-(powerline-default)
-(setq powerline-arrow-shape 'curve)
-
 (defun toggle-dark-light-theme ()
   "Switch between dark and light theme."
   (interactive)

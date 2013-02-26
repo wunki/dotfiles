@@ -11,7 +11,8 @@
 (setq mu4e-maildir "/home/wunki/mail"
       mu4e-sent-folder "/wunki/sent"
       mu4e-drafts-folder "/wunki/drafts"
-      mu4e-trash-folder "/wunki/trash")
+      mu4e-trash-folder "/wunki/trash"
+      mu4e-refile-folder "/wunki/archive")
 
 ;; multiple accounts
 (setq wunki-mu4e-account-alist

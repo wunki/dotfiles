@@ -15,7 +15,7 @@
 (global-set-key (kbd "C-c C-n") 'goto-last-change)
 
 ;; quickly twitter something
-(global-set-key (kbd "C-c C-t") 'twittering-update-status-interactive)
+(global-set-key (kbd "C-c t") 'twittering-update-status-interactive)
 
 ;; expand region (increases selected region by semantic units)
 (global-set-key (kbd "C-c e") 'er/expand-region)

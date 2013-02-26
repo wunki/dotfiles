@@ -13,12 +13,11 @@ function weechat; weechat-curses $argv; end
 function res; erl -pz ebin deps/*/ebin $argv; end
 function nstat; sudo nethogs wlan0 $argv; end
 function git; hub $argv; end
-function e; emacsclient -a "" -t $argv; end
 
 # Environment variables
 set -g -x fish_greeting ""
-set -g -x EDITOR emacsclient -t
-set -g -x VISUAL emacsclient -t
+set -g -x EDITOR ec
+set -g -x VISUAL ec
 set -g -x BROWSER /home/wunki/bin/conk
 
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"

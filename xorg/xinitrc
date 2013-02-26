@@ -33,7 +33,7 @@ urxvtd -o -q -f &
 unclutter -idle 3 &
 
 # Clipboard functionality
-# parcellite &
+parcellite -n -d &
 
 # Be nice for my eyes at night
 redshift -l 52:4 -t 6000:4800 -m vidmode &

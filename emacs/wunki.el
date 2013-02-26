@@ -19,12 +19,15 @@
 (package-initialize)
 
 (dolist (p '(nrepl ac-nrepl ac-slime clojure-mode clojure-test-mode cljdoc
-             haskell-mode paredit magit gist org markdown-mode org org-plus-contrib
-             ack-and-a-half markdown-mode color-theme-sanityinc-tomorrow
-             zenburn-theme pandoc-mode auto-complete jabber clojurescript-mode
+             paredit magit gist ack-and-a-half auto-complete jabber 
              buffer-move ido-ubiquitous s projectile goto-last-change
-             expand-region git-commit-mode powerline evil surround idomenu
-             rust-mode diminish))
+             expand-region powerline evil surround idomenu diminish
+             dired-details
+             ;; major modes
+             org org-plus-contrib pandoc-mode rust-mode markdown-mode git-commit-mode
+             haskell-mode clojurescript-mode
+             ;; themes
+             zenburn-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized))
   (when (not (package-installed-p p))
     (package-install p)))
 

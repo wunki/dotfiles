@@ -29,6 +29,14 @@
          (mu4e-refile-folder "/bread-and-pepper/archive")
          (mu4e-trash-folder  "/bread-and-pepper/trash")
          (smtpmail-smtp-server "smtp.gmail.com")
+         (smtpmail-smtp-user "petar@breadandpepper.com"))
+        ("gibbon"
+         (user-mail-address "petar@gibbon.co")
+         (mu4e-sent-folder "/bread-and-pepper/sent")
+         (mu4e-drafts-folder "/bread-and-pepper/drafts")
+         (mu4e-refile-folder "/bread-and-pepper/archive")
+         (mu4e-trash-folder  "/bread-and-pepper/trash")
+         (smtpmail-smtp-server "smtp.gmail.com")
          (smtpmail-smtp-user "petar@breadandpepper.com"))))
 
 (defun wunki-mu4e-set-account ()
@@ -71,7 +79,7 @@
 (setq mu4e-bookmarks 
   '(("flag:new maildir:/wunki/inbox"              "New Personal"         ?p)
     ("flag:new maildir:/bread-and-pepper/inbox"   "New Bread & Pepper"   ?b)
-    ("flag:unread AND NOT flag:trash AND NOT maildir:/wunki/junk AND NOT maildir:/bread-and-pepper/archive"  "All unread messages"  ?u)
+    ("flag:unread maildir:/wunki/inbox OR maildir:/bread-and-pepper/inbox"  "All unread messages"  ?u)
     ("date:today..now"                            "Today's messages"     ?t)
     ("date:7d..now"                               "Last 7 days"          ?w)
     ("mime:image/*"                               "Messages with images" ?i)

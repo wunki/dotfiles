@@ -99,8 +99,11 @@
 ;; cfengine
 (add-to-list 'auto-mode-alist '("\\.cf$" . cfengine3-mode))
 
+;; windmove
+(setq windmove-wrap-around t)
+
 ;; twittering
-(setq twittering-use-master-password nil)
+(setq twittering-use-master-password t)
 (add-hook 'twittering-edit-mode-hook
           (lambda ()
             (auto-fill-mode -1)))

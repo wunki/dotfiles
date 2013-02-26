@@ -44,8 +44,15 @@
 (global-set-key (kbd "C-c C-m") 'execute-extended-command)
 
 ;; kill word and avoid using the backspace
-(global-set-key (kbd "C-w") 'backward-kill-word)
-(global-set-key (kbd "C-x C-k") 'kill-region)
+(global-set-key (kbd "C-w") 'kill-region-or-backward-word)
+
+;; deleting and renaming of the active buffer
+(global-set-key (kbd "C-x C-k") 'delete-current-buffer-file)
+(global-set-key (kbd "C-x C-r") 'rename-current-buffer-file)
+
+;; open a new line below or above
+(global-set-key (kbd "<C-return>") 'open-line-below)
+(global-set-key (kbd "<C-S-return>") 'open-line-above)
 
 ;; ace-jump and idomenu for moving around
 (define-key global-map (kbd "C-&") 'ace-jump-mode)
@@ -74,11 +81,10 @@
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
 
 ;; move between windows
-(windmove-default-keybindings)
-(global-set-key (kbd "<s-right>") 'windmove-right)
-(global-set-key (kbd "<s-left>") 'windmove-left)
-(global-set-key (kbd "<s-up>") 'windmove-up)
-(global-set-key (kbd "<s-down>") 'windmove-down)
+(global-set-key (kbd "C-c L") 'windmove-right)
+(global-set-key (kbd "C-c H") 'windmove-left)
+(global-set-key (kbd "C-c P") 'windmove-up)
+(global-set-key (kbd "C-c N") 'windmove-down)
 
 ;; move current window into focus
 (global-set-key (kbd "C-M-<return>") (lambda ()
@@ -89,5 +95,5 @@
 ;; resize windows
 (global-set-key (kbd "C-M-h") 'shrink-window-horizontally)
 (global-set-key (kbd "C-M-l") 'enlarge-window-horizontally)
-(global-set-key (kbd "C-M-<down>") 'shrink-window)
-(global-set-key (kbd "C-M-<up>") 'enlarge-window)
+(global-set-key (kbd "C-M-<down>") 'enlarge-window)
+(global-set-key (kbd "C-M-<up>") 'shrink-window)

@@ -100,7 +100,7 @@
          ("/bread-and-pepper/trash"   . ?T)
          ("/wunki/clojure"            . ?c)
          ("/wunki/haskell-beginners"  . ?h)
-         ("/wunki/rust-development"   . ?h)))
+         ("/wunki/rust-development"   . ?r)))
 
 ;; sending mail
 (setq message-send-mail-function 'smtpmail-send-it

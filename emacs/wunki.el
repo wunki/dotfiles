@@ -18,17 +18,24 @@
                          ("org" . "http://orgmode.org/elpa/")))
 (package-initialize)
 
-(dolist (p '(paredit magit gist ack-and-a-half auto-complete jabber 
+(dolist (p '(;; fundamentals
+             paredit magit gist ack-and-a-half auto-complete jabber 
              buffer-move ido-ubiquitous s projectile goto-last-change
              expand-region powerline evil surround idomenu diminish
              dired-details
+
+             ;; modes
+             org org-plus-contrib pandoc-mode markdown-mode git-commit-mode
+             gitconfig-mode gitignore-mode
+
              ;; languages
              nrepl ac-nrepl ac-slime clojure-mode clojure-test-mode cljdoc
-             ;; major modes
-             org org-plus-contrib pandoc-mode rust-mode markdown-mode git-commit-mode
-             haskell-mode clojurescript-mode
+             clojurescript-mode haskell-mode rust-mode
+             
              ;; themes
-             zenburn-theme color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized))
+             zenburn-theme color-theme-sanityinc-tomorrow
+             color-theme-sanityinc-solarized
+             ))
   (when (not (package-installed-p p))
     (package-install p)))
 

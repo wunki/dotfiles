@@ -56,10 +56,6 @@
 ;; european dates
 (setq calendar-date-style 'european)
 
-;; auto refresh dired, but be quiet about it
-(setq global-auto-revert-non-file-buffers t)
-(setq auto-revert-verbose nil)
-
 ;; spelling
 (setq ispell-program-name "aspell")
 (setq ispell-list-command "list")

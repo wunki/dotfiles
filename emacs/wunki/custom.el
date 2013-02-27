@@ -19,6 +19,12 @@
 (setq visible-bell t)
 (setq ring-bell-function (lambda nil (message "")))
 
+;; scrolling
+(setq scroll-conservatively 10000) ; don't jump my screen!
+
+;; autosave
+(setq auto-save-interval 500)
+
 ;; follow symlinks and don't ask questions
 (setq vc-follow-symlinks t) 
 

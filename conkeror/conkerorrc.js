@@ -71,6 +71,9 @@ minibuffer_auto_complete_default = true;
 url_completion_use_history = true;
 url_completion_use_bookmarks = true;
 
+// don't select the URI with G
+minibuffer_read_url_select_initial = false;
+
 // open new urls in new buffer
 url_remoting_fn = load_url_in_new_buffer;
 

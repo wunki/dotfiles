@@ -18,11 +18,12 @@
                          ("org" . "http://orgmode.org/elpa/")))
 (package-initialize)
 
-(dolist (p '(nrepl ac-nrepl ac-slime clojure-mode clojure-test-mode cljdoc
-             paredit magit gist ack-and-a-half auto-complete jabber 
+(dolist (p '(paredit magit gist ack-and-a-half auto-complete jabber 
              buffer-move ido-ubiquitous s projectile goto-last-change
              expand-region powerline evil surround idomenu diminish
              dired-details
+             ;; languages
+             nrepl ac-nrepl ac-slime clojure-mode clojure-test-mode cljdoc
              ;; major modes
              org org-plus-contrib pandoc-mode rust-mode markdown-mode git-commit-mode
              haskell-mode clojurescript-mode

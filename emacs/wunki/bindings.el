@@ -100,3 +100,8 @@
 (global-set-key (kbd "C-M-l") 'enlarge-window-horizontally)
 (global-set-key (kbd "C-M-<down>") 'enlarge-window)
 (global-set-key (kbd "C-M-<up>") 'shrink-window)
+
+;; multiple markers
+(global-set-key (kbd "C-c C-a mn") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-c C-a ma") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-c C-a md") 'mc/mark-all-like-this-dwim)

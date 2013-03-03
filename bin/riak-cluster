@@ -9,11 +9,7 @@ RIAKDEVDIR=$RIAK_HOME/dev
 DEVDIRS=(dev1 dev2 dev3 dev4)
  
 do_start () {
-  if pidof beam.smp >/dev/null; then
-    echo "Riak already running! PIDs:"
-    pidof beam.smp
-    exit
-  elif [ -d $RIAKDEVDIR ]; then
+  if [ -d $RIAKDEVDIR ]; then
     echo "Starting Riak in $RIAKDEVDIR ..."
     for dir in ${DEVDIRS[@]}; do
       echo "Starting $dir instance ..."

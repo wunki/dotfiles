@@ -10,3 +10,4 @@ emacs/swank
 /bin/lein
 mplayer/gui*
 /vim/haskellmode.config
+/emacs/.mc-lists.el

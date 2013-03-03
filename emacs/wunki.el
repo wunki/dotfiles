@@ -22,7 +22,7 @@
              paredit magit gist ack-and-a-half auto-complete jabber 
              buffer-move ido-ubiquitous s projectile goto-last-change
              expand-region powerline evil surround idomenu diminish
-             dired-details
+             dired-details multiple-cursors
 
              ;; modes
              org org-plus-contrib pandoc-mode markdown-mode git-commit-mode

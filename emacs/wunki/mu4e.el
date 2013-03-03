@@ -22,7 +22,8 @@
          (mu4e-drafts-folder "/wunki/drafts")
          (mu4e-refile-folder "/wunki/archive")
          (mu4e-trash-folder  "/wunki/trash")
-         (smtpmail-smtp-server "mail.messagingengine.com"))
+         (smtpmail-smtp-server "mail.messagingengine.com")
+         (smtpmail-smtp-user "wunki@fastmail.fm"))
         ("bread-and-pepper"
          (user-mail-address "petar@breadandpepper.com")
          (mu4e-sent-folder "/bread-and-pepper/sent")

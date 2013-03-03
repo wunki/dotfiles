@@ -14,9 +14,6 @@
 (add-hook 'nrepl-mode-hook 'enable-paredit-mode)
 (add-hook 'lisp-mode-hook 'enable-paredit-mode)
 
-;; Clojure (disable for now, I think I need an even faster computer for this)
-;; (add-hook 'clojure-mode-hook 'flyspell-prog-mode)
-
 ;;nrepl
 (add-hook 'slime-repl-mode-hook
           (defun clojure-mode-slime-font-lock ()
@@ -50,6 +47,26 @@
 (add-hook 'nrepl-mode-hook 'set-auto-complete-as-completion-at-point-function)
 (add-hook 'nrepl-interaction-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
-;; bindings
-;; (add-hook 'nrepl-mode-hook
-;;           '(define-key 'nrepl-mode-map (kbd "C-c C-d") 'nrepl-make-repl-connection-default))
+(defun nrepl-connection-infos (connection-buffer)
+  (with-current-buffer (get-buffer connection-buffer)
+    nrepl-endpoint))
+
+(defun nrepl-current-connection-infos ()
+  (nrepl-connection-infos (nrepl-current-connection-buffer)))
+
+(defun nrepl-rotate-connection-list (connection-list)
+  (append (rest connection-list)
+          (list (first connection-list))))
+
+(defun nrepl-show-current-connection ()
+  (apply #'message
+         "Active nREPL connection: %s:%s"
+         (nrepl-current-connection-infos)))
+
+(defun nrepl-switch-to-next-connection ()
+  (interactive)
+  (setq nrepl-connection-list
+        (nrepl-rotate-connection-list nrepl-connection-list))
+  (nrepl-show-current-connection))
+
+(global-set-key (kbd "C-c C-x n") 'nrepl-switch-to-next-connection)

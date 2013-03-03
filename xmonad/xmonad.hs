@@ -50,7 +50,7 @@ main = do
         , borderWidth = 1
         , normalBorderColor  = "#1a1a1a"
         , focusedBorderColor = "#373b41"
-        , workspaces = ["1:Shell", "2:Editor", "3:Web", "4:General"]
+        , workspaces = ["1:Shell", "2:Emacs", "3:Web", "4:General"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
         , startupHook = myStartupHook
@@ -75,8 +75,8 @@ myManageHook = manageDocks <+> composeAll
     , className =? "Chromium"             --> doF (W.shift "3:Web")
     , className =? "Iceweasel"            --> doF (W.shift "3:Web")
     , className =? "Conkeror"             --> doF (W.shift "3:Web")
-    , className =? "Emacs"                --> doF (W.shift "2:Editor")
-    , className =? "GVIM"                 --> doF (W.shift "2:Editor")
+    , className =? "Emacs"                --> doF (W.shift "2:Emacs")
+    , className =? "GVIM"                 --> doF (W.shift "2:Emacs")
     , className =? "Thunar"               --> doF (W.shift "4:General")
     ]
 
@@ -96,12 +96,12 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((modMask .|. controlMask, xK_p), sendMessage MagnifyMore)
     , ((modMask .|. controlMask, xK_l), sendMessage MagnifyLess)
     , ((modMask .|. controlMask, xK_m), sendMessage Toggle)
-    , ((modMask .|. controlMask, xK_w), spawn "chromium")
-    , ((modMask .|. controlMask, xK_e), spawn "emacs")
+    , ((modMask, xK_w), raiseMaybe (spawn "/home/wunki/bin/conk") (className =? "Conkeror"))
+    , ((modMask, xK_e), raiseMaybe (spawn "/home/wunki/bin/em") (className =? "Emacs"))
     -- cycle through workspaces
-    , ((modMask, xK_e), moveTo Next (WSIs (return $ not . (=="SP") . W.tag)))
-    , ((modMask, xK_a), moveTo Prev (WSIs (return $ not . (=="SP") . W.tag)))
-    , ((modMask, xK_p), spawn "dmenu_run -i -fn 'Consolas-11:normal' -nb '#1d1f21' -nf '#c5c8c6' -sb '#1d1f21' -sf '#81a2be' -p '>' ") -- %! Launch dmenu
+    , ((modMask, xK_n), moveTo Next (WSIs (return $ not . (=="SP") . W.tag)))
+    , ((modMask, xK_p), moveTo Prev (WSIs (return $ not . (=="SP") . W.tag)))
+    , ((modMask, xK_d), spawn "dmenu_run -i -fn 'Consolas-11:normal' -nb '#1d1f21' -nf '#c5c8c6' -sb '#1d1f21' -sf '#81a2be' -p '>' ") -- %! Launch dmenu
     , ((modMask, xK_g), windowPromptGoto  defaultXPConfig)
     , ((modMask, xK_c), windowPromptBring defaultXPConfig)
     ]

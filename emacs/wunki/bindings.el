@@ -35,9 +35,6 @@
 ;; find recent files quickly
 (global-set-key (kbd "C-c C-r") 'recentf-ido-find-file)
 
-;; rotate slime buffers
-(global-set-key (kbd "C-c C-x n") 'slime-cycle-connections)
-
 ;; map execute command to the C-key
 ;; less hand movement with this command
 (global-set-key (kbd "C-x C-m") 'execute-extended-command)
@@ -55,8 +52,8 @@
 (global-set-key (kbd "<C-S-return>") 'open-line-above)
 
 ;; ace-jump and idomenu for moving around
-(define-key global-map (kbd "C-&") 'ace-jump-mode)
-(define-key global-map (kbd "C-*") 'idomenu)
+(define-key global-map (kbd "C-c C-a j") 'ace-jump-mode)
+(define-key global-map (kbd "C-c C-a i") 'idomenu)
 
 ;; toggle between light and dark theme
 (define-key global-map (kbd "C-c C-t") 'toggle-dark-light-theme)

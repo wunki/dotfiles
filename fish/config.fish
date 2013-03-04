@@ -1,4 +1,4 @@
-# functiones
+# functions who work as aliases (quicker)
 function rmpyc; find . -name '*.pyc' | xargs rm; end
 function gs; git status --ignore-submodules=dirty; end
 function gp; git push origin master; end
@@ -10,11 +10,11 @@ function gsdw; sudo ~/bin/get-shit-done work; end
 function gsdp; sudo ~/bin/get-shit-done play; end
 function wl; wicd-curses; end
 function weechat; weechat-curses $argv; end
-function res; erl -pz ebin deps/*/ebin $argv; end
+function erlr; erl -pz ebin deps/*/ebin $argv; end
 function nstat; sudo nethogs wlan0 $argv; end
 function git; hub $argv; end
 
-# Environment variables
+# environment variables
 set -g -x fish_greeting ""
 set -g -x EDITOR ec
 set -g -x VISUAL ec
@@ -27,29 +27,29 @@ function prepend_to_path -d "Prepend the given dir to PATH if it exists and is n
         end
     end
 end
-prepend_to_path "/sbin"
-prepend_to_path "/usr/sbin"
 prepend_to_path "/bin"
+prepend_to_path "/sbin"
 prepend_to_path "/usr/bin"
+prepend_to_path "/usr/sbin"
 prepend_to_path "/usr/local/bin"
 prepend_to_path "/usr/local/sbin"
 
-# Haskell
+# haskell
 prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.cabal/.bin"
 
-# Python
+# python
 set -g -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
 set -g -x WORKON_HOME "$HOME/.virtualenvs"
 . ~/.config/fish/virtualenv.fish
 
-# Git prompt
+# git prompt
 set __fish_git_prompt_showdirtystate 'yes'
 set __fish_git_prompt_showstashstate 'yes'
 set __fish_git_prompt_showupstream 'yes'
 set __fish_git_prompt_color_branch yellow
 
-# Status Chars
+# status chars
 set __fish_git_prompt_char_upstream_equal '✓'
 set __fish_git_prompt_char_dirtystate '⚡'
 set __fish_git_prompt_char_stagedstate '→'
@@ -57,7 +57,7 @@ set __fish_git_prompt_char_stashstate '↩'
 set __fish_git_prompt_char_upstream_ahead '↑'
 set __fish_git_prompt_char_upstream_behind '↓'
 
-
+# the prompt
 function fish_prompt
   set last_status $status
 

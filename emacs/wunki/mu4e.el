@@ -4,15 +4,35 @@
 (require 'sendmail)
 (require 'org-mu4e)
 
-;; set mu4e as default mail agent
-(setq mail-user-agent 'mu4e-user-agent)
+;; my e-mail addresses
+(setq mu4e-user-mail-address-regexp
+      "petar@[wunki\.org\\|breadandpepper\.com\\|gibbon.com]+\\|hello@[breadandpepper\.com\\|gibbon.co]+")
 
-;; default maildir locations
+;; general settings
+(setq mail-user-agent 'mu4e-user-agent                   ; mu4e as default mail agent
+      mu4e-attachment-dir "~/downloads"                  ; put attachements in download dir
+      mu4e-get-mail-command "offlineimap"                ; fetch email with offlineimap
+      mu4e-confirm-quit nil                              ; don't ask me to quit
+      mu4e-headers-date-format "%d %b, %Y at %H:%M"      ; date format
+      message-signature "Petar Radosevic | @wunki"       ; signature
+      message-kill-buffer-on-exit t                      ; don't keep message buffers around
+      mu4e-headers-leave-behavior 'apply                 ; apply all marks at quit
+      mu4e-html2text-command "html2text -utf8 -width 72" ; html to text
+      smtpmail-queue-mail nil                            ; start in non queue mode
+)
+
+;; maildir locations
 (setq mu4e-maildir "/home/wunki/mail"
       mu4e-sent-folder "/wunki/sent"
       mu4e-drafts-folder "/wunki/drafts"
       mu4e-trash-folder "/wunki/trash"
-      mu4e-refile-folder "/wunki/archive")
+      mu4e-refile-folder "/wunki/archive"
+      smtpmail-queue-dir   "~/mail/queue/cur")
+
+;; sending mail
+(setq message-send-mail-function 'smtpmail-send-it
+      smtpmail-stream-type 'starttls
+      smtpmail-smtp-service 587)
 
 ;; multiple accounts
 (setq wunki-mu4e-account-alist
@@ -42,7 +62,7 @@
          (smtpmail-smtp-user "petar@breadandpepper.com"))))
 
 (defun wunki-mu4e-set-account ()
-  "Set the account for composing a message."
+  "Set the account for composing a message by looking at the maildir"
   (let* ((account
           (if mu4e-compose-parent-message
               (let ((maildir (mu4e-msg-field mu4e-compose-parent-message :maildir)))
@@ -66,9 +86,6 @@
 (add-to-list 'mu4e-view-actions
              '("org-contact-add" . mu4e-action-add-org-contact) t)
 
-;; apply all the marks when leaving
-(setq mu4e-headers-leave-behavior 'apply)
-
 ;; headers
 (setq mu4e-headers-fields
       '((:maildir       .   8) 
@@ -87,9 +104,6 @@
     ("mime:image/*"                               "Messages with images" ?i)
     ("flag:flagged"                               "Flagged messages"     ?f)))
 
-(setq mu4e-user-mail-address-regexp
-      "petar@wunki\.org\\|petar@breadandpepper\.com")
-
 ;; shortcuts
 (setq mu4e-maildir-shortcuts
        '(("/wunki/inbox"              . ?i)
@@ -103,19 +117,3 @@
          ("/wunki/clojure"            . ?c)
          ("/wunki/haskell-beginners"  . ?h)
          ("/wunki/rust-development"   . ?r)))
-
-;; sending mail
-(setq message-send-mail-function 'smtpmail-send-it
-      smtpmail-stream-type 'starttls
-      smtpmail-smtp-service 587)
-
-;; queue that mail
-(setq smtpmail-queue-mail  nil  ;; start in non-queue mode
-      smtpmail-queue-dir   "~/mail/queue/cur")
-
-(setq mu4e-get-mail-command "offlineimap"
-      mu4e-confirm-quit nil
-      mu4e-headers-date-format "%d %b, %Y at %H:%M" ; date format
-      message-signature "Petar Radosevic | @wunki"  ; signature
-      message-kill-buffer-on-exit t                 ; don' keep message buffers around
-      mu4e-html2text-command "html2text -utf8 -width 72")

@@ -3,8 +3,8 @@
 (define-key global-map (kbd "C-c a") 'org-agenda)
 (define-key global-map (kbd "C-c c") 'org-capture)
 (define-key global-map (kbd "C-c b") 'org-iswitchb)
-(define-key global-map (kbd "<f12>") 'org-cycle-agenda-files)
-(define-key global-map (kbd "<f11>") 'org-agenda)
+(define-key global-map (kbd "<f7>") 'org-agenda)
+(define-key global-map (kbd "<f8>") 'org-cycle-agenda-files)
 
 ;; load org-protocol for external calls
 (require 'org-protocol)

@@ -83,7 +83,8 @@
  '(haskell-process-type (quote cabal-dev))
  '(haskell-stylish-on-save t)
  '(haskell-tags-on-save t)
- '(jabber-events-request-these (quote (delivered displayed composing)) t))
+ '(jabber-events-request-these (quote (delivered displayed composing)))
+ '(safe-local-variable-values (quote ((pony-settings make-pony-project :python "/home/wunki/.virtualenvs/gibbon/bin/python")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -91,9 +92,9 @@
  ;; If there is more than one, they won't work right.
  '(erc-prompt-face ((t (:foreground "#81a2be" :weight bold))))
  '(italic ((t (:slant italic))))
- '(jabber-chat-prompt-foreign ((t (:foreground "#dfaf8f"))) t)
- '(jabber-chat-prompt-local ((t (:foreground "#f0dfaf"))) t)
- '(jabber-chat-prompt-system ((t (:foreground "#8fb28f" :weight bold))) t)
- '(jabber-roster-user-away ((t (:foreground "#bc8383"))) t)
- '(jabber-roster-user-chatty ((t (:foreground "#9fc59f"))) t)
- '(jabber-roster-user-online ((t (:foreground "#bfebbf"))) t))
+ '(jabber-chat-prompt-foreign ((t (:foreground "#dfaf8f"))))
+ '(jabber-chat-prompt-local ((t (:foreground "#f0dfaf"))))
+ '(jabber-chat-prompt-system ((t (:foreground "#8fb28f" :weight bold))))
+ '(jabber-roster-user-away ((t (:foreground "#bc8383"))))
+ '(jabber-roster-user-chatty ((t (:foreground "#9fc59f"))))
+ '(jabber-roster-user-online ((t (:foreground "#bfebbf")))))

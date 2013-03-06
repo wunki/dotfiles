@@ -11,3 +11,4 @@ emacs/swank
 mplayer/gui*
 /vim/haskellmode.config
 /emacs/.mc-lists.el
+/emacs/projectile-bookmarks.eld

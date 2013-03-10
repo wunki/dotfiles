@@ -28,6 +28,9 @@
 ;; join line command
 (global-set-key (kbd "C-c j") 'join-line)
 
+;; gotta have some fun
+(global-set-key (kbd "C-c C-*") 'zone)
+
 ;; who needs shift when using forward/backwards paragraph
 (global-set-key (kbd "M-[") 'backward-paragraph)
 (global-set-key (kbd "M-]") 'forward-paragraph)
@@ -69,10 +72,16 @@
 (define-key global-map (kbd "C-S-c r") 'gist-region)
 
 ;; quickly edit emacs config with ido
-(define-key global-map (kbd "C-c C-e C-e") 
+(define-key global-map (kbd "C-c C-a e") 
   '(lambda () 
      (interactive)
      (ido-find-file-in-dir "~/.emacs.d/wunki")))
+
+;; quickly edit emacs config with ido
+(define-key global-map (kbd "C-c C-a t") 
+  '(lambda () 
+     (interactive)
+     (ido-find-file-in-dir "~/org")))
 
 ;; move buffers around
 (global-set-key (kbd "<C-S-up>")     'buf-move-up)

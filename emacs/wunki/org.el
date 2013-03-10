@@ -17,15 +17,13 @@
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 
 ;; org-files
-(setq org-agenda-files (list "~/org/bread-and-pepper.org"
+(setq org-agenda-files (list "~/org/today.org"
+                             "~/org/bread-and-pepper.org"
                              "~/org/personal.org"
                              "~/org/books.org"
-                             "~/org/today.org"
                              "~/org/inbox.org"
-                             "~/org/doo.org"
 
-                             ;;;; code
-                             "~/clojure/pinki/pinki.org"
+                             ; projects
                              "~/src/wunki-dotfiles/TODO.org")
       org-default-notes-file "~/org/inbox.org")
 

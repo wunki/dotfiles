@@ -25,6 +25,10 @@
 (setq recentf-max-saved-items 30)
 (add-to-list 'recentf-exclude "\\/tmp\\'")
 
+;; ag
+(require 'ag)
+(setq ag-highlight-search t)
+
 ;; whitespace
 (setq whitespace-style
       '(face tabs spaces trailing lines space-before-tab

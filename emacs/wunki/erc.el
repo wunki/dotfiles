@@ -42,7 +42,7 @@
       (erc-track-switch-buffer 1) ;; yes: switch to last active
     (when (y-or-n-p "Start ERC? ") ;; no: maybe start ERC
       (require 'secrets "wunki/secrets.el")
-      (erc :server "wunki.org"
+      (erc :server "141.138.137.36"
            :port 7000 
            :nick "wunki" 
            :full-name "Petar Radosevic"

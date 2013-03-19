@@ -2,7 +2,6 @@
 (require 'cl)
 
 ;; Load ghc-mod
-(add-to-list 'load-path "~/.emacs.d/vendor/ghc-mod/")
 (autoload 'ghc-init "ghc" nil t)
 (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
@@ -13,7 +12,7 @@
  
  ;; Use notify.el (if you have it installed) at the end of running
  ;; Cabal commands or generally things worth notifying.
- '(haskell-notify-p -1)
+ '(haskell-notify-p t)
 
  ;; To enable tags generation on save.
  '(haskell-tags-on-save t)

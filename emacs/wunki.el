@@ -30,7 +30,7 @@
 
              ;; languages
              nrepl ac-nrepl ac-slime clojure-mode clojure-test-mode cljdoc
-             clojurescript-mode haskell-mode rust-mode
+             clojurescript-mode haskell-mode ghc rust-mode
              
              ;; themes
              zenburn-theme color-theme-sanityinc-tomorrow

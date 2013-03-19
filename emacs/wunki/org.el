@@ -18,6 +18,8 @@
 
 ;; org-files
 (setq org-agenda-files (list "~/org/today.org"
+                             "~/org/gibbon.org"
+                             "~/org/gibbon-faq.org"
                              "~/org/bread-and-pepper.org"
                              "~/org/personal.org"
                              "~/org/books.org"

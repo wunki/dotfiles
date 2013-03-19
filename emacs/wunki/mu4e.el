@@ -54,12 +54,12 @@
          (smtpmail-smtp-user "petar@breadandpepper.com"))
         ("gibbon"
          (user-mail-address "petar@gibbon.co")
-         (mu4e-sent-folder "/bread-and-pepper/sent")
-         (mu4e-drafts-folder "/bread-and-pepper/drafts")
-         (mu4e-refile-folder "/bread-and-pepper/archive")
-         (mu4e-trash-folder  "/bread-and-pepper/trash")
+         (mu4e-sent-folder "/gibbon/sent")
+         (mu4e-drafts-folder "/gibbon/drafts")
+         (mu4e-refile-folder "/gibbon/archive")
+         (mu4e-trash-folder  "/gibbon/trash")
          (smtpmail-smtp-server "smtp.gmail.com")
-         (smtpmail-smtp-user "petar@breadandpepper.com"))))
+         (smtpmail-smtp-user "petar@gibbon.co"))))
 
 (defun wunki-mu4e-set-account ()
   "Set the account for composing a message by looking at the maildir"
@@ -88,17 +88,18 @@
 
 ;; headers
 (setq mu4e-headers-fields
-      '((:maildir       .   8) 
-        (:date          .  24)
-        (:flags         .   6)
-        (:from          .  24)
-        (:subject       .  nil)))
+  '((:maildir       .   8) 
+    (:date          .  24)
+    (:flags         .   6)
+    (:from          .  24)
+    (:subject       .  nil)))
 
 ;; set bookmarks
 (setq mu4e-bookmarks 
-  '(("flag:new maildir:/wunki/inbox"              "New Personal"         ?p)
+  '(("flag:new maildir:/gibbon/inbox"             "New Bread & Pepper"   ?g)
+    ("flag:new maildir:/wunki/inbox"              "New Personal"         ?p)
     ("flag:new maildir:/bread-and-pepper/inbox"   "New Bread & Pepper"   ?b)
-    ("flag:unread maildir:/wunki/inbox OR maildir:/bread-and-pepper/inbox"  "All unread messages"  ?u)
+    ("flag:unread maildir:/wunki/inbox OR maildir:/bread-and-pepper/inbox OR maildir:/gibbon/inbox"  "All unread messages"  ?u)
     ("date:today..now"                            "Today's messages"     ?t)
     ("date:7d..now"                               "Last 7 days"          ?w)
     ("mime:image/*"                               "Messages with images" ?i)

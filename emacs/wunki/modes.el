@@ -20,10 +20,13 @@
 (powerline-default)
 (setq powerline-arrow-shape 'curve)
 
+;; indent after newline
+(electric-indent-mode t)
+
 ;; recentf
 (recentf-mode 1)
 (setq recentf-max-saved-items 30)
-(add-to-list 'recentf-exclude "\\/tmp\\'")
+(add-to-list 'recentf-exclude "\\/tmp\\'" "~/.ido.last")
 
 ;; ag
 (require 'ag)

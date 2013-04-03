@@ -47,6 +47,7 @@
 (add-hook 'nrepl-mode-hook 'set-auto-complete-as-completion-at-point-function)
 (add-hook 'nrepl-interaction-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
+
 (defun nrepl-connection-infos (connection-buffer)
   (with-current-buffer (get-buffer connection-buffer)
     nrepl-endpoint))

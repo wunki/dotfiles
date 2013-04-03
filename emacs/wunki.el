@@ -1,5 +1,6 @@
 ;; place to save customizations
 (setq custom-file "~/.emacs.d/wunki/custom.el")
+(require 'cl)
 
 ;; handy functions
 (load "wunki/defuns")

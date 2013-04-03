@@ -27,20 +27,25 @@
       jabber-backlog-days 30
       jabber-history-dir "~/.cache/jabber-history")
 
-;; join rooms
-(setq jabber-muc-autojoin '("server@conference.im.doo.net"))
+;; To join HipChat rooms easily
+(defvar hipchat-number "39101")
+(defvar hipchat-nickname "Petar Radosevic")
+(defun hipchat-join (room)
+  (interactive "sRoom name: ")
+  (jabber-groupchat-join
+   (jabber-read-account)
+   (concat hipchat-number "_" room "@conf.hipchat.com")
+   hipchat-nickname
+   t))
 
 (defun jabber-start ()
   "wrapper for starting jabber because we need the passwords"
   (interactive)
   (require 'secrets "wunki/secrets.el")
-  ;; default nicknames
-  (setq jabber-muc-default-nicknames 
-        `(("server@conference.im.doo.net" . "Petar Radosevic")))
-
   ;; jabber accounts
   (setq jabber-account-list
-        `((,jabber-doo-username
-           (:network-server . "im.doo.net")
-           (:password . ,jabber-doo-password))))
+        `((,jabber-hipchat-username
+           (:network-server . "chat.hipchat.com")
+           (:password . ,jabber-hipchat-password)
+           (:connection-type . ssl))))
   (jabber-connect-all))

@@ -50,7 +50,7 @@ main = do
         , borderWidth = 1
         , normalBorderColor  = "#1a1a1a"
         , focusedBorderColor = "#373b41"
-        , workspaces = ["1:Shell", "2:Emacs", "3:Web", "4:General", "5:Shell-2"]
+        , workspaces = ["1:Emacs", "2:Web", "3:GTK", "4:Shell"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
         , startupHook = myStartupHook
@@ -69,15 +69,15 @@ myLayout = onWorkspace "3:Web" Full $
 -- Float & Window setup
 myManageHook :: ManageHook
 myManageHook = manageDocks <+> composeAll
-    [ className =? "Chromium"             --> doF (W.shift "3:Web")
-    , className =? "Firefox-bin"          --> doF (W.shift "3:Web")
-    , className =? "Firefox"              --> doF (W.shift "3:Web")
-    , className =? "Chromium"             --> doF (W.shift "3:Web")
-    , className =? "Iceweasel"            --> doF (W.shift "3:Web")
-    , className =? "Conkeror"             --> doF (W.shift "3:Web")
-    , className =? "Emacs"                --> doF (W.shift "2:Emacs")
-    , className =? "GVIM"                 --> doF (W.shift "2:Emacs")
-    , className =? "Thunar"               --> doF (W.shift "4:General")
+    [ className =? "Chromium"             --> doF (W.shift "2:Web")
+    , className =? "Firefox-bin"          --> doF (W.shift "2:Web")
+    , className =? "Firefox"              --> doF (W.shift "2:Web")
+    , className =? "Chromium"             --> doF (W.shift "2:Web")
+    , className =? "Iceweasel"            --> doF (W.shift "2:Web")
+    , className =? "Conkeror"             --> doF (W.shift "2:Web")
+    , className =? "Emacs"                --> doF (W.shift "1:Emacs")
+    , className =? "GVIM"                 --> doF (W.shift "1:Emacs")
+    , className =? "Thunar"               --> doF (W.shift "3:GTK")
     ]
 
 manageHook' :: ManageHook

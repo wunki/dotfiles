@@ -5,7 +5,7 @@ Config { font = "xft:Consolas:pixelsize=14:antialias=true"
        , border = TopB
        , borderColor = "#282a2e"
        , lowerOnStart = True
-       , commands = [ Run Network "wlan0" ["-t", "<rx> - <tx>", "-L", "0","-H", "100", "--normal", "#969896", "--high", "#de935f"] 10
+       , commands = [ Run Network "wlan0" ["-t", "<rx> - <tx>", "-L", "0"," -H", "100", "--normal", "#969896", "--high", "#de935f"] 10
                     , Run Battery ["-t", "Batt: <timeleft>", "-L", "50", "-H", "75", "--normal", "#969896", "--high", "#de935f"] 600
                     , Run Cpu ["-L", "3", "-H", "50", "--normal", "#969896", "--high", "#de935f"] 10
                     , Run Com "/home/wunki/bin/current-volume" [] "volume" 5

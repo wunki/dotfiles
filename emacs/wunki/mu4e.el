@@ -5,8 +5,7 @@
 (require 'org-mu4e)
 
 ;; my e-mail addresses
-(setq mu4e-user-mail-address-regexp
-      "petar@[wunki\.org\\|breadandpepper\.com\\|gibbon.com]+\\|hello@[breadandpepper\.com\\|gibbon.co]+")
+(setq mu4e-user-mail-address-regexp "^petar@.*")
 
 ;; general settings
 (setq mail-user-agent 'mu4e-user-agent                   ; mu4e as default mail agent

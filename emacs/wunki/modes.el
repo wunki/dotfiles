@@ -17,8 +17,8 @@
 (global-auto-revert-mode t)
 
 ;; enable powerline mode
-(powerline-default)
 (setq powerline-arrow-shape 'curve)
+(powerline-default-theme)
 
 ;; indent after newline
 (electric-indent-mode t)

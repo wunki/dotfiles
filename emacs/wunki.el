@@ -27,11 +27,11 @@
 
              ;; modes
              org org-plus-contrib pandoc-mode markdown-mode git-commit-mode
-             gitconfig-mode gitignore-mode
+             gitconfig-mode gitignore-mode js2-mode
 
              ;; languages
              nrepl ac-nrepl ac-slime clojure-mode clojure-test-mode cljdoc
-             clojurescript-mode haskell-mode ghc rust-mode
+             clojurescript-mode haskell-mode ghc rust-mode elpy
              
              ;; themes
              zenburn-theme color-theme-sanityinc-tomorrow
@@ -53,6 +53,7 @@
 (load "wunki/lisp")       ; lisp languages
 (load "wunki/haskell")    ; haskell
 (load "wunki/erlang")     ; erlang
+(load "wunki/python")     ; python
 (load "wunki/erc")        ; irc
 (load "wunki/jabber")     ; jabber
 (if (eq system-type 'darwin)

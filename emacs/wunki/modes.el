@@ -28,6 +28,10 @@
 (setq recentf-max-saved-items 30)
 (add-to-list 'recentf-exclude "\\/tmp\\'" "~/.ido.last")
 
+;; javascript and json
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
+
 ;; ag
 (require 'ag)
 (setq ag-highlight-search t)

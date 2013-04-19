@@ -9,6 +9,9 @@
 ;; load org-protocol for external calls
 (require 'org-protocol)
 
+;; load org-checklist
+(require 'org-checklist)
+
 ;; load contacts with org
 (require 'org-contacts)
 (setq org-contacts-files (list "~/org/contacts.org"))
@@ -26,11 +29,17 @@
                              "~/org/inbox.org"
 
                              ; projects
-                             "~/src/wunki-dotfiles/TODO.org")
+                             "~/src/wunki-dotfiles/TODO.org"
+                             "~/python/gibbon-web/TODO.org"
+                             "~/erlang/gibbon-api/TODO.org")
       org-default-notes-file "~/org/inbox.org")
 
 ;; always use indent-mode
 (setq org-startup-indented t)
+
+;; switch between tasks states
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "WAIT(w@/!)" "|" "DONE(d!)" "CANCELED(c@)")))
 
 ;; log the time
 (setq org-log-done 'time)

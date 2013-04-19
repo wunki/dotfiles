@@ -1,8 +1,4 @@
 # functions who work as aliases (quicker)
-function rmpyc; find . -name '*.pyc' | xargs rm; end
-function gs; git status --ignore-submodules=dirty; end
-function gp; git push origin master; end
-function gf; git pull origin master; end
 function l1; tree --dirsfirst -ChFL 1; end
 function l2; tree --dirsfirst -ChFL 2; end
 function l3; tree --dirsfirst -ChFL 3; end
@@ -10,9 +6,20 @@ function gsdw; sudo ~/bin/get-shit-done work; end
 function gsdp; sudo ~/bin/get-shit-done play; end
 function wl; wicd-curses; end
 function weechat; weechat-curses $argv; end
-function erlr; erl -pz ebin deps/*/ebin $argv; end
 function nstat; sudo nethogs wlan0 $argv; end
+
+# git
 function git; hub $argv; end
+function gs; git status --ignore-submodules=dirty; end
+function gp; git push origin master; end
+function gf; git pull origin master; end
+
+# erlang
+function erlr; erl -pz ebin deps/*/ebin $argv; end
+
+# python
+function git; hub $argv; end
+function rmpyc; find . -name '*.pyc' | xargs rm; end
 
 # environment variables
 set -g -x fish_greeting ""

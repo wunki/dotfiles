@@ -2,14 +2,14 @@
 (if (>= emacs-major-version 24)
   (progn
     (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-    (load-theme 'sanityinc-tomorrow-night))
+    (load-theme 'sanityinc-solarized-light))
   (progn
     (require 'color-theme)
-    (color-theme-tomorrow-night)))
+    (color-theme-tomorrow-blue)))
 
-;; set the default font
-(set-default-font "Ubuntu Mono-12")
-(setq default-frame-alist '((font . "Ubuntu Mono 12")))
+;; set the font
+(set-frame-font "DejaVu Sans Mono")
+(set-face-attribute 'default nil :height 105)
 
 (defun toggle-dark-light-theme ()
   "Switch between dark and light theme."

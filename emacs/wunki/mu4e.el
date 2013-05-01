@@ -5,7 +5,10 @@
 (require 'org-mu4e)
 
 ;; my e-mail addresses
-(setq mu4e-user-mail-address-regexp "^petar@.*")
+(setq mu4e-user-mail-address-list '("petar@wunki.org"
+                                    "petar@gibbon.co"
+                                    "petar@breadandpepper.com"
+                                    "hello@breadandpepper.com"))
 
 ;; general settings
 (setq mail-user-agent 'mu4e-user-agent                   ; mu4e as default mail agent
@@ -18,6 +21,7 @@
       mu4e-headers-leave-behavior 'apply                 ; apply all marks at quit
       mu4e-html2text-command "html2text -utf8 -width 72" ; html to text
       smtpmail-queue-mail nil                            ; start in non queue mode
+      mu4e-compose-dont-reply-to-self t                  ; don't reply to myself please
 )
 
 ;; maildir locations

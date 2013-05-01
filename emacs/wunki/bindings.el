@@ -23,7 +23,7 @@
 (global-set-key (kbd "M-o") 'change-outer)
 
 ;; edit file with sudo
-(global-set-key (kbd "C-c C-f") 'sudo-edit)
+(global-set-key (kbd "C-c C-a C-f") 'sudo-edit)
 
 ;; join line command
 (global-set-key (kbd "C-c j") 'join-line)

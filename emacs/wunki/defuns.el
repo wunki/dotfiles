@@ -102,3 +102,11 @@ buffer is not visiting a file."
   (newline)
   (forward-line -1)
   (indent-for-tab-command))
+
+(defun edit-todos ()
+  (interactive)
+  (ido-find-file-in-dir "~/org"))
+
+(defun edit-config ()
+  (interactive)
+  (ido-find-file-in-dir "~/.emacs.d/wunki"))

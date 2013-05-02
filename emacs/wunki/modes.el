@@ -131,3 +131,6 @@
 ;; diminish
 (diminish 'projectile-mode)
 (diminish 'auto-complete-mode)
+
+;; key chords (see bindings.el)
+(key-chord-mode t)

@@ -8,7 +8,8 @@
 (setq mu4e-user-mail-address-list '("petar@wunki.org"
                                     "petar@gibbon.co"
                                     "petar@breadandpepper.com"
-                                    "hello@breadandpepper.com"))
+                                    "hello@breadandpepper.com"
+                                    "hello@invyapp.com"))
 
 ;; general settings
 (setq mail-user-agent 'mu4e-user-agent                   ; mu4e as default mail agent
@@ -16,12 +17,12 @@
       mu4e-get-mail-command "offlineimap"                ; fetch email with offlineimap
       mu4e-confirm-quit nil                              ; don't ask me to quit
       mu4e-headers-date-format "%d %b, %Y at %H:%M"      ; date format
-      message-signature "Petar Radosevic | @wunki"       ; signature
-      message-kill-buffer-on-exit t                      ; don't keep message buffers around
       mu4e-headers-leave-behavior 'apply                 ; apply all marks at quit
       mu4e-html2text-command "html2text -utf8 -width 72" ; html to text
+      mu4e-compose-dont-reply-to-self t                  ; don't reply to myself
+      message-signature "Petar Radosevic | @wunki"       ; signature
+      message-kill-buffer-on-exit t                      ; don't keep message buffers around
       smtpmail-queue-mail nil                            ; start in non queue mode
-      mu4e-compose-dont-reply-to-self t                  ; don't reply to myself please
 )
 
 ;; maildir locations

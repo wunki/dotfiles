@@ -9,10 +9,7 @@
 ;; load org-protocol for external calls
 (require 'org-protocol)
 
-;; load org-checklist
-(require 'org-checklist)
-
-;; load contacts with org
+;; use contact manager from org
 (require 'org-contacts)
 (setq org-contacts-files (list "~/org/contacts.org"))
 
@@ -22,7 +19,6 @@
 ;; org-files
 (setq org-agenda-files (list "~/org/today.org"
                              "~/org/gibbon.org"
-                             "~/org/gibbon-faq.org"
                              "~/org/bread-and-pepper.org"
                              "~/org/personal.org"
                              "~/org/books.org"

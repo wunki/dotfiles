@@ -11,9 +11,6 @@
 ;; search forward regexp
 (global-set-key (kbd "C-c C-s") 'search-forward-regexp)
 
-;; move around changes
-(global-set-key (kbd "C-c C-n") 'goto-last-change)
-
 ;; quickly twitter something
 (global-set-key (kbd "C-c t") 'twittering-update-status-interactive)
 
@@ -54,10 +51,6 @@
 (global-set-key (kbd "<C-return>") 'open-line-below)
 (global-set-key (kbd "<C-S-return>") 'open-line-above)
 
-;; ace-jump and idomenu for moving around
-(define-key global-map (kbd "C-c C-a j") 'ace-jump-mode)
-(define-key global-map (kbd "C-c C-a i") 'idomenu)
-
 ;; toggle between light and dark theme
 (define-key global-map (kbd "C-c C-t") 'toggle-dark-light-theme)
 
@@ -70,18 +63,6 @@
 (define-key global-map (kbd "C-S-c g") 'gist-buffer-private)
 (define-key global-map (kbd "C-S-c b") 'gist-buffer)
 (define-key global-map (kbd "C-S-c r") 'gist-region)
-
-;; quickly edit emacs config with ido
-(define-key global-map (kbd "C-c C-a e") 
-  '(lambda () 
-     (interactive)
-     (ido-find-file-in-dir "~/.emacs.d/wunki")))
-
-;; quickly edit emacs config with ido
-(define-key global-map (kbd "C-c C-a t") 
-  '(lambda () 
-     (interactive)
-     (ido-find-file-in-dir "~/org")))
 
 ;; move buffers around
 (global-set-key (kbd "<C-S-up>")     'buf-move-up)
@@ -96,10 +77,11 @@
 (global-set-key (kbd "C-c N") 'windmove-down)
 
 ;; move current window into focus
-(global-set-key (kbd "C-M-<return>") (lambda ()
-                                       (interactive)
-                                       (buf-move-left)
-                                       (buf-move-up)))
+(global-set-key (kbd "C-M-<return>")
+                (lambda ()
+                  (interactive)
+                  (buf-move-left)
+                  (buf-move-up)))
 
 ;; resize windows
 (global-set-key (kbd "C-M-h") 'shrink-window-horizontally)
@@ -111,3 +93,15 @@
 (global-set-key (kbd "C-c C-a mn") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-c C-a ma") 'mc/mark-all-like-this)
 (global-set-key (kbd "C-c C-a md") 'mc/mark-all-like-this-dwim)
+
+;; key chords
+;; moving around
+(key-chord-define-global "AA" 'ace-jump-mode)
+(key-chord-define-global "FF" 'idomenu)
+
+;; quickly edit files
+(key-chord-define-global "EE" 'edit-config)
+(key-chord-define-global "TT" 'edit-todos)
+
+;; move around changes
+(key-chord-define-global "CC" 'goto-last-change)

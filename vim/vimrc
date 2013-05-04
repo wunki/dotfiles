@@ -10,14 +10,15 @@ syntax on                   " enable syntax highlighting
 " Vundle for managing bundles
 filetype off
 set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Essentials
 Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-eunuch'
-Bundle 'ack.vim'
+Bundle 'tpope/vim-fugitive'
+Bundle 'rking/ag.vim'
 Bundle 'commentary.vim'
 Bundle 'surround.vim'
 Bundle 'godlygeek/tabular'
@@ -27,7 +28,6 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/syntastic'
 
 " Looks
-Bundle 'Lokaltog/vim-powerline'
 Bundle 'sjl/badwolf'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nanotech/jellybeans.vim'
@@ -65,7 +65,7 @@ if has("gui_running")
   if has('mac')
     set guifont=Ubuntu\ Mono:h18
   else
-    set guifont=Ubuntu\ Mono\ for\ Powerline\ 13
+    set guifont=Ubuntu\ Mono\ 13
   endif
   set guioptions-=e
   set guioptions-=T
@@ -78,7 +78,7 @@ if has("gui_running")
   set novisualbell        " please, no visual bell
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing
-  colorscheme Tomorrow-Night
+  colorscheme badwolf
 else
   " 256 colors setting
   set t_Co=256
@@ -108,7 +108,7 @@ set showcmd                 " shows partial command in the last line
 set ttyfast                 " improves remote connections
 set ruler                   " show the line and column number of the cursor
 set backspace=indent,eol,start
-set number                " show line numbering
+set number                  " show line numbering
 set undofile                " create undofiles
 set formatoptions=qrn1
 set cursorline              " show me the line where the cursor is
@@ -282,5 +282,7 @@ let g:clojure_align_multiline_strings=1
 
 " Erlang
 au BufRead,BufNewFile rebar.config set filetype=erlang
+
+" Django
 au BufRead,BufNewFile *.dtl set filetype=htmldjango
 

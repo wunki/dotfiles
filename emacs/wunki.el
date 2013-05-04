@@ -8,7 +8,6 @@
 ;; load main configuration
 (when (file-exists-p custom-file)
   (load custom-file))
-(load "wunki/bindings")
 
 ;; packages
 (when (not (require 'package nil t))
@@ -45,6 +44,7 @@
 
 ;; configuration files
 (load "wunki/modes")      ; settings for specific modes
+(load "wunki/bindings")   ; load bindings
 (load "wunki/theme")      ; set the theme and font
 (load "wunki/temp_files") ; temporary files
 (load "wunki/org")        ; org-mode

@@ -134,3 +134,5 @@
 
 ;; key chords (see bindings.el)
 (key-chord-mode t)
+(setq key-chord-two-keys-delay 0.025)
+

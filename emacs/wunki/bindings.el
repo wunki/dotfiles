@@ -89,15 +89,16 @@
 (global-set-key (kbd "C-M-<down>") 'enlarge-window)
 (global-set-key (kbd "C-M-<up>") 'shrink-window)
 
-;; multiple markers
-(global-set-key (kbd "C-c C-a mn") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-c C-a ma") 'mc/mark-all-like-this)
-(global-set-key (kbd "C-c C-a md") 'mc/mark-all-like-this-dwim)
-
 ;; key chords
+
+;; multiple markers
+(key-chord-define-global "MM" 'mc/mark-next-like-this)
+(key-chord-define-global "MA" 'mc/mark-all-like-this)
+(key-chord-define-global "MD" 'mc/mark-all-like-this-dwim)
+
 ;; moving around
-(key-chord-define-global "AA" 'ace-jump-mode)
-(key-chord-define-global "FF" 'idomenu)
+(key-chord-define-global "JJ" 'ace-jump-mode)
+(key-chord-define-global "MM" 'idomenu)
 
 ;; quickly edit files
 (key-chord-define-global "EE" 'edit-config)

@@ -3,44 +3,33 @@ import           XMonad.Actions.CycleWS
 import           XMonad.Prompt
 import           XMonad.Prompt.Window
 import qualified XMonad.StackSet              as W
-import           XMonad.Util.Run              (runInTerm, spawnPipe)
+import           XMonad.Util.Run              (spawnPipe)
 
 -- Hooks
 import           XMonad.Hooks.DynamicLog
-import           XMonad.Hooks.FadeInactive
 import           XMonad.Hooks.ManageDocks
-import           XMonad.Hooks.SetWMName
 
 -- Actions
-import           XMonad.Actions.SpawnOn
 import           XMonad.Actions.WindowGo
 
 -- Layouts
-import           XMonad.Layout.DwmStyle
-import           XMonad.Layout.Fullscreen
 import           XMonad.Layout.Grid
-import           XMonad.Layout.IM
-import           XMonad.Layout.LayoutHints
 import           XMonad.Layout.Magnifier
-import           XMonad.Layout.NoBorders
 import           XMonad.Layout.PerWorkspace
-import           XMonad.Layout.ResizableTile
-import           XMonad.Layout.StackTile
 
 -- Keys
 import qualified Data.Map                     as M
 import           Graphics.X11.ExtraTypes.XF86
 
-import           Data.IORef
-import           System.IO
 import qualified System.IO.UTF8               as UTF8
 
+main :: IO()
 main = do
     xmobar <- spawnPipe "xmobar"  -- start xmobar
     xmonad $ defaultConfig
         { manageHook = manageHook'
         , modMask = mod4Mask
-        , layoutHook = avoidStruts $ myLayout
+        , layoutHook = avoidStruts myLayout
         , logHook = dynamicLogWithPP $ xmobarPP
                     { ppOutput = UTF8.hPutStrLn xmobar
                     , ppUrgent = xmobarColor "#de935f" ""
@@ -50,7 +39,7 @@ main = do
         , borderWidth = 1
         , normalBorderColor  = "#1a1a1a"
         , focusedBorderColor = "#373b41"
-        , workspaces = ["1:Shell", "2:Emacs", "3:Browser", "4:GUI", "5:Fullscreen"]
+        , workspaces = ["1:Shell", "2:Vim", "3:Browser", "4:GUI", "5:Fullscreen"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
         , startupHook = myStartupHook
@@ -75,8 +64,8 @@ myManageHook = manageDocks <+> composeAll
     , className =? "Chromium"             --> doF (W.shift "3:Browser")
     , className =? "Iceweasel"            --> doF (W.shift "3:Browser")
     , className =? "Conkeror"             --> doF (W.shift "3:Browser")
-    , className =? "Emacs"                --> doF (W.shift "2:Emacs")
-    , className =? "GVIM"                 --> doF (W.shift "2:Emacs")
+    , className =? "Emacs"                --> doF (W.shift "2:Vim")
+    , className =? "GVIM"                 --> doF (W.shift "2:Vim")
     , className =? "Thunar"               --> doF (W.shift "4:GUI")
     ]
 

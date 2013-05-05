@@ -212,6 +212,9 @@ au! BufRead,BufNewFile *.json setfiletype json
 " CFEngine
 au! BufRead,BufNewFile *.cf setfiletype cf3
 
+" Quickly escape to normal mode
+inoremap hh <ESC>
+
 " Quick edit
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>et :vsplit ~/org/today.org<cr>

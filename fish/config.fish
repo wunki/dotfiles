@@ -40,9 +40,10 @@ prepend_to_path "/usr/bin"
 prepend_to_path "/usr/sbin"
 prepend_to_path "/usr/local/bin"
 prepend_to_path "/usr/local/sbin"
+prepend_to_path "$HOME/bin"
+prepend_to_path "$HOME/.local/bin"
 
 # haskell
-prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.cabal/.bin"
 
 # python

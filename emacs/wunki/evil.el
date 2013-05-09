@@ -1,11 +1,9 @@
-;;; evil mode (vim emulation)
+;; evil mode
 (evil-mode t)
 (global-surround-mode t)
 
-;; clojure
-(evil-declare-key 'normal clojure-mode-map
-                  ",g" 'nrepl-jump
-                  ",G" 'nrepl-jump-back) 
+;; cursor
+(setq evil-default-cursor t)
 
 ;; magit
 (evil-add-hjkl-bindings magit-branch-manager-mode-map 'emacs
@@ -15,7 +13,6 @@
   "K" 'magit-discard-item
   "l" 'magit-key-mode-popup-logging
   "h" 'magit-toggle-diff-refine-hunk)
-(evil-add-hjkl-bindings )
 
 ;; use emacs in the following modes
 (mapc (lambda (mode) (evil-set-initial-state mode 'emacs))
@@ -28,8 +25,6 @@
          magit-branch-manager-mode))
 
 ;; mu4e
-;;; mu4e
-
 (eval-after-load 'mu4e
   '(progn
      ;; use the standard bindings as a base

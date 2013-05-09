@@ -1,6 +1,5 @@
 ;; shortcuts
 (global-set-key (kbd "C-c C-g") 'magit-status)
-(global-set-key (kbd "M-/") 'hippie-expand)
 (global-set-key (kbd "<f9>") 'mu4e)
 (global-set-key (kbd "<f10>") 'erc-start-or-switch)
 (global-set-key (kbd "<f11>") 'jabber-start)
@@ -69,12 +68,6 @@
 (global-set-key (kbd "<C-S-down>")   'buf-move-down)
 (global-set-key (kbd "<C-S-left>")   'buf-move-left)
 (global-set-key (kbd "<C-S-right>")  'buf-move-right)
-
-;; move between windows
-(global-set-key (kbd "C-c L") 'windmove-right)
-(global-set-key (kbd "C-c H") 'windmove-left)
-(global-set-key (kbd "C-c P") 'windmove-up)
-(global-set-key (kbd "C-c N") 'windmove-down)
 
 ;; move current window into focus
 (global-set-key (kbd "C-M-<return>")

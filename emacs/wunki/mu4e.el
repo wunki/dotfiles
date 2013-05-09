@@ -100,13 +100,11 @@
 
 ;; set bookmarks
 (setq mu4e-bookmarks 
-  '(("flag:new maildir:/gibbon/inbox"             "New Bread & Pepper"   ?g)
-    ("flag:new maildir:/wunki/inbox"              "New Personal"         ?p)
+  '(("flag:new maildir:/gibbon/inbox"             "New Gibbon"           ?g)
+    ("flag:new maildir:/wunki/inbox"              "New Wunki"            ?p)
     ("flag:new maildir:/bread-and-pepper/inbox"   "New Bread & Pepper"   ?b)
     ("flag:unread maildir:/wunki/inbox OR maildir:/bread-and-pepper/inbox OR maildir:/gibbon/inbox"  "All unread messages"  ?u)
     ("date:today..now"                            "Today's messages"     ?t)
-    ("date:7d..now"                               "Last 7 days"          ?w)
-    ("mime:image/*"                               "Messages with images" ?i)
     ("flag:flagged"                               "Flagged messages"     ?f)))
 
 ;; shortcuts

@@ -33,7 +33,8 @@
      (evil-make-overriding-map mu4e-headers-mode-map 'normal t)
      
      (evil-add-hjkl-bindings mu4e-view-mode-map 'normal
-       "J" 'mu4e~headers-jump-to-maildir
+       "J" 'mu4e-view-headers-next
+       "K" 'mu4e-view-headers-prev
        "j" 'evil-next-line
        "C" 'mu4e-compose-new
        "o" 'mu4e-view-message

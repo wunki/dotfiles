@@ -39,7 +39,7 @@ main = do
         , borderWidth = 1
         , normalBorderColor  = "#1a1a1a"
         , focusedBorderColor = "#373b41"
-        , workspaces = ["1:Shell", "2:Vim", "3:Browser", "4:GUI", "5:Fullscreen"]
+        , workspaces = ["1:Shell", "2:Emacs", "3:Browser", "4:GUI", "5:Fullscreen"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
         , startupHook = myStartupHook
@@ -64,8 +64,8 @@ myManageHook = manageDocks <+> composeAll
     , className =? "Chromium"             --> doF (W.shift "3:Browser")
     , className =? "Iceweasel"            --> doF (W.shift "3:Browser")
     , className =? "Conkeror"             --> doF (W.shift "3:Browser")
-    , className =? "Emacs"                --> doF (W.shift "2:Vim")
-    , className =? "GVIM"                 --> doF (W.shift "2:Vim")
+    , className =? "Emacs"                --> doF (W.shift "2:Emacs")
+    , className =? "GVIM"                 --> doF (W.shift "2:Emacs")
     , className =? "Thunar"               --> doF (W.shift "4:GUI")
     ]
 

@@ -45,6 +45,7 @@
 ;; configuration files
 (load "wunki/modes")      ; settings for specific modes
 (load "wunki/bindings")   ; load bindings
+(load "wunki/evil")       ; evil keybindings
 (load "wunki/theme")      ; set the theme and font
 (load "wunki/temp_files") ; temporary files
 (load "wunki/org")        ; org-mode

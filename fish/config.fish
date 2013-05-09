@@ -23,9 +23,9 @@ function rmpyc; find . -name '*.pyc' | xargs rm; end
 
 # environment variables
 set -g -x fish_greeting ""
-set -g -x EDITOR ec
-set -g -x VISUAL ec
-set -g -x BROWSER /home/wunki/bin/conk
+set -g -x EDITOR vim
+set -g -x VISUAL vim
+set -g -x BROWSER chromium
 
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"
     if test -d $argv[1]

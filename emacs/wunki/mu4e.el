@@ -16,6 +16,7 @@
       mu4e-attachment-dir "~/downloads"                  ; put attachements in download dir
       mu4e-get-mail-command "offlineimap"                ; fetch email with offlineimap
       mu4e-confirm-quit nil                              ; don't ask me to quit
+      mu4e-headers-skip-duplicates t                     ; skip duplicate email, great for gmail
       mu4e-headers-date-format "%d %b, %Y at %H:%M"      ; date format
       mu4e-headers-leave-behavior 'apply                 ; apply all marks at quit
       mu4e-html2text-command "html2text -utf8 -width 72" ; html to text
@@ -90,7 +91,7 @@
 (add-to-list 'mu4e-view-actions
              '("org-contact-add" . mu4e-action-add-org-contact) t)
 
-;; headers
+;; headers in the overview
 (setq mu4e-headers-fields
   '((:maildir       .   8) 
     (:date          .  24)
@@ -103,7 +104,6 @@
   '(("flag:new maildir:/gibbon/inbox"             "New Gibbon"           ?g)
     ("flag:new maildir:/wunki/inbox"              "New Wunki"            ?p)
     ("flag:new maildir:/bread-and-pepper/inbox"   "New Bread & Pepper"   ?b)
-    ("flag:unread maildir:/wunki/inbox OR maildir:/bread-and-pepper/inbox OR maildir:/gibbon/inbox"  "All unread messages"  ?u)
     ("date:today..now"                            "Today's messages"     ?t)
     ("flag:flagged"                               "Flagged messages"     ?f)))
 

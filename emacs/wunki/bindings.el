@@ -82,7 +82,11 @@
 (global-set-key (kbd "C-M-<down>") 'enlarge-window)
 (global-set-key (kbd "C-M-<up>") 'shrink-window)
 
-;; key chords
+;; move between windows
+(global-set-key (kbd "C-c L") 'windmove-right)
+(global-set-key (kbd "C-c H") 'windmove-left)
+(global-set-key (kbd "C-c P") 'windmove-up)
+(global-set-key (kbd "C-c N") 'windmove-down)
 
 ;; multiple markers
 (key-chord-define-global "MM" 'mc/mark-next-like-this)
@@ -91,7 +95,7 @@
 
 ;; moving around
 (key-chord-define-global "JJ" 'ace-jump-mode)
-(key-chord-define-global "MM" 'idomenu)
+(key-chord-define-global "II" 'idomenu)
 
 ;; quickly edit files
 (key-chord-define-global "EE" 'edit-config)

@@ -101,11 +101,12 @@
 
 ;; set bookmarks
 (setq mu4e-bookmarks 
-  '(("flag:new maildir:/gibbon/inbox"             "New Gibbon"           ?g)
-    ("flag:new maildir:/wunki/inbox"              "New Wunki"            ?p)
-    ("flag:new maildir:/bread-and-pepper/inbox"   "New Bread & Pepper"   ?b)
-    ("date:today..now"                            "Today's messages"     ?t)
-    ("flag:flagged"                               "Flagged messages"     ?f)))
+  '(("flag:unread AND '(' maildir:/gibbon/inbox OR maildir:/bread-and-pepper/inbox OR maildir:/wunki/inbox ')'" "All new messages" ?u)
+    ("maildir:/gibbon/inbox"             "Gibbon's inbox"         ?g)
+    ("maildir:/wunki/inbox"              "Wunki's inbox"          ?w)
+    ("maildir:/bread-and-pepper/inbox"   "Bread & Pepper's inbox" ?b)
+    ("date:today..now"                   "Today's messages"       ?t)
+    ("flag:flagged"                      "Flagged messages"       ?f)))
 
 ;; shortcuts
 (setq mu4e-maildir-shortcuts

@@ -24,26 +24,34 @@
 
 ;; automagically resize the window
 (make-variable-buffer-local 'erc-fill-column)
- (add-hook 'window-configuration-change-hook 
-	   '(lambda ()
-	      (save-excursion
-	        (walk-windows
-		 (lambda (w)
-		   (let ((buffer (window-buffer w)))
-		     (set-buffer buffer)
-		     (when (eq major-mode 'erc-mode)
-		       (setq erc-fill-column (- (window-width w) 2)))))))))
+(add-hook 'window-configuration-change-hook 
+          '(lambda ()
+             (save-excursion
+               (walk-windows
+                (lambda (w)
+                  (let ((buffer (window-buffer w)))
+                    (set-buffer buffer)
+                    (when (eq major-mode 'erc-mode)
+                      (setq erc-fill-column (- (window-width w) 2)))))))))
+
+;; NickServ
+(require 'erc-services)
+
+(setq erc-prompt-for-nickserv-password nil)
 
 ;; starts the ERC server or switches to it.
 (defun erc-start-or-switch ()
   "Connect to ERC, or switch to last active buffer"
   (interactive)
-  (if (get-buffer "wunki.org:7000") ;; ERC already active?
-      (erc-track-switch-buffer 1) ;; yes: switch to last active
-    (when (y-or-n-p "Start ERC? ") ;; no: maybe start ERC
-      (require 'secrets "wunki/secrets.el")
-      (erc :server "141.138.137.36"
-           :port 7000 
-           :nick "wunki" 
-           :full-name "Petar Radosevic"
-           :password irc-wunki))))
+  (if (get-buffer "chat.freenode.net:7000") ;; ERC already active?
+      (erc-track-switch-buffer 1)           ;; yes: switch to last active
+    (when (y-or-n-p "Start ERC? ")          ;; no: maybe start ERC
+      (require 'secrets "wunki/secrets.el") ;; load passwords
+      (erc-services-mode t)                 ;; enable services
+      (setq erc-nickserv-passwords
+            `((freenode
+               (("wunki" . ,irc-wunki)))))
+      (erc-tls :server "chat.freenode.net"
+               :port 7000
+               :nick "wunki"
+               :full-name "Petar Radosevic"))))

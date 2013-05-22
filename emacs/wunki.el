@@ -30,7 +30,8 @@
 
              ;; languages
              nrepl ac-nrepl ac-slime clojure-mode clojure-test-mode cljdoc
-             clojurescript-mode haskell-mode ghc rust-mode elpy
+             clojurescript-mode haskell-mode ghc rust-mode elpy slime
+             slime-repl
              
              ;; themes
              zenburn-theme color-theme-sanityinc-tomorrow
@@ -38,9 +39,6 @@
              ))
   (when (not (package-installed-p p))
     (package-install p)))
-
-(vendor 'slime)           ; older version of slime which works with swank
-(vendor 'slime-repl)
 
 ;; configuration files
 (load "wunki/modes")      ; settings for specific modes

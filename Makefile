@@ -9,8 +9,6 @@ vim::
 emacs::
 	@ln -fs $(DOTFILES)/emacs/emacs.el		${HOME}/.emacs
 	@ln -fns $(DOTFILES)/emacs				${HOME}/.emacs.d
-	@ln -fs $(DOTFILES)/emacs/wl		  	${HOME}/.wl
-	@ln -fs $(DOTFILES)/emacs/folders		${HOME}/.folders
 	@echo Emacs is symlinked.
 
 bin::

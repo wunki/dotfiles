@@ -116,6 +116,9 @@
 (autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")
 (add-to-list 'auto-mode-alist '("\\.pp$" . puppet-mode))
 
+;; salt stack
+(add-to-list 'auto-mode-alist '("\\.sls$" . yaml-mode))
+
 ;; cfengine
 (add-to-list 'auto-mode-alist '("\\.cf$" . cfengine3-mode))
 

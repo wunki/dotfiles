@@ -23,9 +23,9 @@ function rmpyc; find . -name '*.pyc' | xargs rm; end
 
 # environment variables
 set -g -x fish_greeting ""
-set -g -x EDITOR vim
-set -g -x VISUAL vim
-set -g -x BROWSER chromium
+set -g -x EDITOR "emacsclient -t -a emacs"
+set -g -x VISUAL "emacsclient -t -a emacs"
+set -g -x BROWSER /home/wunki/bin/conk
 
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"
     if test -d $argv[1]

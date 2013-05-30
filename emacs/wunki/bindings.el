@@ -105,4 +105,4 @@
 (key-chord-define-global "CC" 'goto-last-change)
 
 ;; packages
-(key-chord-define-global "PP" 'package-list-packages)
+(key-chord-define-global "UU" 'package-list-packages)

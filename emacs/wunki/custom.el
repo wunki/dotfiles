@@ -12,6 +12,9 @@
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "~/bin/conk")
 
+;; set the editor hardcoded to Emacs. Fixes Magit.
+(setenv "EDITOR" "emacs")
+
 ;; unicode
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)

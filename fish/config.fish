@@ -22,10 +22,10 @@ function git; hub $argv; end
 function rmpyc; find . -name '*.pyc' | xargs rm; end
 
 # environment variables
-set -g -x fish_greeting ""
-set -g -x EDITOR "emacsclient -t -a emacs"
-set -g -x VISUAL "emacsclient -t -a emacs"
-set -g -x BROWSER /home/wunki/bin/conk
+set -x fish_greeting ""
+set -x EDITOR 'emacsclient -t -a emacs'
+set -x VISUAL 'emacsclient -t -a emacs'
+set -x BROWSER /home/wunki/bin/conk
 
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"
     if test -d $argv[1]
@@ -47,8 +47,8 @@ prepend_to_path "$HOME/.local/bin"
 prepend_to_path "$HOME/.cabal/.bin"
 
 # python
-set -g -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
-set -g -x WORKON_HOME "$HOME/.virtualenvs"
+set -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
+set -x WORKON_HOME "$HOME/.virtualenvs"
 . ~/.config/fish/virtualenv.fish
 
 # git prompt

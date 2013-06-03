@@ -78,7 +78,7 @@ urxvt.fading: 30
 urxvt.scrollBar: False
 urxvt.scrollTtyOutput: False
 urxvt.scrollTtyKeypress: True
-urxvt.saveLines: 1000
+urxvt.saveLines: 2000
 urxvt.borderLess: False
 urxvt.pointerBlank: True
 urxvt.scrollWithBuffer: False

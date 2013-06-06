@@ -122,6 +122,9 @@
 ;; cfengine
 (add-to-list 'auto-mode-alist '("\\.cf$" . cfengine3-mode))
 
+;; restclient
+(add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
+
 ;; windmove
 (setq windmove-wrap-around t)
 

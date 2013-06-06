@@ -106,3 +106,6 @@
 
 ;; packages
 (key-chord-define-global "UU" 'package-list-packages)
+
+;; close emacs
+(key-chord-define-global "ZZ" 'save-buffers-kill-emacs)

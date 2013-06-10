@@ -47,11 +47,8 @@
       (erc-track-switch-buffer 1)           ;; yes: switch to last active
     (when (y-or-n-p "Start ERC? ")          ;; no: maybe start ERC
       (require 'secrets "wunki/secrets.el") ;; load passwords
-      (erc-services-mode t)                 ;; enable services
-      (setq erc-nickserv-passwords
-            `((freenode
-               (("wunki" . ,irc-wunki)))))
-      (erc-tls :server "chat.freenode.net"
-               :port 7000
-               :nick "wunki"
-               :full-name "Petar Radosevic"))))
+      (erc :server "wunki.org"
+           :port 7000
+           :nick "wunki"
+           :password irc-wunki
+           :full-name "Petar Radosevic"))))

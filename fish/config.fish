@@ -1,7 +1,7 @@
 # functions who work as aliases (quicker)
-function l1; tree --dirsfirst -ChFL 1; end
-function l2; tree --dirsfirst -ChFL 2; end
-function l3; tree --dirsfirst -ChFL 3; end
+function t1; tree --dirsfirst -ChFL 1; end
+function t2; tree --dirsfirst -ChFL 2; end
+function t3; tree --dirsfirst -ChFL 3; end
 function gsdw; sudo ~/bin/get-shit-done work; end
 function gsdp; sudo ~/bin/get-shit-done play; end
 function wl; wicd-curses; end
@@ -52,28 +52,26 @@ set -x WORKON_HOME "$HOME/.virtualenvs"
 . ~/.config/fish/virtualenv.fish
 
 # git prompt
-set __fish_git_prompt_showdirtystate 'yes'
-set __fish_git_prompt_showstashstate 'yes'
-set __fish_git_prompt_showupstream 'yes'
-set __fish_git_prompt_color_branch yellow
+# set __fish_git_prompt_showdirtystate 'yes'
+# set __fish_git_prompt_showstashstate 'yes'
+# set __fish_git_prompt_showupstream 'yes'
+# set __fish_git_prompt_color_branch yellow
 
 # status chars
-set __fish_git_prompt_char_upstream_equal '✓'
-set __fish_git_prompt_char_dirtystate '⚡'
-set __fish_git_prompt_char_stagedstate '→'
-set __fish_git_prompt_char_stashstate '↩'
-set __fish_git_prompt_char_upstream_ahead '↑'
-set __fish_git_prompt_char_upstream_behind '↓'
+# set __fish_git_prompt_char_upstream_equal '✓'
+# set __fish_git_prompt_char_dirtystate '⚡'
+# set __fish_git_prompt_char_stagedstate '→'
+# set __fish_git_prompt_char_stashstate '↩'
+# set __fish_git_prompt_char_upstream_ahead '↑'
+# set __fish_git_prompt_char_upstream_behind '↓'
 
 # the prompt
 function fish_prompt
   set last_status $status
 
   set_color $fish_color_cwd
-  printf '%s' (prompt_pwd)
-  set_color normal
-
-  printf '%s ' (__fish_git_prompt)
-
+  printf '%s ' (prompt_pwd)
+  # set_color normal
+  # printf '%s ' (__fish_git_prompt)
   set_color normal
 end

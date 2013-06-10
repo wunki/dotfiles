@@ -18,11 +18,14 @@
 
 ;; org-files
 (setq org-agenda-files (list "~/org/today.org"
+                             "~/org/inbox.org"
                              "~/org/gibbon.org"
                              "~/org/bread-and-pepper.org"
                              "~/org/personal.org"
+                             "~/org/emacs.org"
+                             "~/org/notes.org"
+                             "~/org/ideas.org"
                              "~/org/books.org"
-                             "~/org/inbox.org"
 
                              ; projects
                              "~/src/wunki-dotfiles/TODO.org"

@@ -32,10 +32,6 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
 
-;; ag
-(require 'ag)
-(setq ag-highlight-search t)
-
 ;; whitespace
 (setq whitespace-style
       '(face tabs spaces trailing lines space-before-tab
@@ -57,6 +53,10 @@
 (defalias 'ack-same 'ack-and-a-half-same)
 (defalias 'ack-find-file 'ack-and-a-half-find-file)
 (defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
+
+;; ag (the silver searcher)
+(require 'ag)
+(setq ag-highlight-search t)
 
 ;; dired
 (require 'dired-details)
@@ -90,10 +90,11 @@
 ;(setq comment-auto-fill-only-comments t)
 
 ;;flyspell
-;(add-hook 'clojure-mode-hook 'flyspell-prog-mode)
+(add-hook 'clojure-mode-hook 'flyspell-prog-mode)
 ;(add-hook 'haskell-mode-hook 'flyspell-prog-mode)
 ;(add-hook 'python-mode-hook 'flyspell-prog-mode)
 ;(add-hook 'message-mode-hook 'flyspell-mode)
+(setq flyspell-issue-message-flag nil) ;; don't show a message, slows things down.
 
 ;; scheme
 (setq scheme-program-name "csi -:c")
@@ -140,4 +141,4 @@
 
 ;; key chords (see bindings.el)
 (key-chord-mode t)
-(setq key-chord-two-keys-delay 0.025)
+(setq key-chord-two-keys-delay 0.01)

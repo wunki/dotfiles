@@ -30,7 +30,7 @@
                              ; projects
                              "~/src/wunki-dotfiles/TODO.org"
                              "~/python/gibbon-web/TODO.org"
-                             "~/erlang/gibbon-api/TODO.org"
+                             "~/erlang/gibbon-api-clj/TODO.org"
                              "~/devops/gibbon-salted/TODO.org")
       org-default-notes-file "~/org/inbox.org")
 

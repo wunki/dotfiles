@@ -7,6 +7,7 @@ function gsdp; sudo ~/bin/get-shit-done play; end
 function wl; wicd-curses; end
 function weechat; weechat-curses $argv; end
 function nstat; sudo nethogs wlan0 $argv; end
+function duh; du -ah --max-depth=1; end
 
 # git
 function git; hub $argv; end

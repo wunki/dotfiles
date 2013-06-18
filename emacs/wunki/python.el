@@ -1,7 +1,7 @@
 ;; elpy mode
-(when (require 'elpy nil t)
-  (elpy-enable)
-  (elpy-clean-modeline))
+;; (when (require 'elpy nil t)
+;;   (elpy-enable t)
+;;   (elpy-clean-modeline))
 
 ;; only set this minor modes when using elpy
 (setq elpy-default-minor-modes

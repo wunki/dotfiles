@@ -23,6 +23,7 @@
              buffer-move ido-ubiquitous s projectile goto-last-change
              expand-region change-inner powerline evil surround idomenu
              diminish dired-details multiple-cursors ag key-chord restclient
+             quack geiser
 
              ;; modes
              org org-plus-contrib pandoc-mode markdown-mode git-commit-mode
@@ -50,6 +51,7 @@
 (load "wunki/magit")      ; magit
 (load "wunki/shell")      ; shell mode
 (load "wunki/lisp")       ; lisp languages
+(load "wunki/scheme")     ; scheme languages
 (load "wunki/haskell")    ; haskell
 (load "wunki/erlang")     ; erlang
 (load "wunki/python")     ; python

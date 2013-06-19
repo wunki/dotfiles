@@ -5,8 +5,6 @@
 (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
 
 ;; paredit everywhere
-(defun enable-paredit-mode ()
-  (paredit-mode t))
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
 (add-hook 'scheme-mode-hook 'enable-paredit-mode)
 (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)

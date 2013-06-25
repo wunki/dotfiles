@@ -1,6 +1,3 @@
-;; TEMP required common list to be able to run haskell-mode
-(require 'cl)
-
 ;; Load ghc-mod
 (autoload 'ghc-init "ghc" nil t)
 (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
@@ -8,7 +5,7 @@
 ;; Customization
 (custom-set-variables
  ;; Use cabal-dev for the GHCi session. Ensures our dependencies are in scope.
- '(haskell-process-type 'ghci)
+ '(haskell-process-type 'cabal-dev)
  
  ;; Use notify.el (if you have it installed) at the end of running
  ;; Cabal commands or generally things worth notifying.
@@ -62,6 +59,10 @@
   ;; Jump to the definition of the current symbol.
   (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-tag-find)
 
+  ;; move between errors
+  (define-key haskell-mode-map (kbd "C-c C-p") 'haskell-interactive-mode-error-backward)
+  (define-key haskell-mode-map (kbd "C-c C-n") 'haskell-interactive-mode-error-forward)
+  
   ;; Indent the below lines on columns after the current column.
   (define-key haskell-mode-map (kbd "C-<right>")
     (lambda ()

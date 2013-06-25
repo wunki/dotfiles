@@ -1,4 +1,4 @@
-;; Lisp settings
+;; lisp settings for Clojure
 
 ;; colors for parenthesis
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
@@ -6,7 +6,6 @@
 
 ;; paredit everywhere
 (add-hook 'clojure-mode-hook 'enable-paredit-mode)
-(add-hook 'scheme-mode-hook 'enable-paredit-mode)
 (add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
 (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
 (add-hook 'nrepl-mode-hook 'enable-paredit-mode)

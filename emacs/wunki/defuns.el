@@ -110,3 +110,6 @@ buffer is not visiting a file."
 (defun edit-config ()
   (interactive)
   (ido-find-file-in-dir "~/.emacs.d/wunki"))
+
+(defun enable-paredit-mode ()
+  (paredit-mode t))

@@ -2,7 +2,7 @@
 (if (>= emacs-major-version 24)
   (progn
     (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-    (load-theme 'sanityinc-tomorrow-night))
+    (load-theme 'sanityinc-tomorrow-blue))
   (progn
     (require 'color-theme)
     (color-theme-tomorrow-night)))

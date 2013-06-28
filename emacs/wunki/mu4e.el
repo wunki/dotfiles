@@ -93,7 +93,7 @@
 
 ;; headers in the overview
 (setq mu4e-headers-fields
-  '((:maildir       .   8) 
+  '((:maildir       .  16)
     (:date          .  24)
     (:flags         .   6)
     (:from          .  24)
@@ -101,7 +101,7 @@
 
 ;; set bookmarks
 (setq mu4e-bookmarks 
-  '(("flag:unread AND '(' maildir:/gibbon/inbox OR maildir:/bread-and-pepper/inbox OR maildir:/wunki/inbox ')'" "All new messages" ?u)
+  '(("flag:unread"                       "All new messages"       ?u)
     ("maildir:/gibbon/inbox"             "Gibbon's inbox"         ?g)
     ("maildir:/wunki/inbox"              "Wunki's inbox"          ?w)
     ("maildir:/bread-and-pepper/inbox"   "Bread & Pepper's inbox" ?b)
@@ -119,5 +119,4 @@
          ("/wunki/trash"              . ?t)
          ("/bread-and-pepper/trash"   . ?T)
          ("/wunki/clojure"            . ?c)
-         ("/wunki/haskell-beginners"  . ?h)
-         ("/wunki/rust-development"   . ?r)))
+         ("/wunki/haskell-beginners"  . ?h)))

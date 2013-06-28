@@ -21,7 +21,7 @@
 (powerline-default-theme)
 
 ;; indent after newline
-(electric-indent-mode t)
+;; (electric-indent-mode t)
 
 ;; recentf
 (recentf-mode 1)

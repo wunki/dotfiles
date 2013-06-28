@@ -24,11 +24,12 @@
 (defun haskell-hook ()
   ;; Use simple indentation.
   (turn-on-haskell-simple-indent)
+
   (define-key haskell-mode-map (kbd "<return>") 'haskell-simple-indent-newline-same-col)
   (define-key haskell-mode-map (kbd "C-<return>") 'haskell-simple-indent-newline-indent)
 
   ;; Load the current file (and make a session if not already made).
-  (define-key haskell-mode-map [?\C-c ?\C-l] 'haskell-process-load-file)
+  (define-key haskell-mode-map [?\C-c ?\C-k] 'haskell-process-load-file)
   (define-key haskell-mode-map [f5] 'haskell-process-load-file)
 
   ;; Switch to the REPL.

@@ -57,8 +57,8 @@
 (load "wunki/python")     ; python
 (load "wunki/erc")        ; irc
 (load "wunki/jabber")     ; jabber
-(if (eq system-type 'darwin)
-    (load "wunki/mac"))   ; mac settings
+(when (eq system-type 'darwin)
+  (load "wunki/mac"))     ; mac settings
 
 ;; load email only on my local computer
 (when (string-equal system-name "thinkpad.wunki.org")

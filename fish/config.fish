@@ -9,6 +9,10 @@ function weechat; weechat-curses $argv; end
 function nstat; sudo nethogs wlan0 $argv; end
 function duh; du -ah --max-depth=1; end
 
+# start end end dropbox
+function dropstart; sudo systemctl start dropbox@wunki.service; end
+function dropstop; sudo systemctl stop dropbox@wunki.service; end
+
 # git
 function gs; git status --ignore-submodules=dirty; end
 function gp; git push origin master; end

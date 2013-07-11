@@ -14,7 +14,6 @@
   (load-file "~/.emacs.d/package-23.el"))
 
 (setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")
                          ("org" . "http://orgmode.org/elpa/")))
 (package-initialize)
 
@@ -44,7 +43,6 @@
 ;; configuration files
 (load "wunki/modes")      ; settings for specific modes
 (load "wunki/bindings")   ; load bindings
-;; (load "wunki/evil")       ; evil keybindings
 (load "wunki/theme")      ; set the theme and font
 (load "wunki/temp_files") ; temporary files
 (load "wunki/org")        ; org-mode
@@ -57,6 +55,7 @@
 (load "wunki/python")     ; python
 (load "wunki/erc")        ; irc
 (load "wunki/jabber")     ; jabber
+
 (when (eq system-type 'darwin)
   (load "wunki/mac"))     ; mac settings
 

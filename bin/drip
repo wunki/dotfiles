@@ -27,8 +27,8 @@ function bootstrap {
     # resolve symlinks to the script itself portably
     while [[ -h $script ]] ; do
         local ls=$(ls -ld -- "$script")
-        local link=$(expr "$ls" : '.*-> \(.*\)$')
-        if expr "$link" : '/.*' > /dev/null; then
+        local link=$(expr -- "$ls" : '.*-> \(.*\)$')
+        if expr -- "$link" : '/.*' > /dev/null; then
             script=$link
         else
             script=$(dirname "$script"$)/$link
@@ -93,7 +93,7 @@ declare -a runtime_args
 function jar_main_class {
     local jar=$1
     local line=$(unzip -p $jar META-INF/MANIFEST.MF | grep ^Main-Class:)
-    local main_class=$(expr "$line" : '^Main-Class: \([^[:space:]]*\)')
+    local main_class=$(expr -- "$line" : '^Main-Class: \([^[:space:]]*\)')
     echo $main_class
 }
 
@@ -108,7 +108,7 @@ function parse_args {
         echo '    kill [-signal]   kill all idle drip JVMs (with signal)'
         echo '    ps               print a list of all drip processes'
         exit 0
-    elif ! expr "$1" : '.*[.-]' > /dev/null; then
+    elif ! expr -- "$1" : '.*[.-]' > /dev/null; then
         drip_command=$1
         return
     elif [[ $# -eq 1 && $1 == -* ]]; then
@@ -142,6 +142,7 @@ function parse_args {
             main_args+=("$arg")
         fi
     done
+    main_class=${main_class//\//.}
 }
 
 function make_sha_path {
@@ -152,12 +153,18 @@ function make_sha_path {
     echo -n "$opts" > $sha_path/opts
 }
 
-function default_init_args {
+function default_init {
     local f='%s\n%s'
-    case ${DRIP_INIT_CLASS:-$main_class} in
-        clojure.main)                      printf $f '-e' 'nil';;
-        org.jruby.Main)                    printf $f '-e' 'nil';;
-        scala.tools.nsc.MainGenericRunner) printf $f '-e' 'null';;
+    case $main_class in
+        clojure.main)
+            DRIP_INIT_CLASS='clojure.main'
+            DRIP_INIT=$(printf $f '-e' 'nil');;
+        org.jruby.Main)
+            DRIP_INIT_CLASS='org.jruby.main'
+            DRIP_INIT=$(printf $f '-e' 'nil');;
+        scala.tools.nsc.MainGenericRunner)
+            DRIP_INIT_CLASS='scala.tools.nsc.MainGenericRunner'
+            DRIP_INIT=$(printf $f '-e' 'null');;
     esac
 }
 
@@ -166,13 +173,17 @@ function launch_jvm {
 
     if mkdir "$jvm_dir"; then
         mkfifo "$jvm_dir/control"
-        mkfifo "$jvm_dir/status"
 
-        export DRIP_INIT=${DRIP_INIT:-$(default_init_args)}
+        if [[ -z $DRIP_INIT_CLASS ]]; then
+            default_init
+        fi
+        export DRIP_INIT_CLASS=${DRIP_INIT_CLASS//\//.}
+        export DRIP_INIT
 
         $drip_daemon $DRIP_JAVA_CMD "${jvm_args[@]}" -Djava.awt.headless=true \
                                     "-classpath" "$drip_jar:$classpath" \
-                                    org.flatland.drip.Main "$main_class" "$jvm_dir" > /dev/null
+                                    org.flatland.drip.Main "$main_class" "$jvm_dir" \
+                                    > /dev/null 2> $drip_root/error.log
     fi
 }
 
@@ -214,9 +225,9 @@ function find_jvm {
     done
 
     if [[ -z $active_jvm_dir ]]; then
-        exec $DRIP_JAVA_CMD "${jvm_args[@]}" "${runtime_args[@]}" \
-                            "-classpath" "$classpath" \
-                            "$main_class" "${main_args[@]}"
+        exec "$DRIP_JAVA_CMD" "${jvm_args[@]}" "${runtime_args[@]}" \
+                              "-classpath" "$classpath" \
+                              "$main_class" "${main_args[@]}"
     fi
 }
 
@@ -279,6 +290,7 @@ function send_env {
 }
 
 function send_args {
+    mkfifo "$active_jvm_dir/status"
     exec 4> "$active_jvm_dir/control"
     send_array "${main_args[@]}" >&4
     send_array "${runtime_args[@]}" >&4
@@ -332,9 +344,9 @@ function run_drip_command {
 
 # Let's go.
 
+DRIP_VERSION=0.2.3
 DRIP_POOL=1
 DRIP_HOME=${DRIP_HOME:-~/.drip}
-DRIP_VERSION=${DRIP_VERSION:-0.1.7}
 DRIP_BRANCH=${DRIP_BRANCH:-master}
 DRIP_REPO=${DRIP_REPO:-http://clojars.org/repo}
 DRIP_JAR_URL=${DRIP_JAR_URL:-$DRIP_REPO/org/flatland/drip/$DRIP_VERSION/drip-$DRIP_VERSION.jar}
@@ -349,7 +361,7 @@ bootstrap
 parse_args "$@"
 
 if [[ -z $drip_command ]]; then
-    [[ -z $java_command ]] || exec $DRIP_JAVA_CMD $java_command
+    [[ -z $java_command ]] || exec "$DRIP_JAVA_CMD" $java_command
     find_jvm
     run_main
 

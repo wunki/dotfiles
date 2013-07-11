@@ -10,7 +10,6 @@ function nstat; sudo nethogs wlan0 $argv; end
 function duh; du -ah --max-depth=1; end
 
 # git
-function git; hub $argv; end
 function gs; git status --ignore-submodules=dirty; end
 function gp; git push origin master; end
 function gf; git pull origin master; end
@@ -19,7 +18,6 @@ function gf; git pull origin master; end
 function erlr; erl -pz ebin deps/*/ebin $argv; end
 
 # python
-function git; hub $argv; end
 function rmpyc; find . -name '*.pyc' | xargs rm; end
 
 # environment variables

@@ -52,7 +52,7 @@ prepend_to_path "$HOME/.cabal/.bin"
 # python
 set -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
 set -x WORKON_HOME "$HOME/.virtualenvs"
-. ~/.config/fish/virtualenv.fish
+. ~/src/virtualfish/virtual.fish
 
 # git prompt
 # set __fish_git_prompt_showdirtystate 'yes'
@@ -71,6 +71,11 @@ set -x WORKON_HOME "$HOME/.virtualenvs"
 # the prompt
 function fish_prompt
   set last_status $status
+
+  # python virtualenv
+  if set -q VIRTUAL_ENV
+    echo -n -s "(" (basename "$VIRTUAL_ENV") ") "
+  end
 
   set_color $fish_color_cwd
   printf '%s ' (prompt_pwd)

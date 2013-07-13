@@ -72,19 +72,19 @@ manageHook' :: ManageHook
 manageHook' = (doF W.swapDown) <+> manageDocks <+> manageHook defaultConfig <+> myManageHook
 
 myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
-    [ ((0, xF86XK_AudioLowerVolume), spawn "/home/wunki/bin/volume decrease") -- Lower volume
-    , ((0, xF86XK_AudioRaiseVolume), spawn "/home/wunki/bin/volume increase") -- Raise volume
-    , ((0, xF86XK_AudioMute), spawn "/home/wunki/bin/volume mute")            -- Mute
+    [ ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 1-")        -- Lower volume
+    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q sset Master 1+")        -- Raise volume
+    , ((0, xF86XK_AudioMute), spawn "amixer -q sset Master toggle")           -- Mute
     , ((0, xF86XK_AudioPlay), spawn "mpc toggle")                             -- Play/pause
     , ((0, xF86XK_AudioPrev), spawn "mpc prev")                               -- Previous song
     , ((0, xF86XK_AudioNext), spawn "mpc next")                               -- Next song
-    , ((0, xF86XK_Launch1),   spawn "~/bin/conk")                             -- Launch Conkeror
+    , ((0, xF86XK_Launch1),   spawn "~/bin/conkeror")                         -- Launch Conkeror
     , ((modMask, xK_b),       sendMessage ToggleStruts)                       -- Hide top bar
     , ((modMask, xK_Print),   spawn "scrot -q90 /home/wunki/pictures/screenshots/%Y-%m-%d-%H%M%S.png")
     , ((modMask .|. controlMask, xK_p), sendMessage MagnifyMore)
     , ((modMask .|. controlMask, xK_l), sendMessage MagnifyLess)
     , ((modMask .|. controlMask, xK_m), sendMessage Toggle)
-    , ((modMask .|. controlMask, xK_w), raiseMaybe (spawn "~/bin/conk") (className =? "Conkeror"))
+    , ((modMask .|. controlMask, xK_w), raiseMaybe (spawn "~/bin/conkeror") (className =? "Conkeror"))
     , ((modMask .|. controlMask, xK_e), raiseMaybe (spawn "~/bin/em") (className =? "Emacs"))
     -- cycle through workspaces
     , ((modMask, xK_n), moveTo Next (WSIs (return $ not . (=="SP") . W.tag)))

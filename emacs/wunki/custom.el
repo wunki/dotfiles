@@ -10,7 +10,7 @@
 
 ;; chromium as browser
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "~/bin/conk")
+      browse-url-generic-program "~/bin/conkeror")
 
 ;; set the editor hardcoded to Emacs. Fixes Magit.
 (setenv "EDITOR" "emacsclient")
@@ -60,6 +60,9 @@
 
 ;; european dates
 (setq calendar-date-style 'european)
+
+;; prevents warning when sending mail
+(setq gnutls-min-prime-bits 1024)
 
 ;; spelling
 (setq ispell-program-name "aspell")

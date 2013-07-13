@@ -5,7 +5,7 @@ function workon -d "Activate virtual environment in $WORKON_HOME"
 
   if [ ! -d $tgt ]
     mkdir -p "$WORKON_HOME"
-    virtualenv $tgt
+    virtualenv2 $tgt
   end
 
   if [ -d $tgt ]

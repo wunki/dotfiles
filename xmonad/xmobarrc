@@ -5,14 +5,14 @@ Config { font = "xft:Ubuntu Mono:pixelsize=14:antialias=true"
        , border = TopB
        , borderColor = "#282a2e"
        , lowerOnStart = True
-       , commands = [ Run Network "wlp3s0" ["-t", "<rx> - <tx>", "-L", "0"," -H", "100", "--normal", "#969896", "--high", "#de935f"] 10
+       , commands = [ Run Network "wlp3s0" ["-t", "<rx> - <tx>", "-L", "0"," -H", "100", "--normal", "#969896", "--high", "#de935f"] 20
                     , Run Battery ["-t", "Batt: <timeleft>", "-L", "50", "-H", "75", "--normal", "#969896", "--high", "#de935f"] 600
-                    , Run Cpu ["-L", "3", "-H", "50", "--normal", "#969896", "--high", "#de935f"] 10
-                    , Run Com "/home/wunki/bin/current-volume" [] "volume" 5
-                    , Run Date "%a %_d %b | %H:%M:%S" "date" 1
+                    , Run Cpu ["-L", "3", "-H", "50", "--normal", "#969896", "--high", "#de935f"] 20
+                    , Run Com "/home/wunki/bin/volume" [] "vol" 20
+                    , Run Date "%a %_d %b | %H:%M" "date" 60
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{ Vol: %volume% | %cpu% | Net: %wlp3s0% | %battery% | %date% "
+       , template = " %StdinReader% }{ %cpu% | Vol: %vol% | Net: %wlp3s0% | %battery% | %date% "
        }

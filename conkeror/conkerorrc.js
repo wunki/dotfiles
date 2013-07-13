@@ -33,26 +33,15 @@ session_pref("signon.expireMasterPassword", false);
 session_pref("signon.SignonFileName", "signons.txt");
 Cc["@mozilla.org/login-manager;1"].getService(Ci.nsILoginManager);
 
-register_user_stylesheet(
-    "data:text/css," +
-	escape(
-	  "span.__conkeror_hint {" +
-		" font-size: 10px !important;" +
-		" line-height: 12px !important;" +
-    " opacity: 0.9 !important;" +
-    " padding: 2px !important;" +
-    " -moz-border-radius: 2px;" +
-    " font-weight: normal !important;" +
-		"}"));
-
 // hint's color
 register_user_stylesheet(
     "data:text/css," +
 	escape (
 	  "span.__conkeror_hint {" +
-		" border: 1px solid black !important;" +
-		" color: #333 !important;" +
-		" background-color: yellow !important;" +
+		" border: 1px solid #E97F02 !important;" +
+    " border-radius: 3px !important;" +
+		" color: #490A3D !important;" +
+		" background-color: #F8CA00 !important;" +
 		"}"));
 
 // teach me something whenever I start my browser
@@ -89,6 +78,7 @@ remove_hook("mode_line_hook", mode_line_adder(clock_widget));
 
 // searches
 define_webjump("gs", "https://encrypted.google.com/?q=%s");
+define_opensearch_webjump("du", "duckduckgo.xml");
 define_webjump("gh", "http://github.com/search?q=%s&type=Everything");
 define_webjump("cl", "http://clojuredocs.org/search?x=0&y=0&q=%s");
 define_webjump("imdb", "http://imdb.com/find?q=%s");

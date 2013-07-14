@@ -82,7 +82,7 @@ remove_hook("mode_line_hook", mode_line_adder(clock_widget));
 
 // searches
 define_webjump("gs", "https://encrypted.google.com/?q=%s");
-define_opensearch_webjump("du", "duckduckgo.xml");
+define_opensearch_webjump("dd", "duckduckgo.xml");
 define_webjump("gh", "http://github.com/search?q=%s&type=Everything");
 define_webjump("cl", "http://clojuredocs.org/search?x=0&y=0&q=%s");
 define_webjump("imdb", "http://imdb.com/find?q=%s");

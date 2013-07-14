@@ -9,7 +9,8 @@
                                     "petar@gibbon.co"
                                     "petar@breadandpepper.com"
                                     "hello@breadandpepper.com"
-                                    "hello@invyapp.com"))
+                                    "hello@invyapp.com"
+                                    "hello@gibbon.co"))
 
 ;; general settings
 (setq mail-user-agent 'mu4e-user-agent                   ; mu4e as default mail agent
@@ -103,6 +104,7 @@
 (setq mu4e-bookmarks 
   '(("flag:unread"                       "All new messages"       ?u)
     ("maildir:/gibbon/inbox"             "Gibbon's inbox"         ?g)
+    ("maildir:/gibbon/gibbon-team"       "Gibbon Team"            ?G)
     ("maildir:/wunki/inbox"              "Wunki's inbox"          ?w)
     ("maildir:/bread-and-pepper/inbox"   "Bread & Pepper's inbox" ?b)
     ("date:today..now"                   "Today's messages"       ?t)

@@ -113,3 +113,8 @@ buffer is not visiting a file."
 
 (defun enable-paredit-mode ()
   (paredit-mode t))
+
+(defun disable-electric-indent ()
+  "Disable electric-indent mode for some modes"
+  (set (make-local-variable 'electric-indent-functions)
+       (list (lambda (arg) 'no-indent))))

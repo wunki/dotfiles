@@ -14,6 +14,7 @@
   (load-file "~/.emacs.d/package-23.el"))
 
 (setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")
                          ("org" . "http://orgmode.org/elpa/")))
 (package-initialize)
 
@@ -22,7 +23,7 @@
              buffer-move ido-ubiquitous s projectile goto-last-change
              expand-region change-inner powerline evil surround idomenu
              diminish dired-details multiple-cursors ag key-chord restclient
-             quack geiser
+             quack geiser rainbow-delimiters
 
              ;; modes
              org org-plus-contrib pandoc-mode markdown-mode git-commit-mode

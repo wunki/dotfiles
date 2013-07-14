@@ -2,6 +2,9 @@
 (autoload 'ghc-init "ghc" nil t)
 (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
+;; disable electric-indent on haskell
+(add-hook 'haskell-mode-hook 'disable-electric-indent)
+
 ;; Customization
 (custom-set-variables
  ;; Use cabal-dev for the GHCi session. Ensures our dependencies are in scope.

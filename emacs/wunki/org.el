@@ -16,6 +16,9 @@
 ;; archive method
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 
+;; disable electric-indent on org
+(add-hook 'org-mode-hook 'disable-electric-indent)
+
 ;; org-files
 (setq org-agenda-files (list "~/org/today.org"
                              "~/org/inbox.org"

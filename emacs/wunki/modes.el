@@ -21,7 +21,7 @@
 (powerline-default-theme)
 
 ;; indent after newline
-;; (electric-indent-mode t)
+(electric-indent-mode t)
 
 ;; recentf
 (recentf-mode 1)
@@ -66,6 +66,7 @@
 ;; ido
 (ido-mode t)
 (ido-ubiquitous-mode t)
+(setq ido-use-filename-at-point nil)
 (setq ido-enable-prefix nil
       ido-enable-flex-matching t
       ido-use-filename-at-point 'guess

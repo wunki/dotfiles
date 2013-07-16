@@ -13,6 +13,9 @@
 (require 'org-contacts)
 (setq org-contacts-files (list "~/org/contacts.org"))
 
+;; orc-trello
+(require 'org-trello)
+
 ;; archive method
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 

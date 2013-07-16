@@ -38,6 +38,7 @@ function prepend_to_path -d "Prepend the given dir to PATH if it exists and is n
     end
 end
 prepend_to_path "/bin"
+prepend_to_path "/.local/bin"
 prepend_to_path "/sbin"
 prepend_to_path "/usr/bin"
 prepend_to_path "/usr/sbin"
@@ -55,18 +56,18 @@ set -x WORKON_HOME "$HOME/.virtualenvs"
 . ~/src/virtualfish/virtual.fish
 
 # git prompt
-# set __fish_git_prompt_showdirtystate 'yes'
-# set __fish_git_prompt_showstashstate 'yes'
-# set __fish_git_prompt_showupstream 'yes'
-# set __fish_git_prompt_color_branch yellow
+set __fish_git_prompt_showdirtystate 'yes'
+set __fish_git_prompt_showstashstate 'yes'
+set __fish_git_prompt_showupstream 'yes'
+set __fish_git_prompt_color_branch yellow
 
 # status chars
-# set __fish_git_prompt_char_upstream_equal '✓'
-# set __fish_git_prompt_char_dirtystate '⚡'
-# set __fish_git_prompt_char_stagedstate '→'
-# set __fish_git_prompt_char_stashstate '↩'
-# set __fish_git_prompt_char_upstream_ahead '↑'
-# set __fish_git_prompt_char_upstream_behind '↓'
+set __fish_git_prompt_char_upstream_equal '✓'
+set __fish_git_prompt_char_dirtystate '⚡'
+set __fish_git_prompt_char_stagedstate '→'
+set __fish_git_prompt_char_stashstate '↩'
+set __fish_git_prompt_char_upstream_ahead '↑'
+set __fish_git_prompt_char_upstream_behind '↓'
 
 # the prompt
 function fish_prompt
@@ -74,12 +75,17 @@ function fish_prompt
 
   # python virtualenv
   if set -q VIRTUAL_ENV
-    echo -n -s "(" (basename "$VIRTUAL_ENV") ") "
+     set_color $fish_color_match
+     echo -n -s "[" (basename "$VIRTUAL_ENV") "] "
+     set_color normal
   end
 
+  # CWD
   set_color $fish_color_cwd
-  printf '%s ' (prompt_pwd)
-  # set_color normal
-  # printf '%s ' (__fish_git_prompt)
+  printf '%s' (prompt_pwd)
+
+  # Git
+  set_color normal
+  printf '%s ' (__fish_git_prompt)
   set_color normal
 end

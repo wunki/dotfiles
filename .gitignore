@@ -12,3 +12,5 @@ mplayer/gui*
 /vim/haskellmode.config
 /emacs/.mc-lists.el
 /emacs/projectile-bookmarks.eld
+/bin/pip
+/bin/python

@@ -1,3 +1,9 @@
+require("adblockplus.js");
+require("clicks-in-new-buffer.js");
+require("/home/wunki/src/wunki-dotfiles/conkeror/instapaper.js");
+require("mode-line.js");
+require("mode-line-buttons.js");
+
 // use 'contrib' stuff
 load_paths.unshift("chrome://conkeror-contrib/content/");
 
@@ -14,9 +20,6 @@ theme_load("mono");
 
 // don't require a whitelist to install extensions
 session_pref("xpinstall.whitelist.required", false);
-
-// adblock plus
-require("adblockplus.js");
 
 // firefox user agent
 session_pref("general.useragent.compatMode.firefox", true);
@@ -52,12 +55,8 @@ register_user_stylesheet(
 homepage = "about:blank";
 
 // open clicks in buffers (tabs) in the background
-require("clicks-in-new-buffer.js");
 clicks_in_new_buffer_target = OPEN_NEW_BUFFER_BACKGROUND; 
 clicks_in_new_buffer_button = 1;
-
-// instapaper
-require("/home/wunki/src/wunki-dotfiles/conkeror/instapaper.js");
 
 // auto completion in the minibuffer
 minibuffer_auto_complete_default = true;
@@ -70,10 +69,6 @@ minibuffer_read_url_select_initial = false;
 // open new urls in new buffer
 url_remoting_fn = load_url_in_new_buffer;
 
-// modify the modeline
-require("mode-line.js");
-require("mode-line-buttons.js");
-
 // we'd like to see the # of buffers being loaded 
 add_hook("mode_line_hook", mode_line_adder(loading_count_widget), true);
 
@@ -83,6 +78,7 @@ remove_hook("mode_line_hook", mode_line_adder(clock_widget));
 // searches
 define_webjump("gs", "https://encrypted.google.com/?q=%s");
 define_opensearch_webjump("dd", "duckduckgo.xml");
+define_opensearch_webjump("wk", "wikipedia.xml");
 define_webjump("gh", "http://github.com/search?q=%s&type=Everything");
 define_webjump("cl", "http://clojuredocs.org/search?x=0&y=0&q=%s");
 define_webjump("imdb", "http://imdb.com/find?q=%s");

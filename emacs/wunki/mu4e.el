@@ -20,7 +20,7 @@
       mu4e-headers-skip-duplicates t                     ; skip duplicate email, great for gmail
       mu4e-headers-date-format "%d %b, %Y at %H:%M"      ; date format
       mu4e-headers-leave-behavior 'apply                 ; apply all marks at quit
-      mu4e-html2text-command "html2text -width 72"       ; html to text
+      mu4e-html2text-command "w3m -dump -T text/html"    ; html to text
       mu4e-compose-dont-reply-to-self t                  ; don't reply to myself
       message-signature "Petar Radosevic | @wunki"       ; signature
       message-kill-buffer-on-exit t                      ; don't keep message buffers around
@@ -94,7 +94,7 @@
 
 ;; headers in the overview
 (setq mu4e-headers-fields
-  '((:maildir       .  16)
+  '((:maildir       .  24)
     (:date          .  24)
     (:flags         .   6)
     (:from          .  24)

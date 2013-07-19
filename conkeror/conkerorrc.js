@@ -1,8 +1,8 @@
 require("adblockplus.js");
 require("clicks-in-new-buffer.js");
-require("/home/wunki/src/wunki-dotfiles/conkeror/instapaper.js");
 require("mode-line.js");
-require("mode-line-buttons.js");
+
+require("/home/wunki/src/wunki-dotfiles/conkeror/instapaper.js");
 
 // use 'contrib' stuff
 load_paths.unshift("chrome://conkeror-contrib/content/");

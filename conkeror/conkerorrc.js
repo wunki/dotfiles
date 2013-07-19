@@ -46,9 +46,9 @@ register_user_stylesheet(
 		" color: #490A3D !important;" +
 		" background-color: #F8CA00 !important;" +
     " opacity: 0.8 !important;" +
-    " font-size: 14px !important;" +
-    " padding: 0.2em !important;" +  
-    " font-family: \"Ubuntu Mono\" !important;" +  
+    " font-size: 13px !important;" +
+    " padding: 0.1em 0.2em!important;" +  
+    " font-family: \"Ubuntu\" !important;" +  
 		"}"));
 
 // teach me something whenever I start my browser

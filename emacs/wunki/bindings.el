@@ -6,14 +6,8 @@
 ;; magit
 (global-set-key (kbd "C-c C-g") 'magit-status)
 
-;; training wheels
-(global-unset-key (kbd "C-x o"))
-
 ;; search forward regexp
 (global-set-key (kbd "C-c C-s") 'search-forward-regexp)
-
-;; quickly twitter something
-(global-set-key (kbd "C-c t") 'twittering-update-status-interactive)
 
 ;; expand region (increases selected region by semantic units)
 (global-set-key (kbd "C-c e") 'er/expand-region)
@@ -21,7 +15,7 @@
 (global-set-key (kbd "M-o") 'change-outer)
 
 ;; edit file with sudo
-(global-set-key (kbd "C-c C-a C-f") 'sudo-edit)
+(global-set-key (kbd "C-c s") 'sudo-edit)
 
 ;; join line command
 (global-set-key (kbd "C-c j") 'join-line)
@@ -55,11 +49,6 @@
 ;; toggle between light and dark theme
 (define-key global-map (kbd "C-c C-t") 'toggle-dark-light-theme)
 
-;; newline and indent on some modes
-(defun set-newline-and-indent ()
-  (local-set-key (kbd "RET") 'newline-and-indent))
-(add-hook 'rust-mode 'set-newline-and-indent)
-
 ;; github gists
 (define-key global-map (kbd "C-S-c g") 'gist-buffer-private)
 (define-key global-map (kbd "C-S-c b") 'gist-buffer)
@@ -79,10 +68,10 @@
                   (buf-move-up)))
 
 ;; resize windows
-(global-set-key (kbd "C-M-h") 'shrink-window-horizontally)
-(global-set-key (kbd "C-M-l") 'enlarge-window-horizontally)
+(global-set-key (kbd "C-M-h")      'shrink-window-horizontally)
+(global-set-key (kbd "C-M-l")      'enlarge-window-horizontally)
 (global-set-key (kbd "C-M-<down>") 'enlarge-window)
-(global-set-key (kbd "C-M-<up>") 'shrink-window)
+(global-set-key (kbd "C-M-<up>")   'shrink-window)
 
 ;; move between windows
 (global-set-key (kbd "C-c L") 'windmove-right)
@@ -108,6 +97,9 @@
 
 ;; packages
 (key-chord-define-global "UU" 'package-list-packages)
+
+;; *tweet* *tweet*
+(global-set-key (kbd "C-c t") 'twittering-update-status-interactive)
 
 ;; close emacs
 (key-chord-define-global "ZZ" 'save-buffers-kill-emacs)

@@ -48,7 +48,7 @@ prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.local/bin"
 
 # haskell
-prepend_to_path "$HOME/.cabal/.bin"
+prepend_to_path "$HOME/.cabal/bin"
 
 # python
 set -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"

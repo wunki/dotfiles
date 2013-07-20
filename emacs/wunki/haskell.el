@@ -32,17 +32,18 @@
   (define-key haskell-mode-map (kbd "C-<return>") 'haskell-simple-indent-newline-indent)
 
   ;; Load the current file (and make a session if not already made).
-  (define-key haskell-mode-map [?\C-c ?\C-k] 'haskell-process-load-file)
+  (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-process-load-file)
   (define-key haskell-mode-map [f5] 'haskell-process-load-file)
 
   ;; Switch to the REPL.
-  (define-key haskell-mode-map [?\C-c ?\C-z] 'haskell-interactive-switch)
+  (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
   ;; “Bring” the REPL, hiding all other windows apart from the source
   ;; and the REPL.
   (define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-bring)
 
   ;; Build the Cabal project.
   (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+
   ;; Interactively choose the Cabal command to run.
   (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
 
@@ -58,7 +59,7 @@
 
   ;; Jump to the imports. Keep tapping to jump between import
   ;; groups. C-u f8 to jump back again.
-  (define-key haskell-mode-map [f8] 'haskell-navigate-imports)
+  (define-key haskell-mode-map [f6] 'haskell-navigate-imports)
 
   ;; Jump to the definition of the current symbol.
   (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-tag-find)
@@ -66,6 +67,9 @@
   ;; move between errors
   (define-key haskell-mode-map (kbd "C-c C-p") 'haskell-interactive-mode-error-backward)
   (define-key haskell-mode-map (kbd "C-c C-n") 'haskell-interactive-mode-error-forward)
+
+  ;; quit
+  (define-key haskell-mode-map (kbd "C-c C-q") 'haskell-interactive-kill)
   
   ;; Indent the below lines on columns after the current column.
   (define-key haskell-mode-map (kbd "C-<right>")

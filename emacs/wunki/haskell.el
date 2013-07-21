@@ -12,7 +12,7 @@
  
  ;; Use notify.el (if you have it installed) at the end of running
  ;; Cabal commands or generally things worth notifying.
- '(haskell-notify-p t)
+ '(haskell-notify-p f)
 
  ;; To enable tags generation on save.
  '(haskell-tags-on-save t)
@@ -68,8 +68,8 @@
   (define-key haskell-mode-map (kbd "C-c C-p") 'haskell-interactive-mode-error-backward)
   (define-key haskell-mode-map (kbd "C-c C-n") 'haskell-interactive-mode-error-forward)
 
-  ;; quit
-  (define-key haskell-mode-map (kbd "C-c C-q") 'haskell-interactive-kill)
+  ;; quit the repl
+  (define-key haskell-interactive-mode-map (kbd "C-c C-q") 'haskell-interactive-kill)
   
   ;; Indent the below lines on columns after the current column.
   (define-key haskell-mode-map (kbd "C-<right>")

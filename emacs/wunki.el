@@ -27,7 +27,7 @@
 
              ;; modes
              org org-plus-contrib pandoc-mode markdown-mode git-commit-mode
-             gitconfig-mode gitignore-mode js2-mode yaml-mode
+             gitconfig-mode gitignore-mode js2-mode yaml-mode pretty-mode-plus
 
              ;; languages
              nrepl ac-nrepl ac-slime clojure-mode clojure-test-mode cljdoc

@@ -193,12 +193,6 @@ let maplocalleader = "\\"
 " Toggle whitespace invisibles
 nmap <leader>l :set list!<CR>
 
-" Things to ignore
-set wildignore+=classes
-set wildignore+=lib
-set wildignore+=dist
-set wildignore+=cabal-dev
-
 " Markdown detection
 autocmd BufNewFile,BufReadPost *.mkd,*.markdown,*.md set filetype=markdown
 
@@ -302,7 +296,4 @@ augroup END
 
 " Erlang
 au BufRead,BufNewFile rebar.config set filetype=erlang
-
-" Django
-au BufRead,BufNewFile *.dtl set filetype=htmldjango
 

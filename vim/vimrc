@@ -96,7 +96,14 @@ else
 endif
 
 " Editor configuration
-set shell=/bin/bash
+
+" Because I run FreeBSD on my server, the bash executable is located
+" at a different path.
+if hostname() == "thinkpad.wunki.org"
+    set shell=/bin/bash
+else
+    set shell=/usr/local/bin/bash
+endif
 set showmatch               " show matching brackets (), {}' []
 set showcmd                 " show command
 set modelines=0             " don't use modelines

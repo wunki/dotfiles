@@ -10,7 +10,6 @@ syntax on                   " enable syntax highlighting
 " Vundle for managing bundles
 filetype off
 set rtp+=~/.vim/bundle/vundle/
-set rtp+=~/.local/lib/python2.7/site-packages/powerline/bindings/vim
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
@@ -33,10 +32,11 @@ Bundle 'altercation/vim-colors-solarized'
 Bundle 'nanotech/jellybeans.vim'
 
 " Clojure
-Bundle 'tpope/vim-foreplay'
+Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-classpath'
 Bundle 'guns/vim-clojure-static'
 Bundle 'kien/rainbow_parentheses.vim'
+Bundle 'paredit.vim'
 
 " Haskell
 Bundle 'lukerandall/haskellmode-vim'
@@ -57,6 +57,11 @@ Bundle 'aliva/vim-fish'
 
 " CFEngine
 Bundle 'neilhwatson/vim_cf3'
+
+" Powerline
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
 
 filetype plugin indent on 
 
@@ -179,10 +184,6 @@ let maplocalleader = "\\"
 " Toggle whitespace invisibles
 nmap <leader>l :set list!<CR>
 
-" Powerline
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_cache_enabled = 1
-
 " Things to ignore
 set wildignore+=classes
 set wildignore+=lib
@@ -282,6 +283,13 @@ setl lispwords+=call-with-output-file
 
 " Clojure
 let g:clojure_align_multiline_strings=1
+augroup ft_clojure
+    au!
+    au FileType clojure RainbowParenthesesActivate
+    au syntax clojure RainbowParenthesesLoadRound
+    au syntax clojure RainbowParenthesesLoadSquare
+    au syntax clojure RainbowParenthesesLoadBraces
+augroup END
 
 " Erlang
 au BufRead,BufNewFile rebar.config set filetype=erlang

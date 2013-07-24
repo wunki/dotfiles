@@ -58,10 +58,12 @@ Bundle 'aliva/vim-fish'
 " CFEngine
 Bundle 'neilhwatson/vim_cf3'
 
-" Powerline
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+" Powerline -- But only on my laptop
+if hostname() == "thinkpad.wunki.org"
+    python from powerline.vim import setup as powerline_setup
+    python powerline_setup()
+    python del powerline_setup
+endif
 
 filetype plugin indent on 
 

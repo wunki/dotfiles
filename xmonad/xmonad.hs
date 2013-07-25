@@ -39,7 +39,7 @@ main = do
         , borderWidth = 1
         , normalBorderColor  = "#1a1a1a"
         , focusedBorderColor = "#373b41"
-        , workspaces = ["1:Shell", "2:Emacs", "3:Browser", "4:GUI", "5:Fullscreen"]
+        , workspaces = ["1:Shell", "2:Editor", "3:Browser", "4:GUI", "5:Fullscreen"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
         , startupHook = myStartupHook
@@ -63,13 +63,13 @@ myManageHook = manageDocks <+> composeAll
     , className =? "Firefox"              --> doF (W.shift "3:Browser")
     , className =? "Iceweasel"            --> doF (W.shift "3:Browser")
     , className =? "Conkeror"             --> doF (W.shift "3:Browser")
-    , className =? "Emacs"                --> doF (W.shift "2:Emacs")
-    , className =? "GVIM"                 --> doF (W.shift "2:Emacs")
+    , className =? "Emacs"                --> doF (W.shift "2:Editor")
+    , className =? "GVIM"                 --> doF (W.shift "2:Editor")
     , className =? "Thunar"               --> doF (W.shift "4:GUI")
     ]
 
 manageHook' :: ManageHook
-manageHook' = (doF W.swapDown) <+> manageDocks <+> manageHook defaultConfig <+> myManageHook
+manageHook' = doF W.swapDown <+> manageDocks <+> manageHook defaultConfig <+> myManageHook
 
 myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     [ ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 1-")        -- Lower volume

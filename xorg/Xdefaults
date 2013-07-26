@@ -1,43 +1,5 @@
-!TomorrowNight
-#define t_background    #1d1f21
-#define t_current_line  #282a2e
-#define t_selection     #373b41
-#define t_foreground    #c5c8c6
-#define t_comment       #969896
-#define t_red           #cc6666
-#define t_orange        #de935f
-#define t_yellow        #f0c674
-#define t_green         #b5bd68
-#define t_aqua          #8abeb7
-#define t_blue          #81a2be
-#define t_purple        #b294bb
-
-!Badwolf
-#define plain           #f8f6f2
-#define snow            #ffffff
-#define coal            #000000
-
-#define brightgravel    #d9cec3
-#define lightgravel     #998f84
-#define gravel          #857f78
-#define mediumgravel    #666462
-#define deepgravel      #45413b
-#define deepergravel    #35322d
-#define darkgravel      #242321
-#define blackgravel     #1c1b1a
-#define blackestgravel  #141413
-
-#define dalespale       #fade3e
-#define dirtyblonde     #f4cf86
-#define taffy           #ff2c4b
-#define saltwatertaffy  #8cffba
-#define tardis          #0a9dff
-#define orange          #ffa724
-#define lime            #aeee00
-#define dress           #ff9eb8
-#define toffee          #b88853
-#define coffee          #c7915b
-#define darkroast       #88633f
+! Color theme
+#include "/home/wunki/src/wunki-dotfiles/xorg/tomorrow.rxvt.colors"
 
 Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size:  22
@@ -52,7 +14,7 @@ Xft.dpi: 96
 Xft.rgba: rgb
 
 ! RXVT Scripts
-URxvt.perl-lib: /home/wunki/.urxvt-perls/
+URxvt.perl-lib: /home/wunki/src/urxvt-perls/
 urxvt.perl-ext-common: clipboard,keyboard-select
 
 ! RXVT Clipboard
@@ -96,78 +58,3 @@ urxvt.perl-ext: default,matcher
 urxvt.urlLauncher: /home/wunki/bin/conk
 urxvt.matcher.button:   1
 urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]
-
-! Colors Tomorrow Night
-*.foreground:   t_foreground
-*.background:   t_background
-*.cursorColor:  #aeafad
-
-! Black / Grey
-*.color0:       #000000
-*.color8:       #666666
-
-! Red / Bright Red
-*.color1:       t_red
-*.color9:       #FF3334
-
-! Green + Bright Green
-*.color2:       t_green
-*.color10:      #9ec400
-
-! Yellow (Orange) + Bright Yellow (Yellow)
-*.color3:       t_orange
-*.color11:      t_yellow
-
-! Blue + Bright Blue
-*.color4:       t_blue
-*.color12:      t_blue
-
-! Magenta (Purple) + Bright Magenta
-*.color5:       t_purple
-*.color13:      #b777e0
-
-! Cyan (Aqua) + Bright Cyan
-*.color6:       t_aqua
-*.color14:      #54ced6
-
-! Light Grey (Selection) + White (Current Line)
-*.color7:       t_selection
-*.color15:      t_current_line
-
-! Colors badwolf
-/* *.background:    blackgravel */
-/* *.foreground:    plain */
-/* *.cursorColor:   lime */
-/* *.scrollColor:   deepgravel */
-
-/* ! Black / Grey */
-/* *.color0:       blackestgravel */
-/* *.color8:       coal */
-
-/* ! Red */
-/* *.color1:       taffy */
-/* *.color9:       taffy */
-
-/* ! Green */
-/* *.color2:       lime */
-/* *.color10:      lime */
-
-/* ! Yellow */
-/* *.color3:       dalespale */
-/* *.color11:      orange */
-
-/* ! Blue */
-/* *.color4:       tardis */
-/* *.color12:      tardis */
-
-/* ! Magenta */
-/* *.color5:       dress */
-/* *.color13:      dress */
-
-/* ! Cyan */
-/* *.color6:       saltwatertaffy */
-/* *.color14:      saltwatertaffy */
-
-/* ! White */
-/* *.color7:       brightgravel */
-/* *.color15:      snow */

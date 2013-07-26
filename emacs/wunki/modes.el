@@ -63,15 +63,16 @@
 (setq-default dired-details-hidden-string "--- ")
 (dired-details-install)
 
-;; ido
+;; ido-mode
+(require 'flx-ido)
 (ido-mode t)
-(ido-ubiquitous-mode t)
-(setq ido-use-filename-at-point nil)
+(ido-everywhere t)
+(flx-ido-mode t)
 (setq ido-enable-prefix nil
       ido-enable-flex-matching t
-      ido-use-filename-at-point 'guess
+      ido-use-faces nil                ; don't use faces because we have flx
+      ido-use-filename-at-point nil
       ido-max-prospects 10
-      ; ido-create-new-buffer 'always
       ido-ignore-buffers
       '("\\` " "^\\*ESS\\*" "^\\*Messages\\*" "^\\*Help\\*" "^\\*Buffer"
         "^\\*.*Completions\\*$" "^\\*Ediff" "^\\*tramp" "^\\*cvs-"

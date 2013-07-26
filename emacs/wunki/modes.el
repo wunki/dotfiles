@@ -86,15 +86,14 @@
 
 ; auto-fill
 (add-hook 'html-mode-hook 'turn-off-auto-fill)
-;(add-hook 'clojure-mode-hook 'turn-on-auto-fill)
+(add-hook 'clojure-mode-hook 'turn-on-auto-fill)
 (add-hook 'python-mode-hook 'turn-on-auto-fill)
-;(setq comment-auto-fill-only-comments t)
+(setq comment-auto-fill-only-comments t)
 
-;;flyspell
+;; flyspell
 (add-hook 'clojure-mode-hook 'flyspell-prog-mode)
-;(add-hook 'haskell-mode-hook 'flyspell-prog-mode)
-;(add-hook 'python-mode-hook 'flyspell-prog-mode)
-;(add-hook 'message-mode-hook 'flyspell-mode)
+(add-hook 'haskell-mode-hook 'flyspell-prog-mode)
+(add-hook 'python-mode-hook 'flyspell-prog-mode)
 (setq flyspell-issue-message-flag nil) ;; don't show a message, slows things down.
 
 ;; scheme

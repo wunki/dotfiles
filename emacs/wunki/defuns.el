@@ -118,3 +118,10 @@ buffer is not visiting a file."
   "Disable electric-indent mode for some modes"
   (set (make-local-variable 'electric-indent-functions)
        (list (lambda (arg) 'no-indent))))
+
+(defun my-desktop ()
+  "Load the desktop and enable autosaving"
+  (interactive)
+  (let ((desktop-load-locked-desktop "ask"))
+    (desktop-read)
+    (desktop-save-mode 1)))

@@ -18,3 +18,11 @@ style "noscrollbars" {
   GtkScrollbar::has-secondary-forward-stepper=0
 }
 widget "MozillaGtkWidget.*" style "noscrollbars"
+
+# Disable resize handle
+style "no-resize-handle"
+{
+    GtkWindow::resize-grip-height = 0
+    GtkWindow::resize-grip-width = 0
+}
+class "GtkWidget" style "no-resize-handle"

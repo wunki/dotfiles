@@ -28,6 +28,7 @@
              ;; modes
              org org-plus-contrib pandoc-mode markdown-mode git-commit-mode
              gitconfig-mode gitignore-mode js2-mode yaml-mode pretty-mode-plus
+             flx-ido
 
              ;; languages
              nrepl ac-nrepl ac-slime clojure-mode clojure-test-mode cljdoc
@@ -46,7 +47,7 @@
 (load "wunki/bindings")   ; load bindings
 (load "wunki/theme")      ; set the theme and font
 (load "wunki/temp_files") ; temporary files
-(load "wunki/evil")       ; evil mode
+;(load "wunki/evil")       ; evil mode
 (load "wunki/org")        ; org-mode
 (load "wunki/magit")      ; magit
 (load "wunki/shell")      ; shell mode

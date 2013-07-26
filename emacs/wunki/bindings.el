@@ -30,6 +30,9 @@
 ;; find recent files quickly
 (global-set-key (kbd "C-c C-r") 'recentf-ido-find-file)
 
+;; save/restore the current session
+(global-set-key (kbd "<home>") 'my-desktop)
+
 ;; map execute command to the C-key
 ;; less hand movement with this command
 (global-set-key (kbd "C-x C-m") 'execute-extended-command)

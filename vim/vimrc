@@ -25,6 +25,7 @@ Bundle 'vim-orgmode'
 Bundle 'tpope/vim-speeddating'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/syntastic'
+" Bundle 'Valloric/YouCompleteMe'
 
 " Looks
 Bundle 'sjl/badwolf'
@@ -58,8 +59,11 @@ Bundle 'aliva/vim-fish'
 " CFEngine
 Bundle 'neilhwatson/vim_cf3'
 
+" Python
+Bundle 'klen/python-mode'
+
 " Powerline -- But only on my laptop
-if hostname() == "thinkpad.wunki.org"
+if hostname() == "thinkpade.wunki.org"
     python from powerline.vim import setup as powerline_setup
     python powerline_setup()
     python del powerline_setup
@@ -134,10 +138,6 @@ let g:netrw_list_hide= '.*\.swp$,.*\~$,.*\.pyc$'
 " Use normal regular expressions
 nnoremap / /\v
 vnoremap / /\v
-
-" ` is more useful than ' but less accessible.
-nnoremap ' `
-nnoremap ` '
 
 " Bash-like filename completion
 set wildmenu
@@ -284,6 +284,14 @@ setl lispwords+=let-values,condition-case,with-input-from-string
 setl lispwords+=with-output-to-string,handle-exceptions,call/cc,rec,receive
 setl lispwords+=call-with-output-file
 
+" YouCompleteMe settings
+let g:ycm_complete_in_strings = 0
+let g:ycm_autoclose_preview_window_after_completion = 1
+
+" Sessions
+set ssop-=options    " do not store global and local values in a session
+set ssop-=folds      " do not store folds
+
 " Clojure
 let g:clojure_align_multiline_strings=1
 augroup ft_clojure
@@ -297,3 +305,5 @@ augroup END
 " Erlang
 au BufRead,BufNewFile rebar.config set filetype=erlang
 
+" Saltstack
+au BufRead,BufNewFile *.sls set filetype=yaml

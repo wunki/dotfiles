@@ -46,6 +46,7 @@
 (load "wunki/bindings")   ; load bindings
 (load "wunki/theme")      ; set the theme and font
 (load "wunki/temp_files") ; temporary files
+(load "wunki/evil")       ; evil mode
 (load "wunki/org")        ; org-mode
 (load "wunki/magit")      ; magit
 (load "wunki/shell")      ; shell mode

@@ -49,7 +49,10 @@ register_user_stylesheet(
     " font-size: 13px !important;" +
     " padding: 0.1em 0.2em!important;" +  
     " font-family: \"Ubuntu\" !important;" +  
-		"}"));
+		  "}"));
+
+// fonts
+session_pref("font.name.monospace.x-western", "Ubuntu Mono");
 
 // teach me something whenever I start my browser
 homepage = "about:blank";

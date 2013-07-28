@@ -15,6 +15,7 @@ import           XMonad.Actions.WindowGo
 -- Layouts
 import           XMonad.Layout.Grid
 import           XMonad.Layout.Magnifier
+import           XMonad.Layout.NoBorders
 import           XMonad.Layout.PerWorkspace
 
 -- Keys
@@ -46,7 +47,7 @@ main = do
         }
 
 -- Layouts
-standardLayout = tiled ||| Full ||| Grid
+standardLayout = tiled ||| noBorders Full ||| Grid
     where tiled     = Tall nmaster delta ratio
           nmaster   = 1
           ratio     = 3/5

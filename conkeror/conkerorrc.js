@@ -83,6 +83,7 @@ define_webjump("gs", "https://encrypted.google.com/?q=%s");
 define_opensearch_webjump("dd", "duckduckgo.xml");
 define_opensearch_webjump("wk", "wikipedia.xml");
 define_webjump("gh", "http://github.com/search?q=%s&type=Everything");
+define_webjump("ho", "http://www.haskell.org/hoogle/?hoogle=%s");
 define_webjump("cl", "http://clojuredocs.org/search?x=0&y=0&q=%s");
 define_webjump("imdb", "http://imdb.com/find?q=%s");
 define_webjump("yt", "http://www.youtube.com/results?search_query=%s&search=Search");

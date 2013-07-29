@@ -1,21 +1,9 @@
-(defun vendor (library)
-  "Load a library from the vendor directory"
-  (let* ((file (symbol-name library))
-         (normal (concat "~/.emacs.d/vendor/" file))
-         (suffix (concat normal ".el"))
-         (wunki (concat "~/.emacs./wunki/" file)))
-    (cond
-     ((file-directory-p normal) (add-to-list 'load-path normal) (require library))
-     ((file-directory-p suffix) (add-to-list 'load-path suffix) (require library))
-     ((file-exists-p suffix) (require library)))
-    (when (file-exists-p (concat wunki ".el"))
-      (load wunki))))
-
 (defun sudo-edit (&optional arg)
   "Edit currently visited file as root.
 
-With a prefix ARG prompt for a file to visit.  Will also prompt
-for a file to visit if current buffer is not visiting a file."
+   With a prefix ARG prompt for a file to visit.  Will also
+   prompt for a file to visit if current buffer is not visiting a
+   file."
   (interactive "P")
   (if (or arg (not buffer-file-name))
       (find-file (concat "/sudo:root@localhost:"
@@ -108,7 +96,7 @@ for a file to visit if current buffer is not visiting a file."
 
 (defun edit-config ()
   (interactive)
-  (ido-find-file-in-dir "~/.emacs.d/wunki"))
+  (ido-find-file-in-dir "~/.emacs.d"))
 
 (defun enable-paredit-mode ()
   (paredit-mode t))

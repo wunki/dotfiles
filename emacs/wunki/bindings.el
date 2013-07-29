@@ -52,6 +52,8 @@
 ;; toggle between light and dark theme
 (define-key global-map (kbd "C-c C-t") 'toggle-dark-light-theme)
 
+;; *tweet* *tweet*
+
 ;; github gists
 (define-key global-map (kbd "C-S-c g") 'gist-buffer-private)
 (define-key global-map (kbd "C-S-c b") 'gist-buffer)
@@ -83,26 +85,23 @@
 (global-set-key (kbd "C-c N") 'windmove-down)
 
 ;; multiple markers
-(key-chord-define-global "MM" 'mc/mark-next-like-this)
-(key-chord-define-global "MA" 'mc/mark-all-like-this)
-(key-chord-define-global "MD" 'mc/mark-all-like-this-dwim)
+(global-set-key (kbd "C-'") 'mc/edit-lines)
+(global-set-key (kbd "C-.") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-,") 'mc/mark-all-like-this-dwim)
 
 ;; moving around
-(key-chord-define-global "JJ" 'ace-jump-mode)
-(key-chord-define-global "II" 'idomenu)
+(global-set-key (kbd "C-c C-j") 'ace-jump-mode)
+(global-set-key (kbd "C-c C-i") 'idomenu)
 
 ;; quickly edit files
-(key-chord-define-global "EE" 'edit-config)
-(key-chord-define-global "TT" 'edit-todos)
+(global-set-key (kbd "C-c e") 'edit-config)
+(global-set-key (kbd "C-c t") 'edit-todos)
 
 ;; move around changes
-(key-chord-define-global "CC" 'goto-last-change)
+(global-set-key (kbd "C-c C-c") 'goto-last-change)
 
 ;; packages
-(key-chord-define-global "UU" 'package-list-packages)
-
-;; *tweet* *tweet*
-(global-set-key (kbd "C-c t") 'twittering-update-status-interactive)
+(global-set-key (kbd "C-c C-p") 'package-list-packages)
 
 ;; close emacs
-(key-chord-define-global "ZZ" 'save-buffers-kill-emacs)
+(global-set-key (kbd "C-c q") 'save-buffers-kill-emacs)

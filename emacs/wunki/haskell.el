@@ -12,7 +12,7 @@
  
  ;; Use notify.el (if you have it installed) at the end of running
  ;; Cabal commands or generally things worth notifying.
- '(haskell-notify-p f)
+ '(haskell-notify-p nil)
 
  ;; To enable tags generation on save.
  '(haskell-tags-on-save t)

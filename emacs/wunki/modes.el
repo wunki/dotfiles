@@ -66,7 +66,7 @@
 ;; ido-mode
 (require 'flx-ido)
 (ido-mode t)
-(ido-everywhere t)
+(ido-ubiquitous t)
 (flx-ido-mode t)
 (setq ido-enable-prefix nil
       ido-enable-flex-matching t
@@ -139,7 +139,3 @@
 ;; diminish
 (diminish 'projectile-mode)
 (diminish 'auto-complete-mode)
-
-;; key chords (see bindings.el)
-(key-chord-mode t)
-(setq key-chord-two-keys-delay 0.01)

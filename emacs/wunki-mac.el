@@ -1,7 +1,4 @@
-;;
-;; Mac only settings.
-;;
-
+;; mac only settings.
 ;; use the old way of toggling to fullscreen
 (setq ns-use-native-fullscreen nil)
 (global-set-key (kbd "<f3>") 'toggle-frame-fullscreen)
@@ -12,3 +9,5 @@
 
 ;; extend exec-path for homebrew
 (setq exec-path (append exec-path '("/usr/local/bin")))
+
+(provide 'wunki-mac)

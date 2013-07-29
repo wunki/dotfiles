@@ -17,3 +17,5 @@
 
 (setq auto-save-file-name-transforms
       `((".*" ,user-temporary-file-directory t)))
+
+(provide 'wunki-temp)

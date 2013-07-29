@@ -110,3 +110,5 @@
 
 ;; allow setting single tags without the menu
 (setq org-fast-tag-selection-single-key (quote expert))
+
+(provide 'wunki-org)

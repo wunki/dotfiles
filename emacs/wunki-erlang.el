@@ -7,3 +7,5 @@
 (when (file-directory-p "/home/wunki/src/edts")
   (add-to-list 'load-path "/home/wunki/src/edts")
   (require 'edts-start))
+
+(provide 'wunki-erlang)

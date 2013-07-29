@@ -122,3 +122,5 @@
          ("/bread-and-pepper/trash"   . ?T)
          ("/wunki/clojure"            . ?c)
          ("/wunki/haskell-beginners"  . ?h)))
+
+(provide 'wunki-mu4e)

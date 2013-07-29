@@ -58,3 +58,5 @@
        "j" 'evil-next-line
        "RET" 'mu4e-view-message)
      ))
+
+(provide 'wunki-evil)

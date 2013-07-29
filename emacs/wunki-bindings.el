@@ -105,3 +105,5 @@
 
 ;; close emacs
 (global-set-key (kbd "C-c q") 'save-buffers-kill-emacs)
+
+(provide 'wunki-bindings)

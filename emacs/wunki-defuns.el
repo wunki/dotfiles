@@ -122,3 +122,5 @@ for a file to visit if current buffer is not visiting a file."
   (let ((desktop-load-locked-desktop "ask"))
     (desktop-read)
     (desktop-save-mode 1)))
+
+(provide 'wunki-defuns)

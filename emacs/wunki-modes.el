@@ -9,6 +9,7 @@
 
 ;; projectile for project management
 (projectile-global-mode)
+(setq projectile-ack-function 'ag)
 
 ;; deletes region when starting typing
 (pending-delete-mode t)
@@ -139,3 +140,5 @@
 ;; diminish
 (diminish 'projectile-mode)
 (diminish 'auto-complete-mode)
+
+(provide 'wunki-modes)

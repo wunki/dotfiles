@@ -1,23 +1,18 @@
 ;; place to save customizations
-(setq custom-file "~/.emacs.d/wunki/custom.el")
+(setq custom-file "~/.emacs.d/wunki-custom.el")
 (require 'cl)
-
-;; handy functions
-(load "wunki/defuns")
 
 ;; load main configuration
 (when (file-exists-p custom-file)
   (load custom-file))
 
-;; packages
-(when (not (require 'package nil t))
-  (load-file "~/.emacs.d/package-23.el"))
-
+;; package repositories
 (setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")
                          ("org" . "http://orgmode.org/elpa/")))
 (package-initialize)
 
+;; my packages
 (dolist (p '(;; fundamentals
              paredit magit gist ack-and-a-half auto-complete jabber 
              buffer-move ido-ubiquitous s projectile goto-last-change
@@ -43,25 +38,29 @@
     (package-install p)))
 
 ;; configuration files
-(load "wunki/modes")      ; settings for specific modes
-(load "wunki/bindings")   ; load bindings
-(load "wunki/theme")      ; set the theme and font
-(load "wunki/temp_files") ; temporary files
-;(load "wunki/evil")       ; evil mode
-(load "wunki/org")        ; org-mode
-(load "wunki/magit")      ; magit
-(load "wunki/shell")      ; shell mode
-(load "wunki/lisp")       ; lisp languages
-(load "wunki/scheme")     ; scheme languages
-(load "wunki/haskell")    ; haskell
-(load "wunki/erlang")     ; erlang
-(load "wunki/python")     ; python
-(load "wunki/erc")        ; irc
-(load "wunki/jabber")     ; jabber
+(setq config-dir (file-name-directory
+                  (or (buffer-file-name) load-file-name)))
+(add-to-list 'load-path config-dir)
+
+(require 'wunki-defuns)     ; my functions
+(require 'wunki-modes)      ; settings for specific modes
+(require 'wunki-bindings)   ; load bindings
+(require 'wunki-theme)      ; set the theme and font
+(require 'wunki-temp)       ; temporary files
+(require 'wunki-org)        ; org-mode
+(require 'wunki-magit)      ; magit
+(require 'wunki-shell)      ; shell mode
+(require 'wunki-lisp)       ; lisp languages
+(require 'wunki-scheme)     ; scheme languages
+(require 'wunki-haskell)    ; haskell
+(require 'wunki-erlang)     ; erlang
+(require 'wunki-python)     ; python
+(require 'wunki-erc)        ; irc
+(require 'wunki-jabber)     ; jabber
 
 (when (eq system-type 'darwin)
-  (load "wunki/mac"))     ; mac settings
+  (require 'wunki-mac))     ; mac settings
 
 ;; load email only on my local computer
 (when (string-equal system-name "thinkpad.wunki.org")
-  (load "wunki/mu4e"))
+  (require 'wunki-mu4e))

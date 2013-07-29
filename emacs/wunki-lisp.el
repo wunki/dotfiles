@@ -61,3 +61,5 @@
   (nrepl-show-current-connection))
 
 (global-set-key (kbd "C-c C-x n") 'nrepl-switch-to-next-connection)
+
+(provide 'wunki-lisp)

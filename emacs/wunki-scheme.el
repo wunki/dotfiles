@@ -7,3 +7,5 @@
 ;; enable paredit on geiser
 (add-hook 'geiser-repl-mode-hook 'enable-paredit-mode)
 (add-hook 'scheme-mode-hook 'enable-paredit-mode)
+
+(provide 'wunki-scheme)

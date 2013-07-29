@@ -41,7 +41,7 @@
 (defun jabber-start ()
   "wrapper for starting jabber because we need the passwords"
   (interactive)
-  (require 'secrets "wunki/secrets.el")
+  (require 'wunki-secrets)
   ;; jabber accounts
   (setq jabber-account-list
         `((,jabber-hipchat-username
@@ -49,3 +49,5 @@
            (:password . ,jabber-hipchat-password)
            (:connection-type . ssl))))
   (jabber-connect-all))
+
+(provide 'wunki-jabber)

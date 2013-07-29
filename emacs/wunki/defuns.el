@@ -114,9 +114,7 @@ for a file to visit if current buffer is not visiting a file."
   (paredit-mode t))
 
 (defun disable-electric-indent ()
-  "Disable electric-indent mode for some modes"
-  (set (make-local-variable 'electric-indent-functions)
-       (list (lambda (arg) 'no-indent))))
+  (set (make-local-variable 'electric-indent-mode) nil))
 
 (defun my-desktop ()
   "Load the desktop and enable autosaving"

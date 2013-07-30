@@ -40,21 +40,18 @@ main = do
         , borderWidth = 1
         , normalBorderColor  = "#1a1a1a"
         , focusedBorderColor = "#373b41"
-        , workspaces = ["1:Shell", "2:Editor", "3:Browser", "4:GUI", "5:Fullscreen"]
+        , workspaces = ["1:Shell", "2:Emacs", "3:Browser", "4:Remote", "5:Gui"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
         , startupHook = myStartupHook
         }
 
 -- Layouts
-standardLayout = tiled ||| noBorders Full ||| Grid
+myLayout = tiled ||| noBorders Full ||| Grid
     where tiled     = Tall nmaster delta ratio
           nmaster   = 1
           ratio     = 3/5
           delta     = 3/100
-
-myLayout = onWorkspace "5:Fullscreen" Full $
-           standardLayout
 
 -- Float & Window setup
 myManageHook :: ManageHook
@@ -64,9 +61,9 @@ myManageHook = manageDocks <+> composeAll
     , className =? "Firefox"              --> doF (W.shift "3:Browser")
     , className =? "Iceweasel"            --> doF (W.shift "3:Browser")
     , className =? "Conkeror"             --> doF (W.shift "3:Browser")
-    , className =? "Emacs"                --> doF (W.shift "2:Editor")
-    , className =? "GVIM"                 --> doF (W.shift "2:Editor")
-    , className =? "Thunar"               --> doF (W.shift "4:GUI")
+    , className =? "Emacs"                --> doF (W.shift "2:Emacs")
+    , className =? "GVIM"                 --> doF (W.shift "2:Emacs")
+    , className =? "Thunar"               --> doF (W.shift "5:Gui")
     ]
 
 manageHook' :: ManageHook

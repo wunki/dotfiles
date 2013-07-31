@@ -49,11 +49,6 @@
 (global-set-key (kbd "<C-return>") 'open-line-below)
 (global-set-key (kbd "<C-S-return>") 'open-line-above)
 
-;; toggle between light and dark theme
-(define-key global-map (kbd "C-c C-t") 'toggle-dark-light-theme)
-
-;; *tweet* *tweet*
-
 ;; github gists
 (define-key global-map (kbd "C-S-c g") 'gist-buffer-private)
 (define-key global-map (kbd "C-S-c b") 'gist-buffer)
@@ -94,14 +89,17 @@
 (global-set-key (kbd "C-c C-i") 'idomenu)
 
 ;; quickly edit files
-(global-set-key (kbd "C-c e") 'edit-config)
-(global-set-key (kbd "C-c t") 'edit-todos)
+(global-set-key (kbd "C-c C-e") 'edit-config)
+(global-set-key (kbd "C-c C-t") 'edit-todos)
 
 ;; move around changes
 (global-set-key (kbd "C-c C-c") 'goto-last-change)
 
 ;; packages
 (global-set-key (kbd "C-c C-p") 'package-list-packages)
+
+;; whitespace mode
+(global-set-key (kbd "C-c C-w") 'global-whitespace-mode)
 
 ;; close emacs
 (global-set-key (kbd "C-c q") 'save-buffers-kill-emacs)

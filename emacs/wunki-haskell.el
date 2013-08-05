@@ -68,9 +68,6 @@
   (define-key haskell-mode-map (kbd "C-c C-p") 'haskell-interactive-mode-error-backward)
   (define-key haskell-mode-map (kbd "C-c C-n") 'haskell-interactive-mode-error-forward)
 
-  ;; quit the repl
-  (define-key haskell-interactive-mode-map (kbd "C-c C-q") 'haskell-interactive-kill)
-  
   ;; Indent the below lines on columns after the current column.
   (define-key haskell-mode-map (kbd "C-<right>")
     (lambda ()

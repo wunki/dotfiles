@@ -131,6 +131,9 @@
 ;; windmove
 (setq windmove-wrap-around t)
 
+;; undo-tree
+(global-undo-tree-mode t)
+
 ;; twittering
 (setq twittering-use-master-password t)
 (add-hook 'twittering-edit-mode-hook

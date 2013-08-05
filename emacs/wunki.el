@@ -16,14 +16,14 @@
 (dolist (p '(;; fundamentals
              paredit magit gist ack-and-a-half auto-complete jabber 
              buffer-move ido-ubiquitous s projectile goto-last-change
-             expand-region change-inner powerline evil surround idomenu
+             expand-region change-inner powerline surround idomenu
              diminish dired-details multiple-cursors ag key-chord restclient
              quack geiser rainbow-delimiters
 
              ;; modes
              org org-plus-contrib pandoc-mode markdown-mode git-commit-mode
              gitconfig-mode gitignore-mode js2-mode yaml-mode pretty-mode-plus
-             flx-ido
+             flx-ido undo-tree
 
              ;; languages
              nrepl ac-nrepl ac-slime clojure-mode clojure-test-mode cljdoc

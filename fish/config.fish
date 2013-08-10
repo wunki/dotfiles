@@ -28,7 +28,7 @@ function rmpyc; find . -name '*.pyc' | xargs rm; end
 set -x fish_greeting ""
 set -x EDITOR 'emacsclient -t -a emacs'
 set -x VISUAL 'emacsclient -t -a emacs'
-set -x BROWSER /home/wunki/bin/conk
+set -x BROWSER /home/wunki/bin/conkeror
 
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"
     if test -d $argv[1]
@@ -60,6 +60,11 @@ set __fish_git_prompt_showdirtystate 'yes'
 set __fish_git_prompt_showstashstate 'yes'
 set __fish_git_prompt_showupstream 'yes'
 set __fish_git_prompt_color_branch yellow
+
+# aws
+prepend_to_path "$HOME/.aws/bin"
+set -x AWS_IAM_HOME "$HOME/.aws/iam"
+set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
 
 # status chars
 set __fish_git_prompt_char_upstream_equal '✓'

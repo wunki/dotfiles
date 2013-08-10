@@ -25,7 +25,6 @@ Bundle 'vim-orgmode'
 Bundle 'tpope/vim-speeddating'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/syntastic'
-" Bundle 'Valloric/YouCompleteMe'
 
 " Looks
 Bundle 'sjl/badwolf'
@@ -40,7 +39,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'paredit.vim'
 
 " Haskell
-Bundle 'lukerandall/haskellmode-vim'
+Bundle 'travitch/hasksyn'
 Bundle 'Twinside/vim-syntax-haskell-cabal'
 
 " Rust
@@ -61,6 +60,7 @@ Bundle 'neilhwatson/vim_cf3'
 
 " Python
 Bundle 'klen/python-mode'
+Bundle 'jmcantrell/vim-virtualenv'
 
 " Powerline -- But only on my laptop
 if hostname() == "thinkpade.wunki.org"
@@ -188,7 +188,7 @@ set expandtab                     " expand tabs to spaces
 
 " Change mapleader to comma
 let mapleader = ","
-let maplocalleader = "\\"
+let maplocalleader = "_"
 
 " Toggle whitespace invisibles
 nmap <leader>l :set list!<CR>
@@ -256,11 +256,11 @@ augroup ft_org
 augroup END
 
 " Haskell settings
-au BufEnter *.hs compiler ghc
-let g:haddock_browser = "open"
+let g:haddock_browser = "/home/wunki/bin/conkeror"
 let g:haddock_browser_callformat = "%s %s"
-let g:ghc="/usr/local/bin/ghc"
-let g:haddock_docdir="/usr/local/share/doc/ghc/html/"
+let g:ghc="/usr/bin/ghc"
+let g:haddock_docdir="/usr/share/doc/ghc/html/"
+"autocmd FileType haskell setlocal shiftwidth=2 tabstop=2
 
 " Badwolf theme settings
 let g:badwolf_darkgutter = 1
@@ -307,3 +307,7 @@ au BufRead,BufNewFile rebar.config set filetype=erlang
 
 " Saltstack
 au BufRead,BufNewFile *.sls set filetype=yaml
+
+" Syntastic
+let g:syntastic_echo_current_error=0
+let g:syntastic_enable_highlighting=0

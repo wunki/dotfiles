@@ -18,7 +18,7 @@
              buffer-move ido-ubiquitous s projectile goto-last-change
              expand-region change-inner powerline surround idomenu
              diminish dired-details multiple-cursors ag key-chord restclient
-             quack geiser rainbow-delimiters
+             quack geiser rainbow-delimiters calfw
 
              ;; modes
              org org-plus-contrib pandoc-mode markdown-mode git-commit-mode

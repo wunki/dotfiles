@@ -24,6 +24,9 @@
 ;; indent after newline
 (electric-indent-mode t)
 
+;; calfw
+(require 'calfw)
+
 ;; recentf
 (recentf-mode 1)
 (setq recentf-max-saved-items 30)
@@ -143,5 +146,6 @@
 ;; diminish
 (diminish 'projectile-mode)
 (diminish 'auto-complete-mode)
+(diminish 'undo-tree-mode)
 
 (provide 'wunki-modes)

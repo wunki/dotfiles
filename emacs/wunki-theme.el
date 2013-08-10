@@ -1,6 +1,6 @@
 ;; active theme
 (add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
-(load-theme 'sanityinc-tomorrow-night)
+(load-theme 'zenburn)
 
 ;; fonts
 (set-frame-font "Ubuntu Mono-12")

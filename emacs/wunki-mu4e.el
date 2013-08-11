@@ -4,6 +4,12 @@
 (require 'sendmail)
 (require 'org-mu4e)
 
+;; hooks
+(add-hook 'mu4e-compose-mode-hook
+          (defun my-compose-stuff ()
+            (set-fill-column 72)
+            (flyspell-mode)))
+
 ;; my e-mail addresses
 (setq mu4e-user-mail-address-list '("petar@wunki.org"
                                     "petar@gibbon.co"

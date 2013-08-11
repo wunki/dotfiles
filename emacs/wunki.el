@@ -55,6 +55,7 @@
 (require 'wunki-haskell)    ; haskell
 (require 'wunki-erlang)     ; erlang
 (require 'wunki-python)     ; python
+(require 'wunki-rust)       ; rust
 (require 'wunki-erc)        ; irc
 (require 'wunki-jabber)     ; jabber
 

@@ -2,8 +2,6 @@
 function t1; tree --dirsfirst -ChFL 1; end
 function t2; tree --dirsfirst -ChFL 2; end
 function t3; tree --dirsfirst -ChFL 3; end
-function gsdw; sudo ~/bin/get-shit-done work; end
-function gsdp; sudo ~/bin/get-shit-done play; end
 function wl; wicd-curses; end
 function weechat; weechat-curses $argv; end
 function nstat; sudo nethogs wlan0 $argv; end

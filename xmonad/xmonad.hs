@@ -38,8 +38,8 @@ main = do
                     , ppCurrent = xmobarColor "#81a2be" ""
                     }
         , borderWidth = 1
-        , normalBorderColor  = "#1a1a1a"
-        , focusedBorderColor = "#373b41"
+        , normalBorderColor  = "#3f3f3f"
+        , focusedBorderColor = "#709080"
         , workspaces = ["1:Shell", "2:Emacs", "3:Browser", "4:Remote", "5:Gui"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c

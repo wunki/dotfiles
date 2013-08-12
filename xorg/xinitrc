@@ -42,7 +42,7 @@ redshift -l 52:4 -t 6000:4800 -m vidmode &
 # xcompmgr -c -C -t-5 -l-5 -r4.2 -o.80 &
 
 # Set background
-feh --bg-tile ~/dropbox/Pictures/Wallpapers/Patterns/stressed_linen.png
+feh --bg-tile ~/dropbox/Pictures/Wallpapers/Patterns/darkdenim3.png
 
 # Screensaver
 # xscreensaver -no-splash &

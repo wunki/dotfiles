@@ -1,5 +1,5 @@
 ! Color theme
-#include "/home/wunki/src/wunki-dotfiles/xorg/tomorrow.rxvt.colors"
+#include "/home/wunki/src/wunki-dotfiles/xorg/zenburn.rxvt.colors"
 
 Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size:  22
@@ -34,7 +34,6 @@ urxvt.boldItalicFont:  xft:Ubuntu Mono derivative Powerline::bolditalic:size=12
 
 ! Urxvt settings
 urxvt.depth: 32
-! urxvt.background: [95]t_background
 urxvt.jumpScroll: True
 urxvt.fading: 30
 urxvt.scrollBar: False

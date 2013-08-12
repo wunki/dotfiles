@@ -1,0 +1,46 @@
+! Zenburn
+#define z_foreground  #dcdccc 
+#define z_background  #333333
+
+*.foreground: z_foreground
+*.background: z_background
+
+! Black / Grey
+*.color0:  z_background
+*.color8:  z_grey
+
+! Red / Bright Red
+*.color1:  #705050
+*.color9:  #cc9393
+
+! Green / Bright Green
+*.color2:  #60b48a
+*.color10: #7f9f7f
+
+! Orange / Yellow
+*.color3:  #dfaf8f
+*.color11: #f0dfaf
+
+! Blue / Bright Blue
+*.color4:  #506070
+*.color12: #94bff3
+
+! Magenta / Bright Magenta
+*.color5:  #dc8cc3
+*.color13: #ec93d3
+
+! Cyan / Bright Cyan
+*.color6:  #8cd0d3
+*.color14: #93e0e3
+
+! Grey / White
+*.color7:  #DCDCCC
+*.color15: #ffffff 
+
+
+
+
+
+
+
+

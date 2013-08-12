@@ -40,7 +40,7 @@ function work()
     # if no hosts file found...
     [ -e "$1" ] || exit_with_error $E_NO_HOSTS_FILE "No hosts file found"
 
-    ini_file="$HOME/.config/get-shit-done.ini"
+    ini_file="/home/wunki/.config/get-shit-done.ini"
 
     site_list=( 'reddit.com' 'forums.somethingawful.com' 'somethingawful.com'
 		'digg.com' 'break.com' 'news.ycombinator.com'
@@ -50,7 +50,8 @@ function work()
 		'friendster.com' 'hi5.com' 'linkedin.com'
 		'livejournal.com' 'meetup.com' 'myspace.com'
 		'plurk.com' 'stickam.com' 'stumbleupon.com'
-		'yelp.com' 'slashdot.org' )
+		'yelp.com' 'slashdot.org' 'geenstijl.nl' 'sceper.ws'
+    'nos.nl')
 
     # add sites from ini file
     # to site_list array

@@ -24,10 +24,10 @@
 ;; indent after newline
 (electric-indent-mode t)
 
-;; calfw
+;; calfw, handy calendar
 (require 'calfw)
 
-;; recentf
+;; recently opened files
 (recentf-mode 1)
 (setq recentf-max-saved-items 30)
 (add-to-list 'recentf-exclude "\\/tmp\\'" "~/.ido.last")
@@ -93,13 +93,13 @@
 (add-hook 'html-mode-hook 'turn-off-auto-fill)
 (add-hook 'clojure-mode-hook 'turn-on-auto-fill)
 (add-hook 'python-mode-hook 'turn-on-auto-fill)
-(setq comment-auto-fill-only-comments t)
 
 ;; flyspell
 (add-hook 'clojure-mode-hook 'flyspell-prog-mode)
 (add-hook 'haskell-mode-hook 'flyspell-prog-mode)
 (add-hook 'python-mode-hook 'flyspell-prog-mode)
-(setq flyspell-issue-message-flag nil) ;; don't show a message, slows things down.
+(add-hook 'git-commit-mode-hook 'turn-on-flyspell)
+(setq flyspell-issue-message-flag nil)             ; don't show a message, slows things down.
 
 ;; scheme
 (setq scheme-program-name "csi -:c")
@@ -142,6 +142,11 @@
 (add-hook 'twittering-edit-mode-hook
           (lambda ()
             (auto-fill-mode -1)))
+
+;; jump to the last place you were in the file
+(require 'saveplace)
+(setq save-place-file "~/.emacs.d/saved-places")
+(setq-default save-place t)
 
 ;; diminish
 (diminish 'projectile-mode)

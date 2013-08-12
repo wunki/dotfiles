@@ -3,9 +3,9 @@ Config { font = "xft:Ubuntu Mono:pixelsize=14:antialias=true"
        , fgColor = "#DCDCCC"
        , position = BottomSize L 100 26
        , lowerOnStart = True
-       , commands = [ Run Network "wlp3s0" ["-t", "<rx> - <tx>", "-L", "0"," -H", "100", "--normal", "#969896", "--high", "#de935f"] 20
-                    , Run Battery ["-t", "Batt: <left>% - <timeleft>", "-L", "30", "-H", "75", "--low", "#de935f", "--high", "#969896"] 600
-                    , Run Cpu ["-L", "3", "-H", "50", "--normal", "#969896", "--high", "#de935f"] 20
+       , commands = [ Run Network "wlp3s0" ["-t", "<rx> - <tx>", "-L", "0"," -H", "100", "--normal", "#DCDCCC", "--high", "#CC9393"] 20
+                    , Run Battery ["-t", "Batt: <left>% - <timeleft>", "-L", "30", "-H", "75", "--low", "#CC9393", "--high", "#DCDCCC"] 600
+                    , Run Cpu ["-L", "3", "-H", "50", "--normal", "#DCDCCC", "--high", "#CC9393"] 20
                     , Run Com "/home/wunki/bin/volume" [] "vol" 20
                     , Run Date "%a %_d %b | %H:%M" "date" 60
                     , Run StdinReader

@@ -14,3 +14,4 @@ mplayer/gui*
 /emacs/projectile-bookmarks.eld
 /bin/pip
 /bin/python
+/emacs/saved-places

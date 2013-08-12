@@ -101,12 +101,6 @@
 (add-hook 'git-commit-mode-hook 'turn-on-flyspell)
 (setq flyspell-issue-message-flag nil)             ; don't show a message, slows things down.
 
-;; scheme
-(setq scheme-program-name "csi -:c")
-
-;; lisp
-(setq inferior-lisp-program "/usr/bin/sbcl --noinform")
-
 ;; PO
 (setq auto-mode-alist
       (cons '("\\.po\\'\\|\\.po\\." . po-mode) auto-mode-alist))
@@ -125,16 +119,16 @@
 ;; salt stack
 (add-to-list 'auto-mode-alist '("\\.sls$" . yaml-mode))
 
-;; cfengine
+;; cfengine3
 (add-to-list 'auto-mode-alist '("\\.cf$" . cfengine3-mode))
 
-;; restclient
+;; edit rest documentation
 (add-to-list 'auto-mode-alist '("\\.http$" . restclient-mode))
 
-;; windmove
+;; window movement
 (setq windmove-wrap-around t)
 
-;; undo-tree
+;; nice visualation of undo's
 (global-undo-tree-mode t)
 
 ;; twittering
@@ -148,7 +142,7 @@
 (setq save-place-file "~/.emacs.d/saved-places")
 (setq-default save-place t)
 
-;; diminish
+;; cleanup modeline
 (diminish 'projectile-mode)
 (diminish 'auto-complete-mode)
 (diminish 'undo-tree-mode)

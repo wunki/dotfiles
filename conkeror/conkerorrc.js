@@ -27,6 +27,9 @@ session_pref("general.useragent.compatMode.firefox", true);
 // don't enable formfill
 session_pref("browser.formfill.enable", false);
 
+// smooth scrolling
+session_pref("general.smoothScroll", true);
+
 // default directory
 cwd = make_file("/home/wunki/downloads");
 

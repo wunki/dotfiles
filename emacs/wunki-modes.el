@@ -91,8 +91,8 @@
 
 ; auto-fill
 (add-hook 'html-mode-hook 'turn-off-auto-fill)
-(add-hook 'clojure-mode-hook 'turn-on-auto-fill)
-(add-hook 'python-mode-hook 'turn-on-auto-fill)
+(add-hook 'clojure-mode-hook 'turn-off-auto-fill)
+(add-hook 'python-mode-hook 'turn-off-auto-fill)
 
 ;; flyspell
 (add-hook 'clojure-mode-hook 'flyspell-prog-mode)

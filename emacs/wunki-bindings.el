@@ -86,7 +86,7 @@
 (global-set-key (kbd "C-,") 'mc/mark-all-like-this-dwim)
 
 ;; moving around
-(global-set-key (kbd "C-c C-j") 'ace-jump-mode)
+(global-set-key (kbd "C-M-a") 'ace-jump-mode)
 (global-set-key (kbd "C-c C-i") 'idomenu)
 
 ;; quickly edit files

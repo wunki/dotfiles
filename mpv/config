@@ -1,3 +1,36 @@
-# Write your default config options here!
+################################################################################
+# General
+################################################################################
+use-filedir-conf=yes # load config file from file directory
+correct-pts=yes
+msgcolor=yes # FABULOUS!!
+cache=50000
+cache-min=10
 
+################################################################################
+# Video
+################################################################################
+vo=xv,x11
+fs=yes
+ontop=yes
 
+################################################################################
+# Subtitles
+################################################################################
+#fontconfig=yes
+embeddedfonts=yes
+ass-force-style=Kerning=yes
+sub-text-font="DejaVu Sans"
+sub-text-font-size=48
+
+osd-bar-align-y=0
+osd-bar-h=7
+osd-border-size=1
+osd-color='#CCFFFFFF'
+osd-border-color='#333333'
+
+################################################################################
+# Languages & containers
+################################################################################
+slang=eng,en
+alang=nl

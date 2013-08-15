@@ -111,4 +111,8 @@
     (desktop-read)
     (desktop-save-mode 1)))
 
+(defun my-auto-fill-prog ()
+  "Only auto-fill comments when programming"
+  (set (make-local-variable 'comment-auto-fill-only-comments) t))
+
 (provide 'wunki-defuns)

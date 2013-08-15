@@ -91,8 +91,7 @@
 
 ; auto-fill
 (add-hook 'html-mode-hook 'turn-off-auto-fill)
-(add-hook 'clojure-mode-hook
-          (lambda () ((set (make-local-variable 'comment-auto-fill-only-comments) t))))
+(add-hook 'clojure-mode-hook 'my-auto-fill-prog)
 
 ;; flyspell
 (add-hook 'clojure-mode-hook 'flyspell-prog-mode)

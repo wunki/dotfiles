@@ -7,7 +7,7 @@ require("/home/wunki/src/wunki-dotfiles/conkeror/instapaper.js");
 // use 'contrib' stuff
 load_paths.unshift("chrome://conkeror-contrib/content/");
 
-// my custom keys
+// custom keys
 define_key(text_keymap, 'C-w', 'cmd_deleteWordBackward');
 define_key(default_global_keymap, 'C-x C-m', 'execute-extended-command');
 
@@ -57,7 +57,7 @@ register_user_stylesheet(
 // fonts
 session_pref("font.name.monospace.x-western", "Ubuntu Mono");
 
-// teach me something whenever I start my browser
+// blank page on start
 homepage = "about:blank";
 
 // open clicks in buffers (tabs) in the background

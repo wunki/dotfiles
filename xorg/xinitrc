@@ -26,6 +26,9 @@ xsetroot -cursor_name left_ptr
 setxkbmap -layout us -variant dvorak
 setxkbmap -option ctrl:nocaps 
 
+# Enable iPad charger
+/usr/bin/ipad_charge
+
 # Start rvxt-unicode server
 urxvtd -o -q -f &
 

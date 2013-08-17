@@ -90,11 +90,11 @@
   (forward-line -1)
   (indent-for-tab-command))
 
-(defun edit-todos ()
+(defun ido-todos ()
   (interactive)
   (ido-find-file-in-dir "~/org"))
 
-(defun edit-config ()
+(defun ido-emacs-config ()
   (interactive)
   (ido-find-file-in-dir "~/.emacs.d"))
 

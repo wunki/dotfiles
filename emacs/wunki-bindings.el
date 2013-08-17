@@ -90,8 +90,9 @@
 (global-set-key (kbd "C-c C-i") 'idomenu)
 
 ;; quickly edit files
-(global-set-key (kbd "C-c C-e") 'edit-config)
-(global-set-key (kbd "C-c C-t") 'edit-todos)
+(global-set-key (kbd "C-c 1") 'ido-todos)
+(global-set-key (kbd "C-c 2") 'ido-emacs-config)
+(global-set-key (kbd "C-c 3") 'projectile-switch-project)
 
 ;; move around changes
 (global-set-key (kbd "C-c C-c") 'goto-last-change)

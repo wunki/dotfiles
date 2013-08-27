@@ -6,6 +6,7 @@ emacs/var
 emacs/.org-id-locations
 emacs/swank
 emacs/elnode
+emacs/tutorial
 *.dat
 /emacs/eshell/lastdir
 /bin/lein

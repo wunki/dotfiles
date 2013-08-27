@@ -33,6 +33,12 @@
       smtpmail-queue-mail nil                            ; start in non queue mode
 )
 
+;; use the fancy characters
+(setq mu4e-use-fancy-chars t)
+
+;; only personal messages get in the addressbook
+(setq mu4e-compose-complete-only-personal t)
+
 ;; maildir locations
 (setq mu4e-maildir "/home/wunki/mail"
       mu4e-sent-folder "/wunki/sent"

@@ -28,16 +28,11 @@
       mu4e-headers-leave-behavior 'apply                 ; apply all marks at quit
       mu4e-html2text-command "w3m -dump -T text/html"    ; html to text
       mu4e-compose-dont-reply-to-self t                  ; don't reply to myself
+      mu4e-compose-complete-only-personal t              ; only personal messages get in the address book
       message-signature "Petar Radosevic | @wunki"       ; signature
       message-kill-buffer-on-exit t                      ; don't keep message buffers around
       smtpmail-queue-mail nil                            ; start in non queue mode
 )
-
-;; use the fancy characters
-(setq mu4e-use-fancy-chars t)
-
-;; only personal messages get in the addressbook
-(setq mu4e-compose-complete-only-personal t)
 
 ;; maildir locations
 (setq mu4e-maildir "/home/wunki/mail"

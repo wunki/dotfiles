@@ -44,6 +44,7 @@ prepend_to_path "/usr/local/bin"
 prepend_to_path "/usr/local/sbin"
 prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.local/bin"
+prepend_to_path "$HOME/.gem/ruby/2.0.0/bin"
 
 # haskell
 prepend_to_path "$HOME/.cabal/bin"

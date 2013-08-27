@@ -5,6 +5,7 @@ emacs/bookmarks
 emacs/var
 emacs/.org-id-locations
 emacs/swank
+emacs/elnode
 *.dat
 /emacs/eshell/lastdir
 /bin/lein

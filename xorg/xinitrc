@@ -39,7 +39,7 @@ unclutter -idle 3 &
 parcellite -n -d &
 
 # Be nice for my eyes at night
-redshift -l 52:4 -t 6000:4800 -m vidmode &
+redshift -l 52:4 -t 6000:4800 -m randr &
 
 # Transparency
 # xcompmgr -c -C -t-5 -l-5 -r4.2 -o.80 &

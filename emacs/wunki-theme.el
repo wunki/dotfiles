@@ -1,8 +1,7 @@
 ;; active theme
-(add-to-list 'custom-theme-load-path "~/.emacs.d/themes/")
 (load-theme 'zenburn)
 
-;; fonts
+;; font
 (set-frame-font "Ubuntu Mono-12")
 (add-to-list 'default-frame-alist '(font . "Ubuntu Mono-12"))
 
@@ -11,6 +10,6 @@
   (interactive)
   (if (eq (frame-parameter (next-frame) 'background-mode) 'dark)
       (load-theme 'sanityinc-solarized-light)
-    (load-theme 'sanityinc-tomorrow-night)))
+    (load-theme 'zenburn)))
 
 (provide 'wunki-theme)

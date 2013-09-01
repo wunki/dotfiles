@@ -2,6 +2,7 @@ require("adblockplus.js");
 require("clicks-in-new-buffer.js");
 require("mode-line.js");
 
+// instapaper
 require("/home/wunki/src/wunki-dotfiles/conkeror/instapaper.js");
 
 // use 'contrib' stuff

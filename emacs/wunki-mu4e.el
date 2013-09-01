@@ -18,6 +18,10 @@
                                     "hello@invyapp.com"
                                     "hello@gibbon.co"))
 
+;; reply attribution line
+(setq message-citation-line-format "On %a, %b %d %Y, %N wrote:")
+(setq message-citation-line-function 'message-insert-formatted-citation-line)
+
 ;; general settings
 (setq mail-user-agent 'mu4e-user-agent                   ; mu4e as default mail agent
       mu4e-attachment-dir "~/downloads"                  ; put attachements in download dir

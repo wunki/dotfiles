@@ -11,10 +11,7 @@
 (add-hook 'nrepl-mode-hook 'enable-paredit-mode)
 (add-hook 'lisp-mode-hook 'enable-paredit-mode)
 
-;; scheme
-(setq scheme-program-name "csi -:c")
-
-;; lisp
+;; lisp implementation is SBCL
 (setq inferior-lisp-program "/usr/bin/sbcl --noinform")
 
 ;; nrepl

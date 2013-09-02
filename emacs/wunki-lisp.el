@@ -66,6 +66,8 @@
         (nrepl-rotate-connection-list nrepl-connection-list))
   (nrepl-show-current-connection))
 
+;; bindings
 (global-set-key (kbd "C-c C-x n") 'nrepl-switch-to-next-connection)
+(define-key nrepl-mode-map (kbd "C-c C-q") 'nrepl-close)
 
 (provide 'wunki-lisp)

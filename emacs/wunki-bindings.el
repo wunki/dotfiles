@@ -18,6 +18,9 @@
 ;; edit file with sudo
 (global-set-key (kbd "C-c s") 'sudo-edit)
 
+;; god-mode
+(global-set-key (kbd "<escape>") 'god-local-mode)
+
 ;; join line command
 (global-set-key (kbd "C-c j") 'join-line)
 
@@ -56,10 +59,10 @@
 (define-key global-map (kbd "C-S-c r") 'gist-region)
 
 ;; move buffers around
-(global-set-key (kbd "<C-S-up>")     'buf-move-up)
-(global-set-key (kbd "<C-S-down>")   'buf-move-down)
-(global-set-key (kbd "<C-S-left>")   'buf-move-left)
-(global-set-key (kbd "<C-S-right>")  'buf-move-right)
+(global-set-key (kbd "<C-S-up>") 'buf-move-up)
+(global-set-key (kbd "<C-S-down>") 'buf-move-down)
+(global-set-key (kbd "<C-S-left>") 'buf-move-left)
+(global-set-key (kbd "<C-S-right>") 'buf-move-right)
 
 ;; move current window into focus
 (global-set-key (kbd "C-M-<return>")

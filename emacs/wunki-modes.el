@@ -68,9 +68,8 @@
 (dired-details-install)
 
 ;; ido-mode
-(require 'flx-ido)
 (ido-mode t)
-(ido-ubiquitous t)
+(ido-ubiquitous-mode t)
 (flx-ido-mode t)
 (setq ido-enable-prefix nil
       ido-enable-flex-matching t

@@ -15,15 +15,15 @@
 ;; my packages
 (dolist (p '( ;; fundamentals
              paredit magit gist ack-and-a-half auto-complete jabber 
-             buffer-move ido-ubiquitous s projectile goto-last-change
+             buffer-move s projectile goto-last-change
              expand-region change-inner powerline surround idomenu
-             diminish dired-details multiple-cursors ag key-chord restclient
-             quack geiser rainbow-delimiters calfw
+             diminish dired-details multiple-cursors ag restclient
+             quack geiser rainbow-delimiters calfw smex
 
              ;; modes
              org org-plus-contrib pandoc-mode markdown-mode git-commit-mode
              gitconfig-mode gitignore-mode js2-mode yaml-mode pretty-mode-plus
-             flx-ido undo-tree ace-jump-mode
+             ido-ubiquitous flx-ido undo-tree ace-jump-mode
 
              ;; languages
              nrepl ac-nrepl ac-slime clojure-mode clojure-test-mode cljdoc

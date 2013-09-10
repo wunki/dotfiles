@@ -33,6 +33,7 @@
                              "~/org/books.org"
 
                              ; projects
+                             "~/clojure/gibbon-client/TODO.org"
                              "~/src/wunki-dotfiles/TODO.org"
                              "~/devops/wunki-salted/TODO.org")
       org-default-notes-file "~/org/inbox.org")

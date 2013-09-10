@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 # Only runs the supplied command if the network is up
-up=`cat /sys/class/net/wlp3s0/operstate | grep -q up`
-if [[ $up -eq 0 ]]; then
+ping -W5 -c1 wunki.org > /dev/null
+if [[ "$?" -ne 0 ]]; then
     echo "No internet connection found."
     echo "Exited before running command: $@"
     exit 1

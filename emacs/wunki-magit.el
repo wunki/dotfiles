@@ -1,17 +1,13 @@
 (require 'magit)
 
-;; full screen magit-status
-;; (defadvice magit-status (around magit-fullscreen activate)
-;;   (window-configuration-to-register :magit-fullscreen)
-;;   ad-do-it
-;;   (delete-other-windows))
+;; Add an extra newline to separate commit message from git commentary
+(defun magit-commit-mode-init ()
+  (when (looking-at "\n")
+    (open-line 1)))
+(add-hook 'git-commit-mode-hook 'magit-commit-mode-init)
 
-;; (defun magit-quit-session ()
-;;   "Restores the previous window configuration and kills the magit buffer"
-;;   (interactive)
-;;   (kill-buffer)
-;;   (jump-to-register :magit-fullscreen))
-
-;; (define-key magit-status-mode-map (kbd "q") 'magit-quit-session)
+;; close popup when commiting
+(defadvice git-commit-commit (after delete-window activate)
+  (delete-window))
 
 (provide 'wunki-magit)

@@ -54,7 +54,15 @@
 
 ;; multiple accounts
 (setq wunki-mu4e-account-alist
-      '(("wunki"
+      '(("gibbon"
+         (user-mail-address "petar@gibbon.co")
+         (mu4e-sent-folder "/gibbon/sent")
+         (mu4e-drafts-folder "/gibbon/drafts")
+         (mu4e-refile-folder "/gibbon/archive")
+         (mu4e-trash-folder  "/gibbon/trash")
+         (smtpmail-smtp-server "smtp.gmail.com")
+         (smtpmail-smtp-user "petar@gibbon.co"))
+        ("wunki"
          (user-mail-address "petar@wunki.org")
          (mu4e-sent-folder "/wunki/sent")
          (mu4e-drafts-folder "/wunki/drafts")
@@ -69,15 +77,7 @@
          (mu4e-refile-folder "/bread-and-pepper/archive")
          (mu4e-trash-folder  "/bread-and-pepper/trash")
          (smtpmail-smtp-server "smtp.gmail.com")
-         (smtpmail-smtp-user "petar@breadandpepper.com"))
-        ("gibbon"
-         (user-mail-address "petar@gibbon.co")
-         (mu4e-sent-folder "/gibbon/sent")
-         (mu4e-drafts-folder "/gibbon/drafts")
-         (mu4e-refile-folder "/gibbon/archive")
-         (mu4e-trash-folder  "/gibbon/trash")
-         (smtpmail-smtp-server "smtp.gmail.com")
-         (smtpmail-smtp-user "petar@gibbon.co"))))
+         (smtpmail-smtp-user "petar@breadandpepper.com"))))
 
 (defun wunki-mu4e-set-account ()
   "Set the account for composing a message by looking at the maildir"
@@ -104,6 +104,7 @@
 (add-to-list 'mu4e-view-actions
              '("org-contact-add" . mu4e-action-add-org-contact) t)
 
+
 ;; headers in the overview
 (setq mu4e-headers-fields
   '((:maildir       .  24)
@@ -112,7 +113,7 @@
     (:from          .  24)
     (:subject       .  nil)))
 
-;; set bookmarks
+;; bookmarks
 (setq mu4e-bookmarks 
   '(("flag:unread"                       "All new messages"       ?u)
     ("maildir:/gibbon/inbox"             "Gibbon's inbox"         ?g)

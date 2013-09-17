@@ -11,7 +11,7 @@
 
 ;; use contact manager from org
 (require 'org-contacts)
-(setq org-contacts-files (list "~/org/contacts.org"))
+;; (setq org-contacts-files (list "~/org/contacts.org"))
 
 ;; orc-trello
 ;(require 'org-trello)
@@ -25,15 +25,18 @@
 ;; org-files
 (setq org-agenda-files (list "~/org/today.org"
                              "~/org/inbox.org"
+                             "~/org/gibbon.org"
                              "~/org/bread-and-pepper.org"
                              "~/org/personal.org"
                              "~/org/emacs.org"
                              "~/org/notes.org"
                              "~/org/ideas.org"
                              "~/org/books.org"
+                             "~/org/contacts.org"
 
                              ; projects
                              "~/clojure/gibbon-client/TODO.org"
+                             "~/python/gibbon-web/TODO.org"
                              "~/src/wunki-dotfiles/TODO.org"
                              "~/devops/wunki-salted/TODO.org")
       org-default-notes-file "~/org/inbox.org")
@@ -93,11 +96,12 @@
 
 ;; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup)
-                            ("@errand" . ?e)
-                            ("@work" . ?w)
-                            ("@home" . ?h)
+                            ("@errand" . ?E)
+                            ("@work" . ?W)
+                            ("@home" . ?H)
                             (:endgroup)
                             ("mail" . ?m)
+                            ("write" . ?w)
                             ("phone" . ?c)
                             ("waiting" . ?.)
                             ("hold" . ?h)

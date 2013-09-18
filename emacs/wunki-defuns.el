@@ -98,9 +98,6 @@
   (interactive)
   (ido-find-file-in-dir "~/.emacs.d"))
 
-(defun enable-paredit-mode ()
-  (paredit-mode t))
-
 (defun disable-electric-indent ()
   (set (make-local-variable 'electric-indent-mode) nil))
 

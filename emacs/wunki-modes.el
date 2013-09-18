@@ -144,6 +144,10 @@
 (setq save-place-file "~/.emacs.d/saved-places")
 (setq-default save-place t)
 
+;; smartparens
+(require 'smartparens-config)
+(smartparens-global-mode t)
+
 ;; cleanup modeline
 (diminish 'projectile-mode)
 (diminish 'auto-complete-mode)

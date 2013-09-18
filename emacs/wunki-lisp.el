@@ -4,12 +4,9 @@
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
 
-;; paredit everywhere
-(add-hook 'clojure-mode-hook 'enable-paredit-mode)
-(add-hook 'emacs-lisp-mode-hook 'enable-paredit-mode)
-(add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
-(add-hook 'nrepl-mode-hook 'enable-paredit-mode)
-(add-hook 'lisp-mode-hook 'enable-paredit-mode)
+;; smart parens
+(setq sp-base-key-bindings 'paredit)
+(sp-use-paredit-bindings)
 
 ;; lisp implementation is SBCL
 (setq inferior-lisp-program "/usr/bin/sbcl --noinform")

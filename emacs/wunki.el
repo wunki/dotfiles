@@ -14,11 +14,11 @@
 
 ;; my packages
 (dolist (p '( ;; fundamentals
-             paredit magit gist ack-and-a-half auto-complete jabber 
+             magit gist ack-and-a-half auto-complete jabber 
              buffer-move s projectile goto-last-change
              expand-region change-inner powerline surround idomenu
              diminish dired-details multiple-cursors ag restclient
-             quack geiser rainbow-delimiters calfw smex
+             quack geiser rainbow-delimiters calfw smex smartparens
 
              ;; modes
              org org-plus-contrib pandoc-mode markdown-mode git-commit-mode

@@ -19,7 +19,7 @@
 (global-set-key (kbd "C-c s") 'sudo-edit)
 
 ;; god-mode
-(global-set-key (kbd "<escape>") 'god-local-mode)
+;; (global-set-key (kbd "<escape>") 'god-local-mode)
 
 ;; join line command
 (global-set-key (kbd "C-c j") 'join-line)
@@ -101,7 +101,7 @@
 (global-set-key (kbd "C-c C-c") 'goto-last-change)
 
 ;; packages
-(global-set-key (kbd "C-c C-p") 'package-list-packages)
+(global-set-key (kbd "C-c C-u") 'package-list-packages)
 
 ;; whitespace mode
 (global-set-key (kbd "C-c C-w") 'global-whitespace-mode)

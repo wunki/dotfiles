@@ -62,6 +62,9 @@
 (require 'ag)
 (setq ag-highlight-search t)
 
+;; websites
+(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+
 ;; dired
 (require 'dired-details)
 (setq-default dired-details-hidden-string "--- ")
@@ -90,6 +93,7 @@
 
 ; auto-fill
 (add-hook 'html-mode-hook 'turn-off-auto-fill)
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'clojure-mode-hook 'my-auto-fill-prog)
 
 ;; flyspell

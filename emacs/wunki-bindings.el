@@ -54,9 +54,9 @@
 (global-set-key (kbd "<C-S-return>") 'open-line-above)
 
 ;; github gists
-(define-key global-map (kbd "C-S-c g") 'gist-buffer-private)
-(define-key global-map (kbd "C-S-c b") 'gist-buffer)
-(define-key global-map (kbd "C-S-c r") 'gist-region)
+(global-set-key (kbd "C-S-c g") 'gist-buffer-private)
+(global-set-key (kbd "C-S-c b") 'gist-buffer)
+(global-set-key (kbd "C-S-c r") 'gist-region)
 
 ;; move buffers around
 (global-set-key (kbd "<C-S-up>") 'buf-move-up)

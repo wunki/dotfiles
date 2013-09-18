@@ -1,8 +1,9 @@
-;; lisp settings for Clojure
+;; lisp languages (mainly clojure)
 
 ;; colors for parenthesis
 (add-hook 'clojure-mode-hook 'rainbow-delimiters-mode)
 (add-hook 'lisp-mode-hook 'rainbow-delimiters-mode)
+(add-hook 'emacs-lisp-mode-hook 'rainbow-delimiters-mode)
 
 ;; smart parens
 (setq sp-base-key-bindings 'paredit)

@@ -14,26 +14,27 @@
 
 ;; my packages
 (dolist (p '( ;; fundamentals
-             magit gist ack-and-a-half auto-complete jabber 
+             magit gist ack-and-a-half auto-complete jabber
              buffer-move s projectile goto-last-change
-             expand-region change-inner powerline surround idomenu
-             diminish dired-details multiple-cursors ag restclient
-             quack geiser rainbow-delimiters calfw smex smartparens
+             expand-region change-inner powerline surround
+             idomenu diminish dired-details multiple-cursors ag
+             restclient quack geiser rainbow-delimiters calfw
+             smex smartparens evil
 
              ;; modes
-             org org-plus-contrib pandoc-mode markdown-mode git-commit-mode
-             gitconfig-mode gitignore-mode js2-mode yaml-mode pretty-mode-plus
-             ido-ubiquitous flx-ido undo-tree ace-jump-mode web-mode
+             org org-plus-contrib pandoc-mode markdown-mode
+             git-commit-mode gitconfig-mode gitignore-mode
+             js2-mode yaml-mode pretty-mode-plus ido-ubiquitous
+             flx-ido undo-tree ace-jump-mode web-mode
 
              ;; languages
-             nrepl ac-nrepl ac-slime clojure-mode clojure-test-mode cljdoc
-             clojurescript-mode haskell-mode ghc rust-mode elpy slime
-             slime-repl
+             nrepl ac-nrepl ac-slime clojure-mode
+             clojure-test-mode cljdoc clojurescript-mode
+             haskell-mode ghc rust-mode elpy slime slime-repl
              
              ;; themes
              zenburn-theme color-theme-sanityinc-tomorrow
-             color-theme-sanityinc-solarized
-             ))
+             color-theme-sanityinc-solarized))
   (when (not (package-installed-p p))
     (package-install p)))
 

@@ -8,7 +8,4 @@
 ;; default to racket language
 (setq geiser-active-implementations '(racket))
 
-;; run geiser
-(define-key scheme-mode-map (kbd "C-c M-j") 'run-geiser)
-
 (provide 'wunki-scheme)

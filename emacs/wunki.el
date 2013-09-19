@@ -48,7 +48,6 @@
 (require 'wunki-theme)      ; set the theme and font
 (require 'wunki-temp)       ; temporary files
 (require 'wunki-org)        ; org-mode
-(require 'wunki-magit)      ; magit
 (require 'wunki-shell)      ; shell mode
 (require 'wunki-lisp)       ; lisp languages
 (require 'wunki-scheme)     ; scheme languages

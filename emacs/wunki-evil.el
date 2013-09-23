@@ -24,6 +24,11 @@
          jabber-chat-mode
          magit-branch-manager-mode))
 
+;; nrepl
+(define-key evil-normal-state-map (kbd "M-]") 'find-tag)
+(define-key evil-normal-state-map (kbd "M-,") 'nrepl-jump-back)
+(define-key evil-normal-state-map (kbd "M-.") 'nrepl-jump)
+
 ;; mu4e
 (eval-after-load 'mu4e
   '(progn

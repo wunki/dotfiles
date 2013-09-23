@@ -146,6 +146,9 @@
 
 ;; smartparens
 (require 'smartparens-config)
+(setq sp-base-key-bindings 'paredit)
+(setq sp-autoskip-closing-pair 'always)
+(sp-use-paredit-bindings)
 (smartparens-global-mode t)
 
 ;; cleanup modeline

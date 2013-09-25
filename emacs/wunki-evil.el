@@ -22,6 +22,7 @@
          term-mode
          jabber-roster-mode
          jabber-chat-mode
+         nrepl-mode
          magit-branch-manager-mode))
 
 ;; nrepl

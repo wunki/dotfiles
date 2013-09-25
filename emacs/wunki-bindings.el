@@ -100,6 +100,9 @@
 ;; move around changes
 (global-set-key (kbd "C-c C-c") 'goto-last-change)
 
+;; undo tree
+(global-set-key (kbd "C-c -") 'undo-tree-visualize)
+
 ;; packages
 (global-set-key (kbd "C-c C-u") 'package-list-packages)
 

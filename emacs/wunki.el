@@ -58,7 +58,7 @@
 (require 'wunki-rust)       ; rust
 (require 'wunki-erc)        ; irc
 (require 'wunki-jabber)     ; jabber
-(require 'wunki-evil)       ; vim emulation
+;; (require 'wunki-evil)       ; vim emulation
 
 (when (eq system-type 'darwin)
   (require 'wunki-mac))     ; mac settings

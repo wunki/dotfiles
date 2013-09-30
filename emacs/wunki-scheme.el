@@ -8,4 +8,10 @@
 ;; default to racket language
 (setq geiser-active-implementations '(racket))
 
+;; auto-complete for geiser
+(add-hook 'geiser-mode-hook 'ac-geiser-setup)
+(add-hook 'geiser-repl-mode-hook 'ac-geiser-setup)
+(eval-after-load "auto-complete"
+  '(add-to-list 'ac-modes 'geiser-repl-mode))
+
 (provide 'wunki-scheme)

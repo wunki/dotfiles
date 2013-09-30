@@ -25,12 +25,15 @@
              org org-plus-contrib pandoc-mode markdown-mode
              git-commit-mode gitconfig-mode gitignore-mode
              js2-mode yaml-mode pretty-mode-plus ido-ubiquitous
-             flx-ido undo-tree ace-jump-mode web-mode
+             flx-ido undo-tree ace-jump-mode web-mode anzu
 
              ;; languages
-             nrepl ac-nrepl ac-slime clojure-mode
+             nrepl clojure-mode
              clojure-test-mode cljdoc clojurescript-mode
              haskell-mode ghc rust-mode elpy slime slime-repl
+
+             ;; autocompletion
+             ac-geiser ac-nrepl ac-slime
              
              ;; themes
              zenburn-theme color-theme-sanityinc-tomorrow

@@ -34,7 +34,7 @@
 (add-hook 'nrepl-repl-mode-hook 'ac-nrepl-setup)
 (add-hook 'nrepl-interaction-mode-hook 'ac-nrepl-setup)
 (eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'nrepl-mode))
+  '(add-to-list 'ac-modes 'nrepl-repl-mode))
 
 (defun set-auto-complete-as-completion-at-point-function ()
   (setq completion-at-point-functions '(auto-complete)))

@@ -52,30 +52,38 @@
       smtpmail-stream-type 'starttls
       smtpmail-smtp-service 587)
 
+;; set the archive according to the mailbox
+(setq mu4e-refile-folder
+      (lambda (msg)
+        (if msg
+            (let ((account (nth 1 (split-string (mu4e-message-field msg :maildir) "/"))))
+              (format "/%s/archive" account)))))
+
+;; set the trash according to the mailbox
+(setq mu4e-trash-folder
+      (lambda (msg)
+        (if msg
+            (let ((account (nth 1 (split-string (mu4e-message-field msg :maildir) "/"))))
+              (format "/%s/trash" account)))))
+
 ;; multiple accounts
 (setq wunki-mu4e-account-alist
       '(("gibbon"
          (user-mail-address "petar@gibbon.co")
          (mu4e-sent-folder "/gibbon/sent")
          (mu4e-drafts-folder "/gibbon/drafts")
-         (mu4e-refile-folder "/gibbon/archive")
-         (mu4e-trash-folder  "/gibbon/trash")
          (smtpmail-smtp-server "smtp.gmail.com")
          (smtpmail-smtp-user "petar@gibbon.co"))
         ("wunki"
          (user-mail-address "petar@wunki.org")
          (mu4e-sent-folder "/wunki/sent")
          (mu4e-drafts-folder "/wunki/drafts")
-         (mu4e-refile-folder "/wunki/archive")
-         (mu4e-trash-folder  "/wunki/trash")
          (smtpmail-smtp-server "mail.messagingengine.com")
          (smtpmail-smtp-user "wunki@fastmail.fm"))
         ("bread-and-pepper"
          (user-mail-address "petar@breadandpepper.com")
          (mu4e-sent-folder "/bread-and-pepper/sent")
          (mu4e-drafts-folder "/bread-and-pepper/drafts")
-         (mu4e-refile-folder "/bread-and-pepper/archive")
-         (mu4e-trash-folder  "/bread-and-pepper/trash")
          (smtpmail-smtp-server "smtp.gmail.com")
          (smtpmail-smtp-user "petar@breadandpepper.com"))))
 

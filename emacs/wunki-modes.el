@@ -64,6 +64,7 @@
 
 ;; websites
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
+(setq web-mode-engines-alist '(("django" . "\\.html\\'")))
 
 ;; dired
 (require 'dired-details)
@@ -151,6 +152,11 @@
       sp-hybrid-kill-entire-symbol nil)
 (sp-use-paredit-bindings)
 (smartparens-global-mode t)
+
+;; don't mess with these pairs in Django templates
+(sp-local-pair 'web-mode "{%" "%}")
+(sp-local-pair 'web-mode "{{" "}}")
+(sp-local-pair 'web-mode "{" nil :actions nil)
 
 ;; display search jumps
 (global-anzu-mode t)

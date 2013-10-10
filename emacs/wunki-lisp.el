@@ -64,7 +64,9 @@
         (nrepl-rotate-connection-list nrepl-connection-list))
   (nrepl-show-current-connection))
 
-;; bindings
+;; key bindings
 (global-set-key (kbd "C-c C-x n") 'nrepl-switch-to-next-connection)
+(eval-after-load 'clojure-mode
+  '(define-key clojure-mode-map (kbd "M-q") 'clojure-fill-docstring))
 
 (provide 'wunki-lisp)

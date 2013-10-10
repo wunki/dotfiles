@@ -2,8 +2,8 @@
 (load-theme 'zenburn)
 
 ;; font
-(set-frame-font "DejaVu Sans Mono-10.5")
-(add-to-list 'default-frame-alist '(font . "DejaVu Sans Mono-10.5"))
+(set-frame-font "Ubuntu Mono-12")
+(add-to-list 'default-frame-alist '(font . "Ubuntu Mono 12"))
 
 (defun toggle-dark-light-theme ()
   "Switch between dark and light theme."

@@ -11,10 +11,7 @@
 
 ;; use contact manager from org
 (require 'org-contacts)
-;; (setq org-contacts-files (list "~/org/contacts.org"))
-
-;; orc-trello
-;(require 'org-trello)
+(setq org-contacts-files (list "~/org/contacts.org"))
 
 ;; archive method
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))

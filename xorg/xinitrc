@@ -54,7 +54,7 @@ feh --bg-tile ~/dropbox/Pictures/Wallpapers/Patterns/darkdenim3.png
 thunar --daemon &
 
 # Disable touchpad while typing
-syndaemon -k -i 0.8 -d &
+syndaemon -k -i 0.5 -d &
 
 # SSH agent
 eval `ssh-agent`

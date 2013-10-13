@@ -19,7 +19,7 @@
              expand-region change-inner powerline surround
              idomenu diminish dired-details multiple-cursors ag
              restclient quack geiser rainbow-delimiters calfw
-             smex smartparens evil
+             smex smartparens evil htmlize
 
              ;; modes
              org org-plus-contrib pandoc-mode markdown-mode

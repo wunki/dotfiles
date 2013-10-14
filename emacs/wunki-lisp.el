@@ -67,6 +67,6 @@
 ;; key bindings
 (global-set-key (kbd "C-c C-x n") 'nrepl-switch-to-next-connection)
 (eval-after-load 'clojure-mode
-  '(define-key clojure-mode-map (kbd "M-q") 'clojure-fill-docstring))
+  '(define-key clojure-mode-map (kbd "M-q") 'sp-indent-defun))
 
 (provide 'wunki-lisp)

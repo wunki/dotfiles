@@ -30,7 +30,8 @@
 ;; recently opened files
 (recentf-mode 1)
 (setq recentf-max-saved-items 30)
-(add-to-list 'recentf-exclude "\\/tmp\\'" "~/.ido.last")
+(add-to-list 'recentf-exclude "\\/tmp\\'")
+(add-to-list 'recentf-exclude "~/.ido.last")
 
 ;; javascript and json
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))

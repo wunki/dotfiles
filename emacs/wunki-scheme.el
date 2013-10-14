@@ -14,4 +14,7 @@
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'geiser-repl-mode))
 
+;; keybindings
+(define-key scheme-mode-map (kbd "M-q") 'sp-indent-defun)
+
 (provide 'wunki-scheme)

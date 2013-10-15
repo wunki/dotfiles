@@ -3,7 +3,6 @@
 
 ;; pretty scheme
 (require 'pretty-mode-plus)
-(add-hook 'racket-mode-hook 'turn-on-pretty-mode)
 
 ;; default to racket language
 (setq geiser-active-implementations '(racket))
@@ -14,7 +13,12 @@
 (eval-after-load "auto-complete"
   '(add-to-list 'ac-modes 'geiser-repl-mode))
 
-;; keybindings
-(define-key scheme-mode-map (kbd "M-q") 'sp-indent-defun)
+;; hooks
+(defun wunki-scheme-mode-hook ()
+  (turn-on-pretty-mode)
+  (define-key scheme-mode-map (kbd "M-q") 'sp-indent-defun))
+
+(add-hook 'scheme-mode-hook 'wunki-scheme-mode-hook)
+(add-hook 'racket-mode-hook 'wunki-scheme-mode-hook)
 
 (provide 'wunki-scheme)

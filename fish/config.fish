@@ -26,7 +26,7 @@ function rmpyc; find . -name '*.pyc' | xargs rm; end
 set -x fish_greeting ""
 set -x EDITOR 'emacsclient -t -a emacs'
 set -x VISUAL 'emacsclient -t -a emacs'
-set -x BROWSER /home/wunki/bin/conkeror
+set -x BROWSER 'firefox'
 
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"
     if test -d $argv[1]

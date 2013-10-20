@@ -3,7 +3,6 @@
 (define-key global-map (kbd "C-c a") 'org-agenda)
 (define-key global-map (kbd "C-c c") 'org-capture)
 (define-key global-map (kbd "C-c b") 'org-iswitchb)
-(define-key global-map (kbd "<f7>") 'org-agenda)
 (define-key global-map (kbd "<f8>") 'org-cycle-agenda-files)
 
 ;; load org-protocol for external calls
@@ -32,7 +31,7 @@
                              "~/org/contacts.org"
 
                              ; projects
-                             "~/clojure/gibbon-client/TODO.org"
+                             "~/clojure/gibbon/gibbon-client/TODO.org"
                              "~/python/gibbon-web/TODO.org"
                              "~/src/wunki-dotfiles/TODO.org"
                              "~/devops/wunki-salted/TODO.org")

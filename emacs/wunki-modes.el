@@ -92,7 +92,7 @@
         "\\`\\./")
       ido-ignore-files
       '("\\`auto/" "\\.prv/" "_region_" "\\.class/"  "\\`CVS/" "\\`#"
-        "\\`.#" "\\`\\.\\./" "\\`\\./" "\\.hi$" "\\.org_archive$"))
+        "\\`.#" "\\`\\.\\./" "\\`\\./" "\\.hi" "\\.org_archive"))
 
 ; auto-fill
 (add-hook 'html-mode-hook 'turn-off-auto-fill)

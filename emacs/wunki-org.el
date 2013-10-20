@@ -32,6 +32,8 @@
 
                              ; projects
                              "~/clojure/gibbon/gibbon-client/TODO.org"
+                             "~/clojure/gibbon/gibbon-data/TODO.org"
+                             "~/clojure/gibbon/gibbon-worker/TODO.org"
                              "~/python/gibbon-web/TODO.org"
                              "~/src/wunki-dotfiles/TODO.org"
                              "~/devops/wunki-salted/TODO.org")

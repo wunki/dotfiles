@@ -112,4 +112,9 @@
 ;; close emacs
 (global-set-key (kbd "C-c q") 'save-buffers-kill-emacs)
 
+;; newline and indent in yaml
+(eval-after-load "yaml-mode"
+  '(progn
+     (define-key yaml-mode-map (kbd "RET") 'newline-and-indent)))
+
 (provide 'wunki-bindings)

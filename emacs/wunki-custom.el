@@ -93,7 +93,8 @@
  '(haskell-notify-p nil)
  '(haskell-process-type (quote cabal-dev))
  '(haskell-stylish-on-save t)
- '(haskell-tags-on-save t))
+ '(haskell-tags-on-save t)
+ '(safe-local-variable-values (quote ((pony-settings make-pony-project :python "/home/wunki/.virtualenvs/mijnmazda/bin/python")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

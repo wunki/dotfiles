@@ -23,6 +23,9 @@
 
 ;; indent after newline
 (electric-indent-mode t)
+(add-hook 'yaml-mode-hook 'disable-electric-indent)
+(add-hook 'org-mode-hook 'disable-electric-indent)
+(add-hook 'haskell-mode-hook 'disable-electric-indent)
 
 ;; calfw, handy calendar
 (require 'calfw)

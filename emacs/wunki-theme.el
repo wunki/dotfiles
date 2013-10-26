@@ -1,5 +1,5 @@
 ;; active theme
-(load-theme 'sanityinc-tomorrow-night)
+(load-theme 'zenburn)
 
 ;; font
 (set-frame-font "Ubuntu Mono-12")

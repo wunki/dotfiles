@@ -6,6 +6,7 @@ function wl; wicd-curses; end
 function weechat; weechat-curses $argv; end
 function nstat; sudo nethogs wlan0 $argv; end
 function duh; du -ah --max-depth=1; end
+function lah; ls -lah; end
 
 # start end end dropbox
 function dropstart; sudo systemctl start dropbox@wunki.service; end

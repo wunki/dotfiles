@@ -41,7 +41,8 @@
 (add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
 ;; key bindings
-(define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc)
+(eval-after-load 'cider-mode
+  '(define-key cider-mode-map (kbd "C-c C-d") 'ac-nrepl-popup-doc))
 (eval-after-load 'clojure-mode
   '(define-key clojure-mode-map (kbd "M-q") 'sp-indent-defun))
 

@@ -28,9 +28,9 @@
              flx-ido undo-tree ace-jump-mode web-mode anzu
 
              ;; languages
-             nrepl clojure-mode
-             clojure-test-mode cljdoc clojurescript-mode
-             haskell-mode ghc rust-mode elpy slime slime-repl
+             nrepl clojure-mode clojure-test-mode cljdoc
+             clojurescript-mode haskell-mode ghc rust-mode elpy
+             slime slime-repl erlang
 
              ;; autocompletion
              ac-geiser ac-nrepl ac-slime

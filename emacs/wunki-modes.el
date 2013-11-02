@@ -41,6 +41,9 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
 
+;; jinja
+(add-to-list 'auto-mode-alist '("\\.j2$" . jinja2-mode))
+
 ;; whitespace
 (setq whitespace-style
       '(face tabs spaces trailing lines space-before-tab

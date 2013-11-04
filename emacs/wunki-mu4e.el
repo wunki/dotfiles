@@ -34,7 +34,7 @@
       mu4e-compose-dont-reply-to-self t                  ; don't reply to myself
       mu4e-compose-complete-only-personal t              ; only personal messages get in the address book
       mu4e-use-fancy-chars t                             ; use fancy characters
-      message-signature "Petar Radosevic | @wunki"       ; signature
+      mu4e-compose-signature "Petar Radosevic | @wunki"       ; signature
       message-kill-buffer-on-exit t                      ; don't keep message buffers around
       smtpmail-queue-mail nil                            ; start in non queue mode
 )

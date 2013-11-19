@@ -23,7 +23,7 @@ zsh::
 	@echo ZSH is symlinked.
 
 bash::
-	@ln -fs $(DOTFILES)/bash/bashrc				${HOME}/.bashrc
+	@ln -fs $(DOTFILES)/bash/bashrc				${HOME}/.bash_profile
 	@echo Bash is symlinked.
 
 fish::

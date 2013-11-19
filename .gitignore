@@ -15,3 +15,5 @@ emacs/projectile-bookmarks.eld
 emacs/eshell/lastdir
 emacs/saved-places
 /vim/haskellmode.config
+/emacs/eshell/
+/emacs/request/

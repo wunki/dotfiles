@@ -1,5 +1,5 @@
 DOTFILES = $(PWD)
-all:: vim emacs bin zsh tmux xmonad xorg gtk mpv conkeror
+all:: vim emacs bin zsh bash tmux xmonad xorg gtk mpv conkeror
 
 vim::
 	@ln -fs $(DOTFILES)/vim/vimrc					${HOME}/.vimrc
@@ -21,6 +21,10 @@ zsh::
 	@ln -fs $(DOTFILES)/zsh/zshenv				${HOME}/.zshenv
 	@ln -fns $(DOTFILES)/zsh/oh-my-zsh		${HOME}/.oh-my-zsh
 	@echo ZSH is symlinked.
+
+bash::
+	@ln -fs $(DOTFILES)/bash/bashrc				${HOME}/.bashrc
+	@echo Bash is symlinked.
 
 fish::
 	@ln -fns $(DOTFILES)/fish							${HOME}/.config/fish

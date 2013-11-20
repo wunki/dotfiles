@@ -106,6 +106,10 @@ if [ -f ~/.bash_local ]; then
 fi
 
 # Import specific command aliases, shortcuts and options
-if [ -f ~/.bash.aliases ]; then
+if [ -f ~/.bash_aliases ]; then
    source ~/.bash_aliases
+fi
+
+if [ -f ~/.bash_env ]; then
+   source ~/.bash_env
 fi

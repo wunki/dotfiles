@@ -84,14 +84,14 @@ export PAGER=/usr/bin/less
 #defaut : export LESS="-FXRS"
 export LESS="-FXR"
 
-# I prefer vim
-export EDITOR="vim"
+# I prefer emacs
+export EDITOR="emacs"
 
 # Prompts -----------------------------------------------------------------------
 export PS1='\[\033[01;32m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-export PS2='> ' # Secondary prompt
+export PS2='> '  # Secondary prompt
 export PS3='#? ' # Prompt 3
-export PS4='+' # Prompt 4
+export PS4='+'   # Prompt 4
 
 # Imports ----------------------------------------------------------------------------------------------
 # Turn on advanced bash completion if the file exists
@@ -108,8 +108,4 @@ fi
 # Import specific command aliases, shortcuts and options
 if [ -f ~/.bash_aliases ]; then
    source ~/.bash_aliases
-fi
-
-if [ -f ~/.bash_env ]; then
-   source ~/.bash_env
 fi

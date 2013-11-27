@@ -107,5 +107,10 @@ fi
 
 # Import specific command aliases, shortcuts and options
 if [ -f ~/.bash_aliases ]; then
-   source ~/.bash_aliases
+   . ~/.bash_aliases
+fi
+
+# Check environment variables in the profile
+if [ -f ~/.profile ]; then
+   . ~/.profile
 fi

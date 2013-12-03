@@ -41,20 +41,11 @@ parcellite -n -d &
 # Be nice for my eyes at night
 redshift -l 52:4 -t 6000:4800 -m randr &
 
-# Transparency
-# xcompmgr -c -C -t-5 -l-5 -r4.2 -o.80 &
-
 # Set background
 feh --bg-tile ~/dropbox/Pictures/Wallpapers/Patterns/darkdenim3.png
 
-# Screensaver
-# xscreensaver -no-splash &
-
 # Thunar
 thunar --daemon &
-
-# Disable touchpad while typing
-syndaemon -k -i 0.5 -d &
 
 # SSH agent
 eval `ssh-agent`
@@ -65,4 +56,4 @@ emacs --daemon &
 #
 # Start XMonad
 #
-exec dbus-launch xmonad > $HOME/.xmonad.log 2>&1
+exec dbus-launch i3 -V >> $HOME/.xmonad.log 2>&1

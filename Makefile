@@ -34,6 +34,12 @@ tmux::
 	@ln -fs $(DOTFILES)/tmux/tmux.conf 		${HOME}/.tmux.conf
 	@echo tmux is symlinked.
 
+i3::
+	@mkdir -p															${HOME}/.i3
+	@ln -fs $(DOTFILES)/i3/config					${HOME}/.i3/config
+	@ln -fs $(DOTFILES)/i3/i3status.conf  ${HOME}/.i3status.conf
+	@echo i3 is symlinked
+
 xmonad::
 	@mkdir -p															${HOME}/.xmonad
 	@ln -fs $(DOTFILES)/xmonad/xmobarrc		${HOME}/.xmobarrc

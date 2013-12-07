@@ -8,7 +8,6 @@
 # i3 config file (v4)
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
-
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -31,11 +30,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+apostrophe kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec "dmenu_run -i -fn 'Ubuntu-Mono-12:normal' -nb '#1d1f21' -nf '#c5c8c6' -sb '#1d1f21' -sf '#81a2be' -p '>' "
-# There also is the (new) i3-dmenu-desktop which only displays applications
-# shipping a .desktop file. It is a wrapper around dmenu, so you need that
-# installed.
-# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+bindsym $mod+d exec "dmenu_run -i -fn 'Ubuntu-Mono-10:normal' -nb '#1d1f21' -nf '#c5c8c6' -sb '#1d1f21' -sf '#81a2be' -p '>' "
 
 # change focus
 bindsym $mod+b focus left
@@ -87,29 +82,33 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+# workspaces
+set $ws1 1:terminals
+set $ws2 2:emacs
+set $ws3 3:browse
+set $ws4 4:ssh
+set $ws5 5
+
+workspace $ws5 output HDMI1
+
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
-bindsym $mod+7 workspace 7
-bindsym $mod+8 workspace 8
-bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+
+# Assign clients to workspaces
+assign [class="Firefox"]                        $ws3
+assign [class="Emacs"]                          $ws2
+assign [class="mpv"]                            $ws5
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
-bindsym $mod+Shift+7 move container to workspace 7
-bindsym $mod+Shift+8 move container to workspace 8
-bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
 
 # reload the configuration file
 bindsym $mod+Shift+j reload
@@ -129,7 +128,7 @@ mode "resize" {
         bindsym h resize shrink width 10 px or 10 ppt
         bindsym t resize grow height 10 px or 10 ppt
         bindsym n resize shrink height 10 px or 10 ppt
-        bindsym s resize grow width 10 px or 10 ppt
+        bindsym sp resize grow width 10 px or 10 ppt
 
         # same bindings, but for the arrow keys
         bindsym Left resize shrink width 10 px or 10 ppt
@@ -149,4 +148,9 @@ bindsym $mod+r mode "resize"
 bar {
     font pango:Ubuntu Mono 10
     status_command i3status
+    colors {
+        background #2B2B2B
+        statusline #DCDCCC
+        separator #DCDCCC
+    }
 }

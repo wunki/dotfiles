@@ -23,6 +23,9 @@ function erlr; erl -pz ebin deps/*/ebin $argv; end
 # python
 function rmpyc; find . -name '*.pyc' | xargs rm; end
 
+# NFS
+function nfsstart; sudo systemctl start rpc-idmapd rpc-mountd; end
+
 # environment variables
 set -x fish_greeting ""
 set -x EDITOR 'emacsclient -t -a emacs'
@@ -52,7 +55,6 @@ prepend_to_path "$HOME/.cabal/bin"
 
 # python
 set -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
-set -x WORKON_HOME "$HOME/.virtualenvs"
 . ~/src/virtualfish/virtual.fish
 
 # git prompt

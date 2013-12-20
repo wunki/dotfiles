@@ -16,7 +16,7 @@
 (dolist (p '( ;; fundamentals
              magit gist ack-and-a-half auto-complete jabber
              buffer-move s projectile goto-last-change
-             expand-region change-inner powerline surround
+             expand-region change-inner smart-mode-line surround
              idomenu diminish dired-details multiple-cursors ag
              restclient quack geiser rainbow-delimiters calfw
              smex smartparens evil htmlize

@@ -16,6 +16,9 @@ xset -dpms
 # Disable screen-saver
 xset s off
 
+# Enable locking of the screen
+xss-lock -- i3lock -i ~/dropbox/Pictures/Tiles/irongrip.png -t &
+
 # Key repeat
 xset r rate 300 60
 

@@ -26,11 +26,11 @@
              git-commit-mode gitconfig-mode gitignore-mode
              js2-mode yaml-mode pretty-mode-plus ido-ubiquitous
              flx-ido undo-tree ace-jump-mode web-mode anzu
-
+             
              ;; languages
              nrepl clojure-mode clojure-test-mode cljdoc
              clojurescript-mode haskell-mode ghc rust-mode elpy
-             slime slime-repl erlang
+             slime slime-repl erlang scala-mode2 ensime
 
              ;; autocompletion
              ac-geiser ac-nrepl ac-slime
@@ -56,6 +56,7 @@
 (require 'wunki-lisp)       ; lisp languages
 (require 'wunki-scheme)     ; scheme languages
 (require 'wunki-haskell)    ; haskell
+(require 'wunki-scala)      ; scala
 (require 'wunki-erlang)     ; erlang
 (require 'wunki-python)     ; python
 (require 'wunki-rust)       ; rust

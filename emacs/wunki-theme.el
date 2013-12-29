@@ -1,5 +1,5 @@
-;; active theme
-(load-theme 'zenburn)
+;; load theme and don't ask if it's save.
+(load-theme 'zenburn t)
 
 ;; font
 (set-frame-font "Ubuntu Mono-12")

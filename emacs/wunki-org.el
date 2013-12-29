@@ -25,15 +25,13 @@
                              "~/org/notes.org"
                              "~/org/ideas.org"
                              "~/org/books.org"
+                             "~/org/courses.org"
                              "~/org/contacts.org"
 
                              ; projects
-                             "~/clojure/gibbon/gibbon-client/TODO.org"
-                             "~/clojure/gibbon/gibbon-data/TODO.org"
-                             "~/clojure/gibbon/gibbon-worker/TODO.org"
                              "~/python/gibbon-web/TODO.org"
                              "~/src/wunki-dotfiles/TODO.org"
-                             "~/devops/wunki-salted/TODO.org")
+                             "~/devops/wunki-park/TODO.org")
       org-default-notes-file "~/org/inbox.org")
 
 ;; always use indent-mode
@@ -71,6 +69,8 @@
    (ditaa . t)
    (python . t)
    (haskell . t)
+   (scala . t)
+   (scheme . t)
    (clojure . t)))
 
 (setq org-confirm-babel-evaluate nil)

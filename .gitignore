@@ -18,3 +18,4 @@ emacs/saved-places
 /emacs/eshell/
 /emacs/request/
 /bin/exercism
+/vim/bundle/vundle

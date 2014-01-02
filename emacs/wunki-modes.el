@@ -14,12 +14,22 @@
 ;; deletes region when starting typing
 (pending-delete-mode t)
 
+;; blinking
+(blink-cursor-mode t)
+
+;; improve buffer names
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'forward)
+(setq uniquify-separator "/")
+(setq uniquify-after-kill-buffer-p t)    ; rename after killing uniquified
+(setq uniquify-ignore-buffers-re "^\\*") ; don't muck with special buffers
+
 ;; auto revert changes on disk
 (global-auto-revert-mode t)
 
-;; enable powerline mode
-(setq powerline-arrow-shape 'curve)
-(powerline-default-theme)
+;; pretty mode line
+(setq sml/theme 'dark)
+(sml/setup)
 
 ;; indent after newline
 (electric-indent-mode t)
@@ -144,6 +154,7 @@
 
 ;; twittering
 (setq twittering-use-master-password t)
+(setq twittering-curl-program "/usr/bin/curl")
 (add-hook 'twittering-edit-mode-hook
           (lambda ()
             (auto-fill-mode -1)))

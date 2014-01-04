@@ -1,7 +1,7 @@
 ;; mac only settings.
 ;; use the old way of toggling to fullscreen
-(setq ns-use-native-fullscreen nil)
-(set-face-attribute 'default nil :height 160)
+(set-frame-font "Ubuntu Mono-16")
+(add-to-list 'default-frame-alist '(font . "Ubuntu Mono 16"))
 
 ;; browser
 (setq browse-url-browser-function 'browse-url-default-macosx-browser)

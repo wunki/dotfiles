@@ -12,21 +12,20 @@
 (require 'org-contacts)
 (setq org-contacts-files (list "~/org/contacts.org"))
 
+;; journal
+(setq org-journal-dir "~/org/journal")
+
 ;; archive method
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 
 ;; org-files
 (setq org-agenda-files (list "~/org/today.org"
                              "~/org/inbox.org"
+                             "~/org/personal.org"
                              "~/org/gibbon.org"
                              "~/org/bread-and-pepper.org"
-                             "~/org/personal.org"
                              "~/org/emacs.org"
-                             "~/org/notes.org"
-                             "~/org/ideas.org"
-                             "~/org/books.org"
                              "~/org/courses.org"
-                             "~/org/contacts.org"
 
                              ; projects
                              "~/python/gibbon-web/TODO.org"

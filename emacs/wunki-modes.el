@@ -27,9 +27,8 @@
 ;; auto revert changes on disk
 (global-auto-revert-mode t)
 
-;; pretty mode line
-(setq sml/theme 'dark)
-(sml/setup)
+;; powerline
+(powerline-default-theme)
 
 ;; indent after newline
 (electric-indent-mode t)

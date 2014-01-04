@@ -8,24 +8,17 @@
 ;; load org-protocol for external calls
 (require 'org-protocol)
 
-;; use contact manager from org
-(require 'org-contacts)
-(setq org-contacts-files (list "~/org/contacts.org"))
-
 ;; journal
 (setq org-journal-dir "~/org/journal")
 
 ;; archive method
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 
-;; org-files
-(setq org-agenda-files (list "~/org/today.org"
-                             "~/org/inbox.org"
-                             "~/org/personal.org"
+;; org-files, only used for coding
+(setq org-agenda-files (list "~/org/inbox.org"
                              "~/org/gibbon.org"
                              "~/org/bread-and-pepper.org"
                              "~/org/emacs.org"
-                             "~/org/courses.org"
 
                              ; projects
                              "~/python/gibbon-web/TODO.org"

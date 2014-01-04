@@ -13,7 +13,7 @@
 (package-initialize)
 
 ;; my packages
-(dolist (p '( ;; fundamentals
+(dolist (p '(;; fundamentals
              magit gist ack-and-a-half auto-complete jabber
              buffer-move s projectile goto-last-change
              expand-region change-inner smart-mode-line surround
@@ -22,10 +22,11 @@
              smex smartparens evil htmlize
 
              ;; modes
-             org org-plus-contrib pandoc-mode markdown-mode
-             git-commit-mode gitconfig-mode gitignore-mode
-             js2-mode yaml-mode pretty-mode-plus ido-ubiquitous
-             flx-ido undo-tree ace-jump-mode web-mode anzu
+             org org-plus-contrib org-magit pandoc-mode
+             markdown-mode git-commit-mode gitconfig-mode
+             gitignore-mode js2-mode yaml-mode pretty-mode-plus
+             ido-ubiquitous flx-ido undo-tree ace-jump-mode
+             web-mode anzu
              
              ;; languages
              nrepl clojure-mode clojure-test-mode cljdoc
@@ -62,7 +63,6 @@
 (require 'wunki-rust)       ; rust
 (require 'wunki-erc)        ; irc
 (require 'wunki-jabber)     ; jabber
-;; (require 'wunki-evil)       ; vim emulation
 
 (when (eq system-type 'darwin)
   (require 'wunki-mac))     ; mac settings

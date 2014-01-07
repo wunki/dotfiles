@@ -56,11 +56,11 @@
 (require 'wunki-shell)      ; shell mode
 (require 'wunki-lisp)       ; lisp languages
 (require 'wunki-scheme)     ; scheme languages
-(require 'wunki-haskell)    ; haskell
-(require 'wunki-scala)      ; scala
-(require 'wunki-erlang)     ; erlang
-(require 'wunki-python)     ; python
 (require 'wunki-rust)       ; rust
+(require 'wunki-python)     ; python
+(require 'wunki-haskell)    ; haskell
+(require 'wunki-erlang)     ; erlang
+(require 'wunki-scala)      ; scala
 (require 'wunki-erc)        ; irc
 (require 'wunki-jabber)     ; jabber
 

@@ -2,6 +2,7 @@
 
 ;; enable this on lisp languages
 (defun lisp-coding-defaults ()
+  (subword-mode 1)
   (smartparens-strict-mode 1)
   (rainbow-delimiters-mode 1))
 
@@ -9,6 +10,7 @@
 (add-hook 'clojure-mode-hook 'lisp-coding-defaults)
 (add-hook 'lisp-mode-hook 'lisp-coding-defaults)
 (add-hook 'emacs-lisp-mode-hook 'lisp-coding-defaults)
+(add-hook 'cider-repl-mode-hook 'lisp-coding-defaults)
 
 ;; lisp implementation is SBCL
 (setq inferior-lisp-program "/usr/bin/sbcl --noinform")

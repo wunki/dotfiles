@@ -100,4 +100,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:background nil))))
+ '(clojure-test-success-face ((t (:foreground "#AFD8AF" :background "#5F7F5F" :weight bold :underline t))))
  '(italic ((t (:slant italic)))))

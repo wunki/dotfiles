@@ -53,6 +53,9 @@ prepend_to_path "$HOME/.gem/ruby/2.0.0/bin"
 # haskell
 prepend_to_path "$HOME/.cabal/bin"
 
+# rubygems
+prepend_to_path "$HOME/.gem/ruby/2.0.0/bin"
+
 # android
 prepend_to_path "/opt/android-sdk/tools"
 prepend_to_path "/opt/android-sdk/platform-tools"

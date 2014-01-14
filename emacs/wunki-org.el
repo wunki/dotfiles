@@ -21,6 +21,7 @@
                              "~/org/emacs.org"
 
                              ; projects
+                             "~/clojure/gibbon/themis/TODO.org"
                              "~/python/gibbon-web/TODO.org"
                              "~/src/wunki-dotfiles/TODO.org"
                              "~/devops/wunki-park/TODO.org")

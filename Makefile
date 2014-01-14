@@ -28,6 +28,7 @@ bash::
 	@echo Bash is symlinked.
 
 fish::
+	@test -d ${HOME}/.config || mkdir ${HOME}/.config
 	@ln -fns $(DOTFILES)/fish							${HOME}/.config/fish
 	@echo Fish is symlinked.
 

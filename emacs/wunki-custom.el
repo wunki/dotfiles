@@ -93,12 +93,12 @@
  '(haskell-process-type (quote cabal-dev))
  '(haskell-stylish-on-save t)
  '(haskell-tags-on-save t)
- '(safe-local-variable-values (quote ((pony-settings make-pony-project :python "/home/wunki/.virtualenvs/mijnmazda/bin/python")))))
+ '(safe-local-variable-values (quote ((indent-tabs-mode . 1) (pony-settings make-pony-project :python "/home/wunki/.virtualenvs/mijnmazda/bin/python")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:background nil))))
- '(clojure-test-success-face ((t (:foreground "#AFD8AF" :background "#5F7F5F" :weight bold :underline t))))
+ '(clojure-test-success-face ((t (:foreground "#AFD8AF" :background "#5F7F5F" :weight bold :underline t))) t)
  '(italic ((t (:slant italic)))))

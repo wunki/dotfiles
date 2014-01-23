@@ -124,6 +124,7 @@ bindsym $mod+Shift+period exec "i3-nagbar -t warning -m 'You pressed the exit sh
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q set Master 2dB+ unmute
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q set Master 2dB- unmute
 bindsym XF86AudioMute exec --no-startup-id amixer -q set Master toggle
+bindsym $mod+Print exec --no-startup-id scrot -q90 /home/wunki/pictures/screenshots/%Y-%m-%d-%H%M%S.png
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

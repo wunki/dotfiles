@@ -24,6 +24,9 @@
       desktop-files-not-to-save   "^$" ;reload tramp paths
       desktop-load-locked-desktop nil)
 
+;; don't show any scratch message
+(setq initial-scratch-message nil)
+
 ;; unicode
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)

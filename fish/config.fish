@@ -62,6 +62,7 @@ prepend_to_path "/opt/android-sdk/platform-tools"
 
 # python
 set -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
+set -x SHELL_PLUS "ipython"
 . ~/src/virtualfish/virtual.fish
 
 # git prompt

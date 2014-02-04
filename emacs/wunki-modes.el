@@ -164,11 +164,6 @@
 (sp-use-paredit-bindings)
 (smartparens-global-mode t)
 
-;; don't mess with these pairs in Django templates
-(sp-local-pair 'web-mode "{%" "%}")
-(sp-local-pair 'web-mode "{{" "}}")
-(sp-local-pair 'web-mode "{" nil :actions nil)
-
 ;; display search jumps
 (global-anzu-mode t)
 

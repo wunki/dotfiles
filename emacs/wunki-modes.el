@@ -9,7 +9,6 @@
 
 ;; projectile for project management
 (projectile-global-mode)
-(setq projectile-ack-function 'ag)
 
 ;; deletes region when starting typing
 (pending-delete-mode t)
@@ -68,12 +67,6 @@
 (ac-config-default)
 (setq ac-auto-start nil)    ; don't automatically trigger auto-complete
 (ac-set-trigger-key "TAB")  ; only trigger auto-completion on TAB
-
-;; ack
-(defalias 'ack 'ack-and-a-half)
-(defalias 'ack-same 'ack-and-a-half-same)
-(defalias 'ack-find-file 'ack-and-a-half-find-file)
-(defalias 'ack-find-file-same 'ack-and-a-half-find-file-same)
 
 ;; ag (the silver searcher)
 (require 'ag)

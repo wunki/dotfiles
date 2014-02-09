@@ -1,81 +1,54 @@
-;; Load ghc-mod
+;; requirements
+(require 'haskell-mode)
+
+;; ghc-mod
 (autoload 'ghc-init "ghc" nil t)
 (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
 
-;; Customization
+;; customization
 (custom-set-variables
- ;; Use cabal-dev for the GHCi session. Ensures our dependencies are in scope.
- '(haskell-process-type 'cabal-dev)
- 
- ;; Use notify.el (if you have it installed) at the end of running
- ;; Cabal commands or generally things worth notifying.
+ '(haskell-process-type 'cabal-repl)
  '(haskell-notify-p nil)
-
- ;; To enable tags generation on save.
  '(haskell-tags-on-save t)
+ '(haskell-stylish-on-save nil))
 
- ;; To enable stylish on save.
- '(haskell-stylish-on-save t))
-
+;; hooks
 (add-hook 'haskell-mode-hook 'haskell-hook)
-(add-hook 'haskell-mode-hook 'structured-haskell-mode)
+(add-hook 'haskell-interactive-mode-hook 'haskell-interactive-hook)
 (add-hook 'haskell-cabal-mode-hook 'haskell-cabal-hook)
+(add-hook 'haskell-mode-hook 'structured-haskell-mode)
 
-;; Haskell main editing mode key bindings.
+;; haskell mode bindings
 (defun haskell-hook ()
-  ;; Load the current file (and make a session if not already made).
-  (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-process-load-file)
-  (define-key haskell-mode-map [f5] 'haskell-process-load-file)
-
-  ;; Switch to the REPL.
-  (define-key haskell-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
-  ;; “Bring” the REPL, hiding all other windows apart from the source
-  ;; and the REPL.
-  (define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-bring)
-
-  ;; Build the Cabal project.
-  (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
-
-  ;; Interactively choose the Cabal command to run.
-  (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal)
-
-  ;; Get the type and info of the symbol at point, print it in the
-  ;; message buffer.
+  (define-key haskell-mode-map [f8] 'haskell-navigate-imports)
+  (define-key haskell-mode-map [f5] 'haskell-process-load-or-reload)
+  (define-key haskell-mode-map [f12] 'haskell-process-cabal-build-and-restart)
+  (define-key haskell-mode-map (kbd "C-c C-l") 'haskell-process-load-or-reload)
   (define-key haskell-mode-map (kbd "C-c C-t") 'haskell-process-do-type)
   (define-key haskell-mode-map (kbd "C-c C-i") 'haskell-process-do-info)
-
-  ;; Contextually do clever things on the space key, in particular:
-  ;; 1. Complete imports, letting you choose the module name.
-  ;; 2. Show the type of the symbol after the space.
-  (define-key haskell-mode-map (kbd "SPC") 'haskell-mode-contextual-space)
-
-  ;; Jump to the imports. Keep tapping to jump between import
-  ;; groups. C-u f8 to jump back again.
-  (define-key haskell-mode-map [f6] 'haskell-navigate-imports)
-
-  ;; Jump to the definition of the current symbol.
   (define-key haskell-mode-map (kbd "M-.") 'haskell-mode-tag-find)
+  (define-key haskell-mode-map (kbd "M-,") 'haskell-who-calls)
+  (define-key haskell-mode-map (kbd "C-`") 'haskell-interactive-bring)
+  (define-key haskell-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
+  (define-key haskell-mode-map (kbd "C-c c") 'haskell-process-cabal))
 
-  ;; move between errors
-  (define-key haskell-mode-map (kbd "C-c C-p") 'haskell-interactive-mode-error-backward)
-  (define-key haskell-mode-map (kbd "C-c C-n") 'haskell-interactive-mode-error-forward)
-
-  ;; Indent the below lines on columns after the current column.
-  (define-key haskell-mode-map (kbd "C-<right>")
-    (lambda ()
-      (interactive)
-      (haskell-move-nested 1)))
-  ;; Same as above but backwards.
-  (define-key haskell-mode-map (kbd "C-<left>")
-    (lambda ()
-      (interactive)
-      (haskell-move-nested -1))))
-
-;; Useful to have these keybindings for .cabal files, too.
 (defun haskell-cabal-hook ()
+  (define-key haskell-cabal-mode-map [f9] 'haskell-interactive-mode-visit-error)
+  (define-key haskell-cabal-mode-map [f11] 'haskell-process-cabal-build)
+  (define-key haskell-cabal-mode-map [f12] 'haskell-process-cabal-build-and-restart)
+  (define-key haskell-cabal-mode-map (kbd "C-`") 'haskell-interactive-bring)
+  (define-key haskell-cabal-mode-map (kbd "C-c C-z") 'haskell-interactive-switch)
   (define-key haskell-cabal-mode-map (kbd "C-c C-c") 'haskell-process-cabal-build)
   (define-key haskell-cabal-mode-map (kbd "C-c c") 'haskell-process-cabal)
-  (define-key haskell-cabal-mode-map (kbd "C-`") 'haskell-interactive-bring)
-  (define-key haskell-cabal-mode-map [?\C-c ?\C-z] 'haskell-interactive-switch))
+  (define-key haskell-mode-map (kbd "C-c C-k") 'haskell-interactive-mode-clear))
+
+(defun haskell-interactive-hook ()
+  (define-key haskell-interactive-mode-map [f9] 'haskell-interactive-mode-visit-error)
+  (define-key haskell-interactive-mode-map [f11] 'haskell-process-cabal-build)
+  (define-key haskell-interactive-mode-map [f12] 'haskell-process-cabal-build-and-restart)
+  (define-key haskell-interactive-mode-map (kbd "C-c C-v") 'haskell-interactive-toggle-print-mode)
+  (define-key haskell-interactive-mode-map (kbd "C-c C-p") 'haskell-interactive-mode-error-backward)
+  (define-key haskell-interactive-mode-map (kbd "C-c C-n") 'haskell-interactive-mode-error-forward)
+  (define-key haskell-interactive-mode-map (kbd "C-c c") 'haskell-process-cabal))
 
 (provide 'wunki-haskell)

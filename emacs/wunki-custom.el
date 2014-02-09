@@ -92,9 +92,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("4cf3221feff536e2b3385209e9b9dc4c2e0818a69a1cdb4b522756bcdf4e00a4" default)))
  '(haskell-notify-p nil)
- '(haskell-process-type (quote cabal-dev))
- '(haskell-stylish-on-save t)
+ '(haskell-process-type (quote cabal-repl))
+ '(haskell-stylish-on-save nil)
  '(haskell-tags-on-save t)
  '(safe-local-variable-values (quote ((indent-tabs-mode . 1) (pony-settings make-pony-project :python "/home/wunki/.virtualenvs/mijnmazda/bin/python")))))
 (custom-set-faces
@@ -103,5 +104,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:background nil))))
+ '(shm-current-face ((t (:background "#e9e2cb"))))
+ '(shm-quarantine-face ((t (:background "#fcf4dc"))))
  '(clojure-test-success-face ((t (:foreground "#AFD8AF" :background "#5F7F5F" :weight bold :underline t))) t)
  '(italic ((t (:slant italic)))))

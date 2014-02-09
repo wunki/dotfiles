@@ -21,12 +21,12 @@ Bundle 'rking/ag.vim'
 Bundle 'commentary.vim'
 Bundle 'surround.vim'
 Bundle 'godlygeek/tabular'
-Bundle 'vim-orgmode'
 Bundle 'tpope/vim-speeddating'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/syntastic'
 
 " Looks
+Bundle 'bling/vim-airline'
 Bundle 'sjl/badwolf'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nanotech/jellybeans.vim'
@@ -39,8 +39,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'paredit.vim'
 
 " Haskell
-Bundle 'travitch/hasksyn'
-Bundle 'Twinside/vim-syntax-haskell-cabal'
+Bundle 'dag/vim2hs'
 
 " Rust
 Bundle 'wting/rust.vim'
@@ -55,28 +54,18 @@ Bundle 'jimenezrick/vimerl'
 " Fish shell syntax
 Bundle 'aliva/vim-fish'
 
-" CFEngine
-Bundle 'neilhwatson/vim_cf3'
-
 " Python
 Bundle 'klen/python-mode'
 Bundle 'jmcantrell/vim-virtualenv'
 
-" Powerline -- But only on my laptop
-if hostname() == "thinkpade.wunki.org"
-    python from powerline.vim import setup as powerline_setup
-    python powerline_setup()
-    python del powerline_setup
-endif
-
-filetype plugin indent on 
+filetype plugin indent on
 
 " GUI
 if has("gui_running")
   if has('mac')
     set guifont=Ubuntu\ Mono:h18
   else
-    set guifont=Ubuntu\ Mono\ 13
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
   endif
   set guioptions-=e
   set guioptions-=T
@@ -99,7 +88,8 @@ else
   colorscheme Tomorrow-Night
 endif
 
-" Editor configuration
+" Airline
+let g:airline_powerline_fonts = 1
 
 " Because I run FreeBSD on my server, the bash executable is located
 " at a different path.
@@ -162,7 +152,7 @@ set wildignore+=dist                             " cabal distrubition
 " Look for the file in the current directory, then south until you reach home.
 set tags=tags;~/
 
-" Only show the cursorline on the active window 
+" Only show the cursorline on the active window
 augroup cline
     au!
     au WinLeave,InsertEnter * set nocursorline
@@ -211,10 +201,7 @@ augroup rst
 augroup END
 
 " JSON
-au! BufRead,BufNewFile *.json setfiletype json 
-
-" CFEngine
-au! BufRead,BufNewFile *.cf setfiletype cf3
+au! BufRead,BufNewFile *.json setfiletype json
 
 " Quickly escape to normal mode
 inoremap hh <ESC>

@@ -2,6 +2,7 @@
 
 set nocompatible            " use vim defaults
 set cmdheight=2             " lower command line two lines high
+set modifiable              " needed for vimpager
 set encoding=utf-8          " utf-8 encoding
 set fileencoding=utf-8      " save files as utf-8
 set bg=dark                 " dark background
@@ -17,6 +18,7 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-fugitive'
+Bundle 'tpope/vim-unimpaired'
 Bundle 'rking/ag.vim'
 Bundle 'commentary.vim'
 Bundle 'surround.vim'

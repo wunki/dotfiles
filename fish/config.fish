@@ -7,6 +7,7 @@ function weechat; weechat-curses $argv; end
 function nstat; sudo nethogs wlan0 $argv; end
 function duh; du -ah --max-depth=1; end
 function lah; ls -lah; end
+function tweets; t timeline -n 12; end
 
 # start end end dropbox
 function dropstart; sudo systemctl start dropbox@wunki.service; end
@@ -28,8 +29,9 @@ function nfsstart; sudo systemctl start rpc-idmapd rpc-mountd; end
 
 # environment variables
 set -x fish_greeting ""
-set -x EDITOR 'emacsclient -t -a emacs'
-set -x VISUAL 'emacsclient -t -a emacs'
+set -x EDITOR 'vim'
+set -x VISUAL 'vim'
+set -x PAGER 'vimpager'
 set -x BROWSER 'firefox'
 
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"
@@ -48,7 +50,7 @@ prepend_to_path "/usr/local/bin"
 prepend_to_path "/usr/local/sbin"
 prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.local/bin"
-prepend_to_path "$HOME/.gem/ruby/2.0.0/bin"
+prepend_to_path "$HOME/.gem/ruby/2.1.0/bin"
 
 # haskell
 prepend_to_path "$HOME/.cabal/bin"

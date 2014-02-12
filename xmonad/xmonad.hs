@@ -38,9 +38,9 @@ main = do
                     , ppCurrent = xmobarColor "#81a2be" ""                    
                     }
         , borderWidth = 1
-        , normalBorderColor  = "#3f3f3f"
-        , focusedBorderColor = "#709080"
-        , workspaces = ["1:Shell", "2:Emacs", "3:Browser", "4:Remote", "5:Gui", "6:Extra"]
+        , normalBorderColor  = "#586e75"
+        , focusedBorderColor = "#93a1a1"
+        , workspaces = ["1:Shell", "2:Editor", "3:Browser", "4:Remote", "5:Gui", "6:Extra"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
         , startupHook = myStartupHook
@@ -59,8 +59,8 @@ myManageHook = manageDocks <+> composeAll
     [ className =? "Chromium"             --> doF (W.shift "3:Browser")
     , className =? "Firefox-bin"          --> doF (W.shift "3:Browser")
     , className =? "Firefox"              --> doF (W.shift "3:Browser")
-    , className =? "Emacs"                --> doF (W.shift "2:Emacs")
-    , className =? "GVIM"                 --> doF (W.shift "2:Emacs")
+    , className =? "Emacs"                --> doF (W.shift "2:Editor")
+    , className =? "Gvim"                 --> doF (W.shift "2:Editor")
     , className =? "Thunar"               --> doF (W.shift "5:Gui")
     ]
 
@@ -82,6 +82,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((modMask .|. controlMask, xK_m), sendMessage Toggle)
     , ((modMask .|. controlMask, xK_w), raiseMaybe (spawn "firefox") (className =? "Firefox"))
     , ((modMask .|. controlMask, xK_e), raiseMaybe (spawn "~/bin/em") (className =? "Emacs"))
+    , ((modMask .|. controlMask, xK_v), raiseMaybe (spawn "gvim") (className =? "Gvim"))
     -- cycle through workspaces
     , ((modMask, xK_n), moveTo Next (WSIs (return $ not . (=="SP") . W.tag)))
     , ((modMask, xK_p), moveTo Prev (WSIs (return $ not . (=="SP") . W.tag)))

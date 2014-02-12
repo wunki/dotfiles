@@ -1,8 +1,10 @@
 -- -*- mode: haskell -*-
 Config { font = "xft:Ubuntu Mono:pixelsize=14:antialias=true"
-       , bgColor = "#2B2B2B"
+       , bgColor = "#002b36"
        , fgColor = "#DCDCCC"
        , position = BottomSize L 100 24
+       , border = TopB
+       , borderColor = "#073642"
        , lowerOnStart = True
        , commands = [ Run Network "wifi0" ["-t", "<rx> - <tx>", "-L", "0"," -H", "100", "--normal", "#DCDCCC", "--high", "#CC9393"] 20
                     , Run Battery ["-t", "Batt: <left>% - <timeleft>", "-L", "30", "-H", "75", "--low", "#CC9393", "--high", "#DCDCCC"] 600

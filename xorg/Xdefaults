@@ -1,5 +1,5 @@
 ! Color theme
-#include "/home/wunki/src/wunki-dotfiles/xorg/zenburn.rxvt.colors"
+#include "/home/wunki/src/wunki-dotfiles/xorg/solarized.rxvt.colors"
 
 Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size:  22
@@ -27,10 +27,10 @@ URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.M-s:      perl:keyboard-select:search
 
 ! Urxvt fonts
-urxvt.font:            xft:Ubuntu Mono:size=12
-urxvt.boldFont:        xft:Ubuntu Mono::bold:size=12
-urxvt.italicFont:      xft:Ubuntu Mono::italic:size=12
-urxvt.boldItalicFont:  xft:Ubuntu Mono::bolditalic:size=12
+urxvt.font:            xft:Ubuntu Mono derivative Powerline:size=12
+urxvt.boldFont:        xft:Ubuntu Mono derivative Powerline::bold:size=12
+urxvt.italicFont:      xft:Ubuntu Mono derivative Powerline::italic:size=12
+urxvt.boldItalicFont:  xft:Ubuntu Mono derivative Powerline::bolditalic:size=12
 
 ! Urxvt settings
 urxvt.depth: 32

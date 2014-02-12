@@ -11,9 +11,9 @@ syntax on                   " enable syntax highlighting
 filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle 'gmarik/vundle'
 
 " Essentials
+Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-fugitive'
@@ -40,6 +40,8 @@ Bundle 'paredit.vim'
 
 " Haskell
 Bundle 'dag/vim2hs'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'eagletmt/ghcmod-vim'
 
 " Rust
 Bundle 'wting/rust.vim'
@@ -78,14 +80,14 @@ if has("gui_running")
   set novisualbell        " please, no visual bell
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing
-  colorscheme badwolf
+  colorscheme solarized
 else
   " 256 colors setting
   set t_Co=256
   set mouse=a
   set ttymouse=xterm
   set termencoding=utf-8
-  colorscheme Tomorrow-Night
+  colorscheme solarized
 endif
 
 " Airline
@@ -111,7 +113,7 @@ set history=1000            " more history
 set shortmess=atI           " shorten confirmation messages
 set bs=2                    " fix backspace in FreeBSD
 set scrolloff=3             " keep 3 lines below/above cursor
-set noshowmode              " no need for the mode, powerline shows it
+set noshowmode              " no need for the mode, airline shows it
 set showcmd                 " shows partial command in the last line
 set ttyfast                 " improves remote connections
 set ruler                   " show the line and column number of the cursor

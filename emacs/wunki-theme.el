@@ -1,5 +1,5 @@
 ;; load theme and don't ask if it's save.
-(load-theme 'sanityinc-solarized-light t)
+(load-theme 'sanityinc-tomorrow-night t)
 
 ;; font
 (set-frame-font "Ubuntu Mono-12")

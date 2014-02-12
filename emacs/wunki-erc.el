@@ -43,11 +43,11 @@
 (defun erc-start-or-switch ()
   "Connect to ERC, or switch to last active buffer"
   (interactive)
-  (if (get-buffer "wunki.org:7000")               ;; ERC already active?
+  (if (get-buffer "neo.wunki.org:7000")           ;; ERC already active?
       (erc-track-switch-buffer 1)                 ;; yes: switch to last active
     (when (y-or-n-p "Start ERC? ")                ;; no: maybe start ERC
       (require 'wunki-secrets "wunki-secrets.el") ;; load passwords
-      (erc :server "wunki.org"
+      (erc :server "neo.wunki.org"
            :port 7000
            :nick "wunki"
            :password irc-wunki

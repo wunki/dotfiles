@@ -45,7 +45,7 @@ parcellite -n -d &
 redshift -l 52:4 -t 6000:4800 -m randr &
 
 # Set background
-feh --bg-tile ~/dropbox/Pictures/Wallpapers/Patterns/darkdenim3.png
+feh --bg-tile ~/dropbox/Pictures/Wallpapers/Patterns/solarized.png
 
 # Thunar
 thunar --daemon &

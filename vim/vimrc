@@ -67,7 +67,7 @@ filetype plugin indent on
 " GUI
 if has("gui_running")
   if has('mac')
-    set guifont=Ubuntu\ Mono:h18
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline:h18
   else
     set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
   endif
@@ -97,7 +97,7 @@ let g:airline_powerline_fonts = 1
 
 " Because I run FreeBSD on my server, the bash executable is located
 " at a different path.
-if hostname() == "thinkpad.wunki.org"
+if has('mac')
     set shell=/bin/bash
 else
     set shell=/usr/local/bin/bash

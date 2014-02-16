@@ -1,5 +1,5 @@
 ! Color theme
-#include "/home/wunki/src/wunki-dotfiles/xorg/solarized.rxvt.colors"
+#include "/home/wunki/src/wunki-dotfiles/xorg/hybrid.rxvt.colors"
 
 Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size:  22

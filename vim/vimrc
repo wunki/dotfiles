@@ -1,7 +1,7 @@
 " Vim configuration file by Petar Radosevic
 
 set nocompatible            " use vim defaults
-set cmdheight=2             " lower command line two lines high
+set cmdheight=1             " lower command line two lines high
 set modifiable              " needed for vimpager
 set encoding=utf-8          " utf-8 encoding
 set fileencoding=utf-8      " save files as utf-8
@@ -26,12 +26,14 @@ Bundle 'godlygeek/tabular'
 Bundle 'tpope/vim-speeddating'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/syntastic'
+Bundle 'scrooloose/nerdtree'
 
 " Looks
 Bundle 'bling/vim-airline'
 Bundle 'sjl/badwolf'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nanotech/jellybeans.vim'
+Bundle 'w0ng/vim-hybrid'
 
 " Clojure
 Bundle 'tpope/vim-fireplace'
@@ -69,7 +71,7 @@ if has("gui_running")
   if has('mac')
     set guifont=Ubuntu\ Mono\ derivative\ Powerline:h18
   else
-    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
   endif
   set guioptions-=e
   set guioptions-=T
@@ -82,14 +84,14 @@ if has("gui_running")
   set novisualbell        " please, no visual bell
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing
-  colorscheme solarized
+  colorscheme hybrid
 else
   " 256 colors setting
   set t_Co=256
   set mouse=a
   set ttymouse=xterm
   set termencoding=utf-8
-  colorscheme solarized
+  colorscheme hybrid
 endif
 
 " Airline
@@ -169,6 +171,9 @@ set backupdir=~/.vim/tmp/backup// " backups
 set directory=~/.vim/tmp/swap//   " swap files
 set backup                        " enable backups
 set noswapfile                    " no swapping
+
+" NerdTree
+map <C-n> :NERDTreeToggle<CR>
 
 " Faster scrolling
 nnoremap <C-e> 3<C-e>

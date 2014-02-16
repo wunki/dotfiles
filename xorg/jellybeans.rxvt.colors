@@ -1,0 +1,22 @@
+! jellybeans theme
+
+*.background: #121212
+*.foreground: #d7d7d7
+*.cursorColor: #d7d7d7
+
+*.color0: #393939
+*.color1: #ca674a
+*.color2: #96a967
+*.color3: #d3a94a
+*.color4: #5778c1
+*.color5: #9c35ac
+*.color6: #6eb5f3
+*.color7: #a9a9a9
+*.color8: #535551
+*.color9: #ea2828
+*.color10: #87dd32
+*.color11: #f7e44d
+*.color12: #6f9bca
+*.color13: #a97ca4
+*.color14: #32dddd
+*.color15: #e9e9e7

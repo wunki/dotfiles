@@ -50,13 +50,12 @@ prepend_to_path "/usr/local/bin"
 prepend_to_path "/usr/local/sbin"
 prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.local/bin"
-prepend_to_path "$HOME/.gem/ruby/2.1.0/bin"
 
 # haskell
 prepend_to_path "$HOME/.cabal/bin"
 
 # rubygems
-prepend_to_path "$HOME/.gem/ruby/2.0.0/bin"
+prepend_to_path "$HOME/.gem/ruby/2.1.0/bin"
 
 # android
 prepend_to_path "/opt/android-sdk/tools"

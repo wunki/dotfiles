@@ -202,7 +202,7 @@ send_queued_mail() {   # <-- mail id
   if [ -f "${FQP}.msmtp" ] ; then    # corresponding .msmtp file found
     # verify net connection - ping ip address of debian.org
     # would ping -qnc2 -w4 be better ?
-    if ping -qnc1 -w4 debian.org > /dev/null 2>&1 ; then       # connected
+    if ping -qnc1 -W3 debian.org > /dev/null 2>&1 ; then       # connected
       if $MSMTP $(< "${FQP}.msmtp") < "${FQP}.mail" ; then     # this mail goes out the door
         log "mail [ $2 ] [ $1 ] from queue ; send was successful ; purged from queue"  # good news to user
         'rm' -f ${FQP}.*                                       # nuke both queue mail files
@@ -388,7 +388,7 @@ enqueue_mail() { # <-- all mail args ; mail text via TMP
 ## if send is successful, msmtp will also log it (if enabled in ~/.msmtprc)
 send_mail() {    # <-- all mail args ; mail text via TMP
   # verify net connection - ping ip address of debian.org
-  if ping -qnc1 -w4 debian.org > /dev/null 2>&1 ; then   # we're online, connected
+  if ping -qnc1 -W3 debian.org > /dev/null 2>&1 ; then   # we're online, connected
     if $MSMTP "$@" < "${FQP}.mail" > /dev/null ; then    # send mail using queue .mail fil
       log "mail for [ $* ] : send was successful"        # log it
       'rm' -f "${FQP}.mail"          # remove queue .mail file

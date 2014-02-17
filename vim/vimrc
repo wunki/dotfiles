@@ -217,7 +217,6 @@ inoremap hh <ESC>
 
 " Quick edit
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>et :vsplit ~/org/today.org<cr>
 
 " Line numbers
 noremap <f3> :set nu!<cr>

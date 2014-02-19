@@ -47,6 +47,9 @@ Bundle 'dag/vim2hs'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'eagletmt/ghcmod-vim'
 
+" Scala
+Bundle 'derekwyatt/vim-scala'
+
 " Rust
 Bundle 'wting/rust.vim'
 
@@ -71,7 +74,7 @@ if has("gui_running")
   if has('mac')
     set guifont=Ubuntu\ Mono\ derivative\ Powerline:h18
   else
-    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 12
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
   endif
   set guioptions-=e
   set guioptions-=T
@@ -102,7 +105,7 @@ let g:airline_powerline_fonts = 1
 if has('mac')
     set shell=/bin/bash
 else
-    set shell=/usr/local/bin/bash
+    set shell=/usr/bin/bash
 endif
 set showmatch               " show matching brackets (), {}' []
 set showcmd                 " show command

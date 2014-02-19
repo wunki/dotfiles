@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/bin/env sh
+
+# QT must be able to find my theme
+export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 # X Settings
 xrdb -merge .Xresources
 xrdb -merge .Xdefaults
-
-# QT must be able to find my theme
-export GTK2_RC_FILES="$HOME/.gtkrc-2.0"   
 
 # Disable PC-Speaker
 xset b off &
@@ -27,10 +27,7 @@ xsetroot -cursor_name left_ptr
 
 # Set dvorak keymapping
 setxkbmap -layout us -variant dvorak
-setxkbmap -option ctrl:nocaps 
-
-# Enable iPad charger
-#/usr/bin/ipad_charge
+setxkbmap -option ctrl:nocaps
 
 # Start rvxt-unicode server
 urxvtd -o -q -f &
@@ -48,7 +45,7 @@ redshift -l 52:4 -t 6000:4800 -m randr &
 feh --bg-tile ~/pictures/wallpapers/patterns/stressed_linen.png
 
 # Thunar
-#thunar --daemon &
+thunar --daemon &
 
 # SSH agent
 eval `ssh-agent`

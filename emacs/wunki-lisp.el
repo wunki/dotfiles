@@ -16,11 +16,11 @@
 (setq inferior-lisp-program "/usr/bin/sbcl --noinform")
 
 ;; slime
-(slime-setup '(slime-repl))
-(add-hook 'slime-mode-hook 'set-up-slime-ac)
-(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'slime-repl-mode))
+;(slime-setup '(slime-repl))
+;(add-hook 'slime-mode-hook 'set-up-slime-ac)
+;(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
+;(eval-after-load "auto-complete"
+;  '(add-to-list 'ac-modes 'slime-repl-mode))
 
 ;; cider
 (setq nrepl-port "4001")

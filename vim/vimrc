@@ -100,13 +100,17 @@ endif
 " Airline
 let g:airline_powerline_fonts = 1
 
-" Because I run FreeBSD on my server, the bash executable is located
-" at a different path.
-if has('mac')
+" Find bash
+if executable('/bin/bash')
     set shell=/bin/bash
-else
+elseif executable('/usr/local/bin/bash')
+    set shell=/usr/local/bin/bash
+elseif executable('/usr/bin/bash')
     set shell=/usr/bin/bash
+else
+    set shell=/bin/sh 
 endif
+
 set showmatch               " show matching brackets (), {}' []
 set showcmd                 " show command
 set modelines=0             " don't use modelines
@@ -304,7 +308,7 @@ augroup END
 au BufRead,BufNewFile rebar.config set filetype=erlang
 
 " Saltstack
-au BufRead,BufNewFile *.sls set filetype=yaml
+au BufRead,BufNewFile *.sls set filetype=yaml tabstop=2
 
 " Syntastic
 let g:syntastic_echo_current_error=0

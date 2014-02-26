@@ -47,10 +47,10 @@
       (erc-track-switch-buffer 1)                 ;; yes: switch to last active
     (when (y-or-n-p "Start ERC? ")                ;; no: maybe start ERC
       (require 'wunki-secrets "wunki-secrets.el") ;; load passwords
-      (erc :server "neo.wunki.org"
-           :port 7000
-           :nick "wunki"
-           :password irc-wunki
-           :full-name "Petar Radosevic"))))
+      (erc-tls :server "neo.wunki.org"
+               :port 7000
+               :nick "wunki"
+               :password irc-wunki
+               :full-name "Petar Radosevic"))))
 
 (provide 'wunki-erc)

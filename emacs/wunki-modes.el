@@ -14,7 +14,7 @@
 (pending-delete-mode t)
 
 ;; blinking
-(blink-cursor-mode t)
+;(blink-cursor-mode t)
 
 ;; improve buffer names
 (require 'uniquify)

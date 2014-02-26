@@ -8,6 +8,7 @@ function nstat; sudo nethogs wlan0 $argv; end
 function duh; du -ah --max-depth=1; end
 function lah; ls -lah; end
 function tweets; t timeline -n 12; end
+function j; cd (command autojump $argv); end
 
 # start end end dropbox
 function dropstart; sudo systemctl start dropbox@wunki.service; end

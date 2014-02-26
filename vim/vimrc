@@ -18,6 +18,7 @@ Bundle 'gmarik/vundle'
 Bundle 'kien/ctrlp.vim'
 Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-fugitive'
+Bundle 'gregsexton/gitv'
 Bundle 'tpope/vim-unimpaired'
 Bundle 'rking/ag.vim'
 Bundle 'commentary.vim'
@@ -250,6 +251,8 @@ nnoremap <leader>gco :Gcheckout<cr>
 nnoremap <leader>gci :Gcommit<cr>
 nnoremap <leader>gm :Gmove<cr>
 nnoremap <leader>gr :Gremove<cr>
+nnoremap <leader>gv :Gitv<cr>
+
 
 " Org-mode
 augroup ft_org

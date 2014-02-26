@@ -8,6 +8,7 @@ import           XMonad.Util.Run              (spawnPipe)
 -- Hooks
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.ManageDocks
+import           XMonad.Hooks.SetWMName
 
 -- Actions
 import           XMonad.Actions.WindowGo
@@ -43,7 +44,8 @@ main = do
         , workspaces = ["1:Shell", "2:Editor", "3:Browser", "4:Remote", "5:Gui", "6:Extra"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
-        , startupHook = myStartupHook
+        , startupHook = setWMName "LG3D"
+        -- , startupHook = myStartupHook
         }
 
 -- Layouts
@@ -91,6 +93,5 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((modMask, xK_c), windowPromptBring defaultXPConfig)
     ]
 
--- | Perform an arbitrary action at xmonad startup.
 myStartupHook :: X ()
 myStartupHook = return ()

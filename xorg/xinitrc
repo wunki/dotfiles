@@ -51,7 +51,7 @@ thunar --daemon &
 eval `ssh-agent`
 
 # Emacs
-#emacs --daemon &
+emacs --daemon &
 
 #
 # Start window manager

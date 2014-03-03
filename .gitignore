@@ -19,3 +19,4 @@ emacs/saved-places
 /emacs/request/
 /bin/exercism
 /fish/fish_read_history
+/fish/secret_env.fish

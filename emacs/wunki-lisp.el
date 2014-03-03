@@ -25,7 +25,6 @@
 ;; cider
 (setq nrepl-port "4001")
 (setq nrepl-buffer-name-show-port t)
-(setq nrepl-hide-special-buffers nil)
 (setq cider-auto-select-error-buffer t)
 
 (add-hook 'cider-mode-hook 'cider-turn-on-eldoc-mode)

@@ -30,10 +30,13 @@ function nfsstart; sudo systemctl start rpc-idmapd rpc-mountd; end
 
 # environment variables
 set -x fish_greeting ""
-set -x EDITOR 'vim'
-set -x VISUAL 'vim'
+set -x EDITOR 'ec'
+set -x VISUAL 'ec'
 set -x PAGER 'vimpager'
 set -x BROWSER 'firefox'
+
+# secret environment vars
+. ~/.config/fish/secret_env.fish
 
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"
     if test -d $argv[1]

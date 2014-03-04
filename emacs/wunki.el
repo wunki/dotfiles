@@ -14,7 +14,7 @@
 
 ;; my packages
 (dolist (p '(;; fundamentals
-             magit gist ack-and-a-half auto-complete jabber
+             magit yagist ack-and-a-half auto-complete jabber
              buffer-move s projectile goto-last-change
              expand-region change-inner powerline surround
              idomenu diminish dired-details multiple-cursors ag
@@ -35,10 +35,13 @@
 
              ;; autocompletion
              ac-geiser ac-nrepl ac-slime
+
+             ;; fun
+             4clojure
              
              ;; themes
              zenburn-theme color-theme-sanityinc-tomorrow
-             color-theme-sanityinc-solarized))
+             color-theme-sanityinc-solarized solarized-theme))
   (when (not (package-installed-p p))
     (package-install p)))
 

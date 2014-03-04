@@ -14,7 +14,7 @@
 
 ;; my packages
 (dolist (p '(;; fundamentals
-             magit yagist ack-and-a-half auto-complete jabber
+             magit yagist ack-and-a-half auto-complete
              buffer-move s projectile goto-last-change
              expand-region change-inner powerline surround
              idomenu diminish dired-details multiple-cursors ag
@@ -24,9 +24,9 @@
              ;; modes
              org org-plus-contrib org-magit pandoc-mode
              markdown-mode git-commit-mode gitconfig-mode
-             gitignore-mode js2-mode yaml-mode pretty-mode-plus
-             ido-ubiquitous flx-ido undo-tree ace-jump-mode
-             web-mode anzu
+             gitignore-mode git-gutter js2-mnode yaml-mode
+             pretty-mode-plus ido-ubiquitous flx-ido undo-tree
+             ace-jump-mode web-mode anzu
              
              ;; languages
              nrepl clojure-mode clojure-test-mode cljdoc
@@ -65,8 +65,6 @@
 (require 'wunki-erlang)     ; erlang
 (require 'wunki-scala)      ; scala
 (require 'wunki-erc)        ; irc
-(require 'wunki-jabber)     ; jabber
-;(require 'wunki-evil)       ; vim emulation
 
 (when (eq system-type 'darwin)
   (require 'wunki-mac))     ; mac settings

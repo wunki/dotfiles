@@ -25,10 +25,6 @@ xset r rate 300 60
 # Set the left cursor as default
 xsetroot -cursor_name left_ptr
 
-# Set dvorak keymapping
-setxkbmap -layout us -variant dvorak
-setxkbmap -option ctrl:nocaps
-
 # Start rvxt-unicode server
 urxvtd -o -q -f &
 
@@ -53,9 +49,11 @@ eval `ssh-agent`
 # Emacs
 emacs --daemon &
 
+# Authentication agent
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
 #
 # Start window manager
 #
 # exec dbus-launch i3 -V >> $HOME/.i3.log 2>&1
-#exec dbus-launch xmonad > $HOME/.xmonad.log 2>&1
-exec xmonad > $HOME/.xmonad.log 2>&1
+exec dbus-launch xmonad > $HOME/.xmonad.log 2>&1

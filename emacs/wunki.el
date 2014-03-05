@@ -14,12 +14,12 @@
 
 ;; my packages
 (dolist (p '(;; fundamentals
-             magit yagist ack-and-a-half auto-complete
-             buffer-move s projectile goto-last-change
-             expand-region change-inner powerline surround
-             idomenu diminish dired-details multiple-cursors ag
-             restclient quack geiser rainbow-delimiters calfw
-             smex smartparens evil htmlize
+             magit yagist ack-and-a-half buffer-move s projectile
+             goto-last-change expand-region change-inner
+             powerline surround idomenu diminish dired-details
+             multiple-cursors ag restclient quack geiser
+             rainbow-delimiters calfw smex smartparens evil
+             htmlize move-text dash browse-kill-ring
 
              ;; modes
              org org-plus-contrib org-magit pandoc-mode
@@ -29,12 +29,12 @@
              ace-jump-mode web-mode anzu
              
              ;; languages
-             nrepl clojure-mode clojure-test-mode cljdoc
+             cider clojure-mode clojure-test-mode cljdoc
              clojurescript-mode haskell-mode ghc rust-mode elpy
              slime slime-repl erlang scala-mode2 ensime
 
              ;; autocompletion
-             ac-geiser ac-nrepl ac-slime
+             auto-complete ac-geiser ac-nrepl ac-slime
 
              ;; fun
              4clojure
@@ -42,7 +42,7 @@
              ;; themes
              zenburn-theme color-theme-sanityinc-tomorrow
              color-theme-sanityinc-solarized solarized-theme))
-  (when (not (package-installed-p p))
+  (unless (package-installed-p p)
     (package-install p)))
 
 ;; configuration files

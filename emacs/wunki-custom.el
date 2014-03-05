@@ -92,6 +92,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(custom-safe-themes (quote ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(haskell-notify-p nil)
  '(haskell-process-type (quote cabal-repl))
  '(haskell-stylish-on-save nil)
@@ -104,5 +105,5 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:background nil))))
  '(italic ((t (:slant italic))))
- '(shm-current-face ((t (:background "#e9e2cb"))))
- '(shm-quarantine-face ((t (:background "#fcf4dc")))))
+ '(shm-current-face ((t (:background "#e9e2cb"))) t)
+ '(shm-quarantine-face ((t (:background "#fcf4dc"))) t))

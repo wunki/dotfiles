@@ -22,7 +22,7 @@
 ;; (global-set-key (kbd "<escape>") 'god-local-mode)
 
 ;; join line command
-(global-set-key (kbd "C-c j") 'join-line)
+(global-set-key (kbd "C-c C-j") 'join-line)
 
 ;; gotta have some fun
 (global-set-key (kbd "C-c C-*") 'zone)
@@ -88,8 +88,11 @@
 (global-set-key (kbd "C-@") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-#") 'mc/mark-all-like-this-dwim)
 
+;; replace buffer-menu with ibuffer
+(global-set-key (kbd "C-x C-b") 'ibuffer)
+
 ;; moving around
-(global-set-key (kbd "C-M-a") 'ace-jump-mode)
+(global-set-key (kbd "C-c j") 'ace-jump-mode)
 (global-set-key (kbd "C-c C-i") 'idomenu)
 
 ;; quickly edit files

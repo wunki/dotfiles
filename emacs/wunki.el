@@ -24,7 +24,7 @@
              ;; modes
              org org-plus-contrib org-magit pandoc-mode
              markdown-mode git-commit-mode gitconfig-mode
-             gitignore-mode git-gutter js2-mnode yaml-mode
+             gitignore-mode git-gutter js2-mode yaml-mode
              pretty-mode-plus ido-ubiquitous flx-ido undo-tree
              ace-jump-mode web-mode anzu
              

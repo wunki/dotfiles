@@ -14,7 +14,7 @@
 (pending-delete-mode t)
 
 ;; blinking
-(blink-cursor-mode -1)
+(blink-cursor-mode t)
 
 ;; improve buffer names
 (require 'uniquify)
@@ -34,10 +34,6 @@
 (add-hook 'yaml-mode-hook 'disable-electric-indent)
 (add-hook 'org-mode-hook 'disable-electric-indent)
 (add-hook 'haskell-mode-hook 'disable-electric-indent)
-
-;; move-text
-(require 'move-text)
-(move-text-default-bindings)
 
 ;; calfw, handy calendar
 (require 'calfw)

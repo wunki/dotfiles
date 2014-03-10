@@ -105,5 +105,5 @@
  ;; If there is more than one, they won't work right.
  '(default ((t (:background nil))))
  '(italic ((t (:slant italic))))
- '(shm-current-face ((t (:background "#e9e2cb"))) t)
- '(shm-quarantine-face ((t (:background "#fcf4dc"))) t))
+ '(shm-current-face ((t (:background "#073642"))) t)
+ '(shm-quarantine-face ((t (:background "lemonchiffon"))) t))

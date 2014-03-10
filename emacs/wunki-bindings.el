@@ -64,6 +64,10 @@
 (global-set-key (kbd "<C-S-left>") 'buf-move-left)
 (global-set-key (kbd "<C-S-right>") 'buf-move-right)
 
+;; move lines
+(global-set-key [(control shift up)] 'move-line-up)
+(global-set-key [(control shift down)] 'move-line-down)
+
 ;; move current window into focus
 (global-set-key (kbd "C-M-<return>")
                 (lambda ()

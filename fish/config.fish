@@ -9,6 +9,7 @@ function duh; du -ah --max-depth=1; end
 function lah; ls -lah; end
 function tweets; t timeline -n 12; end
 function j; cd (command autojump $argv); end
+function e; emacsclient -a "vim" -t $argv; end
 
 # start end end dropbox
 function dropstart; sudo systemctl start dropbox@wunki.service; end
@@ -64,6 +65,9 @@ prepend_to_path "$HOME/.gem/ruby/2.1.0/bin"
 # android
 prepend_to_path "/opt/android-sdk/tools"
 prepend_to_path "/opt/android-sdk/platform-tools"
+
+# perl
+prepend_to_path "/usr/bin/core_perl"
 
 # python
 set -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"

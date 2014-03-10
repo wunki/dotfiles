@@ -112,4 +112,17 @@
   "Only auto-fill comments when programming"
   (set (make-local-variable 'comment-auto-fill-only-comments) t))
 
+;; move line up
+(defun move-line-up ()
+  (interactive)
+  (transpose-lines 1)
+  (previous-line 2))
+
+;; move line down
+(defun move-line-down ()
+  (interactive)
+  (next-line 1)
+  (transpose-lines 1)
+  (previous-line 1))
+
 (provide 'wunki-defuns)

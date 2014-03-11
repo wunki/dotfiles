@@ -104,6 +104,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:background nil))))
- '(italic ((t (:slant italic))))
- '(shm-current-face ((t (:background "#073642"))) t)
- '(shm-quarantine-face ((t (:background "lemonchiffon"))) t))
+ '(italic ((t (:slant italic)))))

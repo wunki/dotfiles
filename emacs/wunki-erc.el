@@ -47,10 +47,17 @@
       (erc-track-switch-buffer 1)                 ;; yes: switch to last active
     (when (y-or-n-p "Start ERC? ")                ;; no: maybe start ERC
       (require 'wunki-secrets "wunki-secrets.el") ;; load passwords
-      (erc-tls :server "neo.wunki.org"
-               :port 7000
-               :nick "wunki"
-               :password irc-wunki
-               :full-name "Petar Radosevic"))))
+      ;; connect to freenode and mozilla
+      (progn
+        (erc-tls :server "neo.wunki.org"
+                 :port 7000
+                 :nick "wunki"
+                 :password irc-wunki-freenode
+                 :full-name "Petar Radosevic")
+        (erc-tls :server "neo.wunki.org"
+                 :port 7000
+                 :nick "wunki"
+                 :password irc-wunki-mozilla
+                 :full-name "Petar Radosevic")))))
 
 (provide 'wunki-erc)

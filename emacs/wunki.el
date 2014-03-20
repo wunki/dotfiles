@@ -30,8 +30,9 @@
              
              ;; languages
              cider clojure-mode clojure-test-mode cljdoc
-             clojurescript-mode haskell-mode shm ghc rust-mode
-             elpy slime slime-repl erlang scala-mode2 ensime
+             clojurescript-mode slamhound haskell-mode shm ghc
+             rust-mode elpy slime slime-repl erlang scala-mode2
+             ensime
 
              ;; autocompletion
              auto-complete ac-geiser ac-nrepl ac-slime

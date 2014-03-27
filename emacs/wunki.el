@@ -64,7 +64,7 @@
 (require 'wunki-python)     ; python
 (require 'wunki-haskell)    ; haskell
 (require 'wunki-erlang)     ; erlang
-(require 'wunki-scala)      ; scala
+;(require 'wunki-scala)      ; scala
 (require 'wunki-erc)        ; irc
 
 (when (eq system-type 'darwin)

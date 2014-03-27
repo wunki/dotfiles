@@ -31,10 +31,10 @@ function nfsstart; sudo systemctl start rpc-idmapd rpc-mountd; end
 
 # environment variables
 set -x fish_greeting ""
-set -x EDITOR 'ec'
-set -x VISUAL 'ec'
+set -x EDITOR 'vim'
+set -x VISUAL 'vim'
 set -x PAGER 'vimpager'
-set -x BROWSER 'firefox'
+set -x BROWSER 'firefox-nightly'
 
 # secret environment vars
 . ~/.config/fish/secret_env.fish

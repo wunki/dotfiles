@@ -1,7 +1,7 @@
 " Vim configuration file by Petar Radosevic
 
 set nocompatible            " use vim defaults
-set cmdheight=1             " lower command line two lines high
+set cmdheight=2             " lower command line two lines high
 set modifiable              " needed for vimpager
 set encoding=utf-8          " utf-8 encoding
 set fileencoding=utf-8      " save files as utf-8
@@ -38,7 +38,6 @@ Bundle 'w0ng/vim-hybrid'
 
 " Clojure
 Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-classpath'
 Bundle 'guns/vim-clojure-static'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'paredit.vim'
@@ -47,6 +46,7 @@ Bundle 'paredit.vim'
 Bundle 'dag/vim2hs'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'eagletmt/ghcmod-vim'
+Bundle 'twinside/vim-hoogle'
 
 " Scala
 Bundle 'derekwyatt/vim-scala'
@@ -54,9 +54,8 @@ Bundle 'derekwyatt/vim-scala'
 " Rust
 Bundle 'wting/rust.vim'
 
-" Gist
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
+" Racket
+Bundle 'wlangstroth/vim-racket'
 
 " Erlang
 Bundle 'jimenezrick/vimerl'
@@ -64,9 +63,17 @@ Bundle 'jimenezrick/vimerl'
 " Fish shell syntax
 Bundle 'aliva/vim-fish'
 
+" Salt stack
+Bundle 'saltstack/salt-vim'
+
 " Python
 Bundle 'klen/python-mode'
 Bundle 'jmcantrell/vim-virtualenv'
+
+" Github
+Bundle "jaxbot/github-issues.vim"
+Bundle 'mattn/webapi-vim'
+Bundle 'mattn/gist-vim'
 
 filetype plugin indent on
 
@@ -88,15 +95,16 @@ if has("gui_running")
   set novisualbell        " please, no visual bell
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing
-  colorscheme hybrid
 else
   " 256 colors setting
   set t_Co=256
   set mouse=a
   set ttymouse=xterm
   set termencoding=utf-8
-  colorscheme hybrid
 endif
+
+" Theme
+colorscheme zenburn
 
 " Airline
 let g:airline_powerline_fonts = 1
@@ -109,7 +117,7 @@ elseif executable('/usr/local/bin/bash')
 elseif executable('/usr/bin/bash')
     set shell=/usr/bin/bash
 else
-    set shell=/bin/sh 
+    set shell=/bin/sh
 endif
 
 set showmatch               " show matching brackets (), {}' []
@@ -182,6 +190,10 @@ set noswapfile                    " no swapping
 
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeIgnore=['\~$', '\.pyc', '\.swp$', '\.git', '\.hg', '\.svn',
+      \ '\.ropeproject', '\.o', '\.bzr', '\.ipynb_checkpoints', '__pycache__',
+      \ '\.egg$', '\.egg-info$', '\.tox$', '\.idea$', '\.sass-cache',
+      \ '\.env*$', '\.env[0-9]$', '\.coverage$']
 
 " Faster scrolling
 nnoremap <C-e> 3<C-e>
@@ -253,7 +265,6 @@ nnoremap <leader>gm :Gmove<cr>
 nnoremap <leader>gr :Gremove<cr>
 nnoremap <leader>gv :Gitv<cr>
 
-
 " Org-mode
 augroup ft_org
     au!
@@ -310,9 +321,16 @@ augroup END
 " Erlang
 au BufRead,BufNewFile rebar.config set filetype=erlang
 
-" Saltstack
-au BufRead,BufNewFile *.sls set filetype=yaml tabstop=2
-
 " Syntastic
-let g:syntastic_echo_current_error=0
-let g:syntastic_enable_highlighting=0
+let g:syntastic_echo_current_error = 0
+let g:syntastic_enable_highlighting = 0
+
+" Github issues
+let g:github_issues_no_omni = 1
+
+" Passwords
+let passfile = $HOME."/.vimpass"
+if filereadable($passfile)
+    source $passfile
+end
+

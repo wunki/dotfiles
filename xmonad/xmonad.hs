@@ -82,7 +82,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((modMask .|. controlMask, xK_p), sendMessage MagnifyMore)
     , ((modMask .|. controlMask, xK_l), sendMessage MagnifyLess)
     , ((modMask .|. controlMask, xK_m), sendMessage Toggle)
-    , ((modMask .|. controlMask, xK_w), raiseMaybe (spawn "firefox") (className =? "Firefox"))
+    , ((modMask .|. controlMask, xK_w), raiseMaybe (spawn "firefox-nightly") (className =? "Firefox"))
     , ((modMask .|. controlMask, xK_e), raiseMaybe (spawn "~/bin/em") (className =? "Emacs"))
     , ((modMask .|. controlMask, xK_v), raiseMaybe (spawn "gvim") (className =? "Gvim"))
     -- cycle through workspaces

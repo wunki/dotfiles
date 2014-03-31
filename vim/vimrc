@@ -104,6 +104,7 @@ else
 endif
 
 " Theme
+let g:zenburn_disable_Label_underline = 1
 colorscheme zenburn
 
 " Airline
@@ -139,6 +140,7 @@ set ttyfast                 " improves remote connections
 set ruler                   " show the line and column number of the cursor
 set backspace=indent,eol,start
 set number                  " show line numbering
+set relativenumber          " show relativenumbers
 set undofile                " create undofiles
 set formatoptions=qrn1
 set cursorline              " show me the line where the cursor is
@@ -310,13 +312,13 @@ set ssop-=folds      " do not store folds
 
 " Clojure
 let g:clojure_align_multiline_strings=1
-augroup ft_clojure
-    au!
-    au FileType clojure RainbowParenthesesActivate
-    au syntax clojure RainbowParenthesesLoadRound
-    au syntax clojure RainbowParenthesesLoadSquare
-    au syntax clojure RainbowParenthesesLoadBraces
-augroup END
+" augroup ft_clojure
+"     au!
+"     au FileType clojure RainbowParenthesesActivate
+"     au syntax clojure RainbowParenthesesLoadRound
+"     au syntax clojure RainbowParenthesesLoadSquare
+"     au syntax clojure RainbowParenthesesLoadBraces
+" augroup END
 
 " Erlang
 au BufRead,BufNewFile rebar.config set filetype=erlang

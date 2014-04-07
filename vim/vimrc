@@ -39,6 +39,8 @@ Bundle 'w0ng/vim-hybrid'
 " Clojure
 Bundle 'tpope/vim-fireplace'
 Bundle 'guns/vim-clojure-static'
+Bundle 'guns/vim-slamhound'
+Bundle 'guns/vim-clojure-highlight'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'paredit.vim'
 
@@ -71,9 +73,11 @@ Bundle 'klen/python-mode'
 Bundle 'jmcantrell/vim-virtualenv'
 
 " Github
-Bundle "jaxbot/github-issues.vim"
-Bundle 'mattn/webapi-vim'
-Bundle 'mattn/gist-vim'
+if hostname() == "thinkpad.wunki.org"
+  Bundle "jaxbot/github-issues.vim"
+  Bundle 'mattn/webapi-vim'
+  Bundle 'mattn/gist-vim'
+endif
 
 filetype plugin indent on
 
@@ -266,6 +270,7 @@ nnoremap <leader>gci :Gcommit<cr>
 nnoremap <leader>gm :Gmove<cr>
 nnoremap <leader>gr :Gremove<cr>
 nnoremap <leader>gv :Gitv<cr>
+nnoremap <leader>gp :Git push<cr>
 
 " Org-mode
 augroup ft_org
@@ -302,13 +307,13 @@ setl lispwords+=let-values,condition-case,with-input-from-string
 setl lispwords+=with-output-to-string,handle-exceptions,call/cc,rec,receive
 setl lispwords+=call-with-output-file
 
-" YouCompleteMe settings
-let g:ycm_complete_in_strings = 0
-let g:ycm_autoclose_preview_window_after_completion = 1
-
 " Sessions
 set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds
+
+" Completion
+set complete=.,w,b,u,t
+set completeopt=longest,menuone,preview
 
 " Clojure
 let g:clojure_align_multiline_strings=1

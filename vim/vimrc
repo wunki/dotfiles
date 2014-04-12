@@ -35,6 +35,7 @@ Bundle 'sjl/badwolf'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'nanotech/jellybeans.vim'
 Bundle 'w0ng/vim-hybrid'
+Bundle 'noahfrederick/vim-hemisu'
 
 " Clojure
 Bundle 'tpope/vim-fireplace'
@@ -279,11 +280,10 @@ augroup ft_org
 augroup END
 
 " Haskell settings
-let g:haddock_browser = "/home/wunki/bin/conkeror"
+let g:haddock_browser = "firefox"
 let g:haddock_browser_callformat = "%s %s"
 let g:ghc="/usr/bin/ghc"
 let g:haddock_docdir="/usr/share/doc/ghc/html/"
-"autocmd FileType haskell setlocal shiftwidth=2 tabstop=2
 
 " Badwolf theme settings
 let g:badwolf_darkgutter = 1
@@ -317,13 +317,14 @@ set completeopt=longest,menuone,preview
 
 " Clojure
 let g:clojure_align_multiline_strings=1
-" augroup ft_clojure
-"     au!
+augroup ft_clojure
+    au!
+    au Filetype clojure setlocal iskeyword+=-
 "     au FileType clojure RainbowParenthesesActivate
 "     au syntax clojure RainbowParenthesesLoadRound
 "     au syntax clojure RainbowParenthesesLoadSquare
 "     au syntax clojure RainbowParenthesesLoadBraces
-" augroup END
+augroup END
 
 " Erlang
 au BufRead,BufNewFile rebar.config set filetype=erlang

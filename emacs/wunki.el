@@ -64,8 +64,9 @@
 (require 'wunki-python)     ; python
 (require 'wunki-haskell)    ; haskell
 (require 'wunki-erlang)     ; erlang
-;(require 'wunki-scala)      ; scala
+;(require 'wunki-scala)     ; scala
 (require 'wunki-erc)        ; irc
+(require 'wunki-evil)       ; vim emulation
 
 (when (eq system-type 'darwin)
   (require 'wunki-mac))     ; mac settings

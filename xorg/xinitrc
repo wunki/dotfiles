@@ -47,7 +47,7 @@ thunar --daemon &
 eval `ssh-agent`
 
 # Emacs
-emacs --daemon &
+# emacs --daemon &
 
 # Authentication agent
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &

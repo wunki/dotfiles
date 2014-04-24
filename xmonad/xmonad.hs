@@ -17,7 +17,6 @@ import           XMonad.Actions.WindowGo
 import           XMonad.Layout.Grid
 import           XMonad.Layout.Magnifier
 import           XMonad.Layout.NoBorders
-import           XMonad.Layout.PerWorkspace
 
 -- Keys
 import qualified Data.Map                     as M
@@ -41,7 +40,7 @@ main = do
         , borderWidth = 1
         , normalBorderColor  = "#586e75"
         , focusedBorderColor = "#b5bd68"
-        , workspaces = ["1:Shell", "2:Editor", "3:Browser", "4:Remote", "5:Gui", "6:Extra"]
+        , workspaces = ["1:Shell", "2:Editor", "3:Browser", "4:Remote", "5:Chat", "6:Extra"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
         , startupHook = setWMName "LG3D"
@@ -63,7 +62,6 @@ myManageHook = manageDocks <+> composeAll
     , className =? "Firefox"              --> doF (W.shift "3:Browser")
     , className =? "Emacs"                --> doF (W.shift "2:Editor")
     , className =? "Gvim"                 --> doF (W.shift "2:Editor")
-    , className =? "Thunar"               --> doF (W.shift "5:Gui")
     ]
 
 manageHook' :: ManageHook

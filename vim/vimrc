@@ -319,7 +319,6 @@ set completeopt=longest,menuone,preview
 let g:clojure_align_multiline_strings=1
 augroup ft_clojure
     au!
-    au Filetype clojure setlocal iskeyword+=-
 "     au FileType clojure RainbowParenthesesActivate
 "     au syntax clojure RainbowParenthesesLoadRound
 "     au syntax clojure RainbowParenthesesLoadSquare

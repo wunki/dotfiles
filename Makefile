@@ -56,7 +56,7 @@ xorg::
 	@ln -fns $(DOTFILES)/xorg/fonts.conf	${HOME}/.fonts.conf
 	@echo Xorg is symlinked.
 
-gtk::  
+gtk::
 	@ln -fs $(DOTFILES)/gtk/gtkrc-2.0 		${HOME}/.gtkrc-2.0
 	@ln -fs $(DOTFILES)/gtk/gtkrc.mine 		${HOME}/.gtkrc.mine
 	@ln -fns $(DOTFILES)/gtk/themes 		  ${HOME}/.themes

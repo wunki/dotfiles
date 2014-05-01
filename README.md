@@ -31,7 +31,7 @@ Clone this repository and update all the submodules.
 
 Now you can install the dotfiles in your home directory by using ``make``. For
 example type ``make git`` to symlink the git configuration files into your home
-directory. 
+directory.
 
 To install *all* dotfiles, you can run ``make all``.
 

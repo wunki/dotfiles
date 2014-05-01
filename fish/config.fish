@@ -54,6 +54,7 @@ prepend_to_path "/usr/sbin"
 prepend_to_path "/usr/local/bin"
 prepend_to_path "/usr/local/sbin"
 prepend_to_path "$HOME/bin"
+prepend_to_path "$HOME/.bin"
 prepend_to_path "$HOME/.local/bin"
 
 # haskell
@@ -63,7 +64,7 @@ prepend_to_path "$HOME/.cabal/bin"
 set -x RUST_THREADS 1   # fix: colorize test output
 
 # clojure
-set -x LEIN_JAVA_CMD "$HOME/bin/drip"
+set -x LEIN_JAVA_CMD "$HOME/.bin/drip"
 
 # rubygems
 prepend_to_path "$HOME/.gem/ruby/2.1.0/bin"

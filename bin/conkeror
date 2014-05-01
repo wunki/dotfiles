@@ -1,2 +1,0 @@
-#!/usr/bin/env sh
-/usr/bin/firefox -app $HOME/src/conkeror/application.ini $@

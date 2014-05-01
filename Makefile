@@ -12,7 +12,7 @@ emacs::
 	@echo Emacs is symlinked.
 
 bin::
-	@ln -fns $(DOTFILES)/bin							${HOME}/bin
+	@ln -fns $(DOTFILES)/bin							${HOME}/.bin
 	@echo bin files are linked to homedir.
 
 zsh::

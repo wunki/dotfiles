@@ -1,9 +1,0 @@
-#!/usr/bin/env sh
-
-offlineimap
-mu index --maildir=~/mail \
-    --my-address=petar@wunki.org \
-    --my-address=petar@gibbon.co \
-    --my-address=petar@breadandpepper.com \
-    --my-address=hello@gibbon.co \
-    --my-address=hello@breandandpepper.com

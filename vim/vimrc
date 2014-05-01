@@ -85,7 +85,7 @@ filetype plugin indent on
 " GUI
 if has("gui_running")
   if has('mac')
-    set guifont=Ubuntu\ Mono\ derivative\ Powerline:h18
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline:h14
   else
     set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
   endif
@@ -110,7 +110,7 @@ endif
 
 " Theme
 let g:zenburn_disable_Label_underline = 1
-colorscheme zenburn
+colorscheme hybrid
 
 " Airline
 let g:airline_powerline_fonts = 1

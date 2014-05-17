@@ -6,4 +6,7 @@
 ;; browser
 (setq browse-url-browser-function 'browse-url-default-macosx-browser)
 
+;; set the correct path on the Mac
+(exec-path-from-shell-initialize)
+
 (provide 'wunki-mac)

@@ -23,17 +23,28 @@ export PATH="/root/bin:$PATH"
 export PATH="$HOME/.cabal/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/.bin:$PATH"
 
-# Setup color options for LS, used in .bash_aliases
-if [ `uname` = Darwin ]; then
+if [ "$(uname)" == "Darwin" ]; then
+    # Setup color options for LS, used in .bash_aliases
     export LS_OPTIONS='-F'
+    export PATH="$HOME/Library/Python/2.7/bin:$PATH"
+
+    # Virtualenv
+    export WORKON_HOME="$HOME/.virtualenvs"
+    source "$HOME/Library/Python/2.7/bin/virtualenvwrapper.sh"
+
+    # PostgreSQL
+    export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
+
+    # Redis
+    alias runredis="redis-server /usr/local/etc/redis.conf"
+elif [ `uname` = FreeBSD ]; then
+    export LS_OPTIONS='-G'
 else
-    if [ `uname` = FreeBSD ]; then
-        export LS_OPTIONS='-G'
-    else
-        # Probably Linux with GNU utils
-        export LS_OPTIONS='--color=auto'
-    fi
+    # Probably Linux with GNU utils
+    export LS_OPTIONS='--color=auto'
 fi
 
 # History -----------------------------------------------------------------------
@@ -76,10 +87,10 @@ export PAGER=/usr/bin/less
 #defaut : export LESS="-FXRS"
 export LESS="-FXR"
 
-# I prefer emacs
-export EDITOR="emacsclient -a vim -t"
-alias mg="mg -n"                # Don't create backup files with mg
+# Vim for editing
+export EDITOR="vim"
 alias e="emacsclient -a vim -t" # Emacsclient as editor
+alias v="vim"
 
 # Prompts -----------------------------------------------------------------------
 export PS1='\[\033[01;32m\]\u\[\033[00m\]@\[\033[01;33m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
@@ -87,15 +98,23 @@ export PS2='> '  # Secondary prompt
 export PS3='#? ' # Prompt 3
 export PS4='+'   # Prompt 4
 
+# Easily jump to directories with autojump
+[[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
+
 # Imports ----------------------------------------------------------------------------------------------
 # Turn on advanced bash completion if the file exists
 # Get it here: http://www.caliban.org/bash/index.shtml#completion) or
-if [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
+
+if [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
 fi
 
 if [ -f /usr/local/share/bash-completion/bash_completion ]; then
     . /usr/local/share/bash-completion/bash_completion
+fi
+
+if [ -f /usr/local/bin/gh ]; then
+    eval "$(gh alias -s)"
 fi
 
 # Local bashrc changes

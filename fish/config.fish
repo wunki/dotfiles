@@ -77,9 +77,12 @@ prepend_to_path "/opt/android-sdk/platform-tools"
 prepend_to_path "/usr/bin/core_perl"
 
 # python
+prepend_to_path "$HOME/Library/Python/2.7/bin"
+
+# virtualenv
 set -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
 set -x SHELL_PLUS "ipython"
-. ~/src/virtualfish/virtual.fish
+. ~/Source/virtualfish/virtual.fish
 
 # git prompt
 set __fish_git_prompt_showdirtystate 'yes'

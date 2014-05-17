@@ -60,6 +60,9 @@ prepend_to_path "$HOME/.local/bin"
 # haskell
 prepend_to_path "$HOME/.cabal/bin"
 
+# postgresql on the mac
+prepend_to_path "/Applications/Postgres.app/Contents/Versions/9.3/bin"
+
 # rust
 set -x RUST_THREADS 1   # fix: colorize test output
 

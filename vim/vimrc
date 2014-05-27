@@ -20,6 +20,7 @@ Bundle 'tpope/vim-eunuch'
 Bundle 'tpope/vim-fugitive'
 Bundle 'gregsexton/gitv'
 Bundle 'tpope/vim-unimpaired'
+Bundle 'tpope/vim-obsession'
 Bundle 'rking/ag.vim'
 Bundle 'commentary.vim'
 Bundle 'surround.vim'
@@ -28,6 +29,7 @@ Bundle 'tpope/vim-speeddating'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
+Bundle 'sjl/gundo.vim'
 
 " Looks
 Bundle 'bling/vim-airline'
@@ -40,6 +42,7 @@ Bundle 'noahfrederick/vim-hemisu'
 " Clojure
 Bundle 'tpope/vim-fireplace'
 Bundle 'tpope/vim-leiningen'
+Bundle 'tpope/vim-projectionist'
 Bundle 'guns/vim-clojure-static'
 Bundle 'guns/vim-slamhound'
 Bundle 'guns/vim-clojure-highlight'
@@ -86,7 +89,7 @@ filetype plugin indent on
 " GUI
 if has("gui_running")
   if has('mac')
-    set guifont=Ubuntu\ Mono\ derivative\ Powerline:h16
+    set guifont=Source\ Code\ Pro:h13
   else
     set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
   endif
@@ -115,7 +118,9 @@ let g:zenburn_disable_Label_underline = 1
 colorscheme hybrid
 
 " Airline
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts=0
+let g:airline_left_sep=''
+let g:airline_right_sep=''
 
 " Find bash
 if executable('/bin/bash')
@@ -153,6 +158,11 @@ set formatoptions=qrn1
 set cursorline              " show me the line where the cursor is
 set nofoldenable            " don't do any folding for now
 
+" Dictionary on the mac
+if has('mac')
+  nmap <silent> <Leader>d :!open dict://<cword><CR><CR>
+endif
+
 " Ignore these files in netrw
 let g:netrw_list_hide= '.*\.swp$,.*\~$,.*\.pyc$'
 
@@ -180,8 +190,8 @@ set wildignore+=lib                              " library files
 set wildignore+=cabal-dev                        " cabal
 set wildignore+=dist                             " cabal distrubition
 
-" Look for the file in the current directory, then south until you reach home.
-set tags=tags;~/
+" Jumping around
+set tags=tags;/,codex.tags;/
 
 " Only show the cursorline on the active window
 augroup cline
@@ -286,7 +296,6 @@ let g:haddock_browser = "firefox"
 let g:haddock_browser_callformat = "%s %s"
 let g:ghc="/usr/bin/ghc"
 let g:haddock_docdir="/usr/share/doc/ghc/html/"
-set tags=tags;/,codex.tags;/
 
 " Badwolf theme settings
 let g:badwolf_darkgutter = 1

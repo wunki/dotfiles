@@ -7,7 +7,6 @@ function weechat; weechat-curses $argv; end
 function nstat; sudo nethogs wlan0 $argv; end
 function duh; du -ah --max-depth=1; end
 function lah; ls -lah; end
-function tweets; t timeline -n 12; end
 function j; cd (command autojump $argv); end
 function e; emacsclient -a "vim" -t $argv; end
 
@@ -25,6 +24,9 @@ function erlr; erl -pz ebin deps/*/ebin $argv; end
 
 # python
 function rmpyc; find . -name '*.pyc' | xargs rm; end
+
+# redis
+function redis-run; redis-server /usr/local/etc/redis.conf; end
 
 # NFS
 function nfsstart; sudo systemctl start rpc-idmapd rpc-mountd; end
@@ -70,7 +72,7 @@ set -x RUST_THREADS 1   # fix: colorize test output
 set -x LEIN_JAVA_CMD "$HOME/.bin/drip"
 
 # rubygems
-prepend_to_path "$HOME/.gem/ruby/2.1.0/bin"
+prepend_to_path "$HOME/.gem/ruby/2.0.0/bin"
 
 # android
 prepend_to_path "/opt/android-sdk/tools"
@@ -105,6 +107,13 @@ set __fish_git_prompt_char_stagedstate '→'
 set __fish_git_prompt_char_stashstate '↩'
 set __fish_git_prompt_char_upstream_ahead '↑'
 set __fish_git_prompt_char_upstream_behind '↓'
+
+# set variables on directories with ondir
+function ondir_prompt_hook --on-event fish_prompt
+    if test ! -e "$OLDONDIRWD"; set -g OLDONDIRWD /; end;
+    if [ "$OLDONDIRWD" != "$PWD" ]; eval (ondir $OLDONDIRWD $PWD); end;
+    set -g OLDONDIRWD "$PWD";
+end
 
 # the prompt
 function fish_prompt

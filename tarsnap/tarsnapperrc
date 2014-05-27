@@ -1,0 +1,13 @@
+deltas: 1d 7d 30d
+target: /wunki-mbp/$name-$date
+
+jobs:
+  home:
+    source: /Users/wunki
+    excludes:
+      - /Users/wunki/Downloads
+      - /Users/wunki/Movies
+      - /Users/wunki/VirtualBox\ VMs
+      - /Users/wunki/Dropbox
+    deltas: 1h 6h 1d 7d 24d 180d
+

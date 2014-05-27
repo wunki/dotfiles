@@ -32,6 +32,11 @@ fish::
 	@ln -fns $(DOTFILES)/fish							${HOME}/.config/fish
 	@echo Fish is symlinked.
 
+tarsnap::
+	@ln -fs $(DOTFILES)/tarsnap/tarsnapperrc 	${HOME}/.tarsnapperrc
+	@ln -fs $(DOTFILES)/tarsnap/tarsnaprc 		${HOME}/.tarsnaprc
+	@echo tarsnap is symlinked.
+
 tmux::
 	@ln -fs $(DOTFILES)/tmux/tmux.conf 		${HOME}/.tmux.conf
 	@echo tmux is symlinked.
@@ -40,7 +45,7 @@ i3::
 	@mkdir -p															${HOME}/.i3
 	@ln -fs $(DOTFILES)/i3/config					${HOME}/.i3/config
 	@ln -fs $(DOTFILES)/i3/i3status.conf  ${HOME}/.i3status.conf
-	@echo i3 is symlinked
+	@echo i3 is symlinked.
 
 xmonad::
 	@mkdir -p															${HOME}/.xmonad

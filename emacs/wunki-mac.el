@@ -1,6 +1,6 @@
 ;; mac only settings.
 ;; use the old way of toggling to fullscreen
-(set-frame-font "Ubuntu Mono-16")
+(set-frame-font "Menlo-14")
 (add-to-list 'default-frame-alist '(font . "Ubuntu Mono 16"))
 
 ;; browser

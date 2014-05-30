@@ -89,7 +89,7 @@ filetype plugin indent on
 " GUI
 if has("gui_running")
   if has('mac')
-    set guifont=Source\ Code\ Pro:h13
+    set guifont=Fira\ Mono:h13
   else
     set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
   endif

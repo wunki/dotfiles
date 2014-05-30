@@ -48,13 +48,17 @@ function prepend_to_path -d "Prepend the given dir to PATH if it exists and is n
         end
     end
 end
+
+# Start with a clean path, because order matters
+set -e PATH 
+
 prepend_to_path "/bin"
 prepend_to_path "/.local/bin"
 prepend_to_path "/sbin"
 prepend_to_path "/usr/bin"
 prepend_to_path "/usr/sbin"
-prepend_to_path "/usr/local/bin"
 prepend_to_path "/usr/local/sbin"
+prepend_to_path "/usr/local/bin"
 prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.bin"
 prepend_to_path "$HOME/.local/bin"

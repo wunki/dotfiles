@@ -2,8 +2,8 @@
 (load-theme 'sanityinc-tomorrow-night t)
 
 ;; font -- some strange issues with font size, 110 is huge, 100 is tiny.
-(set-frame-font "Ubuntu Mono")
-(add-to-list 'default-frame-alist '(font . "Ubuntu Mono"))
+(set-frame-font "Fira Mono")
+(add-to-list 'default-frame-alist '(font . "Fira Mono"))
 (set-face-attribute 'default nil :height 105)
 
 (defun toggle-dark-light-theme ()

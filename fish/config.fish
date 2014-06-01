@@ -75,6 +75,9 @@ set -x RUST_THREADS 1   # fix: colorize test output
 # clojure
 set -x LEIN_JAVA_CMD "$HOME/.bin/drip"
 
+# go
+set -x GOPATH "$HOME/Projects/Go"
+
 # rubygems
 prepend_to_path "$HOME/.gem/ruby/2.0.0/bin"
 

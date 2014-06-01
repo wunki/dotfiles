@@ -61,6 +61,9 @@ Bundle 'derekwyatt/vim-scala'
 " Rust
 Bundle 'wting/rust.vim'
 
+" Go
+Bundle 'fatih/vim-go'
+
 " Racket
 Bundle 'wlangstroth/vim-racket'
 
@@ -158,6 +161,10 @@ set formatoptions=qrn1
 set cursorline              " show me the line where the cursor is
 set nofoldenable            " don't do any folding for now
 
+" Enable a .vimrc per project
+set exrc                    " enable per-directory .vimrc files
+set secure                  " disable unsafe commands in local .vimrc files
+
 " Dictionary on the mac
 if has('mac')
   nmap <silent> <Leader>d :!open dict://<cword><CR><CR>
@@ -213,6 +220,11 @@ let NERDTreeIgnore=['\~$', '\.pyc', '\.swp$', '\.git', '\.hg', '\.svn',
       \ '\.ropeproject', '\.o', '\.bzr', '\.ipynb_checkpoints', '__pycache__',
       \ '\.egg$', '\.egg-info$', '\.tox$', '\.idea$', '\.sass-cache',
       \ '\.env*$', '\.env[0-9]$', '\.coverage$']
+
+" Ignore binary files in NerdTree
+function! NERDTreeCustomIgnoreFilter(path)
+    return a:path.isExecutable
+endfunction
 
 " Faster scrolling
 nnoremap <C-e> 3<C-e>

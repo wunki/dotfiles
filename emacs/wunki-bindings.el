@@ -82,8 +82,8 @@
 (global-set-key (kbd "C-M-<up>")   'shrink-window)
 
 ;; move between windows
-(global-set-key (kbd "C-c L") 'windmove-right)
-(global-set-key (kbd "C-c H") 'windmove-left)
+(global-set-key (kbd "C-c F") 'windmove-right)
+(global-set-key (kbd "C-c B") 'windmove-left)
 (global-set-key (kbd "C-c P") 'windmove-up)
 (global-set-key (kbd "C-c N") 'windmove-down)
 

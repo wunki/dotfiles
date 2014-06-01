@@ -6,10 +6,7 @@
 ;; browser
 (setq browse-url-browser-function 'browse-url-default-macosx-browser)
 
-;; set the correct path on the Mac
-(when (file-name-nondirectory (getenv "SHELL")) "fish"
-   (setq path-separator " ")
-   (exec-path-from-shell-initialize)
-   (setq path-separator ":"))
+;; Correct path
+(exec-path-from-shell-initialize)
 
 (provide 'wunki-mac)

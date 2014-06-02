@@ -61,9 +61,6 @@ Bundle 'derekwyatt/vim-scala'
 " Rust
 Bundle 'wting/rust.vim'
 
-" Go
-Bundle 'fatih/vim-go'
-
 " Racket
 Bundle 'wlangstroth/vim-racket'
 

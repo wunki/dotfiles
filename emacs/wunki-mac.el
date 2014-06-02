@@ -10,6 +10,6 @@
 (exec-path-from-shell-initialize)
 
 ;; Set the Apple key as Meta
-(setq ns-command-modifier 'meta)
+;; (setq ns-command-modifier 'meta)
 
 (provide 'wunki-mac)

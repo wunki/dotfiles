@@ -1,5 +1,6 @@
 ;; load and fire
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
+(add-to-list 'load-path "/usr/local/Cellar/mu/0.9.9.5/share/emacs/site-lisp/mu4e")
+
 (require 'mu4e)
 (require 'sendmail)
 (require 'org-mu4e)
@@ -40,12 +41,12 @@
 )
 
 ;; maildir locations
-(setq mu4e-maildir "/home/wunki/mail"
-      mu4e-sent-folder "/wunki/sent"
-      mu4e-drafts-folder "/wunki/drafts"
-      mu4e-trash-folder "/wunki/trash"
-      mu4e-refile-folder "/wunki/archive"
-      smtpmail-queue-dir   "~/mail/queue/cur")
+(setq mu4e-maildir "/Users/wunki/Mail"
+      mu4e-sent-folder "/wunki/Sent"
+      mu4e-drafts-folder "/wunki/Drafts"
+      mu4e-trash-folder "/wunki/Trash"
+      mu4e-refile-folder "/wunki/Archive"
+      smtpmail-queue-dir   "~/Mail/Queue/cur")
 
 ;; sending mail
 (setq message-send-mail-function 'smtpmail-send-it
@@ -57,33 +58,33 @@
       (lambda (msg)
         (if msg
             (let ((account (nth 1 (split-string (mu4e-message-field msg :maildir) "/"))))
-              (format "/%s/archive" account)))))
+              (format "/%s/Archive" account)))))
 
 ;; set the trash according to the mailbox
 (setq mu4e-trash-folder
       (lambda (msg)
         (if msg
             (let ((account (nth 1 (split-string (mu4e-message-field msg :maildir) "/"))))
-              (format "/%s/trash" account)))))
+              (format "/%s/Trash" account)))))
 
 ;; multiple accounts
 (setq wunki-mu4e-account-alist
       '(("gibbon"
          (user-mail-address "petar@gibbon.co")
-         (mu4e-sent-folder "/gibbon/sent")
-         (mu4e-drafts-folder "/gibbon/drafts")
+         (mu4e-sent-folder "/Gibbon/Sent")
+         (mu4e-drafts-folder "/Gibbon/Drafts")
          (smtpmail-smtp-server "smtp.gmail.com")
          (smtpmail-smtp-user "petar@gibbon.co"))
         ("wunki"
          (user-mail-address "petar@wunki.org")
-         (mu4e-sent-folder "/wunki/sent")
-         (mu4e-drafts-folder "/wunki/drafts")
+         (mu4e-sent-folder "/Wunki/Sent")
+         (mu4e-drafts-folder "/Wunki/Drafts")
          (smtpmail-smtp-server "mail.messagingengine.com")
          (smtpmail-smtp-user "wunki@fastmail.fm"))
         ("bread-and-pepper"
          (user-mail-address "petar@breadandpepper.com")
-         (mu4e-sent-folder "/bread-and-pepper/sent")
-         (mu4e-drafts-folder "/bread-and-pepper/drafts")
+         (mu4e-sent-folder "/Bread and Pepper/Sent")
+         (mu4e-drafts-folder "/Bread and Pepper/Drafts")
          (smtpmail-smtp-server "smtp.gmail.com")
          (smtpmail-smtp-user "petar@breadandpepper.com"))))
 
@@ -105,14 +106,6 @@
               account-vars))))
 (add-hook 'mu4e-compose-pre-hook 'wunki-mu4e-set-account)
 
-;; org-mode integration
-(setq mu4e-org-contacts-file "/home/wunki/org/contacts.org")
-(add-to-list 'mu4e-headers-actions
-             '("org-contact-add" . mu4e-action-add-org-contact) t)
-(add-to-list 'mu4e-view-actions
-             '("org-contact-add" . mu4e-action-add-org-contact) t)
-
-
 ;; headers in the overview
 (setq mu4e-headers-fields
   '((:maildir       .  24)
@@ -124,23 +117,21 @@
 ;; bookmarks
 (setq mu4e-bookmarks 
   '(("flag:unread"                       "All new messages"       ?u)
-    ("maildir:/gibbon/inbox"             "Gibbon's inbox"         ?g)
-    ("maildir:/wunki/inbox"              "Wunki's inbox"          ?w)
-    ("maildir:/bread-and-pepper/inbox"   "Bread & Pepper's inbox" ?b)
+    ("maildir:/Gibbon/Inbox"             "Gibbon's inbox"         ?g)
+    ("maildir:/Wunki/Inbox"              "Wunki's inbox"          ?w)
+    ("maildir:/Bread and Pepper/Inbox"   "Bread & Pepper's inbox" ?b)
     ("date:today..now"                   "Today's messages"       ?t)
     ("flag:flagged"                      "Flagged messages"       ?f)))
 
 ;; shortcuts
 (setq mu4e-maildir-shortcuts
-       '(("/wunki/inbox"              . ?i)
-         ("/bread-and-pepper/inbox"   . ?I)
-         ("/wunki/archive"            . ?a)
-         ("/bread-and-pepper/archive" . ?A)
-         ("/wunki/sent"               . ?s)
-         ("/bread-and-pepper/sent"    . ?S)
-         ("/wunki/trash"              . ?t)
-         ("/bread-and-pepper/trash"   . ?T)
-         ("/wunki/clojure"            . ?c)
-         ("/wunki/haskell-beginners"  . ?h)))
+       '(("/Wunki/Inbox"              . ?i)
+         ("/Bread and Pepper/Inbox"   . ?I)
+         ("/Wunki/Archive"            . ?a)
+         ("/Bread and Pepper/Archive" . ?A)
+         ("/Wunki/Sent"               . ?s)
+         ("/Bread and Pepper/Sent"    . ?S)
+         ("/Wunki/Trash"              . ?t)
+         ("/Bread and Pepper/Trash"   . ?T)))
 
 (provide 'wunki-mu4e)

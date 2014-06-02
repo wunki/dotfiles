@@ -2,7 +2,7 @@
 
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
-export ZSH_THEME="kphoen"
+export ZSH_THEME="pure"
 export CASE_SENSITIVE="true"
 
 plugins=(git lein git-extras)
@@ -12,7 +12,7 @@ fi
 
 source $ZSH/oh-my-zsh.sh
 
-# Aliasen and environment
+# Aliases and environment
 source ~/.zshalias
 source ~/.zshenv
 
@@ -27,11 +27,6 @@ unsetopt correct_all
 
 # Extra completions
 fpath=(/home/wunki/src/zsh-completions/src $fpath)
-
-# Git flow completions
-if [ -e "$HOME/src/git-flow-completion" ]; then
-  source $HOME/src/git-flow-completion/git-flow-completion.zsh
-fi
 
 # Directories with Z
 if [ -e "$HOME/src/z/z.sh" ]; then

@@ -12,9 +12,6 @@
 (setq browse-url-browser-function 'browse-url-generic
       browse-url-generic-program "firefox")
 
-;; set the editor hardcoded to Emacs. Fixes Magit.
-(setenv "EDITOR" "emacsclient")
-
 ;; desktop, to automatically save and restore sessions
 (setq desktop-dirname             "~/.emacs.d/desktop/"
       desktop-base-file-name      "emacs.desktop"

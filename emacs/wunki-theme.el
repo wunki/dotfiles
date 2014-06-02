@@ -4,7 +4,10 @@
 ;; font -- some strange issues with font size, 110 is huge, 100 is tiny.
 (set-frame-font "Fira Mono")
 (add-to-list 'default-frame-alist '(font . "Fira Mono"))
-(set-face-attribute 'default nil :height 105)
+(set-face-attribute 'default nil :height 130)
+
+;; scale the text in smaller steps with C-x C-+
+(setq text-scale-mode-step 1.1)
 
 (defun toggle-dark-light-theme ()
   "Switch between dark and light theme."

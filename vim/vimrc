@@ -30,6 +30,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'scrooloose/syntastic'
 Bundle 'scrooloose/nerdtree'
 Bundle 'sjl/gundo.vim'
+Bundle 'drmikehenry/vim-fontsize'
 
 " Looks
 Bundle 'bling/vim-airline'
@@ -50,7 +51,7 @@ Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'paredit.vim'
 
 " Haskell
-Bundle 'dag/vim2hs'
+Bundle 'travitch/hasksyn'
 Bundle 'Shougo/vimproc.vim'
 Bundle 'eagletmt/ghcmod-vim'
 Bundle 'twinside/vim-hoogle'
@@ -157,6 +158,7 @@ set undofile                " create undofiles
 set formatoptions=qrn1
 set cursorline              " show me the line where the cursor is
 set nofoldenable            " don't do any folding for now
+set guicursor+=a:blinkon0   " don't blink the cursor please
 
 " Enable a .vimrc per project
 set exrc                    " enable per-directory .vimrc files

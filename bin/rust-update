@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+cd ~/Downloads
+curl -O http://static.rust-lang.org/dist/rust-nightly-x86_64-apple-darwin.pkg
+
+open rust-nightly-x86_64-apple-darwin.pkg

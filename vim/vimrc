@@ -8,84 +8,107 @@ set fileencoding=utf-8      " save files as utf-8
 set bg=dark                 " dark background
 syntax on                   " enable syntax highlighting
 
-" Vundle for managing bundles
-filetype off
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if has('vim_starting')
+  set nocompatible
 
-" Essentials
-Bundle 'gmarik/vundle'
-Bundle 'kien/ctrlp.vim'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-fugitive'
-Bundle 'gregsexton/gitv'
-Bundle 'tpope/vim-unimpaired'
-Bundle 'tpope/vim-obsession'
-Bundle 'rking/ag.vim'
-Bundle 'commentary.vim'
-Bundle 'surround.vim'
-Bundle 'godlygeek/tabular'
-Bundle 'tpope/vim-speeddating'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'scrooloose/syntastic'
-Bundle 'scrooloose/nerdtree'
-Bundle 'sjl/gundo.vim'
-Bundle 'drmikehenry/vim-fontsize'
-
-" Looks
-Bundle 'bling/vim-airline'
-Bundle 'sjl/badwolf'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'nanotech/jellybeans.vim'
-Bundle 'w0ng/vim-hybrid'
-Bundle 'noahfrederick/vim-hemisu'
-
-" Clojure
-Bundle 'tpope/vim-fireplace'
-Bundle 'tpope/vim-leiningen'
-Bundle 'tpope/vim-projectionist'
-Bundle 'guns/vim-clojure-static'
-Bundle 'guns/vim-slamhound'
-Bundle 'guns/vim-clojure-highlight'
-Bundle 'kien/rainbow_parentheses.vim'
-Bundle 'paredit.vim'
-
-" Haskell
-Bundle 'travitch/hasksyn'
-Bundle 'Shougo/vimproc.vim'
-Bundle 'eagletmt/ghcmod-vim'
-Bundle 'twinside/vim-hoogle'
-
-" Scala
-Bundle 'derekwyatt/vim-scala'
-
-" Rust
-Bundle 'wting/rust.vim'
-
-" Racket
-Bundle 'wlangstroth/vim-racket'
-
-" Erlang
-Bundle 'jimenezrick/vimerl'
-
-" Fish shell syntax
-Bundle 'aliva/vim-fish'
-
-" Salt stack
-Bundle 'saltstack/salt-vim'
-
-" Python
-Bundle 'klen/python-mode'
-Bundle 'jmcantrell/vim-virtualenv'
-
-" Github
-if has('mac')
-  Bundle "jaxbot/github-issues.vim"
-  Bundle 'mattn/webapi-vim'
-  Bundle 'mattn/gist-vim'
+  " Required:
+  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
 
+" Required:
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+" Let NeoNeoBundle manage NeoNeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+if neobundle#has_cache()
+  NeoBundleLoadCache
+else
+  " Essentials
+  NeoBundle 'gmarik/vundle'
+  NeoBundle 'kien/ctrlp.vim'
+  NeoBundle 'tpope/vim-eunuch'
+  NeoBundle 'tpope/vim-fugitive'
+  NeoBundle 'gregsexton/gitv'
+  NeoBundle 'tpope/vim-unimpaired'
+  NeoBundle 'tpope/vim-obsession'
+  NeoBundle 'rking/ag.vim'
+  NeoBundle 'commentary.vim'
+  NeoBundle 'surround.vim'
+  NeoBundle 'godlygeek/tabular'
+  NeoBundle 'tpope/vim-speeddating'
+  NeoBundle 'Lokaltog/vim-easymotion'
+  NeoBundle 'scrooloose/syntastic'
+  NeoBundle 'scrooloose/nerdtree'
+  NeoBundle 'sjl/gundo.vim'
+  NeoBundle 'drmikehenry/vim-fontsize'
+
+  " Looks
+  NeoBundle 'bling/vim-airline'
+  NeoBundle 'sjl/badwolf'
+  NeoBundle 'altercation/vim-colors-solarized'
+  NeoBundle 'nanotech/jellybeans.vim'
+  NeoBundle 'w0ng/vim-hybrid'
+  NeoBundle 'noahfrederick/vim-hemisu'
+
+  " Clojure
+  NeoBundle 'tpope/vim-fireplace'
+  NeoBundle 'tpope/vim-leiningen'
+  NeoBundle 'tpope/vim-projectionist'
+  NeoBundle 'guns/vim-clojure-static'
+  NeoBundle 'guns/vim-slamhound'
+  NeoBundle 'guns/vim-clojure-highlight'
+  NeoBundle 'kien/rainbow_parentheses.vim'
+  NeoBundle 'paredit.vim'
+
+  " Haskell
+  NeoBundle 'travitch/hasksyn'
+  NeoBundle 'Shougo/vimproc.vim'
+  NeoBundle 'eagletmt/ghcmod-vim'
+  NeoBundle 'twinside/vim-hoogle'
+
+  " Scala
+  NeoBundle 'derekwyatt/vim-scala'
+
+  " Go
+  NeoBundle "fatih/vim-go"
+
+  " Rust
+  NeoBundle 'wting/rust.vim'
+
+  " Racket
+  NeoBundle 'wlangstroth/vim-racket'
+
+  " Erlang
+  NeoBundle 'jimenezrick/vimerl'
+
+  " Fish shell syntax
+  NeoBundle 'aliva/vim-fish'
+
+  " Provisioning
+  NeoBundle 'saltstack/salt-vim'
+  NeoBundle 'chase/vim-ansible-yaml'
+  NeoBundle 'ekalinin/Dockerfile.vim'
+  NeoBundle 'Glench/Vim-Jinja2-Syntax'
+
+  " Python
+  NeoBundle 'klen/python-mode'
+  NeoBundle 'jmcantrell/vim-virtualenv'
+
+  " Github
+  if has('mac')
+    NeoBundle "jaxbot/github-issues.vim"
+    NeoBundle 'mattn/webapi-vim'
+    NeoBundle 'mattn/gist-vim'
+  endif
+endif
+
+call neobundle#end()
+
 filetype plugin indent on
+
+NeoBundleCheck
 
 " GUI
 if has("gui_running")
@@ -125,13 +148,13 @@ let g:airline_right_sep=''
 
 " Find bash
 if executable('/bin/bash')
-    set shell=/bin/bash
+  set shell=/bin/bash
 elseif executable('/usr/local/bin/bash')
-    set shell=/usr/local/bin/bash
+  set shell=/usr/local/bin/bash
 elseif executable('/usr/bin/bash')
-    set shell=/usr/bin/bash
+  set shell=/usr/bin/bash
 else
-    set shell=/bin/sh
+  set shell=/bin/sh
 endif
 
 set showmatch               " show matching brackets (), {}' []
@@ -201,9 +224,9 @@ set tags=tags;/,codex.tags;/
 
 " Only show the cursorline on the active window
 augroup cline
-    au!
-    au WinLeave,InsertEnter * set nocursorline
-    au WinEnter,InsertLeave * set cursorline
+  au!
+  au WinLeave,InsertEnter * set nocursorline
+  au WinEnter,InsertLeave * set cursorline
 augroup END
 
 " Backup settings
@@ -222,7 +245,7 @@ let NERDTreeIgnore=['\~$', '\.pyc', '\.swp$', '\.git', '\.hg', '\.svn',
 
 " Ignore binary files in NerdTree
 function! NERDTreeCustomIgnoreFilter(path)
-    return a:path.isExecutable
+  return a:path.isExecutable
 endfunction
 
 " Faster scrolling
@@ -241,6 +264,10 @@ let maplocalleader = "_"
 
 " Toggle whitespace invisibles
 nmap <leader>l :set list!<CR>
+
+" Go settings
+" let g:go_fmt_autosave = 0
+au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
 
 " Markdown detection
 autocmd BufNewFile,BufReadPost *.mkd,*.markdown,*.md set filetype=markdown
@@ -298,8 +325,8 @@ nnoremap <leader>gp :Git push<cr>
 
 " Org-mode
 augroup ft_org
-    au!
-    au Filetype org nmap <buffer> Q vahjgq
+  au!
+  au Filetype org nmap <buffer> Q vahjgq
 augroup END
 
 " Haskell settings
@@ -316,12 +343,12 @@ nmap <leader>c <Plug>CommentaryLine
 xmap <leader>c <Plug>Commentary
 
 augroup plugin_commentary
-    au!
-    au FileType htmldjango setlocal commentstring={#\ %s\ #}
-    au FileType clojurescript setlocal commentstring=;\ %s
-    au FileType lisp setlocal commentstring=;\ %s
-    au FileType rust setlocal commentstring=//\ %s
-    au FileType cf3 setlocal commentstring=\#\ %s
+  au!
+  au FileType htmldjango setlocal commentstring={#\ %s\ #}
+  au FileType clojurescript setlocal commentstring=;\ %s
+  au FileType lisp setlocal commentstring=;\ %s
+  au FileType rust setlocal commentstring=//\ %s
+  au FileType cf3 setlocal commentstring=\#\ %s
 augroup END
 
 " Chicken scheme
@@ -354,6 +381,6 @@ let g:github_issues_no_omni = 1
 " Passwords
 let passfile = $HOME."/.vimpass"
 if filereadable($passfile)
-    source $passfile
+  source $passfile
 end
 

@@ -25,6 +25,9 @@ function erlr; erl -pz ebin deps/*/ebin $argv; end
 # python
 function rmpyc; find . -name '*.pyc' | xargs rm; end
 
+# go
+set -x GOPATH "/usr/local/Cellar/go/1.3/"
+
 # redis
 function redis-run; redis-server /usr/local/etc/redis.conf; end
 
@@ -66,6 +69,7 @@ prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.bin"
 prepend_to_path "$HOME/.local/bin"
 prepend_to_path "$HOME/Source/google-cloud-sdk/bin"
+prepend_to_path "$GOPATH/bin"
 
 # haskell
 prepend_to_path "$HOME/.cabal/bin"
@@ -99,6 +103,9 @@ prepend_to_path "$HOME/Library/Python/2.7/bin"
 set -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
 set -x SHELL_PLUS "ipython"
 . ~/Source/virtualfish/virtual.fish
+
+# ansible
+set -x ANSIBLE_HOST_KEY_CHECKING False
 
 # git prompt
 set __fish_git_prompt_showdirtystate 'yes'

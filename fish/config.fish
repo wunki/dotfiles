@@ -9,6 +9,7 @@ function duh; du -ah --max-depth=1; end
 function lah; ls -lah; end
 function j; cd (command autojump $argv); end
 function e; emacsclient -a "vim" -t $argv; end
+function v; vim $argv; end
 
 # start end end dropbox
 function dropstart; sudo systemctl start dropbox@wunki.service; end

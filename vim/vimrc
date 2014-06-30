@@ -27,7 +27,6 @@ if neobundle#has_cache()
 else
   " Essentials
   NeoBundle 'gmarik/vundle'
-  NeoBundle 'kien/ctrlp.vim'
   NeoBundle 'tpope/vim-eunuch'
   NeoBundle 'tpope/vim-fugitive'
   NeoBundle 'gregsexton/gitv'
@@ -43,6 +42,11 @@ else
   NeoBundle 'scrooloose/nerdtree'
   NeoBundle 'sjl/gundo.vim'
   NeoBundle 'drmikehenry/vim-fontsize'
+  NeoBundle 'jiangmiao/auto-pairs'
+
+  " File browsing
+  NeoBundle 'Shougo/neomru.vim'
+  NeoBundle 'Shougo/unite.vim'
 
   " Looks
   NeoBundle 'bling/vim-airline'
@@ -76,6 +80,7 @@ else
 
   " Rust
   NeoBundle 'wting/rust.vim'
+  NeoBundle 'cespare/vim-toml'
 
   " Racket
   NeoBundle 'wlangstroth/vim-racket'
@@ -113,7 +118,7 @@ NeoBundleCheck
 " GUI
 if has("gui_running")
   if has('mac')
-    set guifont=Fira\ Mono:h13
+    set guifont=Fira\ Mono:h14
   else
     set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
   endif
@@ -176,7 +181,6 @@ set ttyfast                 " improves remote connections
 set ruler                   " show the line and column number of the cursor
 set backspace=indent,eol,start
 set number                  " show line numbering
-set relativenumber          " show relativenumbers
 set undofile                " create undofiles
 set formatoptions=qrn1
 set cursorline              " show me the line where the cursor is
@@ -307,8 +311,15 @@ nnoremap k gk
 nnoremap Q gqip
 vnoremap Q gq
 
-" CtrlP for Buffer switching
-map <C-b> :CtrlPBuffer<CR>
+" Unite
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+call unite#custom#source('file_rec/async','sorters','sorter_rank')
+
+nnoremap <silent> <Leader>m :Unite -buffer-name=recent -winheight=10 file_mru<cr>
+nnoremap <Leader>b :Unite -buffer-name=buffers -winheight=10 buffer<cr>
+nnoremap <Leader>f :Unite grep:.<cr>
+nnoremap <silent> <C-p> :Unite -start-insert -buffer-name=files -winheight=10 file_rec/async<cr>
 
 " Fugitive
 nnoremap <leader>gd :Gdiff<cr>
@@ -378,9 +389,16 @@ let g:syntastic_enable_highlighting = 0
 " Github issues
 let g:github_issues_no_omni = 1
 
+" YCM
+let g:ycm_min_num_of_chars_for_completion = 1
+let g:ycm_autoclose_preview_window_after_completion = 1
+
 " Passwords
 let passfile = $HOME."/.vimpass"
 if filereadable($passfile)
   source $passfile
 end
 
+if has('mac')
+  set macmeta               " enable meta key in macvim
+endif

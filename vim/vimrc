@@ -76,7 +76,9 @@ else
   NeoBundle 'derekwyatt/vim-scala'
 
   " Go
-  NeoBundle "fatih/vim-go"
+  if $GOPATH != ""
+    NeoBundle "fatih/vim-go"
+  endif
 
   " Rust
   NeoBundle 'wting/rust.vim'

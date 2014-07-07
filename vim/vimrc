@@ -55,6 +55,8 @@ else
   NeoBundle 'nanotech/jellybeans.vim'
   NeoBundle 'w0ng/vim-hybrid'
   NeoBundle 'noahfrederick/vim-hemisu'
+  NeoBundle 'itchyny/landscape.vim'
+  NeoBundle 'chriskempson/base16-vim'
 
   " Clojure
   NeoBundle 'tpope/vim-fireplace'
@@ -146,7 +148,7 @@ endif
 
 " Theme
 let g:zenburn_disable_Label_underline = 1
-colorscheme hybrid
+colorscheme base16-paraiso
 
 " Airline
 let g:airline_powerline_fonts=0

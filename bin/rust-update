@@ -1,5 +1,15 @@
 #!/usr/bin/env sh
+if [ "`uname`" = "Darwin" ]; then
+  target=x86_64-apple-darwin
+else
+  target=x86_64-unknown-linux-gnu
+fi
 
-cd ~/Downloads
-curl -O http://static.rust-lang.org/dist/rust-nightly-x86_64-apple-darwin.pkg
-open rust-nightly-x86_64-apple-darwin.pkg
+mkdir /tmp/rust-update
+cd /tmp/rust-update
+curl -O http://static.rust-lang.org/dist/rust-nightly-$target.tar.gz
+tar xf rust-nightly-$target.tar.gz
+cd rust-nightly-$target
+./install.sh # --prefix=$HOME/code/rust
+cd $HOME
+rm -rf /tmp/rust-update

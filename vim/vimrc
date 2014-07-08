@@ -57,55 +57,57 @@ else
   NeoBundle 'itchyny/landscape.vim'
   NeoBundle 'chriskempson/base16-vim'
 
-  " Clojure
-  NeoBundle 'tpope/vim-fireplace'
-  NeoBundle 'tpope/vim-leiningen'
-  NeoBundle 'tpope/vim-projectionist'
-  NeoBundle 'guns/vim-clojure-static'
-  NeoBundle 'guns/vim-slamhound'
-  NeoBundle 'guns/vim-clojure-highlight'
-  NeoBundle 'kien/rainbow_parentheses.vim'
-  NeoBundle 'paredit.vim'
+  " Only install these scripts on my local machine
+  if hostname() == "macbook.wunki.org"
 
-  " Haskell
-  NeoBundle 'travitch/hasksyn'
-  NeoBundle 'Shougo/vimproc.vim'
-  NeoBundle 'eagletmt/ghcmod-vim'
-  NeoBundle 'twinside/vim-hoogle'
+    " Clojure
+    NeoBundle 'tpope/vim-fireplace'
+    NeoBundle 'tpope/vim-leiningen'
+    NeoBundle 'tpope/vim-projectionist'
+    NeoBundle 'guns/vim-clojure-static'
+    NeoBundle 'guns/vim-slamhound'
+    NeoBundle 'guns/vim-clojure-highlight'
+    NeoBundle 'kien/rainbow_parentheses.vim'
+    NeoBundle 'paredit.vim'
 
-  " Scala
-  NeoBundle 'derekwyatt/vim-scala'
+    " Haskell
+    NeoBundle 'travitch/hasksyn'
+    NeoBundle 'Shougo/vimproc.vim'
+    NeoBundle 'eagletmt/ghcmod-vim'
+    NeoBundle 'twinside/vim-hoogle'
 
-  " Go
-  if $GOPATH != ""
-    NeoBundle "fatih/vim-go"
-  endif
+    " Scala
+    NeoBundle 'derekwyatt/vim-scala'
 
-  " Rust
-  NeoBundle 'wting/rust.vim'
-  NeoBundle 'cespare/vim-toml'
+    " Go
+    if $GOPATH != ""
+        NeoBundle "fatih/vim-go"
+    endif
 
-  " Racket
-  NeoBundle 'wlangstroth/vim-racket'
+    " Rust
+    NeoBundle 'wting/rust.vim'
+    NeoBundle 'cespare/vim-toml'
 
-  " Erlang
-  NeoBundle 'jimenezrick/vimerl'
+    " Racket
+    NeoBundle 'wlangstroth/vim-racket'
 
-  " Fish shell syntax
-  NeoBundle 'aliva/vim-fish'
+    " Erlang
+    NeoBundle 'jimenezrick/vimerl'
 
-  " Provisioning
-  NeoBundle 'saltstack/salt-vim'
-  NeoBundle 'chase/vim-ansible-yaml'
-  NeoBundle 'ekalinin/Dockerfile.vim'
-  NeoBundle 'Glench/Vim-Jinja2-Syntax'
+    " Fish shell syntax
+    NeoBundle 'aliva/vim-fish'
 
-  " Python
-  NeoBundle 'klen/python-mode'
-  NeoBundle 'jmcantrell/vim-virtualenv'
+    " Provisioning
+    NeoBundle 'saltstack/salt-vim'
+    NeoBundle 'chase/vim-ansible-yaml'
+    NeoBundle 'ekalinin/Dockerfile.vim'
+    NeoBundle 'Glench/Vim-Jinja2-Syntax'
 
-  " Github
-  if has('mac')
+    " Python
+    NeoBundle 'klen/python-mode'
+    NeoBundle 'jmcantrell/vim-virtualenv'
+
+    " Github
     NeoBundle "jaxbot/github-issues.vim"
     NeoBundle 'mattn/webapi-vim'
     NeoBundle 'mattn/gist-vim'

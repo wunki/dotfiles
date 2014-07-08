@@ -26,7 +26,6 @@ if neobundle#has_cache()
   NeoBundleLoadCache
 else
   " Essentials
-  NeoBundle 'gmarik/vundle'
   NeoBundle 'tpope/vim-eunuch'
   NeoBundle 'tpope/vim-fugitive'
   NeoBundle 'gregsexton/gitv'

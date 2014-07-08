@@ -1,4 +1,4 @@
-DOTFILES = $(PWD)
+DOTFILES = $(shell pwd)
 all:: vim emacs bin zsh bash tmux xmonad xorg gtk mpv conkeror
 
 vim::

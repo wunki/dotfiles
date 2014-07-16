@@ -1,0 +1,12 @@
+# ~/.tmuxinator/cher.yml
+
+name: cher
+root: ~/Projects/Go/src/github.com/wunki/cher
+
+windows:
+  - editor:
+      layout: main-vertical
+      panes:
+        - vim cher.go
+  - shell:
+      - 

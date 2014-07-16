@@ -1,0 +1,11 @@
+# ~/.tmuxinator/gibbon-web.yml
+
+name: gibbon-web
+root: ~/Projects/gibbon-web
+
+windows:
+  - editor:
+      - vim .
+  - shell: vf activate gibbon-web
+  - vagrant:
+      -

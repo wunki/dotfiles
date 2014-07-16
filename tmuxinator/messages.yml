@@ -1,0 +1,8 @@
+# ~/.tmuxinator/messages.yml
+
+name: messages
+root: ~/
+
+windows:
+  - mutt: mutt
+  - irssi: irssi

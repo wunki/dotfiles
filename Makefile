@@ -41,6 +41,10 @@ tmux::
 	@ln -fs $(DOTFILES)/tmux/tmux.conf 		${HOME}/.tmux.conf
 	@echo tmux is symlinked.
 
+tmuxinator::
+	@ln -fns $(DOTFILES)/tmuxinator 		${HOME}/.tmuxinator
+	@echo tmuxinator is symlinked.
+
 i3::
 	@mkdir -p															${HOME}/.i3
 	@ln -fs $(DOTFILES)/i3/config					${HOME}/.i3/config

@@ -27,10 +27,14 @@ function erlr; erl -pz ebin deps/*/ebin $argv; end
 function rmpyc; find . -name '*.pyc' | xargs rm; end
 
 # go
-set -x GOPATH "/usr/local/Cellar/go/1.3/"
+set -x GOPATH "/Users/wunki/Projects/Go"
 
-# redis
+# run different databases
 function redis-run; redis-server /usr/local/etc/redis.conf; end
+function influx-run; influxdb -config=/usr/local/etc/influxdb.conf; end
+function zookeeper-run; zkServer start; end
+function mongo-run; mongod --config /usr/local/etc/mongod.conf; end
+function kafka-run; kafka-server-start.sh /usr/local/etc/kafka/server.properties; end
 
 # NFS
 function nfsstart; sudo systemctl start rpc-idmapd rpc-mountd; end
@@ -41,6 +45,7 @@ set -x EDITOR 'vim'
 set -x VISUAL 'vim'
 set -x PAGER 'vimpager'
 set -x BROWSER 'firefox-nightly'
+set -x TERM 'screen-256color'
 
 # secret environment vars
 . ~/.config/fish/secret_env.fish
@@ -57,7 +62,7 @@ function prepend_to_path -d "Prepend the given dir to PATH if it exists and is n
 end
 
 # Start with a clean path, because order matters
-set -e PATH 
+set -e PATH
 
 prepend_to_path "/bin"
 prepend_to_path "/.local/bin"

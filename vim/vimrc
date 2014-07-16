@@ -42,6 +42,7 @@ else
   NeoBundle 'sjl/gundo.vim'
   NeoBundle 'drmikehenry/vim-fontsize'
   NeoBundle 'jiangmiao/auto-pairs'
+  NeoBundle 'Shougo/neocomplete.vim'
 
   " File browsing
   NeoBundle 'Shougo/neomru.vim'
@@ -49,6 +50,8 @@ else
 
   " Looks
   NeoBundle 'bling/vim-airline'
+  NeoBundle 'edkolev/tmuxline.vim'
+
   NeoBundle 'sjl/badwolf'
   NeoBundle 'altercation/vim-colors-solarized'
   NeoBundle 'nanotech/jellybeans.vim'
@@ -56,6 +59,9 @@ else
   NeoBundle 'noahfrederick/vim-hemisu'
   NeoBundle 'itchyny/landscape.vim'
   NeoBundle 'chriskempson/base16-vim'
+
+  " Websites
+  NeoBundle 'othree/html5.vim'
 
   " Only install these scripts on my local machine
   if hostname() == "macbook.wunki.org"
@@ -123,7 +129,7 @@ NeoBundleCheck
 " GUI
 if has("gui_running")
   if has('mac')
-    set guifont=Fira\ Mono:h14
+    set guifont=Sauce\ Code\ Powerline:h14
   else
     set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
   endif
@@ -139,22 +145,23 @@ if has("gui_running")
   set noeb                " don't notify me of errors
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing
+  colorscheme Tomorrow-Night
 else
   " 256 colors setting
   set t_Co=256
   set mouse=a
   set ttymouse=xterm
   set termencoding=utf-8
+  colorscheme hybrid
 endif
 
 " Theme
 let g:zenburn_disable_Label_underline = 1
-colorscheme base16-paraiso
 
 " Airline
-let g:airline_powerline_fonts=0
-let g:airline_left_sep=''
-let g:airline_right_sep=''
+let g:airline_powerline_fonts=1
+" let g:airline_left_sep=''
+" let g:airline_right_sep=''
 
 " Find bash
 if executable('/bin/bash')
@@ -277,6 +284,8 @@ nmap <leader>l :set list!<CR>
 " Go settings
 " let g:go_fmt_autosave = 0
 au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+let g:go_highlight_trailing_whitespace_error = 0
+autocmd FileType go map <buffer> <leader>tt :GoTest<cr>
 
 " Markdown detection
 autocmd BufNewFile,BufReadPost *.mkd,*.markdown,*.md set filetype=markdown
@@ -385,13 +394,16 @@ set ssop-=folds      " do not store folds
 
 " Completion
 set complete=.,w,b,u,t
-set completeopt=longest,menuone,preview
+set completeopt=menu,menuone
 
 " Clojure
-let g:clojure_align_multiline_strings=1
+let g:clojure_align_multiline_strings = 1
 
 " Erlang
 au BufRead,BufNewFile rebar.config set filetype=erlang
+
+" Python
+let g:pymode_rope_complete_on_dot = 0
 
 " Syntastic
 let g:syntastic_echo_current_error = 0
@@ -401,8 +413,10 @@ let g:syntastic_enable_highlighting = 0
 let g:github_issues_no_omni = 1
 
 " YCM
-let g:ycm_min_num_of_chars_for_completion = 1
-let g:ycm_autoclose_preview_window_after_completion = 1
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#force_overwrite_completefunc = 1
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+
 
 " Passwords
 let passfile = $HOME."/.vimpass"

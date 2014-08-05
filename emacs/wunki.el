@@ -32,10 +32,10 @@
              cider clojure-mode clojure-test-mode cljdoc
              clojurescript-mode slamhound haskell-mode shm ghc
              rust-mode elpy slime slime-repl erlang scala-mode2
-             ensime
+             ensime go-mode go-eldoc
 
              ;; autocompletion
-             auto-complete ac-geiser ac-nrepl ac-slime
+             auto-complete ac-geiser ac-nrepl ac-slime go-autocomplete
 
              ;; fun
              4clojure
@@ -64,6 +64,7 @@
 (require 'wunki-python)     ; python
 (require 'wunki-haskell)    ; haskell
 (require 'wunki-erlang)     ; erlang
+(require 'wunki-go)         ; go
 ;(require 'wunki-scala)     ; scala
 (require 'wunki-erc)        ; irc
 (require 'wunki-evil)       ; vim emulation

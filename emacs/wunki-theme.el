@@ -1,5 +1,5 @@
 ;; load theme and don't ask if it's save.
-(load-theme 'sanityinc-tomorrow-blue t)
+(load-theme 'sanityinc-tomorrow-night t)
 
 ;; font -- some strange issues with font size, 110 is huge, 100 is tiny.
 (set-frame-font "Fira Mono")
@@ -10,7 +10,7 @@
   "Switch between dark and light theme."
   (interactive)
   (if (eq (frame-parameter (next-frame) 'background-mode) 'dark)
-      (load-theme 'sanityinc-solarized-light)
+      (load-theme 'sanityinc-tomorrow-bright)
     (load-theme 'zenburn)))
 
 ;; Stolen from Sanity inc

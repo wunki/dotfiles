@@ -3,7 +3,7 @@
   (elpy-enable))
 
 ;; only set this minor modes when using elpy
-(setq elpy-default-minor-modes
-      '(eldoc-mode flymake-mode auto-complete-mode))
+(setq elpy-modules
+      '(elpy-module-sane-defaults elpy-module-company elpy-module-eldoc elpy-module-flymake elpy-module-pyvenv))
 
 (provide 'wunki-python)

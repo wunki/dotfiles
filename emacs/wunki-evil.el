@@ -23,6 +23,8 @@
          jabber-roster-mode
          jabber-chat-mode
          cider-repl-mode
+         magit-log-edit-mode
+         magit-commit-mode
          magit-branch-manager-mode))
 
 ;; nrepl

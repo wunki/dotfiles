@@ -9,8 +9,13 @@
 ;; correct path
 (exec-path-from-shell-initialize)
 
-;; language specific settings
+;; copy some vars over
 (exec-path-from-shell-copy-env "GOPATH")
+(exec-path-from-shell-copy-env "PYTHONPATH")
+
+;; emacsclient as editor for Magit
+(setenv "EDITOR" "emacsclient")
+
 
 ;; Set the Apple key as Meta
 (setq mac-command-modifier 'meta)

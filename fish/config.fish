@@ -39,6 +39,10 @@ function kafka-run; kafka-server-start.sh /usr/local/etc/kafka/server.properties
 # NFS
 function nfsstart; sudo systemctl start rpc-idmapd rpc-mountd; end
 
+# Mu indexing
+function mu-reindex; mu index --rebuild --maildir=/Users/wunki/Mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
+function mu-index; mu index --maildir=/Users/wunki/Mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
+
 # environment variables
 set -x fish_greeting ""
 set -x EDITOR 'vim'
@@ -102,6 +106,7 @@ prepend_to_path "/opt/android-sdk/platform-tools"
 prepend_to_path "/usr/bin/core_perl"
 
 # python
+set -gx PYTHONPATH "$HOME/Library/Python/2.7/lib/python/site-packages:/Library/Python/2.7/site-packages"
 prepend_to_path "$HOME/Library/Python/2.7/bin"
 
 # virtualenv

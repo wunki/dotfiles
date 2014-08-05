@@ -30,6 +30,9 @@ if [ "$(uname)" == "Darwin" ]; then
     export LS_OPTIONS='-F'
     export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 
+    # Golang
+    export PATH="$HOME/Projects/Go/bin"
+
     # Virtualenv
     export WORKON_HOME="$HOME/.virtualenvs"
     source "$HOME/Library/Python/2.7/bin/virtualenvwrapper.sh"

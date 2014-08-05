@@ -44,7 +44,6 @@ set -x fish_greeting ""
 set -x EDITOR 'vim'
 set -x VISUAL 'vim'
 set -x PAGER 'vimpager'
-set -x BROWSER 'firefox-nightly'
 set -x TERM 'screen-256color'
 
 # secret environment vars

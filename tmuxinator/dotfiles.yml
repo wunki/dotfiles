@@ -4,7 +4,7 @@ name: dotfiles
 root: ~/Projects/wunki-dotfiles
 
 windows:
-  - editor:
+  - vim:
       - vim .
   - git:
       - git status

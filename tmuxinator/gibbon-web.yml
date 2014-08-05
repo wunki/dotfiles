@@ -4,7 +4,7 @@ name: gibbon-web
 root: ~/Projects/gibbon-web
 
 windows:
-  - editor:
+  - vim:
       - vim .
   - shell: vf activate gibbon-web
   - vagrant:

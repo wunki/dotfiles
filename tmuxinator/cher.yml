@@ -4,7 +4,7 @@ name: cher
 root: ~/Projects/Go/src/github.com/wunki/cher
 
 windows:
-  - editor:
+  - vim:
       layout: main-vertical
       panes:
         - vim cher.go

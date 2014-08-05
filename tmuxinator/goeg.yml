@@ -1,0 +1,11 @@
+# ~/.tmuxinator/goeg.yml
+
+name: goeg
+root: ~/Source/goeg/src
+
+pre: set -x GOPATH "$GOPATH:/Users/wunki/Projects/goeg"
+
+windows:
+  - vim: vim .
+  - fish:
+    -

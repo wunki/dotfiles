@@ -1,0 +1,12 @@
+# ~/.tmuxinator/wunki-park.yml
+
+name: wunki-park
+root: ~/Projects/wunki-park
+
+windows:
+  - vim: vim .
+  - shell:
+      -
+  - neo: mosh neo.wunki.org
+  - pascal: mosh pascal.gibbon.co
+  - tesla: mosh tesla.gibbon.co

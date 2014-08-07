@@ -1,9 +1,0 @@
-#!/usr/bin/env sh
- 
-cd /tmp/
-git clone --recursive https://github.com/rust-lang/cargo
-cd cargo
-make
-make install
-cd $HOME
-rm -rf /tmp/cargo 

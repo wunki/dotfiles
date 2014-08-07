@@ -45,8 +45,7 @@ else
   NeoBundle 'Shougo/neocomplete.vim'
 
   " File browsing
-  NeoBundle 'Shougo/neomru.vim'
-  NeoBundle 'Shougo/unite.vim'
+  NeoBundle 'kien/ctrlp.vim'
 
   " Looks
   NeoBundle 'bling/vim-airline'
@@ -282,10 +281,17 @@ let maplocalleader = "_"
 nmap <leader>l :set list!<CR>
 
 " Go settings
-" let g:go_fmt_autosave = 0
 au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
 let g:go_highlight_trailing_whitespace_error = 0
-autocmd FileType go map <buffer> <leader>tt :GoTest<cr>
+let g:go_auto_type_info = 1
+
+au FileType go nmap <leader>r <Plug>(go-run)
+au FileType go nmap <leader>b <Plug>(go-build)
+au FileType go nmap <leader>t <Plug>(go-test)
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap gd <Plug>(go-def)
 
 " Markdown detection
 autocmd BufNewFile,BufReadPost *.mkd,*.markdown,*.md set filetype=markdown
@@ -325,21 +331,9 @@ nnoremap k gk
 nnoremap Q gqip
 vnoremap Q gq
 
-" Unite
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
-call unite#custom#source('file_rec/async','sorters','sorter_rank')
-
-if executable('ag')
-  let g:unite_source_grep_command = 'ag'
-  let g:unite_source_grep_default_opts = '--nogroup --nocolor --column'
-  let g:unite_source_grep_recursive_opt = ''
-endif
-
-nnoremap <silent> <Leader>m :Unite -buffer-name=recent -winheight=10 file_mru<cr>
-nnoremap <Leader>b :Unite -buffer-name=buffers -winheight=10 buffer<cr>
-nnoremap <Leader>f :Unite grep:.<cr>
-nnoremap <silent> <C-p> :Unite -start-insert -buffer-name=files -winheight=10 file_rec/async<cr>
+" Ctrlp
+let g:ctrlp_working_path_mode = 0
+nnoremap <silent> <C-b> :CtrlPBuffer<cr>
 
 " Fugitive
 nnoremap <leader>gd :Gdiff<cr>

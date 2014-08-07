@@ -20,6 +20,9 @@ function gs; git status --ignore-submodules=dirty; end
 function gp; git push origin master; end
 function gf; git pull origin master; end
 
+# rust
+function rust-update; curl www.rust-lang.org/rustup.sh | bash; end
+
 # erlang
 function erlr; erl -pz ebin deps/*/ebin $argv; end
 
@@ -85,9 +88,6 @@ prepend_to_path "$HOME/.cabal/bin"
 
 # postgresql on the mac
 prepend_to_path "/Applications/Postgres.app/Contents/Versions/9.3/bin"
-
-# rust
-set -x RUST_THREADS 1   # fix: colorize test output
 
 # clojure
 set -x LEIN_JAVA_CMD "$HOME/.bin/drip"

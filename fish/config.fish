@@ -82,6 +82,7 @@ prepend_to_path "$HOME/.bin"
 prepend_to_path "$HOME/.local/bin"
 prepend_to_path "$HOME/Source/google-cloud-sdk/bin"
 prepend_to_path "$GOPATH/bin"
+prepend_to_path "/usr/local/Cellar/go/1.3/libexec/bin"
 
 # haskell
 prepend_to_path "$HOME/.cabal/bin"

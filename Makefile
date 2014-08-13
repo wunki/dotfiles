@@ -3,16 +3,16 @@ all:: vim emacs bin zsh bash tmux xmonad xorg gtk mpv conkeror
 
 vim::
 	@ln -fs $(DOTFILES)/vim/vimrc					${HOME}/.vimrc
-	@ln -fns $(DOTFILES)/vim							${HOME}/.vim
+	@ln -fns $(DOTFILES)/vim						${HOME}/.vim
 	@echo Vim is symlinked.
 
 emacs::
-	@ln -fs $(DOTFILES)/emacs/emacs.el		${HOME}/.emacs
+	@ln -fs $(DOTFILES)/emacs/emacs.el				${HOME}/.emacs
 	@ln -fns $(DOTFILES)/emacs						${HOME}/.emacs.d
 	@echo Emacs is symlinked.
 
 bin::
-	@ln -fns $(DOTFILES)/bin							${HOME}/.bin
+	@ln -fns $(DOTFILES)/bin						${HOME}/.bin
 	@echo bin files are linked to homedir.
 
 zsh::
@@ -26,22 +26,22 @@ zsh::
 	@echo ZSH is symlinked.
 
 bash::
-	@ln -fs $(DOTFILES)/bash/bash_profile	${HOME}/.bash_profile
-	@ln -fs $(DOTFILES)/bash/bashrc	${HOME}/.bashrc
+	@ln -fs $(DOTFILES)/bash/bash_profile			${HOME}/.bash_profile
+	@ln -fs $(DOTFILES)/bash/bashrc					${HOME}/.bashrc
 	@echo Bash is symlinked.
 
 fish::
 	@test -d ${HOME}/.config || mkdir ${HOME}/.config
-	@ln -fns $(DOTFILES)/fish							${HOME}/.config/fish
+	@ln -fns $(DOTFILES)/fish						${HOME}/.config/fish
 	@echo Fish is symlinked.
 
 tarsnap::
-	@ln -fs $(DOTFILES)/tarsnap/tarsnapperrc 	${HOME}/.tarsnapperrc
-	@ln -fs $(DOTFILES)/tarsnap/tarsnaprc 		${HOME}/.tarsnaprc
+	@ln -fs $(DOTFILES)/tarsnap/tarsnapperrc 		${HOME}/.tarsnapperrc
+	@ln -fs $(DOTFILES)/tarsnap/tarsnaprc 			${HOME}/.tarsnaprc
 	@echo tarsnap is symlinked.
 
 tmux::
-	@ln -fs $(DOTFILES)/tmux/tmux.conf 		${HOME}/.tmux.conf
+	@ln -fs $(DOTFILES)/tmux/tmux.conf 				${HOME}/.tmux.conf
 	@echo tmux is symlinked.
 
 tmuxinator::

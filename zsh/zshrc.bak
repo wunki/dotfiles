@@ -1,0 +1,25 @@
+# -*- mode: sh -*-
+#
+
+# Prezto
+source ~/.zprezto/init.zsh
+
+# Aliases and environment
+source ~/.zshalias
+source ~/.zshenv
+
+# Bindings for Vim
+bindkey -v
+
+# Extended glob options
+setopt extended_glob
+
+# Don't use autocorrect
+unsetopt correct_all
+
+# Extra completions
+fpath=(/home/wunki/src/zsh-completions/src $fpath)
+
+# CTRL-R for backwards history search
+bindkey "^r" history-incremental-search-backward
+

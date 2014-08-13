@@ -1,43 +1,11 @@
-# -*- mode: sh -*-
-
-# Path to your oh-my-zsh configuration.
-export ZSH=$HOME/.oh-my-zsh
-export ZSH_THEME="pure"
-export CASE_SENSITIVE="true"
-
-plugins=(git lein git-extras)
-if [ `uname` = "Darwin" ]; then
-   plugins+=(brew osx)
+# Source Prezto.
+if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
-source $ZSH/oh-my-zsh.sh
+# Settings
+unsetopt CORRECT                      # Disable autocorrect guesses. Happens when typing a wrong
+                                      # command that may look like an existing
+                                      # one.
 
-# Aliases and environment
-source ~/.zshalias
-source ~/.zshenv
 
-# Bindings for Emacs
-bindkey -e
-
-# Extended glob options
-setopt extended_glob
-
-# Don't use autocorrect
-unsetopt correct_all
-
-# Extra completions
-fpath=(/home/wunki/src/zsh-completions/src $fpath)
-
-# Directories with Z
-if [ -e "$HOME/src/z/z.sh" ]; then
-  . $HOME/src/z/z.sh
-fi
-
-# CTRL-R for backwards history search
-bindkey "^r" history-incremental-search-backward
-
-# Tricks to make ZSH faster
-# Git completion
-__git_files () { 
-    _wanted files expl 'local files' _files 
-}

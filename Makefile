@@ -36,16 +36,16 @@ fish::
 	@echo Fish is symlinked.
 
 tarsnap::
-	@ln -fs $(DOTFILES)/tarsnap/tarsnapperrc 		${HOME}/.tarsnapperrc
-	@ln -fs $(DOTFILES)/tarsnap/tarsnaprc 			${HOME}/.tarsnaprc
+	@ln -fs $(DOTFILES)/tarsnap/tarsnapperrc		${HOME}/.tarsnapperrc
+	@ln -fs $(DOTFILES)/tarsnap/tarsnaprc			${HOME}/.tarsnaprc
 	@echo tarsnap is symlinked.
 
 tmux::
-	@ln -fs $(DOTFILES)/tmux/tmux.conf 				${HOME}/.tmux.conf
+	@ln -fs $(DOTFILES)/tmux/tmux.conf				${HOME}/.tmux.conf
 	@echo tmux is symlinked.
 
 tmuxinator::
-	@ln -fns $(DOTFILES)/tmuxinator 		${HOME}/.tmuxinator
+	@ln -fns $(DOTFILES)/tmuxinator			${HOME}/.tmuxinator
 	@echo tmuxinator is symlinked.
 
 i3::
@@ -69,14 +69,14 @@ xorg::
 	@echo Xorg is symlinked.
 
 gtk::
-	@ln -fs $(DOTFILES)/gtk/gtkrc-2.0 		${HOME}/.gtkrc-2.0
-	@ln -fs $(DOTFILES)/gtk/gtkrc.mine 		${HOME}/.gtkrc.mine
-	@ln -fns $(DOTFILES)/gtk/themes 		  ${HOME}/.themes
+	@ln -fs $(DOTFILES)/gtk/gtkrc-2.0		${HOME}/.gtkrc-2.0
+	@ln -fs $(DOTFILES)/gtk/gtkrc.mine		${HOME}/.gtkrc.mine
+	@ln -fns $(DOTFILES)/gtk/themes			  ${HOME}/.themes
 	@echo GTK is symlinked.
 
 mpv::
 	@mkdir -p ${HOME}/.mpv
-	@ln -fns $(DOTFILES)/mpv/config 			${HOME}/.mpv/config
+	@ln -fns $(DOTFILES)/mpv/config				${HOME}/.mpv/config
 	@echo MPV is symlinked.
 
 conkeror::

@@ -6,6 +6,6 @@ root: ~/Projects/gibbon-web
 windows:
   - vim:
       - vim .
-  - shell: vf activate gibbon-web
+  - shell: pyenv activate gibbon-web
   - vagrant:
       -

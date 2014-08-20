@@ -146,13 +146,6 @@ end
 function fish_prompt
   set last_status $status
 
-  # python virtualenv
-  if set -q VIRTUAL_ENV
-     set_color $fish_color_match
-     echo -n -s "[" (basename "$VIRTUAL_ENV") "] "
-     set_color normal
-  end
-
   # CWD
   set_color $fish_color_cwd
   printf '%s' (prompt_pwd)

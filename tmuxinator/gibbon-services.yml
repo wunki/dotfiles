@@ -1,0 +1,8 @@
+# ~/.tmuxinator/gibbon-services.yml
+
+name: gibbon-services
+root: ~/Projects/Go/src/github.com/gibbonco/gibbon-services
+
+windows:
+  - vim: vim .
+  - git: git status

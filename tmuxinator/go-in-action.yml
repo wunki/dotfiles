@@ -1,0 +1,9 @@
+# ~/.tmuxinator/go-in-action.yml
+
+name: go-in-action
+root: ~/Projects/Go/src/github.com/goinaction
+
+windows:
+  - vim: vim .
+  - shell: 
+    -

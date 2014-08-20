@@ -27,6 +27,7 @@ if neobundle#has_cache()
 else
   " Essentials
   NeoBundle 'tpope/vim-eunuch'
+  NeoBundle 'tpope/vim-repeat'
   NeoBundle 'tpope/vim-fugitive'
   NeoBundle 'gregsexton/gitv'
   NeoBundle 'tpope/vim-unimpaired'
@@ -63,7 +64,7 @@ else
   NeoBundle 'othree/html5.vim'
 
   " Only install these scripts on my local machine
-  if hostname() == "macbook.wunki.org"
+  if hostname() == "macbook.wunki.org" || hostname() == "ubuntu"
 
     " Clojure
     NeoBundle 'tpope/vim-fireplace'
@@ -87,6 +88,7 @@ else
     " Go
     if $GOPATH != ""
         NeoBundle "fatih/vim-go"
+        NeoBundle "benmills/vim-golang-alternate"
     endif
 
     " Rust
@@ -128,7 +130,7 @@ NeoBundleCheck
 " GUI
 if has("gui_running")
   if has('mac')
-    set guifont=Sauce\ Code\ Powerline:h14
+    set guifont=Ubuntu\ Mono\ derivative\ Powerline:h16
   else
     set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
   endif
@@ -144,7 +146,7 @@ if has("gui_running")
   set noeb                " don't notify me of errors
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing
-  colorscheme Tomorrow-Night
+  colorscheme hybrid
 else
   " 256 colors setting
   set t_Co=256
@@ -289,7 +291,7 @@ au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)
 au FileType go nmap <leader>t <Plug>(go-test)
 au FileType go nmap <Leader>i <Plug>(go-info)
-au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>d <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 au FileType go nmap gd <Plug>(go-def)
@@ -403,6 +405,7 @@ let g:pymode_rope_complete_on_dot = 0
 " Syntastic
 let g:syntastic_echo_current_error = 0
 let g:syntastic_enable_highlighting = 0
+let g:syntastic_always_populate_loc_list = 1
 
 " Github issues
 let g:github_issues_no_omni = 1

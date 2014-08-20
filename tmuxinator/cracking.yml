@@ -1,0 +1,8 @@
+# ~/.tmuxinator/cracking.yml
+
+name: cracking
+root: ~/Projects/Go/src/github.com/wunki/cracking
+
+windows:
+  - vim:  vim
+  - git:  git status

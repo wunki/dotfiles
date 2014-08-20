@@ -21,7 +21,7 @@ function gp; git push origin master; end
 function gf; git pull origin master; end
 
 # rust
-function rust-update; curl www.rust-lang.org/rustup.sh | bash; end
+function rust-update; curl https://static.rust-lang.org/rustup.sh | bash; end
 
 # erlang
 function erlr; erl -pz ebin deps/*/ebin $argv; end
@@ -30,7 +30,7 @@ function erlr; erl -pz ebin deps/*/ebin $argv; end
 function rmpyc; find . -name '*.pyc' | xargs rm; end
 
 # go
-set -x GOPATH "/Users/wunki/Projects/Go"
+set -x GOPATH "$HOME/Projects/Go"
 
 # run different databases
 function redis-run; redis-server /usr/local/etc/redis.conf; end
@@ -82,7 +82,7 @@ prepend_to_path "$HOME/.bin"
 prepend_to_path "$HOME/.local/bin"
 prepend_to_path "$HOME/Source/google-cloud-sdk/bin"
 prepend_to_path "$GOPATH/bin"
-prepend_to_path "/usr/local/Cellar/go/1.3/libexec/bin"
+prepend_to_path "/usr/local/opt/go/libexec/bin"
 
 # haskell
 prepend_to_path "$HOME/.cabal/bin"
@@ -115,9 +115,6 @@ set -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
 set -x SHELL_PLUS "ipython"
 . ~/Source/virtualfish/virtual.fish
 
-# ansible
-set -x ANSIBLE_HOST_KEY_CHECKING False
-
 # git prompt
 set __fish_git_prompt_showdirtystate 'yes'
 set __fish_git_prompt_showstashstate 'yes'
@@ -138,10 +135,12 @@ set __fish_git_prompt_char_upstream_ahead '↑'
 set __fish_git_prompt_char_upstream_behind '↓'
 
 # set variables on directories with ondir
-function ondir_prompt_hook --on-event fish_prompt
-    if test ! -e "$OLDONDIRWD"; set -g OLDONDIRWD /; end;
-    if [ "$OLDONDIRWD" != "$PWD" ]; eval (ondir $OLDONDIRWD $PWD); end;
-    set -g OLDONDIRWD "$PWD";
+if test -f /usr/local/bin/ondir
+    function ondir_prompt_hook --on-event fish_prompt
+        if test ! -e "$OLDONDIRWD"; set -g OLDONDIRWD /; end;
+        if [ "$OLDONDIRWD" != "$PWD" ]; eval (ondir $OLDONDIRWD $PWD); end;
+        set -g OLDONDIRWD "$PWD";
+    end
 end
 
 # the prompt

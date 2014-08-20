@@ -98,6 +98,7 @@ set -x DOCKER_HOST "tcp://192.168.59.103:2375"
 
 # rubygems
 prepend_to_path "$HOME/.gem/ruby/2.0.0/bin"
+prepend_to_path "$HOME/.gem/ruby/1.9.1/bin"
 
 # android
 prepend_to_path "/opt/android-sdk/tools"
@@ -107,13 +108,11 @@ prepend_to_path "/opt/android-sdk/platform-tools"
 prepend_to_path "/usr/bin/core_perl"
 
 # python
-set -gx PYTHONPATH "$HOME/Library/Python/2.7/lib/python/site-packages:/Library/Python/2.7/site-packages"
 prepend_to_path "$HOME/Library/Python/2.7/bin"
-
-# virtualenv
-set -x PIP_DOWNLOAD_CACHE "$HOME/.pip/cache"
-set -x SHELL_PLUS "ipython"
-. ~/Source/virtualfish/virtual.fish
+prepend_to_path "$HOME/.pyenv/bin"
+status --is-interactive; and . (pyenv init -|psub)
+status --is-interactive; and . (pyenv virtualenv-init -|psub)
+set -gx PYTHONPATH "$HOME/Library/Python/2.7/lib/python/site-packages:/Library/Python/2.7/site-packages"
 
 # git prompt
 set __fish_git_prompt_showdirtystate 'yes'

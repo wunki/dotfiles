@@ -29,9 +29,6 @@ function erlr; erl -pz ebin deps/*/ebin $argv; end
 # python
 function rmpyc; find . -name '*.pyc' | xargs rm; end
 
-# go
-set -x GOPATH "$HOME/Projects/Go"
-
 # run different databases
 function redis-run; redis-server /usr/local/etc/redis.conf; end
 function influx-run; influxdb -config=/usr/local/etc/influxdb.conf; end
@@ -81,7 +78,6 @@ prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.bin"
 prepend_to_path "$HOME/.local/bin"
 prepend_to_path "$HOME/Source/google-cloud-sdk/bin"
-prepend_to_path "$GOPATH/bin"
 prepend_to_path "/usr/local/opt/go/libexec/bin"
 
 # haskell
@@ -93,8 +89,12 @@ prepend_to_path "/Applications/Postgres.app/Contents/Versions/9.3/bin"
 # clojure
 set -x LEIN_JAVA_CMD "$HOME/.bin/drip"
 
-# docker
+# docker with boot2docker
 set -x DOCKER_HOST "tcp://192.168.59.103:2375"
+
+# go
+set -x GOPATH "$HOME/Go"
+prepend_to_path "$GOPATH/bin"
 
 # rubygems
 prepend_to_path "$HOME/.gem/ruby/2.0.0/bin"

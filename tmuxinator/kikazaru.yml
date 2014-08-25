@@ -1,0 +1,8 @@
+# ~/.tmuxinator/kikazaru.yml
+
+name: kikazaru
+root: ~/Go/src/github.com/gibbonco/kikazaru
+
+windows:
+  - vim: vim .
+  - git: git status

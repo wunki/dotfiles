@@ -1,0 +1,10 @@
+# ~/.tmuxinator/gibbon-baseimage.yml
+
+name: gibbon-baseimage
+root: ~/Projects/gibbon-baseimage
+
+windows:
+  - vim:
+        - vim
+  - shell:
+        -

@@ -5,7 +5,10 @@ root: ~/Projects/gibbon-web
 
 windows:
   - vim:
-      - vim .
-  - shell: pyenv activate gibbon-web
+      - pyenv activate gibbon-web
+      - vim
+  - shell:
+      - pyenv activate gibbon-web
   - vagrant:
-      -
+      - pyenv activate gibbon-web
+      - vagrant status

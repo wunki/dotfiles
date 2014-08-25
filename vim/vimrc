@@ -44,13 +44,16 @@ else
   NeoBundle 'drmikehenry/vim-fontsize'
   NeoBundle 'jiangmiao/auto-pairs'
   NeoBundle 'Shougo/neocomplete.vim'
+  NeoBundle 'dhruvasagar/vim-table-mode'
+  NeoBundle 'bronson/vim-trailing-whitespace'
 
   " File browsing
   NeoBundle 'kien/ctrlp.vim'
 
   " Looks
-  NeoBundle 'bling/vim-airline'
-  NeoBundle 'edkolev/tmuxline.vim'
+  NeoBundle 'itchyny/lightline.vim'
+  NeoBundle 'cocopon/lightline-hybrid.vim'
+
 
   NeoBundle 'sjl/badwolf'
   NeoBundle 'altercation/vim-colors-solarized'
@@ -112,7 +115,15 @@ else
 
     " Python
     NeoBundle 'klen/python-mode'
-    NeoBundle 'jmcantrell/vim-virtualenv'
+    NeoBundle 'davidhalter/jedi-vim'
+
+    " Do not load vim-pyenv until *.py is opend and
+    " make sure that it is loaded after jedi-vim is loaded.
+    NeoBundleLazy 'lambdalisue/vim-pyenv', {
+            \ 'depends': ['davidhalter/jedi-vim'],
+            \ 'autoload': {
+            \   'filetypes': ['python', 'python3'],
+            \ }}
 
     " Github
     NeoBundle "jaxbot/github-issues.vim"
@@ -158,11 +169,6 @@ endif
 
 " Theme
 let g:zenburn_disable_Label_underline = 1
-
-" Airline
-let g:airline_powerline_fonts=1
-" let g:airline_left_sep=''
-" let g:airline_right_sep=''
 
 " Find bash
 if executable('/bin/bash')
@@ -425,3 +431,56 @@ end
 if has('mac')
   set macmeta               " enable meta key in macvim
 endif
+
+" Lightline
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'fugitive', 'filename' ] ]
+      \ },
+      \ 'component_function': {
+      \   'fugitive': 'MyFugitive',
+      \   'readonly': 'MyReadonly',
+      \   'modified': 'MyModified',
+      \   'filename': 'MyFilename'
+      \ },
+      \ 'separator': { 'left': '⮀', 'right': '⮂' },
+      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ }
+
+function! MyModified()
+  if &filetype == "help"
+    return ""
+  elseif &modified
+    return "+"
+  elseif &modifiable
+    return ""
+  else
+    return ""
+  endif
+endfunction
+
+function! MyReadonly()
+  if &filetype == "help"
+    return ""
+  elseif &readonly
+    return "⭤"
+  else
+    return ""
+  endif
+endfunction
+
+function! MyFugitive()
+  if exists("*fugitive#head")
+    let _ = fugitive#head()
+    return strlen(_) ? '⭠ '._ : ''
+  endif
+  return ''
+endfunction
+
+function! MyFilename()
+  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+       \ ('' != MyModified() ? ' ' . MyModified() : '')
+endfunction

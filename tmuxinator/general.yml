@@ -1,0 +1,11 @@
+# ~/.tmuxinator/general.yml
+
+name: general
+root: ~/
+
+windows:
+  - editor: vim
+  - shell:
+      -
+  - mutt: mutt
+  - irssi: irssi

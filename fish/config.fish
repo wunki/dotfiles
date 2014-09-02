@@ -89,8 +89,10 @@ prepend_to_path "/Applications/Postgres.app/Contents/Versions/9.3/bin"
 # clojure
 set -x LEIN_JAVA_CMD "$HOME/.bin/drip"
 
-# docker with boot2docker
-set -x DOCKER_HOST "tcp://192.168.59.103:2375"
+# docker with boot2docker on own machine
+if contains (hostname -s) "macbook"
+    set -x DOCKER_HOST "tcp://192.168.59.103:2375"
+end
 
 # go
 set -x GOPATH "$HOME/Go"
@@ -106,6 +108,9 @@ prepend_to_path "/opt/android-sdk/platform-tools"
 
 # perl
 prepend_to_path "/usr/bin/core_perl"
+
+# racket
+prepend_to_path "/Applications/Racket v6.1/bin"
 
 # python
 prepend_to_path "$HOME/Library/Python/2.7/bin"

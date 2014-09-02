@@ -43,7 +43,6 @@ else
   NeoBundle 'sjl/gundo.vim'
   NeoBundle 'drmikehenry/vim-fontsize'
   NeoBundle 'jiangmiao/auto-pairs'
-  NeoBundle 'Shougo/neocomplete.vim'
   NeoBundle 'dhruvasagar/vim-table-mode'
   NeoBundle 'bronson/vim-trailing-whitespace'
 
@@ -53,8 +52,7 @@ else
   " Looks
   NeoBundle 'itchyny/lightline.vim'
   NeoBundle 'cocopon/lightline-hybrid.vim'
-
-
+  NeoBundle 'endel/vim-github-colorscheme'
   NeoBundle 'sjl/badwolf'
   NeoBundle 'altercation/vim-colors-solarized'
   NeoBundle 'nanotech/jellybeans.vim'
@@ -62,6 +60,8 @@ else
   NeoBundle 'noahfrederick/vim-hemisu'
   NeoBundle 'itchyny/landscape.vim'
   NeoBundle 'chriskempson/base16-vim'
+  NeoBundle 'tomasr/molokai'
+
 
   " Websites
   NeoBundle 'othree/html5.vim'
@@ -115,15 +115,7 @@ else
 
     " Python
     NeoBundle 'klen/python-mode'
-    NeoBundle 'davidhalter/jedi-vim'
-
-    " Do not load vim-pyenv until *.py is opend and
-    " make sure that it is loaded after jedi-vim is loaded.
-    NeoBundleLazy 'lambdalisue/vim-pyenv', {
-            \ 'depends': ['davidhalter/jedi-vim'],
-            \ 'autoload': {
-            \   'filetypes': ['python', 'python3'],
-            \ }}
+    NeoBundle 'lambdalisue/vim-pyenv'
 
     " Github
     NeoBundle "jaxbot/github-issues.vim"
@@ -141,7 +133,7 @@ NeoBundleCheck
 " GUI
 if has("gui_running")
   if has('mac')
-    set guifont=Ubuntu\ Mono\ derivative\ Powerline:h16
+    set guifont=Fira\ Mono:h13
   else
     set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
   endif
@@ -157,18 +149,19 @@ if has("gui_running")
   set noeb                " don't notify me of errors
   set anti                " anti-aliasing
   set mousehide           " hide the mouse when typing
-  colorscheme hybrid
 else
   " 256 colors setting
   set t_Co=256
   set mouse=a
   set ttymouse=xterm
   set termencoding=utf-8
-  colorscheme hybrid
 endif
 
 " Theme
+let g:rehash256 = 1
+let g:molokai_original = 1
 let g:zenburn_disable_Label_underline = 1
+colorscheme zenburn
 
 " Find bash
 if executable('/bin/bash')
@@ -265,11 +258,6 @@ let NERDTreeIgnore=['\~$', '\.pyc', '\.swp$', '\.git', '\.hg', '\.svn',
       \ '\.ropeproject', '\.o', '\.bzr', '\.ipynb_checkpoints', '__pycache__',
       \ '\.egg$', '\.egg-info$', '\.tox$', '\.idea$', '\.sass-cache',
       \ '\.env*$', '\.env[0-9]$', '\.coverage$']
-
-" Ignore binary files in NerdTree
-function! NERDTreeCustomIgnoreFilter(path)
-  return a:path.isExecutable
-endfunction
 
 " Faster scrolling
 nnoremap <C-e> 3<C-e>
@@ -416,12 +404,6 @@ let g:syntastic_always_populate_loc_list = 1
 " Github issues
 let g:github_issues_no_omni = 1
 
-" YCM
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#force_overwrite_completefunc = 1
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-
-
 " Passwords
 let passfile = $HOME."/.vimpass"
 if filereadable($passfile)
@@ -434,7 +416,7 @@ endif
 
 " Lightline
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
+      \ 'colorscheme': 'jellybeans',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'filename' ] ]

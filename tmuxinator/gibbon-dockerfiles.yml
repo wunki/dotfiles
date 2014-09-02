@@ -1,0 +1,10 @@
+# ~/.tmuxinator/gibbon-dockerfiles.yml
+
+name: gibbon-dockerfiles
+root: ~/Projects/gibbonco/dockerfiles
+
+windows:
+  - vim:
+        - vim
+  - shell:
+        -

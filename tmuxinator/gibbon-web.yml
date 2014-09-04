@@ -9,6 +9,6 @@ windows:
       - vim
   - shell:
       - pyenv activate gibbon-web
-  - vagrant:
+  - server:
       - pyenv activate gibbon-web
-      - vagrant status
+      - ./manage.py runserver

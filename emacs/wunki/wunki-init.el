@@ -1,5 +1,5 @@
 ;; place to save customizations
-(setq custom-file "~/.emacs.d/wunki-custom.el")
+(setq custom-file "~/.emacs.d/wunki/wunki-custom.el")
 (require 'cl)
 
 ;; load main configuration
@@ -65,8 +65,8 @@
 (require 'wunki-haskell)    ; haskell
 (require 'wunki-erlang)     ; erlang
 (require 'wunki-go)         ; go
-;(require 'wunki-scala)     ; scala
 (require 'wunki-erc)        ; irc
+;(require 'wunki-scala)     ; scala
 ;(require 'wunki-evil)       ; vim emulation
 
 (when (eq system-type 'darwin)

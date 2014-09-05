@@ -1,5 +1,5 @@
 ;; flycheck
-(add-to-list 'load-path "~/Projects/Go/src/github.com/dougm/goflymake")
+(add-to-list 'load-path "~/Go/src/github.com/dougm/goflymake")
 (require 'go-flymake)
 
 ;; auto-completion

@@ -5,27 +5,27 @@
 (define-key global-map (kbd "C-c b") 'org-iswitchb)
 (define-key global-map (kbd "<f8>") 'org-cycle-agenda-files)
 
+;; root directory of Org files
+(setq org-root (expand-file-name "~/Documents/Org"))
+
 ;; load org-protocol for external calls
 (require 'org-protocol)
 
 ;; journal
-(setq org-journal-dir "~/org/journal")
+(setq org-journal-dir (format "%s/%s" org-root "journal"))
 
 ;; archive method
 (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
 
 ;; org-files, only used for coding
-(setq org-agenda-files (list "~/org/inbox.org"
-                             "~/org/gibbon.org"
-                             "~/org/bread-and-pepper.org"
-                             "~/org/emacs.org"
+(setq org-agenda-files (list (format "%s/%s" org-root "inbox.org")
+                             (format "%s/%s" org-root "gibbon.org")
+                             (format "%s/%s" org-root "bread-and-pepper.org")
+                             (format "%s/%s" org-root "emacs.org")
 
                              ; projects
-                             "~/clojure/gibbon/themis/TODO.org"
-                             "~/python/gibbon-web/TODO.org"
-                             "~/src/wunki-dotfiles/TODO.org"
-                             "~/devops/wunki-park/TODO.org")
-      org-default-notes-file "~/org/inbox.org")
+                             "~/Projects/gibbon-web/TODO.org")
+      org-default-notes-file (format "%s/%s" org-root "inbox.org"))
 
 ;; always use indent-mode
 (setq org-startup-indented nil)
@@ -73,13 +73,13 @@
 
 ;; capture templates
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline "~/org/inbox.org" "Tasks")
+      '(("t" "Todo" entry (file+headline (format "%s/%s" org-root "inbox.org") "Tasks")
              "* TODO %?\n  %i\n  %a")
-        ("j" "Journal" entry (file+datetree "~/org/journal.org")
+        ("j" "Journal" entry (file+datetree (format "%s/%s" org-root "journal.org"))
              "* %?\nEntered on %U\n  %i\n  %a")
-        ("n" "Note" entry (file "~/org/notes.org")
+        ("n" "Note" entry (file (format "%s/%s" org-root "notes.org"))
          "* NOTE %?\n  %i\n  %a")
-        ("w" "" entry (file+headline "~/org/websites.org" "Notes")
+        ("w" "" entry (file+headline (format "%s/%s" org-root "websites.org") "Notes")
          "* %^{Title}\n\n  Source: %u, %c\n\n  %i")))
 
 ;; Tags with fast selection keys

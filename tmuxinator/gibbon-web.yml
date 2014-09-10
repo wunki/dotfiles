@@ -4,9 +4,9 @@ name: gibbon-web
 root: ~/Projects/gibbon-web
 
 windows:
-  - emacs:
+  - vim:
       - pyenv activate gibbon-web
-      - e
+      - vim
   - shell:
       - pyenv activate gibbon-web
   - server:

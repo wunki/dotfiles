@@ -29,10 +29,10 @@
              ace-jump-mode web-mode anzu
              
              ;; languages
-             cider clojure-mode clojure-test-mode cljdoc
-             clojurescript-mode slamhound haskell-mode shm ghc
-             rust-mode elpy slime slime-repl erlang scala-mode2
-             ensime go-mode go-eldoc gotest
+             cider clojure-mode cljdoc clojurescript-mode
+             slamhound haskell-mode shm ghc rust-mode elpy slime
+             slime-repl erlang scala-mode2 ensime go-mode
+             go-eldoc gotest
 
              ;; autocompletion
              auto-complete ac-geiser ac-nrepl ac-slime go-autocomplete

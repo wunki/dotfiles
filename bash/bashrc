@@ -95,8 +95,6 @@ export LESS="-FXR"
 
 # Vim for editing
 export EDITOR="vim"
-alias e="emacsclient -a vim -t" # Emacsclient as editor
-alias v="vim"
 
 # Prompts -----------------------------------------------------------------------
 export PS1='\[\033[01;32m\]\u\[\033[00m\]@\[\033[01;33m\]\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '

@@ -52,16 +52,7 @@ else
   " Looks
   NeoBundle 'itchyny/lightline.vim'
   NeoBundle 'cocopon/lightline-hybrid.vim'
-  NeoBundle 'endel/vim-github-colorscheme'
-  NeoBundle 'sjl/badwolf'
-  NeoBundle 'altercation/vim-colors-solarized'
-  NeoBundle 'nanotech/jellybeans.vim'
   NeoBundle 'w0ng/vim-hybrid'
-  NeoBundle 'noahfrederick/vim-hemisu'
-  NeoBundle 'itchyny/landscape.vim'
-  NeoBundle 'chriskempson/base16-vim'
-  NeoBundle 'tomasr/molokai'
-
 
   " Websites
   NeoBundle 'othree/html5.vim'
@@ -133,7 +124,7 @@ NeoBundleCheck
 " GUI
 if has("gui_running")
   if has('mac')
-    set guifont=Fira\ Mono:h13
+    set guifont=Ubuntu\ Mono:h17
   else
     set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
   endif
@@ -427,8 +418,8 @@ let g:lightline = {
       \   'modified': 'MyModified',
       \   'filename': 'MyFilename'
       \ },
-      \ 'separator': { 'left': '⮀', 'right': '⮂' },
-      \ 'subseparator': { 'left': '⮁', 'right': '⮃' }
+      \ 'separator': { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
       \ }
 
 function! MyModified()
@@ -447,7 +438,7 @@ function! MyReadonly()
   if &filetype == "help"
     return ""
   elseif &readonly
-    return "⭤"
+    return "Lock"
   else
     return ""
   endif
@@ -456,7 +447,7 @@ endfunction
 function! MyFugitive()
   if exists("*fugitive#head")
     let _ = fugitive#head()
-    return strlen(_) ? '⭠ '._ : ''
+    return strlen(_) ? '[git] '._ : ''
   endif
   return ''
 endfunction

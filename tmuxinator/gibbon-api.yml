@@ -6,4 +6,3 @@ root: ~/Projects/gibbon-api
 windows:
   - vim: vim
   - repl: lein repl
-  - redis: redis-run

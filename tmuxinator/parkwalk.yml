@@ -1,8 +1,0 @@
-# ~/.tmuxinator/parkwalk.yml
-
-name: parkwalk
-root: ~/Projects/parkwalk
-
-windows:
-  - vim: vim .
-  - docker: boot2docker status

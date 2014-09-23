@@ -25,17 +25,14 @@ export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/bin:$PATH"
 export PATH="$HOME/.bin:$PATH"
 
+
 if [ "$(uname)" == "Darwin" ]; then
     # Setup color options for LS, used in .bash_aliases
     export LS_OPTIONS='-F'
     export PATH="$HOME/Library/Python/2.7/bin:$PATH"
 
     # Golang
-    export PATH="$HOME/Projects/Go/bin"
-
-    # Virtualenv
-    export WORKON_HOME="$HOME/.virtualenvs"
-    source "$HOME/Library/Python/2.7/bin/virtualenvwrapper.sh"
+    export PATH="$HOME/Projects/Go/bin:$PATH"
 
     # PostgreSQL
     export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
@@ -47,6 +44,13 @@ elif [ `uname` = FreeBSD ]; then
 else
     # Probably Linux with GNU utils
     export LS_OPTIONS='--color=auto'
+fi
+
+# Pyenv
+if hash pyenv 2>/dev/null; then
+    export PATH="$HOME/.pyenv/bin:$PATH"
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
 fi
 
 # History -----------------------------------------------------------------------

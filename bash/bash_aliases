@@ -6,3 +6,6 @@ alias ls="ls --color=auto"
 alias e="emacs"
 alias v="vim"
 
+if hash gh 2>/dev/null; then
+    eval "$(gh alias -s)"
+fi

@@ -13,35 +13,39 @@ export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 
 # PATH
-export PATH="/sbin:$PATH"
-export PATH="/bin:$PATH"
-export PATH="/usr/sbin:$PATH"
-export PATH="/usr/bin:$PATH"
-export PATH="/usr/local/sbin:$PATH"
-export PATH="/usr/local/bin:$PATH"
-export PATH="/root/bin:$PATH"
-export PATH="$HOME/.cabal/bin:$PATH"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/bin:$PATH"
-export PATH="$HOME/.bin:$PATH"
+pathadd() {
+    if [ -d "$1"  ] && [[ ":$PATH:" != *":$1:"*  ]]; then
+        PATH="${PATH:+"$PATH:"}$1"
+    fi
+}
+pathadd "/sbin"
+pathadd "/bin"
+pathadd "/usr/sbin"
+pathadd "/usr/bin"
+pathadd "/usr/local/sbin"
+pathadd "/usr/local/bin"
+pathadd "/root/bin"
+pathadd "$HOME/.cabal/bin"
+pathadd "$HOME/.local/bin"
+pathadd "$HOME/bin"
+pathadd "$HOME/.bin"
 
 # Golang
 if [ "$(uname)" == "Darwin" ]; then
     export GOPATH="$HOME/Projects/Go"
 else
     export GOPATH="$HOME/go"
-    export PATH="/usr/local/go/bin:$PATH"
 fi
-export PATH="$GOPATH/bin:$PATH"
+pathadd "/usr/local/go/bin"
+pathadd "$GOPATH/bin"
 
 if [ "$(uname)" == "Darwin" ]; then
     # Setup color options for LS, used in .bash_aliases
     export LS_OPTIONS='-F'
-    export PATH="$HOME/Library/Python/2.7/bin:$PATH"
-
+    pathadd "$HOME/Library/Python/2.7/bin"
 
     # PostgreSQL
-    export PATH="/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH"
+    pathadd ="/Applications/Postgres.app/Contents/Versions/9.3/bin"
 
     # Redis
     alias runredis="redis-server /usr/local/etc/redis.conf"
@@ -53,8 +57,8 @@ else
 fi
 
 # Pyenv
+pathadd "$HOME/.pyenv/bin"
 if hash pyenv 2>/dev/null; then
-    export PATH="$HOME/.pyenv/bin:$PATH"
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
 fi

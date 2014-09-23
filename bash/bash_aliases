@@ -1,0 +1,8 @@
+# -*- mode: shell-script -*-
+# ~/.bash_aliases
+#
+
+alias ls="ls --color=auto"
+alias e="emacs"
+alias v="vim"
+

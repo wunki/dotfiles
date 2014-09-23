@@ -28,6 +28,7 @@ zsh::
 bash::
 	@ln -fs $(DOTFILES)/bash/bash_profile			${HOME}/.bash_profile
 	@ln -fs $(DOTFILES)/bash/bashrc					${HOME}/.bashrc
+	@ln -fs $(DOTFILES)/bash/bash_aliases			${HOME}/.bash_aliases
 	@echo Bash is symlinked.
 
 fish::

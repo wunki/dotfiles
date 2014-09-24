@@ -27,6 +27,7 @@ pathadd "/usr/local/bin"
 pathadd "/root/bin"
 pathadd "$HOME/.cabal/bin"
 pathadd "$HOME/.local/bin"
+pathadd "$HOME/.gem/ruby/1.9.1/bin"
 pathadd "$HOME/bin"
 pathadd "$HOME/.bin"
 
@@ -38,6 +39,11 @@ else
 fi
 pathadd "/usr/local/go/bin"
 pathadd "$GOPATH/bin"
+
+# Autojump
+if [ -f "/usr/share/autojump/autojump.bash" ]; then
+    . /usr/share/autojump/autojump.bash
+fi
 
 if [ "$(uname)" == "Darwin" ]; then
     # Setup color options for LS, used in .bash_aliases

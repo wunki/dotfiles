@@ -2,7 +2,9 @@
 # ~/.bash_aliases
 #
 
-alias ls="ls --color=auto"
+if [ ! `uname` == "FreeBSD" ]; then
+    alias ls="ls --color=auto"
+fi
 alias e="emacs"
 alias v="vim"
 

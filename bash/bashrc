@@ -41,8 +41,8 @@ pathadd "/usr/local/go/bin"
 pathadd "$GOPATH/bin"
 
 # Autojump
-if [ -f "/usr/share/autojump/autojump.bash" ]; then
-    . /usr/share/autojump/autojump.bash
+if [ -f "/usr/share/autojump/autojump.sh" ]; then
+    . /usr/share/autojump/autojump.sh
 fi
 
 if [ "$(uname)" == "Darwin" ]; then

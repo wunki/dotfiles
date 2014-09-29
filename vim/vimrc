@@ -153,7 +153,11 @@ endif
 let g:rehash256 = 1
 let g:molokai_original = 1
 let g:zenburn_disable_Label_underline = 1
-colorscheme zenburn
+
+if has('mac')
+  let g:hybrid_use_iTerm_colors = 1
+endif
+colorscheme hybrid
 
 " Find bash
 if executable('/bin/bash')

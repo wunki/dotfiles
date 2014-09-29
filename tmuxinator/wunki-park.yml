@@ -1,7 +1,7 @@
 # ~/.tmuxinator/wunki-park.yml
 
 name: wunki-park
-root: ~/Projects/wunki-park
+root: ~/projects/wunki-park
 
 windows:
   - vim: vim .

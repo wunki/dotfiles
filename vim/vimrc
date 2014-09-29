@@ -54,6 +54,7 @@ else
   NeoBundle 'cocopon/lightline-hybrid.vim'
   NeoBundle 'w0ng/vim-hybrid'
   NeoBundle 'chriskempson/base16-vim'
+  NeoBundle "edkolev/tmuxline.vim"
 
   " Websites
   NeoBundle 'othree/html5.vim'

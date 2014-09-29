@@ -43,6 +43,7 @@ tarsnap::
 
 tmux::
 	@ln -fs $(DOTFILES)/tmux/tmux.conf				${HOME}/.tmux.conf
+	@ln -fs $(DOTFILES)/tmux/tmux-status.conf		${HOME}/.tmux-status.conf
 	@echo tmux is symlinked.
 
 tmuxinator::

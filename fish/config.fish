@@ -11,6 +11,7 @@ function j; cd (command autojump $argv); end
 function e; emacsclient -a "vim" -t $argv; end
 function v; vim $argv; end
 function gh-preview; python -m grip; end
+function gogo; mosh ubuntu.local; end
 
 # start end end dropbox
 function dropstart; sudo systemctl start dropbox@wunki.service; end

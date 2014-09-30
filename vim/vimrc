@@ -50,10 +50,9 @@ else
   NeoBundle 'kien/ctrlp.vim'
 
   " Looks
+  NeoBundle 'jnurmine/Zenburn'
   NeoBundle 'itchyny/lightline.vim'
   NeoBundle 'cocopon/lightline-hybrid.vim'
-  NeoBundle 'w0ng/vim-hybrid'
-  NeoBundle 'jonathanfilip/vim-lucius'
   NeoBundle "edkolev/tmuxline.vim"
 
   " Websites
@@ -155,7 +154,6 @@ let g:rehash256 = 1
 let g:molokai_original = 1
 let g:zenburn_disable_Label_underline = 1
 let g:zenburn_high_Contrast = 1
-let g:zenburn_unified_CursorColumn = 1
 
 colors zenburn
 

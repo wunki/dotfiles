@@ -5,7 +5,7 @@ set cmdheight=2             " lower command line two lines high
 set modifiable              " needed for vimpager
 set encoding=utf-8          " utf-8 encoding
 set fileencoding=utf-8      " save files as utf-8
-set bg=dark                 " dark background
+set bg=light                " light background
 syntax on                   " enable syntax highlighting
 
 if has('vim_starting')
@@ -53,7 +53,7 @@ else
   NeoBundle 'itchyny/lightline.vim'
   NeoBundle 'cocopon/lightline-hybrid.vim'
   NeoBundle 'w0ng/vim-hybrid'
-  NeoBundle 'chriskempson/base16-vim'
+  NeoBundle 'jonathanfilip/vim-lucius'
   NeoBundle "edkolev/tmuxline.vim"
 
   " Websites
@@ -155,10 +155,7 @@ let g:rehash256 = 1
 let g:molokai_original = 1
 let g:zenburn_disable_Label_underline = 1
 
-if has('mac')
-  let g:hybrid_use_iTerm_colors = 1
-endif
-colorscheme hybrid
+colorscheme lucius
 
 " Find bash
 if executable('/bin/bash')

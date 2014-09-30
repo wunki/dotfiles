@@ -1,7 +1,7 @@
 # ~/.tmuxinator/gibbon-api.yml
 
 name: gibbon-api
-root: ~/Projects/gibbon-api
+root: ~/clojure/gibbon-api
 
 windows:
   - vim: vim

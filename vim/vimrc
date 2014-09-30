@@ -154,8 +154,10 @@ endif
 let g:rehash256 = 1
 let g:molokai_original = 1
 let g:zenburn_disable_Label_underline = 1
+let g:zenburn_high_Contrast = 1
+let g:zenburn_unified_CursorColumn = 1
 
-colorscheme lucius
+colors zenburn
 
 " Find bash
 if executable('/bin/bash')
@@ -410,7 +412,7 @@ endif
 
 " Lightline
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'zenburn',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'fugitive', 'filename' ] ]

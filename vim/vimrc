@@ -32,6 +32,10 @@ Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, bra
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
 Plug 'bronson/vim-trailing-whitespace'                   " remove trailing whitespace
 Plug 'mattn/gist-vim'                                    " gist.github.com
+Plug 'majutsushi/tagbar'
+
+" Autocompletion
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer'  }
 
 " File browsing
 Plug 'kien/ctrlp.vim'
@@ -66,8 +70,8 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'benmills/vim-golang-alternate', { 'for': 'go' }
 
 " Rust
-Plug 'wting/rust.vim', { 'for': 'go' }
-Plug 'cespare/vim-toml', { 'for': 'go' }
+Plug 'wting/rust.vim', { 'for': 'rust' }
+Plug 'cespare/vim-toml', { 'for': 'rust' }
 
 " Racket
 Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
@@ -122,8 +126,10 @@ let g:rehash256 = 1
 let g:molokai_original = 1
 let g:zenburn_disable_Label_underline = 1
 let g:zenburn_high_Contrast = 1
-
 colors zenburn
+
+" Autocompletion
+let g:ycm_min_num_of_chars_for_completion = 3
 
 " Find bash
 if executable('/bin/bash')
@@ -213,6 +219,9 @@ set backupdir=~/.vim/tmp/backup// " backups
 set directory=~/.vim/tmp/swap//   " swap files
 set backup                        " enable backups
 set noswapfile                    " no swapping
+
+" Tagbar
+map <C-t> :Tagbar<CR>
 
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>

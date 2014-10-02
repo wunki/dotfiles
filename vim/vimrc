@@ -57,7 +57,7 @@ Plug 'paredit.vim', { 'for': ['clojure', 'scheme']  }
 
 " Haskell
 Plug 'travitch/hasksyn', { 'for': 'haskell' }
-Plug 'Shougo/vimproc.vim', { 'for': 'haskell' }
+Plug 'Shougo/vimproc.vim', { 'do': 'make', 'for': 'haskell' }
 Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 Plug 'twinside/vim-hoogle', { 'for': 'haskell' }
 

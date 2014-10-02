@@ -6,147 +6,115 @@ set modifiable              " needed for vimpager
 set encoding=utf-8          " utf-8 encoding
 set fileencoding=utf-8      " save files as utf-8
 set bg=light                " light background
+set nocompatible
 syntax on                   " enable syntax highlighting
-
-if has('vim_starting')
-  set nocompatible
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand('~/.vim/bundle/'))
-
-" Let NeoNeoBundle manage NeoNeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-if neobundle#has_cache()
-  NeoBundleLoadCache
-else
-  " Essentials
-  NeoBundle 'tpope/vim-eunuch'
-  NeoBundle 'tpope/vim-repeat'
-  NeoBundle 'tpope/vim-fugitive'
-  NeoBundle 'gregsexton/gitv'
-  NeoBundle 'tpope/vim-unimpaired'
-  NeoBundle 'tpope/vim-obsession'
-  NeoBundle 'rking/ag.vim'
-  NeoBundle 'commentary.vim'
-  NeoBundle 'surround.vim'
-  NeoBundle 'godlygeek/tabular'
-  NeoBundle 'tpope/vim-speeddating'
-  NeoBundle 'Lokaltog/vim-easymotion'
-  NeoBundle 'scrooloose/syntastic'
-  NeoBundle 'scrooloose/nerdtree'
-  NeoBundle 'sjl/gundo.vim'
-  NeoBundle 'drmikehenry/vim-fontsize'
-  NeoBundle 'jiangmiao/auto-pairs'
-  NeoBundle 'dhruvasagar/vim-table-mode'
-  NeoBundle 'bronson/vim-trailing-whitespace'
-
-  " File browsing
-  NeoBundle 'kien/ctrlp.vim'
-
-  " Looks
-  NeoBundle 'jnurmine/Zenburn'
-  NeoBundle 'itchyny/lightline.vim'
-  NeoBundle 'cocopon/lightline-hybrid.vim'
-  NeoBundle "edkolev/tmuxline.vim"
-
-  " Websites
-  NeoBundle 'othree/html5.vim'
-
-  " Only install these scripts on my local machine
-  if hostname() == "macbook.wunki.org" || hostname() == "ubuntu"
-
-    " Clojure
-    NeoBundle 'tpope/vim-fireplace'
-    NeoBundle 'tpope/vim-leiningen'
-    NeoBundle 'tpope/vim-projectionist'
-    NeoBundle 'guns/vim-clojure-static'
-    NeoBundle 'guns/vim-slamhound'
-    NeoBundle 'guns/vim-clojure-highlight'
-    NeoBundle 'kien/rainbow_parentheses.vim'
-    NeoBundle 'paredit.vim'
-
-    " Haskell
-    NeoBundle 'travitch/hasksyn'
-    NeoBundle 'Shougo/vimproc.vim'
-    NeoBundle 'eagletmt/ghcmod-vim'
-    NeoBundle 'twinside/vim-hoogle'
-
-    " Scala
-    NeoBundle 'derekwyatt/vim-scala'
-
-    " Go
-    if $GOPATH != ""
-        NeoBundle "fatih/vim-go"
-        NeoBundle "benmills/vim-golang-alternate"
-    endif
-
-    " Rust
-    NeoBundle 'wting/rust.vim'
-    NeoBundle 'cespare/vim-toml'
-
-    " Racket
-    NeoBundle 'wlangstroth/vim-racket'
-
-    " Erlang
-    NeoBundle 'jimenezrick/vimerl'
-
-    " Fish shell syntax
-    NeoBundle 'aliva/vim-fish'
-
-    " Provisioning
-    NeoBundle 'saltstack/salt-vim'
-    NeoBundle 'chase/vim-ansible-yaml'
-    NeoBundle 'ekalinin/Dockerfile.vim'
-    NeoBundle 'Glench/Vim-Jinja2-Syntax'
-
-    " Python
-    NeoBundle 'klen/python-mode'
-    NeoBundle 'lambdalisue/vim-pyenv'
-
-    " Github
-    NeoBundle "jaxbot/github-issues.vim"
-    NeoBundle 'mattn/webapi-vim'
-    NeoBundle 'mattn/gist-vim'
-  endif
-endif
-
-call neobundle#end()
-
 filetype plugin indent on
 
-NeoBundleCheck
+call plug#begin('~/.vim/plugged')
+
+" Essentials
+Plug 'tpope/vim-eunuch'                                  " unix helper commands
+Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
+Plug 'tpope/vim-fugitive'                                " git wrapper
+Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
+Plug 'tpope/vim-obsession'                               " better vim sessions
+Plug 'rking/ag.vim'                                      " silver surfer
+Plug 'commentary.vim'                                    " comment mappings
+Plug 'surround.vim'                                      " surrond commands
+Plug 'godlygeek/tabular'                                 " easy indenting
+Plug 'tpope/vim-speeddating'                             " increase time and numbers
+Plug 'Lokaltog/vim-easymotion'                           " move by selecting a letter
+Plug 'scrooloose/syntastic'                              " syntax checker
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }  " sidebar tree
+Plug 'sjl/gundo.vim'                                     " undo tree
+Plug 'drmikehenry/vim-fontsize'                          " easily switch font sizes
+Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, brackend and quotes
+Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
+Plug 'bronson/vim-trailing-whitespace'                   " remove trailing whitespace
+Plug 'mattn/gist-vim'                                    " gist.github.com
+
+" File browsing
+Plug 'kien/ctrlp.vim'
+
+" Looks
+Plug 'jnurmine/Zenburn'
+Plug 'itchyny/lightline.vim'
+Plug 'cocopon/lightline-hybrid.vim'
+Plug 'edkolev/tmuxline.vim'
+
+" Websites
+Plug 'othree/html5.vim', { 'for': 'html' }
+
+" Clojure
+Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+Plug 'tpope/vim-leiningen', { 'for': 'clojure' }
+Plug 'tpope/vim-projectionist', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+Plug 'guns/vim-slamhound', { 'for': 'clojure' }
+Plug 'guns/vim-clojure-highlight', { 'for': ['clojure', 'scheme']  }
+Plug 'kien/rainbow_parentheses.vim', { 'for': ['clojure', 'scheme']  }
+Plug 'paredit.vim', { 'for': ['clojure', 'scheme']  }
+
+" Haskell
+Plug 'travitch/hasksyn', { 'for': 'haskell' }
+Plug 'Shougo/vimproc.vim', { 'for': 'haskell' }
+Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
+Plug 'twinside/vim-hoogle', { 'for': 'haskell' }
+
+" Go
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'benmills/vim-golang-alternate', { 'for': 'go' }
+
+" Rust
+Plug 'wting/rust.vim', { 'for': 'go' }
+Plug 'cespare/vim-toml', { 'for': 'go' }
+
+" Racket
+Plug 'wlangstroth/vim-racket', { 'for': 'racket' }
+
+" Erlang
+Plug 'jimenezrick/vimerl', { 'for': 'erlang' }
+
+" Fish shell syntax
+Plug 'aliva/vim-fish', { 'for': 'fish' }
+
+" Provisioning
+Plug 'saltstack/salt-vim', { 'for': 'salt' }
+Plug 'chase/vim-ansible-yaml', { 'for': 'ansible' }
+Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
+Plug 'Glench/Vim-Jinja2-Syntax'
+
+" Python
+Plug 'klen/python-mode', { 'for': 'python' }
+Plug 'lambdalisue/vim-pyenv', { 'for': 'python' }
+
+call plug#end()
 
 " GUI
 if has("gui_running")
-  if has('mac')
-    set guifont=Ubuntu\ Mono:h17
-  else
-    set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
-  endif
-  set guioptions-=e
-  set guioptions-=T
-  set guioptions-=m
-  set guioptions-=r
-  set guioptions-=L
-  set guioptions-=b
-  set guioptions+=a
-  set guioptions+=c
-  set novisualbell        " please, no visual bell
-  set noeb                " don't notify me of errors
-  set anti                " anti-aliasing
-  set mousehide           " hide the mouse when typing
+    if has('mac')
+        set guifont=Ubuntu\ Mono:h17
+    else
+        set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
+    endif
+    set guioptions-=e
+    set guioptions-=T
+    set guioptions-=m
+    set guioptions-=r
+    set guioptions-=L
+    set guioptions-=b
+    set guioptions+=a
+    set guioptions+=c
+    set novisualbell        " please, no visual bell
+    set noeb                " don't notify me of errors
+    set anti                " anti-aliasing
+    set mousehide           " hide the mouse when typing
 else
-  " 256 colors setting
-  set t_Co=256
-  set mouse=a
-  set ttymouse=xterm
-  set termencoding=utf-8
+    " 256 colors setting
+    set t_Co=256
+    set mouse=a
+    set ttymouse=xterm
+    set termencoding=utf-8
 endif
 
 " Theme
@@ -159,13 +127,13 @@ colors zenburn
 
 " Find bash
 if executable('/bin/bash')
-  set shell=/bin/bash
+    set shell=/bin/bash
 elseif executable('/usr/local/bin/bash')
-  set shell=/usr/local/bin/bash
+    set shell=/usr/local/bin/bash
 elseif executable('/usr/bin/bash')
-  set shell=/usr/bin/bash
+    set shell=/usr/bin/bash
 else
-  set shell=/bin/sh
+    set shell=/bin/sh
 endif
 
 set showmatch               " show matching brackets (), {}' []
@@ -199,7 +167,7 @@ set secure                  " disable unsafe commands in local .vimrc files
 
 " Dictionary on the mac
 if has('mac')
-  nmap <silent> <Leader>d :!open dict://<cword><CR><CR>
+    nmap <silent> <Leader>d :!open dict://<cword><CR><CR>
 endif
 
 " Ignore these files in netrw
@@ -234,9 +202,9 @@ set tags=tags;/,codex.tags;/
 
 " Only show the cursorline on the active window
 augroup cline
-  au!
-  au WinLeave,InsertEnter * set nocursorline
-  au WinEnter,InsertLeave * set cursorline
+    au!
+    au WinLeave,InsertEnter * set nocursorline
+    au WinEnter,InsertLeave * set cursorline
 augroup END
 
 " Backup settings
@@ -249,9 +217,9 @@ set noswapfile                    " no swapping
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\~$', '\.pyc', '\.swp$', '\.git', '\.hg', '\.svn',
-      \ '\.ropeproject', '\.o', '\.bzr', '\.ipynb_checkpoints', '__pycache__',
-      \ '\.egg$', '\.egg-info$', '\.tox$', '\.idea$', '\.sass-cache',
-      \ '\.env*$', '\.env[0-9]$', '\.coverage$']
+            \ '\.ropeproject', '\.o', '\.bzr', '\.ipynb_checkpoints', '__pycache__',
+            \ '\.egg$', '\.egg-info$', '\.tox$', '\.idea$', '\.sass-cache',
+            \ '\.env*$', '\.env[0-9]$', '\.coverage$']
 
 " Faster scrolling
 nnoremap <C-e> 3<C-e>
@@ -298,7 +266,7 @@ au FileType C setlocal shiftwidth=4 tabstop=4 softtabstop=4 cindent
 
 " RestructuredText
 augroup rst
-  autocmd BufRead *.rst set ai tw=79 spell filetype=rst formatoptions=tcroqn2 comments=n:>
+    autocmd BufRead *.rst set ai tw=79 spell filetype=rst formatoptions=tcroqn2 comments=n:>
 augroup END
 
 " JSON
@@ -341,8 +309,8 @@ nnoremap <leader>gp :Git push<cr>
 
 " Org-mode
 augroup ft_org
-  au!
-  au Filetype org nmap <buffer> Q vahjgq
+    au!
+    au Filetype org nmap <buffer> Q vahjgq
 augroup END
 
 " Haskell settings
@@ -359,12 +327,12 @@ nmap <leader>c <Plug>CommentaryLine
 xmap <leader>c <Plug>Commentary
 
 augroup plugin_commentary
-  au!
-  au FileType htmldjango setlocal commentstring={#\ %s\ #}
-  au FileType clojurescript setlocal commentstring=;\ %s
-  au FileType lisp setlocal commentstring=;\ %s
-  au FileType rust setlocal commentstring=//\ %s
-  au FileType cf3 setlocal commentstring=\#\ %s
+    au!
+    au FileType htmldjango setlocal commentstring={#\ %s\ #}
+    au FileType clojurescript setlocal commentstring=;\ %s
+    au FileType lisp setlocal commentstring=;\ %s
+    au FileType rust setlocal commentstring=//\ %s
+    au FileType cf3 setlocal commentstring=\#\ %s
 augroup END
 
 " Chicken scheme
@@ -401,62 +369,62 @@ let g:github_issues_no_omni = 1
 " Passwords
 let passfile = $HOME."/.vimpass"
 if filereadable($passfile)
-  source $passfile
+    source $passfile
 end
 
 if has('mac')
-  set macmeta               " enable meta key in macvim
+    set macmeta               " enable meta key in macvim
 endif
 
 " Lightline
 let g:lightline = {
-      \ 'colorscheme': 'zenburn',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'fugitive', 'filename' ] ]
-      \ },
-      \ 'component_function': {
-      \   'fugitive': 'MyFugitive',
-      \   'readonly': 'MyReadonly',
-      \   'modified': 'MyModified',
-      \   'filename': 'MyFilename'
-      \ },
-      \ 'separator': { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
+            \ 'colorscheme': 'zenburn',
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \             [ 'fugitive', 'filename' ] ]
+            \ },
+            \ 'component_function': {
+            \   'fugitive': 'MyFugitive',
+            \   'readonly': 'MyReadonly',
+            \   'modified': 'MyModified',
+            \   'filename': 'MyFilename'
+            \ },
+            \ 'separator': { 'left': '', 'right': '' },
+            \ 'subseparator': { 'left': '', 'right': '' }
+            \ }
 
 function! MyModified()
-  if &filetype == "help"
-    return ""
-  elseif &modified
-    return "+"
-  elseif &modifiable
-    return ""
-  else
-    return ""
-  endif
+    if &filetype == "help"
+        return ""
+    elseif &modified
+        return "+"
+    elseif &modifiable
+        return ""
+    else
+        return ""
+    endif
 endfunction
 
 function! MyReadonly()
-  if &filetype == "help"
-    return ""
-  elseif &readonly
-    return "Lock"
-  else
-    return ""
-  endif
+    if &filetype == "help"
+        return ""
+    elseif &readonly
+        return "Lock"
+    else
+        return ""
+    endif
 endfunction
 
 function! MyFugitive()
-  if exists("*fugitive#head")
-    let _ = fugitive#head()
-    return strlen(_) ? '[git] '._ : ''
-  endif
-  return ''
+    if exists("*fugitive#head")
+        let _ = fugitive#head()
+        return strlen(_) ? '[git] '._ : ''
+    endif
+    return ''
 endfunction
 
 function! MyFilename()
-  return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
-       \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
-       \ ('' != MyModified() ? ' ' . MyModified() : '')
+    return ('' != MyReadonly() ? MyReadonly() . ' ' : '') .
+                \ ('' != expand('%:t') ? expand('%:t') : '[No Name]') .
+                \ ('' != MyModified() ? ' ' . MyModified() : '')
 endfunction

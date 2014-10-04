@@ -32,7 +32,7 @@ Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, bra
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
 Plug 'bronson/vim-trailing-whitespace'                   " remove trailing whitespace
 Plug 'mattn/gist-vim'                                    " gist.github.com
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
 
 " Autocompletion
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer'  }

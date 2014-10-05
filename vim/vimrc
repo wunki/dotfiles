@@ -384,6 +384,17 @@ if has('mac')
     set macmeta               " enable meta key in macvim
 endif
 
+" Tagbar
+let g:tagbar_type_markdown = {
+            \ 'ctagstype' : 'markdown',
+            \ 'kinds' : [
+                \ 'h:headings',
+                \ 'l:links',
+                \ 'i:images'
+            \],
+    \ "sort" : 0
+\ }
+
 " Lightline
 let g:lightline = {
             \ 'colorscheme': 'zenburn',

@@ -93,7 +93,7 @@ call plug#end()
 " GUI
 if has("gui_running")
     if has('mac')
-        set guifont=Ubuntu\ Mono:h17
+        set guifont=Fira\ Mono:h14
     else
         set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
     endif

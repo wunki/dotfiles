@@ -70,7 +70,7 @@ Plug 'benmills/vim-golang-alternate', { 'for': 'go' }
 
 " Rust
 Plug 'wting/rust.vim', { 'for': 'rust' }
-Plug 'cespare/vim-toml', { 'for': 'rust' }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 " Racket
 Plug 'wlangstroth/vim-racket', { 'for': 'racket' }

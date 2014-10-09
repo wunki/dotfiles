@@ -30,8 +30,11 @@ Plug 'sjl/gundo.vim'                                     " undo tree
 Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, brackend and quotes
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
 Plug 'bronson/vim-trailing-whitespace'                   " remove trailing whitespace
-Plug 'mattn/gist-vim'                                    " gist.github.com
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
+
+" Github
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'                                    " gist.github.com
 
 " Autocompletion
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer'  }
@@ -96,7 +99,7 @@ call plug#end()
 " GUI
 if has("gui_running")
     if has('mac')
-        set guifont=Fira\ Mono:h14
+        set guifont=Fira\ Mono:h15
     else
         set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
     endif

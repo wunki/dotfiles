@@ -1,7 +1,7 @@
 # ~/.tmuxinator/dockerfiles.yml
 
 name: dockerfiles
-root: ~/Projects/gibbonco/dockerfiles
+root: ~/src/dockerfiles
 
 windows:
   - vim:

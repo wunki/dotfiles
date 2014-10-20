@@ -101,4 +101,5 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:background nil))))
+ '(erc-prompt-face ((t (:background nil))))
  '(italic ((t (:slant italic)))))

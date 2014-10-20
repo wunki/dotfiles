@@ -9,7 +9,8 @@
 ;; package repositories
 (setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")
-                         ("org" . "http://orgmode.org/elpa/")))
+                         ("org" . "http://orgmode.org/elpa/")
+                         ("gnu" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
 
 ;; my packages

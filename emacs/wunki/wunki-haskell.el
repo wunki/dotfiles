@@ -16,7 +16,7 @@
 (add-hook 'haskell-mode-hook 'haskell-hook)
 (add-hook 'haskell-interactive-mode-hook 'haskell-interactive-hook)
 (add-hook 'haskell-cabal-mode-hook 'haskell-cabal-hook)
-(add-hook 'haskell-mode-hook 'structured-haskell-mode)
+;; (add-hook 'haskell-mode-hook 'structured-haskell-mode)
 
 ;; haskell mode bindings
 (defun haskell-hook ()

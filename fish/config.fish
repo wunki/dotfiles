@@ -84,6 +84,8 @@ prepend_to_path "/usr/local/opt/go/libexec/bin"
 prepend_to_path "/usr/local/Cellar/emacs/HEAD/bin"
 
 # haskell
+set -x GHC_DOT_APP "/Applications/ghc-7.8.3.app"
+prepend_to_path "$GHC_DOT_APP/Contents/bin"
 prepend_to_path "$HOME/.cabal/bin"
 
 # postgresql on the mac
@@ -94,7 +96,9 @@ set -x LEIN_JAVA_CMD "$HOME/.bin/drip"
 
 # docker with boot2docker on own machine
 if contains (hostname -s) "macbook"
-    set -x DOCKER_HOST "tcp://192.168.59.103:2375"
+    set -x DOCKER_HOST "tcp://192.168.59.103:2376"
+    set -x DOCKER_CERT_PATH "/Users/wunki/.boot2docker/certs/boot2docker-vm"
+    set -x DOCKER_TLS_VERIFY 1
 end
 
 # go

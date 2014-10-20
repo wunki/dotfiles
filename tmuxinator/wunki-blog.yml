@@ -5,4 +5,4 @@ root: ~/Projects/wunki-blog
 
 windows:
   - vim: vim .
-  - server: ./wunki preview
+  - server: ./wunki watch

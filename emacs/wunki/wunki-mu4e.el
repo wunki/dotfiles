@@ -1,5 +1,5 @@
 ;; load and fire
-(add-to-list 'load-path "/usr/local/Cellar/mu/0.9.9.5/share/emacs/site-lisp/mu4e")
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 
 (require 'mu4e)
 (require 'sendmail)
@@ -25,7 +25,7 @@
 
 ;; general settings
 (setq mail-user-agent 'mu4e-user-agent                   ; mu4e as default mail agent
-      mu4e-attachment-dir "~/downloads"                  ; put attachements in download dir
+      mu4e-attachment-dir "~/Downloads"                  ; put attachements in download dir
       mu4e-get-mail-command "offlineimap"                ; fetch email with offlineimap
       mu4e-confirm-quit nil                              ; don't ask me to quit
       mu4e-headers-skip-duplicates t                     ; skip duplicate email, great for gmail

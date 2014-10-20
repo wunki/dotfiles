@@ -24,11 +24,15 @@ pathadd "/usr/bin"
 pathadd "/usr/local/sbin"
 pathadd "/usr/local/bin"
 pathadd "/root/bin"
-pathadd "$HOME/.cabal/bin"
 pathadd "$HOME/.local/bin"
 pathadd "$HOME/.gem/ruby/1.9.1/bin"
 pathadd "$HOME/bin"
 pathadd "$HOME/.bin"
+
+# Haskell
+export GHC_DOT_APP="/Applications/ghc-7.8.3.app"
+pathadd "$HOME/.cabal/bin"
+pathadd "$GHC_DOT_APP/Contents/bin"
 
 # Golang
 if [ "$(uname)" == "Darwin" ]; then

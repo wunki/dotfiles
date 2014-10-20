@@ -1,7 +1,7 @@
 # ~/.tmuxinator/cracking.yml
 
 name: cracking
-root: ~/rust/cracking
+root: ~/Go/src/github.com/wunki/cracking
 
 windows:
   - vim:  vim

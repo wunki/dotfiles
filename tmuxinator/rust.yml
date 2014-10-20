@@ -1,0 +1,11 @@
+# ~/.tmuxinator/rust.yml
+
+name: rust
+root: ~/rust
+
+windows:
+  - vim:
+      layout: bd2a,283x78,0,0{195x78,0,0,19,87x78,196,0,20}
+      panes:
+          - vim
+          - # empty

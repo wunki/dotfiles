@@ -1,5 +1,5 @@
 ;; load theme and don't ask if it's save.
-(load-theme 'sanityinc-tomorrow-night t)
+(load-theme 'zenburn t)
 
 ;; font -- some strange issues with font size, 110 is huge, 100 is tiny.
 (set-frame-font "Fira Mono")

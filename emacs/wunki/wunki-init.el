@@ -20,7 +20,8 @@
              powerline surround idomenu diminish dired-details
              multiple-cursors ag restclient quack geiser
              rainbow-delimiters calfw smex smartparens evil
-             htmlize move-text dash browse-kill-ring exec-path-from-shell
+             htmlize move-text dash browse-kill-ring
+             exec-path-from-shell flycheck dockerfile-mode
 
              ;; modes
              org org-plus-contrib org-magit pandoc-mode

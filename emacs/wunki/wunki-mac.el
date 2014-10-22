@@ -1,7 +1,6 @@
 ;; mac only settings.
-;; use the old way of toggling to fullscreen
-(set-frame-font "Fira Mono-16")
-(add-to-list 'default-frame-alist '(font . "Fira Mono 16"))
+(set-frame-font "Fira Mono-14")
+(add-to-list 'default-frame-alist '(font . "Fira Mono 14"))
 
 ;; browser
 (setq browse-url-browser-function 'browse-url-default-macosx-browser)
@@ -15,7 +14,6 @@
 
 ;; emacsclient as editor for Magit
 (setenv "EDITOR" "emacsclient")
-
 
 ;; Set the Apple key as Meta
 (setq mac-command-modifier 'meta)

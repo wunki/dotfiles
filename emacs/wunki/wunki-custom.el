@@ -89,12 +89,18 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-safe-themes (quote ("d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
- '(haskell-notify-p nil)
+ '(custom-safe-themes
+   (quote
+    ("0f6667c7dd4d19cf99cde5feeb6f0fe6abebc229282b5e21d1739b1fe14b5342" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
+ '(haskell-notify-p t)
+ '(haskell-process-show-debug-tips nil)
  '(haskell-process-type (quote cabal-repl))
- '(haskell-stylish-on-save nil)
+ '(haskell-stylish-on-save t)
  '(haskell-tags-on-save t)
- '(safe-local-variable-values (quote ((indent-tabs-mode . 1) (pony-settings make-pony-project :python "/home/wunki/.virtualenvs/mijnmazda/bin/python")))))
+ '(safe-local-variable-values
+   (quote
+    ((indent-tabs-mode . 1)
+     (pony-settings make-pony-project :python "/home/wunki/.virtualenvs/mijnmazda/bin/python")))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

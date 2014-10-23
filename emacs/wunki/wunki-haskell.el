@@ -35,7 +35,7 @@
  '(haskell-tags-on-save t)
 
  ;; To enable stylish on save.
- '(haskell-stylish-on-save t)
+ ;; '(haskell-stylish-on-save t)
  '(haskell-process-show-debug-tips nil))
 
 (add-hook 'haskell-mode-hook 'haskell-hook)

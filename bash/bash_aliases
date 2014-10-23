@@ -2,7 +2,7 @@
 # ~/.bash_aliases
 #
 
-if [ ! `uname` == "FreeBSD" ]; then
+if [ `uname` == "Linux" ]; then
     alias ls="ls --color=auto"
 fi
 alias e="emacs"

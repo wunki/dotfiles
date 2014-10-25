@@ -32,9 +32,9 @@
              
              ;; languages
              cider clojure-mode cljdoc clojurescript-mode
-             slamhound haskell-mode shm ghc rust-mode elpy slime
-             slime-repl erlang scala-mode2 ensime go-mode
-             go-eldoc gotest
+             slamhound haskell-mode shm ghc elpy slime slime-repl
+             erlang scala-mode2 ensime go-mode go-eldoc gotest
+             toml-mode rust-mode flycheck-rust
 
              ;; autocompletion
              auto-complete ac-geiser ac-nrepl ac-slime go-autocomplete

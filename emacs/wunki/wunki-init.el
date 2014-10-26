@@ -36,6 +36,9 @@
              erlang scala-mode2 ensime go-mode go-eldoc gotest
              toml-mode rust-mode flycheck-rust
 
+             ;; auto-completion
+             company company-go
+
              ;; fun
              4clojure
              

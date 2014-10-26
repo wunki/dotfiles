@@ -37,7 +37,7 @@
              toml-mode rust-mode flycheck-rust
 
              ;; auto-completion
-             company company-go
+             company company-go company-ghc
 
              ;; fun
              4clojure

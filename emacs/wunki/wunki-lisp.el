@@ -1,4 +1,4 @@
-,22; ;; lisp languages (mainly clojure)
+;; lisp languages (mainly clojure)
 
 ;; enable this on lisp languages
 (defun lisp-coding-defaults ()

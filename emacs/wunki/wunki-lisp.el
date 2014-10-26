@@ -1,4 +1,4 @@
-;; lisp languages (mainly clojure)
+,22; ;; lisp languages (mainly clojure)
 
 ;; enable this on lisp languages
 (defun lisp-coding-defaults ()
@@ -15,13 +15,6 @@
 ;; lisp implementation is SBCL
 (setq inferior-lisp-program "/usr/bin/sbcl --noinform")
 
-;; slime
-;(slime-setup '(slime-repl))
-;(add-hook 'slime-mode-hook 'set-up-slime-ac)
-;(add-hook 'slime-repl-mode-hook 'set-up-slime-ac)
-;(eval-after-load "auto-complete"
-;  '(add-to-list 'ac-modes 'slime-repl-mode))
-
 ;; cider
 (setq nrepl-port "4001")
 (setq nrepl-buffer-name-show-port t)
@@ -31,15 +24,6 @@
 (add-hook 'cider-repl-mode-hook 'subword-mode)
 (add-hook 'cider-repl-mode-hook 'ac-nrepl-setup)
 (add-hook 'cider-mode-hook 'ac-nrepl-setup)
-(eval-after-load "auto-complete"
-  '(add-to-list 'ac-modes 'cider-repl-mode))
-
-;; use tab to trigger auto-complete
-(defun set-auto-complete-as-completion-at-point-function ()
-  (setq completion-at-point-functions '(auto-complete)))
-(add-hook 'auto-complete-mode-hook 'set-auto-complete-as-completion-at-point-function)
-(add-hook 'cider-repl-mode-hook 'set-auto-complete-as-completion-at-point-function)
-(add-hook 'cider-mode-hook 'set-auto-complete-as-completion-at-point-function)
 
 ;; key bindings
 (eval-after-load 'cider-mode

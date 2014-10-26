@@ -2,8 +2,10 @@
 (add-to-list 'load-path "~/Go/src/github.com/dougm/goflycheck")
 
 ;; auto-completion
-(require 'go-autocomplete)
-(require 'auto-complete-config)
+(require 'company-go)
+(add-hook 'go-mode-hook (lambda ()
+                          (set (make-local-variable 'company-backends) '(company-go))
+                          (company-mode)))
 
 ;; documentation
 (add-hook 'go-mode-hook 'go-eldoc-setup)

@@ -62,6 +62,11 @@ if [ "$(uname)" == "Darwin" ]; then
 
     # Redis
     alias runredis="redis-server /usr/local/etc/redis.conf"
+
+    # Boot2Docker
+    export DOCKER_HOST=tcp://192.168.59.103:2376
+    export DOCKER_CERT_PATH=/Users/wunki/.boot2docker/certs/boot2docker-vm
+    export DOCKER_TLS_VERIFY=1
 elif [ `uname` = FreeBSD ]; then
     export LS_OPTIONS='-G'
 else

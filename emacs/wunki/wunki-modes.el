@@ -16,6 +16,13 @@
 ;; blinking
 (blink-cursor-mode t)
 
+;; auto-completion
+(setq company-tooltip-limit 20)                      ; bigger popup window
+(setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows
+(setq company-echo-delay 0)                          ; remove annoying blinking
+(setq company-begin-commands '(self-insert-command)) ; start autocompletion only after typing
+(global-company-mode)
+
 ;; improve buffer names
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'forward)
@@ -61,12 +68,6 @@
         (space-mark   ?\xA0 [?\xA4]     [?_])     ; hard space
         (newline-mark ?\n   [?\xAB ?\n] [?$ ?\n]) ; end-of-line
         ))
-
-;; auto completion
-(require 'auto-complete-config)
-(ac-config-default)
-(setq ac-auto-start nil)    ; don't automatically trigger auto-complete
-(ac-set-trigger-key "TAB")  ; only trigger auto-completion on TAB
 
 ;; ag (the silver searcher)
 (require 'ag)
@@ -169,7 +170,6 @@
 
 ;; cleanup modeline
 (diminish 'projectile-mode)
-(diminish 'auto-complete-mode)
 (diminish 'undo-tree-mode)
 (diminish 'anzu-mode)
 

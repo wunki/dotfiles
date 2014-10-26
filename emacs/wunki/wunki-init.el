@@ -36,9 +36,6 @@
              erlang scala-mode2 ensime go-mode go-eldoc gotest
              toml-mode rust-mode flycheck-rust
 
-             ;; autocompletion
-             auto-complete ac-geiser ac-nrepl ac-slime go-autocomplete
-
              ;; fun
              4clojure
              

@@ -109,6 +109,9 @@ end
 set -x GOPATH "$HOME/Go"
 prepend_to_path "$GOPATH/bin"
 
+# rust
+set -x RUST_SRC_PATH "/Users/wunki/Rust/rust/src"
+
 # rubygems
 prepend_to_path "$HOME/.gem/ruby/2.0.0/bin"
 prepend_to_path "$HOME/.gem/ruby/1.9.1/bin"

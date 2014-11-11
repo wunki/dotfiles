@@ -1,8 +1,8 @@
 -- -*- mode: haskell -*-
-Config { font = "xft:Ubuntu Mono:pixelsize=14:antialias=true"
+Config { font = "xft:Ubuntu Mono:pixelsize=13:antialias=true"
        , bgColor = "#2B2B2B"
        , fgColor = "#DCDCCC"
-       , position = BottomSize L 100 24
+       , position = BottomSize L 100 26
        , border = TopB
        , borderColor = "#333333"
        , lowerOnStart = True
@@ -15,5 +15,5 @@ Config { font = "xft:Ubuntu Mono:pixelsize=14:antialias=true"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{ %cpu% | Net: %wlp3s0% | Vol: %vol% | %battery% | %date% "
+       , template = " %StdinReader% }{ %cpu% "
        }

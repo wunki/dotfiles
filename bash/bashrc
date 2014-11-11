@@ -139,6 +139,9 @@ if hash brew 2>/dev/null; then
     fi
 fi
 
+# Rust settings
+export RUST_SRC_PATH="/home/wunki/rust/rust/src"
+
 # Imports ----------------------------------------------------------------------------------------------
 # Turn on advanced bash completion if the file exists
 # Get it here: http://www.caliban.org/bash/index.shtml#completion) or

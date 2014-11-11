@@ -1,4 +1,4 @@
-gtk-icon-theme-name="Tangerine"
+gtk-icon-theme-name="Tango"
 gtk-font-name = "Ubuntu 10"
 style "user-font"
 {

@@ -21,3 +21,5 @@ bin/exercism
 fish/fish_read_history
 fish/secret_env.fish
 /bin/racer
+/emacs/ido.last
+/emacs/recentf

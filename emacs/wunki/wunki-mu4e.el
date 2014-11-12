@@ -69,19 +69,19 @@
 
 ;; multiple accounts
 (setq wunki-mu4e-account-alist
-      '(("Gibbon"
+      '(("gibbon"
          (user-mail-address "petar@gibbon.co")
          (mu4e-sent-folder "/gibbon/sent")
          (mu4e-drafts-folder "/gibbon/drafts")
          (smtpmail-smtp-server "smtp.gmail.com")
          (smtpmail-smtp-user "petar@gibbon.co"))
-        ("Wunki"
+        ("wunki"
          (user-mail-address "petar@wunki.org")
          (mu4e-sent-folder "/wunki/sent")
          (mu4e-drafts-folder "/wunki/drafts")
          (smtpmail-smtp-server "mail.messagingengine.com")
          (smtpmail-smtp-user "wunki@fastmail.fm"))
-        ("Bread and Pepper"
+        ("bread-and-pepper"
          (user-mail-address "petar@breadandpepper.com")
          (mu4e-sent-folder "/bread-and-pepper/sent")
          (mu4e-drafts-folder "/bread-and-pepper/drafts")

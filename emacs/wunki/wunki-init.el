@@ -68,8 +68,6 @@
 (require 'wunki-erlang)     ; erlang
 (require 'wunki-go)         ; go
 (require 'wunki-erc)        ; irc
-;(require 'wunki-scala)     ; scala
-;(require 'wunki-evil)       ; vim emulation
 
 (when (eq system-type 'darwin)
   (require 'wunki-mac))     ; mac settings

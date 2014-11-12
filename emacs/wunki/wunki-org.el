@@ -1,3 +1,6 @@
+;; load org-protocol for external calls
+(require 'org-protocol)
+
 ;; org-mode
 (define-key global-map (kbd "C-c l") 'org-store-link)
 (define-key global-map (kbd "C-c a") 'org-agenda)
@@ -5,11 +8,8 @@
 (define-key global-map (kbd "C-c b") 'org-iswitchb)
 (define-key global-map (kbd "<f8>") 'org-cycle-agenda-files)
 
-;; root directory of Org files
-(setq org-root (expand-file-name "~/Documents/Org"))
-
-;; load org-protocol for external calls
-(require 'org-protocol)
+;; root directory of org files
+(setq org-root (expand-file-name "~/org"))
 
 ;; journal
 (setq org-journal-dir (format "%s/%s" org-root "journal"))
@@ -19,12 +19,12 @@
 
 ;; org-files, only used for coding
 (setq org-agenda-files (list (format "%s/%s" org-root "inbox.org")
+                             (format "%s/%s" org-root "today.org")
+                             (format "%s/%s" org-root "personal.org")
                              (format "%s/%s" org-root "gibbon.org")
-                             (format "%s/%s" org-root "bread-and-pepper.org")
-                             (format "%s/%s" org-root "emacs.org")
 
                              ; projects
-                             "~/Projects/gibbon-web/TODO.org")
+                             "~/python/gibbon-web/TODO.org")
       org-default-notes-file (format "%s/%s" org-root "inbox.org"))
 
 ;; always use indent-mode

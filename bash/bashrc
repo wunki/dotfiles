@@ -47,9 +47,9 @@ pathadd "$GOPATH/bin"
 pathadd "/opt/ghc/7.8.3/bin"
 pathadd "/opt/cabal/1.20/bin"
 
-# Autojump
-if [ -f "/usr/share/autojump/autojump.sh" ]; then
-    . /usr/share/autojump/autojump.sh
+# Z
+if [ -f "/home/wunki/src/z/z.sh" ]; then
+    . /home/wunki/src/z/z.sh
 fi
 
 if [ "$(uname)" == "Darwin" ]; then

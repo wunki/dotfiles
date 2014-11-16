@@ -24,7 +24,8 @@
                              (format "%s/%s" org-root "gibbon.org")
 
                              ; projects
-                             "~/python/gibbon-web/TODO.org")
+                             "~/python/gibbon-web/TODO.org"
+                             "~/rust/construe/TODO.org")
       org-default-notes-file (format "%s/%s" org-root "inbox.org"))
 
 ;; always use indent-mode

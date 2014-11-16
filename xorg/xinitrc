@@ -31,9 +31,6 @@ unclutter -idle 3 &
 # Clipboard functionality
 parcellite -n -d &
 
-# Be nice for my eyes at night
-redshift -l 52:4 -t 6000:4800 -m randr &
-
 # Set background
 feh --bg-tile ~/pictures/wallpapers/grey_wash_wall.png
 

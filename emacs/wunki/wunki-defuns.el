@@ -97,7 +97,7 @@
 (defun ido-emacs-config ()
   (interactive)
   (ido-find-file-in-dir "~/.emacs.d/wunki"))
-
+  
 (defun disable-electric-indent ()
   (set (make-local-variable 'electric-indent-mode) nil))
 

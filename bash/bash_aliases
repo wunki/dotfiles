@@ -7,6 +7,7 @@ if [ `uname` == "Linux" ]; then
 fi
 alias e="emacs"
 alias v="vim"
+alias rust-update="curl -s https://static.rust-lang.org/rustup.sh | sudo sh"
 
 if hash hub 2>/dev/null; then
     eval "$(hub alias -s)"

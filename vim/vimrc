@@ -98,7 +98,7 @@ if has("gui_running")
     if has('mac')
         set guifont=Fira\ Mono:h15
     else
-        set guifont=Fira\ Mono\ 12
+        set guifont=Ubuntu\ Mono\ 12
     endif
     set guioptions-=e
     set guioptions-=T
@@ -124,7 +124,6 @@ endif
 let g:rehash256 = 1
 let g:molokai_original = 1
 let g:zenburn_disable_Label_underline = 1
-let g:zenburn_high_Contrast = 1
 colors zenburn
 
 " Find bash
@@ -256,6 +255,10 @@ au FileType go nmap <Leader>d <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 au FileType go nmap gd <Plug>(go-def)
+
+" Rust settings
+let g:racer_cmd = "/home/wunki/rust/racer/target/racer"
+let $RUST_SRC_PATH="/home/wunki/rust/rust/src"
 
 " Markdown detection
 autocmd BufNewFile,BufReadPost *.mkd,*.markdown,*.md set filetype=markdown
@@ -422,8 +425,8 @@ let g:lightline = {
             \   'modified': 'MyModified',
             \   'filename': 'MyFilename'
             \ },
-            \ 'separator': { 'left': '', 'right': '' },
-            \ 'subseparator': { 'left': '', 'right': '' }
+            \ 'separator': { 'left': '|', 'right': '|' },
+            \ 'subseparator': { 'left': '|', 'right': '|' }
             \ }
 
 function! MyModified()

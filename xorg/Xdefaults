@@ -14,7 +14,7 @@ Xft.dpi: 192
 Xft.rgba: rgb
 
 ! RXVT Scripts
-URxvt.perl-lib: /home/wunki/src/urxvt-perls/
+urxvt.perl-lib: /home/wunki/src/urxvt-perls/
 urxvt.perl-ext-common: clipboard,keyboard-select
 
 ! RXVT Clipboard
@@ -23,14 +23,14 @@ urxvt.keysym.M-v:   perl:clipboard:paste
 urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 
 ! RXVT Keyboard select
-URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-s:      perl:keyboard-select:search
+urxvt.keysym.M-Escape: perl:keyboard-select:activate
+urxvt.keysym.M-s:      perl:keyboard-select:search
 
 ! Urxvt fonts
-urxvt.font:            xft:Ubuntu Mono:size=12
-urxvt.boldFont:        xft:Ubuntu Mono::bold:size=12
-urxvt.italicFont:      xft:Ubuntu Mono::italic:size=12
-urxvt.boldItalicFont:  xft:Ubuntu Mono::bolditalic:size=12
+urxvt.font:            xft:Ubuntu Mono:size=13
+urxvt.boldFont:        xft:Ubuntu Mono::bold:size=13
+urxvt.italicFont:      xft:Ubuntu Mono::italic:size=13
+urxvt.boldItalicFont:  xft:Ubuntu Mono::bolditalic:size=13
 
 ! Urxvt settings
 urxvt.depth: 32

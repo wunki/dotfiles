@@ -8,7 +8,7 @@ function nstat; sudo nethogs wlan0 $argv; end
 function duh; du -ah --max-depth=1; end
 function lah; ls -lah; end
 function j; cd (command autojump $argv); end
-function e; emacsclient -a "vim" -t $argv; end
+function e; emacsclient -a "" -t $argv; end
 function v; vim $argv; end
 function gh-preview; python -m grip; end
 function gogo; mosh ubuntu.local; end
@@ -131,11 +131,14 @@ prepend_to_path "/opt/android-sdk/platform-tools"
 prepend_to_path "/usr/bin/core_perl"
 
 # python
-prepend_to_path "$HOME/Library/Python/2.7/bin"
 prepend_to_path "$HOME/.pyenv/bin"
 status --is-interactive; and . (pyenv init -|psub)
 status --is-interactive; and . (pyenv virtualenv-init -|psub)
-set -gx PYTHONPATH "$HOME/Library/Python/2.7/lib/python/site-packages:/Library/Python/2.7/site-packages"
+
+if contains (hostname -s) "macbook"
+  prepend_to_path "$HOME/Library/Python/2.7/bin"  
+  set -gx PYTHONPATH "$HOME/Library/Python/2.7/lib/python/site-packages:/Library/Python/2.7/site-packages"
+end
 
 # git prompt
 set __fish_git_prompt_showdirtystate 'yes'

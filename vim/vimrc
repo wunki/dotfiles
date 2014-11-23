@@ -31,6 +31,7 @@ Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, bra
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
 Plug 'bronson/vim-trailing-whitespace'                   " remove trailing whitespace
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
+Plug 'vimwiki'                                           " personal wiki
 
 " Github
 Plug 'mattn/webapi-vim'
@@ -240,6 +241,11 @@ let maplocalleader = "_"
 
 " Toggle whitespace invisibles
 nmap <leader>l :set list!<CR>
+
+" Vimwiki
+let g:vimwiki_list = [{'path': '~/wiki/'}]
+let g:vimwiki_dir_link = ''                 " open files in netrw
+
 
 " Go settings
 au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4

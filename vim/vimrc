@@ -42,8 +42,6 @@ Plug 'kien/ctrlp.vim'
 " Looks
 Plug 'jnurmine/Zenburn'
 Plug 'itchyny/lightline.vim'
-Plug 'cocopon/lightline-hybrid.vim'
-Plug 'edkolev/tmuxline.vim'
 
 " Websites
 Plug 'othree/html5.vim', { 'for': 'html' }
@@ -54,8 +52,9 @@ Plug 'tpope/vim-leiningen', { 'for': 'clojure' }
 Plug 'tpope/vim-projectionist', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'guns/vim-slamhound', { 'for': 'clojure' }
+Plug 'guns/vim-sexp', { 'for': 'clojure' }
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'kien/rainbow_parentheses.vim', { 'for': ['clojure', 'scheme']  }
-Plug 'paredit.vim', { 'for': ['clojure', 'scheme']  }
 
 " Haskell
 Plug 'travitch/hasksyn', { 'for': 'haskell' }
@@ -424,9 +423,7 @@ let g:lightline = {
             \   'readonly': 'MyReadonly',
             \   'modified': 'MyModified',
             \   'filename': 'MyFilename'
-            \ },
-            \ 'separator': { 'left': '|', 'right': '|' },
-            \ 'subseparator': { 'left': '|', 'right': '|' }
+            \ }
             \ }
 
 function! MyModified()

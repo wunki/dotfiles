@@ -34,7 +34,7 @@
 (global-auto-revert-mode t)
 
 ;; powerline
-(powerline-default-theme)
+;; (powerline-default-theme)
 
 ;; indent after newline
 (electric-indent-mode t)

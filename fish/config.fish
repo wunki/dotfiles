@@ -93,9 +93,6 @@ if contains (hostname -s) "macbook"
 end
 prepend_to_path "$HOME/.cabal/bin"
 
-# clojure
-set -x LEIN_JAVA_CMD "$HOME/.bin/drip"
-
 # go
 if test -d "$HOME/go"
    set -x GOPATH "$HOME/go"
@@ -104,8 +101,13 @@ else
 end
 prepend_to_path "$GOPATH/bin"
 
+# nodejs
+if test -f ~/.nvm-fish/nvm.fish
+  source ~/.nvm-fish/nvm.fish
+end  
+
 if test -x "$GOPATH/bin/hub"
-   function git; hub $argv; end
+  function git; hub $argv; end
 end
 
 # boot2docker on the mac

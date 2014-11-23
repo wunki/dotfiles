@@ -13,3 +13,6 @@ fi
 if [ -f /Users/wunki/Source/google-cloud-sdk/completion.bash.inc ]; then
     source /Users/wunki/Source/google-cloud-sdk/completion.bash.inc
 fi
+
+export NVM_DIR="/home/wunki/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm

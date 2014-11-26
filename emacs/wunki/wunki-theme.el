@@ -1,14 +1,9 @@
 ;; load theme and don't ask if it's save.
-(load-theme 'zenburn t)
+(load-theme 'sanityinc-tomorrow-blue t)
 
-;; solarized settings
-(setq solarized-high-contrast-mode-line t)
-(setq x-underline-at-descent-line t)
-
-;; font -- some strange issues with font size, 110 is huge, 100 is tiny.
-(set-frame-font "Fira Mono")
-(add-to-list 'default-frame-alist '(font . "Fira Mono"))
-(set-face-attribute 'default nil :height 130)
+(set-frame-font "Ubuntu Mono")
+(add-to-list 'default-frame-alist '(font . "Ubuntu Mono"))
+(set-face-attribute 'default nil :height 120)
 
 (defun toggle-dark-light-theme ()
   "Switch between dark and light theme."

@@ -38,8 +38,8 @@ main = do
                     , ppCurrent = xmobarColor "#81a2be" ""                    
                     }
         , borderWidth = 1
-        , normalBorderColor  = "#586e75"
-        , focusedBorderColor = "#b5bd68"
+        , normalBorderColor  = "#7285b7"
+        , focusedBorderColor = "#bbdaff"
         , workspaces = ["1:Shell", "2:Editor", "3:Browser", "4:Remote", "5:Chat", "6:Extra"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
@@ -76,11 +76,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((0, xF86XK_AudioNext), spawn "mpc next")                               -- Next song
     , ((0, xF86XK_Launch1),   spawn "firefox")                                -- Launch Firefox
     , ((modMask, xK_b),       sendMessage ToggleStruts)                       -- Hide top bar
-    , ((modMask, xK_Print),   spawn "scrot -q90 /home/wunki/pictures/screenshots/%Y-%m-%d-%H%M%S.png")
+    , ((modMask .|. controlMask, xK_s), spawn "scrot -q90 /home/wunki/pictures/screenshots/%Y-%m-%d-%H%M%S.png")
     , ((modMask .|. controlMask, xK_p), sendMessage MagnifyMore)
     , ((modMask .|. controlMask, xK_l), sendMessage MagnifyLess)
     , ((modMask .|. controlMask, xK_m), sendMessage Toggle)
-    , ((modMask .|. controlMask, xK_w), raiseMaybe (spawn "firefox-nightly") (className =? "Firefox"))
+    , ((modMask .|. controlMask, xK_w), raiseMaybe (spawn "firefox") (className =? "Firefox"))
     , ((modMask .|. controlMask, xK_e), raiseMaybe (spawn "~/bin/em") (className =? "Emacs"))
     , ((modMask .|. controlMask, xK_v), raiseMaybe (spawn "gvim") (className =? "Gvim"))
     -- cycle through workspaces

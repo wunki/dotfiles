@@ -1,9 +1,16 @@
-;; elpy mode
+;;; package --- Setup Python development environment
+
 (when (require 'elpy nil t)
   (elpy-enable))
 
-;; only set this minor modes when using elpy
-(setq elpy-modules
-      '(elpy-module-sane-defaults elpy-module-company elpy-module-eldoc elpy-module-flycheck elpy-module-pyvenv))
+;; enable flycheck
+(when (require 'flycheck nil t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
+
+;; disable certain modes
+(setq elpy-modules (delq 'elpy-module-highlight-indentation elpy-modules))
 
 (provide 'wunki-python)
+
+;;; wunki-python.el ends here

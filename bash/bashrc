@@ -47,9 +47,9 @@ pathadd "$GOPATH/bin"
 pathadd "/opt/ghc/7.8.3/bin"
 pathadd "/opt/cabal/1.20/bin"
 
-# Autojump
-if [ -f "/usr/share/autojump/autojump.sh" ]; then
-    . /usr/share/autojump/autojump.sh
+# Z
+if [ -f "/home/wunki/src/z/z.sh" ]; then
+    . /home/wunki/src/z/z.sh
 fi
 
 if [ "$(uname)" == "Darwin" ]; then
@@ -138,6 +138,9 @@ if hash brew 2>/dev/null; then
         . $(brew --prefix)/etc/bash_completion
     fi
 fi
+
+# Rust settings
+export RUST_SRC_PATH="/home/wunki/rust/rust/src"
 
 # Imports ----------------------------------------------------------------------------------------------
 # Turn on advanced bash completion if the file exists

@@ -6,7 +6,7 @@
   '(add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
 ;; auto-completion and definitions with racer
-(add-to-list 'load-path "/Users/wunki/rust/racer/editors")
+(add-to-list 'load-path "/home/wunki/rust/racer/editors")
 (require 'racer)
 
 (provide 'wunki-rust)

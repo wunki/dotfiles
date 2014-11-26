@@ -1,19 +1,15 @@
--- -*- mode: haskell -*-
-Config { font = "xft:Ubuntu Mono:pixelsize=14:antialias=true"
+Config { font = "xft:Ubuntu Mono:pixelsize=26:antialias=true"
        , bgColor = "#2B2B2B"
        , fgColor = "#DCDCCC"
-       , position = BottomSize L 100 24
+       , position = BottomSize L 100 48
        , border = TopB
        , borderColor = "#333333"
        , lowerOnStart = True
-       , commands = [ Run Network "wlp3s0" ["-t", "<rx> - <tx>", "-L", "0"," -H", "100", "--normal", "#DCDCCC", "--high", "#CC9393"] 20
-                    , Run Battery ["-t", "Batt: <left>% - <timeleft>", "-L", "30", "-H", "75", "--low", "#CC9393", "--high", "#DCDCCC"] 600
+       , commands = [ Run Network "eth0" ["-t", "<rx> - <tx>", "-L", "0"," -H", "100", "--normal", "#DCDCCC", "--high", "#CC9393"] 20
                     , Run Cpu ["-L", "3", "-H", "50", "--normal", "#DCDCCC", "--high", "#CC9393"] 20
-                    , Run Com "/home/wunki/bin/volume" [] "vol" 20
                     , Run Date "%a %_d %b | %H:%M" "date" 60
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{ %cpu% | Net: %wlp3s0% | Vol: %vol% | %battery% | %date% "
-       }
+       , template = " %StdinReader% }{ %cpu% | Net: %eth0% | %date% " }

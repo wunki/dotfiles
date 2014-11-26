@@ -8,7 +8,7 @@ function nstat; sudo nethogs wlan0 $argv; end
 function duh; du -ah --max-depth=1; end
 function lah; ls -lah; end
 function j; cd (command autojump $argv); end
-function e; emacsclient -a "vim" -t $argv; end
+function e; emacsclient -a "" -t $argv; end
 function v; vim $argv; end
 function gh-preview; python -m grip; end
 function gogo; mosh ubuntu.local; end
@@ -47,9 +47,8 @@ function mu-index; mu index --maildir=/Users/wunki/Mail --my-address=petar@wunki
 
 # environment variables
 set -x fish_greeting ""
-set -x EDITOR 'vim'
-set -x VISUAL 'vim'
-set -x PAGER 'vimpager'
+set -x EDITOR 'emacsclient -t -a ""'
+set -x VISUAL 'emacsclient -t -a ""'
 set -x TERM 'screen-256color'
 
 # secret environment vars
@@ -57,10 +56,6 @@ set -x TERM 'screen-256color'
 
 # autojump
 . ~/.config/fish/autojump.fish
-
-if test -f "/usr/local/bin/hub"
-   function git; hub $argv; end
-end
 
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"
     if test -d $argv[1]
@@ -73,6 +68,7 @@ end
 # Start with a clean path, because order matters
 set -e PATH
 
+# paths
 prepend_to_path "/bin"
 prepend_to_path "/.local/bin"
 prepend_to_path "/sbin"
@@ -83,31 +79,44 @@ prepend_to_path "/usr/local/bin"
 prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.bin"
 prepend_to_path "$HOME/.local/bin"
-prepend_to_path "/usr/local/google-cloud-sdk/bin"
 prepend_to_path "/usr/local/opt/go/libexec/bin"
+
+# mac specific paths
 prepend_to_path "/usr/local/Cellar/emacs/HEAD/bin"
-
-# haskell
-set -x GHC_DOT_APP "/Applications/ghc-7.8.3.app"
-prepend_to_path "$GHC_DOT_APP/Contents/bin"
-prepend_to_path "$HOME/.cabal/bin"
-
-# postgresql on the mac
+prepend_to_path "$HOME/Source/google-cloud-sdk/bin"
 prepend_to_path "/Applications/Postgres.app/Contents/Versions/9.3/bin"
 
-# clojure
-set -x LEIN_JAVA_CMD "$HOME/.bin/drip"
+# haskell
+if contains (hostname -s) "macbook"
+   set -x GHC_DOT_APP "/Applications/ghc-7.8.3.app"
+   prepend_to_path "$GHC_DOT_APP/Contents/bin"
+end
+prepend_to_path "$HOME/.cabal/bin"
 
-# docker with boot2docker on own machine
+# go
+if test -d "$HOME/go"
+   set -x GOPATH "$HOME/go"
+else
+   set -x GOPATH "$HOME/Go"
+end
+prepend_to_path "$GOPATH/bin"
+
+# nodejs
+if test -f ~/.nvm-fish/nvm.fish
+  source ~/.nvm-fish/nvm.fish
+end  
+
+if test -x "$GOPATH/bin/hub"
+  function git; hub $argv; end
+end
+
+# boot2docker on the mac
 if contains (hostname -s) "macbook"
     set -x DOCKER_HOST "tcp://192.168.59.103:2376"
     set -x DOCKER_CERT_PATH "/Users/wunki/.boot2docker/certs/boot2docker-vm"
     set -x DOCKER_TLS_VERIFY 1
 end
 
-# go
-set -x GOPATH "$HOME/Go"
-prepend_to_path "$GOPATH/bin"
 
 # rust
 set -x RUST_SRC_PATH "/Users/wunki/Rust/rust/src"
@@ -123,15 +132,15 @@ prepend_to_path "/opt/android-sdk/platform-tools"
 # perl
 prepend_to_path "/usr/bin/core_perl"
 
-# racket
-prepend_to_path "/Applications/Racket v6.1/bin"
-
 # python
-prepend_to_path "$HOME/Library/Python/2.7/bin"
 prepend_to_path "$HOME/.pyenv/bin"
 status --is-interactive; and . (pyenv init -|psub)
 status --is-interactive; and . (pyenv virtualenv-init -|psub)
-set -gx PYTHONPATH "$HOME/Library/Python/2.7/lib/python/site-packages:/Library/Python/2.7/site-packages"
+
+if contains (hostname -s) "macbook"
+  prepend_to_path "$HOME/Library/Python/2.7/bin"  
+  set -gx PYTHONPATH "$HOME/Library/Python/2.7/lib/python/site-packages:/Library/Python/2.7/site-packages"
+end
 
 # git prompt
 set __fish_git_prompt_showdirtystate 'yes'

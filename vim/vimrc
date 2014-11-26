@@ -42,8 +42,6 @@ Plug 'kien/ctrlp.vim'
 " Looks
 Plug 'jnurmine/Zenburn'
 Plug 'itchyny/lightline.vim'
-Plug 'cocopon/lightline-hybrid.vim'
-Plug 'edkolev/tmuxline.vim'
 
 " Websites
 Plug 'othree/html5.vim', { 'for': 'html' }
@@ -54,8 +52,9 @@ Plug 'tpope/vim-leiningen', { 'for': 'clojure' }
 Plug 'tpope/vim-projectionist', { 'for': 'clojure' }
 Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
 Plug 'guns/vim-slamhound', { 'for': 'clojure' }
+Plug 'guns/vim-sexp', { 'for': 'clojure' }
+Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
 Plug 'kien/rainbow_parentheses.vim', { 'for': ['clojure', 'scheme']  }
-Plug 'paredit.vim', { 'for': ['clojure', 'scheme']  }
 
 " Haskell
 Plug 'travitch/hasksyn', { 'for': 'haskell' }
@@ -98,7 +97,7 @@ if has("gui_running")
     if has('mac')
         set guifont=Fira\ Mono:h15
     else
-        set guifont=Ubuntu\ Mono\ derivative\ Powerline\ 13
+        set guifont=Ubuntu\ Mono\ 12
     endif
     set guioptions-=e
     set guioptions-=T
@@ -124,7 +123,6 @@ endif
 let g:rehash256 = 1
 let g:molokai_original = 1
 let g:zenburn_disable_Label_underline = 1
-let g:zenburn_high_Contrast = 1
 colors zenburn
 
 " Find bash
@@ -256,6 +254,10 @@ au FileType go nmap <Leader>d <Plug>(go-doc)
 au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 au FileType go nmap gd <Plug>(go-def)
+
+" Rust settings
+let g:racer_cmd = "/home/wunki/rust/racer/target/racer"
+let $RUST_SRC_PATH="/home/wunki/rust/rust/src"
 
 " Markdown detection
 autocmd BufNewFile,BufReadPost *.mkd,*.markdown,*.md set filetype=markdown
@@ -421,9 +423,7 @@ let g:lightline = {
             \   'readonly': 'MyReadonly',
             \   'modified': 'MyModified',
             \   'filename': 'MyFilename'
-            \ },
-            \ 'separator': { 'left': '', 'right': '' },
-            \ 'subseparator': { 'left': '', 'right': '' }
+            \ }
             \ }
 
 function! MyModified()

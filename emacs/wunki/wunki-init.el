@@ -68,12 +68,10 @@
 (require 'wunki-erlang)     ; erlang
 (require 'wunki-go)         ; go
 (require 'wunki-erc)        ; irc
-;(require 'wunki-scala)     ; scala
-;(require 'wunki-evil)       ; vim emulation
 
 (when (eq system-type 'darwin)
   (require 'wunki-mac))     ; mac settings
 
 ;; email only on my local computer
-(when (string-equal system-name "macbook.wunki.org")
+(when (string-equal system-name "deb.wunki.org")
   (require 'wunki-mu4e))

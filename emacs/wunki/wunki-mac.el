@@ -1,6 +1,6 @@
 ;; mac only settings.
-(set-frame-font "Fira Mono-14")
-(add-to-list 'default-frame-alist '(font . "Fira Mono 14"))
+(set-frame-font "Fira Mono-15")
+(add-to-list 'default-frame-alist '(font . "Fira Mono 15"))
 
 ;; browser
 (setq browse-url-browser-function 'browse-url-default-macosx-browser)

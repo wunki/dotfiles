@@ -83,7 +83,7 @@ prepend_to_path "/usr/local/bin"
 prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.bin"
 prepend_to_path "$HOME/.local/bin"
-prepend_to_path "$HOME/Source/google-cloud-sdk/bin"
+prepend_to_path "/usr/local/google-cloud-sdk/bin"
 prepend_to_path "/usr/local/opt/go/libexec/bin"
 prepend_to_path "/usr/local/Cellar/emacs/HEAD/bin"
 

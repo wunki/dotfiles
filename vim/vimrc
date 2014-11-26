@@ -32,6 +32,7 @@ Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in mar
 Plug 'bronson/vim-trailing-whitespace'                   " remove trailing whitespace
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
 Plug 'vimwiki'                                           " personal wiki
+Plug 'airblade/vim-gitgutter'                            " display changes in the gutter
 
 " Github
 Plug 'mattn/webapi-vim'
@@ -98,7 +99,7 @@ if has("gui_running")
     if has('mac')
         set guifont=Fira\ Mono:h15
     else
-        set guifont=Ubuntu\ Mono\ 12
+        set guifont=Ubuntu\ Mono\ 14
     endif
     set guioptions-=e
     set guioptions-=T

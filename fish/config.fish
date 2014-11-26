@@ -94,6 +94,12 @@ end
 prepend_to_path "$HOME/.cabal/bin"
 
 # go
+if contains (hostname -s) "macbook"
+    set -x GOMAXPROCS (sysctl hw.ncpu | awk '{print $2}')
+else
+    set -x GOMAXPROCS (nproc)
+end
+
 if test -d "$HOME/go"
    set -x GOPATH "$HOME/go"
 else
@@ -104,7 +110,7 @@ prepend_to_path "$GOPATH/bin"
 # nodejs
 if test -f ~/.nvm-fish/nvm.fish
   source ~/.nvm-fish/nvm.fish
-end  
+end
 
 if test -x "$GOPATH/bin/hub"
   function git; hub $argv; end
@@ -116,7 +122,6 @@ if contains (hostname -s) "macbook"
     set -x DOCKER_CERT_PATH "/Users/wunki/.boot2docker/certs/boot2docker-vm"
     set -x DOCKER_TLS_VERIFY 1
 end
-
 
 # rust
 set -x RUST_SRC_PATH "/Users/wunki/Rust/rust/src"

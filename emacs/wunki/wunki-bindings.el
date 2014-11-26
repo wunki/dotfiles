@@ -119,6 +119,9 @@
 ;; close emacs
 (global-set-key (kbd "C-c q") 'save-buffers-kill-emacs)
 
+(unless (fboundp 'toggle-frame-fullscreen)
+  (global-set-key (kbd "C-RET") 'toggle-frame-fullscreen))
+
 ;; newline and indent in yaml
 (eval-after-load "yaml-mode"
   '(progn

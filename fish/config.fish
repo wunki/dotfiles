@@ -47,8 +47,8 @@ function mu-index; mu index --maildir=/Users/wunki/Mail --my-address=petar@wunki
 
 # environment variables
 set -x fish_greeting ""
-set -x EDITOR 'emacsclient -t -a ""'
-set -x VISUAL 'emacsclient -t -a ""'
+set -x EDITOR 'vim'
+set -x VISUAL 'vim'
 set -x TERM 'screen-256color'
 
 # secret environment vars

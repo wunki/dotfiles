@@ -83,7 +83,7 @@ Plug 'jimenezrick/vimerl', { 'for': 'erlang' }
 Plug 'aliva/vim-fish', { 'for': 'fish' }
 
 " Provisioning
-Plug 'saltstack/salt-vim', { 'for': 'salt' }
+Plug 'saltstack/salt-vim', { 'for': 'sls' }
 Plug 'chase/vim-ansible-yaml', { 'for': 'ansible' }
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 Plug 'Glench/Vim-Jinja2-Syntax'
@@ -99,7 +99,7 @@ if has("gui_running")
     if has('mac')
         set guifont=Fira\ Mono:h15
     else
-        set guifont=Ubuntu\ Mono\ 14
+        set guifont=Ubuntu\ Mono\ 13
     endif
     set guioptions-=e
     set guioptions-=T
@@ -195,7 +195,6 @@ set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.orig                           " Merge resolution files
 set wildignore+=*.beam                           " Erlang object code
 set wildignore+=classes                          " java/clojure classes
-set wildignore+=lib                              " library files
 set wildignore+=cabal-dev                        " cabal
 set wildignore+=dist                             " cabal distrubition
 

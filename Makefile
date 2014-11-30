@@ -1,4 +1,5 @@
-DOTFILES = $(shell pwd)
+mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
+DOTFILES := $(notdir $(patsubst %/,%,$(dir $(mkfile_path))))
 all:: vim emacs bin zsh bash tmux xmonad xorg gtk mpv conkeror
 
 vim::

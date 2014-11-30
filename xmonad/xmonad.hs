@@ -35,7 +35,7 @@ main = do
                     { ppOutput = UTF8.hPutStrLn xmobar
                     , ppUrgent = xmobarColor "#de935f" ""
                     , ppTitle = xmobarColor "#c5c8c6" ""
-                    , ppCurrent = xmobarColor "#81a2be" ""                    
+                    , ppCurrent = xmobarColor "#81a2be" ""
                     }
         , borderWidth = 1
         , normalBorderColor  = "#7285b7"
@@ -86,7 +86,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     -- cycle through workspaces
     , ((modMask, xK_n), moveTo Next (WSIs (return $ not . (=="SP") . W.tag)))
     , ((modMask, xK_p), moveTo Prev (WSIs (return $ not . (=="SP") . W.tag)))
-    , ((modMask, xK_d), spawn "dmenu_run -i -fn 'Ubuntu-Mono-12:normal' -nb '#1d1f21' -nf '#c5c8c6' -sb '#1d1f21' -sf '#81a2be' -p '>' ") -- %! Launch dmenu
+    , ((modMask, xK_d), spawn "dmenu_run -i -fn 'Ubuntu-Mono-18:normal' -nb '#1d1f21' -nf '#c5c8c6' -sb '#1d1f21' -sf '#81a2be' -p '>' ") -- %! Launch dmenu
     , ((modMask, xK_g), windowPromptGoto  defaultXPConfig)
     , ((modMask, xK_c), windowPromptBring defaultXPConfig)
     ]

@@ -1,6 +1,6 @@
 ! Zenburn
 *.foreground: #dcdccc
-*.background: #333333
+*.background: #3f3f3f
 
 ! Black / Grey
 *.color0:     #333333
@@ -32,7 +32,7 @@
 
 ! Grey / White
 *.color7:     #DCDCCC
-*.color15:    #ffffff 
+*.color15:    #ffffff
 
 
 

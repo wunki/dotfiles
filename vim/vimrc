@@ -31,6 +31,8 @@ Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, bra
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
 Plug 'bronson/vim-trailing-whitespace'                   " remove trailing whitespace
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
+Plug 'vimwiki'                                           " personal wiki
+Plug 'airblade/vim-gitgutter'                            " display changes in the gutter
 
 " Github
 Plug 'mattn/webapi-vim'
@@ -81,7 +83,7 @@ Plug 'jimenezrick/vimerl', { 'for': 'erlang' }
 Plug 'aliva/vim-fish', { 'for': 'fish' }
 
 " Provisioning
-Plug 'saltstack/salt-vim', { 'for': 'salt' }
+Plug 'saltstack/salt-vim', { 'for': 'sls' }
 Plug 'chase/vim-ansible-yaml', { 'for': 'ansible' }
 Plug 'ekalinin/Dockerfile.vim', { 'for': 'Dockerfile' }
 Plug 'Glench/Vim-Jinja2-Syntax'
@@ -97,7 +99,7 @@ if has("gui_running")
     if has('mac')
         set guifont=Fira\ Mono:h15
     else
-        set guifont=Ubuntu\ Mono\ 12
+        set guifont=Ubuntu\ Mono\ 13
     endif
     set guioptions-=e
     set guioptions-=T
@@ -193,7 +195,6 @@ set wildignore+=*.pyc                            " Python byte code
 set wildignore+=*.orig                           " Merge resolution files
 set wildignore+=*.beam                           " Erlang object code
 set wildignore+=classes                          " java/clojure classes
-set wildignore+=lib                              " library files
 set wildignore+=cabal-dev                        " cabal
 set wildignore+=dist                             " cabal distrubition
 
@@ -240,6 +241,11 @@ let maplocalleader = "_"
 
 " Toggle whitespace invisibles
 nmap <leader>l :set list!<CR>
+
+" Vimwiki
+let g:vimwiki_list = [{'path': '~/wiki/'}]
+let g:vimwiki_dir_link = ''                 " open files in netrw
+
 
 " Go settings
 au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4

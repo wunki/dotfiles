@@ -33,6 +33,7 @@ Plug 'bronson/vim-trailing-whitespace'                   " remove trailing white
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
 Plug 'vimwiki'                                           " personal wiki
 Plug 'airblade/vim-gitgutter'                            " display changes in the gutter
+Plug 'Shougo/neocomplete.vim'                            " autocompletion
 
 " Github
 Plug 'mattn/webapi-vim'

@@ -90,6 +90,7 @@ Plug 'Glench/Vim-Jinja2-Syntax'
 
 " Python
 Plug 'klen/python-mode', { 'for': 'python' }
+Plug 'davidhalter/jedi-vim', { 'for': 'python' }
 Plug 'lambdalisue/vim-pyenv', { 'for': 'python' }
 
 call plug#end()

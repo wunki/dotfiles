@@ -1,7 +1,7 @@
 # ~/.tmuxinator/gibbon-web.yml
 
 name: gibbon-web
-root: ~/Python/gibbon-web
+root: ~/python/gibbon-web
 
 windows:
   - vim:

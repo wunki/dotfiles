@@ -3,9 +3,11 @@
 
 ;; auto-completion
 (require 'company-go)
-(add-hook 'go-mode-hook (lambda ()
-                          (set (make-local-variable 'company-backends) '(company-go))
-                          (company-mode)))
+
+(add-hook 'go-mode-hook
+          (lambda ()
+            (set (make-local-variable 'company-backends) '(company-go))
+            (company-mode)))
 
 ;; documentation
 (add-hook 'go-mode-hook 'go-eldoc-setup)

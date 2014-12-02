@@ -42,7 +42,7 @@ function kafka-run; kafka-server-start.sh /usr/local/etc/kafka/server.properties
 function nfsstart; sudo systemctl start rpc-idmapd rpc-mountd; end
 
 # Mu indexing
-function mu-reindex; mu index --rebuild --maildir=/Users/wunki/Mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
+function mu-reindex; mu index --rebuild --maildir=/home/wunki/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
 function mu-index; mu index --maildir=/Users/wunki/Mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
 
 # environment variables

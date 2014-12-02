@@ -99,7 +99,7 @@ if has("gui_running")
     if has('mac')
         set guifont=Fira\ Mono:h15
     else
-        set guifont=Ubuntu\ Mono\ 13
+        set guifont=Ubuntu\ Mono\ 14
     endif
     set guioptions-=e
     set guioptions-=T

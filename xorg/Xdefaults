@@ -18,6 +18,7 @@ urxvt.perl-lib: /home/wunki/src/urxvt-perls/
 urxvt.perl-ext-common: clipboard,keyboard-select
 
 ! RXVT Clipboard
+urxvt.clipboard.autocopy: true
 urxvt.keysym.M-c:   perl:clipboard:copy
 urxvt.keysym.M-v:   perl:clipboard:paste
 urxvt.keysym.M-C-v: perl:clipboard:paste_escaped

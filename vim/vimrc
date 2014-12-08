@@ -33,6 +33,7 @@ Plug 'bronson/vim-trailing-whitespace'                   " remove trailing white
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
 Plug 'vimwiki'                                           " personal wiki
 Plug 'airblade/vim-gitgutter'                            " display changes in the gutter
+Plug 'Shougo/neocomplete.vim'                            " autocompletion
 
 " Github
 Plug 'mattn/webapi-vim'
@@ -100,7 +101,7 @@ if has("gui_running")
     if has('mac')
         set guifont=Fira\ Mono:h15
     else
-        set guifont=Ubuntu\ Mono\ 13
+        set guifont=Ubuntu\ Mono\ 14
     endif
     set guioptions-=e
     set guioptions-=T

@@ -1,5 +1,7 @@
 ;; load theme and don't ask if it's save.
-(load-theme 'sanityinc-tomorrow-blue t)
+(if (display-graphic-p)
+    (load-theme 'sanityinc-tomorrow-blue t)
+  (load-theme 'zenburn t))
 
 (set-frame-font "Ubuntu Mono")
 (add-to-list 'default-frame-alist '(font . "Ubuntu Mono"))

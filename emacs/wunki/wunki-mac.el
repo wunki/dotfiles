@@ -16,8 +16,8 @@
 (setenv "EDITOR" "emacsclient")
 
 ;; Set the Apple key as Meta
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier 'none)
+;; (setq mac-command-modifier 'meta)
+;; (setq mac-option-modifier 'none)
 (setq default-input-method "MacOSX")
 (global-set-key (kbd "M-`") 'ns-next-frame)
 (global-set-key (kbd "M-h") 'ns-do-hide-emacs)

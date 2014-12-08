@@ -125,4 +125,10 @@
   (transpose-lines 1)
   (previous-line 1))
 
+;; Check if system is Darwin/Mac OS X
+(defun mac? ()
+  (interactive)
+  "Return true if system is darwin-based (Mac OS X)"
+  (string-equal system-type "darwin"))
+
 (provide 'wunki-defuns)

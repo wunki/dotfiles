@@ -2,7 +2,7 @@
 #include "/home/wunki/src/wunki-dotfiles/xorg/zenburn.rxvt.colors"
 
 Xcursor.theme: Vanilla-DMZ-AA
-Xcursor.size: 24
+Xcursor.size: 48
 
 ! XFT Settings
 Xft.autohint: 0
@@ -10,7 +10,7 @@ Xft.antialias: 1
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintslight
 Xft.hinting: 1
-Xft.dpi: 96
+Xft.dpi: 192
 Xft.rgba: rgb
 
 ! RXVT Scripts
@@ -28,10 +28,10 @@ urxvt.keysym.M-Escape: perl:keyboard-select:activate
 urxvt.keysym.M-s:      perl:keyboard-select:search
 
 ! Urxvt fonts
-urxvt.font:            xft:Ubuntu Mono:size=14
-urxvt.boldFont:        xft:Ubuntu Mono::bold:size=14
-urxvt.italicFont:      xft:Ubuntu Mono::italic:size=14
-urxvt.boldItalicFont:  xft:Ubuntu Mono::bolditalic:size=14
+urxvt.font:            xft:Ubuntu Mono:size=12
+urxvt.boldFont:        xft:Ubuntu Mono::bold:size=12
+urxvt.italicFont:      xft:Ubuntu Mono::italic:size=12
+urxvt.boldItalicFont:  xft:Ubuntu Mono::bolditalic:size=12
 
 ! Urxvt settings
 urxvt.depth: 32

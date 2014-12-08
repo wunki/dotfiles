@@ -1,7 +1,7 @@
-Config { font = "xft:Ubuntu Mono:pixelsize=18:antialias=true"
+Config { font = "xft:Ubuntu Mono:pixelsize=30:antialias=true"
        , bgColor = "#2B2B2B"
        , fgColor = "#DCDCCC"
-       , position = BottomSize L 100 28
+       , position = BottomSize L 100 48
        , border = TopB
        , borderColor = "#333333"
        , lowerOnStart = True

@@ -9,7 +9,9 @@
 (define-key global-map (kbd "<f8>") 'org-cycle-agenda-files)
 
 ;; root directory of org files
-(setq org-root (expand-file-name "~/org"))
+(if (mac?)
+    (setq org-root (expand-file-name "~/Org"))
+    (setq org-root (expand-file-name "~/org")))
 
 ;; journal
 (setq org-journal-dir (format "%s/%s" org-root "journal"))

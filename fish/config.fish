@@ -9,6 +9,7 @@ function duh; du -ah --max-depth=1; end
 function lah; ls -lah; end
 function j; cd (command autojump $argv); end
 function e; emacsclient -a "" -t $argv; end
+function eg; emacsclient -a "" -nq $argv; end
 function v; vim $argv; end
 function gh-preview; python -m grip; end
 function gogo; mosh ubuntu.local; end
@@ -47,8 +48,8 @@ function mu-index; mu index --maildir=/Users/wunki/Mail --my-address=petar@wunki
 
 # environment variables
 set -x fish_greeting ""
-set -x EDITOR 'vim'
-set -x VISUAL 'vim'
+set -x EDITOR 'emacsclient -t -a ""'
+set -x VISUAL 'emacsclient -t -a ""'
 set -x TERM 'screen-256color'
 
 # secret environment vars

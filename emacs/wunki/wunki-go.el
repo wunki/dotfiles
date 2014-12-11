@@ -1,8 +1,12 @@
 ;; flycheck
-(add-to-list 'load-path "~/Go/src/github.com/dougm/goflycheck")
+(if (mac?)
+    (add-to-list 'load-path "~/Go/src/github.com/dougm/goflymake")
+  (add-to-list 'load-path "~/go/src/github.com/dougm/goflymake"))
+(require 'go-flycheck)
 
 ;; auto-completion
 (require 'company-go)
+(require 'go-projectile)
 
 (add-hook 'go-mode-hook
           (lambda ()

@@ -34,7 +34,7 @@
              cider clojure-mode cljdoc clojurescript-mode
              slamhound haskell-mode shm ghc elpy slime slime-repl
              erlang scala-mode2 ensime go-mode go-eldoc gotest
-             toml-mode rust-mode flycheck-rust
+             go-projectile toml-mode rust-mode flycheck-rust
 
              ;; auto-completion
              company company-go company-ghc

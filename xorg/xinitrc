@@ -13,6 +13,9 @@ xset b off &
 # Disable power-saving
 xset -dpms
 
+# Dvorak
+setxkbmap -layout us -variant dvorak
+
 # Disable screen-saver
 xset s off
 
@@ -47,9 +50,9 @@ emacs --daemon &
 # /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # VMWare
-/usr/bin/vmware-user &
+/usr/local/bin/vmware-user &
 
 #
 # Start window manager
 #
-exec xmonad > $HOME/.xmonad.log 2>&1
+exec /usr/local/bin/xmonad > $HOME/.xmonad.log 2>&1

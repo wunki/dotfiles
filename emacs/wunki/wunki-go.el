@@ -1,4 +1,5 @@
 ;; flycheck
+
 (if (mac?)
     (add-to-list 'load-path "~/Go/src/github.com/dougm/goflymake")
   (add-to-list 'load-path "~/go/src/github.com/dougm/goflymake"))
@@ -26,6 +27,11 @@
              (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)
              (local-set-key (kbd "C-c i") 'go-goto-imports)
              (local-set-key (kbd "C-c d") 'godoc)))
+
+(define-key go-mode-map (kbd "C-x f") 'go-test-current-file)
+(define-key go-mode-map (kbd "C-x t") 'go-test-current-test)
+(define-key go-mode-map (kbd "C-x p") 'go-test-current-project)
+(define-key go-mode-map (kbd "C-x x") 'go-run)
 
 (add-hook 'before-save-hook 'gofmt-before-save)
 

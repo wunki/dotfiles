@@ -12,6 +12,13 @@
 (add-hook 'emacs-lisp-mode-hook 'lisp-coding-defaults)
 (add-hook 'cider-repl-mode-hook 'lisp-coding-defaults)
 
+;; cleanup buffer to cleanup functions
+(require 'clj-refactor)
+(add-to-list 'cljr-project-clean-functions 'cleanup-buffer)
+(add-hook 'clojure-mode-hook (lambda ()
+                               (clj-refactor-mode 1)
+                               (cljr-add-keybindings-with-prefix "C-c C-m")))
+
 ;; lisp implementation is SBCL
 (setq inferior-lisp-program "/usr/bin/sbcl --noinform")
 

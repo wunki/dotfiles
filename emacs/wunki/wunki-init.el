@@ -32,9 +32,10 @@
              
              ;; languages
              cider clojure-mode cljdoc clojurescript-mode
-             slamhound haskell-mode shm ghc elpy slime slime-repl
-             erlang scala-mode2 ensime go-mode go-eldoc gotest
-             go-projectile toml-mode rust-mode flycheck-rust
+             clj-refactor slamhound haskell-mode shm ghc elpy
+             slime slime-repl erlang scala-mode2 ensime go-mode
+             go-eldoc gotest go-projectile toml-mode rust-mode
+             flycheck-rust
 
              ;; auto-completion
              company company-go company-ghc

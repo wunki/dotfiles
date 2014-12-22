@@ -3,7 +3,7 @@
 
 (set-frame-font "Ubuntu Mono")
 (add-to-list 'default-frame-alist '(font . "Ubuntu Mono"))
-(set-face-attribute 'default nil :height 150)
+(set-face-attribute 'default nil :height 120)
 
 (defun toggle-dark-light-theme ()
   "Switch between dark and light theme."

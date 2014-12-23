@@ -11,7 +11,12 @@
 ;; root directory of org files
 (if (mac?)
     (setq org-root (expand-file-name "~/Org"))
-    (setq org-root (expand-file-name "~/org")))
+  (setq org-root (expand-file-name "~/org")))
+
+;; todo's for projects
+(require 'org-projectile)
+(setq org-projectile:projects-file (format "%s/%s" org-root "projects.org"))
+(global-set-key (kbd "C-c p c") 'org-projectile:project-todo-completing-read)
 
 ;; journal
 (setq org-journal-dir (format "%s/%s" org-root "journal"))

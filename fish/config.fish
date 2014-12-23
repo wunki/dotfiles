@@ -128,6 +128,10 @@ end
 # rust
 set -x RUST_SRC_PATH "/Users/wunki/Rust/rust/src"
 
+# racket on the mac
+prepend_to_path "/Applications/Racket v6.1.1/bin"
+
+
 # rubygems
 prepend_to_path "$HOME/.gem/ruby/2.0.0/bin"
 prepend_to_path "$HOME/.gem/ruby/1.9.1/bin"

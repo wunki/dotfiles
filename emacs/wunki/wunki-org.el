@@ -11,7 +11,7 @@
 ;; root directory of org files
 (if (mac?)
     (setq org-root (expand-file-name "~/Org"))
-    (setq org-root (expand-file-name "~/org")))
+  (setq org-root (expand-file-name "~/org")))
 
 ;; journal
 (setq org-journal-dir (format "%s/%s" org-root "journal"))

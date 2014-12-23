@@ -22,6 +22,7 @@
              rainbow-delimiters calfw smex smartparens evil
              htmlize move-text dash browse-kill-ring
              exec-path-from-shell flycheck dockerfile-mode
+             ace-window
 
              ;; modes
              org org-plus-contrib org-magit pandoc-mode
@@ -35,7 +36,7 @@
              clj-refactor slamhound haskell-mode shm ghc elpy
              slime slime-repl erlang scala-mode2 ensime go-mode
              go-eldoc gotest go-projectile toml-mode rust-mode
-             flycheck-rust
+             flycheck-rust racket-mode
 
              ;; auto-completion
              company company-go company-ghc

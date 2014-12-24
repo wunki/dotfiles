@@ -12,6 +12,11 @@
 (add-hook 'go-mode-hook
           (lambda ()
             (set (make-local-variable 'company-backends) '(company-go))
+            (setq gofmt-command "goimports")
+            (if (not (string-match "go" compile-command))
+                (set (make-local-variable 'compile-command)
+                     "go build -v; go test -v; go vet"))
+            (flycheck-mode)
             (company-mode)))
 
 ;; documentation

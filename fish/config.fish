@@ -96,8 +96,8 @@ prepend_to_path "$HOME/.cabal/bin"
 
 # go
 prepend_to_path "/usr/local/go/bin"
-if contains (hostname -s) "macbook"
-    set -x GOMAXPROCS (sysctl hw.ncpu | awk '{print $2}')
+if contains (hostname -s) "home"
+    set -x GOMAXPROCS (sysctl -n hw.ncpu)
 else
     set -x GOMAXPROCS (nproc)
 end
@@ -141,8 +141,6 @@ prepend_to_path "/usr/bin/core_perl"
 
 # python
 prepend_to_path "$HOME/.pyenv/bin"
-status --is-interactive; and . (pyenv init -|psub)
-status --is-interactive; and . (pyenv virtualenv-init -|psub)
 
 if contains (hostname -s) "macbook"
   prepend_to_path "$HOME/Library/Python/2.7/bin"  

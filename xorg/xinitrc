@@ -16,11 +16,17 @@ xset -dpms
 # Dvorak
 setxkbmap -layout us -variant dvorak
 
+# Swap control and caps
+setxkbmap -option ctrl:swapcaps
+
+# Swap Super and Meta
+setxkbmap -option altwin:swap_alt_win
+
 # Disable screen-saver
 xset s off
 
 # Key repeat
-xset r rate 300 60
+xset r rate 200 80
 
 # Set the left cursor as default
 xsetroot -cursor_name left_ptr
@@ -48,9 +54,6 @@ emacs --daemon &
 
 # Authentication agent
 # /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
-# VMWare
-/usr/local/bin/vmware-user &
 
 #
 # Start window manager

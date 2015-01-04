@@ -22,11 +22,8 @@ xset r rate 300 80
 # Set the left cursor as default
 xsetroot -cursor_name left_ptr
 
-# Set dvorak keyboard
-setxkbmap -layout us -variant dvorak -option ctrl:nocaps
-
-# Swap Alt and Win keys
-xmodmap ~/.xmodmaprc
+# Set dvorak keyboard, swap caps and control and swap windows with alt
+setxkbmap -layout us -variant dvorak -option "ctrl:nocaps,altwin:swap_alt_win"
 
 # Start rvxt-unicode server
 urxvtd -o -q -f &

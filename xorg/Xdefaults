@@ -1,5 +1,5 @@
 ! Color theme
-#include "/home/wunki/src/wunki-dotfiles/xorg/tomorrow-blue.rxvt.colors"
+#include "/home/wunki/src/wunki-dotfiles/xorg/zenburn.rxvt.colors"
 
 Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size: 24
@@ -10,7 +10,7 @@ Xft.antialias: 1
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintslight
 Xft.hinting: 1
-Xft.dpi: 96
+Xft.dpi: 108
 Xft.rgba: rgb
 
 ! RXVT Scripts
@@ -28,10 +28,10 @@ urxvt.keysym.M-Escape: perl:keyboard-select:activate
 urxvt.keysym.M-s:      perl:keyboard-select:search
 
 ! Urxvt fonts
-urxvt.font:            xft:Ubuntu Mono:size=14
-urxvt.boldFont:        xft:Ubuntu Mono::bold:size=14
-urxvt.italicFont:      xft:Ubuntu Mono::italic:size=14
-urxvt.boldItalicFont:  xft:Ubuntu Mono::bolditalic:size=14
+urxvt.font:            xft:Ubuntu Mono:size=13
+urxvt.boldFont:        xft:Ubuntu Mono::bold:size=13
+urxvt.italicFont:      xft:Ubuntu Mono::italic:size=13
+urxvt.boldItalicFont:  xft:Ubuntu Mono::bolditalic:size=13
 
 ! Urxvt settings
 urxvt.depth: 32
@@ -56,5 +56,5 @@ Emacs.verticalScrollBars: off
 ! Urls
 urxvt.perl-ext: default,matcher
 urxvt.url-launcher: chromium
-urxvt.matcher.button:   1
+urxvt.matcher.button: 1
 urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]

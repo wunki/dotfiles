@@ -24,7 +24,8 @@ function gp; git push origin master; end
 function gf; git pull origin master; end
 
 # rust
-function rust-update; curl https://static.rust-lang.org/rustup.sh | bash; end
+set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
+function rust-update; curl https://static.rust-lang.org/rustup.sh | sudo bash; end
 
 # erlang
 function erlr; erl -pz ebin deps/*/ebin $argv; end
@@ -125,12 +126,8 @@ if contains (hostname -s) "macbook"
     set -x DOCKER_TLS_VERIFY 1
 end
 
-# rust
-set -x RUST_SRC_PATH "/Users/wunki/Rust/rust/src"
-
-# racket on the mac
+# racket (mac)
 prepend_to_path "/Applications/Racket v6.1.1/bin"
-
 
 # rubygems
 prepend_to_path "$HOME/.gem/ruby/2.0.0/bin"

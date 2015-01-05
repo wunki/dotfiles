@@ -1,9 +1,9 @@
 ;; load theme and don't ask if it's save.
-(load-theme 'zenburn t)
+(load-theme 'sanityinc-tomorrow-blue t)
 
 (set-frame-font "Fira Mono")
 (add-to-list 'default-frame-alist '(font . "Fira Mono"))
-(set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil :height 170)
 
 (defun toggle-dark-light-theme ()
   "Switch between dark and light theme."

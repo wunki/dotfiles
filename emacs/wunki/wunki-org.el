@@ -8,6 +8,13 @@
 (define-key global-map (kbd "C-c b") 'org-iswitchb)
 (define-key global-map (kbd "<f8>") 'org-cycle-agenda-files)
 
+;; org-trello
+(require 'org-trello)
+;;; only use org-trello on these files
+(custom-set-variables '(org-trello-files
+                        '("/Org/trello/gibbon-api.org")))
+
+
 ;; root directory of org files
 (if (mac?)
     (setq org-root (expand-file-name "~/Org"))

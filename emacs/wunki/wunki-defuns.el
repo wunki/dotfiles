@@ -15,12 +15,12 @@
   (replace-regexp-in-string "[ \t\n]*$" "" str))
 
 (defun select-next-window ()
-  "Switch to the next window" 
+  "Switch to the next window"
   (interactive)
   (select-window (next-window)))
 
 (defun select-previous-window ()
-  "Switch to the previous window" 
+  "Switch to the previous window"
   (interactive)
   (select-window (previous-window)))
 
@@ -97,7 +97,7 @@
 (defun ido-emacs-config ()
   (interactive)
   (ido-find-file-in-dir "~/.emacs.d/wunki"))
-  
+
 (defun disable-electric-indent ()
   (set (make-local-variable 'electric-indent-mode) nil))
 

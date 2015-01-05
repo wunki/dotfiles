@@ -22,7 +22,7 @@
              rainbow-delimiters calfw smex smartparens evil
              htmlize move-text dash browse-kill-ring
              exec-path-from-shell flycheck dockerfile-mode
-             ace-window
+             ace-window dash-at-point
 
              ;; modes
              org org-plus-contrib org-magit pandoc-mode
@@ -75,5 +75,6 @@
   (require 'wunki-mac))     ; mac settings
 
 ;; email only on my local computer
-(when (string-equal system-name "home.wunki.org")
+(when (or (string-equal system-name "home.wunki.org")
+          (string-equal system-name "macbook.wunki.org"))
   (require 'wunki-mu4e))

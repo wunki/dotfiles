@@ -22,7 +22,7 @@
              rainbow-delimiters calfw smex smartparens evil
              htmlize move-text dash browse-kill-ring
              exec-path-from-shell flycheck dockerfile-mode
-             ace-window
+             ace-window dash-at-point
 
              ;; modes
              org org-plus-contrib org-magit pandoc-mode

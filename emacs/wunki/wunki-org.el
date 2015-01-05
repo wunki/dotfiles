@@ -65,7 +65,6 @@
    (ditaa . t)
    (python . t)
    (haskell . t)
-   (scala . t)
    (scheme . t)
    (clojure . t)))
 

@@ -28,10 +28,10 @@ urxvt.keysym.M-Escape: perl:keyboard-select:activate
 urxvt.keysym.M-s:      perl:keyboard-select:search
 
 ! Urxvt fonts
-urxvt.font:            xft:Ubuntu Mono:size=12
-urxvt.boldFont:        xft:Ubuntu Mono::bold:size=12
-urxvt.italicFont:      xft:Ubuntu Mono::italic:size=12
-urxvt.boldItalicFont:  xft:Ubuntu Mono::bolditalic:size=12
+urxvt.font:            xft:Ubuntu Mono:size=14
+urxvt.boldFont:        xft:Ubuntu Mono::bold:size=14
+urxvt.italicFont:      xft:Ubuntu Mono::italic:size=14
+urxvt.boldItalicFont:  xft:Ubuntu Mono::bolditalic:size=14
 
 ! Urxvt settings
 urxvt.depth: 32
@@ -55,6 +55,6 @@ Emacs.verticalScrollBars: off
 
 ! Urls
 urxvt.perl-ext: default,matcher
-urxvt.url-launcher: firefox
+urxvt.url-launcher: chromium
 urxvt.matcher.button:   1
 urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]

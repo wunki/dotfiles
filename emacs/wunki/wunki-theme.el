@@ -1,9 +1,9 @@
 ;; load theme and don't ask if it's save.
 (load-theme 'zenburn t)
 
-(set-frame-font "Ubuntu Mono")
-(add-to-list 'default-frame-alist '(font . "Ubuntu Mono"))
-(set-face-attribute 'default nil :height 150)
+(set-frame-font "Fira Mono")
+(add-to-list 'default-frame-alist '(font . "Fira Mono"))
+(set-face-attribute 'default nil :height 160)
 
 (defun toggle-dark-light-theme ()
   "Switch between dark and light theme."

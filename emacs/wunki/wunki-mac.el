@@ -15,6 +15,10 @@
 ;; emacsclient as editor for Magit
 (setenv "EDITOR" "emacsclient")
 
+;; dash for documentation
+(global-set-key "\C-cd" 'dash-at-point)
+(global-set-key "\C-ce" 'dash-at-point-with-docset)
+
 ;; Set the Apple key as Meta
 ;; (setq mac-command-modifier 'meta)
 ;; (setq mac-option-modifier 'none)

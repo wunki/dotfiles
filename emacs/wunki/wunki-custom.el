@@ -8,9 +8,9 @@
 (setq user-full-name "Petar Radosevic")
 (setq user-mail-address "petar@wunki.org")
 
-;; firefox as browser
+;; chrome as browser
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "firefox")
+      browse-url-generic-program "chromium")
 
 ;; desktop, to automatically save and restore sessions
 (setq desktop-dirname             "~/.emacs.d/desktop/"

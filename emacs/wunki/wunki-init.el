@@ -75,5 +75,6 @@
   (require 'wunki-mac))     ; mac settings
 
 ;; email only on my local computer
-(when (string-equal system-name "home.wunki.org")
+(when (or (string-equal system-name "home.wunki.org")
+          (string-equal system-name "macbook.wunki.org"))
   (require 'wunki-mu4e))

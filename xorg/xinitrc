@@ -17,10 +17,13 @@ xset -dpms
 xset s off
 
 # Key repeat
-xset r rate 300 60
+xset r rate 300 80
 
 # Set the left cursor as default
 xsetroot -cursor_name left_ptr
+
+# Set dvorak keyboard, swap caps and control and swap windows with alt
+setxkbmap -layout us -variant dvorak -option "ctrl:nocaps,altwin:swap_alt_win"
 
 # Start rvxt-unicode server
 urxvtd -o -q -f &
@@ -45,9 +48,6 @@ emacs --daemon &
 
 # Authentication agent
 # /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-
-# VMWare
-/usr/bin/vmware-user &
 
 #
 # Start window manager

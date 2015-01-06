@@ -43,8 +43,9 @@ function kafka-run; kafka-server-start.sh /usr/local/etc/kafka/server.properties
 function nfsstart; sudo systemctl start rpc-idmapd rpc-mountd; end
 
 # Mu indexing
-function mu-reindex; mu index --rebuild --maildir=/home/wunki/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
-function mu-index; mu index --maildir=/Users/wunki/Mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
+function mu-reindex; mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
+function mu-index; mu index --maildir=~/Mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
+
 
 # environment variables
 set -x fish_greeting ""
@@ -194,10 +195,10 @@ function fish_prompt
 
   # CWD
   set_color $fish_color_cwd
-  printf '%s' (prompt_pwd)
+  printf '%s ' (prompt_pwd)
 
   # Git
-  set_color normal
-  printf '%s ' (__fish_git_prompt)
-  set_color normal
+  # set_color normal
+  # printf '%s ' (__fish_git_prompt)
+  # set_color normal
 end

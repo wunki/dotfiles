@@ -78,13 +78,6 @@
 (setq ispell-program-name "aspell")
 (setq ispell-list-command "list")
 
-;; disable scrollbars and menu bar on the mac. On Linux you can disable it in
-;; Xdefaults.
-(when (string-equal system-type "darwin")
-  (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-  (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-  (when (fboundp 'menu-bar-mode) (menu-bar-mode -1)))
-
 ;; set by emacs
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

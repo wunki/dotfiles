@@ -8,6 +8,12 @@
 ;; correct path
 (exec-path-from-shell-initialize)
 
+;; disable scrollbars and menu bar on the mac. On Linux you can disable it in
+;; Xdefaults.
+(when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+
 ;; copy some vars over
 (exec-path-from-shell-copy-env "GOPATH")
 (exec-path-from-shell-copy-env "PYTHONPATH")

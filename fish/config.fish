@@ -8,8 +8,8 @@ function nstat; sudo nethogs wlan0 $argv; end
 function duh; du -ah --max-depth=1; end
 function lah; ls -lah; end
 function j; cd (command autojump $argv); end
-function e; emacsclient -a "" -t $argv; end
-function eg; emacsclient -a "" -nq $argv; end
+function et; emacsclient -a "" -t $argv; end
+function e; emacsclient -a "" -nq $argv; end
 function v; vim $argv; end
 function gh-preview; python -m grip; end
 function gogo; mosh ubuntu.local; end

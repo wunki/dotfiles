@@ -51,7 +51,8 @@ function mu-index; mu index --maildir=~/Mail --my-address=petar@wunki.org --my-a
 set -x fish_greeting ""
 set -x EDITOR 'emacsclient -t -a ""'
 set -x VISUAL 'emacsclient -t -a ""'
-set -x TERM 'screen-256color'
+set -x TERM 'rxvt-256color'
+set -x XDG_DATA_HOME {$HOME}/.local/share
 
 # UTF-8
 set -x LANG 'en_US.UTF-8'
@@ -61,8 +62,14 @@ set -x LC_ALL 'en_US.UTF-8'
 . ~/.config/fish/secret_env.fish
 
 # autojump
-if test -f "/usr/local/etc/autojump.fish"
-   . /usr/local/etc/autojump.fish
+if contains (hostname -s) "macbook"
+   set autojump_path "/usr/local/etc/autojump.fish"
+else
+  set autojump_path "/etc/profile.d/autojump.fish"
+end
+
+if test -f $autojump_path
+   . $autojump_path
 end
 
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"
@@ -156,12 +163,6 @@ if contains (hostname -s) "macbook"
   set -gx PYTHONPATH "$HOME/Library/Python/2.7/lib/python/site-packages:/Library/Python/2.7/site-packages"
 end
 
-# git prompt
-set __fish_git_prompt_showdirtystate 'yes'
-set __fish_git_prompt_showstashstate 'yes'
-set __fish_git_prompt_showupstream 'yes'
-set __fish_git_prompt_color_branch yellow
-
 # aws
 prepend_to_path "$HOME/.aws/bin"
 set -x AWS_IAM_HOME "$HOME/.aws/iam"
@@ -171,6 +172,12 @@ set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
 function fish_title
     true
 end
+
+# git prompt
+set __fish_git_prompt_showdirtystate 'yes'
+set __fish_git_prompt_showstashstate 'yes'
+set __fish_git_prompt_showupstream 'yes'
+set __fish_git_prompt_color_branch yellow
 
 # status chars
 set __fish_git_prompt_char_upstream_equal '✓'
@@ -189,16 +196,41 @@ if test -f /usr/local/bin/ondir
     end
 end
 
+# hardcode the colors because of a bug in Arch Linux
+set -l name "any-string-will-do"
+if [ "$fish_user_environment" != "$name" ]
+   set -U fish_color_autosuggestion 555 yellow
+   set -U fish_color_command 005fd7 purple
+   set -U fish_color_comment red
+   set -U fish_color_cwd green
+   set -U fish_color_cwd_root red
+   set -U fish_color_error red --bold
+   set -U fish_color_escape cyan
+   set -U fish_color_history_current cyan
+   set -U fish_color_match cyan
+   set -U fish_color_normal normal
+   set -U fish_color_operator cyan
+   set -U fish_color_param 00afff cyan
+   set -U fish_color_quote brown
+   set -U fish_color_redirection normal
+   set -U fish_color_search_match --background=purple
+   set -U fish_color_valid_path --underline
+   set -U fish_pager_color_completion normal
+   set -U fish_pager_color_description 555 yellow
+   set -U fish_pager_color_prefix cyan
+   set -U fish_pager_color_progress cyan
+end
+
 # the prompt
 function fish_prompt
   set last_status $status
 
   # CWD
   set_color $fish_color_cwd
-  printf '%s ' (prompt_pwd)
+  printf '%s' (prompt_pwd)
 
   # Git
-  # set_color normal
-  # printf '%s ' (__fish_git_prompt)
-  # set_color normal
+  set_color normal
+  printf '%s ' (__fish_git_prompt)
+  set_color normal
 end

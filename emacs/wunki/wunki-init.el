@@ -29,7 +29,7 @@
              markdown-mode git-commit-mode gitconfig-mode
              gitignore-mode git-gutter js2-mode yaml-mode
              pretty-mode-plus ido-ubiquitous flx-ido undo-tree
-             ace-jump-mode web-mode anzu
+             ace-jump-mode web-mode anzu org-trello
              
              ;; languages
              cider clojure-mode cljdoc clojurescript-mode

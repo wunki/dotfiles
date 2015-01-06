@@ -34,7 +34,8 @@
 (global-auto-revert-mode t)
 
 ;; powerline
-;; (powerline-default-theme)
+(require 'powerline)
+(powerline-default-theme)
 
 ;; indent after newline
 (electric-indent-mode t)
@@ -125,7 +126,7 @@
 (setq auto-mode-alist (cons '("\\.markdown" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.page" . markdown-mode) auto-mode-alist))
-(add-hook 'markdown-mode-hook 'turn-on-pandoc)
+(add-hook 'markdown-mode-hook 'pandoc-mode)
 
 ;; puppet
 (autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")

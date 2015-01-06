@@ -7,9 +7,6 @@
 (require 'sendmail)
 (require 'org-mu4e)
 
-;; paths
-(setq maildir (if (mac?) "/Users/wunki/Mail" "/home/wunki/mail"))
-
 ;; hooks
 (add-hook 'mu4e-compose-mode-hook
           (defun my-compose-stuff ()
@@ -46,7 +43,7 @@
 )
 
 ;; maildir locations
-(setq mu4e-maildir       "/home/wunki/mail"
+(setq mu4e-maildir       "~/mail"
       mu4e-sent-folder   "/wunki/sent"
       mu4e-drafts-folder "/wunki/drafts"
       mu4e-trash-folder  "/wunki/trash"

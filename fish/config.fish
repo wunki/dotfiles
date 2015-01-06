@@ -7,9 +7,8 @@ function weechat; weechat-curses $argv; end
 function nstat; sudo nethogs wlan0 $argv; end
 function duh; du -ah --max-depth=1; end
 function lah; ls -lah; end
-function j; cd (command autojump $argv); end
-function e; emacsclient -a "" -t $argv; end
-function eg; emacsclient -a "" -nq $argv; end
+function et; emacsclient -a "" -t $argv; end
+function e; emacsclient -a "" -nq $argv; end
 function v; vim $argv; end
 function gh-preview; python -m grip; end
 function gogo; mosh ubuntu.local; end
@@ -44,8 +43,9 @@ function kafka-run; kafka-server-start.sh /usr/local/etc/kafka/server.properties
 function nfsstart; sudo systemctl start rpc-idmapd rpc-mountd; end
 
 # Mu indexing
-function mu-reindex; mu index --rebuild --maildir=/home/wunki/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
-function mu-index; mu index --maildir=/Users/wunki/Mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
+function mu-reindex; mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
+function mu-index; mu index --maildir=~/Mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
+
 
 # environment variables
 set -x fish_greeting ""
@@ -53,11 +53,17 @@ set -x EDITOR 'emacsclient -t -a ""'
 set -x VISUAL 'emacsclient -t -a ""'
 set -x TERM 'screen-256color'
 
+# UTF-8
+set -x LANG 'en_US.UTF-8'
+set -x LC_ALL 'en_US.UTF-8'
+
 # secret environment vars
 . ~/.config/fish/secret_env.fish
 
 # autojump
-. ~/.config/fish/autojump.fish
+if test -f "/usr/local/etc/autojump.fish"
+   . /usr/local/etc/autojump.fish
+end
 
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"
     if test -d $argv[1]
@@ -161,6 +167,11 @@ prepend_to_path "$HOME/.aws/bin"
 set -x AWS_IAM_HOME "$HOME/.aws/iam"
 set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
 
+# fix fish in Emacs ansi-term
+function fish_title
+    true
+end
+
 # status chars
 set __fish_git_prompt_char_upstream_equal '✓'
 set __fish_git_prompt_char_dirtystate '⚡'
@@ -184,10 +195,10 @@ function fish_prompt
 
   # CWD
   set_color $fish_color_cwd
-  printf '%s' (prompt_pwd)
+  printf '%s ' (prompt_pwd)
 
   # Git
-  set_color normal
-  printf '%s ' (__fish_git_prompt)
-  set_color normal
+  # set_color normal
+  # printf '%s ' (__fish_git_prompt)
+  # set_color normal
 end

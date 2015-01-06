@@ -52,6 +52,10 @@ set -x EDITOR 'emacsclient -t -a ""'
 set -x VISUAL 'emacsclient -t -a ""'
 set -x TERM 'screen-256color'
 
+# UTF-8
+set -x LANG 'en_US.UTF-8'
+set -x LC_ALL 'en_US.UTF-8'
+
 # secret environment vars
 . ~/.config/fish/secret_env.fish
 

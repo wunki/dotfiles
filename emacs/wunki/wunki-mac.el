@@ -27,4 +27,8 @@
 (global-set-key (kbd "M-h") 'ns-do-hide-emacs)
 (global-set-key (kbd "M-H") 'ns-do-hide-others)
 
+;; On Unix I start the daemon manually at boot, on the Mac this needs to be
+;; done here.
+(server-start)
+
 (provide 'wunki-mac)

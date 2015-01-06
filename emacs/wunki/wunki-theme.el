@@ -1,10 +1,9 @@
 ;; load theme and don't ask if it's save.
 (load-theme 'sanityinc-tomorrow-blue t)
 
-(setq wunki-font "Fira Mono")
-(set-frame-font 'wunki-font)
-(add-to-list 'default-frame-alist '(font . 'wunki-font))
-(set-face-attribute 'default nil :height 170)
+(set-frame-font "Fira Mono")
+(add-to-list 'default-frame-alist '(font . "Fira Mono"))
+(set-face-attribute 'default nil :height 120)
 
 (defun toggle-dark-light-theme ()
   "Switch between dark and light theme."

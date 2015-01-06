@@ -1,5 +1,5 @@
 ;; use fish as the default shell
-(setq explicit-shell-file-name "/usr/local/bin/fish")
+(setq explicit-shell-file-name (locate-file "fish" exec-path))
 
 ;; needed modes
 (add-hook 'term-mode-hook
@@ -17,9 +17,8 @@
 (ad-activate 'term-sentinel)
 
 ;; don't ask which shell to use, just start fish
-(defvar my-term-shell "/usr/local/bin/fish")
 (defadvice ansi-term (before force-fish)
-  (interactive (list my-term-shell)))
+  (interactive (list explicit-shell-file-name)))
 (ad-activate 'ansi-term)
 
 ;; use utf-8 in terminal

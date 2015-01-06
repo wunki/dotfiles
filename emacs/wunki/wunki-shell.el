@@ -7,6 +7,15 @@
             (goto-address-mode)          ; ability to click on links
             (toggle-truncate-lines)))
 
+;; close the buffer when exiting
+(defadvice term-sentinel (around my-advice-term-sentinel (proc msg))
+  (if (memq (process-status proc) '(signal exit))
+      (let ((buffer (process-buffer proc)))
+        ad-do-it
+        (kill-buffer buffer))
+    ad-do-it))
+(ad-activate 'term-sentinel)
+
 ;; don't ask which shell to use, just start fish
 (defvar my-term-shell "/usr/local/bin/fish")
 (defadvice ansi-term (before force-fish)

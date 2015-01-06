@@ -11,11 +11,10 @@ function et; emacsclient -a "" -t $argv; end
 function e; emacsclient -a "" -nq $argv; end
 function v; vim $argv; end
 function gh-preview; python -m grip; end
-function gogo; mosh ubuntu.local; end
 
-# start end end dropbox
-function dropstart; sudo systemctl start dropbox@wunki.service; end
-function dropstop; sudo systemctl stop dropbox@wunki.service; end
+# mu
+function mu-reindex; mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
+function mu-index; mu index --maildir=~/Mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
 
 # git
 function gs; git status --ignore-submodules=dirty; end
@@ -23,7 +22,7 @@ function gp; git push origin master; end
 function gf; git pull origin master; end
 
 # rust
-set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
+set -x LD_LIBRARY_PATH {$LD_LIBRARY_PATH}:/usr/local/lib
 function rust-update; curl https://static.rust-lang.org/rustup.sh | sudo bash; end
 
 # erlang
@@ -31,21 +30,6 @@ function erlr; erl -pz ebin deps/*/ebin $argv; end
 
 # python
 function rmpyc; find . -name '*.pyc' | xargs rm; end
-
-# run different databases
-function redis-run; redis-server /usr/local/etc/redis.conf; end
-function influx-run; influxdb -config=/usr/local/etc/influxdb.conf; end
-function zookeeper-run; zkServer start; end
-function mongo-run; mongod --config /usr/local/etc/mongod.conf; end
-function kafka-run; kafka-server-start.sh /usr/local/etc/kafka/server.properties; end
-
-# NFS
-function nfsstart; sudo systemctl start rpc-idmapd rpc-mountd; end
-
-# Mu indexing
-function mu-reindex; mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
-function mu-index; mu index --maildir=~/Mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
-
 
 # environment variables
 set -x fish_greeting ""
@@ -59,25 +43,27 @@ set -x LANG 'en_US.UTF-8'
 set -x LC_ALL 'en_US.UTF-8'
 
 # secret environment vars
-. ~/.config/fish/secret_env.fish
+set fish_secret "~/.config/fish/secret_env.fish"
+if test -f $fish_secret
+  . $fish_secret
+end  
 
 # autojump
 if contains (hostname -s) "macbook"
-   set autojump_path "/usr/local/etc/autojump.fish"
+  set autojump_path "/usr/local/etc/autojump.fish"
 else
   set autojump_path "/etc/profile.d/autojump.fish"
 end
-
 if test -f $autojump_path
-   . $autojump_path
+  . $autojump_path
 end
 
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"
-    if test -d $argv[1]
-        if not contains $argv[1] $PATH
-            set -gx PATH "$argv[1]" $PATH
-        end
+  if test -d $argv[1]
+    if not contains $argv[1] $PATH
+      set -gx PATH "$argv[1]" $PATH
     end
+  end
 end
 
 # Start with a clean path, because order matters
@@ -103,23 +89,23 @@ prepend_to_path "/Applications/Postgres.app/Contents/Versions/9.3/bin"
 
 # haskell
 if contains (hostname -s) "macbook"
-   set -x GHC_DOT_APP "/Applications/ghc-7.8.3.app"
-   prepend_to_path "$GHC_DOT_APP/Contents/bin"
+  set -x GHC_DOT_APP "/Applications/ghc-7.8.3.app"
+  prepend_to_path "$GHC_DOT_APP/Contents/bin"
 end
 prepend_to_path "$HOME/.cabal/bin"
 
 # go
 prepend_to_path "/usr/local/go/bin"
 if contains (hostname -s) "macbook"
-    set -x GOMAXPROCS (sysctl hw.ncpu | awk '{print $2}')
+  set -x GOMAXPROCS (sysctl hw.ncpu | awk '{print $2}')
 else
-    set -x GOMAXPROCS (nproc)
+  set -x GOMAXPROCS (nproc)
 end
 
 if test -d "$HOME/go"
-   set -x GOPATH "$HOME/go"
+  set -x GOPATH "$HOME/go"
 else
-   set -x GOPATH "$HOME/Go"
+  set -x GOPATH "$HOME/Go"
 end
 prepend_to_path "$GOPATH/bin"
 
@@ -134,9 +120,9 @@ end
 
 # boot2docker on the mac
 if contains (hostname -s) "macbook"
-    set -x DOCKER_HOST "tcp://192.168.59.103:2376"
-    set -x DOCKER_CERT_PATH "/Users/wunki/.boot2docker/certs/boot2docker-vm"
-    set -x DOCKER_TLS_VERIFY 1
+  set -x DOCKER_HOST "tcp://192.168.59.103:2376"
+  set -x DOCKER_CERT_PATH "/Users/wunki/.boot2docker/certs/boot2docker-vm"
+  set -x DOCKER_TLS_VERIFY 1
 end
 
 # racket (mac)
@@ -170,67 +156,14 @@ set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
 
 # fix fish in Emacs ansi-term
 function fish_title
-    true
+  true
 end
-
-# git prompt
-set __fish_git_prompt_showdirtystate 'yes'
-set __fish_git_prompt_showstashstate 'yes'
-set __fish_git_prompt_showupstream 'yes'
-set __fish_git_prompt_color_branch yellow
-
-# status chars
-set __fish_git_prompt_char_upstream_equal '✓'
-set __fish_git_prompt_char_dirtystate '⚡'
-set __fish_git_prompt_char_stagedstate '→'
-set __fish_git_prompt_char_stashstate '↩'
-set __fish_git_prompt_char_upstream_ahead '↑'
-set __fish_git_prompt_char_upstream_behind '↓'
 
 # set variables on directories with ondir
 if test -f /usr/local/bin/ondir
-    function ondir_prompt_hook --on-event fish_prompt
-        if test ! -e "$OLDONDIRWD"; set -g OLDONDIRWD /; end;
-        if [ "$OLDONDIRWD" != "$PWD" ]; eval (ondir $OLDONDIRWD $PWD); end;
-        set -g OLDONDIRWD "$PWD";
-    end
-end
-
-# hardcode the colors because of a bug in Arch Linux
-set -l name "any-string-will-do"
-if [ "$fish_user_environment" != "$name" ]
-   set -U fish_color_autosuggestion 555 yellow
-   set -U fish_color_command 005fd7 purple
-   set -U fish_color_comment red
-   set -U fish_color_cwd green
-   set -U fish_color_cwd_root red
-   set -U fish_color_error red --bold
-   set -U fish_color_escape cyan
-   set -U fish_color_history_current cyan
-   set -U fish_color_match cyan
-   set -U fish_color_normal normal
-   set -U fish_color_operator cyan
-   set -U fish_color_param 00afff cyan
-   set -U fish_color_quote brown
-   set -U fish_color_redirection normal
-   set -U fish_color_search_match --background=purple
-   set -U fish_color_valid_path --underline
-   set -U fish_pager_color_completion normal
-   set -U fish_pager_color_description 555 yellow
-   set -U fish_pager_color_prefix cyan
-   set -U fish_pager_color_progress cyan
-end
-
-# the prompt
-function fish_prompt
-  set last_status $status
-
-  # CWD
-  set_color $fish_color_cwd
-  printf '%s' (prompt_pwd)
-
-  # Git
-  set_color normal
-  printf '%s ' (__fish_git_prompt)
-  set_color normal
+  function ondir_prompt_hook --on-event fish_prompt
+  if test ! -e "$OLDONDIRWD"; set -g OLDONDIRWD /; end;
+  if [ "$OLDONDIRWD" != "$PWD" ]; eval (ondir $OLDONDIRWD $PWD); end;
+    set -g OLDONDIRWD "$PWD";
+  end
 end

@@ -7,7 +7,6 @@ function weechat; weechat-curses $argv; end
 function nstat; sudo nethogs wlan0 $argv; end
 function duh; du -ah --max-depth=1; end
 function lah; ls -lah; end
-function j; cd (command autojump $argv); end
 function et; emacsclient -a "" -t $argv; end
 function e; emacsclient -a "" -nq $argv; end
 function v; vim $argv; end
@@ -57,7 +56,9 @@ set -x TERM 'screen-256color'
 . ~/.config/fish/secret_env.fish
 
 # autojump
-. ~/.config/fish/autojump.fish
+if test -f "/usr/local/etc/autojump.fish"
+   . /usr/local/etc/autojump.fish
+end
 
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"
     if test -d $argv[1]
@@ -160,6 +161,11 @@ set __fish_git_prompt_color_branch yellow
 prepend_to_path "$HOME/.aws/bin"
 set -x AWS_IAM_HOME "$HOME/.aws/iam"
 set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
+
+# fix fish in Emacs ansi-term
+function fish_title
+    true
+end
 
 # status chars
 set __fish_git_prompt_char_upstream_equal '✓'

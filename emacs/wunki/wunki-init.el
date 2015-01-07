@@ -22,7 +22,7 @@
              rainbow-delimiters calfw smex smartparens evil
              htmlize move-text dash browse-kill-ring
              exec-path-from-shell flycheck dockerfile-mode
-             ace-window dash-at-point
+             ace-window dash-at-point ace-window twittering-mode
 
              ;; modes
              org org-plus-contrib org-magit pandoc-mode
@@ -34,19 +34,16 @@
              ;; languages
              cider clojure-mode cljdoc clojurescript-mode
              clj-refactor slamhound haskell-mode shm ghc elpy
-             slime slime-repl erlang scala-mode2 ensime go-mode
-             go-eldoc gotest go-projectile toml-mode rust-mode
-             flycheck-rust racket-mode
+             slime slime-repl erlang go-mode go-eldoc gotest
+             go-projectile toml-mode rust-mode flycheck-rust
+             racket-mode
 
              ;; auto-completion
              company company-go company-ghc
 
-             ;; fun
-             4clojure
-             
              ;; themes
              zenburn-theme color-theme-sanityinc-tomorrow
-             color-theme-sanityinc-solarized solarized-theme))
+             color-theme-sanityinc-solarized))
   (unless (package-installed-p p)
     (package-install p)))
 

@@ -14,7 +14,6 @@
 ;; correct path
 (exec-path-from-shell-initialize)
 
-
 ;; copy some vars over
 (exec-path-from-shell-copy-env "GOPATH")
 (exec-path-from-shell-copy-env "PYTHONPATH")

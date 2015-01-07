@@ -105,7 +105,7 @@
 (global-set-key (kbd "C-c 3") 'ido-todos)
 
 ;; move around changes
-(global-set-key (kbd "C-c C-c") 'goto-last-change)
+(global-set-key (kbd "C-c C-l") 'goto-last-change)
 
 ;; undo tree
 (global-set-key (kbd "C-c -") 'undo-tree-visualize)
@@ -115,6 +115,9 @@
 
 ;; whitespace mode
 (global-set-key (kbd "C-c C-w") 'global-whitespace-mode)
+
+;; close emacs
+(global-set-key (kbd "C-M-\\") 'ansi-term)
 
 ;; close emacs
 (global-set-key (kbd "C-c q") 'save-buffers-kill-emacs)

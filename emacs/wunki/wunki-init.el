@@ -55,24 +55,22 @@
                   (or (buffer-file-name) load-file-name)))
 (add-to-list 'load-path config-dir)
 
-(require 'wunki-defuns)     ; my functions
-(require 'wunki-modes)      ; settings for specific modes
-(require 'wunki-bindings)   ; load bindings
-(require 'wunki-theme)      ; set the theme and font
-(require 'wunki-temp)       ; temporary files
-(require 'wunki-org)        ; org-mode
-(require 'wunki-shell)      ; shell mode
-(require 'wunki-lisp)       ; lisp languages
-(require 'wunki-scheme)     ; scheme languages
-(require 'wunki-rust)       ; rust
-(require 'wunki-python)     ; python
-(require 'wunki-haskell)    ; haskell
-(require 'wunki-erlang)     ; erlang
-(require 'wunki-go)         ; go
-(require 'wunki-erc)        ; irc
-
-(when (eq system-type 'darwin)
-  (require 'wunki-mac))     ; mac settings
+(require 'wunki-defuns)            ; my functions
+(require 'wunki-modes)             ; settings for specific modes
+(require 'wunki-bindings)          ; load bindings
+(require 'wunki-theme)             ; set the theme and font
+(when (mac?) (require 'wunki-mac)) ; mac settings
+(require 'wunki-temp)              ; temporary files
+(require 'wunki-org)               ; org-mode
+(require 'wunki-shell)             ; shell mode
+(require 'wunki-lisp)              ; lisp languages
+(require 'wunki-scheme)            ; scheme languages
+(require 'wunki-rust)              ; rust
+(require 'wunki-python)            ; python
+(require 'wunki-haskell)           ; haskell
+(require 'wunki-erlang)            ; erlang
+(require 'wunki-go)                ; go
+(require 'wunki-erc)               ; irc
 
 ;; email only on my local computer
 (when (or (string-equal system-name "home.wunki.org")

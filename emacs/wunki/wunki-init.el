@@ -61,6 +61,7 @@
 (require 'wunki-git)               ; (ma)git settings
 (require 'wunki-org)               ; org-mode
 (require 'wunki-shell)             ; shell mode
+(require 'wunki-html)              ; HTML files
 (require 'wunki-lisp)              ; lisp languages
 (require 'wunki-scheme)            ; scheme languages
 (require 'wunki-rust)              ; rust

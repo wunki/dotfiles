@@ -160,7 +160,7 @@ function fish_title
 end
 
 # set variables on directories with ondir
-if test -f /usr/local/bin/ondir
+if test -f /usr/sbin/ondir; or test -f /usr/local/bin/ondir
   function ondir_prompt_hook --on-event fish_prompt
   if test ! -e "$OLDONDIRWD"; set -g OLDONDIRWD /; end;
   if [ "$OLDONDIRWD" != "$PWD" ]; eval (ondir $OLDONDIRWD $PWD); end;

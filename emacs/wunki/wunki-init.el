@@ -58,6 +58,7 @@
 (require 'wunki-theme)             ; set the theme and font
 (when (mac?) (require 'wunki-mac)) ; mac settings
 (require 'wunki-temp)              ; temporary files
+(require 'wunki-git)               ; (ma)git settings
 (require 'wunki-org)               ; org-mode
 (require 'wunki-shell)             ; shell mode
 (require 'wunki-lisp)              ; lisp languages

@@ -4,9 +4,6 @@
 (global-set-key (kbd "<f11>") 'jabber-start)
 (global-set-key (kbd "<f12>") 'cfw:open-calendar-buffer)
 
-;; magit
-(global-set-key (kbd "C-c C-g") 'magit-status)
-
 ;; search forward regexp
 (global-set-key (kbd "C-c C-s") 'search-forward-regexp)
 

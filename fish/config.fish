@@ -102,10 +102,10 @@ else
   set -x GOMAXPROCS (nproc)
 end
 
-if test -d "$HOME/go"
-  set -x GOPATH "$HOME/go"
-else
+if contains (hostname -s) "macbook"
   set -x GOPATH "$HOME/Go"
+else
+  set -x GOPATH "$HOME/go"
 end
 prepend_to_path "$GOPATH/bin"
 

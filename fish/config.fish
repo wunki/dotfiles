@@ -22,7 +22,7 @@ function gp; git push origin master; end
 function gf; git pull origin master; end
 
 # rust
-set -x LD_LIBRARY_PATH {$LD_LIBRARY_PATH}:/usr/local/lib
+set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
 function rust-update; curl https://static.rust-lang.org/rustup.sh | sudo bash; end
 
 # erlang

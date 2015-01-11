@@ -11,13 +11,6 @@
 ;; browser
 (setq browse-url-browser-function 'browse-url-default-macosx-browser)
 
-;; correct path
-(exec-path-from-shell-initialize)
-
-;; copy some vars over
-(exec-path-from-shell-copy-env "GOPATH")
-(exec-path-from-shell-copy-env "PYTHONPATH")
-
 ;; emacsclient as editor for Magit
 (setenv "EDITOR" "emacsclient")
 

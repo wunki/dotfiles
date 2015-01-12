@@ -75,10 +75,6 @@
 (require 'ag)
 (setq ag-highlight-search t)
 
-;; websites
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(setq web-mode-engines-alist '(("django" . "\\.html\\'")))
-
 ;; dired
 (require 'dired-details)
 (setq-default dired-details-hidden-string "--- ")

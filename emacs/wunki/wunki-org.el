@@ -38,7 +38,7 @@
       org-default-notes-file (format "%s/%s" org-root "inbox.org"))
 
 ;; always use indent-mode
-(setq org-startup-indented nil)
+(setq org-startup-indented t)
 
 ;; switch between tasks states
 (setq org-todo-keywords

@@ -14,7 +14,7 @@ function gh-preview; python -m grip; end
 
 # mu
 function mu-reindex; mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
-function mu-index; mu index --maildir=~/Mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
+function mu-index; mu index --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
 
 # git
 function gs; git status --ignore-submodules=dirty; end
@@ -22,7 +22,7 @@ function gp; git push origin master; end
 function gf; git pull origin master; end
 
 # rust
-set -x LD_LIBRARY_PATH {$LD_LIBRARY_PATH}:/usr/local/lib
+set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
 function rust-update; curl https://static.rust-lang.org/rustup.sh | sudo bash; end
 
 # erlang
@@ -141,8 +141,10 @@ prepend_to_path "/usr/bin/core_perl"
 
 # python
 prepend_to_path "$HOME/.pyenv/bin"
-# status --is-interactive; and . (pyenv init -|psub)
-# status --is-interactive; and . (pyenv virtualenv-init -|psub)
+if test -d ~/.pyenv
+  status --is-interactive; and . (pyenv init -|psub)
+  status --is-interactive; and . (pyenv virtualenv-init -|psub)
+end  
 
 if contains (hostname -s) "macbook"
   prepend_to_path "$HOME/Library/Python/2.7/bin"  
@@ -160,7 +162,7 @@ function fish_title
 end
 
 # set variables on directories with ondir
-if test -f /usr/local/bin/ondir
+if test -f /usr/sbin/ondir; or test -f /usr/local/bin/ondir
   function ondir_prompt_hook --on-event fish_prompt
   if test ! -e "$OLDONDIRWD"; set -g OLDONDIRWD /; end;
   if [ "$OLDONDIRWD" != "$PWD" ]; eval (ondir $OLDONDIRWD $PWD); end;

@@ -65,7 +65,7 @@
 (require 'wunki-lisp)              ; lisp languages
 (require 'wunki-scheme)            ; scheme languages
 (require 'wunki-rust)              ; rust
-(require 'wunki-python)            ; python
+;(require 'wunki-python)            ; python
 (require 'wunki-haskell)           ; haskell
 (require 'wunki-erlang)            ; erlang
 (require 'wunki-go)                ; go

@@ -117,7 +117,7 @@
 (global-set-key (kbd "C-c C-w") 'global-whitespace-mode)
 
 ;; close emacs
-(global-set-key (kbd "C-M-\\") 'ansi-term)
+(global-set-key (kbd "M-RET") 'ansi-term)
 
 ;; close emacs
 (global-set-key (kbd "C-c q") 'save-buffers-kill-emacs)

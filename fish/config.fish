@@ -95,6 +95,7 @@ end
 prepend_to_path "$HOME/.cabal/bin"
 
 # go
+function goc; gocov test | gocov report; end
 prepend_to_path "/usr/local/go/bin"
 if contains (hostname -s) "macbook"
   set -x GOMAXPROCS (sysctl hw.ncpu | awk '{print $2}')

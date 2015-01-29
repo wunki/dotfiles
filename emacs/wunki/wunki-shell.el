@@ -1,10 +1,10 @@
-;; use fish as the default shell
-(setq explicit-shell-file-name (locate-file "fish" exec-path))
-
 ;; get the correct exec-path. I thought this was only needed on my Mac, but
 ;; apparently it also fails to the correct path on Linux, maybe due to my fish
 ;; shell.
 (exec-path-from-shell-initialize)
+
+;; use fish as the default shell
+(setq explicit-shell-file-name (locate-file "fish" exec-path))
 
 ;; copy some vars over
 (exec-path-from-shell-copy-env "GOPATH")

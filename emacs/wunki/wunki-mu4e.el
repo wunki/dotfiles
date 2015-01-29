@@ -118,7 +118,7 @@
 
 ;; bookmarks
 (setq mu4e-bookmarks 
-  '(("flag:unread AND NOT maildir:/gibbon/trash AND NOT maildir:/wunki/trash AND NOT maildir:/bread-and-pepper/trash" "All new messages" ?u)
+  '(("flag:unread AND NOT maildir:/gibbon/trash AND NOT maildir:/wunki/trash AND NOT maildir:/bread-and-pepper/trash AND NOT maildir:/wunki/junk AND NOT maildir:/gibbon/junk" "All new messages" ?u)
     ("maildir:/gibbon/inbox"                      "Gibbon's inbox"         ?g)
     ("maildir:/wunki/inbox"                       "Wunki's inbox"          ?w)
     ("maildir:/bread-and-pepper/inbox"            "Bread & Pepper's inbox" ?b)

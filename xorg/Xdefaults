@@ -22,6 +22,8 @@ urxvt.clipboard.autocopy: true
 urxvt.keysym.M-c:   perl:clipboard:copy
 urxvt.keysym.M-v:   perl:clipboard:paste
 urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+urxvt.clipboard.copycmd: parcellite
+urxvt.clipboard.pastecmd: parcellite
 
 ! RXVT Keyboard select
 urxvt.keysym.M-Escape: perl:keyboard-select:activate

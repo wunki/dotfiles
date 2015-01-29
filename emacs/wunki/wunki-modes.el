@@ -122,7 +122,8 @@
 (setq auto-mode-alist (cons '("\\.markdown" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.page" . markdown-mode) auto-mode-alist))
-(add-hook 'markdown-mode-hook 'pandoc-mode)
+(add-hook 'markdown-mode-hook (lambda ()
+                                (orgtbl-mode)))
 
 ;; puppet
 (autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")

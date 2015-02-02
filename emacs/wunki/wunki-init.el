@@ -30,17 +30,19 @@
              gitignore-mode git-gutter js2-mode yaml-mode
              pretty-mode-plus ido-ubiquitous flx-ido undo-tree
              ace-jump-mode web-mode anzu org-trello fish-mode
+
+             ;; auto-completion
+             company company-ghc
              
              ;; languages
              cider clojure-mode cljdoc clojurescript-mode
              clj-refactor slamhound haskell-mode shm ghc elpy
-             slime slime-repl erlang go-mode go-eldoc gotest
-             go-projectile toml-mode rust-mode flycheck-rust
-             racket-mode
+             slime slime-repl erlang toml-mode rust-mode
+             flycheck-rust racket-mode
 
-             ;; auto-completion
-             company company-go company-ghc
-
+             ;; go
+             go-mode go-eldoc gotest go-projectile company-go
+             
              ;; themes
              zenburn-theme color-theme-sanityinc-tomorrow
              color-theme-sanityinc-solarized))

@@ -17,6 +17,7 @@
                 (set (make-local-variable 'compile-command)
                      "go build -v; go test -v; go vet"))
             (flycheck-mode)
+            (subword-mode)
             (company-mode)))
 
 ;; documentation

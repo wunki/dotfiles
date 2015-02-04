@@ -15,16 +15,6 @@ bin::
 	@ln -fns $(DOTFILES)/bin							${HOME}/bin
 	@echo bin files are linked to homedir.
 
-zsh::
-	@ln -fs $(DOTFILES)/zsh/zshenv					${HOME}/.zshenv
-	@ln -fs $(DOTFILES)/zsh/zprofile				${HOME}/.zprofile
-	@ln -fs $(DOTFILES)/zsh/zshrc					${HOME}/.zshrc
-	@ln -fs $(DOTFILES)/zsh/zpreztorc				${HOME}/.zpreztorc
-	@ln -fs $(DOTFILES)/zsh/zlogin					${HOME}/.zlogin
-	@ln -fs $(DOTFILES)/zsh/zlogout					${HOME}/.zlogout
-	@ln -fns $(DOTFILES)/zsh/prezto					${HOME}/.zprezto
-	@echo ZSH is symlinked.
-
 bash::
 	@ln -fs $(DOTFILES)/bash/bash_profile			${HOME}/.bash_profile
 	@ln -fs $(DOTFILES)/bash/bashrc					${HOME}/.bashrc

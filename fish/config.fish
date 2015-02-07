@@ -50,7 +50,7 @@ end
 
 # autojump
 if contains (hostname -s) "macbook"
-  set autojump_path "/usr/local/etc/autojump.fish"
+  set autojump_path "/usr/local/share/autojump/autojump.fish"
 else
   set autojump_path "/etc/profile.d/autojump.fish"
 end
@@ -95,7 +95,9 @@ end
 prepend_to_path "$HOME/.cabal/bin"
 
 # go
-function goc; gocov test | gocov report; end
+function gb; go build; end
+function gt; go test -v ./...; end
+function gc; gocov test | gocov report; end
 prepend_to_path "/usr/local/go/bin"
 if contains (hostname -s) "macbook"
   set -x GOMAXPROCS (sysctl hw.ncpu | awk '{print $2}')

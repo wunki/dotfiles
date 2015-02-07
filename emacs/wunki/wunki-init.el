@@ -42,6 +42,7 @@
 
              ;; go
              go-mode go-eldoc gotest go-projectile company-go
+             golint
              
              ;; themes
              zenburn-theme color-theme-sanityinc-tomorrow

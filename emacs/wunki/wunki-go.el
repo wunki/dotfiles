@@ -18,6 +18,7 @@
                      "go build -v; go test -v; go vet"))
             (subword-mode)
             (flycheck-mode)
+            (subword-mode)
             (company-mode)))
 
 ;; documentation

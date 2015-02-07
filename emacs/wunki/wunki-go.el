@@ -33,6 +33,7 @@
              (local-set-key (kbd "M-.") 'godef-jump)
              (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)
              (local-set-key (kbd "C-c i") 'go-goto-imports)
+             (local-set-key (kbd "C-c l") 'golint)
              (local-set-key (kbd "C-c d") 'godoc)))
 
 (define-key go-mode-map (kbd "C-x f") 'go-test-current-file)

@@ -3,7 +3,6 @@ function t1; tree --dirsfirst -ChFL 1; end
 function t2; tree --dirsfirst -ChFL 2; end
 function t3; tree --dirsfirst -ChFL 3; end
 function wl; wicd-curses; end
-function weechat; weechat-curses $argv; end
 function nstat; sudo nethogs wlan0 $argv; end
 function duh; du -ah --max-depth=1; end
 function lah; ls -lah; end
@@ -11,6 +10,7 @@ function et; emacsclient -a "" -t $argv; end
 function e; emacsclient -a "" -nq $argv; end
 function v; vim $argv; end
 function gh-preview; python -m grip; end
+function flush-dns; sudo discoveryutil mdnsflushcache; end
 
 # mu
 function mu-reindex; mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
@@ -20,6 +20,11 @@ function mu-index; mu index --maildir=~/mail --my-address=petar@wunki.org --my-a
 function gs; git status --ignore-submodules=dirty; end
 function gp; git push origin master; end
 function gf; git pull origin master; end
+
+# consul
+function start-consul-ui; ssh -p 2700 -M -S /tmp/ssh-consul -fnNT -L 8500:localhost:8500 149.210.198.88; end
+function check-consul-ui; ssh -S /tmp/ssh-consul -O check consul.gibbon.co; end
+function stop-consul-ui; ssh -S /tmp/ssh-consul -O exit consul.gibbon.co; end
 
 # rust
 set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib

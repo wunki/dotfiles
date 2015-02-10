@@ -11,9 +11,6 @@
 ;; browser
 (setq browse-url-browser-function 'browse-url-default-macosx-browser)
 
-;; emacsclient as editor for Magit
-(setenv "EDITOR" "emacsclient")
-
 ;; dash for documentation
 (global-set-key (kbd "C-c d") 'dash-at-point)
 (global-set-key (kbd "C-c C-d") 'dash-at-point-with-docset)

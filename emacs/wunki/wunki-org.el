@@ -8,10 +8,17 @@
 (define-key global-map (kbd "C-c b") 'org-iswitchb)
 (define-key global-map (kbd "<f8>") 'org-cycle-agenda-files)
 
+;; org-trello
+(require 'org-trello)
+;;; only use org-trello on these files
+(custom-set-variables '(org-trello-files
+                        '("/Org/trello/gibbon-api.org")))
+
+
 ;; root directory of org files
 (if (mac?)
     (setq org-root (expand-file-name "~/Org"))
-    (setq org-root (expand-file-name "~/org")))
+  (setq org-root (expand-file-name "~/org")))
 
 ;; journal
 (setq org-journal-dir (format "%s/%s" org-root "journal"))
@@ -31,7 +38,7 @@
       org-default-notes-file (format "%s/%s" org-root "inbox.org"))
 
 ;; always use indent-mode
-(setq org-startup-indented nil)
+(setq org-startup-indented t)
 
 ;; switch between tasks states
 (setq org-todo-keywords
@@ -65,7 +72,6 @@
    (ditaa . t)
    (python . t)
    (haskell . t)
-   (scala . t)
    (scheme . t)
    (clojure . t)))
 

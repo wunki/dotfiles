@@ -1,9 +1,0 @@
-[submodule "mutt/mutt/themes/mutt-colors-solarized"]
-	path = mutt/mutt/themes/mutt-colors-solarized
-	url = https://github.com/altercation/mutt-colors-solarized.git
-[submodule "xorg/urxvt-perls"]
-	path = xorg/urxvt-perls
-	url = git://github.com/muennich/urxvt-perls.git
-[submodule "zsh/prezto"]
-	path = zsh/prezto
-	url = git@github.com:sorin-ionescu/prezto.git

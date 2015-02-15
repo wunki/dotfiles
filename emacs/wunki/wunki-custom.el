@@ -8,9 +8,9 @@
 (setq user-full-name "Petar Radosevic")
 (setq user-mail-address "petar@wunki.org")
 
-;; firefox as browser
+;; chrome as browser
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "firefox")
+      browse-url-generic-program "chromium")
 
 ;; desktop, to automatically save and restore sessions
 (setq desktop-dirname             "~/.emacs.d/desktop/"
@@ -25,8 +25,10 @@
 (setq initial-scratch-message nil)
 
 ;; unicode
+(setq locale-coding-system 'utf-8)
 (set-terminal-coding-system 'utf-8)
 (set-keyboard-coding-system 'utf-8)
+(set-selection-coding-system 'utf-8)
 (prefer-coding-system 'utf-8)
 
 ;; warnings
@@ -75,13 +77,6 @@
 ;; spelling
 (setq ispell-program-name "aspell")
 (setq ispell-list-command "list")
-
-;; disable scrollbars and menu bar on the mac. On Linux you can disable it in
-;; Xdefaults.
-(when (string-equal system-type "darwin")
-  (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-  (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-  (when (fboundp 'menu-bar-mode) (menu-bar-mode -1)))
 
 ;; set by emacs
 (custom-set-variables

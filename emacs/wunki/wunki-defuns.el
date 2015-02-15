@@ -15,12 +15,12 @@
   (replace-regexp-in-string "[ \t\n]*$" "" str))
 
 (defun select-next-window ()
-  "Switch to the next window" 
+  "Switch to the next window"
   (interactive)
   (select-window (next-window)))
 
 (defun select-previous-window ()
-  "Switch to the previous window" 
+  "Switch to the previous window"
   (interactive)
   (select-window (previous-window)))
 
@@ -97,7 +97,7 @@
 (defun ido-emacs-config ()
   (interactive)
   (ido-find-file-in-dir "~/.emacs.d/wunki"))
-  
+
 (defun disable-electric-indent ()
   (set (make-local-variable 'electric-indent-mode) nil))
 
@@ -124,6 +124,22 @@
   (next-line 1)
   (transpose-lines 1)
   (previous-line 1))
+
+(defun untabify-buffer ()
+  (interactive)
+  (untabify (point-min) (point-max)))
+
+(defun indent-buffer ()
+  (interactive)
+  (indent-region (point-min) (point-max)))
+
+(defun cleanup-buffer ()
+  "Perform a bunch of operations on the whitespace content of a buffer.
+Including indent-buffer, which should not be called automatically on save."
+  (interactive)
+  (untabify-buffer)
+  (delete-trailing-whitespace)
+  (indent-buffer))
 
 ;; Check if system is Darwin/Mac OS X
 (defun mac? ()

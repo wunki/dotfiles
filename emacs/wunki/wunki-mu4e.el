@@ -1,5 +1,7 @@
 ;; load and fire
-(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
+(if (mac?)
+  (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
+  (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e"))
 
 (require 'mu4e)
 (require 'sendmail)
@@ -41,12 +43,12 @@
 )
 
 ;; maildir locations
-(setq mu4e-maildir "/home/wunki/mail"
-      mu4e-sent-folder "/wunki/sent"
+(setq mu4e-maildir       "~/mail"
+      mu4e-sent-folder   "/wunki/sent"
       mu4e-drafts-folder "/wunki/drafts"
-      mu4e-trash-folder "/wunki/trash"
+      mu4e-trash-folder  "/wunki/trash"
       mu4e-refile-folder "/wunki/archive"
-      smtpmail-queue-dir   "~/mail/queue/cur")
+      smtpmail-queue-dir "~/mail/queue/cur")
 
 ;; sending mail
 (setq message-send-mail-function 'smtpmail-send-it
@@ -70,23 +72,23 @@
 ;; multiple accounts
 (setq wunki-mu4e-account-alist
       '(("gibbon"
-         (user-mail-address "petar@gibbon.co")
-         (mu4e-sent-folder "/gibbon/sent")
-         (mu4e-drafts-folder "/gibbon/drafts")
+         (user-mail-address    "petar@gibbon.co")
+         (mu4e-sent-folder     "/gibbon/sent")
+         (mu4e-drafts-folder   "/gibbon/drafts")
          (smtpmail-smtp-server "smtp.gmail.com")
-         (smtpmail-smtp-user "petar@gibbon.co"))
+         (smtpmail-smtp-user   "petar@gibbon.co"))
         ("wunki"
-         (user-mail-address "petar@wunki.org")
-         (mu4e-sent-folder "/wunki/sent")
-         (mu4e-drafts-folder "/wunki/drafts")
+         (user-mail-address    "petar@wunki.org")
+         (mu4e-sent-folder     "/wunki/sent")
+         (mu4e-drafts-folder   "/wunki/drafts")
          (smtpmail-smtp-server "mail.messagingengine.com")
-         (smtpmail-smtp-user "wunki@fastmail.fm"))
+         (smtpmail-smtp-user   "wunki@fastmail.fm"))
         ("bread-and-pepper"
-         (user-mail-address "petar@breadandpepper.com")
-         (mu4e-sent-folder "/bread-and-pepper/sent")
-         (mu4e-drafts-folder "/bread-and-pepper/drafts")
+         (user-mail-address    "petar@breadandpepper.com")
+         (mu4e-sent-folder     "/bread-and-pepper/sent")
+         (mu4e-drafts-folder   "/bread-and-pepper/drafts")
          (smtpmail-smtp-server "smtp.gmail.com")
-         (smtpmail-smtp-user "petar@breadandpepper.com"))))
+         (smtpmail-smtp-user   "petar@breadandpepper.com"))))
 
 (defun wunki-mu4e-set-account ()
   "Set the account for composing a message by looking at the maildir"
@@ -116,7 +118,7 @@
 
 ;; bookmarks
 (setq mu4e-bookmarks 
-  '(("flag:unread AND NOT maildir:/gibbon/trash AND NOT maildir:/wunki/trash AND NOT maildir:/bread-and-pepper/trash" "All new messages" ?u)
+  '(("flag:unread AND NOT maildir:/gibbon/trash AND NOT maildir:/wunki/trash AND NOT maildir:/bread-and-pepper/trash AND NOT maildir:/wunki/junk AND NOT maildir:/gibbon/junk" "All new messages" ?u)
     ("maildir:/gibbon/inbox"                      "Gibbon's inbox"         ?g)
     ("maildir:/wunki/inbox"                       "Wunki's inbox"          ?w)
     ("maildir:/bread-and-pepper/inbox"            "Bread & Pepper's inbox" ?b)

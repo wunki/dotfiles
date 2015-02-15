@@ -1,11 +1,7 @@
 ;; shortcuts
 (global-set-key (kbd "<f9>") 'mu4e)
 (global-set-key (kbd "<f10>") 'erc-start-or-switch)
-(global-set-key (kbd "<f11>") 'jabber-start)
-(global-set-key (kbd "<f12>") 'cfw:open-calendar-buffer)
-
-;; magit
-(global-set-key (kbd "C-c C-g") 'magit-status)
+(global-set-key (kbd "<f11>") 'cfw:open-calendar-buffer)
 
 ;; search forward regexp
 (global-set-key (kbd "C-c C-s") 'search-forward-regexp)
@@ -87,6 +83,10 @@
 (global-set-key (kbd "C-c P") 'windmove-up)
 (global-set-key (kbd "C-c N") 'windmove-down)
 
+;; move by using letters
+(global-set-key (kbd "C-c w") 'ace-window)
+(setq aw-keys '(?u ?h ?e ?t ?o ?n ?a ?s))
+
 ;; multiple markers
 (global-set-key (kbd "C-!") 'mc/edit-lines)
 (global-set-key (kbd "C-@") 'mc/mark-next-like-this)
@@ -105,7 +105,7 @@
 (global-set-key (kbd "C-c 3") 'ido-todos)
 
 ;; move around changes
-(global-set-key (kbd "C-c C-c") 'goto-last-change)
+(global-set-key (kbd "C-c C-l") 'goto-last-change)
 
 ;; undo tree
 (global-set-key (kbd "C-c -") 'undo-tree-visualize)
@@ -115,6 +115,9 @@
 
 ;; whitespace mode
 (global-set-key (kbd "C-c C-w") 'global-whitespace-mode)
+
+;; close emacs
+(global-set-key (kbd "M-RET") 'ansi-term)
 
 ;; close emacs
 (global-set-key (kbd "C-c q") 'save-buffers-kill-emacs)

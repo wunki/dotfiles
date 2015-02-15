@@ -12,6 +12,13 @@
 (add-hook 'go-mode-hook
           (lambda ()
             (set (make-local-variable 'company-backends) '(company-go))
+            (setq gofmt-command "goimports")
+            (if (not (string-match "go" compile-command))
+                (set (make-local-variable 'compile-command)
+                     "go build -v; go test -v; go vet"))
+            (subword-mode)
+            (flycheck-mode)
+            (subword-mode)
             (company-mode)))
 
 ;; documentation
@@ -26,6 +33,7 @@
              (local-set-key (kbd "M-.") 'godef-jump)
              (local-set-key (kbd "C-c C-r") 'go-remove-unused-imports)
              (local-set-key (kbd "C-c i") 'go-goto-imports)
+             (local-set-key (kbd "C-c l") 'golint)
              (local-set-key (kbd "C-c d") 'godoc)))
 
 (define-key go-mode-map (kbd "C-x f") 'go-test-current-file)

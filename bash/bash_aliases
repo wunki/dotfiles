@@ -5,7 +5,8 @@
 if [ `uname` == "Linux" ]; then
     alias ls="ls --color=auto"
 fi
-alias e="emacs"
+alias et="emacsclient -a \"\" -t"
+alias e="emacsclient -a \"\" -nq"
 alias v="vim"
 alias rust-update="curl -s https://static.rust-lang.org/rustup.sh | sudo sh"
 

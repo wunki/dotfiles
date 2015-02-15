@@ -5,7 +5,7 @@
 (menu-bar-mode -1)
 
 ;; highlight the current line
-(global-hl-line-mode t)
+(global-hl-line-mode -1)
 
 ;; projectile for project management
 (projectile-global-mode)
@@ -34,7 +34,8 @@
 (global-auto-revert-mode t)
 
 ;; powerline
-;; (powerline-default-theme)
+(require 'powerline)
+(powerline-default-theme)
 
 ;; indent after newline
 (electric-indent-mode t)
@@ -54,7 +55,8 @@
 
 ;; javascript and json
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.json$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
+(add-hook 'js-mode-hook 'js2-minor-mode)
 
 ;; jinja
 (add-to-list 'auto-mode-alist '("\\.j2$" . jinja2-mode))
@@ -72,10 +74,6 @@
 ;; ag (the silver searcher)
 (require 'ag)
 (setq ag-highlight-search t)
-
-;; websites
-(add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
-(setq web-mode-engines-alist '(("django" . "\\.html\\'")))
 
 ;; dired
 (require 'dired-details)
@@ -124,7 +122,8 @@
 (setq auto-mode-alist (cons '("\\.markdown" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.page" . markdown-mode) auto-mode-alist))
-(add-hook 'markdown-mode-hook 'turn-on-pandoc)
+(add-hook 'markdown-mode-hook (lambda ()
+                                (orgtbl-mode)))
 
 ;; puppet
 (autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")
@@ -141,6 +140,10 @@
 
 ;; window movement
 (setq windmove-wrap-around t)
+
+;; move with ace-window
+(global-set-key (kbd "M-p") 'ace-window)
+(setq aw-keys '(?u ?h ?e ?t ?o ?n ?a ?s))
 
 ;; nice visualation of undo's
 (global-undo-tree-mode t)

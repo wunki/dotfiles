@@ -26,7 +26,7 @@ setxkbmap -option altwin:swap_alt_win
 xset s off
 
 # Key repeat
-xset r rate 200 80
+xset r rate 300 80
 
 # Set the left cursor as default
 xsetroot -cursor_name left_ptr

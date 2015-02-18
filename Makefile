@@ -71,6 +71,7 @@ gtk::
 	@ln -fs $(DOTFILES)/gtk/gtkrc-2.0		${HOME}/.gtkrc-2.0
 	@ln -fs $(DOTFILES)/gtk/gtkrc.mine		${HOME}/.gtkrc.mine
 	@ln -fns $(DOTFILES)/gtk/themes			  ${HOME}/.themes
+	@ln -fs $(DOTFILES)/gtk/user-dirs.dirs		${HOME}/.config/user-dirs.dirs
 	@echo GTK is symlinked.
 
 mpv::

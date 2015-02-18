@@ -1,0 +1,9 @@
+autoload -U promptinit && promptinit
+
+# optionally define some options
+PURE_CMD_MAX_EXEC_TIME=10
+
+# autojump
+[[ -s /usr/local/etc/profile.d/autojump.sh ]] && . /usr/local/etc/profile.d/autojump.sh
+
+prompt pure

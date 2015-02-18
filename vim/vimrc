@@ -33,7 +33,7 @@ Plug 'bronson/vim-trailing-whitespace'                   " remove trailing white
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
 Plug 'vimwiki'                                           " personal wiki
 Plug 'airblade/vim-gitgutter'                            " display changes in the gutter
-Plug 'Shougo/neocomplete.vim'                            " autocompletion
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
 
 " Github
 Plug 'mattn/webapi-vim'
@@ -99,7 +99,7 @@ call plug#end()
 " GUI
 if has("gui_running")
     if has('mac')
-        set guifont=Fira\ Mono:h14
+        set guifont=Fira\ Mono:h16
     else
         set guifont=Ubuntu\ Mono\ 14
     endif
@@ -366,6 +366,10 @@ set ssop-=folds      " do not store folds
 " Completion
 set complete=.,w,b,u,t
 set completeopt=menu,menuone
+
+" YouCompleteMe
+let g:ycm_min_num_of_chars_for_completion = 3
+let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 " Clojure
 let g:clojure_align_multiline_strings = 1

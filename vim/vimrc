@@ -32,8 +32,7 @@ Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in mar
 Plug 'bronson/vim-trailing-whitespace'                   " remove trailing whitespace
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
 Plug 'vimwiki'                                           " personal wiki
-Plug 'airblade/vim-gitgutter'                            " display changes in the gutter
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }  " autocomplete
 
 " Github
 Plug 'mattn/webapi-vim'
@@ -44,7 +43,7 @@ Plug 'kien/ctrlp.vim'
 
 " Looks
 Plug 'jnurmine/Zenburn'
-Plug 'itchyny/lightline.vim'
+Plug 'bling/vim-airline'
 
 " Websites
 Plug 'othree/html5.vim', { 'for': 'html' }
@@ -99,7 +98,7 @@ call plug#end()
 " GUI
 if has("gui_running")
     if has('mac')
-        set guifont=Fira\ Mono:h16
+        set guifont=Fira\ Mono\ for\ Powerline:h14
     else
         set guifont=Ubuntu\ Mono\ 14
     endif
@@ -450,6 +449,9 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+" Airline
+let g:airline_powerline_fonts = 1
 
 " Lightline
 let g:lightline = {

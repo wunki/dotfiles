@@ -13,6 +13,15 @@ xset b off &
 # Disable power-saving
 xset -dpms
 
+# Dvorak
+setxkbmap -layout us -variant dvorak
+
+# Swap control and caps
+setxkbmap -option ctrl:swapcaps
+
+# Swap Super and Meta
+setxkbmap -option altwin:swap_alt_win
+
 # Disable screen-saver
 xset s off
 
@@ -49,4 +58,4 @@ emacs --daemon &
 #
 # Start window manager
 #
-exec xmonad > $HOME/.xmonad.log 2>&1
+exec /usr/local/bin/xmonad > $HOME/.xmonad.log 2>&1

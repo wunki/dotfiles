@@ -1,9 +1,10 @@
-DOTFILES := $(shell pwd)
+DOTFILES := $(PWD)
 all:: vim emacs bin zsh bash tmux xmonad xorg gtk mpv conkeror
 
 vim::
 	@ln -fs $(DOTFILES)/vim/vimrc						${HOME}/.vimrc
 	@ln -fns $(DOTFILES)/vim							${HOME}/.vim
+	@ln -fns $(DOTFILES)/ycm_extra_conf.py				${HOME}/.ycm_extra_conf.py
 	@echo Vim is symlinked.
 
 emacs::
@@ -20,6 +21,12 @@ bash::
 	@ln -fs $(DOTFILES)/bash/bashrc					${HOME}/.bashrc
 	@ln -fs $(DOTFILES)/bash/bash_aliases			${HOME}/.bash_aliases
 	@echo Bash is symlinked.
+
+zsh::
+	@ln -fs $(DOTFILES)/zsh/zshrc					${HOME}/.zshrc
+	@ln -fs $(DOTFILES)/zsh/zshenv					${HOME}/.zshenv
+	@ln -fs $(DOTFILES)/zsh/pure.zsh 				/usr/local/share/zsh/site-functions/prompt_pure_setup
+	@echo ZSH is symlinked.
 
 fish::
 	@test -d ${HOME}/.config || mkdir				${HOME}/.config

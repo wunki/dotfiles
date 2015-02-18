@@ -104,8 +104,9 @@ function gb; go build; end
 function gt; go test -v ./...; end
 function gc; gocov test | gocov report; end
 prepend_to_path "/usr/local/go/bin"
-if contains (hostname -s) "macbook"
-  set -x GOMAXPROCS (sysctl hw.ncpu | awk '{print $2}')
+
+if contains (hostname -s) "home" or contains (hostname -s) "macbook"
+  set -x GOMAXPROCS (sysctl -n hw.ncpu)
 else
   set -x GOMAXPROCS (nproc)
 end

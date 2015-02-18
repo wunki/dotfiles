@@ -1,10 +1,10 @@
 ;; get the correct exec-path. I thought this was only needed on my Mac, but
-;; apparently it also fails to the correct path on Linux, maybe due to my fish
+;; apparently it also fails to the correct path on Linux, maybe due to my zsh
 ;; shell.
 (exec-path-from-shell-initialize)
 
 ;; use fish as the default shell
-(setq explicit-shell-file-name (locate-file "fish" exec-path))
+(setq explicit-shell-file-name (locate-file "zsh" exec-path))
 
 ;; emacsclient as editor for Magit
 (setenv "EDITOR" "emacsclient")
@@ -28,8 +28,8 @@
     ad-do-it))
 (ad-activate 'term-sentinel)
 
-;; don't ask which shell to use, just start fish
-(defadvice ansi-term (before force-fish)
+;; don't ask which shell to use, just start zsh
+(defadvice ansi-term (before force-zsh)
   (interactive (list explicit-shell-file-name)))
 (ad-activate 'ansi-term)
 

@@ -43,6 +43,11 @@ fi
 pathadd "/usr/local/go/bin"
 pathadd "$GOPATH/bin"
 
+# LLVM on FreeBSD
+if [ -d "/usr/local/llvm35/lib" ]; then
+    export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/llvm35/lib/
+fi
+
 # Haskell
 pathadd "/opt/ghc/7.8.3/bin"
 pathadd "/opt/cabal/1.20/bin"

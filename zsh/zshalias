@@ -1,0 +1,5 @@
+# Use Hub if available
+if type hub >/dev/null 2>&1; then
+    eval "$(hub alias -s)"
+    compdef hub=git
+fi

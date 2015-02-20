@@ -7,6 +7,11 @@ vim::
 	@ln -fns $(DOTFILES)/ycm_extra_conf.py				${HOME}/.ycm_extra_conf.py
 	@echo Vim is symlinked.
 
+nvim::
+	@ln -fs $(DOTFILES)/vim/vimrc						${HOME}/.nvimrc
+	@ln -fns $(DOTFILES)/vim							${HOME}/.nvim
+	@echo NeoVim is symlinked.
+
 emacs::
 	@ln -fs $(DOTFILES)/emacs/emacs.el					${HOME}/.emacs
 	@ln -fns $(DOTFILES)/emacs							${HOME}/.emacs.d
@@ -25,6 +30,7 @@ bash::
 zsh::
 	@ln -fs $(DOTFILES)/zsh/zshrc					${HOME}/.zshrc
 	@ln -fs $(DOTFILES)/zsh/zshenv					${HOME}/.zshenv
+	@ln -fs $(DOTFILES)/zsh/zshalias				${HOME}/.zshalias
 	@ln -fs $(DOTFILES)/zsh/pure.zsh 				/usr/local/share/zsh/site-functions/prompt_pure_setup
 	@echo ZSH is symlinked.
 

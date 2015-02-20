@@ -5,7 +5,7 @@ set cmdheight=2             " lower command line two lines high
 set modifiable              " needed for vimpager
 set encoding=utf-8          " utf-8 encoding
 set fileencoding=utf-8      " save files as utf-8
-set bg=light                " light background
+set bg=dark                 " dark background
 set nocompatible
 syntax on                   " enable syntax highlighting
 filetype plugin indent on
@@ -44,6 +44,7 @@ Plug 'kien/ctrlp.vim'
 " Looks
 Plug 'jnurmine/Zenburn'
 Plug 'bling/vim-airline'
+Plug 'morhetz/gruvbox'
 
 " Websites
 Plug 'othree/html5.vim', { 'for': 'html' }
@@ -126,7 +127,7 @@ endif
 let g:rehash256 = 1
 let g:molokai_original = 1
 let g:zenburn_disable_Label_underline = 1
-colors zenburn
+colors gruvbox
 
 " Find bash
 if executable('/bin/bash')

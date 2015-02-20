@@ -51,7 +51,7 @@ set -x LC_ALL 'en_US.UTF-8'
 set fish_secret "~/.config/fish/secret_env.fish"
 if test -f $fish_secret
   . $fish_secret
-end  
+end
 
 # autojump
 if contains (hostname -s) "macbook"

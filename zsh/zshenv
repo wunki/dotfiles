@@ -5,11 +5,16 @@ path=(~/bin ~/go/bin $path)
 # ==
 if type go >/dev/null 2>&1; then
     typeset -xTU GOPATH gopath
-    gopath=$HOME/go
-    path=(~/go/bin $path)
+    gopath=$HOME/Go
+    path=($gopath/bin $path)
 
     # installed by homebrew
     if type brew >/dev/null 2>&1; then
         path=($(brew --prefix)/opt/go/libexec/bin $path)
     fi
 fi
+
+export EDITOR='vim'
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
+

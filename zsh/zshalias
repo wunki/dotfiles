@@ -3,3 +3,13 @@ if type hub >/dev/null 2>&1; then
     eval "$(hub alias -s)"
     compdef hub=git
 fi
+
+alias start-consul-ui="ssh -p 2700 -M -S /tmp/ssh-consul -fnNT -L 8500:localhost:8500 149.210.198.88"
+alias check-consul-ui="ssh -S /tmp/ssh-consul -O check consul.gibbon.co"
+alias stop-consul-ui="ssh -S /tmp/ssh-consul -O exit consul.gibbon.co"
+
+alias gb='go build'
+alias gt='go test -v ./...'
+alias gc='gocov test | gocov report'
+
+

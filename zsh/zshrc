@@ -16,9 +16,11 @@ _zshcompdir=/usr/local/share/zsh-completions
 _sitecompdir=/usr/local/share/zsh/site-functions
 [[ -z $fpath[(r)$_sitecompdir]  ]] && fpath=($fpath $_sitecompdir)
 
-# autojump
+# autojump on mac
 [[ -s /usr/local/etc/profile.d/autojump.sh ]] && . /usr/local/etc/profile.d/autojump.sh
 
+# autojump on freebsd
+[[ -s /usr/local/share/autojump/autojump.zsh ]] && . /usr/local/share/autojump/autojump.zsh
 
 # aliases
 source ~/.zshalias

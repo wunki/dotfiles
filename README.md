@@ -10,7 +10,7 @@ software:
 * [tmux]
 * [Zsh]
 * [Fish]
-* [Mplayer]
+* [MPV]
 * Miscellaneous...
 
 [@wunki]: https://twitter.com/wunki
@@ -20,7 +20,7 @@ software:
 [tmux]: http://tmux.sourceforge.net/ "tmux homepage"
 [Zsh]: http://zsh.org/ "Zsh homepage"
 [Fish]: http://fishshell.com/ "Fish homepage"
-[Mplayer]: http://www.mplayerhq.hu/
+[MPV]: http://mpv.io/ "MPV video player homepage."
 
 If you scroll down, you can read a bit more what I use the software for.
 
@@ -66,7 +66,7 @@ from the server and come back later to see what's happening.
 
 Shell which is I use with [oh-my-zsh] configuration.
 
-## Mplayer
+## MPV
 
 Simple and powerful media player. I have it configured to display subtitles
-beautifully and 
+beautifully.

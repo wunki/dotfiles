@@ -1,3 +1,11 @@
+# Functions
+# =========
+if [ -d ~/.zfunc ]; then
+    fpath=( ~/.zfunc "${fpath[@]}" )
+fi
+
+# Paths
+# =====
 typeset -U path
 path=(~/bin ~/go/bin $path)
 
@@ -14,7 +22,7 @@ if type go >/dev/null 2>&1; then
     fi
 fi
 
+export CLICOLOR=1                       # colors for ls
 export EDITOR='vim'
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
-

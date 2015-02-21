@@ -6,11 +6,8 @@ zmodload -i zsh/complist
 # options
 setopt   HIST_IGNORE_DUPS               # ignore duplicates in history
 unsetopt CORRECT_ALL                    # don't correct anything
-
-# env
-export CLICOLOR=1                       # colors for ls
-
-prompt pure
+bindkey -e                              # emacs keybindings
+prompt pure                             # simple prompt
 
 # completions
 _zshcompdir=/usr/local/share/zsh-completions

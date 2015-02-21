@@ -28,10 +28,11 @@ bash::
 	@echo Bash is symlinked.
 
 zsh::
+	@test -d ${HOME}/.zfunc || mkdir -p ${HOME}/.zfunc
 	@ln -fs $(DOTFILES)/zsh/zshrc					${HOME}/.zshrc
 	@ln -fs $(DOTFILES)/zsh/zshenv					${HOME}/.zshenv
 	@ln -fs $(DOTFILES)/zsh/zshalias				${HOME}/.zshalias
-	@ln -fs $(DOTFILES)/zsh/pure.zsh 				/usr/local/share/zsh/site-functions/prompt_pure_setup
+	@ln -fs $(DOTFILES)/zsh/pure.zsh 				${HOME}/.zfunc/prompt_pure_setup
 	@echo ZSH is symlinked.
 
 fish::

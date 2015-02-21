@@ -1,9 +1,27 @@
-autoload -U promptinit && promptinit
+autoload -U colors && colors            # setup colors
+autoload -U promptinit && promptinit    # setup prompt
+autoload -U compinit && compinit        # enable autcompletion
+zmodload -i zsh/complist
 
-# optionally define some options
-PURE_CMD_MAX_EXEC_TIME=10
+# options
+setopt   HIST_IGNORE_DUPS               # ignore duplicates in history
+unsetopt CORRECT_ALL                    # don't correct anything
+
+# env
+export CLICOLOR=1                       # colors for ls
+
+prompt pure
+
+# completions
+_zshcompdir=/usr/local/share/zsh-completions
+[[ -z $fpath[(r)$_zshcompdir]  ]] && fpath=($fpath $_zshcompdir)
+
+_sitecompdir=/usr/local/share/zsh/site-functions
+[[ -z $fpath[(r)$_sitecompdir]  ]] && fpath=($fpath $_sitecompdir)
 
 # autojump
 [[ -s /usr/local/etc/profile.d/autojump.sh ]] && . /usr/local/etc/profile.d/autojump.sh
 
-prompt pure
+
+# aliases
+source ~/.zshalias

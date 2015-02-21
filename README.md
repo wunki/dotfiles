@@ -9,6 +9,7 @@ software:
 * [Vim]
 * [tmux]
 * [Zsh]
+* [Fish]
 * [Mplayer]
 * Miscellaneous...
 
@@ -18,6 +19,7 @@ software:
 [Vim]: http://www.vim.org/ "Vim homepage"
 [tmux]: http://tmux.sourceforge.net/ "tmux homepage"
 [Zsh]: http://zsh.org/ "Zsh homepage"
+[Fish]: http://fishshell.com/ "Fish homepage"
 [Mplayer]: http://www.mplayerhq.hu/
 
 If you scroll down, you can read a bit more what I use the software for.

@@ -13,15 +13,6 @@ xset b off &
 # Disable power-saving
 xset -dpms
 
-# Dvorak
-setxkbmap -layout us -variant dvorak
-
-# Swap control and caps
-setxkbmap -option ctrl:swapcaps
-
-# Swap Super and Meta
-setxkbmap -option altwin:swap_alt_win
-
 # Disable screen-saver
 xset s off
 
@@ -37,11 +28,8 @@ urxvtd -o -q -f &
 # Hide the mouse cursor
 unclutter -idle 3 &
 
-# Clipboard functionality
-parcellite -n -d &
-
 # Set background
-feh --bg-tile ~/pictures/wallpapers/grey_wash_wall.png
+feh --bg-tile ~/pictures/wallpapers/patterns/txture.png
 
 # Thunar
 thunar --daemon &
@@ -51,9 +39,6 @@ eval `ssh-agent`
 
 # Emacs
 emacs --daemon &
-
-# Authentication agent
-# /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 #
 # Start window manager

@@ -1,8 +1,0 @@
-# ~/.tmuxinator/innuce.yml
-
-name: innuce
-root: ~/Projects/gibbonco/innuce
-
-windows:
-  - vim: vim
-  - shell: pyenv activate innuce

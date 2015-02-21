@@ -1,9 +1,0 @@
-# ~/.tmuxinator/parkwalk.yml
-
-name: bluepill
-root: ~/src/bluepill
-
-windows:
-  - vim: vim .
-  - shell:
-    - # empty shell

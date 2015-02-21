@@ -1,9 +1,0 @@
-# ~/.tmuxinator/cracking.yml
-
-name: cracking
-root: ~/Go/src/github.com/wunki/cracking
-
-windows:
-  - vim:  vim
-  - terminal:
-    - #empty shell

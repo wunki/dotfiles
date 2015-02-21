@@ -1,8 +1,0 @@
-# ~/.tmuxinator/coreos.yml
-
-name: coreos
-root: ~/Source/coreos
-
-windows:
-  - editor:
-      - vim

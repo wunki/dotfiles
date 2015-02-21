@@ -11,5 +11,3 @@ alias stop-consul-ui="ssh -S /tmp/ssh-consul -O exit consul.gibbon.co"
 alias gb='go build'
 alias gt='go test -v ./...'
 alias gc='gocov test | gocov report'
-
-

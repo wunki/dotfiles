@@ -18,9 +18,10 @@ emacs/saved-places
 emacs/eshell
 emacs/request
 bin/exercism
+bin/cargo
+bin/racer
 fish/fish_read_history
 fish/secret_env.fish
-/bin/racer
 /emacs/ido.last
 /emacs/recentf
 *~

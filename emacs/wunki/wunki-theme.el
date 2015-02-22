@@ -1,9 +1,9 @@
 ;; load theme and don't ask if it's save.
 (load-theme 'sanityinc-tomorrow-blue t)
 
-(set-frame-font "Ubuntu Mono")
-(add-to-list 'default-frame-alist '(font . "Ubuntu Mono"))
-(set-face-attribute 'default nil :height 130)
+(set-frame-font "Fira Mono for Powerline")
+(add-to-list 'default-frame-alist '(font . "Fira Mono for Powerline"))
+(set-face-attribute 'default nil :height 120)
 
 (defun toggle-dark-light-theme ()
   "Switch between dark and light theme."

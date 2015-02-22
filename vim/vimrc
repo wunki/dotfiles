@@ -101,7 +101,7 @@ if has("gui_running")
     if has('mac')
         set guifont=Fira\ Mono\ for\ Powerline:h14
     else
-        set guifont=Ubuntu\ Mono\ 14
+        set guifont=Fira\ Mono\ for\ Powerline\ 12
     endif
     set guioptions-=e
     set guioptions-=T
@@ -251,8 +251,8 @@ let g:vimwiki_dir_link = ''                 " open files in netrw
 
 " Go settings
 au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
-let g:go_highlight_trailing_whitespace_error = 0
-let g:go_auto_type_info = 0
+let g:go_fmt_command = "goimports"
+let g:go_auto_type_info = 1
 
 au FileType go nmap <leader>r <Plug>(go-run)
 au FileType go nmap <leader>b <Plug>(go-build)

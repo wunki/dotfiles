@@ -13,7 +13,7 @@ path=(~/bin ~/go/bin $path)
 # ==
 if type go >/dev/null 2>&1; then
     typeset -xTU GOPATH gopath
-    gopath=$HOME/Go
+    gopath=$HOME/go
     path=($gopath/bin $path)
 
     # installed by homebrew

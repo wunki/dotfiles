@@ -9,7 +9,7 @@ Xft.autohint: 0
 Xft.antialias: 1
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintslight
-Xft.hinting: 1
+Xft.hinting: 0
 Xft.dpi: 108
 Xft.rgba: rgb
 
@@ -31,10 +31,10 @@ urxvt.keysym.M-Escape: perl:keyboard-select:activate
 urxvt.keysym.M-s:      perl:keyboard-select:search
 
 ! Urxvt fonts
-urxvt.font:            xft:Ubuntu Mono derivative Powerline:size=14
-urxvt.boldFont:        xft:Ubuntu Mono derivative Powerline::bold:size=14
-urxvt.italicFont:      xft:Ubuntu Mono derivative Powerline::italic:size=14
-urxvt.boldItalicFont:  xft:Ubuntu Mono derivative Powerline::bolditalic:size=14
+urxvt.font:            xft:Fira Mono for Powerline:size=12
+urxvt.boldFont:        xft:Fira Mono for Powerline::bold:size=12
+urxvt.italicFont:      xft:Fira Mono for Powerline::italic:size=12
+urxvt.boldItalicFont:  xft:Fira Mono for Powerline::bolditalic:size=12
 
 ! Urxvt settings
 urxvt.depth: 32

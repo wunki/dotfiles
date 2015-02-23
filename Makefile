@@ -1,5 +1,5 @@
 DOTFILES := $(PWD)
-all:: vim emacs bin zsh bash tmux xmonad xorg gtk mpv conkeror
+all:: vim git emacs bin zsh bash tmux xmonad xorg gtk mpv conkeror
 
 vim::
 	@ln -fs $(DOTFILES)/vim/vimrc						${HOME}/.vimrc
@@ -11,6 +11,11 @@ nvim::
 	@ln -fs $(DOTFILES)/vim/vimrc						${HOME}/.nvimrc
 	@ln -fns $(DOTFILES)/vim							${HOME}/.nvim
 	@echo NeoVim is symlinked.
+
+git::
+	@ln -fs $(DOTFILES)/git/gitconfig					${HOME}/.gitconfig
+	@ln -fns $(DOTFILES)/git/gitignore					${HOME}/.gitignore
+	@echo Git is symlinked.
 
 emacs::
 	@ln -fs $(DOTFILES)/emacs/emacs.el					${HOME}/.emacs

@@ -1,0 +1,74 @@
+# Python
+*.py[co]
+*.egg
+*.egg-info
+dist
+build
+eggs
+parts
+develop-eggs
+.installed.cfg
+pip-log.txt
+.coverage
+.tox
+*.cache
+.ropeproject
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
+
+# Vim
+.*.sw[a-z]
+*.un~
+
+# Django
+*.log
+*.pot
+*.db
+local_settings.py
+
+# OSX
+.DS_Store
+Icon?
+._*             # Thumbnails
+.Spotlight-V100 # External disk
+.Trashes        # External disk trash
+
+# Archives
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.tar.gz
+*.zip
+*.bzip
+
+# Haskell
+dist
+cabal-dev
+*.o
+*.hi
+*.chi
+*.chs.h
+.virthualenv
+
+# Clojure
+pom.xml
+*jar
+/classes/
+/targets/
+.lein-deps-sum
+.lein-repl-history
+
+# Vagrant
+.vagrant/

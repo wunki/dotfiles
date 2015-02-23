@@ -26,6 +26,14 @@ export CLICOLOR=1                       # colors for ls
 export EDITOR='vim'                     # default editor
 export TERM='rxvt-256color'             # terminal
 
+# Personal settings
+# ================
+if is_mac; then
+    export SRC_PATH="$HOME/Source"
+else
+    export SRC_PATH="$HOME/src"
+fi
+
 # Locales
 # =======
 export LANG='en_US.UTF-8'

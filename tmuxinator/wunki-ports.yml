@@ -1,0 +1,10 @@
+# ~/.tmuxinator/wunki-ports.yml
+
+name: wunki-ports
+root: ~/servers/wunki-ports
+
+windows:
+  - vim: vim .
+  - shell:
+      -
+  - neo: mosh neo.wunki.org

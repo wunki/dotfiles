@@ -43,6 +43,7 @@ Plug 'kien/ctrlp.vim'
 
 " Looks
 Plug 'bling/vim-airline'
+Plug 'edkolev/tmuxline.vim'
 Plug 'morhetz/gruvbox'
 Plug 'jnurmine/Zenburn'
 

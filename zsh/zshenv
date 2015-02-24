@@ -55,3 +55,12 @@ if has_go; then
         path=($(brew --prefix)/opt/go/libexec/bin $path)
     fi
 fi
+
+# Python
+# ======
+if [ -d ~/.pyenv ]; then
+    path=(~/.pyenv/bin $path)
+    eval "$(pyenv init -)"
+    eval "$(pyenv virtualenv-init -)"
+fi
+

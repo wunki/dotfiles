@@ -62,7 +62,7 @@ Plug 'kien/rainbow_parentheses.vim', { 'for': ['clojure', 'scheme']  }
 
 " Haskell
 Plug 'travitch/hasksyn', { 'for': 'haskell' }
-Plug 'Shougo/vimproc.vim', { 'do': 'make', 'for': 'haskell' }
+Plug 'Shougo/vimproc.vim', { 'do': 'gmake', 'for': 'haskell' }
 Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
 Plug 'twinside/vim-hoogle', { 'for': 'haskell' }
 Plug 'nbouscal/vim-stylish-haskell', { 'for': 'haskell' }

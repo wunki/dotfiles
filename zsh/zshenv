@@ -64,3 +64,9 @@ if [ -d ~/.pyenv ]; then
     eval "$(pyenv virtualenv-init -)"
 fi
 
+# PostgreSQL
+# ==========
+if is_mac; then
+    path=(/Applications/Postgres.app/Contents/Versions/9.4/bin $path)
+fi
+

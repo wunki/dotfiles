@@ -82,6 +82,7 @@
     color-theme-sanityinc-tomorrow
     color-theme-sanityinc-solarized))
 
+;; install packages if not there yet, copied from prelude
 (defun wunki-packages-installed-p ()
   "Check if all packages in `wunki-packages' are installed."
   (every #'package-installed-p wunki-packages))

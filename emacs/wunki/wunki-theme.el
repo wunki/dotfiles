@@ -1,8 +1,8 @@
 ;; load theme and don't ask if it's save.
 (load-theme 'sanityinc-tomorrow-blue t)
 
-(set-frame-font "Fira Mono for Powerline")
-(add-to-list 'default-frame-alist '(font . "Fira Mono for Powerline"))
+(set-frame-font "Fira Mono")
+(add-to-list 'default-frame-alist '(font . "Fira Mono"))
 (set-face-attribute 'default nil :height 120)
 
 (defun toggle-dark-light-theme ()

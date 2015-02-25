@@ -14,41 +14,109 @@
 (package-initialize)
 
 ;; my packages
-(dolist (p '(;; fundamentals
-             magit yagist ack-and-a-half buffer-move s projectile
-             goto-last-change expand-region change-inner
-             powerline surround idomenu diminish dired-details
-             multiple-cursors ag restclient quack geiser
-             rainbow-delimiters calfw smex smartparens evil
-             htmlize move-text dash browse-kill-ring
-             exec-path-from-shell flycheck dockerfile-mode
-             ace-window dash-at-point ace-window twittering-mode
+(defvar wunki-packages
+  '(magit
+    yagist
+    ack-and-a-half
+    buffer-move
+    s
+    projectile
+    goto-last-change
+    expand-region
+    change-inner
+    powerline
+    surround
+    idomenu
+    diminish
+    dired-details
+    multiple-cursors
+    ag
+    restclient
+    rainbow-delimiters
+    calfw
+    smex
+    smartparens
+    htmlize
+    move-text
+    dash
+    browse-kill-ring
+    exec-path-from-shell
+    flycheck
+    ace-window
+    dash-at-point
+    twittering-mode
+    org
+    org-plus-contrib
+    org-magit
+    pandoc-mode
+    markdown-mode
+    git-commit-mode
+    gitconfig-mode
+    gitignore-mode
+    js2-mode
+    yaml-mode
+    ido-ubiquitous
+    flx-ido
+    undo-tree
+    ace-jump-mode
+    web-mode
+    anzu
+    fish-mode
+    company
+    company-ghc
+    cider
+    clojure-mode
+    cljdoc
+    clojurescript-mode
+    haskell-mode
+    shm
+    ghc
+    elpy
+    slime
+    slime-repl
+    erlang
+    toml-mode
+    rust-mode
+    flycheck-rust
+    racket-mode
+    go-mode
+    go-eldoc
+    gotest
+    go-projectile
+    company-go
+    golint
+    zenburn-theme
+    color-theme-sanityinc-tomorrow
+    color-theme-sanityinc-solarized))
 
-             ;; modes
-             org org-plus-contrib org-magit pandoc-mode
-             markdown-mode git-commit-mode gitconfig-mode
-             gitignore-mode git-gutter js2-mode yaml-mode
-             pretty-mode-plus ido-ubiquitous flx-ido undo-tree
-             ace-jump-mode web-mode anzu org-trello fish-mode
+(defun wunki-packages-installed-p ()
+  "Check if all packages in `wunki-packages' are installed."
+  (every #'package-installed-p wunki-packages))
 
-             ;; auto-completion
-             company company-ghc
-             
-             ;; languages
-             cider clojure-mode cljdoc clojurescript-mode
-             clj-refactor slamhound haskell-mode shm ghc elpy
-             slime slime-repl erlang toml-mode rust-mode
-             flycheck-rust racket-mode
+(defun wunki-require-package (package)
+  "Install PACKAGE unless already installed."
+  (unless (memq package wunki-packages)
+    (add-to-list 'wunki-packages package))
+  (unless (package-installed-p package)
+    (package-install package)))
 
-             ;; go
-             go-mode go-eldoc gotest go-projectile company-go
-             golint
-             
-             ;; themes
-             zenburn-theme color-theme-sanityinc-tomorrow
-             color-theme-sanityinc-solarized))
-  (unless (package-installed-p p)
-    (package-install p)))
+(defun wunki-require-packages (packages)
+  "Ensure PACKAGES are installed.
+Missing packages are installed automatically."
+  (mapc #'wunki-require-package packages))
+
+(defun wunki-install-packages ()
+  "Install all packages listed in `wunki-packages'."
+  (unless (wunki-packages-installed-p)
+    ;; check for new packages (package versions)
+    (message "%s" "Emacs is now refreshing its package database...")
+    (package-refresh-contents)
+    (message "%s" " done.")
+    ;; install the missing packages
+    (wunki-require-packages wunki-packages)))
+
+;; run package installation
+(wunki-install-packages)
 
 ;; configuration files
 (setq config-dir (file-name-directory

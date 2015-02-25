@@ -31,18 +31,14 @@
     dired-details
     multiple-cursors
     ag
-    restclient
     rainbow-delimiters
-    calfw
     smex
     smartparens
-    htmlize
     move-text
     dash
     browse-kill-ring
     exec-path-from-shell
     flycheck
-    ace-window
     dash-at-point
     twittering-mode
     org
@@ -72,9 +68,6 @@
     shm
     ghc
     elpy
-    slime
-    slime-repl
-    erlang
     toml-mode
     rust-mode
     flycheck-rust

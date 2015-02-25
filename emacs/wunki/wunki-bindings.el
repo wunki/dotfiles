@@ -83,10 +83,6 @@
 (global-set-key (kbd "C-c P") 'windmove-up)
 (global-set-key (kbd "C-c N") 'windmove-down)
 
-;; move by using letters
-(global-set-key (kbd "C-c w") 'ace-window)
-(setq aw-keys '(?u ?h ?e ?t ?o ?n ?a ?s))
-
 ;; multiple markers
 (global-set-key (kbd "C-!") 'mc/edit-lines)
 (global-set-key (kbd "C-@") 'mc/mark-next-like-this)

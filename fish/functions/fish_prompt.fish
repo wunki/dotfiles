@@ -1,7 +1,7 @@
 # git prompt
 set __fish_git_prompt_showdirtystate 'yes'
 set __fish_git_prompt_showstashstate 'yes'
-set __fish_git_prompt_showupstream 'informative'
+set __fish_git_prompt_showupstream 'git'
 set __fish_git_prompt_color_branch yellow
 
 # status chars

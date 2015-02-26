@@ -43,9 +43,6 @@
 (add-hook 'org-mode-hook 'disable-electric-indent)
 (add-hook 'haskell-mode-hook 'disable-electric-indent)
 
-;; calfw, handy calendar
-(require 'calfw)
-
 ;; recently opened files
 (recentf-mode 1)
 (setq recentf-max-saved-items 30)

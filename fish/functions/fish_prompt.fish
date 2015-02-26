@@ -16,6 +16,12 @@ set __fish_git_prompt_char_upstream_behind '↓'
 function fish_prompt
   set last_status $status
 
+  # Hostname
+  if test -n "$SSH_CONNECTION"
+    set_color $fish_color_quote
+    printf '%s | ' (hostname -s)
+  end
+  
   # CWD
   set_color $fish_color_cwd
   printf '%s' (prompt_pwd)

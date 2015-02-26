@@ -62,6 +62,7 @@
     company-ghc
     cider
     clojure-mode
+    clj-refactor
     cljdoc
     clojurescript-mode
     haskell-mode

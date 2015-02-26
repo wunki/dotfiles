@@ -4,7 +4,7 @@
 (exec-path-from-shell-initialize)
 
 ;; use fish as the default shell
-(setq explicit-shell-file-name (locate-file "zsh" exec-path))
+(setq explicit-shell-file-name (locate-file "fish" exec-path))
 
 ;; emacsclient as editor for Magit
 (setenv "EDITOR" "emacsclient")
@@ -28,8 +28,8 @@
     ad-do-it))
 (ad-activate 'term-sentinel)
 
-;; don't ask which shell to use, just start zsh
-(defadvice ansi-term (before force-zsh)
+;; don't ask which shell to use, just start fish
+(defadvice ansi-term (before force-fish)
   (interactive (list explicit-shell-file-name)))
 (ad-activate 'ansi-term)
 

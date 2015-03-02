@@ -1,16 +1,11 @@
 ;;; package --- Setup Python development environment
 
-(when (require 'elpy nil t)
-  (elpy-enable))
+(defun wunki-python-defaults ()
+  "Default modes for Python programming"
+  (subword-mode +1)
+  (anaconda-mode)
+  (eldoc-mode))
 
-;; enable flycheck
-(when (require 'flycheck nil t)
-  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  (add-hook 'elpy-mode-hook 'flycheck-mode))
-
-;; disable certain modes
-(setq elpy-modules (delq 'elpy-module-highlight-indentation elpy-modules))
+(add-hook 'python-mode-hook 'wunki-python-defaults)
 
 (provide 'wunki-python)
-
-;;; wunki-python.el ends here

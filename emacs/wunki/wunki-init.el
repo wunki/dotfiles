@@ -68,7 +68,7 @@
     haskell-mode
     shm
     ghc
-    elpy
+    anaconda-mode
     toml-mode
     rust-mode
     flycheck-rust
@@ -131,7 +131,7 @@ Missing packages are installed automatically."
 (require 'wunki-lisp)              ; lisp languages
 (require 'wunki-scheme)            ; scheme languages
 (require 'wunki-rust)              ; rust
-;(require 'wunki-python)            ; python
+(require 'wunki-python)            ; python
 (require 'wunki-haskell)           ; haskell
 (require 'wunki-erlang)            ; erlang
 (require 'wunki-go)                ; go

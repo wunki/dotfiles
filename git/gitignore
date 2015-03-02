@@ -41,6 +41,9 @@ Icon?
 .Spotlight-V100 # External disk
 .Trashes        # External disk trash
 
+# BSD
+*.core
+
 # Archives
 *.7z
 *.dmg

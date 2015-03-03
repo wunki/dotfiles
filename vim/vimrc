@@ -31,62 +31,69 @@ Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, bra
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
 Plug 'bronson/vim-trailing-whitespace'                   " remove trailing whitespace
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
-Plug 'vimwiki'                                           " personal wiki
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }  " autocomplete
 
-" Github
-Plug 'mattn/webapi-vim'
-Plug 'mattn/gist-vim'                                    " gists
+" Only install these plugins on Desktop machines
+if hostname() == "macbook.wunki.org"
+    " Keeping TODO's
+    Plug 'vimwiki'                                           " personal wiki
 
-" File browsing
-Plug 'kien/ctrlp.vim'
+    " Autcompletion"
+    Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }  " autocomplete
 
-" Looks
-Plug 'bling/vim-airline'
-Plug 'edkolev/tmuxline.vim'
-Plug 'morhetz/gruvbox'
-Plug 'jnurmine/Zenburn'
+    " Github
+    Plug 'mattn/webapi-vim'
+    Plug 'mattn/gist-vim'                                    " gists
 
-" Websites
-Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html', 'sls'] }
-Plug 'othree/html5.vim', { 'for': 'html' }
+    " File browsing
+    Plug 'kien/ctrlp.vim'
 
-" Clojure
-Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-Plug 'tpope/vim-leiningen', { 'for': 'clojure' }
-Plug 'tpope/vim-projectionist', { 'for': 'clojure' }
-Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
-Plug 'guns/vim-slamhound', { 'for': 'clojure' }
-Plug 'guns/vim-sexp', { 'for': 'clojure' }
-Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
-Plug 'kien/rainbow_parentheses.vim', { 'for': ['clojure', 'scheme']  }
+    " Looks
+    Plug 'bling/vim-airline'
+    Plug 'edkolev/tmuxline.vim'
+    Plug 'morhetz/gruvbox'
+    Plug 'jnurmine/Zenburn'
 
-" Haskell
-Plug 'travitch/hasksyn', { 'for': 'haskell' }
-Plug 'Shougo/vimproc.vim', { 'do': 'gmake', 'for': 'haskell' }
-Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
-Plug 'twinside/vim-hoogle', { 'for': 'haskell' }
-Plug 'nbouscal/vim-stylish-haskell', { 'for': 'haskell' }
+    " Websites
+    Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html', 'sls'] }
+    Plug 'othree/html5.vim', { 'for': 'html' }
 
-" Go
-Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'benmills/vim-golang-alternate', { 'for': 'go' }
+    " Clojure
+    Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
+    Plug 'tpope/vim-leiningen', { 'for': 'clojure' }
+    Plug 'tpope/vim-projectionist', { 'for': 'clojure' }
+    Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
+    Plug 'guns/vim-slamhound', { 'for': 'clojure' }
+    Plug 'guns/vim-sexp', { 'for': 'clojure' }
+    Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
+    Plug 'kien/rainbow_parentheses.vim', { 'for': ['clojure', 'scheme']  }
 
-" Rust
-Plug 'wting/rust.vim', { 'for': 'rust' }
-Plug 'phildawes/racer', { 'do': 'cargo build --release', 'for': 'rust' }
-Plug 'cespare/vim-toml', { 'for': 'toml' }
+    " Haskell
+    Plug 'travitch/hasksyn', { 'for': 'haskell' }
+    Plug 'Shougo/vimproc.vim', { 'do': 'gmake', 'for': 'haskell' }
+    Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
+    Plug 'twinside/vim-hoogle', { 'for': 'haskell' }
+    Plug 'nbouscal/vim-stylish-haskell', { 'for': 'haskell' }
 
-" Fish shell syntax
-Plug 'aliva/vim-fish', { 'for': 'fish' }
+    " Go
+    Plug 'fatih/vim-go', { 'for': 'go' }
+    Plug 'benmills/vim-golang-alternate', { 'for': 'go' }
 
-" Provisioning
-Plug 'saltstack/salt-vim', { 'for': 'sls' }
+    " Rust
+    Plug 'wting/rust.vim', { 'for': 'rust' }
+    Plug 'phildawes/racer', { 'do': 'cargo build --release', 'for': 'rust' }
+    Plug 'cespare/vim-toml', { 'for': 'toml' }
 
-" Python
-Plug 'klen/python-mode', { 'for': 'python' }
-Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-Plug 'lambdalisue/vim-pyenv', { 'for': 'python' }
+    " Fish shell syntax
+    Plug 'aliva/vim-fish', { 'for': 'fish' }
+
+    " Provisioning
+    Plug 'saltstack/salt-vim', { 'for': 'sls' }
+
+    " Python
+    Plug 'klen/python-mode', { 'for': 'python' }
+    Plug 'davidhalter/jedi-vim', { 'for': 'python' }
+    Plug 'lambdalisue/vim-pyenv', { 'for': 'python' }
+end
 
 call plug#end()
 
@@ -116,7 +123,10 @@ else
     set ttymouse=xterm
     set termencoding=utf-8
 endif
-colors gruvbox
+
+if hostname() == "macbook.wunki.org"
+    colors gruvbox
+end
 
 " Find Shell
 if executable('/usr/local/bin/zsh')

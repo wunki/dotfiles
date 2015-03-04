@@ -32,3 +32,5 @@
     browser = firefox
 [push]
     default = matching
+[hub]
+	protocol = https

@@ -36,6 +36,7 @@
              (local-set-key (kbd "C-c l") 'golint)
              (local-set-key (kbd "C-c d") 'godoc)))
 
+;; testing
 (define-key go-mode-map (kbd "C-x f") 'go-test-current-file)
 (define-key go-mode-map (kbd "C-x t") 'go-test-current-test)
 (define-key go-mode-map (kbd "C-x p") 'go-test-current-project)

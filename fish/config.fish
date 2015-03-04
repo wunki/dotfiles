@@ -118,6 +118,18 @@ else
 end
 prepend_to_path "$GOPATH/bin"
 
+# Test coverage for Go
+# Use in the current project: `cover` or `cover github.com/pkg/sftp`
+function cover ()
+  set -l t (mktemp /tmp/gocover.XXXXX)
+  go test $COVERFLAGS -coverprofile=$t $argv;and go tool cover -func=$t;and unlink $t
+end
+
+function cover-web ()
+  set -l t (mktemp /tmp/gocover.XXXXX)
+  go test $COVERFLAGS -coverprofile=$t $argv;and go tool cover -html=$t;and unlink $t
+end
+
 # nodejs
 if test -f ~/.nvm-fish/nvm.fish
   source ~/.nvm-fish/nvm.fish

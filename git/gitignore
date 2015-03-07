@@ -1,3 +1,5 @@
+*.core
+
 # Python
 *.py[co]
 *.egg
@@ -41,9 +43,6 @@ Icon?
 .Spotlight-V100 # External disk
 .Trashes        # External disk trash
 
-# BSD
-*.core
-
 # Archives
 *.7z
 *.dmg
@@ -68,10 +67,8 @@ cabal-dev
 # Clojure
 pom.xml
 *jar
+/lib/
 /classes/
 /targets/
 .lein-deps-sum
 .lein-repl-history
-
-# Vagrant
-.vagrant/

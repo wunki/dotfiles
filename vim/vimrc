@@ -33,7 +33,7 @@ Plug 'bronson/vim-trailing-whitespace'                   " remove trailing white
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
 
 " Only install these plugins on Desktop machines
-if hostname() == "macbook.wunki.org"
+if hostname() == "macbook.wunki.org" || hostname() == "home.wunki.org"
     " Keeping TODO's
     Plug 'vimwiki'                                           " personal wiki
 

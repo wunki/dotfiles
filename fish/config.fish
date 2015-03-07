@@ -53,16 +53,6 @@ if test -f $fish_secret
   . $fish_secret
 end
 
-# autojump
-if contains (hostname -s) "macbook"
-  set autojump_path "/usr/local/share/autojump/autojump.fish"
-else
-  set autojump_path "/etc/profile.d/autojump.fish"
-end
-if test -f $autojump_path
-  . $autojump_path
-end
-
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"
   if test -d $argv[1]
     if not contains $argv[1] $PATH
@@ -91,6 +81,13 @@ prepend_to_path "/usr/local/opt/go/libexec/bin"
 prepend_to_path "/usr/local/Cellar/emacs/HEAD/bin"
 prepend_to_path "$HOME/Source/google-cloud-sdk/bin"
 prepend_to_path "/Applications/Postgres.app/Contents/Versions/9.3/bin"
+
+# autojump
+if test -f /home/wunki/.autojump/share/autojump/autojump.fish
+  prepend_to_path "~/.autojump/bin"
+  . /home/wunki/.autojump/share/autojump/autojump.fish
+end
+
 
 # haskell
 if contains (hostname -s) "macbook"

@@ -16,8 +16,25 @@
 (global-set-key (kbd "C-c C-d") 'dash-at-point-with-docset)
 
 ;; Set the Apple key as Meta
-;; (setq mac-command-modifier 'meta)
-;; (setq mac-option-modifier 'none)
+(setq mac-command-modifier 'meta)
+(setq mac-option-modifier 'super)
+
+(defun swap-meta-and-super ()
+  "Swap the mapping of Meta and Super.
+Very useful for people using their Mac with a
+Windows external keyboard from time to time."
+  (interactive)
+  (if (eq mac-command-modifier 'super)
+      (progn
+        (setq mac-command-modifier 'meta)
+        (setq mac-option-modifier 'super)
+        (message "Command is now bound to META and Option is bound to SUPER."))
+    (progn
+      (setq mac-command-modifier 'super)
+      (setq mac-option-modifier 'meta)n
+      (message "Command is now bound to SUPER and Option is bound to META."))))
+(global-set-key (kbd "C-c w") 'swap-meta-and-super)
+
 (setq default-input-method "MacOSX")
 (global-set-key (kbd "M-`") 'ns-next-frame)
 (global-set-key (kbd "M-h") 'ns-do-hide-emacs)

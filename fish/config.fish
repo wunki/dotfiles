@@ -136,6 +136,11 @@ if test -x "$GOPATH/bin/hub"
   function git; hub $argv; end
 end
 
+# NodeJS
+set -x NPM_PACKAGES "$HOME/.npm-packages"
+set -x NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+prepend_to_path "$NPM_PACKAGES/bin"
+
 # boot2docker on the mac
 if contains (hostname -s) "macbook"
   set -x DOCKER_HOST "tcp://192.168.59.103:2376"
@@ -147,6 +152,7 @@ end
 prepend_to_path "/Applications/Racket v6.1.1/bin"
 
 # rubygems
+prepend_to_path "$HOME/.gem/ruby/2.1/bin"
 prepend_to_path "$HOME/.gem/ruby/2.0.0/bin"
 prepend_to_path "$HOME/.gem/ruby/1.9.1/bin"
 prepend_to_path "$HOME/.gem/ruby/2.2.0/bin"

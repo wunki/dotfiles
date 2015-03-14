@@ -16,6 +16,9 @@
             (if (not (string-match "go" compile-command))
                 (set (make-local-variable 'compile-command)
                      "go build -v; go test -v; go vet"))
+            (setq imenu-generic-expression
+                  '(("type" "^type *\\([^ \t\n\r\f]*\\)" 1)
+                    ("func" "^func *\\(.*\\) {" 1)))
             (subword-mode)
             (flycheck-mode)
             (subword-mode)

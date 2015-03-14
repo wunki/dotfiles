@@ -124,9 +124,7 @@ else
     set termencoding=utf-8
 endif
 
-if hostname() == "macbook.wunki.org"
-    colors gruvbox
-end
+colors zenburn
 
 " Find Shell
 if executable('/usr/local/bin/zsh')

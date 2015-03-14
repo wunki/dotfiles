@@ -92,7 +92,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; moving around
-(global-set-key (kbd "C-c j") 'ace-jump-mode)
+(global-set-key (kbd "C-x g") 'ace-jump-mode)
 (global-set-key (kbd "C-c C-i") 'idomenu)
 
 ;; quickly edit files

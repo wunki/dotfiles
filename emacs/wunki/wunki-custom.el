@@ -10,7 +10,7 @@
 
 ;; chrome as browser
 (setq browse-url-browser-function 'browse-url-generic
-      browse-url-generic-program "chromium")
+      browse-url-generic-program "firefox")
 
 ;; desktop, to automatically save and restore sessions
 (setq desktop-dirname             "~/.emacs.d/desktop/"

@@ -151,6 +151,8 @@
 (add-hook 'twittering-edit-mode-hook
           (lambda ()
             (auto-fill-mode -1)))
+(if (eq system-type 'berkeley-unix)
+    (setq twittering-curl-program "/usr/local/bin/curl")) 
 
 ;; jump to the last place you were in the file
 (require 'saveplace)

@@ -1,6 +1,5 @@
 ;; mac only settings.
-(set-frame-font "Fira Mono-14")
-(add-to-list 'default-frame-alist '(font . "Fira Mono 14"))
+(set-face-attribute 'default nil :height 160)
 
 ;; disable scrollbars and menu bar on the mac. On Linux you can disable it in
 ;; Xdefaults.

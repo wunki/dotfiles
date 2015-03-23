@@ -122,6 +122,7 @@
     ("maildir:/gibbon/inbox"                      "Gibbon's inbox"         ?g)
     ("maildir:/wunki/inbox"                       "Wunki's inbox"          ?w)
     ("maildir:/bread-and-pepper/inbox"            "Bread & Pepper's inbox" ?b)
+    ("maildir:/gibbon/inbox OR maildir:/wunki/inbox OR maildir:/bread-and-pepper/inbox"                             "All inboxes"       ?i)
     ("date:today..now"                            "Today's messages"       ?t)
     ("flag:flagged"                               "Flagged messages"       ?f)))
 

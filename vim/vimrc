@@ -100,7 +100,7 @@ call plug#end()
 " GUI
 if has("gui_running")
     if has('mac')
-        set guifont=Fira\ Mono\ for\ Powerline:h15
+        set guifont=Fira\ Mono:h15
     else
         set guifont=Fira\ Mono\ for\ Powerline\ 12
     endif
@@ -453,7 +453,7 @@ let g:tagbar_type_go = {
 \ }
 
 " Airline
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 
 " Lightline
 let g:lightline = {

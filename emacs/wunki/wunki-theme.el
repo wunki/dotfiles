@@ -1,9 +1,9 @@
 ;; load theme and don't ask if it's save.
-(load-theme 'zenburn t)
+(load-theme 'gruvbox t)
 
 (set-frame-font "Fira Mono")
 (add-to-list 'default-frame-alist '(font . "Fira Mono"))
-(set-face-attribute 'default nil :height 160)
+(set-face-attribute 'default nil :height 140)
 
 (defun toggle-dark-light-theme ()
   "Switch between dark and light theme."
@@ -44,7 +44,7 @@ by the :height face attribute."
   (interactive)
   (wunki/increment-default-font-height -10))
 
-(global-set-key (kbd "C-M-=") 'wunki/increase-default-font-height)
-(global-set-key (kbd "C-M--") 'wunki/decrease-default-font-height)
+(global-set-key (kbd "M-+") 'wunki/increase-default-font-height)
+(global-set-key (kbd "M-_") 'wunki/decrease-default-font-height)
 
 (provide 'wunki-theme)

@@ -1,4 +1,5 @@
 *.core
+.vagrant/
 
 # Python
 *.py[co]
@@ -25,6 +26,7 @@ pip-log.txt
 auto-save-list
 tramp
 .\#*
+flycheck_*
 
 # Vim
 .*.sw[a-z]

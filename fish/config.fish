@@ -83,9 +83,9 @@ prepend_to_path "$HOME/Source/google-cloud-sdk/bin"
 prepend_to_path "/Applications/Postgres.app/Contents/Versions/9.3/bin"
 
 # autojump
-if test -f /home/wunki/.autojump/share/autojump/autojump.fish
-  prepend_to_path "~/.autojump/bin"
-  . /home/wunki/.autojump/share/autojump/autojump.fish
+if test -f "$HOME/.autojump/share/autojump/autojump.fish"
+  prepend_to_path "$HOME/.autojump/bin"
+  . "$HOME/.autojump/share/autojump/autojump.fish"
 end
 
 

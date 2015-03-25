@@ -44,7 +44,7 @@ by the :height face attribute."
   (interactive)
   (wunki/increment-default-font-height -10))
 
-(global-set-key (kbd "C-M-=") 'wunki/increase-default-font-height)
-(global-set-key (kbd "C-M--") 'wunki/decrease-default-font-height)
+(global-set-key (kbd "M-+") 'wunki/increase-default-font-height)
+(global-set-key (kbd "M-_") 'wunki/decrease-default-font-height)
 
 (provide 'wunki-theme)

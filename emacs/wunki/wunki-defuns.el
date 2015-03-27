@@ -147,4 +147,15 @@ Including indent-buffer, which should not be called automatically on save."
   "Return true if system is darwin-based (Mac OS X)"
   (string-equal system-type "darwin"))
 
+
+(defun wunki/unfill-paragraph ()
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-paragraph nil)))
+
+(defun wunki/unfill-region ()
+  (interactive)
+  (let ((fill-column (point-max)))
+    (fill-region (region-beginning) (region-end) nil)))
+
 (provide 'wunki-defuns)

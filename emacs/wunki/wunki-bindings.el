@@ -100,6 +100,9 @@
 (global-set-key (kbd "C-c 2") 'projectile-switch-project)
 (global-set-key (kbd "C-c 3") 'ido-todos)
 
+;; unfill a paragraph
+(global-set-key (kbd "C-c u") 'wunki/unfill-paragraph)
+
 ;; move around changes
 (global-set-key (kbd "C-c C-l") 'goto-last-change)
 

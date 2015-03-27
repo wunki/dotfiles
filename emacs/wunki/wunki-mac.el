@@ -1,6 +1,3 @@
-;; mac only settings.
-(set-face-attribute 'default nil :height 160)
-
 ;; disable scrollbars and menu bar on the mac. On Linux you can disable it in
 ;; Xdefaults.
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
@@ -14,7 +11,7 @@
 (global-set-key (kbd "C-c d") 'dash-at-point)
 (global-set-key (kbd "C-c C-d") 'dash-at-point-with-docset)
 
-;; Set the Apple key as Meta
+;; set the Apple key as Meta
 (setq mac-command-modifier 'meta)
 (setq mac-option-modifier 'super)
 
@@ -30,7 +27,7 @@ Windows external keyboard from time to time."
         (message "Command is now bound to META and Option is bound to SUPER."))
     (progn
       (setq mac-command-modifier 'super)
-      (setq mac-option-modifier 'meta)n
+      (setq mac-option-modifier 'meta)
       (message "Command is now bound to SUPER and Option is bound to META."))))
 (global-set-key (kbd "C-c w") 'swap-meta-and-super)
 

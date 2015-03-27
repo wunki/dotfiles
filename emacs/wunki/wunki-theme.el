@@ -1,9 +1,9 @@
 ;; load theme and don't ask if it's save.
-(load-theme 'darktooth t)
+(load-theme 'gotham t)
 
 (set-frame-font "Fira Mono")
 (add-to-list 'default-frame-alist '(font . "Fira Mono"))
-(set-face-attribute 'default nil :height 120)
+(set-face-attribute 'default nil :height 150)
 
 (defun toggle-dark-light-theme ()
   "Switch between dark and light theme."

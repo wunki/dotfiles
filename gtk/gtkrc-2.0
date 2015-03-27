@@ -4,7 +4,7 @@ include "/home/wunki/.gtkrc.mine"
 gtk-theme-name = "MurrinaGilouche"
 
 style "vimfix" {
-  bg[NORMAL] = "#1d1f21"
+  bg[NORMAL] = "#0c1014"
 }
 widget "vim-main-window.*GtkForm" style "vimfix"
 

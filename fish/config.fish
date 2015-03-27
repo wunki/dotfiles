@@ -80,7 +80,7 @@ prepend_to_path "/usr/local/opt/go/libexec/bin"
 # mac specific paths
 prepend_to_path "/usr/local/Cellar/emacs/HEAD/bin"
 prepend_to_path "$HOME/Source/google-cloud-sdk/bin"
-prepend_to_path "/Applications/Postgres.app/Contents/Versions/9.3/bin"
+prepend_to_path "/Applications/Postgres.app/Contents/Versions/9.4/bin"
 
 # autojump
 if test -f "$HOME/.autojump/share/autojump/autojump.fish"
@@ -165,14 +165,14 @@ prepend_to_path "/opt/android-sdk/platform-tools"
 prepend_to_path "/usr/bin/core_perl"
 
 # python
-prepend_to_path "$HOME/.pyenv/bin"
-if test -d ~/.pyenv
-  status --is-interactive; and . (pyenv init -|psub)
-  status --is-interactive; and . (pyenv virtualenv-init -|psub)
-end  
+# prepend_to_path "$HOME/.pyenv/bin"
+# if test -d ~/.pyenv
+#   status --is-interactive; and . (pyenv init -|psub)
+#   status --is-interactive; and . (pyenv virtualenv-init -|psub)
+# end
 
 if contains (hostname -s) "macbook"
-  prepend_to_path "$HOME/Library/Python/2.7/bin"  
+  prepend_to_path "$HOME/Library/Python/2.7/bin"
   set -gx PYTHONPATH "$HOME/Library/Python/2.7/lib/python/site-packages:/Library/Python/2.7/site-packages"
 end
 
@@ -187,7 +187,7 @@ function fish_title
 end
 
 # set variables on directories with ondir
-if test -f /usr/sbin/ondir; or test -f /usr/local/bin/ondir
+if test -f /usr/local/bin/ondir
   function ondir_prompt_hook --on-event fish_prompt
   if test ! -e "$OLDONDIRWD"; set -g OLDONDIRWD /; end;
   if [ "$OLDONDIRWD" != "$PWD" ]; eval (ondir $OLDONDIRWD $PWD); end;

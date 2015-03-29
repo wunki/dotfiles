@@ -20,7 +20,7 @@ Plug 'tpope/vim-unimpaired'                              " bracket mappings for 
 Plug 'tpope/vim-obsession'                               " better vim sessions
 Plug 'rking/ag.vim'                                      " silver surfer
 Plug 'commentary.vim'                                    " comment mappings
-Plug 'surround.vim'                                      " surrond commands
+Plug 'surround.vim'                                      " surround commands
 Plug 'godlygeek/tabular'                                 " easy indenting
 Plug 'tpope/vim-speeddating'                             " increase time and numbers
 Plug 'Lokaltog/vim-easymotion'                           " move by selecting a letter
@@ -107,7 +107,7 @@ if has("gui_running")
     if has('mac')
         set guifont=Source\ Code\ Pro\ for\ Powerline:h17
     else
-        set guifont=Fira\ Mono\ for\ Powerline\ 12
+        set guifont=Source\ Code\ Pro\ for\ Powerline\ Medium\ 12
     endif
     set guioptions-=e
     set guioptions-=T
@@ -129,7 +129,7 @@ else
     set termencoding=utf-8
 endif
 
-colors spacegray
+colors gruvbox
 
 " Find Shell
 if executable('/usr/local/bin/zsh')

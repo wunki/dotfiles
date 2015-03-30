@@ -1,40 +1,40 @@
 [user]
-	name = Petar Radosevic
-	email = petar@wunki.org
+    name = Petar Radosevic
+    email = petar@wunki.org
 [color]
-	status = auto
-	diff = auto
-	branch = auto
+    status = auto
+    diff = auto
+    branch = auto
 [color "branch"]
-	current = yellow reverse
-	local = yellow
-	remote = green
+    current = yellow reverse
+    local = yellow
+    remote = green
 [color "diff"]
-	meta = yellow bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
 [color "status"]
-	added = yellow
-	changed = green
-	untracked = cyan
+    added = yellow
+    changed = green
+    untracked = cyan
 [alias]
-	st = status
-	ci = commit
-	co = checkout
+    st = status
+    ci = commit
+    co = checkout
     di = diff
     dc = diff --cached
     aa = add --all
-    fa = fetch -all
+    fa = fetch --all
     ff = fetch --ff-only
     pom = push origin master
-	pl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
-	root = rev-parse --show-toplevel
+    pl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+    root = rev-parse --show-toplevel
 [core]
-	excludesfile = ~/.gitignore
+    excludesfile = ~/.gitignore
 [hub]
-	protocol = https
+    protocol = https
 [push]
-	default = matching
+    default = matching
 [merge]
     tool = vimdiff

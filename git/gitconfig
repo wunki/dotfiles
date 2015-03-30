@@ -27,6 +27,7 @@
     aa = add --all
     fa = fetch -all
     ff = fetch --ff-only
+    pom = push origin master
 	pl = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 	root = rev-parse --show-toplevel
 [core]

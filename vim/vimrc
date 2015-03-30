@@ -169,7 +169,6 @@ set nocursorline            " show me the line where the cursor is
 set nofoldenable            " don't do any folding for now
 set guicursor+=a:blinkon0   " don't blink the cursor please
 set winwidth=79             " resize active window to minimally contains 79 chars width
-set winminheight=5          " minimun height of a non-active window
 
 " Enable a .vimrc per project
 set exrc                    " enable per-directory .vimrc files

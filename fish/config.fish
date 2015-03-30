@@ -8,7 +8,7 @@ function duh; du -ah --max-depth=1; end
 function lah; ls -lah; end
 function et; emacsclient -a "" -t $argv; end
 function e; emacsclient -a "" -nq $argv; end
-function v; vim $argv; end
+function v; nvim $argv; end
 function gh-preview; python -m grip; end
 function flush-dns; sudo discoveryutil mdnsflushcache; end
 

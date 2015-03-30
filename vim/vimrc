@@ -57,6 +57,8 @@ if hostname() == "macbook.wunki.org" || hostname() == "home.wunki.org"
     Plug 'jnurmine/Zenburn'
     Plug 'whatyouhide/vim-gotham'
     Plug 'ajh17/Spacegray.vim'
+    Plug 'chriskempson/base16-vim'
+
 
     " Websites
     Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html', 'sls'] }
@@ -129,7 +131,7 @@ else
     set termencoding=utf-8
 endif
 
-colors gruvbox
+colors base16-ocean
 
 " Find Shell
 if executable('/usr/local/bin/zsh')
@@ -166,6 +168,8 @@ set formatoptions=qrn1
 set nocursorline            " show me the line where the cursor is
 set nofoldenable            " don't do any folding for now
 set guicursor+=a:blinkon0   " don't blink the cursor please
+set winwidth=79             " resize active window to minimally contains 79 chars width
+set winminheight=5          " minimun height of a non-active window
 
 " Enable a .vimrc per project
 set exrc                    " enable per-directory .vimrc files
@@ -402,7 +406,7 @@ if filereadable($passfile)
     source $passfile
 end
 
-if has('mac')
+if has('mac') && !has('nvim')
     set macmeta               " enable meta key in macvim
 endif
 
@@ -430,34 +434,6 @@ let g:tagbar_type_rust = {
         \'i:impls,trait implementations',
     \  ]
     \}
-
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
 
 " Airline
 let g:airline_powerline_fonts = 1

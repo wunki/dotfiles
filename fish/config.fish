@@ -168,11 +168,11 @@ prepend_to_path "/opt/android-sdk/platform-tools"
 prepend_to_path "/usr/bin/core_perl"
 
 # python
-# prepend_to_path "$HOME/.pyenv/bin"
-# if test -d ~/.pyenv
-#   status --is-interactive; and . (pyenv init -|psub)
-#   status --is-interactive; and . (pyenv virtualenv-init -|psub)
-# end
+prepend_to_path "$HOME/.pyenv/bin"
+if test -d ~/.pyenv
+  status --is-interactive; and . (pyenv init -|psub)
+  status --is-interactive; and . (pyenv virtualenv-init -|psub)
+end
 
 if contains (hostname -s) "macbook"
   prepend_to_path "$HOME/Library/Python/2.7/bin"

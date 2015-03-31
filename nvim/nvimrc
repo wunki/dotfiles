@@ -1,15 +1,10 @@
-" Vim configuration file by Petar Radosevic
-
-set nocompatible            " use vim defaults
 set cmdheight=2             " lower command line two lines high
 set modifiable              " needed for vimpager
-set encoding=utf-8          " utf-8 encoding
-set fileencoding=utf-8      " save files as utf-8
 set bg=dark                 " dark background
 syntax on                   " enable syntax highlighting
 filetype plugin indent on
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.nvim/plugged')
 
 " Essentials
 Plug 'tpope/vim-eunuch'                                  " unix helper commands
@@ -30,106 +25,27 @@ Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, bra
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
 Plug 'bronson/vim-trailing-whitespace'                   " remove trailing whitespace
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }  " autocomplete
+Plug 'kien/ctrlp.vim'                                    " file browsing
+Plug 'bling/vim-airline'
+Plug 'chriskempson/base16-vim'
 
-" Only install these plugins on Desktop machines
-if hostname() == "macbook.wunki.org" || hostname() == "home.wunki.org"
-    " Keeping TODO's
-    Plug 'vimwiki'                                           " personal wiki
+" Go
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'benmills/vim-golang-alternate', { 'for': 'go' }
 
-    " Autcompletion"
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }  " autocomplete
-
-    " Github
-    Plug 'mattn/webapi-vim'
-    Plug 'mattn/gist-vim'                                    " gists
-
-    " Change font size
-    Plug 'drmikehenry/vim-fontsize'
-
-    " File browsing
-    Plug 'kien/ctrlp.vim'
-
-    " Looks
-    Plug 'bling/vim-airline'
-    Plug 'edkolev/tmuxline.vim'
-    Plug 'morhetz/gruvbox'
-    Plug 'jnurmine/Zenburn'
-    Plug 'whatyouhide/vim-gotham'
-    Plug 'ajh17/Spacegray.vim'
-    Plug 'chriskempson/base16-vim'
-
-
-    " Websites
-    Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html', 'sls'] }
-    Plug 'othree/html5.vim', { 'for': 'html' }
-
-    " Clojure
-    Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-    Plug 'tpope/vim-leiningen', { 'for': 'clojure' }
-    Plug 'tpope/vim-projectionist', { 'for': 'clojure' }
-    Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
-    Plug 'guns/vim-slamhound', { 'for': 'clojure' }
-    Plug 'guns/vim-sexp', { 'for': 'clojure' }
-    Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
-    Plug 'kien/rainbow_parentheses.vim', { 'for': ['clojure', 'scheme']  }
-
-    " Haskell
-    Plug 'travitch/hasksyn', { 'for': 'haskell' }
-    Plug 'Shougo/vimproc.vim', { 'do': 'gmake', 'for': 'haskell' }
-    Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
-    Plug 'twinside/vim-hoogle', { 'for': 'haskell' }
-    Plug 'nbouscal/vim-stylish-haskell', { 'for': 'haskell' }
-
-    " Go
-    Plug 'fatih/vim-go', { 'for': 'go' }
-    Plug 'benmills/vim-golang-alternate', { 'for': 'go' }
-
-    " Rust
-    Plug 'wting/rust.vim', { 'for': 'rust' }
-    Plug 'phildawes/racer', { 'do': 'cargo build --release', 'for': 'rust' }
-    Plug 'cespare/vim-toml', { 'for': 'toml' }
-
-    " Fish shell syntax
-    Plug 'aliva/vim-fish', { 'for': 'fish' }
-
-    " Provisioning
-    Plug 'saltstack/salt-vim', { 'for': 'sls' }
-
-    " Python
-    Plug 'klen/python-mode', { 'for': 'python' }
-    Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-    Plug 'lambdalisue/vim-pyenv', { 'for': 'python' }
-end
+" Rust
+Plug 'wting/rust.vim', { 'for': 'rust' }
+Plug 'phildawes/racer', { 'do': 'cargo build --release', 'for': 'rust' }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 call plug#end()
 
-" GUI
-if has("gui_running")
-    if has('mac')
-        set guifont=Source\ Code\ Pro\ for\ Powerline:h17
-    else
-        set guifont=Source\ Code\ Pro\ for\ Powerline\ Medium\ 12
-    endif
-    set guioptions-=e
-    set guioptions-=T
-    set guioptions-=m
-    set guioptions-=r
-    set guioptions-=L
-    set guioptions-=b
-    set guioptions+=a
-    set guioptions+=c
-    set novisualbell        " please, no visual bell
-    set noeb                " don't notify me of errors
-    set anti                " anti-aliasing
-    set mousehide           " hide the mouse when typing
-else
-    " 256 colors setting
-    set t_Co=256
-    set mouse=a
-    set ttymouse=xterm
-    set termencoding=utf-8
-endif
-
+" Visuals
+set t_Co=256
+set mouse=a
+set ttymouse=xterm
+set termencoding=utf-8
 colors base16-ocean
 
 " Find Shell
@@ -158,7 +74,6 @@ set bs=2                    " fix backspace in FreeBSD
 set scrolloff=3             " keep 3 lines below/above cursor
 set noshowmode              " no need for the mode, airline shows it
 set showcmd                 " shows partial command in the last line
-set ttyfast                 " improves remote connections
 set ruler                   " show the line and column number of the cursor
 set backspace=indent,eol,start
 set nonumber                " don't show line numbering
@@ -169,16 +84,7 @@ set nofoldenable            " don't do any folding for now
 set guicursor+=a:blinkon0   " don't blink the cursor please
 set winwidth=79             " resize active window to minimally contains 79 chars width
 
-" Enable a .vimrc per project
-set exrc                    " enable per-directory .vimrc files
-set secure                  " disable unsafe commands in local .vimrc files
-
-" Dictionary on the mac
-if has('mac')
-    nmap <silent> <Leader>d :!open dict://<cword><CR><CR>
-endif
-
-" Ignore these files in netrw
+" ignore these files in netrw
 let g:netrw_list_hide= '.*\.swp$,.*\~$,.*\.pyc$'
 
 " Use normal regular expressions
@@ -210,24 +116,24 @@ set wildignore+=cabal-dev                        " cabal
 set wildignore+=dist                             " cabal distrubition
 set wildignore+=*.test                           " ignore Go's tests files
 
-" Jumping around
+" jumping around
 set tags=tags;/,codex.tags;/
 
-" Only show the cursorline on the active window
+" only show the cursorline on the active window
 augroup cline
     au!
     au WinLeave,InsertEnter * set nocursorline
     au WinEnter,InsertLeave * set cursorline
 augroup END
 
-" Backup settings
+" backup settings
 set undodir=~/.vim/tmp/undo//     " undo files
 set backupdir=~/.vim/tmp/backup// " backups
 set directory=~/.vim/tmp/swap//   " swap files
 set backup                        " enable backups
 set noswapfile                    " no swapping
 
-" Tagbar
+" tagbar
 map <C-t> :Tagbar<CR>
 
 " NerdTree
@@ -280,22 +186,8 @@ else
     let $RUST_SRC_PATH="/home/wunki/rust/rust/src"
 end
 
-" Markdown detection
-autocmd BufNewFile,BufReadPost *.mkd,*.markdown,*.md set filetype=markdown
-
-" Textile settings
-au BufRead *.tex set tw=79
-
 " Mutt settings
 au BufRead ~/.mutt/tmp/mutt-* set tw=72 formatoptions=tcql
-
-" C settings
-au FileType C setlocal shiftwidth=4 tabstop=4 softtabstop=4 cindent
-
-" RestructuredText
-augroup rst
-    autocmd BufRead *.rst set ai tw=79 spell filetype=rst formatoptions=tcroqn2 comments=n:>
-augroup END
 
 " JSON
 au! BufRead,BufNewFile *.json setfiletype json
@@ -339,21 +231,6 @@ nnoremap <leader>gr :Gremove<cr>
 nnoremap <leader>gv :Gitv<cr>
 nnoremap <leader>gp :Git push<cr>
 
-" Org-mode
-augroup ft_org
-    au!
-    au Filetype org nmap <buffer> Q vahjgq
-augroup END
-
-" Haskell settings
-let g:haddock_browser = "firefox"
-let g:haddock_browser_callformat = "%s %s"
-let g:ghc="/usr/bin/ghc"
-let g:haddock_docdir="/usr/share/doc/ghc/html/"
-
-" Badwolf theme settings
-let g:badwolf_darkgutter = 1
-
 " Commentary
 nmap <leader>c <Plug>CommentaryLine
 xmap <leader>c <Plug>Commentary
@@ -367,46 +244,14 @@ augroup plugin_commentary
     au FileType cf3 setlocal commentstring=\#\ %s
 augroup END
 
-" Chicken scheme
-let g:is_chicken=1
-setl lispwords+=let-values,condition-case,with-input-from-string
-setl lispwords+=with-output-to-string,handle-exceptions,call/cc,rec,receive
-setl lispwords+=call-with-output-file
-
-" Sessions
-set ssop-=options    " do not store global and local values in a session
-set ssop-=folds      " do not store folds
-
 " Completion
 set complete=.,w,b,u,t
 set completeopt=menu,menuone
-
-" Clojure
-let g:clojure_align_multiline_strings = 1
-
-" Erlang
-au BufRead,BufNewFile rebar.config set filetype=erlang
-
-" Python
-let g:pymode_rope_complete_on_dot = 0
 
 " Syntastic
 let g:syntastic_echo_current_error = 0
 let g:syntastic_enable_highlighting = 0
 let g:syntastic_always_populate_loc_list = 1
-
-" Github issues
-let g:github_issues_no_omni = 1
-
-" Passwords
-let passfile = $HOME."/.vimpass"
-if filereadable($passfile)
-    source $passfile
-end
-
-if has('mac') && !has('nvim')
-    set macmeta               " enable meta key in macvim
-endif
 
 " Tagbar
 let g:tagbar_type_markdown = {

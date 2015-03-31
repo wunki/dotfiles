@@ -4,6 +4,7 @@
 /bin/lein
 /bin/pip
 /bin/python
+/bin/nvim
 emacs/bookmarks
 emacs/var
 emacs/.org-id-locations

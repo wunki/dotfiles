@@ -8,8 +8,8 @@ vim::
 	@echo Vim is symlinked.
 
 nvim::
-	@ln -fs $(DOTFILES)/vim/vimrc						${HOME}/.nvimrc
-	@ln -fns $(DOTFILES)/vim							${HOME}/.nvim
+	@ln -fs $(DOTFILES)/nvim/nvimrc						${HOME}/.nvimrc
+	@ln -fns $(DOTFILES)/nvim							${HOME}/.nvim
 	@echo NeoVim is symlinked.
 
 git::

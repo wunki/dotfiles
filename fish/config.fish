@@ -96,6 +96,9 @@ if contains (hostname -s) "macbook"
 end
 prepend_to_path "$HOME/.cabal/bin"
 
+# neovim
+set -gx VIMRUNTIME "/usr/local/share/vim/vim74"
+
 # go
 function gb; go build; end
 function gt; go test -v ./...; end
@@ -174,6 +177,10 @@ prepend_to_path "/usr/bin/core_perl"
 if contains (hostname -s) "macbook"
   prepend_to_path "$HOME/Library/Python/2.7/bin"
   set -gx PYTHONPATH "$HOME/Library/Python/2.7/lib/python/site-packages:/Library/Python/2.7/site-packages"
+end
+
+if contains (hostname -s) "home"
+  set -gx PYTHONPATH "$HOME/.local/lib/python2.7/site-packages:/usr/local/lib/python2.7/site-packages"
 end
 
 # aws

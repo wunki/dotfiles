@@ -133,6 +133,9 @@ set directory=~/.vim/tmp/swap//   " swap files
 set backup                        " enable backups
 set noswapfile                    " no swapping
 
+" point neovim to python
+let g:python_host_prog='/usr/local/bin/python'
+
 " tagbar
 map <C-t> :Tagbar<CR>
 

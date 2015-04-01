@@ -21,7 +21,7 @@ function fish_prompt
     set_color $fish_color_quote
     printf '%s | ' (hostname -s)
   end
-  
+
   # CWD
   set_color $fish_color_cwd
   printf '%s' (prompt_pwd)

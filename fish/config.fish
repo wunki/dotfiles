@@ -21,6 +21,9 @@ function gs; git status --ignore-submodules=dirty; end
 function gp; git push origin master; end
 function gf; git pull origin master; end
 
+# redis on the mac
+function run-redis; redis-server /usr/local/etc/redis.conf; end
+
 # consul
 function start-consul-ui; ssh -p 2700 -M -S /tmp/ssh-consul -fnNT -L 8500:localhost:8500 149.210.198.88; end
 function check-consul-ui; ssh -S /tmp/ssh-consul -O check consul.gibbon.co; end
@@ -38,8 +41,8 @@ function rmpyc; find . -name '*.pyc' | xargs rm; end
 
 # environment variables
 set -x fish_greeting ""
-set -x EDITOR 'emacsclient -t -a ""'
-set -x VISUAL 'emacsclient -t -a ""'
+set -x EDITOR 'vim'
+set -x VISUAL 'vim'
 set -x TERM 'rxvt-256color'
 set -x XDG_DATA_HOME {$HOME}/.local/share
 
@@ -96,8 +99,10 @@ if contains (hostname -s) "macbook"
 end
 prepend_to_path "$HOME/.cabal/bin"
 
-# neovim
-set -gx VIMRUNTIME "/usr/local/share/vim/vim74"
+# neovim on BSD
+if contains (hostname -s) "home"
+  set -gx VIMRUNTIME "/usr/local/share/vim/vim74"
+end
 
 # go
 function gb; go build; end

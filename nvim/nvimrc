@@ -115,6 +115,8 @@ set wildignore+=classes                          " java/clojure classes
 set wildignore+=cabal-dev                        " cabal
 set wildignore+=dist                             " cabal distrubition
 set wildignore+=*.test                           " ignore Go's tests files
+set wildignore+=*/Godeps/*                       " ignore godeps directory
+set wildignore+=*/node_modules/*                 " ignore node.js packages
 
 " jumping around
 set tags=tags;/,codex.tags;/
@@ -225,7 +227,6 @@ nnoremap <silent> <C-B> :CtrlPBookmarkDir<cr>
 nnoremap <leader>gd :Gdiff<cr>
 nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>ga :Gadd<cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gco :Gcheckout<cr>
 nnoremap <leader>gci :Gcommit<cr>

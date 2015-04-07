@@ -11,6 +11,7 @@ function e; emacsclient -a "" -nq $argv; end
 function v; nvim $argv; end
 function gh-preview; python -m grip; end
 function flush-dns; sudo discoveryutil mdnsflushcache; end
+function ea; sudo ezjail-admin $argv; end
 
 # mu
 function mu-reindex; mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end

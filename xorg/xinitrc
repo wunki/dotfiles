@@ -29,7 +29,7 @@ urxvtd -o -q -f &
 unclutter -idle 3 &
 
 # Set background
-feh --bg-fill ~/pictures/wallpapers/batman.jpg
+feh --bg-fill ~/pictures/wallpapers/purple.jpg
 
 # Thunar
 thunar --daemon &

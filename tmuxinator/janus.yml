@@ -4,5 +4,5 @@ name: janus
 root: ~/go/src/github.com/gibbonco/janus
 
 windows:
-  - vim: vim
-  - tests: fswatch go test -v
+  - vim: v
+  - git: git status

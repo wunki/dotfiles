@@ -31,7 +31,8 @@ function stop-consul-ui; ssh -S /tmp/ssh-consul -O exit consul.gibbon.co; end
 
 # rust
 set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
-function rust-update; curl https://static.rust-lang.org/rustup.sh | sudo bash; end
+set -x RUST_SRC_PATH "~/source/rust/src"
+function rust-update; curl https://static.rust-lang.org/rustup.sh | sh; end
 
 # erlang
 function erlr; erl -pz ebin deps/*/ebin $argv; end

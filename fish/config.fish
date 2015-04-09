@@ -26,7 +26,7 @@ function gf; git pull origin master; end
 function run-redis; redis-server /usr/local/etc/redis.conf; end
 
 # consul
-function start-consul-ui; ssh -p 2700 -M -S /tmp/ssh-consul -fnNT -L 8500:localhost:8500 149.210.198.88; end
+function start-consul-ui; ssh -p 2700 -M -S /tmp/ssh-consul -fnNT -L 8500:localhost:8500 oberon.gibbon.co; end
 function check-consul-ui; ssh -S /tmp/ssh-consul -O check consul.gibbon.co; end
 function stop-consul-ui; ssh -S /tmp/ssh-consul -O exit consul.gibbon.co; end
 

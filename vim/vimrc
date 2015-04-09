@@ -37,7 +37,7 @@ if hostname() == "macbook.wunki.org" || hostname() == "home.wunki.org"
     Plug 'vimwiki'                                           " personal wiki
 
     " Autcompletion"
-    Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }  " autocomplete
+    Plug 'Shougo/neocomplete.vim'
 
     " Github
     Plug 'mattn/webapi-vim'
@@ -102,6 +102,10 @@ if hostname() == "macbook.wunki.org" || hostname() == "home.wunki.org"
 end
 
 call plug#end()
+
+" Neocomplete
+let g:neocomplete#data_directory = '~/.neocomplcache'
+let g:neocomplete#enable_at_startup = 1
 
 " GUI
 if has("gui_running")

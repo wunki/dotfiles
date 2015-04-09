@@ -5,8 +5,4 @@ root: ~/servers/wunki-park
 
 windows:
   - vim: vim .
-  - shell:
-      -
-  - neo: mosh neo.wunki.org
-  - pascal: mosh pascal.gibbon.co
-  - tesla: mosh tesla.gibbon.co
+  - git: git status

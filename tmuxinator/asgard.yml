@@ -1,0 +1,8 @@
+# ~/.tmuxinator/asgard.yml
+
+name: asgard
+root: ~/go/src/github.com/gibbonco/asgard
+
+windows:
+  - vim: v
+  - git: git status

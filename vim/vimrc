@@ -55,7 +55,7 @@ if hostname() == "macbook.wunki.org" || hostname() == "home.wunki.org"
     Plug 'morhetz/gruvbox'
     Plug 'jnurmine/Zenburn'
     Plug 'whatyouhide/vim-gotham'
-    Plug 'ajh17/Spacegray.vim'
+    Plug 'reedes/vim-colors-pencil'
     Plug 'chriskempson/base16-vim'
 
 

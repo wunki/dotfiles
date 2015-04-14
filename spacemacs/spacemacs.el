@@ -24,9 +24,9 @@
           git-enable-github-support t)
      markdown
      html
+     go
      org
      javascript
-     go
      syntax-checking
      )
    ;; A list of packages and/or extensions that will not be install and loaded.
@@ -59,7 +59,7 @@ before layers configuration."
    dotspacemacs-always-show-changelog t
    ;; List of items to show in the startup buffer. If nil it is disabled.
    ;; Possible values are: `recents' `bookmarks' `projects'."
-   dotspacemacs-startup-lists '(recents projects)
+   dotspacemacs-startup-lists '(projects recents)
    ;; List of themes, the first of the list is loaded when spacemacs starts.
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)

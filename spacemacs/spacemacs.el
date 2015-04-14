@@ -25,6 +25,7 @@
      markdown
      html
      org
+     javascript
      go
      syntax-checking
      )
@@ -141,9 +142,9 @@ before layers configuration."
   "Configuration function.
  This function is called at the very end of Spacemacs initialization after
 layers configuration."
-  (progn
-    (setq magit-last-seen-setup-instructions "1.4.0")
-    (exec-path-from-shell-copy-env "GOPATH"))
+  (setq magit-last-seen-setup-instructions "1.4.0")
+  (setq powerline-default-separator nil)
+  (exec-path-from-shell-copy-env "GOPATH")
 )
 
 ;; Do not write anything past this comment. This is where Emacs will

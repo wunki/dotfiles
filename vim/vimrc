@@ -125,7 +125,7 @@ if has("gui_running")
     set guioptions-=b
     set guioptions+=a
     set guioptions+=c
-    set novisualbell        " please, no visual bell
+    set visualbell t_vb=    " please, no visual bell
     set noeb                " don't notify me of errors
     set anti                " anti-aliasing
     set mousehide           " hide the mouse when typing

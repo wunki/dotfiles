@@ -36,6 +36,6 @@
 [hub]
     protocol = https
 [push]
-    default = matching
+    default = upstream
 [merge]
     tool = vimdiff

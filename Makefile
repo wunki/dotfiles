@@ -4,7 +4,7 @@ all:: vim git emacs bin zsh bash tmux xmonad xorg gtk mpv conkeror
 vim::
 	@ln -fs $(DOTFILES)/vim/vimrc						${HOME}/.vimrc
 	@ln -fns $(DOTFILES)/vim							${HOME}/.vim
-	@ln -fs $(DOTFILES)/vim/ycm_extra_conf.py				${HOME}/.ycm_extra_conf.py
+	@ln -fs $(DOTFILES)/vim/ycm_extra_conf.py			${HOME}/.ycm_extra_conf.py
 	@echo Vim is symlinked.
 
 nvim::
@@ -21,6 +21,10 @@ emacs::
 	@ln -fs $(DOTFILES)/emacs/emacs.el					${HOME}/.emacs
 	@ln -fns $(DOTFILES)/emacs							${HOME}/.emacs.d
 	@echo Emacs is symlinked.
+
+spacemacs::
+	@ln -fs $(DOTFILES)/spacemacs/spacemacs.el			${HOME}/.spacemacs
+	@echo Spacemacs is symlinked.
 
 bin::
 	@ln -fns $(DOTFILES)/bin							${HOME}/bin

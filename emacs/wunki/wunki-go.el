@@ -19,7 +19,6 @@
             (setq imenu-generic-expression
                   '(("type" "^type *\\([^ \t\n\r\f]*\\)" 1)
                     ("func" "^func *\\(.*\\) {" 1)))
-            (subword-mode)
             (flycheck-mode)
             (subword-mode)
             (company-mode)))

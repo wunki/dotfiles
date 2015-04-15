@@ -1,18 +1,10 @@
 ;; load theme and don't ask if it's save.
-(load-theme 'gotham t)
+(load-theme 'sanityinc-tomorrow-blue t)
 
-(set-frame-font "Fira Mono")
-(add-to-list 'default-frame-alist '(font . "Fira Mono"))
-(set-face-attribute 'default nil :height 150)
+(set-frame-font "Source Code Pro")
+(add-to-list 'default-frame-alist '(font . "Source Code Pro"))
+(set-face-attribute 'default nil :height 130)
 
-(defun toggle-dark-light-theme ()
-  "Switch between dark and light theme."
-  (interactive)
-  (if (eq (frame-parameter (next-frame) 'background-mode) 'dark)
-      (load-theme 'sanityinc-tomorrow-bright)
-    (load-theme 'zenburn)))
-
-;; Stolen from Sanity inc
 (defun wunki/font-name-replace-size (font-name new-size)
   (let ((parts (split-string font-name "-")))
     (setcar (nthcdr 7 parts) (format "%d" new-size))
@@ -45,6 +37,6 @@ by the :height face attribute."
   (wunki/increment-default-font-height -10))
 
 (global-set-key (kbd "M-+") 'wunki/increase-default-font-height)
-(global-set-key (kbd "M-_") 'wunki/decrease-default-font-height)
+(global-set-key (kbd "M--") 'wunki/decrease-default-font-height)
 
 (provide 'wunki-theme)

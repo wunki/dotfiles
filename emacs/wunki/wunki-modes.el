@@ -177,9 +177,12 @@
 (diminish 'projectile-mode)
 (diminish 'undo-tree-mode)
 (diminish 'anzu-mode)
-(diminish 'company-mode)
+(after-load 'company-mode
+  (diminish 'company-mode))
 (diminish 'smartparens-mode)
-(diminish 'subword-mode)           ; don't show the ,
-(diminish 'magit-auto-revert-mode) ; don't show MRev
+(after-load 'subword
+  (diminish 'subword-mode))        ; don't show the ,
+(after-load 'magit
+  (diminish 'magit-auto-revert-mode)) ; don't show MRev
 
 (provide 'wunki-modes)

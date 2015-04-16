@@ -158,4 +158,12 @@ Including indent-buffer, which should not be called automatically on save."
   (let ((fill-column (point-max)))
     (fill-region (region-beginning) (region-end) nil)))
 
+(if (fboundp 'with-eval-after-load)
+    (defalias 'after-load 'with-eval-after-load)
+  (defmacro after-load (feature &rest body)
+    "After FEATURE is loaded, evaluate BODY."
+    (declare (indent defun))
+    `(eval-after-load ,feature
+       '(progn ,@body))))
+
 (provide 'wunki-defuns)

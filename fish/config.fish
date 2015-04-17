@@ -31,7 +31,7 @@ function check-consul-ui; ssh -S /tmp/ssh-consul -O check consul.gibbon.co; end
 function stop-consul-ui; ssh -S /tmp/ssh-consul -O exit consul.gibbon.co; end
 
 # rethinkdb
-function start-rethink-ui; ssh -p 27 -M -S /tmp/ssh-rethink -fnNT -L 8080:localhost:8080 hq.gibbon.co; end
+function start-rethink-ui; ssh -p 22 -M -S /tmp/ssh-rethink -fnNT -L 8080:localhost:8080 hq.gibbon.co; end
 function check-rethink-ui; ssh -S /tmp/ssh-rethink -O check hq.gibbon.co; end
 function stop-rethink-ui; ssh -S /tmp/ssh-rethink -O exit hq.gibbon.co; end
 

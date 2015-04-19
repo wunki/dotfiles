@@ -141,10 +141,6 @@
 ;; window movement
 (setq windmove-wrap-around t)
 
-;; move with ace-window
-(global-set-key (kbd "M-p") 'ace-window)
-(setq aw-keys '(?u ?h ?e ?t ?o ?n ?a ?s))
-
 ;; nice visualation of undo's
 (global-undo-tree-mode t)
 

@@ -55,6 +55,7 @@
     flx-ido
     undo-tree
     ace-jump-mode
+    ace-window
     web-mode
     anzu
     fish-mode

@@ -93,6 +93,7 @@
 
 ;; moving around
 (global-set-key (kbd "C-x g") 'ace-jump-mode)
+(global-set-key (kbd "M-p") 'ace-window)
 (global-set-key (kbd "C-c C-i") 'idomenu)
 
 ;; quickly edit files

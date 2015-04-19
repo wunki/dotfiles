@@ -1,5 +1,5 @@
 ! Color theme
-#include "/home/wunki/src/wunki-dotfiles/xorg/base16-ocean.rxvt.colors"
+#include "/home/wunki/src/wunki-dotfiles/xorg/tomorrow.rxvt.colors"
 
 Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size: 24

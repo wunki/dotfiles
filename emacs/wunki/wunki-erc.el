@@ -43,19 +43,19 @@
 (defun erc-start-or-switch ()
   "Connect to ERC, or switch to last active buffer"
   (interactive)
-  (if (get-buffer "zero.wunki.org:7000")           ;; ERC already active?
+  (if (get-buffer "zero.wunki.org:5000")           ;; ERC already active?
       (erc-track-switch-buffer 1)                 ;; yes: switch to last active
     (when (y-or-n-p "Start ERC? ")                ;; no: maybe start ERC
       (require 'wunki-secrets "wunki-secrets.el") ;; load passwords
       ;; connect to freenode and mozilla
       (progn
         (erc-tls :server "zero.wunki.org"
-                 :port 7000
+                 :port 5000
                  :nick "wunki"
                  :password irc-wunki-freenode
                  :full-name "Petar Radosevic")
         (erc-tls :server "zero.wunki.org"
-                 :port 7000
+                 :port 5000
                  :nick "wunki"
                  :password irc-wunki-mozilla
                  :full-name "Petar Radosevic")))))

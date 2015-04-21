@@ -6,8 +6,8 @@ function wl; wicd-curses; end
 function nstat; sudo nethogs wlan0 $argv; end
 function duh; du -ah --max-depth=1; end
 function lah; ls -lah; end
-function et; emacsclient -a "" -t $argv; end
-function e; emacsclient -a "" -nq $argv; end
+function e; emacsclient -a "" -t $argv; end      # emacs in the terminal
+function eg; emacsclient -a "" -nq $argv; end    # emacs in GUI
 function v; nvim $argv; end
 function gh-preview; python -m grip; end
 function flush-dns; sudo discoveryutil mdnsflushcache; end
@@ -49,7 +49,7 @@ function rmpyc; find . -name '*.pyc' | xargs rm; end
 
 # environment variables
 set -x fish_greeting ""
-set -x EDITOR 'vim'
+set -x EDITOR 'emacsclient -a "" -c'
 set -x VISUAL 'vim'
 set -x TERM 'rxvt-256color'
 set -x XDG_DATA_HOME {$HOME}/.local/share

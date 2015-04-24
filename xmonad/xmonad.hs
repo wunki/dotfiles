@@ -40,7 +40,7 @@ main = do
         , borderWidth = 1
         , normalBorderColor  = "#7285b7"
         , focusedBorderColor = "#bbdaff"
-        , workspaces = ["1:Shells", "2:Editor", "3:Browser", "4:Remote", "5:Chat", "6:Bonus"]
+        , workspaces = ["1:Emacs", "2:Shells", "3:Browser", "4:Chat", "5:Servers", "6:Generic"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
         , startupHook = setWMName "LG3D"
@@ -60,8 +60,8 @@ myManageHook = manageDocks <+> composeAll
     [ className =? "Chromium"             --> doF (W.shift "3:Browser")
     , className =? "Firefox-bin"          --> doF (W.shift "3:Browser")
     , className =? "Firefox"              --> doF (W.shift "3:Browser")
-    , className =? "Emacs"                --> doF (W.shift "2:Editor")
-    , className =? "Gvim"                 --> doF (W.shift "2:Editor")
+    , className =? "Emacs"                --> doF (W.shift "1:Emacs")
+    , className =? "Gvim"                 --> doF (W.shift "1:Emacs")
     ]
 
 manageHook' :: ManageHook

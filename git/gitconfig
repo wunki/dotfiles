@@ -37,7 +37,3 @@
     protocol = https
 [push]
     default = upstream
-[merge]
-    tool = vimdiff
-[pull]
-	default = upstream

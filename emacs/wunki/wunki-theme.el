@@ -26,6 +26,8 @@ by the :height face attribute."
                          new-point-height)
                         t)))
     (set-face-attribute 'default nil :height new-height)
+    (if (bound-and-true-p powerline-major-mode)
+        (powerline-reset))
     (message "default font size is now %d" new-point-height)))
 
 (defun wunki/increase-default-font-height ()

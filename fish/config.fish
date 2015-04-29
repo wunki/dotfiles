@@ -6,13 +6,20 @@ function wl; wicd-curses; end
 function nstat; sudo nethogs wlan0 $argv; end
 function duh; du -ah --max-depth=1; end
 function lah; ls -lah; end
-function e; emacsclient -a "" -t $argv; end      # emacs in the terminal
-function eg; emacsclient -a "" -nq $argv; end    # emacs in GUI
-function v; nvim $argv; end
+function v; vim $argv; end
 function gh-preview; python -m grip; end
 function flush-dns; sudo discoveryutil mdnsflushcache; end
 function ea; sudo ezjail-admin $argv; end
 function bup; brew update; and brew upgrade --all; and brew cleanup; end
+
+# easy editing
+function e
+  if test -n "$INSIDE_EMACS";
+    emacsclient -a "" -nq $argv;
+  else
+    emacsclient -a "" -t $argv;
+  end
+end
 
 # mu
 function mu-reindex; mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
@@ -215,3 +222,4 @@ if test -f /usr/local/bin/ondir
     set -g OLDONDIRWD "$PWD";
   end
 end
+

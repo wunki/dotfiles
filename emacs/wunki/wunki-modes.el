@@ -5,7 +5,7 @@
 (menu-bar-mode -1)
 
 ;; highlight the current line
-(global-hl-line-mode -1)
+(global-hl-line-mode t)
 
 ;; projectile for project management
 (projectile-global-mode)
@@ -53,9 +53,8 @@
 (add-to-list 'recentf-exclude "\\.last$")
 (add-to-list 'recentf-exclude "elpa")
 
-;; javascript and json
+;; javascript
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
-(add-to-list 'auto-mode-alist '("\\.json$" . js-mode))
 (add-hook 'js-mode-hook 'js2-minor-mode)
 
 ;; jinja

@@ -33,16 +33,8 @@ function gf; git pull origin master; end
 # redis on the mac
 function run-redis; redis-server /usr/local/etc/redis.conf; end
 
-# consul
-function start-consul-ui; ssh -p 2700 -M -S /tmp/ssh-consul -fnNT -L 8500:localhost:8500 oberon.gibbon.co; end
-function check-consul-ui; ssh -S /tmp/ssh-consul -O check consul.gibbon.co; end
-function stop-consul-ui; ssh -S /tmp/ssh-consul -O exit consul.gibbon.co; end
-
 # rethinkdb
-function start-rethink-ui; ssh -p 22 -M -S /tmp/ssh-rethink -fnNT -L 8080:localhost:8080 hq.gibbon.co; end
-function check-rethink-ui; ssh -S /tmp/ssh-rethink -O check hq.gibbon.co; end
-function stop-rethink-ui; ssh -S /tmp/ssh-rethink -O exit hq.gibbon.co; end
-
+function run-rethinkdb; launchctl load ~/Library/LaunchAgents/homebrew.mxcl.rethinkdb.plist; end
 
 # rust
 set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib

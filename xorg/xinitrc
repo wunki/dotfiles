@@ -43,4 +43,4 @@ emacs --daemon &
 #
 # Start window manager
 #
-exec /usr/local/bin/xmonad > $HOME/.xmonad.log 2>&1
+exec /home/wunki/.cabal/bin/xmonad > $HOME/.xmonad.log 2>&1

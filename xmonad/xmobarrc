@@ -1,13 +1,15 @@
 Config { font = "xft:Ubuntu Mono:pixelsize=16:antialias=true"
        , bgColor = "#2B2B2B"
        , fgColor = "#DCDCCC"
-       , position = BottomSize L 100 32
+       , position = BottomSize L 100 30
        , border = TopB
        , borderColor = "#333333"
        , lowerOnStart = True
-       , commands = [ Run Date "%a %_d %b | %H:%M" "date" 60
+       , commands = [ Run Network "enp0s25" ["-t", "<rx> - <tx>", "-L", "0"," -H", "100", "--normal", "#DCDCCC", "--high", "#CC9393"] 20
+                    , Run Cpu ["-L", "3", "-H", "50", "--normal", "#DCDCCC", "--high", "#CC9393"] 20
+                    , Run Date "%a %d %b | %H:%M" "date" 60
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{ %date% " }
+       , template = " %StdinReader% }{ %cpu% | Net: %enp0s25% | %date% " }

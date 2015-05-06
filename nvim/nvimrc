@@ -29,6 +29,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }  " autocomplete
 Plug 'kien/ctrlp.vim'                                    " file browsing
 Plug 'bling/vim-airline'
 Plug 'chriskempson/base16-vim'
+Plug 'jnurmine/Zenburn'
 
 " Go
 Plug 'fatih/vim-go', { 'for': 'go' }
@@ -46,7 +47,7 @@ set t_Co=256
 set mouse=a
 set ttymouse=xterm
 set termencoding=utf-8
-colors base16-ocean
+colors zenburn
 
 " Find Shell
 if executable('/usr/local/bin/zsh')

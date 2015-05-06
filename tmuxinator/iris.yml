@@ -1,0 +1,8 @@
+# ~/.tmuxinator/iris.yml
+
+name: iris
+root: ~/go/src/github.com/gibbonco/iris
+
+windows:
+  - vim: v
+  - git: git status

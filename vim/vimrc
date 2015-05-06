@@ -30,14 +30,14 @@ Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, bra
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
 Plug 'bronson/vim-trailing-whitespace'                   " remove trailing whitespace
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
+Plug 'jnurmine/Zenburn'
+Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/vimproc', {'do': 'gmake'}                   " command execution
 
 " Only install these plugins on Desktop machines
-if hostname() == "macbook.wunki.org" || hostname() == "home.wunki.org"
+if hostname() == "macbook.wunki.org" || hostname() == "home.wunki.org" || hostname() == "zero.wunki.org"
     " Keeping TODO's
     Plug 'vimwiki'                                           " personal wiki
-
-    " Autcompletion"
-    Plug 'Shougo/neocomplete.vim'
 
     " Github
     Plug 'mattn/webapi-vim'
@@ -53,32 +53,13 @@ if hostname() == "macbook.wunki.org" || hostname() == "home.wunki.org"
     Plug 'bling/vim-airline'
     Plug 'edkolev/tmuxline.vim'
     Plug 'morhetz/gruvbox'
-    Plug 'jnurmine/Zenburn'
     Plug 'whatyouhide/vim-gotham'
     Plug 'reedes/vim-colors-pencil'
     Plug 'chriskempson/base16-vim'
 
-
     " Websites
     Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html', 'sls'] }
     Plug 'othree/html5.vim', { 'for': 'html' }
-
-    " Clojure
-    Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
-    Plug 'tpope/vim-leiningen', { 'for': 'clojure' }
-    Plug 'tpope/vim-projectionist', { 'for': 'clojure' }
-    Plug 'guns/vim-clojure-static', { 'for': 'clojure' }
-    Plug 'guns/vim-slamhound', { 'for': 'clojure' }
-    Plug 'guns/vim-sexp', { 'for': 'clojure' }
-    Plug 'tpope/vim-sexp-mappings-for-regular-people', { 'for': 'clojure' }
-    Plug 'kien/rainbow_parentheses.vim', { 'for': ['clojure', 'scheme']  }
-
-    " Haskell
-    Plug 'travitch/hasksyn', { 'for': 'haskell' }
-    Plug 'Shougo/vimproc.vim', { 'do': 'gmake', 'for': 'haskell' }
-    Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
-    Plug 'twinside/vim-hoogle', { 'for': 'haskell' }
-    Plug 'nbouscal/vim-stylish-haskell', { 'for': 'haskell' }
 
     " Go
     Plug 'fatih/vim-go', { 'for': 'go' }

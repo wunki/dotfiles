@@ -137,6 +137,9 @@ else
     set termencoding=utf-8
 endif
 
+" Theme
+let g:zenburn_disable_Label_underline = 1
+" let g:zenburn_high_Contrast = 1
 colors zenburn
 
 " Find Shell

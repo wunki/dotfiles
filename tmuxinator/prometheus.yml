@@ -1,0 +1,8 @@
+# ~/.tmuxinator/prometheus.yml
+
+name: prometheus
+root: ~/go/src/github.com/gibbonco/prometheus
+
+windows:
+  - vim: v
+  - git: git status

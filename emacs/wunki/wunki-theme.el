@@ -1,5 +1,5 @@
 ;; load theme and don't ask if it's save.
-(load-theme 'sanityinc-tomorrow-blue t)
+(load-theme 'zenburn t)
 
 (set-frame-font "Source Code Pro")
 (add-to-list 'default-frame-alist '(font . "Source Code Pro"))

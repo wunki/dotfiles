@@ -92,6 +92,7 @@ prepend_to_path "/usr/local/opt/go/libexec/bin"
 prepend_to_path "/usr/local/Cellar/emacs/HEAD/bin"
 prepend_to_path "$HOME/Source/google-cloud-sdk/bin"
 prepend_to_path "/Applications/Postgres.app/Contents/Versions/9.4/bin"
+prepend_to_path "/Applications/Racket v6.1.1/bin"
 
 # autojump
 if test -f "$HOME/.autojump/share/autojump/autojump.fish"

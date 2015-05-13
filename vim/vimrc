@@ -32,7 +32,10 @@ Plug 'bronson/vim-trailing-whitespace'                   " remove trailing white
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
 Plug 'jnurmine/Zenburn'
 Plug 'Shougo/neocomplete.vim'
-Plug 'Shougo/vimproc', {'do': 'gmake'}                   " command execution
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'benmills/vim-golang-alternate', { 'for': 'go' }
+
+lug 'Shougo/vimproc', {'do': 'gmake'}                   " command execution
 
 " Only install these plugins on Desktop machines
 if hostname() == "macbook.wunki.org" || hostname() == "home.wunki.org" || hostname() == "zero.wunki.org"
@@ -60,10 +63,6 @@ if hostname() == "macbook.wunki.org" || hostname() == "home.wunki.org" || hostna
     " Websites
     Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html', 'sls'] }
     Plug 'othree/html5.vim', { 'for': 'html' }
-
-    " Go
-    Plug 'fatih/vim-go', { 'for': 'go' }
-    Plug 'benmills/vim-golang-alternate', { 'for': 'go' }
 
     " Rust
     Plug 'wting/rust.vim', { 'for': 'rust' }

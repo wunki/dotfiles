@@ -34,8 +34,7 @@ Plug 'jnurmine/Zenburn'
 Plug 'Shougo/neocomplete.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'benmills/vim-golang-alternate', { 'for': 'go' }
-
-lug 'Shougo/vimproc', {'do': 'gmake'}                   " command execution
+Plug 'Shougo/vimproc', {'do': 'gmake'}                   " command execution
 
 " Only install these plugins on Desktop machines
 if hostname() == "macbook.wunki.org" || hostname() == "home.wunki.org" || hostname() == "zero.wunki.org"

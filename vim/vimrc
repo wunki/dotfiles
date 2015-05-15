@@ -31,6 +31,8 @@ Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in mar
 Plug 'bronson/vim-trailing-whitespace'                   " remove trailing whitespace
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
 Plug 'jnurmine/Zenburn'
+Plug 'zenorocha/dracula-theme', { 'rtp': 'vim'}
+
 Plug 'Shougo/neocomplete.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'benmills/vim-golang-alternate', { 'for': 'go' }
@@ -118,7 +120,7 @@ endif
 " Theme
 let g:zenburn_disable_Label_underline = 1
 " let g:zenburn_high_Contrast = 1
-colors zenburn
+colors dracula
 
 " Find Shell
 if executable('/usr/local/bin/zsh')

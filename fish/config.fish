@@ -126,10 +126,11 @@ switch (uname)
     set -x GOMAXPROCS (nproc)
 end
 
-if contains (hostname -s) "macbook"
-  set -x GOPATH "$HOME/Go"
-else
-  set -x GOPATH "$HOME/go"
+switch (uname)
+  case FreeBSD
+    set -x GOPATH "$HOME/go"
+  case '*'
+    set -x GOPATH "$HOME/Go"
 end
 prepend_to_path "$GOPATH/bin"
 

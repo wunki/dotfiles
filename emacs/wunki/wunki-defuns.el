@@ -147,6 +147,10 @@ Including indent-buffer, which should not be called automatically on save."
   "Return true if system is darwin-based (Mac OS X)"
   (string-equal system-type "darwin"))
 
+(defun freebsd? ()
+  (interactive)
+  "Return true if the system is on BSD"
+  (string-equal system-type "gnu/kfreebsd"))
 
 (defun wunki/unfill-paragraph ()
   (interactive)

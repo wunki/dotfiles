@@ -1,6 +1,6 @@
 ;; flycheck
 
-(if (mac?)
+(if (freebsd?)
     (add-to-list 'load-path "~/Go/src/github.com/dougm/goflymake")
   (add-to-list 'load-path "~/go/src/github.com/dougm/goflymake"))
 (require 'go-flycheck)

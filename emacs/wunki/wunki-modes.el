@@ -17,7 +17,7 @@
 (setq magit-last-seen-setup-instructions "1.4.0")
 
 ;; blinking
-(blink-cursor-mode t)
+(blink-cursor-mode -1)
 
 ;; auto-completion
 (setq company-tooltip-limit 20)                      ; bigger popup window

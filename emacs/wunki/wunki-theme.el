@@ -5,9 +5,9 @@
 ;; load theme and don't ask if it's save.
 (load-theme 'sanityinc-tomorrow-blue t)
 
-(set-frame-font "Fira Mono")
-(add-to-list 'default-frame-alist '(font . "Fira Mono"))
-(set-face-attribute 'default nil :height 130)
+(if (string= system-name "home")
+    (set-frame-font "Fira Mono medium-13")
+  (set-frame-font "Fira Mono-13"))
 
 (defun wunki/font-name-replace-size (font-name new-size)
   (let ((parts (split-string font-name "-")))

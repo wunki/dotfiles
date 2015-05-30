@@ -124,7 +124,8 @@ Missing packages are installed automatically."
 (require 'wunki-modes)             ; settings for specific modes
 (require 'wunki-bindings)          ; load bindings
 (require 'wunki-theme)             ; set the theme and font
-(require 'wunki-mac) ; mac settings
+(when (mac?)
+    (require 'wunki-mac))          ; mac settings
 (require 'wunki-temp)              ; temporary files
 (require 'wunki-git)               ; (ma)git settings
 (require 'wunki-org)               ; org-mode
@@ -138,6 +139,7 @@ Missing packages are installed automatically."
 (require 'wunki-erlang)            ; erlang
 (require 'wunki-go)                ; go
 (require 'wunki-erc)               ; irc
+
 
 ;; email only on my local computer
 (if window-system

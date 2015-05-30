@@ -12,8 +12,8 @@
 (global-set-key (kbd "C-c C-d") 'dash-at-point-with-docset)
 
 ;; set the Apple key as Meta
-(setq mac-command-modifier 'meta)
-(setq mac-option-modifier 'super)
+(setq mac-command-modifier 'super)
+(setq mac-option-modifier 'meta)
 
 (defun swap-meta-and-super ()
   "Swap the mapping of Meta and Super.

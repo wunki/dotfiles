@@ -74,6 +74,9 @@
 (require 'ag)
 (setq ag-highlight-search t)
 
+;; tramp
+(setq tramp-terminal-type "dumb")
+
 ;; dired
 (require 'dired-details)
 (setq-default dired-details-hidden-string "--- ")

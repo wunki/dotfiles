@@ -16,7 +16,7 @@ set __fish_git_prompt_char_upstream_behind '↓'
 function fish_prompt
   # we need to set this prompt to make TRAMP work in Emacs.
   if test $TERM = "dumb"
-     echo "\$ "
+     echo "> "
   else
     set last_status $status
 

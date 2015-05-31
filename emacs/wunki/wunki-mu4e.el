@@ -43,7 +43,7 @@
 )
 
 ;; maildir locations
-(setq mu4e-maildir       "~/Mail"
+(setq mu4e-maildir       "~/mail"
       mu4e-sent-folder   "/wunki/sent"
       mu4e-drafts-folder "/wunki/drafts"
       mu4e-trash-folder  "/wunki/trash"

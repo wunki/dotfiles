@@ -75,7 +75,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((0, xF86XK_AudioPrev), spawn "mpc prev")                               -- Previous song
     , ((0, xF86XK_AudioNext), spawn "mpc next")                               -- Next song
     , ((0, xF86XK_Launch1),   spawn "firefox")                                -- Launch Firefox
-    , ((modMask .|. controlMask, xK_b), sendMessage ToggleStruts)             -- Hide top bar
+    , ((modMask, xK_b), sendMessage ToggleStruts)             -- Hide top bar
     , ((modMask .|. controlMask, xK_s), spawn "scrot -q90 /home/wunki/pictures/screenshots/%Y-%m-%d-%H%M%S.png")
     , ((modMask .|. controlMask, xK_p), sendMessage MagnifyMore)
     , ((modMask .|. controlMask, xK_l), sendMessage MagnifyLess)

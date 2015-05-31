@@ -142,5 +142,5 @@ Missing packages are installed automatically."
 
 
 ;; email only on my local computer
-(if window-system
+(when (string= system-name "home.wunki.org")
   (require 'wunki-mu4e))

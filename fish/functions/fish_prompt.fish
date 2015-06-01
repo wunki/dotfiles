@@ -14,20 +14,25 @@ set __fish_git_prompt_char_upstream_behind '↓'
 
 # fish prompt
 function fish_prompt
-  set last_status $status
+  # we need to set this prompt to make TRAMP work in Emacs.
+  if test $TERM = "dumb"
+     echo "> "
+  else
+    set last_status $status
 
-  # Hostname
-  if test -n "$SSH_CONNECTION"
-    set_color $fish_color_quote
-    printf '%s | ' (hostname -s)
+    # Hostname
+    if test -n "$SSH_CONNECTION"
+      set_color $fish_color_quote
+      printf '%s | ' (hostname -s)
+    end
+
+    # CWD
+    set_color $fish_color_cwd
+    printf '%s' (prompt_pwd)
+
+    # Git
+    set_color normal
+    printf '%s ' (__fish_git_prompt)
+    set_color normal
   end
-
-  # CWD
-  set_color $fish_color_cwd
-  printf '%s' (prompt_pwd)
-
-  # Git
-  set_color normal
-  printf '%s ' (__fish_git_prompt)
-  set_color normal
 end

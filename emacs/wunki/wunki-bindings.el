@@ -9,7 +9,7 @@
 ;; expand region (increases selected region by semantic units)
 (global-set-key (kbd "C-c e") 'er/expand-region)
 (global-set-key (kbd "M-i") 'change-inner)
-(global-set-key (kbd "M-o") 'change-outer)
+
 
 ;; edit file with sudo
 (global-set-key (kbd "C-c s") 'sudo-edit)
@@ -78,6 +78,7 @@
 (global-set-key (kbd "C-M-<up>")   'shrink-window)
 
 ;; move between windows
+(global-set-key (kbd "M-o") 'other-window)
 (global-set-key (kbd "C-c F") 'windmove-right)
 (global-set-key (kbd "C-c B") 'windmove-left)
 (global-set-key (kbd "C-c P") 'windmove-up)

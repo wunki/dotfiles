@@ -150,7 +150,7 @@ Including indent-buffer, which should not be called automatically on save."
 (defun freebsd? ()
   (interactive)
   "Return true if the system is on BSD"
-  (string-equal system-type "gnu/kfreebsd"))
+  (string-equal system-type "berkeley-unix"))
 
 (defun wunki/unfill-paragraph ()
   (interactive)

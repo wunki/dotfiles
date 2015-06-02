@@ -140,7 +140,6 @@ Missing packages are installed automatically."
 (require 'wunki-go)                ; go
 (require 'wunki-erc)               ; irc
 
-
 ;; email only on my local computer
 (when (string= system-name "home.wunki.org")
   (require 'wunki-mu4e))

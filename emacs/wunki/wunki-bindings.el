@@ -14,9 +14,6 @@
 ;; edit file with sudo
 (global-set-key (kbd "C-c s") 'sudo-edit)
 
-;; quit everything
-(global-set-key (kbd "C-g") 'keyboard-escape-quit)
-
 ;; join line command
 (global-set-key (kbd "C-c C-j") 'join-line)
 

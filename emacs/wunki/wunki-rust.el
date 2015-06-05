@@ -4,7 +4,7 @@
 (add-hook 'rust-mode
           (lambda ()
             (setq tab-width 4)
-            (flycheck-mode)))
+            (flycheck-mode t)))
 
 ;; auto-completion and definitions with racer
 ;; (add-to-list 'load-path "~/rust/racer/editors")

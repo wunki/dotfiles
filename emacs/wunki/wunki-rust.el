@@ -1,16 +1,12 @@
-(eval-after-load 'flycheck
-  '(add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+(defun wunki-rust-mode-hook ()
+  (setq racer-rust-src-path "~/Rust/rust/src"
+        racer-cmd "~/Rust/racer/target/release/racer")
+  (add-to-list 'load-path "~/Rust/racer/editors/emacs")
+  (setq tab-width 4)
+  (require 'racer))
 
-(add-hook 'rust-mode
-          (lambda ()
-            (setq tab-width 4)
-            (flycheck-mode t)))
-
-;; auto-completion and definitions with racer
-;; (add-to-list 'load-path "~/rust/racer/editors")
-;; (setq racer-rust-src-path "~/rust/src/")
-;; (setq racer-cmd "~/rust/racer/target/racer")
-
-;; (eval-after-load "rust-mode" '(require 'racer))
+(add-hook 'rust-mode-hook 'flycheck-mode)
+(add-hook 'rust-mode-hook 'flycheck-rust-setup)
+(add-hook 'rust-mode-hook 'wunki-rust-mode-hook)
 
 (provide 'wunki-rust)

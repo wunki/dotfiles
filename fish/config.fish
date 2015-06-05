@@ -38,7 +38,7 @@ function run-rethinkdb; launchctl load ~/Library/LaunchAgents/homebrew.mxcl.reth
 
 # rust
 set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
-set -x RUST_SRC_PATH "~/source/rust/src"
+set -x RUST_SRC_PATH {$HOME}/rust/rust/src
 function rust-update; curl https://static.rust-lang.org/rustup.sh | sh; end
 
 # erlang

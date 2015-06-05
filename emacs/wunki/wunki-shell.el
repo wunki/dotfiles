@@ -6,9 +6,6 @@
 ;; use fish as the default shell
 (setq explicit-shell-file-name (locate-file "fish" exec-path))
 
-;; emacsclient as editor for Magit
-(setenv "EDITOR" "emacsclient")
-
 ;; copy some vars over
 (exec-path-from-shell-copy-env "GOPATH")
 (exec-path-from-shell-copy-env "PYTHONPATH")

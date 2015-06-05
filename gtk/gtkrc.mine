@@ -1,7 +1,7 @@
 gtk-icon-theme-name="Tango"
-gtk-font-name = "Ubuntu 11"
+gtk-font-name = "Ubuntu 10"
 style "user-font"
 {
-    font_name = "Ubuntu 11"
+    font_name = "Ubuntu 10"
 }
 widget_class "*" style "user-font"

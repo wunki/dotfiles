@@ -96,10 +96,10 @@
       ido-ignore-directories
       '("\\`auto/" "\\`auto-save-list/" "\\`backups/" "\\`semanticdb/"
         "\\`target/" "\\`\\.git/" "\\`\\.svn/" "\\`CVS/" "\\`\\.\\./"
-        "\\`.sass-cache/" "\\`\\./")
+        "\\`.sass-cache/" "\\`\\./" "\\`_workspace/")
       ido-ignore-files
       '("\\`auto/" "\\.prv/" "_region_" "\\.class/"  "\\`CVS/" "\\`#"
-        "\\`.#" "\\`\\.\\./" "\\`\\./" "\\.hi" "\\.org_archive" "*.test"))
+        "\\`.#" "\\`\\.\\./" "\\`\\./" "\\.hi" "\\.org_archive" "\\.test"))
 
 ; auto-fill
 (add-hook 'html-mode-hook 'turn-off-auto-fill)
@@ -123,7 +123,7 @@
 (setq auto-mode-alist (cons '("\\.md" . markdown-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.page" . markdown-mode) auto-mode-alist))
 (add-hook 'markdown-mode-hook (lambda ()
-                                (orgtbl-mode)))
+                                (orgtbl-mode t)))
 
 ;; puppet
 (autoload 'puppet-mode "puppet-mode" "Major mode for editing puppet manifests")

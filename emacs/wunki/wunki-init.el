@@ -33,6 +33,7 @@
     ag
     rainbow-delimiters
     smex
+    fullframe
     smartparens
     move-text
     dash
@@ -70,6 +71,7 @@
     shm
     ghc
     anaconda-mode
+    pyenv-mode
     toml-mode
     rust-mode
     flycheck-rust

@@ -96,7 +96,7 @@
       ido-ignore-directories
       '("\\`auto/" "\\`auto-save-list/" "\\`backups/" "\\`semanticdb/"
         "\\`target/" "\\`\\.git/" "\\`\\.svn/" "\\`CVS/" "\\`\\.\\./"
-        "\\`.sass-cache/" "\\`\\./" "\\`_workspace/")
+        "\\`.sass-cache/" "\\`\\./" "\\`Godeps/")
       ido-ignore-files
       '("\\`auto/" "\\.prv/" "_region_" "\\.class/"  "\\`CVS/" "\\`#"
         "\\`.#" "\\`\\.\\./" "\\`\\./" "\\.hi" "\\.org_archive" "\\.test"))

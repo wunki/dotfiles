@@ -10,7 +10,6 @@
 (global-set-key (kbd "C-c e") 'er/expand-region)
 (global-set-key (kbd "M-i") 'change-inner)
 
-
 ;; edit file with sudo
 (global-set-key (kbd "C-c s") 'sudo-edit)
 

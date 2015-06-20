@@ -141,7 +141,5 @@ Missing packages are installed automatically."
 (require 'wunki-erlang)            ; erlang
 (require 'wunki-go)                ; go
 (require 'wunki-erc)               ; irc
-
-;; email only on my local computer
-(when (string= system-name "home.wunki.org")
+(when (file-exists-p "~/mail")     ; mu4e
   (require 'wunki-mu4e))

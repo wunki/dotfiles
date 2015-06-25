@@ -125,13 +125,7 @@ switch (uname)
   case '*'
     set -x GOMAXPROCS (nproc)
 end
-
-switch (uname)
-  case FreeBSD
-    set -x GOPATH "$HOME/go"
-  case '*'
-    set -x GOPATH "$HOME/Go"
-end
+set -x GOPATH "$HOME/.go"
 prepend_to_path "$GOPATH/bin"
 
 # Test coverage for Go

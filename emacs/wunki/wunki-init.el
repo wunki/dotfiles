@@ -76,16 +76,27 @@
     rust-mode
     flycheck-rust
     racket-mode
+
+    ;; go
     go-mode
     go-eldoc
     gotest
     go-projectile
     company-go
     golint
+
+    ;; colors
     zenburn-theme
     color-theme-sanityinc-tomorrow
     color-theme-sanityinc-solarized
-    nginx-mode))
+
+    ;; Elixer
+    elixir-mode
+    alchemist
+
+    ;; general
+    nginx-mode
+    ))
 
 ;; install packages if not there yet, copied from prelude
 (defun wunki-packages-installed-p ()

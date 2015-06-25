@@ -92,6 +92,9 @@
  '(haskell-process-type (quote cabal-repl))
  '(haskell-stylish-on-save t)
  '(haskell-tags-on-save t)
+ '(org-agenda-files
+   (quote
+    ("/Users/wunki/Org/inbox.org" "/Users/wunki/Org/today.org")))
  '(safe-local-variable-values
    (quote
     ((indent-tabs-mode . 1)

@@ -77,6 +77,9 @@
     flycheck-rust
     racket-mode
 
+    ;; erlang
+    erlang
+
     ;; go
     go-mode
     go-eldoc

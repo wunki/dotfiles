@@ -64,6 +64,9 @@ if hostname() == "macbook.wunki.org" || hostname() == "home.wunki.org" || hostna
     Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html', 'sls'] }
     Plug 'othree/html5.vim', { 'for': 'html' }
 
+    " Erlang
+    Plug 'jimenezrick/vimerl'
+
     " Rust
     Plug 'wting/rust.vim', { 'for': 'rust' }
     Plug 'phildawes/racer', { 'do': 'cargo build --release', 'for': 'rust' }
@@ -119,7 +122,7 @@ endif
 " Theme
 let g:zenburn_disable_Label_underline = 1
 " let g:zenburn_high_Contrast = 1
-colors zenburn
+colors gruvbox
 
 " Find Shell
 if executable('/usr/local/bin/zsh')
@@ -423,4 +426,4 @@ let g:tagbar_type_rust = {
     \}
 
 " Airline
-let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1

@@ -125,7 +125,7 @@ switch (uname)
   case '*'
     set -x GOMAXPROCS (nproc)
 end
-set -x GOPATH "$HOME/.go"
+set -x GOPATH "$HOME/Go"
 prepend_to_path "$GOPATH/bin"
 
 # Test coverage for Go

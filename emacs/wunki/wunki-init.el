@@ -47,7 +47,6 @@
     org-magit
     pandoc-mode
     markdown-mode
-    git-commit-mode
     gitconfig-mode
     gitignore-mode
     js2-mode
@@ -90,6 +89,7 @@
 
     ;; colors
     zenburn-theme
+    solarized-theme
     color-theme-sanityinc-tomorrow
     color-theme-sanityinc-solarized
 

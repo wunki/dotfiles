@@ -177,8 +177,6 @@
   (diminish 'company-mode))
 (diminish 'smartparens-mode)
 (after-load 'subword
-  (diminish 'subword-mode))        ; don't show the ,
-(after-load 'magit
-  (diminish 'magit-auto-revert-mode)) ; don't show MRev
+  (diminish 'subword-mode))
 
 (provide 'wunki-modes)

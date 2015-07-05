@@ -90,10 +90,11 @@
     ;; colors
     zenburn-theme
     solarized-theme
+    gruvbox-theme
     color-theme-sanityinc-tomorrow
     color-theme-sanityinc-solarized
 
-    ;; Elixer
+    ;; elixir
     elixir-mode
     alchemist
 

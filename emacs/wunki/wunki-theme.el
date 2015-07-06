@@ -3,7 +3,7 @@
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
 ;; load theme and don't ask if it's save.
-(load-theme 'gruvbox t)
+(load-theme 'darktooth t)
 
 (set-frame-font "Fira Mono")
 (add-to-list 'default-frame-alist '(font . "Fira Mono"))

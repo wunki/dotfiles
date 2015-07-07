@@ -66,9 +66,11 @@
     clj-refactor
     cljdoc
     clojurescript-mode
+
+    ; haskell
+    flycheck-haskell
     haskell-mode
-    shm
-    ghc
+    
     anaconda-mode
     pyenv-mode
     toml-mode

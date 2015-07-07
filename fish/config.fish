@@ -102,10 +102,7 @@ end
 
 
 # haskell
-if contains (hostname -s) "macbook"
-  set -x GHC_DOT_APP "/Applications/ghc-7.8.3.app"
-  prepend_to_path "$GHC_DOT_APP/Contents/bin"
-end
+prepend_to_path "$HOME/.stack/programs/x86_64-osx/ghc-7.8.4/bin"
 prepend_to_path "$HOME/.cabal/bin"
 
 # neovim on BSD

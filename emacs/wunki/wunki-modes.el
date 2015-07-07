@@ -106,6 +106,10 @@
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'clojure-mode-hook 'my-auto-fill-prog)
 
+;; flycheck
+(with-eval-after-load 'flycheck
+  (setq flycheck-check-syntax-automatically '(mode-enabled save)))
+
 ;; flyspell
 (add-hook 'clojure-mode-hook 'flyspell-prog-mode)
 (add-hook 'haskell-mode-hook 'flyspell-prog-mode)

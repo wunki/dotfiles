@@ -87,6 +87,7 @@
  '(custom-safe-themes
    (quote
     ("0f6667c7dd4d19cf99cde5feeb6f0fe6abebc229282b5e21d1739b1fe14b5342" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
+ '(fill-column 72)
  '(haskell-notify-p t)
  '(haskell-process-show-debug-tips nil)
  '(haskell-process-type (quote cabal-repl))

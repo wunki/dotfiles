@@ -39,13 +39,6 @@ Plug 'Shougo/vimproc', {'do': 'gmake'}                   " command execution
 
 " Only install these plugins on Desktop machines
 if hostname() == "macbook.wunki.org" || hostname() == "home.wunki.org" || hostname() == "zero.wunki.org"
-    " Keeping TODO's
-    Plug 'vimwiki'                                           " personal wiki
-
-    " Github
-    Plug 'mattn/webapi-vim'
-    Plug 'mattn/gist-vim'                                    " gists
-
     " Change font size
     Plug 'drmikehenry/vim-fontsize'
 
@@ -53,11 +46,7 @@ if hostname() == "macbook.wunki.org" || hostname() == "home.wunki.org" || hostna
     Plug 'kien/ctrlp.vim'
 
     " Looks
-    Plug 'bling/vim-airline'
-    Plug 'edkolev/tmuxline.vim'
     Plug 'morhetz/gruvbox'
-    Plug 'whatyouhide/vim-gotham'
-    Plug 'reedes/vim-colors-pencil'
     Plug 'chriskempson/base16-vim'
 
     " Websites
@@ -96,7 +85,7 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " GUI
 if has("gui_running")
     if has('mac')
-        set guifont=Source\ Code\ Pro\ for\ Powerline:h17
+        set guifont=Fira\ Mono:h14
     else
         set guifont=Source\ Code\ Pro\ 12
     endif
@@ -425,5 +414,3 @@ let g:tagbar_type_rust = {
     \  ]
     \}
 
-" Airline
-let g:airline_powerline_fonts = 1

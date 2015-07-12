@@ -30,3 +30,4 @@ fish/secret_env.fish
 bin/kindlegen
 /bin/ngrok
 /bin/stack
+/bin/rebar3

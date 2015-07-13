@@ -108,7 +108,7 @@
 (global-set-key (kbd "C-c -") 'undo-tree-visualize)
 
 ;; packages
-(global-set-key (kbd "C-c C-u") 'package-list-packages)
+(global-set-key (kbd "C-c C-u") 'paradox-list-packages)
 
 ;; whitespace mode
 (global-set-key (kbd "C-c C-w") 'global-whitespace-mode)

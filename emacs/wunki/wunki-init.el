@@ -67,6 +67,10 @@
     cljdoc
     clojurescript-mode
 
+    ; packages
+    paradox
+    async
+    
     ; haskell
     flycheck-haskell
     haskell-mode

@@ -123,7 +123,7 @@ switch (uname)
     set -x GOMAXPROCS (nproc)
 end
 
-if test -d "$HOME/Go"
+if test -d "$HOME/go"
     set -x GOPATH "$HOME/go"
 else
     set -x GOPATH "$HOME/Go"

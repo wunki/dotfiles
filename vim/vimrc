@@ -14,7 +14,6 @@ call plug#begin('~/.vim/plugged')
 " Essentials
 Plug 'tpope/vim-eunuch'                                  " unix helper commands
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
-Plug 'tpope/vim-fugitive'                                " git wrapper
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
 Plug 'tpope/vim-obsession'                               " better vim sessions
 Plug 'rking/ag.vim'                                      " silver surfer
@@ -48,6 +47,7 @@ if hostname() == "macbook.wunki.org" || hostname() == "home.wunki.org" || hostna
     " Looks
     Plug 'morhetz/gruvbox'
     Plug 'chriskempson/base16-vim'
+    Plug 'ajh17/Spacegray.vim'
 
     " Websites
     Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html', 'sls'] }
@@ -108,10 +108,9 @@ else
     set termencoding=utf-8
 endif
 
-" Theme
+" Themes
 let g:zenburn_disable_Label_underline = 1
-" let g:zenburn_high_Contrast = 1
-colors gruvbox
+colors spacegray
 
 " Find Shell
 if executable('/usr/local/bin/zsh')
@@ -306,34 +305,6 @@ nnoremap <F5> :UndotreeToggle<cr>
 let g:ctrlp_working_path_mode = 0
 nnoremap <silent> <C-b> :CtrlPBuffer<cr>
 nnoremap <silent> <C-B> :CtrlPBookmarkDir<cr>
-
-" Fugitive
-nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>ga :Gadd<cr>
-nnoremap <leader>gb :Gblame<cr>
-nnoremap <leader>gco :Gcheckout<cr>
-nnoremap <leader>gci :Gcommit<cr>
-nnoremap <leader>gm :Gmove<cr>
-nnoremap <leader>gr :Gremove<cr>
-nnoremap <leader>gv :Gitv<cr>
-nnoremap <leader>gp :Git push<cr>
-
-" Org-mode
-augroup ft_org
-    au!
-    au Filetype org nmap <buffer> Q vahjgq
-augroup END
-
-" Haskell settings
-let g:haddock_browser = "firefox"
-let g:haddock_browser_callformat = "%s %s"
-let g:ghc="/usr/bin/ghc"
-let g:haddock_docdir="/usr/share/doc/ghc/html/"
-
-" Badwolf theme settings
-let g:badwolf_darkgutter = 1
 
 " Commentary
 nmap <leader>c <Plug>CommentaryLine

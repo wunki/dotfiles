@@ -46,8 +46,6 @@ if hostname() == "macbook.wunki.org" || hostname() == "home.wunki.org" || hostna
 
     " Looks
     Plug 'morhetz/gruvbox'
-    Plug 'chriskempson/base16-vim'
-    Plug 'ajh17/Spacegray.vim'
 
     " Websites
     Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html', 'sls'] }
@@ -110,7 +108,7 @@ endif
 
 " Themes
 let g:zenburn_disable_Label_underline = 1
-colors spacegray
+colors gruvbox
 
 " Find Shell
 if executable('/usr/local/bin/zsh')

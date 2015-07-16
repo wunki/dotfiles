@@ -108,7 +108,7 @@ endif
 
 " Themes
 let g:zenburn_disable_Label_underline = 1
-colors gruvbox
+colors zenburn
 
 " Find Shell
 if executable('/usr/local/bin/zsh')

@@ -18,20 +18,23 @@
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
      auto-completion
-     emacs-lisp
      (git :variables
-          git-gutter-use-fringe t
-          git-magit-status-fullscreen t
-          git-enable-github-support t)
-     markdown
+          git-magit-status-fullscreen t)
      org
-     html
-     go
+
      ;; (shell :variables
      ;;        shell-default-height 30
      ;;        shell-default-position 'bottom)
      syntax-checking
      version-control
+
+     ;; languages
+     erlang
+     go
+     rust
+     emacs-lisp
+     html
+     markdown
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -82,7 +85,7 @@ before layers configuration."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Fira Mono"
-                               :size 16
+                               :size 15
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -143,7 +146,7 @@ before layers configuration."
    ;; point when it reaches the top or bottom of the screen.
    dotspacemacs-smooth-scrolling t
    ;; If non-nil smartparens-strict-mode will be enabled in programming modes.
-   dotspacemacs-smartparens-strict-mode nil
+   dotspacemacs-smartparens-strict-mode t
    ;; Select a scope to highlight delimiters. Possible value is `all',
    ;; `current' or `nil'. Default is `all'
    dotspacemacs-highlight-delimiters 'all

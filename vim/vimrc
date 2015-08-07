@@ -16,11 +16,10 @@ Plug 'tpope/vim-eunuch'                                  " unix helper commands
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
 Plug 'tpope/vim-obsession'                               " better vim sessions
-Plug 'rking/ag.vim'                                      " silver surfer
+Plug 'rking/ag.vim'                                      " silver searcher
 Plug 'commentary.vim'                                    " comment mappings
 Plug 'surround.vim'                                      " surround commands
 Plug 'godlygeek/tabular'                                 " easy indenting
-Plug 'tpope/vim-speeddating'                             " increase time and numbers
 Plug 'Lokaltog/vim-easymotion'                           " move by selecting a letter
 Plug 'scrooloose/syntastic'                              " syntax checker
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }  " sidebar tree
@@ -29,47 +28,35 @@ Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, bra
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
 Plug 'bronson/vim-trailing-whitespace'                   " remove trailing whitespace
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
-Plug 'jnurmine/Zenburn'
+Plug 'Shougo/vimproc', {'do': 'gmake'}                   " command execution
+Plug 'Shougo/neocomplete.vim'                            " autocompletion
+Plug 'kien/ctrlp.vim'                                    " fast file switching
 
-Plug 'Shougo/neocomplete.vim'
+" Looks
+Plug 'jnurmine/Zenburn'
+Plug 'itchyny/lightline.vim'
+
+" HTML
+Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html', 'sls'] }
+Plug 'othree/html5.vim', { 'for': 'html' }
+
+" Go
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'benmills/vim-golang-alternate', { 'for': 'go' }
-Plug 'Shougo/vimproc', {'do': 'gmake'}                   " command execution
 
-" Only install these plugins on Desktop machines
-if hostname() == "macbook.wunki.org" || hostname() == "home.wunki.org" || hostname() == "zero.wunki.org"
-    " Change font size
-    Plug 'drmikehenry/vim-fontsize'
+" Erlang
+Plug 'jimenezrick/vimerl'
 
-    " File browsing
-    Plug 'kien/ctrlp.vim'
+" Rust
+Plug 'wting/rust.vim', { 'for': 'rust' }
+Plug 'phildawes/racer', { 'do': 'cargo build --release', 'for': 'rust' }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
 
-    " Looks
-    Plug 'morhetz/gruvbox'
+" Fish
+Plug 'aliva/vim-fish', { 'for': 'fish' }
 
-    " Websites
-    Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html', 'sls'] }
-    Plug 'othree/html5.vim', { 'for': 'html' }
-
-    " Erlang
-    Plug 'jimenezrick/vimerl'
-
-    " Rust
-    Plug 'wting/rust.vim', { 'for': 'rust' }
-    Plug 'phildawes/racer', { 'do': 'cargo build --release', 'for': 'rust' }
-    Plug 'cespare/vim-toml', { 'for': 'toml' }
-
-    " Fish shell syntax
-    Plug 'aliva/vim-fish', { 'for': 'fish' }
-
-    " Provisioning
-    Plug 'saltstack/salt-vim', { 'for': 'sls' }
-
-    " Python
-    Plug 'klen/python-mode', { 'for': 'python' }
-    Plug 'davidhalter/jedi-vim', { 'for': 'python' }
-    Plug 'lambdalisue/vim-pyenv', { 'for': 'python' }
-end
+" Salt
+Plug 'saltstack/salt-vim', { 'for': 'sls' }
 
 call plug#end()
 
@@ -110,6 +97,11 @@ endif
 let g:zenburn_disable_Label_underline = 1
 colors zenburn
 
+" Lightline
+let g:lightline = {
+            \ 'colorscheme': 'wombat',
+            \ }
+
 " Find Shell
 if executable('/usr/local/bin/zsh')
     set shell=/usr/local/bin/zsh
@@ -134,7 +126,7 @@ set history=1000            " more history
 set shortmess=atI           " shorten confirmation messages
 set bs=2                    " fix backspace in FreeBSD
 set scrolloff=3             " keep 3 lines below/above cursor
-set noshowmode              " no need for the mode, airline shows it
+set noshowmode              " no need for the mode, lightline shows it
 set showcmd                 " shows partial command in the last line
 set ttyfast                 " improves remote connections
 set ruler                   " show the line and column number of the cursor
@@ -360,26 +352,26 @@ endif
 
 " Tagbar
 let g:tagbar_type_markdown = {
-    \ 'ctagstype' : 'markdown',
-    \ 'kinds' : [
-        \ 'h:headings',
-        \ 'l:links',
-        \ 'i:images'
-    \],
-    \ "sort" : 0
-\ }
+            \ 'ctagstype' : 'markdown',
+            \ 'kinds' : [
+            \ 'h:headings',
+            \ 'l:links',
+            \ 'i:images'
+            \],
+            \ "sort" : 0
+            \ }
 
 let g:tagbar_type_rust = {
-    \ 'ctagstype' : 'rust',
-    \ 'kinds' : [
-        \'T:types,type definitions',
-        \'f:functions,function definitions',
-        \'g:enum,enumeration names',
-        \'s:structure names',
-        \'m:modules,module names',
-        \'c:consts,static constants',
-        \'t:traits,traits',
-        \'i:impls,trait implementations',
-    \  ]
-    \}
+            \ 'ctagstype' : 'rust',
+            \ 'kinds' : [
+            \'T:types,type definitions',
+            \'f:functions,function definitions',
+            \'g:enum,enumeration names',
+            \'s:structure names',
+            \'m:modules,module names',
+            \'c:consts,static constants',
+            \'t:traits,traits',
+            \'i:impls,trait implementations',
+            \  ]
+            \}
 

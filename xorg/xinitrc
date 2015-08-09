@@ -22,9 +22,6 @@ xset r rate 300 80
 # Set the left cursor as default
 xsetroot -cursor_name left_ptr
 
-# Start rvxt-unicode server
-urxvtd -o -q -f &
-
 # Hide the mouse cursor
 unclutter -idle 3 &
 

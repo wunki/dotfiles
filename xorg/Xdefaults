@@ -1,5 +1,5 @@
 ! Set the colors
-#include "/home/wunki/Source/wunki-dotfiles/xorg/zenburn.rxvt.colors"
+#include "/home/wunki/src/wunki-dotfiles/xorg/zenburn.rxvt.colors"
 
 Xcursor.theme: Vanilla-DMZ-AA
 Xcursor.size: 24

@@ -6,7 +6,6 @@ function wl; wicd-curses; end
 function nstat; sudo nethogs wlan0 $argv; end
 function duh; du -ah --max-depth=1; end
 function lah; ls -lah; end
-function v; nvim $argv; end
 function gh-preview; python -m grip; end
 function flush-dns; sudo discoveryutil mdnsflushcache; end
 function ea; sudo ezjail-admin $argv; end
@@ -20,6 +19,12 @@ function e
     emacsclient -a "" -t $argv;
   end
 end
+
+# neovim when available
+if test -x "/usr/local/bin/nvim";
+  function vim; nvim $argv; end
+end
+function v; vim $argv; end
 
 # mu
 function mu-reindex; mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
@@ -53,6 +58,8 @@ set -x EDITOR 'vim'
 set -x VISUAL 'vim'
 set -x TERM 'rxvt-256color'
 set -x XDG_DATA_HOME {$HOME}/.local/share
+set -x NVIM_TUI_ENABLE_TRUE_COLOR 1
+
 
 # UTF-8
 set -x LANG 'en_US.UTF-8'

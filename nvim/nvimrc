@@ -9,14 +9,12 @@ call plug#begin('~/.nvim/plugged')
 " Essentials
 Plug 'tpope/vim-eunuch'                                  " unix helper commands
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
-Plug 'tpope/vim-fugitive'                                " git wrapper
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
 Plug 'tpope/vim-obsession'                               " better vim sessions
-Plug 'rking/ag.vim'                                      " silver surfer
+Plug 'rking/ag.vim'                                      " silver searcher
 Plug 'commentary.vim'                                    " comment mappings
 Plug 'surround.vim'                                      " surround commands
 Plug 'godlygeek/tabular'                                 " easy indenting
-Plug 'tpope/vim-speeddating'                             " increase time and numbers
 Plug 'Lokaltog/vim-easymotion'                           " move by selecting a letter
 Plug 'scrooloose/syntastic'                              " syntax checker
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }  " sidebar tree
@@ -25,30 +23,47 @@ Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, bra
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
 Plug 'bronson/vim-trailing-whitespace'                   " remove trailing whitespace
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh' }  " autocomplete
-Plug 'kien/ctrlp.vim'                                    " file browsing
-Plug 'bling/vim-airline'
-Plug 'chriskempson/base16-vim'
-Plug 'Shougo/deoplete.nvim'
+Plug 'Shougo/vimproc', {'do': 'gmake'}                   " command execution
+Plug 'kien/ctrlp.vim'                                    " fast file switching
+
+" Looks
 Plug 'jnurmine/Zenburn'
 Plug 'morhetz/gruvbox'
+Plug 'itchyny/lightline.vim'
+
+" HTML
+Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html', 'sls'] }
+Plug 'othree/html5.vim', { 'for': 'html' }
 
 " Go
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'benmills/vim-golang-alternate', { 'for': 'go' }
+
+" Erlang
+Plug 'jimenezrick/vimerl'
 
 " Rust
 Plug 'wting/rust.vim', { 'for': 'rust' }
 Plug 'phildawes/racer', { 'do': 'cargo build --release', 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 
+" Fish
+Plug 'aliva/vim-fish', { 'for': 'fish' }
+
+" Salt
+Plug 'saltstack/salt-vim', { 'for': 'sls' }
+
 call plug#end()
 
 " Visuals
-set t_Co=256
 set mouse=a
-set termencoding=utf-8
+let g:zenburn_disable_Label_underline = 1
 colorscheme gruvbox
+
+" Lightline
+let g:lightline = {
+            \ 'colorscheme': 'Tomorrow_Night',
+            \ }
 
 " Find Shell
 if executable('/usr/local/bin/zsh')
@@ -283,6 +298,3 @@ let g:tagbar_type_rust = {
         \'i:impls,trait implementations',
     \  ]
     \}
-
-" Airline
-let g:airline_powerline_fonts = 1

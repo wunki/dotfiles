@@ -34,7 +34,9 @@ Plug 'kien/ctrlp.vim'                                    " fast file switching
 
 " Looks
 Plug 'jnurmine/Zenburn'
-Plug 'itchyny/lightline.vim'
+Plug 'morhetz/gruvbox'
+Plug 'bling/vim-airline'
+Plug 'edkolev/tmuxline.vim'
 
 " HTML
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html', 'sls'] }

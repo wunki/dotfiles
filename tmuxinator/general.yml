@@ -4,8 +4,8 @@ name: general
 root: ~/
 
 windows:
-  - editor: vim
+  - vim: vim
   - shell:
       -
   - mutt: mutt
-  - irssi: irssi
+  - weechat: weechat

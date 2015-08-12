@@ -27,9 +27,13 @@ Plug 'Shougo/vimproc', {'do': 'gmake'}                   " command execution
 Plug 'kien/ctrlp.vim'                                    " fast file switching
 
 " Looks
-Plug 'jnurmine/Zenburn'
+Plug 'acepukas/vim-zenburn'
+    let g:zenburn_disable_Label_underline = 1
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
+Plug 'cocopon/iceberg.vim'
+Plug 'jeetsukumaran/vim-nefertiti'
+Plug 'ywjno/vim-tomorrow-theme'
 
 " HTML
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html', 'sls'] }
@@ -57,12 +61,11 @@ call plug#end()
 
 " Visuals
 set mouse=a
-let g:zenburn_disable_Label_underline = 1
-colorscheme gruvbox
+colorscheme zenburn
 
 " Lightline
 let g:lightline = {
-            \ 'colorscheme': 'Tomorrow_Night',
+            \ 'colorscheme': 'zenburn',
             \ }
 
 " Find Shell

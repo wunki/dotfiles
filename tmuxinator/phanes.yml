@@ -1,0 +1,8 @@
+# ~/.tmuxinator/phanes.yml
+
+name: phanes
+root: ~/go/src/github.com/gibbonco/phanes
+
+windows:
+  - vim: vim
+  - git: git status

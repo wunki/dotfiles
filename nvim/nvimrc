@@ -243,18 +243,6 @@ let g:ctrlp_working_path_mode = 0
 nnoremap <silent> <C-b> :CtrlPBuffer<cr>
 nnoremap <silent> <C-B> :CtrlPBookmarkDir<cr>
 
-" Fugitive
-nnoremap <leader>gd :Gdiff<cr>
-nnoremap <leader>gs :Gstatus<cr>
-nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>gb :Gblame<cr>
-nnoremap <leader>gco :Gcheckout<cr>
-nnoremap <leader>gci :Gcommit<cr>
-nnoremap <leader>gm :Gmove<cr>
-nnoremap <leader>gr :Gremove<cr>
-nnoremap <leader>gv :Gitv<cr>
-nnoremap <leader>gp :Git push<cr>
-
 " Commentary
 nmap <leader>c <Plug>CommentaryLine
 xmap <leader>c <Plug>Commentary
@@ -276,6 +264,9 @@ set completeopt=menu,menuone
 let g:syntastic_echo_current_error = 0
 let g:syntastic_enable_highlighting = 0
 let g:syntastic_always_populate_loc_list = 1
+
+" Files
+autocmd BufRead,BufNewFile /etc/nginx/sites-*/* setfiletype conf
 
 " Tagbar
 let g:tagbar_type_markdown = {

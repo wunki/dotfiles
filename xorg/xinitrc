@@ -28,6 +28,9 @@ unclutter -idle 3 &
 # Set background
 feh --bg-tile ~/pictures/wallpapers/grey_wash_wall.png
 
+# Start rvxt-unicode server
+urxvtd -o -q -f &
+
 # Thunar
 thunar --daemon &
 

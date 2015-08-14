@@ -21,8 +21,8 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }  " sidebar tree
 Plug 'mbbill/undotree'                                   " easy undoing
 Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, brackend and quotes
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
-Plug 'bronson/vim-trailing-whitespace'                   " remove trailing whitespace
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
+    map <C-t> :Tagbar<CR>
 Plug 'Shougo/vimproc', {'do': 'gmake'}                   " command execution
 Plug 'kien/ctrlp.vim'                                    " fast file switching
 
@@ -31,6 +31,9 @@ Plug 'acepukas/vim-zenburn'
     let g:zenburn_disable_Label_underline = 1
 Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
+    let g:lightline = {
+                \ 'colorscheme': 'zenburn',
+                \ }
 Plug 'cocopon/iceberg.vim'
 Plug 'jeetsukumaran/vim-nefertiti'
 Plug 'ywjno/vim-tomorrow-theme'
@@ -62,11 +65,6 @@ call plug#end()
 " Visuals
 set mouse=a
 colorscheme zenburn
-
-" Lightline
-let g:lightline = {
-            \ 'colorscheme': 'zenburn',
-            \ }
 
 " Find Shell
 if executable('/usr/local/bin/zsh')
@@ -111,11 +109,6 @@ let g:netrw_list_hide= '.*\.swp$,.*\~$,.*\.pyc$'
 nnoremap / /\v
 vnoremap / /\v
 
-" YouCompleteMe
-let g:ycm_min_num_of_chars_for_completion = 3
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-let g:ycm_server_keep_logfiles = 1
-
 " Bash-like filename completion
 set wildmenu
 set wildmode=list:longest
@@ -158,8 +151,6 @@ set noswapfile                    " no swapping
 " point neovim to python
 let g:python_host_prog='/usr/local/bin/python'
 
-" tagbar
-map <C-t> :Tagbar<CR>
 
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>

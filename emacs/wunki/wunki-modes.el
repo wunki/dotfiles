@@ -38,6 +38,7 @@
 (global-auto-revert-mode t)
 
 ;; powerline
+(setq powerline-default-separator nil)
 (powerline-default-theme)
 
 ;; indent after newline

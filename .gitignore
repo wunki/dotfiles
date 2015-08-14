@@ -31,3 +31,5 @@ bin/kindlegen
 /bin/ngrok
 /bin/stack
 /bin/rebar3
+emacs/.cache
+/emacs/projectile.cache

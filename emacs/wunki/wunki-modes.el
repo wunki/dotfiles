@@ -8,6 +8,8 @@
 (global-hl-line-mode -1)
 
 ;; projectile for project management
+(setq projectile-cache-file "~/.projectile.cache")
+(setq projectile-known-projects-file "~/.projectile-bookmarks.eld")
 (projectile-global-mode)
 
 ;; deletes region when starting typing
@@ -48,7 +50,7 @@
 (add-hook 'haskell-mode-hook 'disable-electric-indent)
 
 ;; recently opened files
-(recentf-mode 1)
+(recentf-mode t)
 (setq recentf-max-saved-items 30)
 (add-to-list 'recentf-exclude "\\/tmp$")
 (add-to-list 'recentf-exclude "\\.last$")

@@ -50,7 +50,7 @@ Plug 'benmills/vim-golang-alternate', { 'for': 'go' }
 Plug 'jimenezrick/vimerl'
 
 " Rust
-Plug 'wting/rust.vim', { 'for': 'rust' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'phildawes/racer', { 'do': 'cargo build --release', 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 
@@ -64,7 +64,7 @@ call plug#end()
 
 " Visuals
 set mouse=a
-colorscheme zenburn
+colorscheme Tomorrow-Night
 
 " Find Shell
 if executable('/usr/local/bin/zsh')

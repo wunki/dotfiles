@@ -8,7 +8,7 @@
 
 ;; package repositories
 (setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.milkbox.net/packages/")
+                         ("melpa" . "http://melpa.org/packages/")
                          ("org" . "http://orgmode.org/elpa/")
                          ("gnu" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
@@ -74,6 +74,10 @@
     ; haskell
     flycheck-haskell
     haskell-mode
+
+    ; rust
+    rust-mode
+    racer
     
     anaconda-mode
     pyenv-mode

@@ -163,11 +163,12 @@ set -x NPM_PACKAGES "$HOME/.npm-packages"
 set -x NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 prepend_to_path "$NPM_PACKAGES/bin"
 
-# boot2docker on the mac
-if contains (hostname -s) "macbook"
-  set -x DOCKER_HOST "tcp://192.168.59.103:2376"
-  set -x DOCKER_CERT_PATH "/Users/wunki/.boot2docker/certs/boot2docker-vm"
+# docker for the mac
+if contains (hostname -s) "Petars-MacBook-Pro"
+  set -x DOCKER_HOST "tcp://192.168.99.100:2376"
+  set -x DOCKER_MACHINE_NAME "default"
   set -x DOCKER_TLS_VERIFY 1
+  set -x DOCKER_CERT_PATH "/Users/wunki/.docker/machine/machines/default"
 end
 
 # racket (mac)

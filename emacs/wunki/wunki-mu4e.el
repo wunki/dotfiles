@@ -27,7 +27,7 @@
 
 ;; general settings
 (setq mail-user-agent 'mu4e-user-agent                   ; mu4e as default mail agent
-      mu4e-attachment-dir "~/Downloads"                  ; put attachements in download dir
+      mu4e-attachment-dir "~/downloads"                  ; put attachements in download dir
       mu4e-get-mail-command "offlineimap"                ; fetch email with offlineimap
       mu4e-confirm-quit nil                              ; don't ask me to quit
       mu4e-headers-skip-duplicates t                     ; skip duplicate email, great for gmail
@@ -48,7 +48,7 @@
       mu4e-drafts-folder "/wunki/drafts"
       mu4e-trash-folder  "/wunki/trash"
       mu4e-refile-folder "/wunki/archive"
-      smtpmail-queue-dir "~/Mail/queue/cur")
+      smtpmail-queue-dir "~/mail/queue/cur")
 
 ;; sending mail
 (setq message-send-mail-function 'smtpmail-send-it

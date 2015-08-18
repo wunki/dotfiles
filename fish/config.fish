@@ -164,7 +164,7 @@ set -x NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 prepend_to_path "$NPM_PACKAGES/bin"
 
 # docker for the mac
-if contains (hostname -s) "Petars-MacBook-Pro"
+if contains (hostname -s) "macbook"
   set -x DOCKER_HOST "tcp://192.168.99.100:2376"
   set -x DOCKER_MACHINE_NAME "default"
   set -x DOCKER_TLS_VERIFY 1

@@ -7,7 +7,7 @@
 
 (set-frame-font "Source Code Pro")
 (add-to-list 'default-frame-alist '(font . "Source Code Pro"))
-(set-face-attribute 'default nil :height 130)
+(set-face-attribute 'default nil :height 90)
 
 (defun wunki/font-name-replace-size (font-name new-size)
   (let ((parts (split-string font-name "-")))

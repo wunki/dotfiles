@@ -17,7 +17,6 @@
 
 ;; magit
 (setq magit-last-seen-setup-instructions "1.4.0")
-(setq magit-git-executable "/usr/local/bin/git")
 
 ;; blinking
 (blink-cursor-mode -1)

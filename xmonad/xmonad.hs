@@ -22,7 +22,7 @@ import           XMonad.Layout.NoBorders
 import qualified Data.Map                     as M
 import           Graphics.X11.ExtraTypes.XF86
 
-import qualified System.IO.UTF8               as UTF8
+import           System.IO
 
 main :: IO()
 main = do
@@ -32,7 +32,7 @@ main = do
         , modMask = mod4Mask
         , layoutHook = avoidStruts myLayout
         , logHook = dynamicLogWithPP $ xmobarPP
-                    { ppOutput = UTF8.hPutStrLn xmobar
+                    { ppOutput = hPutStrLn xmobar
                     , ppUrgent = xmobarColor "#de935f" ""
                     , ppTitle = xmobarColor "#c5c8c6" ""
                     , ppCurrent = xmobarColor "#81a2be" ""

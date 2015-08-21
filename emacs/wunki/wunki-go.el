@@ -1,7 +1,9 @@
 ;; flycheck
 
-(add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")
-(require 'go-flycheck)
+(if (file-exists-p "~/go/src/github.com/dougm/goflymake")
+    (progn
+      (add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")
+      (require 'go-flycheck)))
 
 ;; auto-completion
 (require 'company-go)

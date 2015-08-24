@@ -61,6 +61,7 @@
     fish-mode
     company
     company-ghc
+    company-racer
     cider
     clojure-mode
     clj-refactor

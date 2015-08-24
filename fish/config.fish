@@ -154,7 +154,7 @@ if test -f ~/.nvm-fish/nvm.fish
   source ~/.nvm-fish/nvm.fish
 end
 
-if test -f /usr/local/bin/hub
+if test -f /usr/sbin/hub
   function git; hub $argv; end
 end
 

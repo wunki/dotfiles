@@ -57,6 +57,6 @@ Emacs.verticalScrollBars: off
 
 ! Urls
 urxvt.perl-ext: default,matcher
-urxvt.url-launcher: firefox
+urxvt.url-launcher: chromium-continuous-bin
 urxvt.matcher.button: 1
 urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]

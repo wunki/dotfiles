@@ -37,7 +37,6 @@
       mu4e-compose-dont-reply-to-self t                  ; don't reply to myself
       mu4e-compose-complete-only-personal t              ; only personal messages get in the address book
       mu4e-use-fancy-chars t                             ; use fancy characters
-      mu4e-compose-signature "Petar Radosevic | @wunki"  ; signature
       message-kill-buffer-on-exit t                      ; don't keep message buffers around
       smtpmail-queue-mail nil                            ; start in non queue mode
 )
@@ -75,18 +74,23 @@
          (user-mail-address    "petar@gibbon.co")
          (mu4e-sent-folder     "/gibbon/sent")
          (mu4e-drafts-folder   "/gibbon/drafts")
+         (mu4e-compose-signature
+          "Petar Radosevic
+Co-founder Gibbon | @wunki")
          (smtpmail-smtp-server "smtp.gmail.com")
          (smtpmail-smtp-user   "petar@gibbon.co"))
         ("wunki"
          (user-mail-address    "petar@wunki.org")
          (mu4e-sent-folder     "/wunki/sent")
          (mu4e-drafts-folder   "/wunki/drafts")
+         (mu4e-compose-signature "Petar Radosevic -- @wunki")
          (smtpmail-smtp-server "mail.messagingengine.com")
          (smtpmail-smtp-user   "wunki@fastmail.fm"))
         ("bread-and-pepper"
          (user-mail-address    "petar@breadandpepper.com")
          (mu4e-sent-folder     "/bread-and-pepper/sent")
          (mu4e-drafts-folder   "/bread-and-pepper/drafts")
+         (mu4e-compose-signature "Petar Radosevic")
          (smtpmail-smtp-server "smtp.gmail.com")
          (smtpmail-smtp-user   "petar@breadandpepper.com"))))
 

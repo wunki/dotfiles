@@ -60,8 +60,8 @@
     anzu
     fish-mode
     company
-    company-ghc
-    company-racer
+
+    ;; clojure
     cider
     clojure-mode
     clj-refactor
@@ -73,20 +73,21 @@
     async
     
     ; haskell
-    flycheck-haskell
     haskell-mode
+    flycheck-haskell
+    company-ghc
 
     ; rust
     rust-mode
     racer
-    
+    toml-mode
+    company-racer
+    flycheck-rust
+
+    ; python
     anaconda-mode
     pyenv-mode
-    toml-mode
-    rust-mode
-    flycheck-rust
-    racket-mode
-
+    
     ;; erlang
     erlang
 

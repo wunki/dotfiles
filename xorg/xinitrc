@@ -40,6 +40,9 @@ xbindkeys
 # SSH agent
 eval `ssh-agent`
 
+# Add my own path to bin, needed for dmenu
+export PATH="$HOME/bin:$PATH"
+
 # Emacs
 emacs --daemon &
 

@@ -22,12 +22,10 @@
 ;; org-files, only used for coding
 (setq org-agenda-files (list (format "%s/%s" org-root "inbox.org")
                              (format "%s/%s" org-root "today.org")
-                             (format "%s/%s" org-root "personal.org")
+                             (format "%s/%s" org-root "me.org")
                              (format "%s/%s" org-root "gibbon.org")
-
-                             ; projects
-                             "~/python/gibbon-web/TODO.org"
-                             "~/rust/construe/TODO.org")
+                             (format "%s/%s" org-root "servers.org")
+                             (format "%s/%s" org-root "books.org"))
       org-default-notes-file (format "%s/%s" org-root "inbox.org"))
 
 ;; always use indent-mode

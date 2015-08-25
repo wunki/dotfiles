@@ -90,10 +90,11 @@ prepend_to_path "/usr/bin"
 prepend_to_path "/usr/sbin"
 prepend_to_path "/usr/local/sbin"
 prepend_to_path "/usr/local/bin"
-prepend_to_path "$HOME/Bin"
-prepend_to_path "$HOME/.bin"
-prepend_to_path "$HOME/.local/bin"
 prepend_to_path "/usr/local/opt/go/libexec/bin"
+
+# home paths
+prepend_to_path "$HOME/bin"
+prepend_to_path "$HOME/Bin"
 
 # mac specific paths
 prepend_to_path "/usr/local/Cellar/emacs/HEAD/bin"

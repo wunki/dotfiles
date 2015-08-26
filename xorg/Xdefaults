@@ -10,7 +10,7 @@ Xft.antialias: 1
 Xft.lcdfilter: lcddefault
 Xft.hintstyle: hintslight
 Xft.hinting: 0
-Xft.dpi: 220
+Xft.dpi: 108
 Xft.rgba: rgb
 
 ! RXVT Scripts
@@ -30,10 +30,10 @@ urxvt.keysym.M-Escape: perl:keyboard-select:activate
 urxvt.keysym.M-s:      perl:keyboard-select:search
 
 ! Urxvt fonts
-urxvt.font:            xft:Fira Mono Medium:size=8,xft:Fira Mono for Powerline
-urxvt.boldFont:        xft:Fira Mono Medium::bold:size=8
-urxvt.italicFont:      xft:Fira Mono Medium::italic:size=8
-urxvt.boldItalicFont:  xft:Fira Mono Medium::bolditalic:size=8
+urxvt.font:            xft:Fira Mono Medium:size=12,xft:Fira Mono for Powerline
+urxvt.boldFont:        xft:Fira Mono Medium::bold:size=12
+urxvt.italicFont:      xft:Fira Mono Medium::italic:size=12
+urxvt.boldItalicFont:  xft:Fira Mono Medium::bolditalic:size=12
 
 ! Urxvt settings
 urxvt.depth: 32
@@ -57,6 +57,6 @@ Emacs.verticalScrollBars: off
 
 ! Urls
 urxvt.perl-ext: default,matcher
-urxvt.url-launcher: chromium-continuous-bin
+urxvt.url-launcher: firefox
 urxvt.matcher.button: 1
 urxvt.matcher.pattern.1: \\bwww\\.[\\w-]+\\.[\\w./?&@#-]*[\\w/-]

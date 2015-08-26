@@ -1,4 +1,14 @@
-DOTFILES := $(PWD)
+DOTFILES 	:= $(PWD)
+UNAME_S 	:= $(shell uname -s)
+
+ifeq ($(UNAME_S),FreeBSD)
+	xdefault=$(DOTFILES)/xorg/Xdefaults-BSD
+	xmobar=$(DOTFILES)/xmonad/xmobarrc-BSD
+else
+	xdefault $(DOTFILES)/xorg/Xdefaults
+	xmobar=$(DOTFILES)/xmonad/xmobarrc
+endif
+
 all:: vim git emacs bin zsh bash tmux xmonad xorg gtk mpv conkeror
 
 vim::
@@ -70,15 +80,15 @@ i3::
 	@echo i3 is symlinked.
 
 xmonad::
-	@mkdir -p										${HOME}/.xmonad
-	@ln -fs $(DOTFILES)/xmonad/xmobarrc				${HOME}/.xmobarrc
+	@mkdir -p																	${HOME}/.xmonad
+	@ln -fs $(xmobar)													${HOME}/.xmobarrc
 	@ln -fns $(DOTFILES)/xmonad/xmonad.hs			${HOME}/.xmonad/xmonad.hs
 	@echo XMonad is symlinked.
 
 xorg::
-	@ln -fs $(DOTFILES)/xorg/Xdefaults				${HOME}/.Xdefaults
+	@ln -fs $(xdefault)												${HOME}/.Xdefaults
 	@ln -fs $(DOTFILES)/xorg/Xresources				${HOME}/.Xresources
-	@ln -fs $(DOTFILES)/xorg/xinitrc				${HOME}/.xinitrc
+	@ln -fs $(DOTFILES)/xorg/xinitrc					${HOME}/.xinitrc
 	@ln -fs $(DOTFILES)/xorg/urxvt-perls			${HOME}/.urxvt-perls
 	@ln -fns $(DOTFILES)/xorg/fonts.conf			${HOME}/.fonts.conf
 	@echo Xorg is symlinked.

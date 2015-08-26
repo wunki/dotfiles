@@ -30,10 +30,10 @@ urxvt.keysym.M-Escape: perl:keyboard-select:activate
 urxvt.keysym.M-s:      perl:keyboard-select:search
 
 ! Urxvt fonts
-urxvt.font:            xft:Fira Mono Medium:size=12,xft:Fira Mono for Powerline
-urxvt.boldFont:        xft:Fira Mono Medium::bold:size=12
-urxvt.italicFont:      xft:Fira Mono Medium::italic:size=12
-urxvt.boldItalicFont:  xft:Fira Mono Medium::bolditalic:size=12
+urxvt.font:            xft:Ubuntu Mono:size=12,xft:Ubuntu Mono derivative Powerline
+urxvt.boldFont:        xft:Ubuntu Mono::bold:size=12
+urxvt.italicFont:      xft:Ubuntu Mono::italic:size=12
+urxvt.boldItalicFont:  xft:Ubuntu Mono::bolditalic:size=12
 
 ! Urxvt settings
 urxvt.depth: 32

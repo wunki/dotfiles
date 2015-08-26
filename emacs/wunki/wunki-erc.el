@@ -49,12 +49,12 @@
       (require 'wunki-secrets "wunki-secrets.el") ;; load passwords
       ;; connect to freenode and mozilla
       (progn
-        (erc-tls :server "wunki.org"
+        (erc-tls :server "open.wunki.org"
                  :port 5000
                  :nick "wunki"
                  :password irc-wunki-freenode
                  :full-name "Petar Radosevic")
-        (erc-tls :server "wunki.org"
+        (erc-tls :server "open.wunki.org"
                  :port 5000
                  :nick "wunki"
                  :password irc-wunki-mozilla

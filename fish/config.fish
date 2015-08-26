@@ -159,6 +159,10 @@ if test -f /usr/sbin/hub
   function git; hub $argv; end
 end
 
+# clojure
+set -x BOOT_JVM_OPTIONS "-Xmx2g -client -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xverify:none"
+set -x BOOT_COLOR 1
+
 # NodeJS
 set -x NPM_PACKAGES "$HOME/.npm-packages"
 set -x NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"

@@ -33,3 +33,4 @@ bin/kindlegen
 /bin/rebar3
 emacs/.cache
 /emacs/projectile.cache
+/bin/.nrepl-history

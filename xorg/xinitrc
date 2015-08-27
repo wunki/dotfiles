@@ -26,7 +26,7 @@ xsetroot -cursor_name left_ptr
 unclutter -idle 3 &
 
 # Set background
-feh --bg-fill ~/pictures/wallpapers/clouds.jpg
+feh --bg-fill ~/pictures/wallpapers/daydreamer.png
 
 # Start rvxt-unicode server
 urxvtd -o -q -f &

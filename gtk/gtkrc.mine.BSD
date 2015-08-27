@@ -1,0 +1,7 @@
+gtk-icon-theme-name="Tangerine"
+gtk-font-name = "Fira Sans 11"
+style "user-font"
+{
+    font_name = "Fira Sans 11"
+}
+widget_class "*" style "user-font"

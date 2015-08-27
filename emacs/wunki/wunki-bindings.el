@@ -89,7 +89,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; moving around
-(global-set-key (kbd "M-1") 'ace-jump-mode)
+(global-set-key (kbd "M-1") 'avy-goto-word-or-subword-1)
 (global-set-key (kbd "M-2") 'ace-window)
 (global-set-key (kbd "C-c C-i") 'idomenu)
 

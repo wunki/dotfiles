@@ -2,7 +2,7 @@
 #include "/home/wunki/src/wunki-dotfiles/xorg/zenburn.rxvt.colors"
 
 Xcursor.theme: Vanilla-DMZ-AA
-Xcursor.size: 36
+Xcursor.size: 24
 
 ! XFT Settings
 Xft.autohint: 0

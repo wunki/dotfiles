@@ -8,7 +8,7 @@
 
 ;; package repositories
 (setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
-                         ("melpa" . "http://melpa.org/packages/")
+                         ("melpa" . "https://melpa.org/packages/")
                          ("org" . "http://orgmode.org/elpa/")
                          ("gnu" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
@@ -54,7 +54,7 @@
     ido-ubiquitous
     flx-ido
     undo-tree
-    ace-jump-mode
+    avy
     ace-window
     web-mode
     anzu

@@ -1,27 +1,22 @@
-(defun wunki-haskell-mode-hook ()
-  (local-set-key (kbd "C-c C-b") 'haskell-interactive-bring)
-  (local-set-key (kbd "C-c C-c") 'haskell-process-cabal-build)
-  (local-set-key (kbd "C-c C-i") 'haskell-process-do-info)
-  (local-set-key (kbd "C-c C-k") 'haskell-interactive-mode-clear)
-  (local-set-key (kbd "C-c C-l") 'haskell-process-load-or-reload)
-  (local-set-key (kbd "C-c C-s") 'haskell-interactive-switch)
-  (local-set-key (kbd "C-c C-t") 'haskell-process-do-type)
-  (local-set-key (kbd "C-c c")   'haskell-process-cabal)
-  (local-set-key (kbd "C-c v c") 'haskell-cabal-visit-file)
-  (local-set-key (kbd "SPC")     'haskell-mode-contextual-space)
-  ;; haskell-flycheck
-  (delete 'haskell-ghc flycheck-checkers)
-  (require 'haskell-flycheck))
 
-(add-hook 'haskell-mode-hook 'hindent-mode)
-(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-doc-mode)
-(add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
-(add-hook 'haskell-mode-hook 'wunki-haskell-mode-hook)
+;; load ghci-ng, which is a lot faster
+(when (executable-find "ghci-ng")
+  (setq-default haskell-process-args-cabal-repl
+                '("--ghc-option=-ferror-spans" "--with-ghc=ghci-ng")))
 
-(setq haskell-process-auto-import-loaded-modules t
-      haskell-process-log t
-      haskell-process-type 'stack-ghci
-      haskell-process-suggest-remove-import-lines t)
+;; cleanup haskell on save
+(setq-default haskell-stylish-on-save t)
+
+(eval-after-load 'haskell-mode
+  '(progn
+     (defun wunki-haskell-mode-defaults ()
+       (subword-mode +1)
+       (haskell-doc-mode)
+       (haskell-indentation-mode)
+       (interactive-haskell-mode +1))
+
+     (setq wunki-haskell-mode-hook 'wunki-haskell-mode-defaults)
+     (add-hook 'haskell-mode-hook (lambda ()
+                                    (run-hooks 'wunki-haskell-mode-hook)))))
 
 (provide 'wunki-haskell)

@@ -1,7 +1,7 @@
-include "/home/wunki/.themes/MurrinaGilouche/gtk-2.0/gtkrc"
+include "/usr/share/themes/Vertex-Dark/gtk-2.0/gtkrc"
 include "/home/wunki/.gtkrc.mine"
 
-gtk-theme-name = "MurrinaGilouche"
+gtk-theme-name = "Vertex"
 
 style "vimfix" {
   bg[NORMAL] = "#3f3f3f"

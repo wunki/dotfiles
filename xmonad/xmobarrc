@@ -9,7 +9,7 @@ Config { font = "xft:Ubuntu Mono:pixelsize=24:antialias=true"
                     , Run Cpu ["-L", "3", "-H", "50", "--normal", "#DCDCCC", "--high", "#CC9393"] 20
                     , Run Date "%a %d %b | %H:%M" "date" 60
                     , Run Battery
-                    [ "-t", "AC: <timeleft> <acstatus>"
+                    [ "-t", "Batt:<left>% (<timeleft>) <acstatus>"
                     , "-L", "10", "-H", "80", "-p", "3"
                     , "--", "-O", "<fc=green>[on]</fc>", "-o", "<fc=orange>[off]</fc>"
                     , "-L", "-15", "-H", "-5"

@@ -40,11 +40,10 @@ main = do
         , borderWidth = 1
         , normalBorderColor  = "#7285b7"
         , focusedBorderColor = "#bbdaff"
-        , workspaces = ["1:Emacs", "2:Shells", "3:Browser", "4:Chat", "5:Servers", "6:Generic"]
+        , workspaces = ["1:Emacs", "2:Shells", "3:Browser", "4", "5", "6"]
         , terminal  = "urxvtc"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
         , startupHook = setWMName "LG3D"
-        -- , startupHook = myStartupHook
         }
 
 -- Layouts
@@ -91,6 +90,3 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((modMask, xK_g), windowPromptGoto  defaultXPConfig)
     , ((modMask, xK_c), windowPromptBring defaultXPConfig)
     ]
-
-myStartupHook :: X ()
-myStartupHook = return ()

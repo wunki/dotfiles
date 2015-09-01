@@ -34,9 +34,6 @@
 *.color7:     #DCDCCC
 *.color15:    #ffffff
 
-
-
-
-
-
-
+! Cursor colors
+URxvt*cursorColor: #60b48a
+URxvt*cursorColor2: #7f9f7f

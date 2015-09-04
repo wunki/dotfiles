@@ -5,10 +5,12 @@ ifeq ($(UNAME_S),FreeBSD)
 	xdefault=$(DOTFILES)/xorg/Xdefaults-BSD
 	xmobar=$(DOTFILES)/xmonad/xmobarrc-BSD
 	gtkrc=$(DOTFILES)/gtk/gtkrc.mine.BSD
+	gtk2=$(DOTFILES)/gtk/gtkrc-2.0-BSD
 else
 	xdefault $(DOTFILES)/xorg/Xdefaults
 	xmobar=$(DOTFILES)/xmonad/xmobarrc
 	gtkrc=$(DOTFILES)/gtk/gtkrc.mine
+	gtk2=$(DOTFILES)/gtk/gtkrc-2.0
 endif
 
 all:: vim git emacs bin zsh bash tmux xmonad xorg gtk mpv conkeror
@@ -96,7 +98,7 @@ xorg::
 	@echo Xorg is symlinked.
 
 gtk::
-	@ln -fs $(DOTFILES)/gtk/gtkrc-2.0					${HOME}/.gtkrc-2.0
+	@ln -fs $(gtk2)														${HOME}/.gtkrc-2.0
 	@ln -fs $(gtkrc)													${HOME}/.gtkrc.mine
 	@ln -fns $(DOTFILES)/gtk/themes			  		${HOME}/.themes
 	@ln -fs $(DOTFILES)/gtk/user-dirs.dirs		${HOME}/.config/user-dirs.dirs

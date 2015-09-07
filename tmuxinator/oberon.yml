@@ -5,6 +5,7 @@ root: ~/
 
 windows:
   - oberon: echo "welcome!"
+  - sonic: ssh 192.168.1.1
   - cargo: ssh 192.168.1.2
   - mercy: ssh 192.168.1.3
   - desert: ssh 192.168.1.4

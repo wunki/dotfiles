@@ -179,6 +179,7 @@ end
 prepend_to_path "/Applications/Racket v6.1.1/bin"
 
 # rubygems
+prepend_to_path "$HOME/.gem/ruby/2.1/bin"
 prepend_to_path "$HOME/.gem/ruby/2.2.0/bin"
 
 # android

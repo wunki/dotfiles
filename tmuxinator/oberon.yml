@@ -1,0 +1,19 @@
+# ~/.tmuxinator/oberon.yml
+
+name: oberon
+root: ~/
+
+windows:
+  - oberon: echo "welcome!"
+  - cargo: ssh 192.168.1.2
+  - mercy: ssh 192.168.1.3
+  - desert: ssh 192.168.1.4
+  - basket: ssh 192.168.1.5
+  - comet: ssh 192.168.1.7
+  - delphi: ssh 192.168.1.8
+  - bazaar: ssh 192.168.1.9
+  - dialog: ssh 192.168.1.10
+  - alfred: ssh 192.168.1.11
+  - harbor: ssh 192.168.1.12
+  - kinetic: ssh 192.168.1.13
+  - pelican: ssh 192.168.1.14

@@ -7,7 +7,7 @@ ifeq ($(UNAME_S),FreeBSD)
 	gtkrc=$(DOTFILES)/gtk/gtkrc.mine.BSD
 	gtk2=$(DOTFILES)/gtk/gtkrc-2.0-BSD
 else
-	xdefault $(DOTFILES)/xorg/Xdefaults
+	xdefault=$(DOTFILES)/xorg/Xdefaults
 	xmobar=$(DOTFILES)/xmonad/xmobarrc
 	gtkrc=$(DOTFILES)/gtk/gtkrc.mine
 	gtk2=$(DOTFILES)/gtk/gtkrc-2.0
@@ -51,35 +51,35 @@ bash::
 	@echo Bash is symlinked.
 
 zsh::
-	@test -d ${HOME}/.zfunc || mkdir -p ${HOME}/.zfunc
-	@ln -fs $(DOTFILES)/zsh/zshrc					${HOME}/.zshrc
-	@ln -fs $(DOTFILES)/zsh/zshenv					${HOME}/.zshenv
-	@ln -fs $(DOTFILES)/zsh/zshalias				${HOME}/.zshalias
-	@ln -fs $(DOTFILES)/zsh/pure.zsh 				${HOME}/.zfunc/prompt_pure_setup
+	@test -d ${HOME}/.zfunc || mkdir -p 			${HOME}/.zfunc
+	@ln -fs $(DOTFILES)/zsh/zshrc							${HOME}/.zshrc
+	@ln -fs $(DOTFILES)/zsh/zshenv						${HOME}/.zshenv
+	@ln -fs $(DOTFILES)/zsh/zshalias					${HOME}/.zshalias
+	@ln -fs $(DOTFILES)/zsh/pure.zsh 					${HOME}/.zfunc/prompt_pure_setup
 	@echo ZSH is symlinked.
 
 fish::
-	@test -d ${HOME}/.config || mkdir				${HOME}/.config
-	@ln -fns $(DOTFILES)/fish						${HOME}/.config/fish
+	@test -d ${HOME}/.config || mkdir					${HOME}/.config
+	@ln -fns $(DOTFILES)/fish									${HOME}/.config/fish
 	@echo Fish is symlinked.
 
 tarsnap::
-	@ln -fs $(DOTFILES)/tarsnap/tarsnapperrc		${HOME}/.tarsnapperrc
+	@ln -fs $(DOTFILES)/tarsnap/tarsnapperrc	${HOME}/.tarsnapperrc
 	@ln -fs $(DOTFILES)/tarsnap/tarsnaprc			${HOME}/.tarsnaprc
 	@echo tarsnap is symlinked.
 
 tmux::
-	@ln -fs $(DOTFILES)/tmux/tmux.conf				${HOME}/.tmux.conf
+	@ln -fs $(DOTFILES)/tmux/tmux.conf					${HOME}/.tmux.conf
 	@ln -fs $(DOTFILES)/tmux/tmux-status.conf		${HOME}/.tmux-status.conf
 	@echo tmux is symlinked.
 
 tmuxinator::
-	@ln -fns $(DOTFILES)/tmuxinator					${HOME}/.tmuxinator
+	@ln -fns $(DOTFILES)/tmuxinator						${HOME}/.tmuxinator
 	@echo tmuxinator is symlinked.
 
 i3::
-	@mkdir -p										${HOME}/.i3
-	@ln -fs $(DOTFILES)/i3/config					${HOME}/.i3/config
+	@mkdir -p																	${HOME}/.i3
+	@ln -fs $(DOTFILES)/i3/config							${HOME}/.i3/config
 	@ln -fs $(DOTFILES)/i3/i3status.conf			${HOME}/.i3status.conf
 	@echo i3 is symlinked.
 
@@ -106,7 +106,7 @@ gtk::
 
 mpv::
 	@mkdir -p ${HOME}/.mpv
-	@ln -fns $(DOTFILES)/mpv/config				${HOME}/.mpv/config
+	@ln -fns $(DOTFILES)/mpv/config						${HOME}/.mpv/config
 	@echo MPV is symlinked.
 
 conkeror::

@@ -36,7 +36,6 @@ pathadd "$GHC_DOT_APP/Contents/bin"
 # Golang
 if [ "$(uname)" == "Darwin" ]; then
     export GOPATH="$HOME/Go"
-    export GOMAXPROCS=$(sysctl hw.ncpu | awk '{print $2}')
 else
     export GOPATH="$HOME/go"
 fi

@@ -124,13 +124,6 @@ function gt; go test -v ./...; end
 function gc; gocov test | gocov report; end
 prepend_to_path "/usr/local/go/bin"
 
-switch (uname)
-  case FreeBSD Darwin
-    set -x GOMAXPROCS (sysctl -n hw.ncpu)
-  case '*'
-    set -x GOMAXPROCS (nproc)
-end
-
 if test -d "$HOME/Go"
     set -x GOPATH "$HOME/Go"
 else

@@ -154,7 +154,8 @@ if test -f $hub
 end
 
 # switch to pacaur if available
-if test (type -fpq "pacaur")
+set pacaur (type -fp pacaur)
+if test -f $pacaur
   function pacman; pacaur $argv; end
 end
 

@@ -160,6 +160,12 @@ if test -f $hub
   function git; hub $argv; end
 end
 
+# switch to pacaur if available
+set pacaur (type -fp pacaur)
+if test -f $pacaur
+  function pacman; pacaur $argv; end
+end
+
 # clojure
 set -x BOOT_COLOR 1
 set -x BOOT_JVM_OPTIONS "-Xmx2g -client -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xverify:none"

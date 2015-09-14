@@ -60,6 +60,7 @@
     anzu
     fish-mode
     company
+    default-text-scale
 
     ;; clojure
     cider

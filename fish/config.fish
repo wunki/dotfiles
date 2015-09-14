@@ -153,12 +153,6 @@ if test -f $hub
   function git; hub $argv; end
 end
 
-# switch to pacaur if available
-set pacaur (type -fp pacaur)
-if test -f $pacaur
-  function pacman; pacaur $argv; end
-end
-
 # clojure
 set -x BOOT_COLOR 1
 set -x BOOT_JVM_OPTIONS "-Xmx2g -client -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xverify:none"
@@ -180,6 +174,7 @@ end
 prepend_to_path "/Applications/Racket v6.1.1/bin"
 
 # rubygems
+prepend_to_path "$HOME/.gem/ruby/2.0.0/bin"
 prepend_to_path "$HOME/.gem/ruby/2.1/bin"
 prepend_to_path "$HOME/.gem/ruby/2.2.0/bin"
 

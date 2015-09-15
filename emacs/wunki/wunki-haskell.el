@@ -1,4 +1,3 @@
-
 ;; load ghci-ng, which is a lot faster
 (when (executable-find "ghci-ng")
   (setq-default haskell-process-args-cabal-repl

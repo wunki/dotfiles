@@ -6,6 +6,10 @@
 ;; cleanup haskell on save
 (setq-default haskell-stylish-on-save t)
 
+;; haskell tags
+(setq-default haskell-tags-on-save t)
+
+
 (eval-after-load 'haskell-mode
   '(progn
      (defun wunki-haskell-mode-defaults ()

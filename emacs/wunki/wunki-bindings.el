@@ -1,6 +1,8 @@
 ;; shortcuts
 (global-set-key (kbd "<f9>") 'mu4e)
+(global-set-key (kbd "<XF86Tools>") 'mu4e)
 (global-set-key (kbd "<f10>") 'erc-start-or-switch)
+(global-set-key (kbd "<XF86Explorer>") 'erc-start-or-switch)
 (global-set-key (kbd "<f11>") 'cfw:open-calendar-buffer)
 
 ;; search forward regexp

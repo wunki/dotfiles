@@ -1,9 +1,11 @@
 :set prompt "λ> "
 
-:def hoogle \s -> return $ ":! hoogle --count=15 \"" ++ s ++ "\""
-
 :set +t
 :set +c
+
+
+:def hoogle \s -> return $ ":! hoogle --count=15 \"" ++ s ++ "\""
+:def doc \x -> return $ ":!hoogle --info \"" ++ x ++ "\""
 
 :set -Wall
 :set -fno-warn-missing-signatures

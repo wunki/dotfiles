@@ -13,7 +13,7 @@ else
 	gtk2=$(DOTFILES)/gtk/gtkrc-2.0
 endif
 
-all:: vim emacs bin zsh bash tmux xmonad xorg gtk mpv conkeror
+all:: vim emacs bin zsh bash tmux xmonad xorg gtk mpv conkeror ghc
 
 vim::
 	@ln -fs $(DOTFILES)/vim/vimrc						${HOME}/.vimrc
@@ -107,3 +107,7 @@ mpv::
 conkeror::
 	@ln -fs $(DOTFILES)/conkeror/conkerorrc.js ${HOME}/.conkerorrc
 	@echo Conkeror is symlinked.
+
+ghc::
+	@ln -fs $(DOTFILES)/ghc/ghci 							${HOME}/.ghci
+	@echo GHC is symlinked.

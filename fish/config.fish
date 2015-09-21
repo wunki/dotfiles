@@ -206,6 +206,10 @@ prepend_to_path "$HOME/.aws/bin"
 set -x AWS_IAM_HOME "$HOME/.aws/iam"
 set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
 
+# elm
+set -x ELM_HOME "/usr/local/lib/node_modules/elm/share"
+prepend_to_path "~/haskell/Elm-Platform/0.15.1/.cabal-sandbox/bin"
+
 # fix fish in Emacs ansi-term
 function fish_title
   true

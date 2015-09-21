@@ -5,7 +5,7 @@ Config { font = "xft:Ubuntu Mono:pixelsize=24:antialias=true"
        , border = TopB
        , borderColor = "#333333"
        , lowerOnStart = True
-       , commands = [ Run Network "wlp4s0" ["-t", "<rx> - <tx>", "-L", "0"," -H", "100", "--normal", "#DCDCCC", "--high", "#CC9393"] 20
+       , commands = [ Run Network "wifi0" ["-t", "<rx> - <tx>", "-L", "0"," -H", "100", "--normal", "#DCDCCC", "--high", "#CC9393"] 20
                     , Run Cpu ["-L", "3", "-H", "50", "--normal", "#DCDCCC", "--high", "#CC9393"] 20
                     , Run Date "%a %d %b | %H:%M" "date" 60
                     , Run Battery
@@ -19,4 +19,4 @@ Config { font = "xft:Ubuntu Mono:pixelsize=24:antialias=true"
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = " %StdinReader% }{ %cpu% | %battery% | Net: %wlp4s0% | %date% " }
+       , template = " %StdinReader% }{ %cpu% | %battery% | Net: %wifi0% | %date% " }

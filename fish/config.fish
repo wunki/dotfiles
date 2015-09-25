@@ -10,6 +10,7 @@ function gh-preview; python -m grip; end
 function flush-dns; sudo discoveryutil mdnsflushcache; end
 function ea; sudo ezjail-admin $argv; end
 function bup; brew update; and brew upgrade --all; and brew cleanup; end
+function btop; nice top -j -P -a; end # a better top
 
 # easy editing
 function e

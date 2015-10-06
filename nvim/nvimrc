@@ -64,7 +64,7 @@ call plug#end()
 
 " Visuals
 set mouse=a
-colorscheme Tomorrow-Night
+colorscheme zenburn
 
 " Find Shell
 if executable('/usr/local/bin/zsh')

@@ -9,6 +9,7 @@ function lah; ls -lah; end
 function gh-preview; python -m grip; end
 function flush-dns; sudo discoveryutil mdnsflushcache; end
 function ea; sudo ezjail-admin $argv; end
+function ioc; sudo iocage $argv; end
 function bup; brew update; and brew upgrade --all; and brew cleanup; end
 function btop; nice top -j -P -a; end # a better top
 
@@ -20,12 +21,6 @@ function e
     emacsclient -a "" -t $argv;
   end
 end
-
-# neovim when available
-if test -x "/usr/local/bin/nvim";
-  function vim; nvim $argv; end
-end
-function v; vim $argv; end
 
 # mu
 function mu-reindex; mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end

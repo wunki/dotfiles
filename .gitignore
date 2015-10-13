@@ -35,3 +35,4 @@ emacs/.cache
 /emacs/projectile.cache
 /bin/.nrepl-history
 emacs/games
+emacs/anaconda-mode

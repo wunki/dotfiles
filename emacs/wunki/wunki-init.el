@@ -51,6 +51,7 @@
     gitignore-mode
     js2-mode
     yaml-mode
+    ansible
     ido-ubiquitous
     flx-ido
     undo-tree

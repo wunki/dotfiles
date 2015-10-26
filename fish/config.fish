@@ -54,8 +54,8 @@ set -x EDITOR 'vim'
 set -x VISUAL 'vim'
 set -x TERM 'rxvt-256color'
 set -x XDG_DATA_HOME {$HOME}/.local/share
-set -x NVIM_TUI_ENABLE_TRUE_COLOR 1
 
+# set -x NVIM_TUI_ENABLE_TRUE_COLOR 1 # enable true colors in Neovim. Requires compatible shell.
 
 # UTF-8
 set -x LANG 'en_US.UTF-8'

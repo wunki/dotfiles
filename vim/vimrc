@@ -344,10 +344,6 @@ if filereadable($passfile)
     source $passfile
 end
 
-if has('mac') && !has('nvim')
-    set macmeta               " enable meta key in macvim
-endif
-
 " Tagbar
 let g:tagbar_type_markdown = {
             \ 'ctagstype' : 'markdown',

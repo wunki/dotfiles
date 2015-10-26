@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-
-chromium-continuous-bin --force-device-scale-factor=2

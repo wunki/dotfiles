@@ -36,8 +36,7 @@ Plug 'kien/ctrlp.vim'                                    " fast file switching
 Plug 'jnurmine/Zenburn'
     let g:zenburn_disable_Label_underline = 1
 Plug 'morhetz/gruvbox'
-Plug 'bling/vim-airline'
-Plug 'edkolev/tmuxline.vim'
+Plug 'itchyny/lightline.vim'
 Plug 'cocopon/iceberg.vim'
 Plug 'ywjno/vim-tomorrow-theme'
 
@@ -74,7 +73,7 @@ if has("gui_running")
     if has('mac')
         set guifont=Fira\ Mono:h14
     else
-        set guifont=Fira\ Mono\ 12
+        set guifont=Fira\ Mono\ 9
     endif
     set guioptions-=e
     set guioptions-=T
@@ -97,6 +96,9 @@ endif
 
 " Themes
 colors zenburn
+let g:lightline = {
+      \ 'colorscheme': 'zenburn',
+      \ }
 
 " Find Shell
 if executable('/usr/local/bin/zsh')

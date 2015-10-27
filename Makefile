@@ -111,3 +111,8 @@ conkeror::
 ghc::
 	@ln -fs $(DOTFILES)/ghc/ghci 							${HOME}/.ghci
 	@echo GHC is symlinked.
+
+termite::
+	@test -d ${HOME}/.config || mkdir					${HOME}/.config
+	@ln -fns $(DOTFILES)/termite						${HOME}/.config/termite
+

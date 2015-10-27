@@ -26,6 +26,13 @@ Plug 'majutsushi/tagbar'                                 " sidebar to jump to re
 Plug 'Shougo/vimproc', {'do': 'gmake'}                   " command execution
 Plug 'kien/ctrlp.vim'                                    " fast file switching
 
+" Autocomplete
+Plug 'Shougo/deoplete.nvim'
+    let g:acp_enableAtStartup = 0
+    let g:deoplete#enable_at_startup = 1
+    let g:deoplete#enable_ignore_case = 'ignorecase'
+    let g:deoplete#sources#syntax#min_keyword_length = 3
+
 " Looks
 Plug 'acepukas/vim-zenburn'
     let g:zenburn_disable_Label_underline = 1
@@ -57,8 +64,9 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 " Fish
 Plug 'aliva/vim-fish', { 'for': 'fish' }
 
-" Salt
+" Servers
 Plug 'saltstack/salt-vim', { 'for': 'sls' }
+Plug 'pearofducks/ansible-vim'
 
 call plug#end()
 

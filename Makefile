@@ -24,7 +24,7 @@ vim::
 nvim::
 	@test -d ${HOME}/.config || mkdir					${HOME}/.config
 	@ln -fns $(DOTFILES)/nvim							${HOME}/.config/nvim
-	@ln -fs ${HOME}.config/nvim/init.vim				${HOME}/.config/init.vim
+	@ln -fs ${HOME}/.config/nvim/init.vim				${HOME}/.config/init.vim
 	@echo NeoVim is symlinked.
 
 emacs::

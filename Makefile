@@ -22,8 +22,9 @@ vim::
 	@echo Vim is symlinked.
 
 nvim::
-	@ln -fs $(DOTFILES)/nvim/nvimrc						${HOME}/.nvimrc
-	@ln -fns $(DOTFILES)/nvim							${HOME}/.nvim
+	@test -d ${HOME}/.config || mkdir					${HOME}/.config
+	@ln -fns $(DOTFILES)/nvim							${HOME}/.config/nvim
+	@ln -fs ${HOME}.config/nvim/init.vim				${HOME}/.config/init.vim
 	@echo NeoVim is symlinked.
 
 emacs::
@@ -55,7 +56,7 @@ zsh::
 
 fish::
 	@test -d ${HOME}/.config || mkdir					${HOME}/.config
-	@ln -fns $(DOTFILES)/fish									${HOME}/.config/fish
+	@ln -fns $(DOTFILES)/fish							${HOME}/.config/fish
 	@echo Fish is symlinked.
 
 tarsnap::

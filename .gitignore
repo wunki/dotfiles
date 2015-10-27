@@ -5,6 +5,7 @@
 /bin/pip
 /bin/python
 /bin/nvim
+nvim/shada
 emacs/bookmarks
 emacs/var
 emacs/.org-id-locations

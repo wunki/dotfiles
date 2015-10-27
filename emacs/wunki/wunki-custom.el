@@ -86,10 +86,10 @@
  ;; If there is more than one, they won't work right.
  '(custom-safe-themes
    (quote
-    ("0f6667c7dd4d19cf99cde5feeb6f0fe6abebc229282b5e21d1739b1fe14b5342" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
+    ("82d2cac368ccdec2fcc7573f24c3f79654b78bf133096f9b40c20d97ec1d8016" "0f6667c7dd4d19cf99cde5feeb6f0fe6abebc229282b5e21d1739b1fe14b5342" "d677ef584c6dfc0697901a44b885cc18e206f05114c8a3b7fde674fce6180879" default)))
  '(haskell-notify-p t)
  '(haskell-process-show-debug-tips nil)
- '(haskell-process-type (quote cabal-repl) t)
+ '(haskell-process-type (quote cabal-repl))
  '(haskell-stylish-on-save t)
  '(haskell-tags-on-save t)
  '(org-agenda-files

@@ -12,6 +12,7 @@ function ea; sudo ezjail-admin $argv; end
 function ioc; sudo iocage $argv; end
 function bup; brew update; and brew upgrade --all; and brew cleanup; end
 function btop; nice top -j -P -a; end # a better top
+function n; nvim $argv; end
 
 # easy editing
 function e

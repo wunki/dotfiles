@@ -36,7 +36,6 @@ Plug 'Shougo/deoplete.nvim'
 " Looks
 Plug 'acepukas/vim-zenburn'
     let g:zenburn_disable_Label_underline = 1
-Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
     let g:lightline = {
                 \ 'colorscheme': 'zenburn',

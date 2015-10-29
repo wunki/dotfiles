@@ -86,7 +86,7 @@ endif
 
 set showmatch               " show matching brackets (), {}' []
 set showcmd                 " show command
-set modelines=0             " don't use modelines
+set modeline                " enable modelines
 set ignorecase              " case-insensitive search
 set smartcase               " upper-case sensitive search
 set laststatus=2            " occasions to show status line, 2=always.

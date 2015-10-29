@@ -4,5 +4,5 @@ name: titan
 root: ~/go/src/github.com/gibbonco/titan
 
 windows:
-  - vim: v
+  - nvim: nvim
   - git: git status

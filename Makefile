@@ -1,17 +1,11 @@
 DOTFILES 	:= $(PWD)
-UNAME_S 	:= $(shell uname -s)
+HOSTNAME 	:= $(shell hostname -s)
 
-ifeq ($(UNAME_S),FreeBSD)
-	xdefault=$(DOTFILES)/xorg/Xdefaults-BSD
-	xmobar=$(DOTFILES)/xmonad/xmobarrc-BSD
-	gtkrc=$(DOTFILES)/gtk/gtkrc.mine.BSD
-	gtk2=$(DOTFILES)/gtk/gtkrc-2.0-BSD
-else
-	xdefault=$(DOTFILES)/xorg/Xdefaults
-	xmobar=$(DOTFILES)/xmonad/xmobarrc
-	gtkrc=$(DOTFILES)/gtk/gtkrc.mine
-	gtk2=$(DOTFILES)/gtk/gtkrc-2.0
-endif
+# These files are different per machine
+xdefault=$(DOTFILES)/xorg/${HOSTNAME}-Xdefaults
+xmobar=$(DOTFILES)/xmonad/${HOSTNAME}-xmobarrc
+gtkrc=$(DOTFILES)/gtk/${HOSTNAME}-gtkrc.mine
+gtk2=$(DOTFILES)/gtk/${HOSTNAME}-gtkrc-2.0
 
 all:: vim emacs bin zsh bash tmux xmonad xorg gtk mpv conkeror ghc
 

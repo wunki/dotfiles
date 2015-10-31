@@ -155,10 +155,6 @@ set directory=~/.vim/tmp/swap//   " swap files
 set backup                        " enable backups
 set noswapfile                    " no swapping
 
-" point neovim to python
-let g:python_host_prog='/usr/local/bin/python'
-
-
 " NerdTree
 map <C-n> :NERDTreeToggle<CR>
 let NERDTreeIgnore=['\~$', '\.pyc', '\.swp$', '\.git', '\.hg', '\.svn',

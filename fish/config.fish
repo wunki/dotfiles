@@ -220,3 +220,8 @@ if test -f /usr/local/bin/ondir
   end
 end
 
+# notify me when a command is not found
+function __fish_default_command_not_found_handler --on-event fish_command_not_found
+  functions --erase __fish_command_not_found_setup
+  echo "'$argv' not found"
+end

@@ -4,7 +4,7 @@ set bg=dark                 " dark background
 syntax on                   " enable syntax highlighting
 filetype plugin indent on
 
-call plug#begin('~/.nvim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " Essentials
 Plug 'tpope/vim-eunuch'                                  " unix helper commands
@@ -17,14 +17,13 @@ Plug 'surround.vim'                                      " surround commands
 Plug 'godlygeek/tabular'                                 " easy indenting
 Plug 'Lokaltog/vim-easymotion'                           " move by selecting a letter
 Plug 'scrooloose/syntastic'                              " syntax checker
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }  " sidebar tree
 Plug 'mbbill/undotree'                                   " easy undoing
 Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, brackend and quotes
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
+Plug 'kien/ctrlp.vim'                                    " fast file switching
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
     map <C-t> :Tagbar<CR>
 Plug 'Shougo/vimproc', {'do': 'gmake'}                   " command execution
-Plug 'kien/ctrlp.vim'                                    " fast file switching
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
@@ -34,26 +33,34 @@ Plug 'Shougo/deoplete.nvim'
     let g:deoplete#sources#syntax#min_keyword_length = 3
 
 " Looks
+Plug 'morhetz/gruvbox'
+Plug 'shinchu/lightline-gruvbox.vim'
 Plug 'acepukas/vim-zenburn'
     let g:zenburn_disable_Label_underline = 1
 Plug 'itchyny/lightline.vim'
     let g:lightline = {
-                \ 'colorscheme': 'zenburn',
+                \ 'colorscheme': 'gruvbox',
                 \ }
-Plug 'cocopon/iceberg.vim'
-Plug 'jeetsukumaran/vim-nefertiti'
-Plug 'ywjno/vim-tomorrow-theme'
 
 " HTML
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html', 'sls'] }
 Plug 'othree/html5.vim', { 'for': 'html' }
 
 " Go
-Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'benmills/vim-golang-alternate', { 'for': 'go' }
+Plug 'fatih/vim-go', { 'for': 'go' }
+    au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
+    let g:go_fmt_command = "goimports"
+    let g:go_auto_type_info = 1
 
-" Erlang
-Plug 'jimenezrick/vimerl'
+    au FileType go nmap <leader>r <Plug>(go-run)
+    au FileType go nmap <leader>b <Plug>(go-build)
+    au FileType go nmap <leader>t <Plug>(go-test)
+    au FileType go nmap <Leader>i <Plug>(go-info)
+    au FileType go nmap <Leader>d <Plug>(go-doc)
+    au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+    au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+    au FileType go nmap gd <Plug>(go-def)
 
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
@@ -71,18 +78,7 @@ call plug#end()
 
 " Visuals
 set mouse=a
-colorscheme zenburn
-
-" Find Shell
-if executable('/usr/local/bin/zsh')
-    set shell=/usr/local/bin/zsh
-elseif executable('/usr/local/bin/bash')
-    set shell=/usr/local/bin/bash
-elseif executable('/bin/bash')
-    set shell=/bin/bash
-else
-    set shell=/bin/sh
-endif
+colorscheme gruvbox
 
 set showmatch               " show matching brackets (), {}' []
 set showcmd                 " show command
@@ -101,7 +97,7 @@ set noshowmode              " no need for the mode, airline shows it
 set showcmd                 " shows partial command in the last line
 set ruler                   " show the line and column number of the cursor
 set backspace=indent,eol,start
-set nonumber                " don't show line numbering
+set number                  " show linenumbers
 set undofile                " create undofiles
 set formatoptions=qrn1
 set nocursorline            " show me the line where the cursor is
@@ -156,15 +152,7 @@ set backup                        " enable backups
 set noswapfile                    " no swapping
 
 " point neovim to python
-let g:python_host_prog='/usr/local/bin/python'
-
-
-" NerdTree
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeIgnore=['\~$', '\.pyc', '\.swp$', '\.git', '\.hg', '\.svn',
-            \ '\.ropeproject', '\.o', '\.bzr', '\.ipynb_checkpoints', '__pycache__',
-            \ '\.egg$', '\.egg-info$', '\.tox$', '\.idea$', '\.sass-cache',
-            \ '\.env*$', '\.env[0-9]$', '\.coverage$']
+let g:python_host_prog='/usr/sbin/python'
 
 " Faster scrolling
 nnoremap <C-e> 3<C-e>
@@ -183,24 +171,7 @@ let maplocalleader = "_"
 " Toggle whitespace invisibles
 nmap <leader>l :set list!<CR>
 
-" Vimwiki
-let g:vimwiki_list = [{'path': '~/wiki/'}]
-let g:vimwiki_dir_link = ''                 " open files in netrw
-
 " Go settings
-au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
-let g:go_fmt_command = "goimports"
-let g:go_auto_type_info = 1
-
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <Leader>i <Plug>(go-info)
-au FileType go nmap <Leader>d <Plug>(go-doc)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-au FileType go nmap gd <Plug>(go-def)
-
 " Rust settings
 let g:racer_cmd = "/home/wunki/.vim/plugged/racer/target/release/cargo"
 if has('mac')
@@ -237,6 +208,7 @@ vnoremap Q gq
 nnoremap <F5> :UndotreeToggle<cr>
 
 " Ctrlp
+let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 let g:ctrlp_working_path_mode = 0
 nnoremap <silent> <C-b> :CtrlPBuffer<cr>
 nnoremap <silent> <C-B> :CtrlPBookmarkDir<cr>

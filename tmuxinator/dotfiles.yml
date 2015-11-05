@@ -1,10 +1,10 @@
 # ~/.tmuxinator/dotfiles.yml
 
 name: dotfiles
-root: ~/Source/wunki-dotfiles
+root: ~/src/wunki-dotfiles
 
 windows:
-  - vim:
-      - vim .
+  - nvim:
+      - nvim .
   - git:
       - git status

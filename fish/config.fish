@@ -149,6 +149,11 @@ if test -f $hub
   function git; hub $argv; end
 end
 
+set nvim (type -fp nvim)
+if  test -f $nvim
+  function vim; nvim $argv; end
+end
+
 # clojure
 set -x BOOT_COLOR 1
 set -x BOOT_JVM_OPTIONS "-Xmx2g -client -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xverify:none"

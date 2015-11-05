@@ -40,7 +40,7 @@ main = do
         , borderWidth = 1
         , normalBorderColor  = "#7285b7"
         , focusedBorderColor = "#bbdaff"
-        , workspaces = ["1:Editor", "2:Shells", "3:Browser", "4", "5", "6"]
+        , workspaces = ["1:Shells", "2:Browser", "3", "4", "5"]
         , terminal  = "termite"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
         , startupHook = setWMName "LG3D"
@@ -56,12 +56,12 @@ myLayout = tiled ||| noBorders Full ||| Grid
 -- Float & Window setup
 myManageHook :: ManageHook
 myManageHook = manageDocks <+> composeAll
-    [ className =? "Chromium"                --> doF (W.shift "3:Browser")
-    , className =? "Firefox-bin"             --> doF (W.shift "3:Browser")
-    , className =? "Firefox"                 --> doF (W.shift "3:Browser")
-    , className =? "Emacs"                   --> doF (W.shift "1:Editor")
-    , className =? "Gvim"                    --> doF (W.shift "1:Editor")
-    , className =? "chromium-continuous-bin" --> doF (W.shift "3:Browser")
+    [ className =? "Chromium"                --> doF (W.shift "2:Browser")
+    , className =? "Firefox-bin"             --> doF (W.shift "2:Browser")
+    , className =? "Firefox"                 --> doF (W.shift "2:Browser")
+    , className =? "Emacs"                   --> doF (W.shift "1:Shells")
+    , className =? "Gvim"                    --> doF (W.shift "1:Shells")
+    , className =? "chromium-continuous-bin" --> doF (W.shift "2:Browser")
     ]
 
 manageHook' :: ManageHook
@@ -86,7 +86,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     -- cycle through workspaces
     , ((modMask, xK_n), moveTo Next (WSIs (return $ not . (=="SP") . W.tag)))
     , ((modMask, xK_p), moveTo Prev (WSIs (return $ not . (=="SP") . W.tag)))
-    , ((modMask, xK_d), spawn "dmenu_run -i -fn 'xft:Fira Mono:size=8:antialias=true' -nb '#1d1f21' -nf '#c5c8c6' -sb '#1d1f21' -sf '#81a2be' -p '>' ") -- %! Launch dmenu
+    , ((modMask, xK_d), spawn "dmenu_run -i -fn 'xft:Hack:size=8:antialias=true' -nb '#1d1f21' -nf '#c5c8c6' -sb '#1d1f21' -sf '#81a2be' -p '>' ") -- %! Launch dmenu
     , ((modMask, xK_g), windowPromptGoto  defaultXPConfig)
     , ((modMask, xK_c), windowPromptBring defaultXPConfig)
     ]

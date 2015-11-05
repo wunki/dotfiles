@@ -4,6 +4,6 @@ name: wunki-ansible
 root: ~/servers/wunki-ansible
 
 windows:
-  - vim: nvim .
-  - ansible: echo 'welcome'
+  - nvim: nvim
+  - ansible: #empty
   - git: git status

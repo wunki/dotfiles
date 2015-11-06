@@ -12,6 +12,7 @@ function ea; sudo ezjail-admin $argv; end
 function ioc; sudo iocage $argv; end
 function bup; brew update; and brew upgrade --all; and brew cleanup; end
 function btop; nice top -j -P -a; end # a better top
+function n; nvim $argv; end
 
 # easy editing
 function e
@@ -55,7 +56,7 @@ set -x VISUAL 'vim'
 set -x TERM 'rxvt-256color'
 set -x XDG_DATA_HOME {$HOME}/.local/share
 
-# set -x NVIM_TUI_ENABLE_TRUE_COLOR 1 # enable true colors in Neovim. Requires compatible shell.
+set -x NVIM_TUI_ENABLE_TRUE_COLOR 1 # enable true colors in Neovim. Requires compatible shell.
 
 # UTF-8
 set -x LANG 'en_US.UTF-8'
@@ -148,6 +149,11 @@ if test -f $hub
   function git; hub $argv; end
 end
 
+set nvim (type -fp nvim)
+if  test -f $nvim
+  function vim; nvim $argv; end
+end
+
 # clojure
 set -x BOOT_COLOR 1
 set -x BOOT_JVM_OPTIONS "-Xmx2g -client -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xverify:none"
@@ -219,3 +225,8 @@ if test -f /usr/local/bin/ondir
   end
 end
 
+# notify me when a command is not found
+function __fish_default_command_not_found_handler --on-event fish_command_not_found
+  functions --erase __fish_command_not_found_setup
+  echo "'$argv' not found"
+end

@@ -6,9 +6,8 @@
 ;; load theme and don't ask if it's save.
 (load-theme 'sanityinc-tomorrow-blue t)
 
-(set-frame-font "Fira Mono")
-(add-to-list 'default-frame-alist '(font . "Fira Mono"))
-(set-face-attribute 'default nil :height 120)
+(set-frame-font "Hack")
+(add-to-list 'default-frame-alist '(font . "Hack"))
 
 (global-set-key (kbd "C-M-=") 'default-text-scale-increase)
 (global-set-key (kbd "C-M--") 'default-text-scale-decrease)

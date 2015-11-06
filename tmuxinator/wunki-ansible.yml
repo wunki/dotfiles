@@ -1,0 +1,9 @@
+# ~/.tmuxinator/wunki-ansible.yml
+
+name: wunki-ansible
+root: ~/servers/wunki-ansible
+
+windows:
+  - nvim: nvim
+  - ansible: #empty
+  - git: git status

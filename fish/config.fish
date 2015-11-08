@@ -1,10 +1,15 @@
-# functions who work as aliases (quicker)
+## fish settings
+set -x fish_greeting ""
+
+# aliases
 function t1; tree --dirsfirst -ChFL 1; end
 function t2; tree --dirsfirst -ChFL 2; end
 function t3; tree --dirsfirst -ChFL 3; end
 
 # mac shortcuts
 function bup; brew update; and brew upgrade --all; and brew cleanup; end
+function run-rethinkdb; launchctl load ~/Library/LaunchAgents/homebrew.mxcl.rethinkdb.plist; end
+function run-redis; redis-server /usr/local/etc/redis.conf; end
 
 # freebsd shortcuts
 function ea; sudo ezjail-admin $argv; end
@@ -43,12 +48,6 @@ function gs; git status --ignore-submodules=dirty; end
 function gp; git push origin master; end
 function gf; git pull origin master; end
 
-# redis on the mac
-function run-redis; redis-server /usr/local/etc/redis.conf; end
-
-# rethinkdb
-function run-rethinkdb; launchctl load ~/Library/LaunchAgents/homebrew.mxcl.rethinkdb.plist; end
-
 # rust
 set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
 set -x RUST_SRC_PATH {$HOME}/rust/rust/src
@@ -56,9 +55,6 @@ set -x RUST_SRC_PATH {$HOME}/rust/rust/src
 # python
 function rmpyc; find . -name '*.pyc' | xargs rm; end
 function ghp; python -m grip; end # preview README files
-
-# fish settings
-set -x fish_greeting ""
 
 # environment
 set -x LANG 'en_US.UTF-8'

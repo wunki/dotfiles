@@ -1,9 +1,0 @@
-# ~/.tmuxinator/coding.yml
-
-name: coding
-root: ~/rust/coding
-
-windows:
-    - editor: vim
-    - shell:
-        -

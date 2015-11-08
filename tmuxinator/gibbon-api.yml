@@ -1,8 +1,0 @@
-# ~/.tmuxinator/gibbon-api.yml
-
-name: gibbon-api
-root: ~/clojure/gibbon-api
-
-windows:
-  - vim: vim
-  - repl: lein repl

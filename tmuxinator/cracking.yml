@@ -1,0 +1,8 @@
+# ~/.tmuxinator/cracking.yml
+
+name: cracking-the-coding-interview
+root: ~/rust/cracking
+
+windows:
+    - editor: vim
+    - shell: #

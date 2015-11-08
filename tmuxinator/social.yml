@@ -1,0 +1,8 @@
+# ~/.tmuxinator/social.yml
+
+name: social
+root: ~/
+
+windows:
+  - mutt: mutt
+  - weechat: weechat

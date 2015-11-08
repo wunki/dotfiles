@@ -95,9 +95,9 @@ else
 endif
 
 " Themes
-colors zenburn
+colors gruvbox
 let g:lightline = {
-      \ 'colorscheme': 'zenburn',
+      \ 'colorscheme': 'gruvbox',
       \ }
 
 " Find Shell

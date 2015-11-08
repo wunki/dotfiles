@@ -2,17 +2,28 @@
 function t1; tree --dirsfirst -ChFL 1; end
 function t2; tree --dirsfirst -ChFL 2; end
 function t3; tree --dirsfirst -ChFL 3; end
-function wl; wicd-curses; end
-function nstat; sudo nethogs wlan0 $argv; end
-function duh; du -ah --max-depth=1; end
-function lah; ls -lah; end
-function gh-preview; python -m grip; end
-function flush-dns; sudo discoveryutil mdnsflushcache; end
+
+# mac shortcuts
+function bup; brew update; and brew upgrade --all; and brew cleanup; end
+
+# freebsd shortcuts
 function ea; sudo ezjail-admin $argv; end
 function ioc; sudo iocage $argv; end
-function bup; brew update; and brew upgrade --all; and brew cleanup; end
-function btop; nice top -j -P -a; end # a better top
+function btop; nice top -j -P -a; end 
+
+# neovim settings
+set -x NVIM_TUI_ENABLE_TRUE_COLOR 1 # enable true colors in Neovim. Requires compatible shell.
 function n; nvim $argv; end
+
+set nvim (type -fp nvim)
+if  test -f $nvim
+  function vim; nvim $argv; end
+end
+
+# required for neovim on BSD
+if contains (hostname -s) "home"
+  set -gx VIMRUNTIME "/usr/local/share/vim/vim74"
+end
 
 # easy editing
 function e
@@ -41,26 +52,21 @@ function run-rethinkdb; launchctl load ~/Library/LaunchAgents/homebrew.mxcl.reth
 # rust
 set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
 set -x RUST_SRC_PATH {$HOME}/rust/rust/src
-function rust-update; curl https://static.rust-lang.org/rustup.sh | sh; end
-
-# erlang
-function erlr; erl -pz ebin deps/*/ebin $argv; end
 
 # python
 function rmpyc; find . -name '*.pyc' | xargs rm; end
+function ghp; python -m grip; end # preview README files
 
-# environment variables
+# fish settings
 set -x fish_greeting ""
+
+# environment
+set -x LANG 'en_US.UTF-8'
+set -x LC_ALL 'en_US.UTF-8'
 set -x EDITOR 'vim'
 set -x VISUAL 'vim'
 set -x TERM 'rxvt-256color'
 set -x XDG_DATA_HOME {$HOME}/.local/share
-
-set -x NVIM_TUI_ENABLE_TRUE_COLOR 1 # enable true colors in Neovim. Requires compatible shell.
-
-# UTF-8
-set -x LANG 'en_US.UTF-8'
-set -x LC_ALL 'en_US.UTF-8'
 
 # secret environment vars
 set fish_secret "~/.config/fish/secret_env.fish"
@@ -104,21 +110,15 @@ if test -f "$HOME/.autojump/share/autojump/autojump.fish"
   . "$HOME/.autojump/share/autojump/autojump.fish"
 end
 
-
 # haskell
 prepend_to_path "$HOME/.stack/programs/x86_64-osx/ghc-7.8.4/bin"
 prepend_to_path "$HOME/.cabal/bin"
 
-# neovim on BSD
-if contains (hostname -s) "home"
-  set -gx VIMRUNTIME "/usr/local/share/vim/vim74"
-end
-
 # go
+prepend_to_path "/usr/local/go/bin"
 function gb; go build; end
 function gt; go test -v ./...; end
 function gc; gocov test | gocov report; end
-prepend_to_path "/usr/local/go/bin"
 
 if test -d "$HOME/Go"
     set -x GOPATH "$HOME/Go"
@@ -139,19 +139,9 @@ function cover-web ()
   go test $COVERFLAGS -coverprofile=$t $argv;and go tool cover -html=$t;and unlink $t
 end
 
-# nodejs
-if test -f ~/.nvm-fish/nvm.fish
-  source ~/.nvm-fish/nvm.fish
-end
-
 set hub (type -fp hub)
 if test -f $hub
   function git; hub $argv; end
-end
-
-set nvim (type -fp nvim)
-if  test -f $nvim
-  function vim; nvim $argv; end
 end
 
 # clojure

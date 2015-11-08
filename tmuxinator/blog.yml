@@ -1,6 +1,6 @@
 # ~/.tmuxinator/wunki-blog.yml
 
-name: wunki-blog
+name: blog
 root: ~/src/wunki-blog
 
 windows:

@@ -24,6 +24,9 @@ Plug 'kien/ctrlp.vim'                                    " fast file switching
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
     map <C-t> :Tagbar<CR>
 Plug 'Shougo/vimproc', {'do': 'gmake'}                   " command execution
+Plug 'Chiel92/vim-autoformat'                            " autoformat on save
+    let g:formatdef_rustfmt = '"rustfmt"'
+    let g:formatters_rust = ['rustfmt']
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
@@ -239,25 +242,25 @@ autocmd BufRead,BufNewFile /etc/nginx/sites-*/* setfiletype conf
 
 " Tagbar
 let g:tagbar_type_markdown = {
-    \ 'ctagstype' : 'markdown',
-    \ 'kinds' : [
-        \ 'h:headings',
-        \ 'l:links',
-        \ 'i:images'
-    \],
-    \ "sort" : 0
-\ }
+            \ 'ctagstype' : 'markdown',
+            \ 'kinds' : [
+            \ 'h:headings',
+            \ 'l:links',
+            \ 'i:images'
+            \],
+            \ "sort" : 0
+            \ }
 
 let g:tagbar_type_rust = {
-    \ 'ctagstype' : 'rust',
-    \ 'kinds' : [
-        \'T:types,type definitions',
-        \'f:functions,function definitions',
-        \'g:enum,enumeration names',
-        \'s:structure names',
-        \'m:modules,module names',
-        \'c:consts,static constants',
-        \'t:traits,traits',
-        \'i:impls,trait implementations',
-    \  ]
-    \}
+            \ 'ctagstype' : 'rust',
+            \ 'kinds' : [
+            \'T:types,type definitions',
+            \'f:functions,function definitions',
+            \'g:enum,enumeration names',
+            \'s:structure names',
+            \'m:modules,module names',
+            \'c:consts,static constants',
+            \'t:traits,traits',
+            \'i:impls,trait implementations',
+            \  ]
+            \}

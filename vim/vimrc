@@ -30,7 +30,14 @@ Plug 'bronson/vim-trailing-whitespace'                   " remove trailing white
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
 Plug 'Shougo/vimproc', {'do': 'gmake'}                   " command execution
 Plug 'Shougo/neocomplete.vim'                            " autocompletion
-Plug 'kien/ctrlp.vim'                                    " fast file switching
+
+" Fuzzy file finder
+Plug 'junegunn/fzf', { 'dir': $XDG_DATA_HOME . '/.fzf', 'do': 'yes n \| ./install --all' }
+let g:fzf_action = {
+      \ 'ctrl-s': 'split',
+      \ 'ctrl-v': 'vsplit'
+      \ }
+nnoremap <c-p> :FZF<cr>
 
 " Looks
 Plug 'jnurmine/Zenburn'

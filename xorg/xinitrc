@@ -47,7 +47,7 @@ eval `ssh-agent`
 export PATH="$HOME/bin:$PATH"
 
 # Emacs
-# emacs --daemon &
+emacs --daemon &
 
 #
 # Start window manager

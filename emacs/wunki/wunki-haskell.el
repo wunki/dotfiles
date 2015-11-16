@@ -9,6 +9,12 @@
 ;; haskell tags
 (setq-default haskell-tags-on-save t)
 
+;; custom flycheck
+(after-load 'flycheck
+  (add-hook 'haskell-mode-hook #'flycheck-haskell-setup))
+ 
+(after-load 'haskell-mode
+  (require 'flycheck-hdevtools))
 
 (eval-after-load 'haskell-mode
   '(progn

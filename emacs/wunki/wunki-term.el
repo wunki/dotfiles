@@ -10,6 +10,11 @@
 (exec-path-from-shell-copy-env "GOPATH")
 (exec-path-from-shell-copy-env "PYTHONPATH")
 
+;; unbind meta-p because we use it to switch between windows
+(eval-after-load "term"
+  '(progn
+     (define-key term-raw-map (kbd "M-p") nil)))
+
 ;; needed modes
 (add-hook 'term-mode-hook
           (lambda ()
@@ -35,4 +40,4 @@
   (set-buffer-process-coding-system 'utf-8-unix 'utf-8-unix))
 (add-hook 'term-exec-hook 'my-term-use-utf8)
 
-(provide 'wunki-shell)
+(provide 'wunki-term)

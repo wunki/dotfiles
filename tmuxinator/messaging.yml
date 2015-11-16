@@ -1,6 +1,6 @@
-# ~/.tmuxinator/social.yml
+# ~/.tmuxinator/messaging.yml
 
-name: social
+name: messaging
 root: ~/
 
 windows:

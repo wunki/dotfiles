@@ -37,8 +37,6 @@ Plug 'Shougo/deoplete.nvim'
 
 " Looks
 Plug 'morhetz/gruvbox'
-Plug 'acepukas/vim-zenburn'
-    let g:zenburn_disable_Label_underline = 1
 Plug 'itchyny/lightline.vim'
     let g:lightline = {
                 \ 'colorscheme': 'gruvbox',
@@ -95,14 +93,14 @@ set history=1000            " more history
 set shortmess=atI           " shorten confirmation messages
 set bs=2                    " fix backspace in FreeBSD
 set scrolloff=3             " keep 3 lines below/above cursor
-set noshowmode              " no need for the mode, airline shows it
+set noshowmode              " no need for the mode, lightline shows it
 set showcmd                 " shows partial command in the last line
 set ruler                   " show the line and column number of the cursor
 set backspace=indent,eol,start
 set number                  " show linenumbers
 set undofile                " create undofiles
 set formatoptions=qrn1
-set nocursorline            " show me the line where the cursor is
+set nocursorline            " don't show me the line where the cursor is
 set nofoldenable            " don't do any folding for now
 set guicursor+=a:blinkon0   " don't blink the cursor please
 set winwidth=79             " resize active window to minimally contains 79 chars width

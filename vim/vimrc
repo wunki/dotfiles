@@ -314,12 +314,6 @@ augroup plugin_commentary
     au FileType cf3 setlocal commentstring=\#\ %s
 augroup END
 
-" Chicken scheme
-let g:is_chicken=1
-setl lispwords+=let-values,condition-case,with-input-from-string
-setl lispwords+=with-output-to-string,handle-exceptions,call/cc,rec,receive
-setl lispwords+=call-with-output-file
-
 " Sessions
 set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds

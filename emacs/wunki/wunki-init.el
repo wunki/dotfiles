@@ -7,7 +7,7 @@
   (load custom-file))
 
 ;; package repositories
-(setq package-archives '(("marmalade" . "http://marmalade-repo.org/packages/")
+(setq package-archives '(("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")
                          ("org" . "http://orgmode.org/elpa/")
                          ("gnu" . "https://elpa.gnu.org/packages/")))
@@ -76,7 +76,7 @@
     
     ; haskell
     haskell-mode
-    flycheck-haskell
+    flycheck-hdevtools
     company-ghc
 
     ; rust

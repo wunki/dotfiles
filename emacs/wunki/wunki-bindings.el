@@ -75,12 +75,12 @@
 (global-set-key (kbd "C-M-<down>") 'enlarge-window)
 (global-set-key (kbd "C-M-<up>")   'shrink-window)
 
-;; move between windows
-(global-set-key (kbd "M-o") 'other-window)
-(global-set-key (kbd "C-c F") 'windmove-right)
-(global-set-key (kbd "C-c B") 'windmove-left)
-(global-set-key (kbd "C-c P") 'windmove-up)
-(global-set-key (kbd "C-c N") 'windmove-down)
+;; move between windows -- disabled for now because I'm using ace
+;; (global-set-key (kbd "M-o") 'other-window)
+;; (global-set-key (kbd "C-c F") 'windmove-right)
+;; (global-set-key (kbd "C-c B") 'windmove-left)
+;; (global-set-key (kbd "C-c P") 'windmove-up)
+;; (global-set-key (kbd "C-c N") 'windmove-down)
 
 ;; multiple markers
 (global-set-key (kbd "C-!") 'mc/edit-lines)

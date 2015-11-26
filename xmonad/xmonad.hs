@@ -41,7 +41,7 @@ main = do
         , normalBorderColor  = "#7285b7"
         , focusedBorderColor = "#bbdaff"
         , workspaces = ["1:Editor", "2:Shells", "3:Browser", "4", "5"]
-        , terminal  = "termite"
+        , terminal  = "sakura"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
         , startupHook = setWMName "LG3D"
         }

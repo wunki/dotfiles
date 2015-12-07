@@ -64,8 +64,10 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'phildawes/racer', { 'do': 'cargo build --release', 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
+Plug 'racer-rust/racer', { 'for': 'rust' }
+    let g:racer_cmd = "~/rust/racer/target/release/racer"
+    let $RUST_SRC_PATH = "~/rust/rust/src"
 
 " Fish
 Plug 'aliva/vim-fish', { 'for': 'fish' }

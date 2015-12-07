@@ -17,7 +17,7 @@ function ioc; sudo iocage $argv; end
 function btop; nice top -j -P -a; end 
 
 # neovim settings
-set -x NVIM_TUI_ENABLE_TRUE_COLOR 1 # enable true colors in Neovim. Requires compatible shell.
+#set -x NVIM_TUI_ENABLE_TRUE_COLOR 1 # enable true colors in Neovim. Requires compatible shell.
 function n; nvim $argv; end
 
 set nvim (type -fp nvim)

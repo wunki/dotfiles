@@ -85,6 +85,7 @@
     toml-mode
     company-racer
     flycheck-rust
+    rustfmt
 
     ; python
     anaconda-mode

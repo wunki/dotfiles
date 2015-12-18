@@ -1,9 +1,7 @@
 (require 'racer)
 
-(setq rust-path (if (mac?) "/Users/wunki/Rust" "/home/wunki/rust")
-      racer-rust-src-path (concat rust-path "/rust/src/")
-      racer-cmd (concat rust-path "/racer/target/release/racer")
-      company-racer-executable (concat rust-path "/racer/target/release/racer"))
+(setq rust-path "/Users/wunki/Rust"
+      racer-rust-src-path (concat rust-path "/rust/src/"))
 
 (defun wunki-rust-mode-hook ()
   (setenv "RUST_SRC_PATH" racer-rust-src-path)
@@ -15,5 +13,6 @@
 (add-hook 'racer-mode-hook #'eldoc-mode)
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 (add-hook 'rust-mode-hook 'flycheck-mode)
+;(add-hook 'rust-mode-hook #'rustfmt-enable-on-save)
 
 (provide 'wunki-rust)

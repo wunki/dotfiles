@@ -48,10 +48,6 @@ function gs; git status --ignore-submodules=dirty; end
 function gp; git push origin master; end
 function gf; git pull origin master; end
 
-# rust
-set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
-set -x RUST_SRC_PATH {$HOME}/rust/rust/src
-
 # python
 function rmpyc; find . -name '*.pyc' | xargs rm; end
 function ghp; python -m grip; end # preview README files
@@ -109,6 +105,11 @@ end
 # haskell
 prepend_to_path "$HOME/.stack/programs/x86_64-osx/ghc-7.8.4/bin"
 prepend_to_path "$HOME/.cabal/bin"
+
+# rust
+prepend_to_path "$HOME/.cargo/bin"
+set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
+set -x RUST_SRC_PATH {$HOME}/rust/rust/src
 
 # go
 prepend_to_path "/usr/local/go/bin"

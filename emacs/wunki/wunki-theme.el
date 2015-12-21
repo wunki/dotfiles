@@ -6,8 +6,8 @@
 ;; load theme and don't ask if it's save.
 (load-theme 'sanityinc-tomorrow-blue t)
 
-(set-frame-font "Hack")
-(add-to-list 'default-frame-alist '(font . "Hack"))
+(set-frame-font "Fira Mono")
+(add-to-list 'default-frame-alist '(font . "Fira Mono"))
 
 (global-set-key (kbd "C-M-=") 'default-text-scale-increase)
 (global-set-key (kbd "C-M--") 'default-text-scale-decrease)

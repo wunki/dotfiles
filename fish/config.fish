@@ -20,8 +20,7 @@ function btop; nice top -j -P -a; end
 #set -x NVIM_TUI_ENABLE_TRUE_COLOR 1 # enable true colors in Neovim. Requires compatible shell.
 function n; nvim $argv; end
 
-set nvim (type -fp nvim)
-if  test -f $nvim
+if type -Pq nvim
   function vim; nvim $argv; end
 end
 
@@ -135,8 +134,7 @@ function cover-web ()
   go test $COVERFLAGS -coverprofile=$t $argv;and go tool cover -html=$t;and unlink $t
 end
 
-set hub (type -fp hub)
-if test -f $hub
+if type -Pq hub
   function git; hub $argv; end
 end
 

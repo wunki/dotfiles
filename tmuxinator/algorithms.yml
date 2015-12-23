@@ -1,0 +1,8 @@
+# ~/.tmuxinator/algorithms.yml
+
+name: algorithms
+root: ~/rust/wunki-algorithms
+
+windows:
+  - vim: nvim
+  - git: git status

@@ -5,7 +5,7 @@
 (menu-bar-mode -1)
 
 ;; highlight the current line
-(global-hl-line-mode -1)
+(global-hl-line-mode t)
 
 ;; projectile for project management
 (setq projectile-cache-file "~/.projectile.cache")

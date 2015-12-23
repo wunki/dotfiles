@@ -17,7 +17,7 @@ function ioc; sudo iocage $argv; end
 function btop; nice top -j -P -a; end 
 
 # neovim settings
-#set -x NVIM_TUI_ENABLE_TRUE_COLOR 1 # enable true colors in Neovim. Requires compatible shell.
+set -x NVIM_TUI_ENABLE_TRUE_COLOR 1 # enable true colors in Neovim. Requires compatible shell.
 function n; nvim $argv; end
 
 if type -Pq nvim
@@ -46,10 +46,6 @@ function mu-index; mu index --maildir=~/mail --my-address=petar@wunki.org --my-a
 function gs; git status --ignore-submodules=dirty; end
 function gp; git push origin master; end
 function gf; git pull origin master; end
-
-# rust
-set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
-set -x RUST_SRC_PATH {$HOME}/rust/rust/src
 
 # python
 function rmpyc; find . -name '*.pyc' | xargs rm; end
@@ -108,6 +104,11 @@ end
 # haskell
 prepend_to_path "$HOME/.stack/programs/x86_64-osx/ghc-7.8.4/bin"
 prepend_to_path "$HOME/.cabal/bin"
+
+# rust
+prepend_to_path "$HOME/.cargo/bin"
+set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
+set -x RUST_SRC_PATH {$HOME}/rust/rust/src
 
 # go
 prepend_to_path "/usr/local/go/bin"

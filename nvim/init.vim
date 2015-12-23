@@ -65,8 +65,8 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
-Plug 'racer-rust/racer', { 'for': 'rust' }
-    let g:racer_cmd = "~/rust/racer/target/release/racer"
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+    let g:racer_cmd = "~/.cargo/bin/racer"
     let $RUST_SRC_PATH = "~/rust/rust/src"
 
 " Fish
@@ -102,7 +102,7 @@ set backspace=indent,eol,start
 set number                  " show linenumbers
 set undofile                " create undofiles
 set formatoptions=qrn1
-set nocursorline            " don't show me the line where the cursor is
+set cursorline              " show me the line where the cursor is
 set nofoldenable            " don't do any folding for now
 set guicursor+=a:blinkon0   " don't blink the cursor please
 set winwidth=79             " resize active window to minimally contains 79 chars width

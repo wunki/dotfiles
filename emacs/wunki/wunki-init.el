@@ -109,10 +109,6 @@
     color-theme-sanityinc-tomorrow
     color-theme-sanityinc-solarized
 
-    ;; elixir
-    elixir-mode
-    alchemist
-
     ;; general
     nginx-mode
     ))

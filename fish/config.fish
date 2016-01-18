@@ -56,7 +56,7 @@ set -x LANG 'en_US.UTF-8'
 set -x LC_ALL 'en_US.UTF-8'
 set -x EDITOR 'vim'
 set -x VISUAL 'vim'
-set -x TERM 'rxvt-256color'
+set -x TERM 'screen-256color'
 set -x XDG_DATA_HOME {$HOME}/.local/share
 
 # secret environment vars
@@ -107,6 +107,7 @@ prepend_to_path "$HOME/.cabal/bin"
 
 # rust
 prepend_to_path "$HOME/.cargo/bin"
+prepend_to_path "$HOME/.multirust/toolchains/stable/cargo/bin"
 set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
 set -x RUST_SRC_PATH {$HOME}/rust/rust/src
 

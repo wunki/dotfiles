@@ -37,10 +37,17 @@ Plug 'Shougo/deoplete.nvim'
 
 " Looks
 Plug 'morhetz/gruvbox'
-Plug 'itchyny/lightline.vim'
-    let g:lightline = {
-                \ 'colorscheme': 'gruvbox',
-                \ }
+Plug 'mhartington/oceanic-next'
+" Plug 'itchyny/lightline.vim'
+"    let g:lightline = {
+"                \ 'colorscheme': 'gruvbox',
+"                \ }
+Plug 'bling/vim-airline'
+Plug 'edkolev/tmuxline.vim'
+let g:airline_theme='oceanicnext'
+let g:airline_powerline_fonts = 0
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
 
 " HTML
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html', 'sls'] }
@@ -80,7 +87,7 @@ call plug#end()
 
 " Visuals
 set mouse=a
-colorscheme gruvbox
+colorscheme OceanicNext
 
 set showmatch               " show matching brackets (), {}' []
 set showcmd                 " show command
@@ -99,7 +106,7 @@ set noshowmode              " no need for the mode, lightline shows it
 set showcmd                 " shows partial command in the last line
 set ruler                   " show the line and column number of the cursor
 set backspace=indent,eol,start
-set number                  " show linenumbers
+set nonumber                " don't show linenumbers
 set undofile                " create undofiles
 set formatoptions=qrn1
 set cursorline              " show me the line where the cursor is

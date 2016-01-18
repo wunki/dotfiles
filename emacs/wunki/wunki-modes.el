@@ -15,9 +15,6 @@
 ;; deletes region when starting typing
 (pending-delete-mode t)
 
-;; magit
-(setq magit-last-seen-setup-instructions "1.4.0")
-
 ;; blinking
 (blink-cursor-mode -1)
 

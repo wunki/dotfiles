@@ -102,7 +102,8 @@ if test -f "$HOME/.autojump/share/autojump/autojump.fish"
 end
 
 # haskell
-prepend_to_path "$HOME/.stack/programs/x86_64-osx/ghc-7.8.4/bin"
+function ghc; stack exec -- ghc; end
+function ghci; stack exec -- ghci; end
 prepend_to_path "$HOME/.cabal/bin"
 
 # rust
@@ -192,10 +193,6 @@ end
 prepend_to_path "$HOME/.aws/bin"
 set -x AWS_IAM_HOME "$HOME/.aws/iam"
 set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
-
-# elm
-set -x ELM_HOME "/usr/local/lib/node_modules/elm/share"
-prepend_to_path "~/haskell/Elm-Platform/0.15.1/.cabal-sandbox/bin"
 
 # fix fish in Emacs ansi-term
 function fish_title

@@ -7,6 +7,7 @@ filetype plugin indent on
 call plug#begin('~/.config/nvim/plugged')
 
 " Essentials
+Plug 'benekastah/neomake'                                " building new stuff
 Plug 'tpope/vim-eunuch'                                  " unix helper commands
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
@@ -23,7 +24,7 @@ Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in mar
 Plug 'kien/ctrlp.vim'                                    " fast file switching
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
     map <C-t> :Tagbar<CR>
-Plug 'Shougo/vimproc', {'do': 'gmake'}                   " command execution
+Plug 'Shougo/vimproc', {'do': 'make'}                   " command execution
 Plug 'Chiel92/vim-autoformat'                            " autoformat on save
     let g:formatdef_rustfmt = '"rustfmt"'
     let g:formatters_rust = ['rustfmt']
@@ -68,6 +69,12 @@ Plug 'fatih/vim-go', { 'for': 'go' }
     au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
     au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
     au FileType go nmap gd <Plug>(go-def)
+
+" Haskell
+Plug 'neovimhaskell/haskell-vim'
+Plug 'bitc/vim-hdevtools'
+    au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+    au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }

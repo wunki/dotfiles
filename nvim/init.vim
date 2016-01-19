@@ -167,8 +167,8 @@ set directory=~/.vim/tmp/swap//   " swap files
 set backup                        " enable backups
 set noswapfile                    " no swapping
 
-" point neovim to python
-let g:python_host_prog='/usr/sbin/python'
+" Disable highlighting of the search
+nnoremap <C-l> :nohlsearch<CR><C-l>
 
 " Faster scrolling
 nnoremap <C-e> 3<C-e>

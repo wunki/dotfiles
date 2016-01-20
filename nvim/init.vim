@@ -25,9 +25,6 @@ Plug 'kien/ctrlp.vim'                                    " fast file switching
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
     map <C-t> :Tagbar<CR>
 Plug 'Shougo/vimproc', {'do': 'make'}                   " command execution
-Plug 'Chiel92/vim-autoformat'                            " autoformat on save
-    let g:formatdef_rustfmt = '"rustfmt"'
-    let g:formatters_rust = ['rustfmt']
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
@@ -37,14 +34,8 @@ Plug 'Shougo/deoplete.nvim'
     let g:deoplete#sources#syntax#min_keyword_length = 3
 
 " Looks
-Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next'
-" Plug 'itchyny/lightline.vim'
-"    let g:lightline = {
-"                \ 'colorscheme': 'gruvbox',
-"                \ }
 Plug 'bling/vim-airline'
-Plug 'edkolev/tmuxline.vim'
 let g:airline_theme='oceanicnext'
 let g:airline_powerline_fonts = 0
 let g:airline_left_sep = ''
@@ -87,7 +78,6 @@ Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'aliva/vim-fish', { 'for': 'fish' }
 
 " Servers
-Plug 'saltstack/salt-vim', { 'for': 'sls' }
 Plug 'pearofducks/ansible-vim'
 
 call plug#end()

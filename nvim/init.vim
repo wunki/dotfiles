@@ -22,9 +22,35 @@ Plug 'mbbill/undotree'                                   " easy undoing
 Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, brackend and quotes
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
 Plug 'kien/ctrlp.vim'                                    " fast file switching
+Plug 'Shougo/vimproc', {'do': 'make'}                    " command execution
+Plug 'aliva/vim-fish', { 'for': 'fish' }
+Plug 'pearofducks/ansible-vim'
+Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
     map <C-t> :Tagbar<CR>
-Plug 'Shougo/vimproc', {'do': 'make'}                   " command execution
+    let g:tagbar_type_markdown = {
+                \ 'ctagstype' : 'markdown',
+                \ 'kinds' : [
+                \ 'h:headings',
+                \ 'l:links',
+                \ 'i:images'
+                \],
+                \ "sort" : 0
+                \ }
+
+    let g:tagbar_type_rust = {
+                \ 'ctagstype' : 'rust',
+                \ 'kinds' : [
+                \'T:types,type definitions',
+                \'f:functions,function definitions',
+                \'g:enum,enumeration names',
+                \'s:structure names',
+                \'m:modules,module names',
+                \'c:consts,static constants',
+                \'t:traits,traits',
+                \'i:impls,trait implementations',
+                \  ]
+                \}
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
@@ -33,17 +59,12 @@ Plug 'Shougo/deoplete.nvim'
     let g:deoplete#enable_ignore_case = 'ignorecase'
     let g:deoplete#sources#syntax#min_keyword_length = 3
 
-" Looks
 Plug 'mhartington/oceanic-next'
 Plug 'bling/vim-airline'
-let g:airline_theme='oceanicnext'
-let g:airline_powerline_fonts = 0
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-
-" HTML
-Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html', 'sls'] }
-Plug 'othree/html5.vim', { 'for': 'html' }
+    let g:airline_theme='oceanicnext'
+    let g:airline_powerline_fonts = 0
+    let g:airline_left_sep = ''
+    let g:airline_right_sep = ''
 
 " Go
 Plug 'benmills/vim-golang-alternate', { 'for': 'go' }
@@ -72,13 +93,7 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
     let g:racer_cmd = "~/.cargo/bin/racer"
-    let $RUST_SRC_PATH = "~/rust/rust/src"
-
-" Fish
-Plug 'aliva/vim-fish', { 'for': 'fish' }
-
-" Servers
-Plug 'pearofducks/ansible-vim'
+    let $RUST_SRC_PATH="~/.etc/rust/src"
 
 call plug#end()
 
@@ -106,7 +121,7 @@ set backspace=indent,eol,start
 set nonumber                " don't show linenumbers
 set undofile                " create undofiles
 set formatoptions=qrn1
-set cursorline              " show me the line where the cursor is
+" set cursorline              " show me the line where the cursor is
 set nofoldenable            " don't do any folding for now
 set guicursor+=a:blinkon0   " don't blink the cursor please
 set winwidth=79             " resize active window to minimally contains 79 chars width
@@ -124,7 +139,6 @@ set wildmode=list:longest
 
 " Ignore these things
 set wildignore+=.hg,.git,.svn                    " Version control
-set wildignore+=*.aux,*.out,*.toc                " LaTeX intermediate files
 set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
 set wildignore+=*.o,*.obj,*.exe,*.dll,*.manifest " compiled object files
 set wildignore+=*.spl                            " compiled spelling word lists
@@ -140,22 +154,15 @@ set wildignore+=*.test                           " ignore Go's tests files
 set wildignore+=*/Godeps/*                       " ignore godeps directory
 set wildignore+=*/node_modules/*                 " ignore node.js packages
 
-" jumping around
+" Jumping around
 set tags=tags;/,codex.tags;/
 
-" only show the cursorline on the active window
-augroup cline
-    au!
-    au WinLeave,InsertEnter * set nocursorline
-    au WinEnter,InsertLeave * set cursorline
-augroup END
-
-" backup settings
-set undodir=~/.vim/tmp/undo//     " undo files
-set backupdir=~/.vim/tmp/backup// " backups
-set directory=~/.vim/tmp/swap//   " swap files
-set backup                        " enable backups
-set noswapfile                    " no swapping
+" Backup
+set undodir=~/.config/nvim/tmp/undo//     " undo files
+set backupdir=~/.config/nvim/tmp/backup// " backups
+set directory=~/.config/nvim/tmp/swap//   " swap files
+set backup                                " enable backups
+set noswapfile                            " no swapping
 
 " Disable highlighting of the search
 nnoremap <C-l> :nohlsearch<CR><C-l>
@@ -176,15 +183,6 @@ let maplocalleader = "_"
 
 " Toggle whitespace invisibles
 nmap <leader>l :set list!<CR>
-
-" Go settings
-" Rust settings
-let g:racer_cmd = "/home/wunki/.vim/plugged/racer/target/release/cargo"
-if has('mac')
-    let $RUST_SRC_PATH="/Users/wunki/Rust/rust/src"
-else
-    let $RUST_SRC_PATH="/home/wunki/rust/rust/src"
-end
 
 " Mutt settings
 au BufRead ~/.mutt/tmp/mutt-* set tw=72 formatoptions=tcql
@@ -245,26 +243,4 @@ let g:syntastic_always_populate_loc_list = 1
 autocmd BufRead,BufNewFile /etc/nginx/sites-*/* setfiletype conf
 
 " Tagbar
-let g:tagbar_type_markdown = {
-            \ 'ctagstype' : 'markdown',
-            \ 'kinds' : [
-            \ 'h:headings',
-            \ 'l:links',
-            \ 'i:images'
-            \],
-            \ "sort" : 0
-            \ }
 
-let g:tagbar_type_rust = {
-            \ 'ctagstype' : 'rust',
-            \ 'kinds' : [
-            \'T:types,type definitions',
-            \'f:functions,function definitions',
-            \'g:enum,enumeration names',
-            \'s:structure names',
-            \'m:modules,module names',
-            \'c:consts,static constants',
-            \'t:traits,traits',
-            \'i:impls,trait implementations',
-            \  ]
-            \}

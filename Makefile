@@ -31,7 +31,7 @@ spacemacs::
 	@echo Spacemacs is symlinked.
 
 bin::
-	@ln -fns $(DOTFILES)/bin									${HOME}/bin
+	@ln -fns $(DOTFILES)/bin									${HOME}/.bin
 	@echo bin files are linked to homedir.
 
 bash::

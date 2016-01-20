@@ -14,7 +14,7 @@ function run-redis; redis-server /usr/local/etc/redis.conf; end
 # freebsd shortcuts
 function ea; sudo ezjail-admin $argv; end
 function ioc; sudo iocage $argv; end
-function btop; nice top -j -P -a; end 
+function btop; nice top -j -P -a; end
 
 # neovim settings
 set -x NVIM_TUI_ENABLE_TRUE_COLOR 1 # enable true colors in Neovim. Requires compatible shell.
@@ -86,14 +86,11 @@ prepend_to_path "/usr/local/bin"
 prepend_to_path "/usr/local/opt/go/libexec/bin"
 
 # home paths
-prepend_to_path "$HOME/bin"
+prepend_to_path "$HOME/.bin"
 prepend_to_path "$HOME/.local/bin"
 
 # mac specific paths
 prepend_to_path "/usr/local/Cellar/emacs/HEAD/bin"
-prepend_to_path "$HOME/Source/google-cloud-sdk/bin"
-prepend_to_path "/Applications/Postgres.app/Contents/Versions/9.4/bin"
-prepend_to_path "/Applications/Racket v6.1.1/bin"
 
 # autojump
 if test -f "$HOME/.autojump/share/autojump/autojump.fish"

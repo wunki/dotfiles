@@ -92,8 +92,8 @@ Plug 'bitc/vim-hdevtools'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-    let g:racer_cmd = "~/.cargo/bin/racer"
-    let $RUST_SRC_PATH="~/.etc/rust/src"
+    let g:racer_cmd = "/Users/wunki/.multirust/toolchains/stable/cargo/bin/racer"
+    let $RUST_SRC_PATH="/Users/wunki/.etc/rust/src"
 
 call plug#end()
 

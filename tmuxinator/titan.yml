@@ -1,8 +1,0 @@
-# ~/.tmuxinator/titan.yml
-
-name: titan
-root: ~/go/src/github.com/gibbonco/titan
-
-windows:
-  - nvim: nvim
-  - git: git status

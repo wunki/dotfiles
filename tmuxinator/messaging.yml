@@ -1,8 +1,0 @@
-# ~/.tmuxinator/messaging.yml
-
-name: messaging
-root: ~/
-
-windows:
-  - mutt: mutt
-  - weechat: weechat

@@ -38,6 +38,11 @@ function e
   end
 end
 
+# openssl on mac
+set -x OPENSSL_INCLUDE_DIR /usr/local/opt/openssl/include
+set -x OPENSSL_LIB/usr/local/opt/openssl/lib
+set -x OPENSSL_ROOT_DIR /usr/local/opt/openssl
+
 # mu
 function mu-reindex; mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
 function mu-index; mu index --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end

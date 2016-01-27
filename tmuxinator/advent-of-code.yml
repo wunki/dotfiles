@@ -1,8 +1,0 @@
-# ~/.tmuxinator/advent-of-code.yml
-
-name: advent-of-code
-root: ~/Rust/advent-of-code
-
-windows:
-    - editor: nvim
-    - shell: #

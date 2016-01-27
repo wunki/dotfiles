@@ -1,8 +1,0 @@
-# ~/.tmuxinator/hera.yml
-
-name: hera
-root: ~/go/src/github.com/gibbonco/hera
-
-windows:
-  - nvim: nvim
-  - git: git status

@@ -1,8 +1,0 @@
-# ~/.tmuxinator/rust-book.yml
-
-name: rust-book
-root: ~/rust/book
-
-windows:
-  - editor: vim
-  - build: #

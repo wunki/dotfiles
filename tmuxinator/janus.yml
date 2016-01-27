@@ -1,8 +1,0 @@
-# ~/.tmuxinator/janus.yml
-
-name: janus
-root: ~/go/src/github.com/gibbonco/janus
-
-windows:
-  - nvim: nvim
-  - git: git status

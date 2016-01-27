@@ -1,8 +1,0 @@
-# ~/.tmuxinator/phoebe.yml
-
-name: phoebe
-root: ~/go/src/github.com/gibbonco/phoebe
-
-windows:
-  - vim: v
-  - git: git status

@@ -1,12 +1,24 @@
-:set prompt "λ> "
+-- Prompt
+:set prompt  "\ESC[34;1mλ> \ESC[m"
+:set prompt2 "\ESC[34;1m | \ESC[m"
 
+-- Print the type after every statement
 :set +t
+
+-- Collect information after modules have been
+-- loaded.
 :set +c
 
-
+-- Hoogle
 :def hoogle \s -> return $ ":! hoogle --count=15 \"" ++ s ++ "\""
 :def doc \x -> return $ ":!hoogle --info \"" ++ x ++ "\""
 
+-- Use incremental compilation
+-- If you are missing information on a module, run `-fbyte-code`
+-- and :load the module again.
+:set -fobject-code
+
+-- Warn me about these things
 :set -Wall
 :set -fno-warn-missing-signatures
 :set -fno-warn-type-defaults

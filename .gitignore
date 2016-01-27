@@ -6,6 +6,7 @@
 /bin/python
 /bin/nvim
 nvim/shada
+nvim/autoload/plug.vim.old
 emacs/bookmarks
 emacs/var
 emacs/.org-id-locations

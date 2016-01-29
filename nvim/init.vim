@@ -59,9 +59,10 @@ Plug 'Shougo/deoplete.nvim'
     let g:deoplete#enable_ignore_case = 'ignorecase'
     let g:deoplete#sources#syntax#min_keyword_length = 3
 
+Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next'
 Plug 'bling/vim-airline'
-    let g:airline_theme='oceanicnext'
+    let g:airline_theme='gruvbox'
     let g:airline_powerline_fonts = 0
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
@@ -99,7 +100,7 @@ call plug#end()
 
 " Visuals
 set mouse=a
-colorscheme OceanicNext
+colorscheme gruvbox
 
 set showmatch               " show matching brackets (), {}' []
 set showcmd                 " show command

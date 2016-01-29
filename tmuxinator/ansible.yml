@@ -1,0 +1,8 @@
+# ~/.tmuxinator/ansible.yml
+
+name: ansible
+root: ~/Projects/wunki-ansible
+
+windows:
+  - vim: vim .
+  - git: git status

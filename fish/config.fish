@@ -25,7 +25,7 @@ if type -Pq nvim
 end
 
 # required for neovim on BSD
-if contains (hostname -s) "home"
+if contains (uname -s) "FreeBSD"
   set -gx VIMRUNTIME "/usr/local/share/vim/vim74"
 end
 
@@ -59,8 +59,8 @@ function ghp; python -m grip; end # preview README files
 # environment
 set -x LANG 'en_US.UTF-8'
 set -x LC_ALL 'en_US.UTF-8'
-set -x EDITOR 'vim'
-set -x VISUAL 'vim'
+set -x EDITOR 'nvim'
+set -x VISUAL 'nvim'
 set -x TERM 'screen-256color'
 set -x XDG_DATA_HOME {$HOME}/.local/share
 
@@ -185,10 +185,6 @@ end
 if contains (hostname -s) "macbook"
   prepend_to_path "$HOME/Library/Python/2.7/bin"
   set -gx PYTHONPATH "$HOME/Library/Python/2.7/lib/python/site-packages:/Library/Python/2.7/site-packages"
-end
-
-if contains (hostname -s) "home"
-  set -gx PYTHONPATH "$HOME/.local/lib/python2.7/site-packages:/usr/local/lib/python2.7/site-packages"
 end
 
 # aws

@@ -1,0 +1,6 @@
+name: groot
+root: ~/Projects/groot
+
+windows:
+  - vim: n
+  - git: git status

@@ -111,8 +111,9 @@ prepend_to_path "$HOME/.cabal/bin"
 # rust
 prepend_to_path "$HOME/.cargo/bin"
 prepend_to_path "$HOME/.multirust/toolchains/stable/cargo/bin"
+function ct; cargo test -- --nocapture; end
 set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
-set -x RUST_SRC_PATH {$HOME}/rust/rust/src
+set -x RUST_SRC_PATH {$HOME}/.etc/rust/src
 
 # go
 prepend_to_path "/usr/local/go/bin"

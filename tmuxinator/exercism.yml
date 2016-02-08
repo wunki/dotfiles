@@ -1,0 +1,6 @@
+name: exercism
+root: ~/Projects/exercism
+
+windows:
+  - vim: n
+  - cargo: #

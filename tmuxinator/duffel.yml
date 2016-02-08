@@ -1,12 +1,8 @@
 # ~/.tmuxinator/duffel.yml
 
 name: duffel
-root: ~/Rust/duffel
+root: ~/Projects/duffel
 
 windows:
-  - main:
-      layout: main-vertical
-      panes:
-        - vim
-        - cargo build
-        - git pull
+  - vim: vim
+  - git: git status

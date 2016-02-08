@@ -1,10 +1,7 @@
 (require 'racer)
 
-(setq rust-path "/Users/wunki/Rust"
-      racer-rust-src-path (concat rust-path "/rust/src/"))
-
 (defun wunki-rust-mode-hook ()
-  (setenv "RUST_SRC_PATH" racer-rust-src-path)
+  (setenv "RUST_SRC_PATH" "/Users/wunki/.etc/rust/src/")
   (set (make-local-variable 'company-backends) '(company-racer))
   (setq tab-width 4))
 

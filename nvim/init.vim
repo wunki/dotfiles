@@ -122,7 +122,7 @@ set backspace=indent,eol,start
 set nonumber                " don't show linenumbers
 set undofile                " create undofiles
 set formatoptions=qrn1
-" set cursorline              " show me the line where the cursor is
+set cursorline              " show me the line where the cursor is
 set nofoldenable            " don't do any folding for now
 set guicursor+=a:blinkon0   " don't blink the cursor please
 set winwidth=79             " resize active window to minimally contains 79 chars width

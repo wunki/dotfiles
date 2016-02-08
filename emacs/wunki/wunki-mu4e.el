@@ -1,10 +1,5 @@
 ;; load and fire
-(defconst wunki-lisp-dir
-  (cond
-   ((equal system-type 'gnu/linux) "/usr/share/emacs/site-lisp/")
-   (t (concat "/usr/local/share/emacs/site-lisp/"))))
-
-(add-to-list 'load-path (concat wunki-lisp-dir "mu4e"))
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 
 (require 'mu4e)
 (require 'sendmail)

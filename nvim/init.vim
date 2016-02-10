@@ -25,6 +25,7 @@ Plug 'kien/ctrlp.vim'                                    " fast file switching
 Plug 'Shougo/vimproc', {'do': 'make'}                    " command execution
 Plug 'aliva/vim-fish', { 'for': 'fish' }
 Plug 'pearofducks/ansible-vim'
+Plug 'vitalk/vim-simple-todo'                            " simple todo's
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
     map <C-t> :Tagbar<CR>

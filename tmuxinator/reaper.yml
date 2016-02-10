@@ -1,0 +1,6 @@
+name: reaper
+root: ~/Projects/reaper
+
+windows:
+  - vim: n
+  - git: git status

@@ -1,7 +1,6 @@
 set cmdheight=2             " lower command line two lines high
 set modifiable              " needed for vimpager
 set bg=dark                 " dark background
-syntax on                   " enable syntax highlighting
 filetype plugin indent on
 
 call plug#begin('~/.config/nvim/plugged')
@@ -104,6 +103,7 @@ call plug#end()
 " Visuals
 set mouse=a
 colorscheme gruvbox
+syntax off                  " disable syntax highlighting
 
 set showmatch               " show matching brackets (), {}' []
 set showcmd                 " show command

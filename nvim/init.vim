@@ -59,6 +59,8 @@ Plug 'Shougo/deoplete.nvim'
     let g:deoplete#enable_at_startup = 1
     let g:deoplete#enable_ignore_case = 'ignorecase'
     let g:deoplete#sources#syntax#min_keyword_length = 3
+    inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
+    inoremap <Leader><Tab> <Space><Space>
 
 Plug 'morhetz/gruvbox'
 Plug 'mhartington/oceanic-next'

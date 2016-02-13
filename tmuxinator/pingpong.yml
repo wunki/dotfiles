@@ -1,0 +1,6 @@
+name: pingpong
+root: ~/Projects/pingpong
+
+windows:
+  - vim: n
+  - git: git status

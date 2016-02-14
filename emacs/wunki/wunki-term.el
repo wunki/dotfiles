@@ -6,6 +6,9 @@
 ;; use fish as the default shell
 (setq explicit-shell-file-name (locate-file "fish" exec-path))
 
+;; use Emacs terminfo, not system terminfo, fixes 4m problem
+(setq system-uses-terminfo nil)
+
 ;; copy some vars over
 (exec-path-from-shell-copy-env "GOPATH")
 (exec-path-from-shell-copy-env "PYTHONPATH")

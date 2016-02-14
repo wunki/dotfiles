@@ -1,7 +1,8 @@
 (require 'racer)
 
 (defun wunki-rust-mode-hook ()
-  (setenv "RUST_SRC_PATH" "/Users/wunki/.etc/rust/src/")
+  (setq racer-cmd "/Users/wunki/.multirust/toolchains/stable/cargo/bin/racer")
+  (setq racer-rust-src-path "/Users/wunki/.etc/rust/src/")
   (set (make-local-variable 'company-backends) '(company-racer))
   (setq tab-width 4))
 
@@ -10,6 +11,5 @@
 (add-hook 'racer-mode-hook #'eldoc-mode)
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 (add-hook 'rust-mode-hook 'flycheck-mode)
-;(add-hook 'rust-mode-hook #'rustfmt-enable-on-save)
 
 (provide 'wunki-rust)

@@ -97,13 +97,14 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
     let g:racer_cmd = "/Users/wunki/.multirust/toolchains/stable/cargo/bin/racer"
     let $RUST_SRC_PATH="/Users/wunki/.etc/rust/src"
+    let g:racer_experimental_completer = 1
 
 call plug#end()
 
 " Visuals
 set mouse=a
 colorscheme gruvbox
-syntax off                  " disable syntax highlighting
+syntax on                   " enable syntax highlighting
 
 set showmatch               " show matching brackets (), {}' []
 set showcmd                 " show command
@@ -246,6 +247,4 @@ let g:syntastic_always_populate_loc_list = 1
 
 " Files
 autocmd BufRead,BufNewFile /etc/nginx/sites-*/* setfiletype conf
-
-" Tagbar
 

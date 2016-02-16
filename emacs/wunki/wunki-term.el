@@ -16,7 +16,8 @@
 ;; unbind meta-p because we use it to switch between windows
 (eval-after-load "term"
   '(progn
-     (define-key term-raw-map (kbd "M-p") nil)))
+     (define-key term-raw-map (kbd "M-p") nil)
+     (define-key term-raw-map (kbd "M-o") nil)))
 
 ;; needed modes
 (add-hook 'term-mode-hook

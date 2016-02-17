@@ -9,6 +9,7 @@
 ;; font face
 (add-to-list 'default-frame-alist '(font . "Fira Mono"))
 (set-frame-font "Fira Mono")
+(setq-default line-spacing 3)
 
 ;; font size
 (set-face-attribute 'default nil :height 140)

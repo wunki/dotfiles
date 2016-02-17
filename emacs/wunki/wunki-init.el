@@ -94,6 +94,9 @@
     ;; erlang
     erlang
 
+    ;; c#
+    omnisharp
+
     ;; go
     go-mode
     go-eldoc

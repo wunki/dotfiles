@@ -108,6 +108,10 @@ function ghc; stack exec -- ghc; end
 function ghci; stack exec -- ghci; end
 prepend_to_path "$HOME/.cabal/bin"
 
+# .net
+set -x NVM_DIR "/Users/wunki/.nvm"
+prepend_to_path "/usr/local/share/dotnet/bin"
+
 # rust
 prepend_to_path "$HOME/.cargo/bin"
 prepend_to_path "$HOME/.multirust/toolchains/stable/cargo/bin"

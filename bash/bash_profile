@@ -16,3 +16,5 @@ fi
 
 export NVM_DIR="/home/wunki/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[ -s "/Users/wunki/.dnx/dnvm/dnvm.sh" ] && . "/Users/wunki/.dnx/dnvm/dnvm.sh" # Load dnvm

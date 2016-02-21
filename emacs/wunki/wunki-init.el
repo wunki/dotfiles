@@ -168,6 +168,7 @@ Missing packages are installed automatically."
 (require 'wunki-python)            ; python
 (require 'wunki-haskell)           ; haskell
 (require 'wunki-erlang)            ; erlang
+(require 'wunki-csharp)            ; c#
 (require 'wunki-go)                ; go
 (require 'wunki-erc)               ; irc
 (require 'wunki-yaml)              ; yaml

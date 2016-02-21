@@ -14,6 +14,7 @@
 ;; my e-mail addresses
 (setq mu4e-user-mail-address-list '("petar@wunki.org"
                                     "petar@gibbon.co"
+                                    "petar@degreed.com"
                                     "petar@breadandpepper.com"
                                     "hello@breadandpepper.com"
                                     "hello@invyapp.com"
@@ -77,6 +78,15 @@
 Co-founder Gibbon | @wunki")
          (smtpmail-smtp-server "smtp.gmail.com")
          (smtpmail-smtp-user   "petar@gibbon.co"))
+        ("degreed"
+         (user-mail-address    "petar@degreed.com")
+         (mu4e-sent-folder     "/degreed/sent")
+         (mu4e-drafts-folder   "/degreed/drafts")
+         (mu4e-compose-signature
+          "Petar Radosevic
+Co-founder Gibbon | @wunki")
+         (smtpmail-smtp-server "smtp.gmail.com")
+         (smtpmail-smtp-user   "petar@degreed.com"))
         ("wunki"
          (user-mail-address    "petar@wunki.org")
          (mu4e-sent-folder     "/wunki/sent")
@@ -122,6 +132,7 @@ Co-founder Gibbon | @wunki")
 (setq mu4e-bookmarks 
   '(("flag:unread AND NOT maildir:/gibbon/trash AND NOT maildir:/wunki/trash AND NOT maildir:/bread-and-pepper/trash AND NOT maildir:/wunki/junk AND NOT maildir:/gibbon/junk" "All new messages" ?u)
     ("maildir:/gibbon/inbox"                      "Gibbon's inbox"         ?g)
+    ("maildir:/degreed/inbox"                     "Degreed's inbox"        ?d)
     ("maildir:/wunki/inbox"                       "Wunki's inbox"          ?w)
     ("maildir:/bread-and-pepper/inbox"            "Bread & Pepper's inbox" ?b)
     ("maildir:/gibbon/inbox OR maildir:/wunki/inbox OR maildir:/bread-and-pepper/inbox"                             "All inboxes"       ?i)
@@ -132,6 +143,7 @@ Co-founder Gibbon | @wunki")
 (setq mu4e-maildir-shortcuts
        '(("/wunki/inbox"              . ?i)
          ("/bread-and-pepper/inbox"   . ?I)
+         ("/degreed/inbox"            . ?d)
          ("/wunki/archive"            . ?a)
          ("/bread-and-pepper/archive" . ?A)
          ("/wunki/sent"               . ?s)

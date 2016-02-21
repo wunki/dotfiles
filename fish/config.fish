@@ -111,6 +111,7 @@ prepend_to_path "$HOME/.cabal/bin"
 # .net
 set -x NVM_DIR "/Users/wunki/.nvm"
 prepend_to_path "/usr/local/share/dotnet/bin"
+prepend_to_path "/Users/wunki/.etc/omnisharp-roslyn/src/OmniSharp/bin/Debug/dnxcore50/osx.10.11-x64"
 
 # rust
 prepend_to_path "$HOME/.cargo/bin"

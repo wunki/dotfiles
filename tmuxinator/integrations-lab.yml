@@ -1,0 +1,6 @@
+name: integrations-lab
+root: ~/Projects/integrations-lab
+
+windows:
+  - vim: n integrations-lab.md
+  - git: git status

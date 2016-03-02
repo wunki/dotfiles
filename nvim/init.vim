@@ -11,6 +11,7 @@ Plug 'tpope/vim-eunuch'                                  " unix helper commands
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
 Plug 'tpope/vim-obsession'                               " better vim sessions
+Plug 'tpope/vim-speeddating'
 Plug 'rking/ag.vim'                                      " silver searcher
 Plug 'commentary.vim'                                    " comment mappings
 Plug 'surround.vim'                                      " surround commands
@@ -216,6 +217,9 @@ vnoremap Q gq
 
 " Undo tree
 nnoremap <F5> :UndotreeToggle<cr>
+
+" Terminal
+tnoremap <Esc> <C-\><C-n>
 
 " Ctrlp
 let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'

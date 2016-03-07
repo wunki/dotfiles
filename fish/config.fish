@@ -188,8 +188,9 @@ if test -d ~/.pyenv
   status --is-interactive; and . (pyenv virtualenv-init -|psub)
 end
 
-if contains (hostname -s) "macbook"
+if contains (hostname -s) "home"
   prepend_to_path "$HOME/Library/Python/2.7/bin"
+  prepend_to_path "$HOME/Library/Python/3.5/bin/"
   set -gx PYTHONPATH "$HOME/Library/Python/2.7/lib/python/site-packages:/Library/Python/2.7/site-packages"
 end
 

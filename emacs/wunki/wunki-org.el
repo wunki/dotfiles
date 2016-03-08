@@ -9,9 +9,7 @@
 (define-key global-map (kbd "<f8>") 'org-cycle-agenda-files)
 
 ;; root directory of org files
-(if (mac?)
-    (setq org-root (expand-file-name "~/Documents/Org"))
-  (setq org-root (expand-file-name "~/org")))
+(setq org-root (expand-file-name "~/Stack/Org"))
 
 ;; journal
 (setq org-journal-dir (format "%s/%s" org-root "journal"))
@@ -53,6 +51,10 @@
 
 ;; use IDO for both buffer and file completion and ido-everywhere to t
 (setq org-completion-use-ido t)
+
+;; enable exporting as markdown
+(eval-after-load "org"
+  '(require 'ox-md nil t))
 
 ;; org-babel
 (org-babel-do-load-languages

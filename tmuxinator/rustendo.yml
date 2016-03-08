@@ -1,0 +1,6 @@
+name: rustendo
+root: ~/Projects/rustendo64
+
+windows:
+  - vim: n
+  - git: git status

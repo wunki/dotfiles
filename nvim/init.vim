@@ -7,6 +7,23 @@ call plug#begin('~/.config/nvim/plugged')
 
 " Essentials
 Plug 'benekastah/neomake'                                " building new stuff
+augroup neomake_after_save
+  autocmd!
+  autocmd BufReadPost,BufWritePost * Neomake | if has('nvim') | Neomake! | endif
+  autocmd BufReadPost,BufWritePost *.rs if has('nvim') | Neomake! cargo | endif
+augroup END
+let g:neomake_verbose = 0
+let g:neomake_error_sign = {
+      \ 'text': '⚑',
+      \ 'texthl': 'ErrorMsg'
+      \ }
+let g:neomake_warning_sign = {
+      \ 'text': '⚐',
+      \ 'texthl': 'WarningMsg'
+      \ }
+" Disable rustc checker
+let g:neomake_rust_enabled_makers = []
+
 Plug 'tpope/vim-eunuch'                                  " unix helper commands
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
@@ -17,7 +34,6 @@ Plug 'commentary.vim'                                    " comment mappings
 Plug 'surround.vim'                                      " surround commands
 Plug 'godlygeek/tabular'                                 " easy indenting
 Plug 'Lokaltog/vim-easymotion'                           " move by selecting a letter
-Plug 'scrooloose/syntastic'                              " syntax checker
 Plug 'mbbill/undotree'                                   " easy undoing
 Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, brackend and quotes
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
@@ -88,6 +104,7 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
+Plug 'eagletmt/neco-ghc'
 Plug 'bitc/vim-hdevtools'
     au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
     au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>

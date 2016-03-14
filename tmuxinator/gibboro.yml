@@ -1,0 +1,6 @@
+name: gibboro
+root: ~/Projects/go/src/github.com/gibbonco/gibboro
+
+windows:
+  - vim: n
+  - git: git status

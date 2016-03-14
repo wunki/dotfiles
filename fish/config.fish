@@ -126,11 +126,7 @@ function gb; go build; end
 function gt; go test -v ./...; end
 function gc; gocov test | gocov report; end
 
-if test -d "$HOME/Go"
-    set -x GOPATH "$HOME/Go"
-else
-    set -x GOPATH "$HOME/go"
-end
+set -x GOPATH "$HOME/Projects/go"
 prepend_to_path "$GOPATH/bin"
 
 # Test coverage for Go
@@ -218,3 +214,6 @@ function __fish_default_command_not_found_handler --on-event fish_command_not_fo
   functions --erase __fish_command_not_found_setup
   echo "'$argv' not found"
 end
+
+# what the fuck?
+eval (thefuck --alias | tr '\n' ';')

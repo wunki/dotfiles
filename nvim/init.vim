@@ -88,6 +88,7 @@ Plug 'bling/vim-airline'
 
 " Go
 Plug 'benmills/vim-golang-alternate', { 'for': 'go' }
+Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'fatih/vim-go', { 'for': 'go' }
     au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
     let g:go_fmt_command = "goimports"
@@ -103,9 +104,9 @@ Plug 'fatih/vim-go', { 'for': 'go' }
     au FileType go nmap gd <Plug>(go-def)
 
 " Haskell
-Plug 'neovimhaskell/haskell-vim'
-Plug 'eagletmt/neco-ghc'
-Plug 'bitc/vim-hdevtools'
+Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
+Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
     au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
     au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 

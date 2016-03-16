@@ -6,18 +6,17 @@ function t1; tree --dirsfirst -ChFL 1; end
 function t2; tree --dirsfirst -ChFL 2; end
 function t3; tree --dirsfirst -ChFL 3; end
 
-# mac shortcuts
+# mac
 function bup; brew update; and brew upgrade --all; and brew cleanup; end
 function run-rethinkdb; launchctl load ~/Library/LaunchAgents/homebrew.mxcl.rethinkdb.plist; end
 function run-redis; redis-server /usr/local/etc/redis.conf; end
 
-# freebsd shortcuts
+# freebsd
 function ea; sudo ezjail-admin $argv; end
 function ioc; sudo iocage $argv; end
 function btop; nice top -j -P -a; end
 
-# neovim settings
-set -x NVIM_TUI_ENABLE_TRUE_COLOR 1 # enable true colors in Neovim. Requires compatible shell.
+# neovim 
 function n; nvim $argv; end
 
 if type -Pq nvim

@@ -189,7 +189,7 @@ let maplocalleader = "_"
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
 
-" Shortcuts 
+" Shortcuts
 inoremap hh <ESC>
 map <silent> <Leader>nm :Neomake<cr>
 nmap <silent> <Leader>l :set list!<CR>
@@ -213,6 +213,6 @@ vnoremap Q gq
 " Terminal
 tnoremap <Esc> <C-\><C-n>
 
-" Mutt 
+" Mutt
 au BufRead ~/.mutt/tmp/mutt-* set tw=72 formatoptions=tcql
 

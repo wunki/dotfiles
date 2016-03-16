@@ -29,7 +29,7 @@ Plug 'tpope/vim-obsession'                               " better vim sessions
 Plug 'tpope/vim-speeddating'                             " easily increment numbers and dates
 Plug 'airblade/vim-gitgutter'                            " show git changes in the gutter
 Plug 'rking/ag.vim'                                      " silver searcher
-Plug 'tpope/vim-commentary.vim'                          " comment mappings
+Plug 'tpope/vim-commentary'                              " comment mappings
 Plug 'surround.vim'                                      " surround commands
 Plug 'godlygeek/tabular'                                 " easy indenting
 Plug 'Lokaltog/vim-easymotion'                           " move by selecting a letter

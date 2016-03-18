@@ -19,8 +19,7 @@ let g:neomake_warning_sign = {
       \ 'text': '⚐',
       \ 'texthl': 'WarningMsg'
       \ }
-" Disable rustc checker
-let g:neomake_rust_enabled_makers = []
+let g:neomake_rust_enabled_makers = []                   " disable rustc checker
 
 Plug 'tpope/vim-eunuch'                                  " unix helper commands
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
@@ -99,7 +98,8 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 
     au FileType go nmap <leader>r <Plug>(go-run)
     au FileType go nmap <leader>b <Plug>(go-build)
-    au FileType go nmap <leader>t <Plug>(go-test)
+    au FileType go nmap <leader>tt <Plug>(go-test)
+    au FileType go nmap <leader>tf <Plug>(go-test-func)
     au FileType go nmap <Leader>i <Plug>(go-info)
     au FileType go nmap <Leader>d <Plug>(go-doc)
     au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
@@ -162,6 +162,7 @@ set nofoldenable            " don't do any folding for now
 set guicursor+=a:blinkon0   " don't blink the cursor please
 set winwidth=79             " resize active window to minimally contains 79 chars width
 set clipboard=unnamedplus   " enable clipboard when on gui
+set completeopt-=preview
 
 colorscheme gruvbox
 

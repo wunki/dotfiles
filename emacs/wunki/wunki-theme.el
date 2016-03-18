@@ -7,8 +7,8 @@
 (load-theme 'sanityinc-tomorrow-blue t)
 
 ;; font face
-(add-to-list 'default-frame-alist '(font . "Fira Mono"))
-(set-frame-font "Fira Mono")
+(add-to-list 'default-frame-alist '(font . "Hack"))
+(set-frame-font "Hack")
 (setq-default line-spacing 2)
 
 ;; font size

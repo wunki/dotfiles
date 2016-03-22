@@ -216,4 +216,6 @@ function __fish_default_command_not_found_handler --on-event fish_command_not_fo
 end
 
 # what the fuck?
-eval (thefuck --alias | tr '\n' ';')
+if test -f /usr/local/bin/fuck
+  eval (thefuck --alias | tr '\n' ';')
+end

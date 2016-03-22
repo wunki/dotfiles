@@ -37,6 +37,12 @@ function e
   end
 end
 
+if contains (uname -s) "Darwin"
+  set -x PROJECT_DIR {$HOME}/Projects
+else
+  set -x PROJECT_DIR {$HOME}/projects
+end
+
 # openssl on mac
 set -x OPENSSL_INCLUDE_DIR /usr/local/opt/openssl/include
 set -x OPENSSL_LIB/usr/local/opt/openssl/lib
@@ -126,7 +132,7 @@ function gb; go build; end
 function gt; go test -v ./...; end
 function gc; gocov test | gocov report; end
 
-set -x GOPATH "$HOME/Projects/go"
+set -x GOPATH "$HOME/$PROJECT_DIR/go"
 prepend_to_path "$GOPATH/bin"
 
 # Test coverage for Go
@@ -216,4 +222,6 @@ function __fish_default_command_not_found_handler --on-event fish_command_not_fo
 end
 
 # what the fuck?
-eval (thefuck --alias | tr '\n' ';')
+if test -f /usr/local/bin/fuck
+  eval (thefuck --alias | tr '\n' ';')
+end

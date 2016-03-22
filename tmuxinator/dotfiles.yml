@@ -1,7 +1,7 @@
 # ~/.tmuxinator/dotfiles.yml
 
 name: dotfiles
-root: ~/src/wunki-dotfiles
+root: ~/Projects/wunki-dotfiles
 
 windows:
   - nvim:

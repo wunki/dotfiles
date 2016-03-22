@@ -6,6 +6,7 @@ xdefault=$(DOTFILES)/xorg/${HOSTNAME}-Xdefaults
 xmobar=$(DOTFILES)/xmonad/${HOSTNAME}-xmobarrc
 gtkrc=$(DOTFILES)/gtk/${HOSTNAME}-gtkrc.mine
 gtk2=$(DOTFILES)/gtk/${HOSTNAME}-gtkrc-2.0
+tmux=$(DOTFILES)/tmux/${HOSTNAME}-tmux.conf
 
 all:: vim emacs bin zsh bash tmux xmonad xorg gtk mpv conkeror ghc
 
@@ -59,7 +60,7 @@ tarsnap::
 	@echo tarsnap is symlinked.
 
 tmux::
-	@ln -fs $(DOTFILES)/tmux/tmux.conf					${HOME}/.tmux.conf
+	@ln -fs $(tmux)					                    ${HOME}/.tmux.conf
 	@ln -fs $(DOTFILES)/tmux/tmux-status.conf		${HOME}/.tmux-status.conf
 	@echo tmux is symlinked.
 

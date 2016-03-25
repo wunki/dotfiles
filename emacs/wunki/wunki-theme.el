@@ -7,12 +7,11 @@
 (load-theme 'sanityinc-tomorrow-blue t)
 
 ;; font face
-(add-to-list 'default-frame-alist '(font . "Hack"))
-(set-frame-font "Hack")
+(add-to-list 'default-frame-alist '(font . "Fira Mono-14"))
+(set-frame-font "Fira Mono 14" nil t)
 (setq-default line-spacing 2)
 
 ;; font size
-(set-face-attribute 'default nil :height 140)
 (global-set-key (kbd "C-M-=") 'default-text-scale-increase)
 (global-set-key (kbd "C-M--") 'default-text-scale-decrease)
 

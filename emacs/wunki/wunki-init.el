@@ -19,9 +19,7 @@
     yagist
     ack-and-a-half
     buffer-move
-    s
     projectile
-    goto-last-change
     expand-region
     change-inner
     powerline
@@ -63,6 +61,10 @@
     company
     default-text-scale
 
+    ; package management
+    paradox
+    async
+
     ;; clojure
     cider
     clojure-mode
@@ -70,10 +72,6 @@
     cljdoc
     clojurescript-mode
 
-    ; packages
-    paradox
-    async
-    
     ; haskell
     haskell-mode
     flycheck-hdevtools

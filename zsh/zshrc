@@ -24,3 +24,5 @@ _sitecompdir=/usr/local/share/zsh/site-functions
 
 # aliases
 source ~/.zshalias
+
+export PATH="$HOME/.cargo/bin:$PATH"

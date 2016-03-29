@@ -92,7 +92,7 @@
 
 (defun ido-todos ()
   (interactive)
-  (ido-find-file-in-dir "~/Documents/Org"))
+  (ido-find-file-in-dir "~/Stack/Org"))
 
 (defun ido-emacs-config ()
   (interactive)

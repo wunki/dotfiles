@@ -20,10 +20,10 @@
 ;; org-files, only used for coding
 (setq org-agenda-files (list (format "%s/%s" org-root "inbox.org")
                              (format "%s/%s" org-root "today.org")
-                             (format "%s/%s" org-root "me.org")
-                             (format "%s/%s" org-root "gibbon.org")
+                             (format "%s/%s" org-root "degreed.org")
                              (format "%s/%s" org-root "servers.org")
-                             (format "%s/%s" org-root "books.org"))
+                             (format "%s/%s" org-root "books.org")
+                             (format "%s/%s" org-root "courses.org"))
       org-default-notes-file (format "%s/%s" org-root "inbox.org"))
 
 ;; always use indent-mode

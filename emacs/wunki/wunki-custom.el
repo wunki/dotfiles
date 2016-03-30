@@ -90,11 +90,11 @@
  '(haskell-notify-p t)
  '(haskell-process-show-debug-tips nil)
  '(haskell-process-type (quote cabal-repl))
- '(haskell-stylish-on-save t)
- '(haskell-tags-on-save t)
+ '(haskell-stylish-on-save t t)
+ '(haskell-tags-on-save t t)
  '(org-agenda-files
    (quote
-    ("/Users/wunki/Org/inbox.org" "/Users/wunki/Org/today.org")))
+    ("/Users/wunki/Stack/Org/inbox.org" "/Users/wunki/Stack/Org/today.org" "/Users/wunki/Stack/Org/servers.org")))
  '(paradox-github-token t)
  '(safe-local-variable-values
    (quote

@@ -40,9 +40,8 @@
     flycheck
     dash-at-point
     twittering-mode
-    org
-    org-plus-contrib
-    org-magit
+
+
     pandoc-mode
     markdown-mode
     gitconfig-mode
@@ -61,6 +60,12 @@
     company
     default-text-scale
 
+    ;; org
+    org
+    org-plus-contrib
+    org-magit
+    org-pomodoro
+    
     ; package management
     paradox
     async

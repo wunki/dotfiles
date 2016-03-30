@@ -6,7 +6,7 @@
 ;; load theme and don't ask if it's save.
 (if (display-graphic-p)
     (load-theme 'sanityinc-tomorrow-blue t)
-  (load-theme 'gruvbox))
+  (load-theme 'gruvbox t))
 
 ;; font face
 (add-to-list 'default-frame-alist '(font . "Fira Mono-14"))

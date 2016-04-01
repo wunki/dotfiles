@@ -41,7 +41,6 @@
     dash-at-point
     twittering-mode
 
-
     pandoc-mode
     markdown-mode
     gitconfig-mode
@@ -110,6 +109,7 @@
 
     ;; colors
     zenburn-theme
+    tao-theme
     solarized-theme
     gruvbox-theme
     color-theme-sanityinc-tomorrow

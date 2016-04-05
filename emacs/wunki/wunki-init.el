@@ -91,8 +91,10 @@
     rustfmt
 
     ; python
-    elpy
+    anaconda-mode
+    company-anaconda
     pyenv-mode
+    pyenv-mode-auto
     
     ;; erlang
     erlang

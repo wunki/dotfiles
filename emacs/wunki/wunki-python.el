@@ -3,8 +3,7 @@
 (defun wunki-python-defaults ()
   "Default modes for Python programming"
   (subword-mode +1)
-  (anaconda-mode)
-  (eldoc-mode))
+  (elpy-enable))
 
 (add-hook 'python-mode-hook 'wunki-python-defaults)
 

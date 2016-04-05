@@ -5,12 +5,12 @@
 
 ;; load theme and don't ask if it's save.
 (if (display-graphic-p)
-    (load-theme 'zenburn t)
-  (load-theme 'gruvbox t))
+    (load-theme 'sanityinc-tomorrow-blue t)
+  (load-theme 'zenburn t))
 
 ;; font face
-(add-to-list 'default-frame-alist '(font . "Fira Mono-14"))
-(set-frame-font "Fira Mono 14" nil t)
+(add-to-list 'default-frame-alist '(font . "Fira Mono-16"))
+(set-frame-font "Fira Mono 16" nil t)
 (setq-default line-spacing 2)
 
 ;; font size

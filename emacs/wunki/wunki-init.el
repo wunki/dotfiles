@@ -10,6 +10,7 @@
 (setq package-archives '(("marmalade" . "https://marmalade-repo.org/packages/")
                          ("melpa" . "https://melpa.org/packages/")
                          ("org" . "http://orgmode.org/elpa/")
+                         ("elpy" . "https://jorgenschaefer.github.io/packages/")
                          ("gnu" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
 
@@ -40,7 +41,6 @@
     flycheck
     dash-at-point
     twittering-mode
-
 
     pandoc-mode
     markdown-mode
@@ -91,7 +91,7 @@
     rustfmt
 
     ; python
-    anaconda-mode
+    elpy
     pyenv-mode
     
     ;; erlang
@@ -110,6 +110,7 @@
 
     ;; colors
     zenburn-theme
+    tao-theme
     solarized-theme
     gruvbox-theme
     color-theme-sanityinc-tomorrow

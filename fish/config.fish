@@ -186,7 +186,6 @@ prepend_to_path "/usr/bin/core_perl"
 # python
 prepend_to_path "$HOME/.pyenv/bin"
 if type -Pq pyenv
-  set -gx PYENV_VERSION "3.5.1"
   status --is-interactive; and . (pyenv init -|psub)
   status --is-interactive; and . (pyenv virtualenv-init -|psub)
 end

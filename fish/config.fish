@@ -185,15 +185,10 @@ prepend_to_path "/usr/bin/core_perl"
 
 # python
 prepend_to_path "$HOME/.pyenv/bin"
-if test -d ~/.pyenv
+if type -Pq pyenv
+  set -gx PYENV_VERSION "3.5.1"
   status --is-interactive; and . (pyenv init -|psub)
   status --is-interactive; and . (pyenv virtualenv-init -|psub)
-end
-
-if contains (hostname -s) "home"
-  prepend_to_path "$HOME/Library/Python/2.7/bin"
-  prepend_to_path "$HOME/Library/Python/3.5/bin/"
-  set -gx PYTHONPATH "$HOME/Library/Python/2.7/lib/python/site-packages:/Library/Python/2.7/site-packages"
 end
 
 # aws

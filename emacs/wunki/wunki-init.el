@@ -47,8 +47,6 @@
     gitconfig-mode
     gitignore-mode
     js2-mode
-    yaml-mode
-    ansible
     ido-ubiquitous
     flx-ido
     undo-tree
@@ -60,15 +58,21 @@
     company
     default-text-scale
 
+
     ;; org
     org
     org-plus-contrib
     org-magit
     org-pomodoro
+
+    ;; server management
+    yaml-mode
+    ansible
+    salt-mode
     
-    ; package management
-    paradox
+    ;; package management
     async
+    paradox
 
     ;; clojure
     cider

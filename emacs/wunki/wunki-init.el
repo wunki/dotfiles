@@ -67,7 +67,6 @@
 
     ;; server management
     yaml-mode
-    ansible
     salt-mode
     
     ;; package management
@@ -104,7 +103,7 @@
     erlang
 
     ;; c#
-    omnisharp
+    csharp-mode
 
     ;; go
     go-mode

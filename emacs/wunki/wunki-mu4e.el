@@ -28,6 +28,7 @@
 (setq mail-user-agent 'mu4e-user-agent                   ; mu4e as default mail agent
       mu4e-attachment-dir "~/downloads"                  ; put attachements in download dir
       mu4e-get-mail-command "offlineimap"                ; fetch email with offlineimap
+      mu4e-update-interval 900                           ; check for mail every 15 minutes
       mu4e-confirm-quit nil                              ; don't ask me to quit
       mu4e-headers-skip-duplicates t                     ; skip duplicate email, great for gmail
       mu4e-headers-date-format "%d %b, %Y at %H:%M"      ; date format

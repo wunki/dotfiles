@@ -11,7 +11,8 @@
 ;; font face
 (add-to-list 'default-frame-alist '(font . "Fira Mono-14"))
 (set-frame-font "Fira Mono 14" nil t)
-(setq-default line-spacing 2)
+(if (mac?)
+    (setq-default line-spacing 2))
 
 ;; font size
 (global-set-key (kbd "C-M-=") 'default-text-scale-increase)

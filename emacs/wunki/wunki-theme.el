@@ -9,8 +9,8 @@
   (load-theme 'zenburn t))
 
 ;; font face
-(add-to-list 'default-frame-alist '(font . "Fira Mono-16"))
-(set-frame-font "Fira Mono 16" nil t)
+(add-to-list 'default-frame-alist '(font . "Fira Mono-14"))
+(set-frame-font "Fira Mono 14" nil t)
 (setq-default line-spacing 2)
 
 ;; font size

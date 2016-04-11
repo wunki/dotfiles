@@ -11,4 +11,7 @@
 (after-load 'magit
   (fullframe magit-status magit-mode-quit-window))
 
+(if (eq system-type 'windows-nt)
+    (add-to-list 'exec-path "C:/Program Files/Git/bin"))
+
 (provide 'wunki-git)

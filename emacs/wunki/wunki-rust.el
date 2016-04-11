@@ -1,7 +1,7 @@
 (require 'racer)
 
 (defun wunki-rust-mode-hook ()
-  (setq racer-cmd "/Users/wunki/.multirust/toolchains/stable/cargo/bin/racer")
+  (setq racer-cmd "~/.cargo/bin/racer")
   (setq racer-rust-src-path "/Users/wunki/.etc/rust/src/")
   (rustfmt-enable-on-save)
   (set (make-local-variable 'company-backends) '(company-racer))

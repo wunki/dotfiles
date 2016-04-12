@@ -26,8 +26,8 @@ Windows external keyboard from time to time."
       (setq mac-option-modifier 'meta)
       (message "Command is now bound to SUPER and Option is bound to META."))))
 (global-set-key (kbd "C-c w") 'swap-meta-and-super)
+(swap-meta-and-super) ;; at boot, start with ALT as super.
 
-(setq default-input-method "MacOSX")
 (global-set-key (kbd "M-`") 'ns-next-frame)
 (global-set-key (kbd "M-h") 'ns-do-hide-emacs)
 (global-set-key (kbd "M-H") 'ns-do-hide-others)

@@ -167,7 +167,8 @@ Missing packages are installed automatically."
 (require 'wunki-temp)              ; temporary files
 (require 'wunki-git)               ; (ma)git settings
 (require 'wunki-org)               ; org-mode
-(require 'wunki-term)              ; ansi-term settings
+(if (not (windows?))
+    (require 'wunki-term))         ; ansi-term settings
 (require 'wunki-html)              ; HTML files
 (require 'wunki-lisp)              ; lisp languages
 (require 'wunki-scheme)            ; scheme languages

@@ -147,6 +147,11 @@ Including indent-buffer, which should not be called automatically on save."
   "Return true if system is darwin-based (Mac OS X)"
   (string-equal system-type "darwin"))
 
+(defun windows? ()
+  (interactive)
+  "Return true if we are running windows"
+  (string-equal system-type "windows-nt"))
+
 (defun freebsd? ()
   (interactive)
   "Return true if the system is on BSD"

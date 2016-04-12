@@ -41,7 +41,6 @@
     flycheck
     dash-at-point
     twittering-mode
-
     pandoc-mode
     markdown-mode
     gitconfig-mode
@@ -57,7 +56,6 @@
     fish-mode
     company
     default-text-scale
-
 
     ;; org
     org

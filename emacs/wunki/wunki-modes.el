@@ -7,7 +7,15 @@
 ;; highlight the current line
 (global-hl-line-mode t)
 
+(require 'projectile)
 ;; projectile for project management
+(setq projectile-globally-ignored-directories
+      (append projectile-globally-ignored-directories
+              '(".nuget"
+                "node_modules"
+                )))
+(if (windows?)
+    (setq projectile-indexing-method 'alien))
 (setq projectile-cache-file "~/.projectile.cache")
 (setq projectile-known-projects-file "~/.projectile-bookmarks.eld")
 (projectile-global-mode)

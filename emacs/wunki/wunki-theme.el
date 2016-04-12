@@ -9,8 +9,8 @@
   (load-theme 'zenburn t))
 
 ;; font face
-(add-to-list 'default-frame-alist '(font . "Fira Mono-14"))
-(set-frame-font "Fira Mono 14" nil t)
+(add-to-list 'default-frame-alist '(font . "Fira Mono-12"))
+(set-frame-font "Fira Mono 12" nil t)
 (if (mac?)
     (setq-default line-spacing 2))
 

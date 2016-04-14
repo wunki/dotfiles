@@ -16,8 +16,6 @@
                 )))
 (if (windows?)
     (setq projectile-indexing-method 'alien))
-(setq projectile-cache-file "~/.projectile.cache")
-(setq projectile-known-projects-file "~/.projectile-bookmarks.eld")
 (projectile-global-mode)
 
 ;; deletes region when starting typing

@@ -7,11 +7,11 @@
 # If not running interactively, don't do anything, to stop bind/sftp errors
 [ -z "$PS1" ] && return
 
-#Colors ------------------------------------------------------------
+# Colors
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 
-# PATH
+# Path
 pathadd() {
     if [ -d "$1"  ] && [[ ":$PATH:" != *":$1:"*  ]]; then
         PATH="${PATH:+"$PATH:"}$1"
@@ -167,6 +167,5 @@ fi
 if [ -f ~/.bash_aliases ]; then
    . ~/.bash_aliases
 fi
-
 
 export PATH="$HOME/.cargo/bin:$PATH"

@@ -21,6 +21,9 @@
 ;; deletes region when starting typing
 (pending-delete-mode t)
 
+;; highlight TODO/FIXME
+(fic-mode t)
+
 ;; blinking
 (blink-cursor-mode -1)
 

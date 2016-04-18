@@ -56,6 +56,7 @@
     fish-mode
     company
     default-text-scale
+    fic-mode
 
     ;; org
     org

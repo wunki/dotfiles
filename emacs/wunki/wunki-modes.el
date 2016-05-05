@@ -66,8 +66,8 @@
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 (add-hook 'js-mode-hook 'js2-minor-mode)
 
-;; jinja
-(add-to-list 'auto-mode-alist '("\\.j2$" . jinja2-mode))
+;; web mode
+(add-to-list 'auto-mode-alist '("\\.j2\\'" . web-mode))
 
 ;; whitespace
 (setq whitespace-style

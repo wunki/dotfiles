@@ -40,8 +40,8 @@ main = do
         , borderWidth = 1
         , normalBorderColor  = "#7285b7"
         , focusedBorderColor = "#bbdaff"
-        , workspaces = ["1:Editor", "2:Shells", "3:Browser", "4", "5"]
-        , terminal  = "sakura"
+        , workspaces = ["1:Emacs", "2:Shells", "3:Browser", "4", "5"]
+        , terminal  = "termite"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
         , startupHook = setWMName "LG3D"
         }
@@ -80,12 +80,12 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((modMask .|. controlMask, xK_l), sendMessage MagnifyLess)
     , ((modMask .|. controlMask, xK_m), sendMessage Toggle)
     , ((modMask .|. controlMask, xK_w), raiseMaybe (spawn "firefox") (className =? "Firefox"))
-    , ((modMask .|. controlMask, xK_e), raiseMaybe (spawn "~/bin/em") (className =? "Emacs"))
+    , ((modMask .|. controlMask, xK_e), raiseMaybe (spawn "~/.bin/em") (className =? "Emacs"))
     , ((modMask .|. controlMask, xK_v), raiseMaybe (spawn "gvim") (className =? "Gvim"))
     -- cycle through workspaces
     , ((modMask, xK_n), moveTo Next (WSIs (return $ not . (=="SP") . W.tag)))
     , ((modMask, xK_p), moveTo Prev (WSIs (return $ not . (=="SP") . W.tag)))
-    , ((modMask, xK_d), spawn "dmenu_run -i -fn 'xft:Hack:size=8:antialias=true' -nb '#1d1f21' -nf '#c5c8c6' -sb '#1d1f21' -sf '#81a2be' -p '>' ") -- %! Launch dmenu
+    , ((modMask, xK_d), spawn "dmenu_run -i -fn 'xft:Hack:size=14:antialias=true' -nb '#1d1f21' -nf '#c5c8c6' -sb '#1d1f21' -sf '#81a2be' -p '>' ") -- %! Launch dmenu
     , ((modMask, xK_g), windowPromptGoto  defaultXPConfig)
     , ((modMask, xK_c), windowPromptBring defaultXPConfig)
     ]

@@ -4,13 +4,11 @@
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
 ;; load theme and don't ask if it's save.
-(if (display-graphic-p)
-    (load-theme 'sanityinc-tomorrow-blue t)
-  (load-theme 'zenburn t))
+(load-theme 'sanityinc-tomorrow-blue t)
 
 ;; font face
 (add-to-list 'default-frame-alist '(font . "Fira Mono-12"))
-(set-frame-font "Fira Mono 12" nil t)
+(set-frame-font "Fira Mono 10" nil t)
 (if (mac?)
     (setq-default line-spacing 2))
 

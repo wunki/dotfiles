@@ -45,7 +45,7 @@ end
 
 # openssl on mac
 set -x OPENSSL_INCLUDE_DIR /usr/local/opt/openssl/include
-set -x OPENSSL_LIB/usr/local/opt/openssl/lib
+set -x OPENSSL_LIB /usr/local/opt/openssl/lib
 set -x OPENSSL_ROOT_DIR /usr/local/opt/openssl
 
 # mu
@@ -109,6 +109,11 @@ if test -f "$HOME/.autojump/share/autojump/autojump.fish"
   . "$HOME/.autojump/share/autojump/autojump.fish"
 end
 
+# autojump on arch linux
+if test -f "/etc/profile.d/autojump.fish"
+  . "/etc/profile.d/autojump.fish"
+end
+
 # haskell
 function ghc; stack exec -- ghc; end
 function ghci; stack exec -- ghci; end
@@ -123,6 +128,7 @@ prepend_to_path "/Users/wunki/.etc/omnisharp-roslyn/artifacts/publish/OmniSharp/
 prepend_to_path "$HOME/.cargo/bin"
 prepend_to_path "$HOME/.multirust/toolchains/stable/cargo/bin"
 function ct; cargo test -- --nocapture; end
+function cb; cargo build; end
 set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
 set -x RUST_SRC_PATH {$HOME}/.etc/rust/src
 

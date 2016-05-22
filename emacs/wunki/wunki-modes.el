@@ -156,6 +156,9 @@
 ;; nice visualation of undo's
 (global-undo-tree-mode t)
 
+;; web-mode
+(add-to-list 'auto-mode-alist '("\\.j2\\'" . web-mode))
+
 ;; twittering
 (setq twittering-use-master-password t)
 (setq twittering-curl-program "/usr/bin/curl")

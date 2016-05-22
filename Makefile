@@ -2,7 +2,6 @@ DOTFILES 	:= $(PWD)
 HOSTNAME 	:= $(shell hostname -s)
 
 # These files are different per machine
-xdefault=$(DOTFILES)/xorg/${HOSTNAME}-Xdefaults
 xmobar=$(DOTFILES)/xmonad/${HOSTNAME}-xmobarrc
 gtkrc=$(DOTFILES)/gtk/${HOSTNAME}-gtkrc.mine
 gtk2=$(DOTFILES)/gtk/${HOSTNAME}-gtkrc-2.0
@@ -81,7 +80,6 @@ xmonad::
 	@echo XMonad is symlinked.
 
 xorg::
-	@ln -fs $(xdefault)												${HOME}/.Xdefaults
 	@ln -fs $(DOTFILES)/xorg/Xresources				${HOME}/.Xresources
 	@ln -fs $(DOTFILES)/xorg/xinitrc					${HOME}/.xinitrc
 	@ln -fns $(DOTFILES)/xorg/fonts.conf			${HOME}/.fonts.conf

@@ -3,9 +3,11 @@
 # QT must be able to find my theme
 export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
+# Set the correct DPI
+xrandr --dpi 192
+
 # X Settings
-xrdb -load .Xresources
-xrdb -load .Xdefaults
+xrdb .Xresources
 
 # Disable PC-Speaker
 xset b off &
@@ -25,26 +27,23 @@ xsetroot -cursor_name left_ptr
 # Hide the mouse cursor
 unclutter -idle 3 &
 
+# Dvorak keyboard
+setxkbmap dvorak -option ctrl:nocaps
+
 # Set background
 feh --bg-fill ~/pictures/wallpapers/hex.png
-
-# Start rvxt-unicode server
-urxvtd -o -q -f &
 
 # Thunar
 thunar --daemon &
 
 # I want to be able to sleep at night
-redshift -l 52:4 -t 6000:4800 -m vidmode &
-
-# Xbindkeys for some extra keybindings
-xbindkeys
+# redshift -l 52:4 -t 6000:4800 -m vidmode &
 
 # SSH agent
 eval `ssh-agent`
 
 # Add my own path to bin, needed for dmenu
-export PATH="$HOME/bin:$PATH"
+export PATH="$HOME/.bin:$PATH"
 
 # Emacs
 emacs --daemon &

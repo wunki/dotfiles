@@ -29,7 +29,7 @@ Plug 'tpope/vim-speeddating'                             " easily increment numb
 Plug 'airblade/vim-gitgutter'                            " show git changes in the gutter
 Plug 'rking/ag.vim'                                      " silver searcher
 Plug 'tpope/vim-commentary'                              " comment mappings
-Plug 'tpope/vim-surround'                                      " surround commands
+Plug 'tpope/vim-surround'                                " surround commands
 Plug 'godlygeek/tabular'                                 " easy indenting
 Plug 'Lokaltog/vim-easymotion'                           " move by selecting a letter
 Plug 'mbbill/undotree'                                   " easy undoing
@@ -120,8 +120,8 @@ Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-    let g:racer_cmd = "/Users/wunki/.multirust/toolchains/stable/cargo/bin/racer"
-    let $RUST_SRC_PATH="/Users/wunki/.etc/rust/src"
+    let $RUST_SRC_PATH="/usr/local/etc/src/rust/src"
+    let g:racer_cmd = "~/.cargo/bin/racer"
     let g:racer_experimental_completer = 1
 
 call plug#end()

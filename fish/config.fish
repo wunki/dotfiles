@@ -126,11 +126,10 @@ prepend_to_path "/Users/wunki/.etc/omnisharp-roslyn/artifacts/publish/OmniSharp/
 
 # rust
 prepend_to_path "$HOME/.cargo/bin"
-prepend_to_path "$HOME/.multirust/toolchains/stable/cargo/bin"
 function ct; cargo test -- --nocapture; end
 function cb; cargo build; end
 set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
-set -x RUST_SRC_PATH {$HOME}/.etc/rust/src
+set -x RUST_SRC_PATH "/usr/local/src/rust/src"
 
 # go
 prepend_to_path "/usr/local/go/bin"

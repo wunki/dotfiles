@@ -27,6 +27,8 @@ Plug 'tpope/vim-obsession'                               " better vim sessions
 Plug 'tpope/vim-speeddating'                             " easily increment numbers and dates
 Plug 'airblade/vim-gitgutter'                            " show git changes in the gutter
 Plug 'rking/ag.vim'                                      " silver searcher
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'                                    " post to gist
 Plug 'tpope/vim-commentary'                              " comment mappings
 Plug 'tpope/vim-surround'                                " surround commands
 Plug 'godlygeek/tabular'                                 " easy indenting
@@ -89,8 +91,6 @@ Plug 'bling/vim-airline'
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-    let $RUST_SRC_PATH="/usr/local/etc/src/rust/src"
-    let g:racer_cmd = "~/.cargo/bin/racer"
     let g:racer_experimental_completer = 1
 
 call plug#end()

@@ -66,7 +66,7 @@ set -x LANG 'en_US.UTF-8'
 set -x LC_ALL 'en_US.UTF-8'
 set -x EDITOR 'nvim'
 set -x VISUAL 'nvim'
-set -x TERM 'screen-256color'
+set -x TERM 'xterm-256color'
 set -x XDG_DATA_HOME {$HOME}/.local/share
 
 # secret environment vars

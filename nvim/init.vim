@@ -81,8 +81,10 @@ Plug 'Shougo/deoplete.nvim'
     inoremap <Leader><Tab> <Space><Space>
 
 Plug 'mhartington/oceanic-next'
+Plug 'morhetz/gruvbox'
+    let g:gruvbox_bold = 0
 Plug 'bling/vim-airline'
-    let g:airline_theme='oceanicnext'
+    let g:airline_theme='gruvbox'
     let g:airline_powerline_fonts = 0
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
@@ -134,7 +136,7 @@ set winwidth=79             " resize active window to minimally contains 79 char
 set clipboard=unnamedplus   " enable clipboard when on gui
 set completeopt-=preview
 
-colorscheme OceanicNext
+colorscheme gruvbox
 
 " Use normal regular expressions
 nnoremap / /\v

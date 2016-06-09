@@ -95,6 +95,11 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
     let g:racer_experimental_completer = 1
 
+" Mac only
+if has("mac")
+  Plug 'rizzatti/dash.vim'
+endif
+
 call plug#end()
 
 filetype plugin indent on

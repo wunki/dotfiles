@@ -1,8 +1,0 @@
-# ~/.tmuxinator/duffel.yml
-
-name: duffel
-root: ~/Projects/duffel
-
-windows:
-  - vim: vim
-  - git: git status

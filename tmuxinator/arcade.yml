@@ -1,6 +1,0 @@
-name: arcade-rs
-root: ~/Projects/arcade-rs
-
-windows:
-  - vim: n
-  - git: git status

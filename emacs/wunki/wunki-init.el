@@ -83,6 +83,7 @@
     haskell-mode
     flycheck-hdevtools
     company-ghc
+    intero
 
     ; rust
     rust-mode

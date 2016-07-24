@@ -1,5 +1,5 @@
 # -*- mode: shell-script -*-
-# ~/.bash_profile
+# ~/.bashrc
 #
 # Settings for bash only.
 # File imports at the bottom.
@@ -11,45 +11,10 @@
 export GREP_OPTIONS='--color=auto' GREP_COLOR='1;32'
 export CLICOLOR=1
 
-# Path
-pathadd() {
-    if [ -d "$1"  ] && [[ ":$PATH:" != *":$1:"*  ]]; then
-        PATH="${PATH:+"$PATH:"}$1"
-    fi
-}
-pathadd "/sbin"
-pathadd "/bin"
-pathadd "/usr/sbin"
-pathadd "/usr/bin"
-pathadd "/usr/local/sbin"
-pathadd "/usr/local/bin"
-pathadd "/root/bin"
-pathadd "$HOME/.local/bin"
-pathadd "$HOME/.gem/ruby/1.9.1/bin"
-pathadd "$HOME/bin"
-
-# Haskell
-export GHC_DOT_APP="/Applications/ghc-7.8.3.app"
-pathadd "$HOME/.cabal/bin"
-pathadd "$GHC_DOT_APP/Contents/bin"
-
-# Golang
-if [ "$(uname)" == "Darwin" ]; then
-    export GOPATH="$HOME/Go"
-else
-    export GOPATH="$HOME/go"
-fi
-pathadd "/usr/local/go/bin"
-pathadd "$GOPATH/bin"
-
 # LLVM on FreeBSD
 if [ -d "/usr/local/llvm35/lib" ]; then
     export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/llvm35/lib/
 fi
-
-# Haskell
-pathadd "/opt/ghc/7.8.3/bin"
-pathadd "/opt/cabal/1.20/bin"
 
 # Z
 if [ -f "/home/wunki/src/z/z.sh" ]; then
@@ -59,10 +24,6 @@ fi
 if [ "$(uname)" == "Darwin" ]; then
     # Setup color options for LS, used in .bash_aliases
     export LS_OPTIONS='-F'
-    pathadd "$HOME/Library/Python/2.7/bin"
-
-    # PostgreSQL
-    pathadd ="/Applications/Postgres.app/Contents/Versions/9.3/bin"
 
     # Redis
     alias runredis="redis-server /usr/local/etc/redis.conf"
@@ -79,7 +40,6 @@ else
 fi
 
 # Pyenv
-pathadd "$HOME/.pyenv/bin"
 if hash pyenv 2>/dev/null; then
     eval "$(pyenv init -)"
     eval "$(pyenv virtualenv-init -)"
@@ -167,5 +127,3 @@ fi
 if [ -f ~/.bash_aliases ]; then
    . ~/.bash_aliases
 fi
-
-export PATH="$HOME/.cargo/bin:$PATH"

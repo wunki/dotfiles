@@ -4,6 +4,39 @@
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 
+# Add path variables
+pathadd() {
+    if [ -d "$1"  ] && [[ ":$PATH:" != *":$1:"*  ]]; then
+        PATH="${PATH:+"$PATH:"}$1"
+    fi
+}
+pathadd "/sbin"
+pathadd "/bin"
+pathadd "/usr/sbin"
+pathadd "/usr/bin"
+pathadd "/usr/local/sbin"
+pathadd "/usr/local/bin"
+pathadd "/root/bin"
+pathadd "$HOME/.local/bin"
+pathadd "$HOME/.cargo/bin"
+pathadd "$HOME/.cabal/bin"
+pathadd "$HOME/.gem/ruby/1.9.1/bin"
+pathadd "$HOME/bin"
+pathadd "$HOME/Library/Python/2.7/bin"
+pathadd "/Applications/Postgres.app/Contents/Versions/9.3/bin"
+pathadd "$HOME/.pyenv/bin"
+
+# Golang
+if [ "$(uname)" == "Darwin" ]; then
+    export GOPATH="$HOME/Go"
+else
+    export GOPATH="$HOME/go"
+fi
+pathadd "/usr/local/go/bin"
+pathadd "$GOPATH/bin"
+
+
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f /Users/wunki/Source/google-cloud-sdk/path.bash.inc ]; then
     source /Users/wunki/Source/google-cloud-sdk/path.bash.inc

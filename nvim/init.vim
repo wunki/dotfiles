@@ -47,29 +47,46 @@ Plug 'vitalk/vim-simple-todo'                            " simple todo's
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
     map <C-t> :Tagbar<CR>
+
     let g:tagbar_type_markdown = {
-                \ 'ctagstype' : 'markdown',
-                \ 'kinds' : [
-                \ 'h:headings',
-                \ 'l:links',
-                \ 'i:images'
-                \],
-                \ "sort" : 0
-                \ }
+      \ 'ctagstype' : 'markdown',
+      \ 'kinds' : [
+          \ 'h:Heading_L1',
+          \ 'i:Heading_L2',
+          \ 'k:Heading_L3'
+      \ ]
+    \ }
 
     let g:tagbar_type_rust = {
-                \ 'ctagstype' : 'rust',
-                \ 'kinds' : [
-                \'T:types,type definitions',
-                \'f:functions,function definitions',
-                \'g:enum,enumeration names',
-                \'s:structure names',
-                \'m:modules,module names',
-                \'c:consts,static constants',
-                \'t:traits,traits',
-                \'i:impls,trait implementations',
-                \  ]
-                \}
+      \ 'ctagstype' : 'rust',
+      \ 'kinds' : [
+          \'T:types,type definitions',
+          \'f:functions,function definitions',
+          \'g:enum,enumeration names',
+          \'s:structure names',
+          \'m:modules,module names',
+          \'c:consts,static constants',
+          \'t:traits,traits',
+          \'i:impls,trait implementations',
+      \]
+    \}
+
+    let g:tagbar_type_elixir = {
+      \ 'ctagstype' : 'elixir',
+      \ 'kinds' : [
+          \ 'f:functions',
+          \ 'functions:functions',
+          \ 'c:callbacks',
+          \ 'd:delegates',
+          \ 'e:exceptions',
+          \ 'i:implementations',
+          \ 'a:macros',
+          \ 'o:operators',
+          \ 'm:modules',
+          \ 'p:protocols',
+          \ 'r:records'
+      \ ]
+    \ }
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
@@ -94,6 +111,14 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
     let g:racer_experimental_completer = 1
+
+" Elm
+Plug 'lambdatoast/elm.vim'
+
+" Elixir
+Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
+
 
 " Mac only
 if has("mac")

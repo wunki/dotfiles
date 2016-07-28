@@ -10,7 +10,7 @@
 (add-to-list 'default-frame-alist '(font . "Source Code Pro-14"))
 (set-frame-font "Source Code Pro 14" nil t)
 (if (mac?)
-    (setq-default line-spacing 3))
+    (setq-default line-spacing 2))
 
 ;; font size
 (global-set-key (kbd "C-M-=") 'default-text-scale-increase)

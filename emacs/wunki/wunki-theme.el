@@ -7,10 +7,10 @@
 (load-theme 'sanityinc-tomorrow-blue t)
 
 ;; font face
-(add-to-list 'default-frame-alist '(font . "Fira Mono-12"))
-(set-frame-font "Fira Mono 10" nil t)
+(add-to-list 'default-frame-alist '(font . "Source Code Pro-14"))
+(set-frame-font "Source Code Pro 14" nil t)
 (if (mac?)
-    (setq-default line-spacing 2))
+    (setq-default line-spacing 3))
 
 ;; font size
 (global-set-key (kbd "C-M-=") 'default-text-scale-increase)

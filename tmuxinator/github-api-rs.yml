@@ -1,0 +1,8 @@
+# ~/.tmuxinator/github-api-rs.yml
+
+name: github-api-rs
+root: ~/Projects/github-api-rs
+
+windows:
+  - vim: n .
+  - tests: #

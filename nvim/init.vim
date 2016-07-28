@@ -115,11 +115,6 @@ Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 " Elm
 Plug 'lambdatoast/elm.vim'
 
-" Elixir
-Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
-Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
-
-
 " Mac only
 if has("mac")
   Plug 'rizzatti/dash.vim'

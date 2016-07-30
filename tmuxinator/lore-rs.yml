@@ -1,0 +1,8 @@
+# ~/.tmuxinator/lore-rs.yml
+
+name: lore-rs
+root: ~/Projects/lore-rs
+
+windows:
+  - vim: nvim .
+  - cargo: #

@@ -22,6 +22,7 @@
        (subword-mode +1)
        (haskell-doc-mode)
        (haskell-indentation-mode)
+       (intero-mode)
        (interactive-haskell-mode +1))
 
      (setq wunki-haskell-mode-hook 'wunki-haskell-mode-defaults)

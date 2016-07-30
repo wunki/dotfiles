@@ -66,7 +66,7 @@ set -x LANG 'en_US.UTF-8'
 set -x LC_ALL 'en_US.UTF-8'
 set -x EDITOR 'nvim'
 set -x VISUAL 'nvim'
-set -x TERM 'screen-256color'
+set -x TERM 'xterm-256color'
 set -x XDG_DATA_HOME {$HOME}/.local/share
 
 # secret environment vars
@@ -126,11 +126,10 @@ prepend_to_path "/Users/wunki/.etc/omnisharp-roslyn/artifacts/publish/OmniSharp/
 
 # rust
 prepend_to_path "$HOME/.cargo/bin"
-prepend_to_path "$HOME/.multirust/toolchains/stable/cargo/bin"
 function ct; cargo test -- --nocapture; end
 function cb; cargo build; end
 set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
-set -x RUST_SRC_PATH {$HOME}/.etc/rust/src
+set -x RUST_SRC_PATH "/usr/local/src/rust/src"
 
 # go
 prepend_to_path "/usr/local/go/bin"
@@ -178,9 +177,7 @@ end
 prepend_to_path "/Applications/Racket v6.1.1/bin"
 
 # rubygems
-prepend_to_path "$HOME/.gem/ruby/2.0.0/bin"
-prepend_to_path "$HOME/.gem/ruby/2.1/bin"
-prepend_to_path "$HOME/.gem/ruby/2.2.0/bin"
+prepend_to_path "$HOME/.gem/ruby/2.3.0/bin"
 
 # android
 prepend_to_path "/opt/android-sdk/tools"

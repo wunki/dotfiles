@@ -1,6 +1,0 @@
-name: bane
-root: ~/Projects/bane
-
-windows:
-  - vim: n
-  - git: git status

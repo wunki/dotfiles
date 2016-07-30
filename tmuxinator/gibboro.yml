@@ -1,7 +1,0 @@
-name: gibboro
-root: ~/Projects/go/src/github.com/gibbonco/gibboro
-
-windows:
-  - vim: n
-  - git: git status
-  - pgtunnel: ssh -L 5433:192.168.1.1:5432 -N oberon.gibbon.co

@@ -1,6 +1,0 @@
-name: diesel
-root: ~/Projects/diesel
-
-windows:
-  - vim: vim
-  - git: git status

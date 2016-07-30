@@ -1,6 +1,5 @@
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 
-
 call plug#begin('~/.config/nvim/plugged')
 
 " Essentials
@@ -28,6 +27,8 @@ Plug 'tpope/vim-obsession'                               " better vim sessions
 Plug 'tpope/vim-speeddating'                             " easily increment numbers and dates
 Plug 'airblade/vim-gitgutter'                            " show git changes in the gutter
 Plug 'rking/ag.vim'                                      " silver searcher
+Plug 'mattn/webapi-vim'
+Plug 'mattn/gist-vim'                                    " post to gist
 Plug 'tpope/vim-commentary'                              " comment mappings
 Plug 'tpope/vim-surround'                                " surround commands
 Plug 'godlygeek/tabular'                                 " easy indenting
@@ -42,34 +43,50 @@ Plug 'kien/ctrlp.vim'                                    " fast file switching
 
 Plug 'Shougo/vimproc', {'do': 'make'}                    " command execution
 Plug 'aliva/vim-fish', { 'for': 'fish' }
-Plug 'pearofducks/ansible-vim'
 Plug 'vitalk/vim-simple-todo'                            " simple todo's
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
     map <C-t> :Tagbar<CR>
+
     let g:tagbar_type_markdown = {
-                \ 'ctagstype' : 'markdown',
-                \ 'kinds' : [
-                \ 'h:headings',
-                \ 'l:links',
-                \ 'i:images'
-                \],
-                \ "sort" : 0
-                \ }
+      \ 'ctagstype' : 'markdown',
+      \ 'kinds' : [
+          \ 'h:Heading_L1',
+          \ 'i:Heading_L2',
+          \ 'k:Heading_L3'
+      \ ]
+    \ }
 
     let g:tagbar_type_rust = {
-                \ 'ctagstype' : 'rust',
-                \ 'kinds' : [
-                \'T:types,type definitions',
-                \'f:functions,function definitions',
-                \'g:enum,enumeration names',
-                \'s:structure names',
-                \'m:modules,module names',
-                \'c:consts,static constants',
-                \'t:traits,traits',
-                \'i:impls,trait implementations',
-                \  ]
-                \}
+      \ 'ctagstype' : 'rust',
+      \ 'kinds' : [
+          \'T:types,type definitions',
+          \'f:functions,function definitions',
+          \'g:enum,enumeration names',
+          \'s:structure names',
+          \'m:modules,module names',
+          \'c:consts,static constants',
+          \'t:traits,traits',
+          \'i:impls,trait implementations',
+      \]
+    \}
+
+    let g:tagbar_type_elixir = {
+      \ 'ctagstype' : 'elixir',
+      \ 'kinds' : [
+          \ 'f:functions',
+          \ 'functions:functions',
+          \ 'c:callbacks',
+          \ 'd:delegates',
+          \ 'e:exceptions',
+          \ 'i:implementations',
+          \ 'a:macros',
+          \ 'o:operators',
+          \ 'm:modules',
+          \ 'p:protocols',
+          \ 'r:records'
+      \ ]
+    \ }
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
@@ -82,47 +99,26 @@ Plug 'Shougo/deoplete.nvim'
 
 Plug 'mhartington/oceanic-next'
 Plug 'morhetz/gruvbox'
+    let g:gruvbox_bold = 0
 Plug 'bling/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-    let g:airline_theme='oceanicnext'
+    let g:airline_theme='gruvbox'
     let g:airline_powerline_fonts = 0
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
-
-" Go
-Plug 'benmills/vim-golang-alternate', { 'for': 'go' }
-Plug 'zchee/deoplete-go', { 'for': 'go', 'do': 'make'}
-Plug 'fatih/vim-go', { 'for': 'go' }
-    au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
-    let g:go_fmt_command = "goimports"
-    let g:go_auto_type_info = 1
-
-    au FileType go nmap <leader>r <Plug>(go-run)
-    au FileType go nmap <leader>b <Plug>(go-build)
-    au FileType go nmap <leader>tt <Plug>(go-test)
-    au FileType go nmap <leader>tf <Plug>(go-test-func)
-    au FileType go nmap <Leader>i <Plug>(go-info)
-    au FileType go nmap <Leader>d <Plug>(go-doc)
-    au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-    au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-    au FileType go nmap gd <Plug>(go-def)
-
-" Haskell
-Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
-Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
-Plug 'eagletmt/ghcmod-vim', { 'for': 'haskell' }
-Plug 'raichoo/ghcid-neovim', { 'for': 'haskell' }
-Plug 'bitc/vim-hdevtools', { 'for': 'haskell' }
-    au FileType haskell nnoremap <buffer> <leader>t :HdevtoolsType<CR>
-    au FileType haskell nnoremap <buffer> <silent> <leader>c :HdevtoolsClear<CR>
 
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-    let $RUST_SRC_PATH="/usr/local/etc/src/rust/src"
-    let g:racer_cmd = "~/.cargo/bin/racer"
     let g:racer_experimental_completer = 1
+
+" Elm
+Plug 'lambdatoast/elm.vim'
+
+" Mac only
+if has("mac")
+  Plug 'rizzatti/dash.vim'
+endif
 
 call plug#end()
 
@@ -165,7 +161,7 @@ set winwidth=79             " resize active window to minimally contains 79 char
 set clipboard=unnamedplus   " enable clipboard when on gui
 set completeopt-=preview
 
-colorscheme OceanicNext
+colorscheme gruvbox
 
 " Use normal regular expressions
 nnoremap / /\v

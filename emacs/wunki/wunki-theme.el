@@ -7,8 +7,8 @@
 (load-theme 'sanityinc-tomorrow-blue t)
 
 ;; font face
-(add-to-list 'default-frame-alist '(font . "Source Code Pro-14"))
-(set-frame-font "Source Code Pro 14" nil t)
+(add-to-list 'default-frame-alist '(font . "Source Code Pro-16"))
+(set-frame-font "Source Code Pro 16" nil t)
 (if (mac?)
     (setq-default line-spacing 2))
 

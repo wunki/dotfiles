@@ -39,3 +39,4 @@ emacs/.cache
 emacs/games
 emacs/anaconda-mode
 emacs/server
+/emacs/network-security.data

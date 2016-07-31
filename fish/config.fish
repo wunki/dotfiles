@@ -97,6 +97,7 @@ prepend_to_path "/usr/local/opt/go/libexec/bin"
 
 # home paths
 prepend_to_path "$HOME/.bin"
+prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.local/bin"
 
 # mac specific paths

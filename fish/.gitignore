@@ -1,3 +1,6 @@
 fish_history
 fishd.*
 generated_completions/
+conf.d
+fishfile
+completions

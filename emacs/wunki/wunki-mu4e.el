@@ -16,9 +16,6 @@
 (setq mu4e-user-mail-address-list '("petar@wunki.org"
                                     "petar@gibbon.co"
                                     "petar@degreed.com"
-                                    "petar@breadandpepper.com"
-                                    "hello@breadandpepper.com"
-                                    "hello@invyapp.com"
                                     "hello@gibbon.co"))
 
 ;; reply attribution line
@@ -96,13 +93,7 @@ Co-founder Gibbon | @wunki")
          (mu4e-compose-signature "Petar Radosevic -- @wunki")
          (smtpmail-smtp-server "mail.messagingengine.com")
          (smtpmail-smtp-user   "wunki@fastmail.fm"))
-        ("bread-and-pepper"
-         (user-mail-address    "petar@breadandpepper.com")
-         (mu4e-sent-folder     "/bread-and-pepper/sent")
-         (mu4e-drafts-folder   "/bread-and-pepper/drafts")
-         (mu4e-compose-signature "Petar Radosevic")
-         (smtpmail-smtp-server "smtp.gmail.com")
-         (smtpmail-smtp-user   "petar@breadandpepper.com"))))
+        ))
 
 (defun wunki-mu4e-set-account ()
   "Set the account for composing a message by looking at the maildir"
@@ -132,25 +123,20 @@ Co-founder Gibbon | @wunki")
 
 ;; bookmarks
 (setq mu4e-bookmarks 
-  '(("flag:unread AND NOT maildir:/gibbon/trash AND NOT maildir:/wunki/trash AND NOT maildir:/bread-and-pepper/trash AND NOT maildir:/wunki/junk AND NOT maildir:/gibbon/junk" "All new messages" ?u)
+  '(("flag:unread AND NOT maildir:/gibbon/trash AND NOT maildir:/wunki/trash AND NOT maildir:/wunki/junk AND NOT maildir:/gibbon/junk" "All new messages" ?u)
     ("maildir:/gibbon/inbox"                      "Gibbon's inbox"         ?g)
     ("maildir:/degreed/inbox"                     "Degreed's inbox"        ?d)
     ("maildir:/wunki/inbox"                       "Wunki's inbox"          ?w)
-    ("maildir:/bread-and-pepper/inbox"            "Bread & Pepper's inbox" ?b)
-    ("maildir:/gibbon/inbox OR maildir:/wunki/inbox OR maildir:/bread-and-pepper/inbox"                             "All inboxes"       ?i)
+    ("maildir:/gibbon/inbox OR maildir:/wunki/inbox"                             "All inboxes"       ?i)
     ("date:today..now"                            "Today's messages"       ?t)
     ("flag:flagged"                               "Flagged messages"       ?f)))
 
 ;; shortcuts
 (setq mu4e-maildir-shortcuts
        '(("/wunki/inbox"              . ?i)
-         ("/bread-and-pepper/inbox"   . ?I)
          ("/degreed/inbox"            . ?d)
          ("/wunki/archive"            . ?a)
-         ("/bread-and-pepper/archive" . ?A)
          ("/wunki/sent"               . ?s)
-         ("/bread-and-pepper/sent"    . ?S)
-         ("/wunki/trash"              . ?t)
-         ("/bread-and-pepper/trash"   . ?T)))
+         ("/wunki/trash"              . ?t)))
 
 (provide 'wunki-mu4e)

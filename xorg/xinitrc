@@ -31,7 +31,7 @@ unclutter -idle 3 &
 setxkbmap dvorak -option ctrl:nocaps
 
 # Set background
-feh --bg-fill ~/pictures/wallpapers/hex.png
+feh --bg-tile ~/pictures/wallpapers/dark_tire.png
 
 # Thunar
 thunar --daemon &
@@ -42,8 +42,8 @@ thunar --daemon &
 # SSH agent
 eval `ssh-agent`
 
-# Add my own path to bin, needed for dmenu
-export PATH="$HOME/.bin:$PATH"
+# Add home bin path, needed for dmenu
+export PATH="$HOME/bin:$PATH"
 
 # Emacs
 emacs --daemon &

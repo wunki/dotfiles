@@ -1,7 +1,7 @@
 include "/usr/share/themes/Vertex-Dark/gtk-2.0/gtkrc"
 include "/home/wunki/.gtkrc.mine"
 
-gtk-theme-name = "Vertex"
+gtk-theme-name = "Vertex-Dark"
 
 style "vimfix" {
   bg[NORMAL] = "#3f3f3f"

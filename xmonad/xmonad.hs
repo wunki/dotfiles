@@ -59,8 +59,7 @@ myManageHook = manageDocks <+> composeAll
     [ className =? "Chromium"                --> doF (W.shift "3:Browser")
     , className =? "Firefox-bin"             --> doF (W.shift "3:Browser")
     , className =? "Firefox"                 --> doF (W.shift "3:Browser")
-    , className =? "Emacs"                   --> doF (W.shift "1:Editor")
-    , className =? "Gvim"                    --> doF (W.shift "1:Editor")
+    , className =? "Emacs"                   --> doF (W.shift "1:Emacs")
     ]
 
 manageHook' :: ManageHook
@@ -80,8 +79,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((modMask .|. controlMask, xK_l), sendMessage MagnifyLess)
     , ((modMask .|. controlMask, xK_m), sendMessage Toggle)
     , ((modMask .|. controlMask, xK_w), raiseMaybe (spawn "firefox") (className =? "Firefox"))
-    , ((modMask .|. controlMask, xK_e), raiseMaybe (spawn "~/.bin/em") (className =? "Emacs"))
-    , ((modMask .|. controlMask, xK_v), raiseMaybe (spawn "gvim") (className =? "Gvim"))
+    , ((modMask .|. controlMask, xK_e), raiseMaybe (spawn "~/bin/em") (className =? "Emacs"))
     -- cycle through workspaces
     , ((modMask, xK_n), moveTo Next (WSIs (return $ not . (=="SP") . W.tag)))
     , ((modMask, xK_p), moveTo Prev (WSIs (return $ not . (=="SP") . W.tag)))

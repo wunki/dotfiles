@@ -24,6 +24,7 @@ bin/exercism
 bin/cargo
 bin/racer
 fish/fish_read_history
+fish/functions/__*
 fish/secret_env.fish
 /emacs/ido.last
 /emacs/recentf
@@ -39,3 +40,6 @@ emacs/.cache
 emacs/games
 emacs/anaconda-mode
 emacs/server
+/fish/functions/await.fish
+/fish/functions/fish_user_key_bindings.fish
+/fish/functions/last_job_id.fish

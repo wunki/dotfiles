@@ -59,8 +59,7 @@ myManageHook = manageDocks <+> composeAll
     [ className =? "Chromium"                --> doF (W.shift "3:Browser")
     , className =? "Firefox-bin"             --> doF (W.shift "3:Browser")
     , className =? "Firefox"                 --> doF (W.shift "3:Browser")
-    , className =? "Emacs"                   --> doF (W.shift "1:Editor")
-    , className =? "Gvim"                    --> doF (W.shift "1:Editor")
+    , className =? "Emacs"                   --> doF (W.shift "1:Emacs")
     ]
 
 manageHook' :: ManageHook

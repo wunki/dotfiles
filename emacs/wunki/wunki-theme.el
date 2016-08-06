@@ -7,10 +7,10 @@
 (load-theme 'sanityinc-tomorrow-blue t)
 
 ;; font face
-(add-to-list 'default-frame-alist '(font . "Source Code Pro-9"))
-(set-frame-font "Source Code Pro 9" nil t)
-(if (mac?)
-    (setq-default line-spacing 2))
+(let ((font "Source Code Pro")
+      (size (if (mac?) "15" "9")))
+  (add-to-list 'default-frame-alist '(font . (format "%s-%s" font size)))
+  (set-frame-font (format "%s %s" font size) nil t))
 
 ;; font size
 (global-set-key (kbd "C-M-=") 'default-text-scale-increase)

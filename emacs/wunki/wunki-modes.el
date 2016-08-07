@@ -179,6 +179,7 @@
       sp-autoskip-closing-pair 'always
       sp-hybrid-kill-entire-symbol nil)
 (sp-use-paredit-bindings)
+(push 'org-mode sp-ignore-modes-list)
 (smartparens-global-mode t)
 
 ;; display search jumps

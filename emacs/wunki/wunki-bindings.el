@@ -97,9 +97,9 @@
 (global-set-key (kbd "C-c C-i") 'idomenu)
 
 ;; quickly edit files
-(global-set-key (kbd "C-c 1") 'ido-emacs-config)
+(global-set-key (kbd "C-c 1") 'ido-todos)
 (global-set-key (kbd "C-c 2") 'projectile-switch-project)
-(global-set-key (kbd "C-c 3") 'ido-todos)
+(global-set-key (kbd "C-c 3") 'ido-emacs-config)
 
 ;; unfill a paragraph
 (global-set-key (kbd "C-c u") 'wunki/unfill-paragraph)

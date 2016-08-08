@@ -3,8 +3,8 @@
 ;; shell.
 (exec-path-from-shell-initialize)
 
-;; use fish as the default shell
-(setq explicit-shell-file-name (locate-file "fish" exec-path))
+;; find the shell to use
+(setq explicit-shell-file-name (locate-file "bash" exec-path))
 
 ;; use Emacs terminfo, not system terminfo, fixes 4m problem
 (setq system-uses-terminfo nil)

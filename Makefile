@@ -1,11 +1,11 @@
 DOTFILES 	:= $(PWD)
-HOSTNAME 	:= $(shell hostname -s)
+UNAME 	:= $(shell uname -s)
 
 # These files are different per machine
-xmobar=$(DOTFILES)/xmonad/${HOSTNAME}-xmobarrc
-gtkrc=$(DOTFILES)/gtk/${HOSTNAME}-gtkrc.mine
-gtk2=$(DOTFILES)/gtk/${HOSTNAME}-gtkrc-2.0
-tmux=$(DOTFILES)/tmux/${HOSTNAME}-tmux.conf
+xmobar=$(DOTFILES)/xmonad/${uname}-xmobarrc
+gtkrc=$(DOTFILES)/gtk/${uname}-gtkrc.mine
+gtk2=$(DOTFILES)/gtk/${uname}-gtkrc-2.0
+tmux=$(DOTFILES)/tmux/${uname}-tmux.conf
 
 all:: vim emacs bin zsh bash tmux xmonad xorg gtk mpv conkeror ghc
 

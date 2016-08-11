@@ -23,7 +23,7 @@
     projectile
     expand-region
     change-inner
-    powerline
+    spaceline
     surround
     idomenu
     diminish

@@ -46,8 +46,8 @@
 (global-auto-revert-mode t)
 
 ;; powerline
-(setq powerline-default-separator nil)
-(powerline-default-theme)
+(require 'spaceline-config)
+(spaceline-spacemacs-theme)
 
 ;; indent after newline
 (electric-indent-mode t)

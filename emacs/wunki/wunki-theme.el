@@ -4,10 +4,10 @@
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
 ;; load theme and don't ask if it's save.
-(load-theme 'zenburn t)
+(load-theme 'sanityinc-tomorrow-blue t)
 
 ;; font face
-(let ((font "Source Code Pro")
+(let ((font "Fira Mono")
       (size (if (mac?) 15 9)))
   (add-to-list 'default-frame-alist (cons 'font (format "%s %s" font size)))
   (set-frame-font (format "%s %s" font size) nil t))

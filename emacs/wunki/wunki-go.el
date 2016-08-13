@@ -1,8 +1,8 @@
 ;; flycheck
 
-(if (file-exists-p "~/go/src/github.com/dougm/goflymake")
+(if (file-exists-p "~/projects/go/src/github.com/dougm/goflymake")
     (progn
-      (add-to-list 'load-path "~/go/src/github.com/dougm/goflymake")
+      (add-to-list 'load-path "~/projects/go/src/github.com/dougm/goflymake")
       (require 'go-flycheck)))
 
 ;; auto-completion

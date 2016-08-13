@@ -138,7 +138,7 @@ function gb; go build; end
 function gt; go test -v ./...; end
 function gc; gocov test | gocov report; end
 
-set -x GOPATH "$HOME/$PROJECT_DIR/go"
+set -x GOPATH "$PROJECT_DIR/go"
 prepend_to_path "$GOPATH/bin"
 
 # Test coverage for Go

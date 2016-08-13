@@ -107,6 +107,9 @@
 ;; move around changes
 (global-set-key (kbd "C-c C-l") 'goto-last-change)
 
+;; easier to jump back
+(global-set-key (kbd "M-\,") 'pop-tag-mark)
+
 ;; undo tree
 (global-set-key (kbd "C-c -") 'undo-tree-visualize)
 

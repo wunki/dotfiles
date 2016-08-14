@@ -2,12 +2,15 @@ DOTFILES 	:= $(PWD)
 UNAME 	:= $(shell uname -s)
 
 # These files are different per machine
-xmobar=$(DOTFILES)/xmonad/${uname}-xmobarrc
-gtkrc=$(DOTFILES)/gtk/${uname}-gtkrc.mine
-gtk2=$(DOTFILES)/gtk/${uname}-gtkrc-2.0
-tmux=$(DOTFILES)/tmux/${uname}-tmux.conf
+xmobar=$(DOTFILES)/xmonad/${UNAME}-xmobarrc
+gtkrc=$(DOTFILES)/gtk/${UNAME}-gtkrc.mine
+gtk2=$(DOTFILES)/gtk/${UNAME}-gtkrc-2.0
+tmux=$(DOTFILES)/tmux/${UNAME}-tmux.conf
 
 all:: vim emacs bin zsh bash tmux xmonad xorg gtk mpv conkeror ghc
+
+print-%: ; @echo $*=$($*)
+
 
 vim::
 	@ln -fs $(DOTFILES)/vim/vimrc									${HOME}/.vimrc

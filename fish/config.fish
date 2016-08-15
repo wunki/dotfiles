@@ -199,7 +199,7 @@ prepend_to_path "$HOME/.aws/bin"
 set -x AWS_IAM_HOME "$HOME/.aws/iam"
 set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
 
-# fix fish in Emacs ansi-term
+# fix fish in Emacs ansi-term!
 function fish_title
   true
 end

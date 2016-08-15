@@ -11,7 +11,6 @@ all:: vim emacs bin zsh bash tmux xmonad xorg gtk mpv conkeror ghc
 
 print-%: ; @echo $*=$($*)
 
-
 vim::
 	@ln -fs $(DOTFILES)/vim/vimrc									${HOME}/.vimrc
 	@ln -fns $(DOTFILES)/vim											${HOME}/.vim

@@ -29,10 +29,6 @@ emacs::
 	@ln -fns $(DOTFILES)/emacs									${HOME}/.emacs.d
 	@echo Emacs is symlinked.
 
-spacemacs::
-	@ln -fs $(DOTFILES)/spacemacs/spacemacs.el			${HOME}/.spacemacs
-	@echo Spacemacs is symlinked.
-
 bin::
 	@ln -fns $(DOTFILES)/bin									${HOME}/.bin
 	@echo bin files are linked to homedir.
@@ -42,14 +38,6 @@ bash::
 	@ln -fs $(DOTFILES)/bash/bashrc						${HOME}/.bashrc
 	@ln -fs $(DOTFILES)/bash/bash_aliases			${HOME}/.bash_aliases
 	@echo Bash is symlinked.
-
-zsh::
-	@test -d ${HOME}/.zfunc || mkdir -p 			${HOME}/.zfunc
-	@ln -fs $(DOTFILES)/zsh/zshrc							${HOME}/.zshrc
-	@ln -fs $(DOTFILES)/zsh/zshenv						${HOME}/.zshenv
-	@ln -fs $(DOTFILES)/zsh/zshalias					${HOME}/.zshalias
-	@ln -fs $(DOTFILES)/zsh/pure.zsh 					${HOME}/.zfunc/prompt_pure_setup
-	@echo ZSH is symlinked.
 
 fish::
 	@test -d ${HOME}/.config || mkdir					${HOME}/.config
@@ -69,12 +57,6 @@ tmux::
 tmuxinator::
 	@ln -fns $(DOTFILES)/tmuxinator						${HOME}/.tmuxinator
 	@echo tmuxinator is symlinked.
-
-i3::
-	@mkdir -p																	${HOME}/.i3
-	@ln -fs $(DOTFILES)/i3/config							${HOME}/.i3/config
-	@ln -fs $(DOTFILES)/i3/i3status.conf			${HOME}/.i3status.conf
-	@echo i3 is symlinked.
 
 xmonad::
 	@mkdir -p																	${HOME}/.xmonad
@@ -99,10 +81,6 @@ mpv::
 	@mkdir -p ${HOME}/.mpv
 	@ln -fns $(DOTFILES)/mpv/config						${HOME}/.mpv/config
 	@echo MPV is symlinked.
-
-conkeror::
-	@ln -fs $(DOTFILES)/conkeror/conkerorrc.js ${HOME}/.conkerorrc
-	@echo Conkeror is symlinked.
 
 ghc::
 	@ln -fs $(DOTFILES)/ghc/ghci 							${HOME}/.ghci

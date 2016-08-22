@@ -97,6 +97,9 @@
     ;; c#
     csharp-mode
 
+    ;; c
+    google-c-style
+
     ;; go
     go-mode
     go-eldoc
@@ -173,6 +176,7 @@ Missing packages are installed automatically."
 (require 'wunki-elm)               ; elm
 (require 'wunki-csharp)            ; c#
 (require 'wunki-go)                ; go
+(require 'wunki-c)                 ; c
 (require 'wunki-erc)               ; irc
 (require 'wunki-yaml)              ; yaml
 (when (file-exists-p "~/mail")     ; mu4e

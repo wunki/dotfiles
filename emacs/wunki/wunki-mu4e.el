@@ -31,7 +31,7 @@
       mu4e-headers-skip-duplicates t                     ; skip duplicate email, great for gmail
       mu4e-headers-date-format "%d %b, %Y at %H:%M"      ; date format
       mu4e-headers-leave-behavior 'apply                 ; apply all marks at quit
-      mu4e-html2text-command "w3m -dump -T text/html"    ; html to text
+      mu4e-html2text-command "html2text -utf8 -nobs -width 72"    ; html to text
       mu4e-compose-dont-reply-to-self t                  ; don't reply to myself
       mu4e-compose-complete-only-personal t              ; only personal messages get in the address book
       mu4e-use-fancy-chars t                             ; use fancy characters

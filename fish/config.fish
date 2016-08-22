@@ -103,6 +103,7 @@ prepend_to_path "$HOME/.local/bin"
 # mac specific paths
 prepend_to_path "/usr/local/Cellar/emacs/HEAD/bin"
 prepend_to_path "/Applications/Postgres.app/Contents/Versions/latest/bin"
+prepend_to_path "$HOME/Projects/Carp/bin"
 
 # autojump
 if test -f "$HOME/.autojump/share/autojump/autojump.fish"

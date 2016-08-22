@@ -12,6 +12,14 @@
 (add-hook 'emacs-lisp-mode-hook 'lisp-coding-defaults)
 (add-hook 'cider-repl-mode-hook 'lisp-coding-defaults)
 
+;; carp-mode
+(let ((carp-dir "~/Projects/Carp"))
+  (if (file-exists-p carp-dir)
+      (progn
+        (add-to-list 'load-path (concat carp-dir "/emacs"))
+        (load "carp-mode")
+        (load "inf-carp-mode"))))
+
 ;; cleanup buffer to cleanup functions
 (require 'clj-refactor)
 (add-to-list 'cljr-project-clean-functions 'cleanup-buffer)

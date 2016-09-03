@@ -25,11 +25,15 @@ Windows external keyboard from time to time."
       (setq mac-command-modifier 'super)
       (setq mac-option-modifier 'meta)
       (message "Command is now bound to SUPER and Option is bound to META."))))
-(global-set-key (kbd "C-c w") 'swap-meta-and-super)
 
+;; keybindings
+(global-set-key (kbd "C-c w") 'swap-meta-and-super)
 (global-set-key (kbd "M-`") 'ns-next-frame)
 (global-set-key (kbd "M-h") 'ns-do-hide-emacs)
 (global-set-key (kbd "M-H") 'ns-do-hide-others)
+
+;; start out with meta as super, not the apple key
+(swap-meta-and-super)
 
 ;; On Unix I start the server as a daemon at boot, on the Mac this needs to be
 ;; done here.

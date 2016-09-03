@@ -60,4 +60,7 @@
                  :password irc-wunki-mozilla
                  :full-name "Petar Radosevic")))))
 
+(global-set-key (kbd "<f10>") 'erc-start-or-switch)
+(global-set-key (kbd "<XF86Explorer>") 'erc-start-or-switch)
+
 (provide 'wunki-erc)

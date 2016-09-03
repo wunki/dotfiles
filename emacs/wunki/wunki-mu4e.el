@@ -139,4 +139,8 @@ Co-founder Gibbon | @wunki")
          ("/wunki/sent"               . ?s)
          ("/wunki/trash"              . ?t)))
 
+;; bindings
+(global-set-key (kbd "<f9>") 'mu4e)
+(global-set-key (kbd "<XF86Tools>") 'mu4e)
+
 (provide 'wunki-mu4e)

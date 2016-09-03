@@ -20,7 +20,7 @@
         (load "carp-mode")
         (load "inf-carp-mode"))))
 
-;; cleanup buffer to cleanup functions
+;; cleanup
 (require 'clj-refactor)
 (add-to-list 'cljr-project-clean-functions 'cleanup-buffer)
 (add-hook 'clojure-mode-hook (lambda ()

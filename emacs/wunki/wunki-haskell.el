@@ -8,22 +8,12 @@
 
 ;; haskell tags
 (setq-default haskell-tags-on-save t)
-
-;; custom flycheck
-(after-load 'flycheck
-  (add-hook 'haskell-mode-hook #'flycheck-haskell-setup))
  
-(after-load 'haskell-mode
-  (require 'flycheck-hdevtools))
-
 (eval-after-load 'haskell-mode
   '(progn
      (defun wunki-haskell-mode-defaults ()
        (subword-mode +1)
-       (haskell-doc-mode)
-       (haskell-indentation-mode)
-       (intero-mode)
-       (interactive-haskell-mode +1))
+       (intero-mode))
 
      (setq wunki-haskell-mode-hook 'wunki-haskell-mode-defaults)
      (add-hook 'haskell-mode-hook (lambda ()

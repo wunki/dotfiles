@@ -47,7 +47,7 @@
 
 ;; powerline
 (require 'spaceline-config)
-(setq powerline-default-separator 'chamfer)
+(setq powerline-default-separator 'bar)
 (spaceline-spacemacs-theme)
 
 ;; indent after newline

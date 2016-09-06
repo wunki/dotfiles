@@ -13,6 +13,7 @@
   '(progn
      (defun wunki-haskell-mode-defaults ()
        (subword-mode +1)
+       (hindent-mode)
        (intero-mode))
 
      (setq wunki-haskell-mode-hook 'wunki-haskell-mode-defaults)

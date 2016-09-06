@@ -49,6 +49,7 @@
     company
     default-text-scale
     fic-mode
+    eshell-git-prompt
 
     ;; org
     org
@@ -73,8 +74,7 @@
 
     ; haskell
     haskell-mode
-    flycheck-hdevtools
-    company-ghc
+    hindent
     intero
 
     ; rust
@@ -166,6 +166,7 @@ Missing packages are installed automatically."
 (require 'wunki-org)               ; org-mode
 (if (not (windows?))
     (require 'wunki-term))         ; ansi-term settings
+(require 'wunki-eshell)            ; eshell settings
 (require 'wunki-html)              ; HTML files
 (require 'wunki-lisp)              ; lisp languages
 (require 'wunki-scheme)            ; scheme languages

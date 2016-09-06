@@ -7,6 +7,7 @@
       '("less" "tmux" "htop" "top" "bash" "zsh" "fish"))
 (setq eshell-visual-subcommands
       '(("git" "log" "l" "diff" "show")))
+(setq eshell-banner-message "")
 
 ;; Define a pretty prompt.
 (eshell-git-prompt-use-theme 'powerline)

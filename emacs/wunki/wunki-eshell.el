@@ -1,5 +1,5 @@
 ;; Define a keybinding to get to your eshell quickly.
-(global-set-key (kbd "C-c e") 'eshell)
+(global-set-key (kbd "C-c C-e") 'eshell)
 
 ;; Visual commands are commands which require a proper terminal.
 ;; eshell will run them in a term buffer when you invoke them.
@@ -18,5 +18,9 @@
                                           nil)))
 
 (setq eshell-cmpl-cycle-completions nil)
+
+;; quickly fire up e-shell.
+(global-set-key (kbd "M-RET") 'eshell)
+
 
 (provide 'wunki-eshell)

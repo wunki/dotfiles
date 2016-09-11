@@ -1,13 +1,13 @@
--- Prompt
-:set prompt  "\ESC[34;1mλ> \ESC[m"
-:set prompt2 "\ESC[34;1m | \ESC[m"
+-- Prompt (disabled for now, not working in Emacs)
+-- :set prompt  "λ> "
+-- :set prompt2 " | "
 
 -- Print the type after every statement
 :set +t
 
 -- Collect information after modules have been
--- loaded.
-:set +c
+-- loaded. (not working with intero)
+-- :set +c
 
 -- Hoogle
 :def hoogle \s -> return $ ":! hoogle --count=15 \"" ++ s ++ "\""

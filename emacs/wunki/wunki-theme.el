@@ -4,7 +4,7 @@
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
 ;; load theme and don't ask if it's save.
-(load-theme 'sanityinc-tomorrow-blue t)
+(load-theme 'darktooth t)
 
 ;; font face
 (let ((font "Source Code Pro")

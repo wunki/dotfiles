@@ -104,7 +104,7 @@ if hash brew 2>/dev/null; then
 fi
 
 # Rust settings
-export RUST_SRC_PATH="/home/wunki/rust/rust/src"
+export RUST_SRC_PATH="/usr/local/src/rust/src"
 
 # Imports ----------------------------------------------------------------------------------------------
 # Turn on advanced bash completion if the file exists

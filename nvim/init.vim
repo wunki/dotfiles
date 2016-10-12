@@ -97,10 +97,9 @@ Plug 'Shougo/deoplete.nvim'
     inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
     inoremap <Leader><Tab> <Space><Space>
 
-Plug 'jacoborus/tender'
+Plug 'whatyouhide/vim-gotham'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-    let g:airline_theme='tender'
     let g:airline_powerline_fonts = 0
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
@@ -160,7 +159,7 @@ set winwidth=79             " resize active window to minimally contains 79 char
 set clipboard=unnamedplus   " enable clipboard when on gui
 set completeopt-=preview
 
-colorscheme tender 
+colorscheme gotham
 
 " Use normal regular expressions
 nnoremap / /\v

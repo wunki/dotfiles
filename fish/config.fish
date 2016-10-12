@@ -7,7 +7,7 @@ function t2; tree --dirsfirst -ChFL 2; end
 function t3; tree --dirsfirst -ChFL 3; end
 
 # mac
-function bup; brew update; and brew upgrade --all; and brew cleanup; end
+function bup; brew update; and brew upgrade; and brew cleanup; end
 function run-rethinkdb; launchctl load ~/Library/LaunchAgents/homebrew.mxcl.rethinkdb.plist; end
 function run-redis; redis-server /usr/local/etc/redis.conf; end
 
@@ -179,7 +179,7 @@ end
 prepend_to_path "/Applications/Racket v6.1.1/bin"
 
 # rubygems
-prepend_to_path "$HOME/.gem/ruby/2.3.0/bin"
+prepend_to_path "$HOME/.gem/ruby/2.0.0/bin"
 
 # android
 prepend_to_path "/opt/android-sdk/tools"

@@ -1,0 +1,8 @@
+# ~/.tmuxinator/wunki.yml
+
+name: wunki
+root: ~/Projects/wunki
+
+windows:
+  - vim: vim .
+  - server: hugo server --buildDrafts

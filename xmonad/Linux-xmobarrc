@@ -1,9 +1,9 @@
 Config { font = "xft:Ubuntu Mono:pixelsize=22:antialias=true"
-       , bgColor = "#2B2B2B"
-       , fgColor = "#DCDCCC"
+       , bgColor = "#0a0f14"
+       , fgColor = "#98d1ce"
        , position = BottomSize L 100 40
        , border = TopB
-       , borderColor = "#333333"
+       , borderColor = "#0a0f14"
        , lowerOnStart = True
        , commands = [ Run Network "wifi0" ["-t", "<rx> - <tx>", "-L", "0"," -H", "100", "--normal", "#DCDCCC", "--high", "#CC9393"] 20
                     , Run Cpu ["-L", "3", "-H", "50", "--normal", "#DCDCCC", "--high", "#CC9393"] 20

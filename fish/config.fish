@@ -105,10 +105,9 @@ prepend_to_path "/usr/local/Cellar/emacs/HEAD/bin"
 prepend_to_path "/Applications/Postgres.app/Contents/Versions/latest/bin"
 prepend_to_path "$HOME/Projects/Carp/bin"
 
-# autojump user install
-if test -f "$HOME/.autojump/share/autojump/autojump.fish"
-  prepend_to_path "$HOME/.autojump/bin"
-  . "$HOME/.autojump/share/autojump/autojump.fish"
+# autojump on BSD
+if test -f "/usr/local/share/autojump/autojump.fish"
+  . "/usr/local/share/autojump/autojump.fish"
 end
 
 # autojump on arch linux

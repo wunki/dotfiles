@@ -71,23 +71,6 @@ Plug 'majutsushi/tagbar'                                 " sidebar to jump to re
       \]
     \}
 
-    let g:tagbar_type_elixir = {
-      \ 'ctagstype' : 'elixir',
-      \ 'kinds' : [
-          \ 'f:functions',
-          \ 'functions:functions',
-          \ 'c:callbacks',
-          \ 'd:delegates',
-          \ 'e:exceptions',
-          \ 'i:implementations',
-          \ 'a:macros',
-          \ 'o:operators',
-          \ 'm:modules',
-          \ 'p:protocols',
-          \ 'r:records'
-      \ ]
-    \ }
-
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
     let g:acp_enableAtStartup = 0

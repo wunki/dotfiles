@@ -110,6 +110,11 @@ if test -f "/usr/local/share/autojump/autojump.fish"
   . "/usr/local/share/autojump/autojump.fish"
 end
 
+# autojump in home directory
+if test -f "$HOME/.autojump/share/autojump/autojump.fish"
+  . "$HOME/.autojump/share/autojump/autojump.fish"
+end
+
 # autojump on arch linux
 if test -f "/usr/share/autojump/autojump.fish"
   . "/usr/share/autojump/autojump.fish"

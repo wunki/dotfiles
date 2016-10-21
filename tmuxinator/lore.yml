@@ -1,0 +1,8 @@
+# ~/.tmuxinator/lore.yml
+
+name: lore
+root: ~/Projects/lore
+
+windows:
+  - vim: nvim .
+  - cc: #

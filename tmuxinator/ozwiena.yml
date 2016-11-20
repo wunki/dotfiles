@@ -1,0 +1,8 @@
+# ~/.tmuxinator/ozwiena.yml
+
+name: lore
+root: ~/projects/ozwiena
+
+windows:
+  - vim: nvim .
+  - rust: #

@@ -86,7 +86,7 @@ Plug 'jacoborus/tender'
 Plug 'whatyouhide/vim-gotham'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-    let g:airline_theme='zenburn'
+    let g:airline_theme='tomorrow'
     let g:airline_powerline_fonts = 0
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
@@ -201,4 +201,7 @@ tnoremap <Esc> <C-\><C-n>
 
 " Mutt
 au BufRead ~/.mutt/tmp/mutt-* set tw=72 formatoptions=tcql
+
+" Make comments italic
+highlight Comment cterm=italic
 

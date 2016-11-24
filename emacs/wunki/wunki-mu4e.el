@@ -68,29 +68,19 @@
 
 ;; multiple accounts
 (setq wunki-mu4e-account-alist
-      '(("gibbon"
-         (user-mail-address    "petar@gibbon.co")
-         (mu4e-sent-folder     "/gibbon/sent")
-         (mu4e-drafts-folder   "/gibbon/drafts")
-         (mu4e-compose-signature
-          "Petar Radosevic
-Co-founder Gibbon | @wunki")
-         (smtpmail-smtp-server "smtp.gmail.com")
-         (smtpmail-smtp-user   "petar@gibbon.co"))
-        ("degreed"
+      '(("degreed"
          (user-mail-address    "petar@degreed.com")
          (mu4e-sent-folder     "/degreed/sent")
          (mu4e-drafts-folder   "/degreed/drafts")
          (mu4e-compose-signature
-          "Petar Radosevic
-Co-founder Gibbon | @wunki")
+          "Petar Radosevic - Software Engineer")
          (smtpmail-smtp-server "smtp.gmail.com")
          (smtpmail-smtp-user   "petar@degreed.com"))
         ("wunki"
          (user-mail-address    "petar@wunki.org")
          (mu4e-sent-folder     "/wunki/sent")
          (mu4e-drafts-folder   "/wunki/drafts")
-         (mu4e-compose-signature "Petar Radosevic -- @wunki")
+         (mu4e-compose-signature "Petar Radosevic - wunki.org")
          (smtpmail-smtp-server "mail.messagingengine.com")
          (smtpmail-smtp-user   "wunki@fastmail.fm"))
         ))
@@ -123,11 +113,10 @@ Co-founder Gibbon | @wunki")
 
 ;; bookmarks
 (setq mu4e-bookmarks 
-  '(("flag:unread AND NOT maildir:/gibbon/trash AND NOT maildir:/wunki/trash AND NOT maildir:/wunki/junk AND NOT maildir:/gibbon/junk" "All new messages" ?u)
-    ("maildir:/gibbon/inbox"                      "Gibbon's inbox"         ?g)
+      '(("flag:unread AND NOT maildir:/wunki/trash AND NOT maildir:/wunki/junk AND NOT maildir:/gibbon/junk" "All new messages" ?u)
     ("maildir:/degreed/inbox"                     "Degreed's inbox"        ?d)
     ("maildir:/wunki/inbox"                       "Wunki's inbox"          ?w)
-    ("maildir:/gibbon/inbox OR maildir:/wunki/inbox"                             "All inboxes"       ?i)
+    ("maildir:/degreed/inbox OR maildir:/wunki/inbox"                             "All inboxes"       ?i)
     ("date:today..now"                            "Today's messages"       ?t)
     ("flag:flagged"                               "Flagged messages"       ?f)))
 

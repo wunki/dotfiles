@@ -6,7 +6,7 @@
 ;; load theme and don't ask if it's save.
 (load-theme 'zenburn t)
 
-;; font face
+;; font
 (let ((font "Operator Mono Light")
       (size (if (mac?) 15 9)))
   (add-to-list 'default-frame-alist (cons 'font (format "%s %s" font size)))

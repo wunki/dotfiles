@@ -90,8 +90,8 @@
  '(haskell-notify-p t)
  '(haskell-process-show-debug-tips nil)
  '(haskell-process-type (quote cabal-repl))
- '(haskell-stylish-on-save t t)
- '(haskell-tags-on-save t t)
+ '(haskell-stylish-on-save t)
+ '(haskell-tags-on-save t)
  '(org-agenda-files
    (quote
     ("/Users/wunki/Stack/Org/inbox.org" "/Users/wunki/Stack/Org/today.org" "/Users/wunki/Stack/Org/servers.org")))

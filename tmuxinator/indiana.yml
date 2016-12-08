@@ -1,0 +1,6 @@
+name: indiana
+root: ~/Projects/indiana
+
+windows:
+  - vim: nvim .
+  - iex: #

@@ -64,8 +64,9 @@ function ghp; python -m grip; end # preview README files
 # environment
 set -x LANG 'en_US.UTF-8'
 set -x LC_ALL 'en_US.UTF-8'
-set -x EDITOR 'code'
+set -x EDITOR 'nvim'
 set -x VISUAL 'nvim'
+set -x TERMINFO {$HOME}/.terminfo
 set -x TERM 'xterm-256color'
 set -x XDG_DATA_HOME {$HOME}/.local/share
 
@@ -165,6 +166,7 @@ end
 # clojure
 set -x BOOT_COLOR 1
 set -x BOOT_JVM_OPTIONS "-Xmx2g -client -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xverify:none"
+set -x BOOT_CLOJURE_VERSION "1.9.0-alpha14"
 
 # nodejs
 set -x NPM_PACKAGES "$HOME/.npm-packages"

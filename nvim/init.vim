@@ -38,7 +38,8 @@ Plug 'mbbill/undotree'                                   " easy undoing
 Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, brackend and quotes
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
 Plug 'kien/ctrlp.vim'                                    " fast file switching
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    set grepprg=ag\ --nogroup\ --nocolor
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -f -g ""'
     let g:ctrlp_working_path_mode = 0
 
 Plug 'Shougo/vimproc', {'do': 'make'}                    " command execution
@@ -97,8 +98,10 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
     let g:racer_experimental_completer = 1
 
-" Swift
-Plug 'keith/swift.vim'
+" Elixir
+Plug 'tpope/vim-endwise'
+Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
 
 " Elm
 Plug 'lambdatoast/elm.vim'

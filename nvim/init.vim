@@ -25,6 +25,7 @@ Plug 'tpope/vim-repeat'                                  " make the . command av
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
 Plug 'tpope/vim-obsession'                               " better vim sessions
 Plug 'tpope/vim-speeddating'                             " easily increment numbers and dates
+Plug 'tpope/vim-endwise'                                 " automatically close blocks in languages like ruby or elixir
 Plug 'airblade/vim-gitgutter'                            " show git changes in the gutter
 Plug 'rking/ag.vim'                                      " silver searcher
 Plug 'mattn/webapi-vim'
@@ -99,12 +100,8 @@ Plug 'racer-rust/vim-racer', { 'for': 'rust' }
     let g:racer_experimental_completer = 1
 
 " Elixir
-Plug 'tpope/vim-endwise'
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
-
-" Elm
-Plug 'lambdatoast/elm.vim'
 
 " Mac only
 if has("mac")

@@ -10,9 +10,7 @@
 (add-hook 'rust-mode-hook 'wunki-rust-mode-hook)
 (add-hook 'rust-mode-hook #'racer-mode)
 (add-hook 'racer-mode-hook #'eldoc-mode)
-
-;;; disable flycheck for now because we are working mostly on nightly
-;;(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
-;;(add-hook 'rust-mode-hook 'flycheck-mode)
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+(add-hook 'rust-mode-hook 'flycheck-mode)
 
 (provide 'wunki-rust)

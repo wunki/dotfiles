@@ -72,6 +72,9 @@
     cljdoc
     clojurescript-mode
 
+    ; elixir
+    alchemist
+    
     ; haskell
     haskell-mode
     hindent
@@ -180,5 +183,6 @@ Missing packages are installed automatically."
 (require 'wunki-c)                 ; c
 (require 'wunki-erc)               ; irc
 (require 'wunki-yaml)              ; yaml
+(require 'wunki-elixir)            ; elixir
 (when (file-exists-p "~/mail")     ; mu4e
   (require 'wunki-mu4e))

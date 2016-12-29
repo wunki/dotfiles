@@ -18,7 +18,7 @@
 "   " Any valid git URL is allowed
 "   Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 "
-"   " Group dependencies, vim-snippets depends on ultisnips
+"   " Multiple Plug commands can be written in a single line using | separators
 "   Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 "
 "   " On-demand loading
@@ -40,7 +40,7 @@
 "   " Unmanaged plugin (manually installed and updated)
 "   Plug '~/my-prototype-plugin'
 "
-"   " Add plugins to &runtimepath
+"   " Initialize plugin system
 "   call plug#end()
 "
 " Then reload .vimrc and :PlugInstall to install plugins.
@@ -955,7 +955,7 @@ function! s:update_impl(pull, force, args) abort
 
   let use_job = s:nvim || s:vim8
   let python = (has('python') || has('python3')) && !use_job
-  let ruby = has('ruby') && !use_job && (v:version >= 703 || v:version == 702 && has('patch374')) && !(s:is_win && has('gui_running')) && s:check_ruby()
+  let ruby = has('ruby') && !use_job && (v:version >= 703 || v:version == 702 && has('patch374')) && !(s:is_win && has('gui_running')) && threads > 1 && s:check_ruby()
 
   let s:update = {
     \ 'start':   reltime(),
@@ -1153,7 +1153,7 @@ function! s:job_cb(fn, job, ch, data)
   call call(a:fn, [a:job, a:data])
 endfunction
 
-function! s:nvim_cb(job_id, data, event) abort
+function! s:nvim_cb(job_id, data, event) dict abort
   return a:event == 'stdout' ?
     \ s:job_cb('s:job_out_cb',  self, 0, join(a:data, "\n")) :
     \ s:job_cb('s:job_exit_cb', self, 0, a:data)

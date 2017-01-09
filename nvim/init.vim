@@ -82,10 +82,9 @@ Plug 'Shougo/deoplete.nvim'
     inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
     inoremap <Leader><Tab> <Space><Space>
 
-Plug 'alessandroyorba/sierra'
+Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-    let g:airline_theme='tomorrow'
+    let g:airline_theme='nord'
     let g:airline_powerline_fonts = 0
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
@@ -148,8 +147,12 @@ set guicursor+=a:blinkon0   " don't blink the cursor please
 set winwidth=79             " resize active window to minimally contains 79 chars width
 set clipboard=unnamedplus   " enable clipboard when on gui
 set completeopt-=preview
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮ " Change listchars
+set showbreak=↪             " Change wrap line break
+set fillchars=diff:⣿,vert:│ " Change fillchars
 
-colorscheme sierra
+
+colorscheme nord
 
 " Use normal regular expressions
 nnoremap / /\v

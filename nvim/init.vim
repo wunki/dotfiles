@@ -83,9 +83,6 @@ Plug 'Shougo/deoplete.nvim'
     inoremap <Leader><Tab> <Space><Space>
 
 Plug 'alessandroyorba/sierra'
-    let g:sierra_Sunset = 1
-Plug 'jacoborus/tender'
-Plug 'whatyouhide/vim-gotham'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
     let g:airline_theme='tomorrow'
@@ -98,6 +95,9 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
     let g:racer_experimental_completer = 1
+
+" Go
+Plug 'fatih/vim-go'
 
 " Elixir
 Plug 'elixir-lang/vim-elixir'

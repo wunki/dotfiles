@@ -76,9 +76,9 @@ set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
 set -x RUST_SRC_PATH "/usr/local/src/rust/src"
 
 # Go
+set -x GOPATH "$PROJECT_DIR/go"
 prepend_to_path "/usr/local/go/bin"
 prepend_to_path "$GOPATH/bin"
-set -x GOPATH "$PROJECT_DIR/go"
 function gb; go build; end
 function gt; go test -v ./...; end
 function gc; gocov test | gocov report; end

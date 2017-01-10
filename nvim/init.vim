@@ -83,6 +83,7 @@ Plug 'Shougo/deoplete.nvim'
     inoremap <Leader><Tab> <Space><Space>
 
 Plug 'arcticicestudio/nord-vim'
+" Plug 'edkolev/tmuxline.vim'
 Plug 'vim-airline/vim-airline'
     let g:airline_theme='nord'
     let g:airline_powerline_fonts = 0
@@ -113,7 +114,6 @@ filetype plugin indent on
 
 " Visuals
 syntax on                   " enable syntax highlighting
-
 set cmdheight=1             " lower command line one lines high
 set mouse=nv                " mouse in normal and visual mode
 set modifiable              " needed for vimpager
@@ -139,7 +139,6 @@ set noshowmode              " no need for the mode, lightline shows it
 set showcmd                 " shows partial command in the last line
 set ruler                   " show the line and column number of the cursor
 set backspace=indent,eol,start
-set nonumber                " don't show linenumbers
 set formatoptions=qrn1
 set cursorline              " show me the line where the cursor is
 set nofoldenable            " don't do any folding for now
@@ -150,7 +149,6 @@ set completeopt-=preview
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮ " Change listchars
 set showbreak=↪             " Change wrap line break
 set fillchars=diff:⣿,vert:│ " Change fillchars
-
 
 colorscheme nord
 

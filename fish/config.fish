@@ -72,6 +72,7 @@ prepend_to_path "$HOME/.cargo/bin"
 function ct; cargo test -- --nocapture; end
 function cb; cargo build; end
 function clippy; rustup run nightly cargo clippy; end
+function rust-musl-builder; docker run --rm -it -v "$PWD":/home/rust/src ekidd/rust-musl-builder; end
 set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
 set -x RUST_SRC_PATH "/usr/local/src/rust/src"
 
@@ -110,13 +111,15 @@ set -x AWS_IAM_HOME "$HOME/.aws/iam"
 set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
 
 
-# wtf: correcting mistyped stuff
-if test -f /usr/local/bin/fuck
+# Fuck: correcting mistyped stuff
+if type -Pq thefuck
   eval (thefuck --alias | tr '\n' ';')
 end
 
 # Direnv: adding environment variables per directory
-eval (direnv hook fish)
+if type -Pq direnv
+  eval (direnv hook fish)
+end
 
 # Hub: easy access to github
 if type -Pq hub

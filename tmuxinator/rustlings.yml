@@ -1,6 +1,0 @@
-name: rustlings
-root: ~/Projects/rustlings
-
-windows:
-  - vim: n
-  - git: git status

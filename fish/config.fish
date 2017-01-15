@@ -57,6 +57,9 @@ prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.local/bin"
 prepend_to_path "$HOME/.cabal/bin"
 
+# Google Cloud SDK
+prepend_to_path "$HOME/.google-cloud-sdk/bin"
+
 # Mac specific settings
 if contains (uname -s) "Darwin"
   . "$HOME/.config/fish/functions/mac.fish"

@@ -1,0 +1,6 @@
+name: monkey
+root: ~/projects/monkey-rs
+
+windows:
+  - vim: nvim .
+  - tests: #

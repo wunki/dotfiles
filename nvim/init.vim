@@ -3,23 +3,9 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 call plug#begin('~/.config/nvim/plugged')
 
 " Essentials
-Plug 'benekastah/neomake'                                " building new stuff
-augroup neomake_after_save
-  autocmd!
-  autocmd BufReadPost,BufWritePost * Neomake | if has('nvim') | Neomake! | endif
-  autocmd BufReadPost,BufWritePost *.rs if has('nvim') | Neomake! cargo | endif
-augroup END
-let g:neomake_verbose = 0
-let g:neomake_error_sign = {
-      \ 'text': '⚑',
-      \ 'texthl': 'ErrorMsg'
-      \ }
-let g:neomake_warning_sign = {
-      \ 'text': '⚐',
-      \ 'texthl': 'WarningMsg'
-      \ }
-let g:neomake_rust_enabled_makers = []                   " disable rustc checker
-
+Plug 'w0rp/ale'
+  let g:ale_lint_on_save = 1
+  let g:ale_lint_on_text_changed = 0
 Plug 'tpope/vim-eunuch'                                  " unix helper commands
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
@@ -35,43 +21,42 @@ Plug 'tpope/vim-surround'                                " surround commands
 Plug 'godlygeek/tabular'                                 " easy indenting
 Plug 'Lokaltog/vim-easymotion'                           " move by selecting a letter
 Plug 'mbbill/undotree'                                   " easy undoing
-    nnoremap <silent> <Leader>ut :UndotreeToggle<cr>
+  nnoremap <silent> <Leader>ut :UndotreeToggle<cr>
 Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, brackend and quotes
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
 Plug 'kien/ctrlp.vim'                                    " fast file switching
-    set grepprg=ag\ --nogroup\ --nocolor
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -f -g ""'
-    let g:ctrlp_working_path_mode = 0
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -f -g ""'
+  let g:ctrlp_working_path_mode = 0
 
 Plug 'Shougo/vimproc', {'do': 'make'}                    " command execution
 Plug 'aliva/vim-fish', { 'for': 'fish' }
 Plug 'vitalk/vim-simple-todo'                            " simple todo's
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
-    map <C-t> :Tagbar<CR>
+  map <C-t> :Tagbar<CR>
+  let g:tagbar_type_markdown = {
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : [
+        \ 'h:Heading_L1',
+        \ 'i:Heading_L2',
+        \ 'k:Heading_L3'
+    \ ]
+  \ }
 
-    let g:tagbar_type_markdown = {
-      \ 'ctagstype' : 'markdown',
-      \ 'kinds' : [
-          \ 'h:Heading_L1',
-          \ 'i:Heading_L2',
-          \ 'k:Heading_L3'
-      \ ]
-    \ }
-
-    let g:tagbar_type_rust = {
-      \ 'ctagstype' : 'rust',
-      \ 'kinds' : [
-          \'T:types,type definitions',
-          \'f:functions,function definitions',
-          \'g:enum,enumeration names',
-          \'s:structure names',
-          \'m:modules,module names',
-          \'c:consts,static constants',
-          \'t:traits,traits',
-          \'i:impls,trait implementations',
-      \]
-    \}
+  let g:tagbar_type_rust = {
+    \ 'ctagstype' : 'rust',
+    \ 'kinds' : [
+        \'T:types,type definitions',
+        \'f:functions,function definitions',
+        \'g:enum,enumeration names',
+        \'s:structure names',
+        \'m:modules,module names',
+        \'c:consts,static constants',
+        \'t:traits,traits',
+        \'i:impls,trait implementations',
+    \]
+  \}
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'

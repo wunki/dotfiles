@@ -14,7 +14,6 @@ end
 
 # Shortcuts
 function bup; brew update; and brew upgrade; and brew cleanup; end
-function n; nvim $argv; end
 function t1; tree --dirsfirst -ChFL 1; end
 function t2; tree --dirsfirst -ChFL 2; end
 function t3; tree --dirsfirst -ChFL 3; end
@@ -23,6 +22,11 @@ function gp; git push origin master; end
 function gf; git pull origin master; end
 function rmpyc; find . -name '*.pyc' | xargs rm; end
 function ghp; python -m grip; end # preview README files
+
+# Use nvim when installed
+if type -Pq nvim
+  function vim; nvim $argv; end
+end
 
 # Environment variables
 set -x PROJECT_DIR {$HOME}/projects

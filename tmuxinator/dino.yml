@@ -2,5 +2,5 @@ name: dino
 root: ~/projects/dino
 
 windows:
-  - vim: nvim README.md
+  - vim: vim .
   - ansible: #

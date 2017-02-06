@@ -20,8 +20,8 @@ function t3; tree --dirsfirst -ChFL 3; end
 function gs; git status --ignore-submodules=dirty; end
 function gp; git push origin master; end
 function gf; git pull origin master; end
-function rmpyc; find . -name '*.pyc' | xargs rm; end
-function ghp; python -m grip; end # preview README files
+function mux; tmuxinator $argv; end
+function ghp; python -m grip; end
 
 # Use nvim when installed
 if type -Pq nvim

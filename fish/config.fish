@@ -32,8 +32,8 @@ end
 set -x PROJECT_DIR {$HOME}/projects
 set -x LANG 'en_US.UTF-8'
 set -x LC_ALL 'en_US.UTF-8'
-set -x EDITOR 'vim'
-set -x VISUAL 'vim'
+set -x EDITOR 'nvim'
+set -x VISUAL 'nvim'
 set -x XDG_DATA_HOME {$HOME}/.local/share
 
 # Mu: mail search

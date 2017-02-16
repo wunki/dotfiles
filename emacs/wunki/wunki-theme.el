@@ -4,13 +4,13 @@
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
 ;; load theme and don't ask if it's save.
-(load-theme 'zenburn t)
+(load-theme 'sanityinc-tomorrow-blue t)
 
 ;; font
-(let ((font "Operator Mono Light")
+(let ((font "Source Code Pro")
       (size (if (mac?) 15 9)))
-  (add-to-list 'default-frame-alist (cons 'font (format "%s %s" font size)))
-  (set-frame-font (format "%s %s" font size) nil t))
+  (add-to-list 'default-frame-alist (cons 'font (format "%s-%s" font size)))
+  (set-frame-font (format "%s-%s" font size) nil t))
 
 ;; increase space between lines on the mac.
 (if (mac?)

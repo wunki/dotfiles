@@ -1,0 +1,6 @@
+name: twat
+root: ~/projects/twat
+
+windows:
+  - vim: vim .
+  - test: #

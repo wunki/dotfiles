@@ -3,28 +3,15 @@ let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 call plug#begin('~/.config/nvim/plugged')
 
 " Essentials
-Plug 'benekastah/neomake'                                " building new stuff
-augroup neomake_after_save
-  autocmd!
-  autocmd BufReadPost,BufWritePost * Neomake | if has('nvim') | Neomake! | endif
-  autocmd BufReadPost,BufWritePost *.rs if has('nvim') | Neomake! cargo | endif
-augroup END
-let g:neomake_verbose = 0
-let g:neomake_error_sign = {
-      \ 'text': '⚑',
-      \ 'texthl': 'ErrorMsg'
-      \ }
-let g:neomake_warning_sign = {
-      \ 'text': '⚐',
-      \ 'texthl': 'WarningMsg'
-      \ }
-let g:neomake_rust_enabled_makers = []                   " disable rustc checker
-
+Plug 'w0rp/ale'
+  let g:ale_lint_on_save = 1
+  let g:ale_lint_on_text_changed = 0
 Plug 'tpope/vim-eunuch'                                  " unix helper commands
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
 Plug 'tpope/vim-obsession'                               " better vim sessions
 Plug 'tpope/vim-speeddating'                             " easily increment numbers and dates
+Plug 'tpope/vim-endwise'                                 " automatically close blocks in languages like ruby or elixir
 Plug 'airblade/vim-gitgutter'                            " show git changes in the gutter
 Plug 'rking/ag.vim'                                      " silver searcher
 Plug 'mattn/webapi-vim'
@@ -34,42 +21,42 @@ Plug 'tpope/vim-surround'                                " surround commands
 Plug 'godlygeek/tabular'                                 " easy indenting
 Plug 'Lokaltog/vim-easymotion'                           " move by selecting a letter
 Plug 'mbbill/undotree'                                   " easy undoing
-    nnoremap <silent> <Leader>ut :UndotreeToggle<cr>
+  nnoremap <silent> <Leader>ut :UndotreeToggle<cr>
 Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, brackend and quotes
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
 Plug 'kien/ctrlp.vim'                                    " fast file switching
-    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-    let g:ctrlp_working_path_mode = 0
+  set grepprg=ag\ --nogroup\ --nocolor
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -f -g ""'
+  let g:ctrlp_working_path_mode = 0
 
 Plug 'Shougo/vimproc', {'do': 'make'}                    " command execution
 Plug 'aliva/vim-fish', { 'for': 'fish' }
 Plug 'vitalk/vim-simple-todo'                            " simple todo's
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
-    map <C-t> :Tagbar<CR>
+  map <C-t> :Tagbar<CR>
+  let g:tagbar_type_markdown = {
+    \ 'ctagstype' : 'markdown',
+    \ 'kinds' : [
+        \ 'h:Heading_L1',
+        \ 'i:Heading_L2',
+        \ 'k:Heading_L3'
+    \ ]
+  \ }
 
-    let g:tagbar_type_markdown = {
-      \ 'ctagstype' : 'markdown',
-      \ 'kinds' : [
-          \ 'h:Heading_L1',
-          \ 'i:Heading_L2',
-          \ 'k:Heading_L3'
-      \ ]
-    \ }
-
-    let g:tagbar_type_rust = {
-      \ 'ctagstype' : 'rust',
-      \ 'kinds' : [
-          \'T:types,type definitions',
-          \'f:functions,function definitions',
-          \'g:enum,enumeration names',
-          \'s:structure names',
-          \'m:modules,module names',
-          \'c:consts,static constants',
-          \'t:traits,traits',
-          \'i:impls,trait implementations',
-      \]
-    \}
+  let g:tagbar_type_rust = {
+    \ 'ctagstype' : 'rust',
+    \ 'kinds' : [
+        \'T:types,type definitions',
+        \'f:functions,function definitions',
+        \'g:enum,enumeration names',
+        \'s:structure names',
+        \'m:modules,module names',
+        \'c:consts,static constants',
+        \'t:traits,traits',
+        \'i:impls,trait implementations',
+    \]
+  \}
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
@@ -80,13 +67,10 @@ Plug 'Shougo/deoplete.nvim'
     inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
     inoremap <Leader><Tab> <Space><Space>
 
-Plug 'alessandroyorba/sierra'
-    let g:sierra_Sunset = 1
-Plug 'jacoborus/tender'
-Plug 'whatyouhide/vim-gotham'
+Plug 'arcticicestudio/nord-vim'
+" Plug 'edkolev/tmuxline.vim'
 Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-    let g:airline_theme='tomorrow'
+    let g:airline_theme='nord'
     let g:airline_powerline_fonts = 0
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
@@ -97,11 +81,12 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
     let g:racer_experimental_completer = 1
 
-" Swift
-Plug 'keith/swift.vim'
+" Go
+Plug 'fatih/vim-go'
 
-" Elm
-Plug 'lambdatoast/elm.vim'
+" Elixir
+Plug 'elixir-lang/vim-elixir'
+Plug 'slashmili/alchemist.vim'
 
 " Mac only
 if has("mac")
@@ -114,7 +99,6 @@ filetype plugin indent on
 
 " Visuals
 syntax on                   " enable syntax highlighting
-
 set cmdheight=1             " lower command line one lines high
 set mouse=nv                " mouse in normal and visual mode
 set modifiable              " needed for vimpager
@@ -140,7 +124,6 @@ set noshowmode              " no need for the mode, lightline shows it
 set showcmd                 " shows partial command in the last line
 set ruler                   " show the line and column number of the cursor
 set backspace=indent,eol,start
-set nonumber                " don't show linenumbers
 set formatoptions=qrn1
 set cursorline              " show me the line where the cursor is
 set nofoldenable            " don't do any folding for now
@@ -148,8 +131,11 @@ set guicursor+=a:blinkon0   " don't blink the cursor please
 set winwidth=79             " resize active window to minimally contains 79 chars width
 set clipboard=unnamedplus   " enable clipboard when on gui
 set completeopt-=preview
+set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮ " Change listchars
+set showbreak=↪             " Change wrap line break
+set fillchars=diff:⣿,vert:│ " Change fillchars
 
-colorscheme sierra
+colorscheme nord
 
 " Use normal regular expressions
 nnoremap / /\v

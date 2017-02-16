@@ -1,8 +1,0 @@
-# ~/.tmuxinator/park.yml
-
-name: park
-root: ~/Projects/wunki-park
-
-windows:
-  - vim: vim .
-  - git: git status

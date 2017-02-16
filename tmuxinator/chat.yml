@@ -1,6 +1,0 @@
-name: chat
-root: ~/Projects/chat
-
-windows:
-  - vim: n
-  - git: git status

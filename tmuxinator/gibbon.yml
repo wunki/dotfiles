@@ -1,9 +1,0 @@
-name: gibbon
-root: ~/Projects/go/src/github.com/gibbonco/
-
-windows:
-  - nvim: nvim titan/
-  - pg-tunnel: ssh -p 2700 -L 5432:192.168.1.1:5432 -N oberon.gibbon.co
-  - titan: 
-    - cd titan
-    - ./titan --config=config-dev.yml

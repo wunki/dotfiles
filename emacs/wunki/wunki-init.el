@@ -72,6 +72,9 @@
     cljdoc
     clojurescript-mode
 
+    ; elixir
+    alchemist
+    
     ; haskell
     haskell-mode
     hindent
@@ -83,7 +86,6 @@
     toml-mode
     company-racer
     flycheck-rust
-    rustfmt
 
     ; python
     anaconda-mode
@@ -164,8 +166,9 @@ Missing packages are installed automatically."
 (require 'wunki-temp)              ; temporary files
 (require 'wunki-git)               ; (ma)git settings
 (require 'wunki-org)               ; org-mode
-(if (not (windows?))
-    (require 'wunki-term))         ; ansi-term settings
+;;(if (not (windows?))
+;;    (require 'wunki-term))         ; ansi-term settings
+
 (require 'wunki-eshell)            ; eshell settings
 (require 'wunki-html)              ; HTML files
 (require 'wunki-lisp)              ; lisp languages
@@ -180,5 +183,6 @@ Missing packages are installed automatically."
 (require 'wunki-c)                 ; c
 (require 'wunki-erc)               ; irc
 (require 'wunki-yaml)              ; yaml
+(require 'wunki-elixir)            ; elixir
 (when (file-exists-p "~/mail")     ; mu4e
   (require 'wunki-mu4e))

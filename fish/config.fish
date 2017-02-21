@@ -82,7 +82,7 @@ function cb; cargo build; end
 function clippy; rustup run nightly cargo clippy; end
 function rust-musl-builder; docker run --rm -it -v "$PWD":/home/rust/src ekidd/rust-musl-builder; end
 set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
-set -x RUST_SRC_PATH "/usr/local/src/rust/src"
+set -x RUST_SRC_PATH (rustc --print sysroot)
 
 # Go
 set -x GOPATH "$PROJECT_DIR/go"

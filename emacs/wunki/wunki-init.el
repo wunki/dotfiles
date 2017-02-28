@@ -50,6 +50,7 @@
     default-text-scale
     fic-mode
     eshell-git-prompt
+    dockerfile-mode
 
     ;; org
     org

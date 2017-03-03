@@ -8,59 +8,54 @@
 
 ;; my packages
 (defvar wunki-packages
-  '(magit
-    yagist
-    ack-and-a-half
-    buffer-move
-    projectile
-    expand-region
-    change-inner
-    spaceline
-    surround
-    idomenu
-    diminish
-    dired-details
-    multiple-cursors
-    ag
-    rainbow-delimiters
-    smex
-    fullframe
-    smartparens
-    move-text
-    dash
-    browse-kill-ring
-    exec-path-from-shell
-    flycheck
-    dash-at-point
-    twittering-mode
-    pandoc-mode
+  '(projectile           ; project manegement
+    expand-region        ; easily select regions
+    spaceline            ; pretty modeline
+    diminish             ; remove modes from the modeline
+    dired-details        ; show details in dired
+    multiple-cursors     ; multiple cursors
+    ag                   ; quickly find stuff
+    rainbow-delimiters   ; color matching parenthesis
+    smex                 ; find recently found commands
+    fullframe            ; enable full frames for modes
+    smartparens          ; easy lisp editing
+    move-text            ; move line up/down
+    browse-kill-ring     ; show the kill ring
+    exec-path-from-shell ; use env vars in emacs
+    flycheck             ; linter
+    ido-ubiquitous       ; use ido everywhere
+    flx-ido              ; matching engine for ido
+    undo-tree            ; show undo's in a tree
+    avy                  ; jump around inside a buffer
+    ace-window           ; switch between emacs windows
+    anzu                 ; display current and total matches
+    company              ; autocomplete engine
+    default-text-scale   ; easily scale text
+    fic-mode             ; highlight fixme, todo etc.
+    
+    ;; file modes
+    js2-mode
+    web-mode
+    yaml-mode
     markdown-mode
+    fish-mode
+    csharp-mode
+    erlang
+    google-c-style
+    nginx-mode
+
+    ;; git
+    magit
+    eshell-git-prompt
     gitconfig-mode
     gitignore-mode
-    js2-mode
-    ido-ubiquitous
-    flx-ido
-    undo-tree
-    avy
-    ace-window
-    web-mode
-    anzu
-    fish-mode
-    company
-    default-text-scale
-    fic-mode
-    eshell-git-prompt
-
+    
     ;; org
     org
     org-plus-contrib
     org-magit
     org-pomodoro
 
-    ;; server management
-    yaml-mode
-    salt-mode
-    
     ;; package management
     async
     paradox
@@ -71,14 +66,6 @@
     clj-refactor
     cljdoc
     clojurescript-mode
-
-    ; elixir
-    alchemist
-    
-    ; haskell
-    haskell-mode
-    hindent
-    intero
 
     ; rust
     rust-mode
@@ -92,15 +79,6 @@
     company-anaconda
     pyenv-mode
     pyenv-mode-auto
-    
-    ;; erlang
-    erlang
-
-    ;; c#
-    csharp-mode
-
-    ;; c
-    google-c-style
 
     ;; go
     go-mode
@@ -112,14 +90,7 @@
 
     ;; colors
     zenburn-theme
-    tao-theme
-    solarized-theme
-    gruvbox-theme
-    color-theme-sanityinc-tomorrow
-    color-theme-sanityinc-solarized
-
-    ;; general
-    nginx-mode
+    color-theme-sanityinc-tomorrow    
     ))
 
 ;; install packages if not there yet, copied from prelude
@@ -166,23 +137,16 @@ Missing packages are installed automatically."
 (require 'wunki-temp)              ; temporary files
 (require 'wunki-git)               ; (ma)git settings
 (require 'wunki-org)               ; org-mode
-;;(if (not (windows?))
-;;    (require 'wunki-term))         ; ansi-term settings
-
 (require 'wunki-eshell)            ; eshell settings
 (require 'wunki-html)              ; HTML files
 (require 'wunki-lisp)              ; lisp languages
 (require 'wunki-scheme)            ; scheme languages
 (require 'wunki-rust)              ; rust
 (require 'wunki-python)            ; python
-(require 'wunki-haskell)           ; haskell
 (require 'wunki-erlang)            ; erlang
-(require 'wunki-elm)               ; elm
 (require 'wunki-csharp)            ; c#
 (require 'wunki-go)                ; go
 (require 'wunki-c)                 ; c
 (require 'wunki-erc)               ; irc
-(require 'wunki-yaml)              ; yaml
-(require 'wunki-elixir)            ; elixir
 (when (file-exists-p "~/mail")     ; mu4e
   (require 'wunki-mu4e))

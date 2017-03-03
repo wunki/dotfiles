@@ -54,8 +54,7 @@
     org
     org-plus-contrib
     org-magit
-    org-pomodoro
-
+    
     ;; package management
     async
     paradox

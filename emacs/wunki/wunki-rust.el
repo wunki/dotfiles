@@ -1,7 +1,6 @@
 (require 'racer)
 
 (defun wunki-rust-mode-hook ()
-  (setq racer-cmd "~/.cargo/bin/racer")
   (setq racer-cargo-home "~/.cargo")
   (rust-enable-format-on-save)
   (set (make-local-variable 'company-backends) '(company-racer))

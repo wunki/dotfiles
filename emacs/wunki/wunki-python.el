@@ -9,6 +9,9 @@
   (anaconda-eldoc-mode)
   (anaconda-mode))
 
+(custom-set-variables
+  '(python-shell-interpreter "python2"))
+
 (add-hook 'python-mode-hook 'wunki-python-defaults)
 
 (provide 'wunki-python)

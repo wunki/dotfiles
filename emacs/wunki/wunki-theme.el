@@ -7,7 +7,7 @@
 (load-theme 'sanityinc-tomorrow-blue t)
 
 ;; font
-(let ((font "Source Code Pro")
+(let ((font "Operator Mono")
       (size (if (mac?) 15 9)))
   (add-to-list 'default-frame-alist (cons 'font (format "%s-%s" font size)))
   (set-frame-font (format "%s-%s" font size) nil t))

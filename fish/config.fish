@@ -82,7 +82,11 @@ function cb; cargo build; end
 function clippy; rustup run nightly cargo clippy; end
 function rust-musl-builder; docker run --rm -it -v "$PWD":/home/rust/src ekidd/rust-musl-builder; end
 set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
-set -x RUST_SRC_PATH (rustc --print sysroot)
+
+# Set the correct path with rustup
+if type -Pq rustc
+  set -x RUST_SRC_PATH (rustc --print sysroot)
+end
 
 # Go
 set -x GOPATH "$PROJECT_DIR/go"
@@ -117,7 +121,6 @@ end
 prepend_to_path "$HOME/.aws/bin"
 set -x AWS_IAM_HOME "$HOME/.aws/iam"
 set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
-
 
 # Fuck: correcting mistyped stuff
 if type -Pq thefuck

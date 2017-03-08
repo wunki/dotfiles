@@ -4,7 +4,9 @@
 (when (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
 ;; load theme and don't ask if it's save.
-(load-theme 'sanityinc-tomorrow-blue t)
+(if (display-graphic-p)
+    (load-theme 'sanityinc-tomorrow-blue t)
+  (load-theme 'sanityinc-tomorrow-bright t))
 
 ;; font
 (let ((font "Operator Mono")

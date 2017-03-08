@@ -43,6 +43,7 @@
     erlang
     google-c-style
     nginx-mode
+    dockerfile-mode
 
     ;; git
     magit

@@ -22,6 +22,7 @@ function gp; git push origin master; end
 function gf; git pull origin master; end
 function mux; tmuxinator $argv; end
 function ghp; python -m grip; end
+function dino; mosh dino.wunki.org -- fish; end
 
 # Use nvim when installed
 if type -Pq nvim

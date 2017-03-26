@@ -32,6 +32,7 @@
     company              ; autocomplete engine
     default-text-scale   ; easily scale text
     fic-mode             ; highlight fixme, todo etc.
+    twittering-mode      ; twitter client
     
     ;; file modes
     js2-mode

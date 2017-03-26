@@ -9,14 +9,14 @@
   (load-theme 'sanityinc-tomorrow-bright t))
 
 ;; font
-(let ((font "Operator Mono")
-      (size (if (mac?) 15 9)))
+(let ((font "Operator Mono Book")
+      (size (if (mac?) 15 11)))
   (add-to-list 'default-frame-alist (cons 'font (format "%s-%s" font size)))
   (set-frame-font (format "%s-%s" font size) nil t))
 
 ;; increase space between lines on the mac.
 (if (mac?)
-    (setq line-spacing 1))
+    (setq line-spacing 2))
 
 ;; font size
 (global-set-key (kbd "C-M-=") 'default-text-scale-increase)

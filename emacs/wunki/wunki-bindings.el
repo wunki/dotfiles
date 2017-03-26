@@ -83,14 +83,13 @@
 (global-set-key (kbd "C-@") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-#") 'mc/mark-all-like-this-dwim)
 
-;; replace buffer-menu with ibuffer
+;; replac buffer-menu with ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; moving around
 (global-set-key (kbd "M-g w") 'avy-goto-word-or-subword-1)
 (global-set-key (kbd "M-g f") 'avy-goto-line)
 (global-set-key (kbd "M-p") 'ace-window)
-(global-set-key (kbd "C-c C-i") 'idomenu)
 
 ;; quickly edit files
 (global-set-key (kbd "C-c 1") 'ido-todos)

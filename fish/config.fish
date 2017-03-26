@@ -128,7 +128,7 @@ if type -Pq thefuck
   eval (thefuck --alias | tr '\n' ';')
 end
 
-# Direnv: adding environment variables per directory
+# Direnv: adding environment variables per directory in a .envrc
 if type -Pq direnv
   eval (direnv hook fish)
 end

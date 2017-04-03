@@ -55,6 +55,7 @@
     org
     org-plus-contrib
     org-magit
+    ox-gfm
     
     ;; package management
     async

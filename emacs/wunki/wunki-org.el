@@ -57,6 +57,9 @@
 (eval-after-load "org"
   '(require 'ox-md nil t))
 
+(eval-after-load "org"
+  '(require 'ox-gfm nil t))
+
 ;; org-babel
 (org-babel-do-load-languages
  'org-babel-load-languages

@@ -17,6 +17,9 @@
 ;; gotta have some fun
 (global-set-key (kbd "C-c C-*") 'zone)
 
+;; twitter
+(global-set-key (kbd "C-c C-t") 'twittering-update-status-interactive)
+
 ;; who needs shift when using forward/backwards paragraph
 (global-set-key (kbd "M-[") 'backward-paragraph)
 (global-set-key (kbd "M-]") 'forward-paragraph)

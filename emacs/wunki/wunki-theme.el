@@ -9,7 +9,7 @@
   (load-theme 'sanityinc-tomorrow-bright t))
 
 ;; font
-(let ((font "Operator Mono Book")
+(let ((font "Iosevka")
       (size (if (mac?) 15 11)))
   (add-to-list 'default-frame-alist (cons 'font (format "%s-%s" font size)))
   (set-frame-font (format "%s-%s" font size) nil t))

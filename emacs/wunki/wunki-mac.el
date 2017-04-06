@@ -7,6 +7,9 @@
 ;; browser
 (setq browse-url-browser-function 'browse-url-default-macosx-browser)
 
+;; automagically replace characters with ligatures
+(mac-auto-operator-composition-mode t)
+
 ;; dash for documentation
 (global-set-key (kbd "C-c d") 'dash-at-point)
 (global-set-key (kbd "C-c C-d") 'dash-at-point-with-docset)

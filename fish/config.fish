@@ -86,7 +86,7 @@ set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
 
 # Set the correct path with rustup
 if type -Pq rustc
-  set -x RUST_SRC_PATH (rustc --print sysroot)
+  set -x RUST_SRC_PATH (rustc --print sysroot)"/lib/rustlib/src/rust/src"
 end
 
 # Go

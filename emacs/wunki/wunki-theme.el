@@ -18,8 +18,4 @@
 (if (mac?)
     (setq line-spacing 2))
 
-;; font size
-(global-set-key (kbd "C-M-=") 'default-text-scale-increase)
-(global-set-key (kbd "C-M--") 'default-text-scale-decrease)
-
 (provide 'wunki-theme)

@@ -123,6 +123,10 @@
 ;; fullscreen
 (global-set-key (kbd "<f12>") 'toggle-frame-fullscreen)
 
+;; font size
+(global-set-key (kbd "C-M-=") 'default-text-scale-increase)
+(global-set-key (kbd "C-M--") 'default-text-scale-decrease)
+
 ;; newline and indent in yaml
 (eval-after-load "yaml-mode"
   '(progn

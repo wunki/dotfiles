@@ -83,8 +83,8 @@
 
 ;; multiple markers
 (global-set-key (kbd "C-!") 'mc/edit-lines)
-(global-set-key (kbd "C-@") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-#") 'mc/mark-all-like-this-dwim)
+(global-set-key (kbd "C-#") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-$") 'mc/mark-all-like-this-dwim)
 
 ;; replac buffer-menu with ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)

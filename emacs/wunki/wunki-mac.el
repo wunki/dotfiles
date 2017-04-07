@@ -33,7 +33,7 @@ Windows external keyboard from time to time."
 (global-set-key (kbd "M-H") 'ns-do-hide-others)
 
 ;; start out with meta as super, not the apple key
-(swap-meta-and-super)
+;; (swap-meta-and-super)
 
 ;; On Unix I start the server as a daemon at boot, on the Mac this needs to be
 ;; done here.

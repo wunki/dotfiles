@@ -4,8 +4,8 @@ Config { font = "xft:Iosevka:pixelsize=20:antialias=true"
        , position = BottomSize L 100 40
        , border = TopB
        , borderColor = "#333333"
-       , commands = [ Run Network "wifi0" ["-t", "<rx> - <tx>", "-L", "0"," -H", "100", "--normal", "#DCDCCC", "--high", "#CC9393"] 20
-                    , Run Cpu ["-L", "3", "-H", "50", "--normal", "#DCDCCC", "--high", "#9e1828"] 20
+       , commands = [ Run Network "wifi0" ["-t", "<rx> - <tx>", "-L", "0"," -H", "100", "--normal", "#DCDCCC", "--high", "#e68080"] 20
+                    , Run Cpu ["-L", "3", "-H", "50", "--normal", "#DCDCCC", "--high", "#e68080"] 20
                     , Run Date "%a %d %b | %H:%M" "date" 60
                     , Run Battery
                     [ "-t", "Batt:<left>% (<timeleft>) <acstatus>"

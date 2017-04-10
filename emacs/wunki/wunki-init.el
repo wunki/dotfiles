@@ -62,33 +62,15 @@
     async
     paradox
 
-    ;; clojure
-    cider
-    clojure-mode
-    clj-refactor
-    cljdoc
-    clojurescript-mode
+    ;; elixir
+    alchemist
 
-    ; rust
+    ;; rust
     rust-mode
     racer
     toml-mode
     company-racer
     flycheck-rust
-
-    ; python
-    anaconda-mode
-    company-anaconda
-    pyenv-mode
-    pyenv-mode-auto
-
-    ;; go
-    go-mode
-    go-eldoc
-    gotest
-    go-projectile
-    company-go
-    golint
 
     ;; colors
     zenburn-theme
@@ -146,6 +128,7 @@ Missing packages are installed automatically."
 (require 'wunki-rust)              ; rust
 (require 'wunki-python)            ; python
 (require 'wunki-erlang)            ; erlang
+(require 'wunki-elixir)            ; elixir
 (require 'wunki-csharp)            ; c#
 (require 'wunki-go)                ; go
 (require 'wunki-c)                 ; c

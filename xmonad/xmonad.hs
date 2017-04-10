@@ -27,19 +27,19 @@ import           System.IO
 main :: IO()
 main = do
     xmobar <- spawnPipe "xmobar"  -- start xmobar
-    xmonad $ defaultConfig
+    xmonad $ docks defaultConfig
         { manageHook = manageHook'
         , modMask = mod4Mask
         , layoutHook = avoidStruts myLayout
         , logHook = dynamicLogWithPP $ xmobarPP
                     { ppOutput = hPutStrLn xmobar
-                    , ppUrgent = xmobarColor "#de935f" ""
-                    , ppTitle = xmobarColor "#c5c8c6" ""
-                    , ppCurrent = xmobarColor "#81a2be" ""
+                    , ppUrgent = xmobarColor "#9e1828" ""
+                    , ppTitle = xmobarColor "#dcdccc" ""
+                    , ppCurrent = xmobarColor "#e68080" ""
                     }
         , borderWidth = 1
-        , normalBorderColor  = "#7285b7"
-        , focusedBorderColor = "#bbdaff"
+        , normalBorderColor  = "#727272"
+        , focusedBorderColor = "#e68080"
         , workspaces = ["1:Project", "2:Shells", "3:Browser", "4", "5"]
         , terminal  = "termite"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c

@@ -24,6 +24,10 @@ function mux; tmuxinator $argv; end
 function ghp; python -m grip; end
 function dino; mosh dino.wunki.org -- fish; end
 
+# OpenVPN
+function start-vpn; sudo systemctl start openvpn-client@$argv.service; end
+function stop-vpn; sudo systemctl stop openvpn-client@$argv.service; end
+
 # Use nvim when installed
 if type -Pq nvim
   function vim; nvim $argv; end

@@ -12,7 +12,7 @@ Config { font = "xft:Iosevka:pixelsize=20:antialias=true"
                     , Run Battery
                     [ "-t", "Batt:<left>% (<timeleft>) <acstatus>"
                     , "-L", "10", "-H", "80", "-p", "3"
-                    , "--", "-O", "<fc=green>[charging]</fc>", "-o", "<fc=grey>[unplugged]</fc>"
+                    , "--", "-O", "<fc=green>[charging]</fc>", "-o", "<fc=#bebebe>[unplugged]</fc>"
                     , "-L", "-15", "-H", "-5"
                     , "-l", "red", "-m", "cyan", "-h", "green"] 600
                     , Run StdinReader

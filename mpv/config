@@ -3,16 +3,21 @@
 ################################################################################
 use-filedir-conf=yes # load config file from file directory
 correct-pts=yes
-msgcolor=yes # FABULOUS!!
-cache=50000
-cache-min=10
+msg-color=yes # FABULOUS!!
+
+################################################################################
+# Caching
+################################################################################
+cache=auto 	    # Newer builds of mpv seem to have some troubles with a fixed cache
+cache-initial=1000
+cache-seek-min=2000
 
 ################################################################################
 # Video
 ################################################################################
 fs=yes
 ontop=yes
-framedrop=yes
+framedrop=vo
 
 ################################################################################
 # Audio
@@ -22,10 +27,11 @@ framedrop=yes
 # Subtitles
 ################################################################################
 #fontconfig=yes
+sub-auto=fuzzy
 embeddedfonts=yes
-ass-force-style=Kerning=yes
-sub-text-font="DejaVu Sans"
-sub-text-font-size=48
+sub-ass-force-style=Kerning=yes
+sub-font="DejaVu Sans"
+sub-font-size=48
 
 osd-bar-align-y=0
 osd-bar-h=7

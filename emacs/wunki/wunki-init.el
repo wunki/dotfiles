@@ -63,6 +63,7 @@
     paradox
 
     ;; elixir
+    elixir-mode
     alchemist
 
     ;; rust

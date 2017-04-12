@@ -9,4 +9,10 @@
          :post-handlers '(sp-ruby-def-post-handler)
          :actions '(insert navigate)))
 
+(defun wunki-elixir-mode-hook ()
+  (alchemist-mode)
+  (flycheck-mix-setup))
+
+(add-hook 'elixir-mode-hook 'wunki-elixir-mode-hook)
+
 (provide 'wunki-elixir)

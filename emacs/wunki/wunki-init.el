@@ -65,7 +65,7 @@
     ;; elixir
     elixir-mode
     alchemist
-
+    flycheck-mix
     ;; rust
     rust-mode
     racer

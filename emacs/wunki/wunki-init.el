@@ -45,6 +45,7 @@
     google-c-style
     nginx-mode
     dockerfile-mode
+    vue-mode
 
     ;; git
     magit

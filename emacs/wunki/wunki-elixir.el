@@ -11,8 +11,15 @@
 
 (defun wunki-elixir-mode-hook ()
   (alchemist-mode)
-  (flycheck-mix-setup))
+  (flycheck-mix-setup)
+  (flycheck-mode))
+
+;; don't use C-c a for alchemist keys since it clashes with org-mode
+(setq alchemist-key-command-prefix (kbd "C-c ,"))
+
+;; source code of erlang and elixir
+(setq alchemist-goto-erlang-source-dir "~/projects/otp/")
+(setq alchemist-goto-elixir-source-dir "~/projects/elixir/")
 
 (add-hook 'elixir-mode-hook 'wunki-elixir-mode-hook)
-
 (provide 'wunki-elixir)

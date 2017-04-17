@@ -67,12 +67,14 @@
     elixir-mode
     alchemist
     flycheck-mix
+
     ;; rust
     rust-mode
     racer
     toml-mode
     company-racer
     flycheck-rust
+    cargo
 
     ;; colors
     zenburn-theme

@@ -11,5 +11,6 @@
 (add-hook 'racer-mode-hook #'eldoc-mode)
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 (add-hook 'rust-mode-hook 'flycheck-mode)
+(add-hook 'rust-mode-hook 'cargo-minor-mode)
 
 (provide 'wunki-rust)

@@ -195,5 +195,7 @@
 (diminish 'smartparens-mode)
 (after-load 'subword
   (diminish 'subword-mode))
+(after-load 'cargo-minor-mode
+  (diminish cargo-minor-mode))
 
 (provide 'wunki-modes)

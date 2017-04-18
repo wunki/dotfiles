@@ -78,6 +78,7 @@
 
     ;; colors
     zenburn-theme
+    nord-theme
     color-theme-sanityinc-tomorrow    
     ))
 

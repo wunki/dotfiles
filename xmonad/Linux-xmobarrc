@@ -4,7 +4,7 @@ Config { font = "xft:Iosevka:pixelsize=20:antialias=true"
        , position = BottomSize L 100 40
        , border = TopB
        , borderColor = "#3B4252"
-       , commands = [ Run Network "wifi0" ["-t", "<rx> - <tx>", "-L", "0"," -H", "100", "--normal", "#D8DEE9", "--high", "#BF616A"] 20
+       , commands = [ Run Network "wifi0" ["-t", "<rx> - <tx>", "-L", "0"," -H", "1000", "--normal", "#D8DEE9", "--high", "#BF616A"] 20
                     , Run Cpu ["-L", "3", "-H", "50", "--normal", "#D8DEE9", "--high", "#BF616A"] 20
                     , Run Date "%a %d %b | %H:%M" "date" 60
                     -- VPN connectivity status

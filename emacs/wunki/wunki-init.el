@@ -40,7 +40,6 @@
     yaml-mode
     markdown-mode
     fish-mode
-    csharp-mode
     erlang
     google-c-style
     nginx-mode
@@ -74,6 +73,10 @@
     cargo
     lsp-mode
     lsp-rust
+
+    ;; c-sharp
+    omnisharp
+    csharp-mode
 
     ;; colors
     zenburn-theme

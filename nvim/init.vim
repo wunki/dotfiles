@@ -25,6 +25,9 @@ Plug 'mbbill/undotree'                                   " easy undoing
 Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, brackend and quotes
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+  map <C-p> :Files<cr>
+  nmap <C-p> :Files<cr>
+  nmap <Leader>c :Commits<cr>
 Plug 'junegunn/fzf.vim'
   let g:fzf_colors =
   \ { 'fg':      ['fg', 'Normal'],
@@ -40,6 +43,7 @@ Plug 'junegunn/fzf.vim'
     \ 'spinner': ['fg', 'Label'],
     \ 'header':  ['fg', 'Comment'] }
 Plug 'Shougo/vimproc', {'do': 'make'}                    " command execution
+Plug 'Shougo/echodoc.vim'                                " show function signature
 Plug 'aliva/vim-fish', { 'for': 'fish' }
 Plug 'vitalk/vim-simple-todo'                            " simple todo's
 Plug 'othree/html5.vim', { 'for': 'html' }
@@ -78,6 +82,7 @@ Plug 'Shougo/deoplete.nvim'
     inoremap <Leader><Tab> <Space><Space>
 
 Plug 'arcticicestudio/nord-vim'
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
     let g:airline_powerline_fonts = 0
@@ -87,8 +92,6 @@ Plug 'vim-airline/vim-airline'
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
-Plug 'racer-rust/vim-racer', { 'for': 'rust' }
-    let g:racer_experimental_completer = 1
 
 " Go
 Plug 'fatih/vim-go'
@@ -96,6 +99,13 @@ Plug 'fatih/vim-go'
 " Elixir
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
+
+" Language server
+Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+    \ }
+let g:LanguageClient_autoStart = 1
 
 " Mac only
 if has("mac")
@@ -108,7 +118,7 @@ filetype plugin indent on
 
 " Visuals
 syntax on                   " enable syntax highlighting
-set cmdheight=1             " lower command line one lines high
+set cmdheight=2             " lower command line one lines high
 set mouse=nv                " mouse in normal and visual mode
 set modifiable              " needed for vimpager
 set bg=dark                 " dark background
@@ -143,6 +153,10 @@ set completeopt-=preview
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮ " Change listchars
 set showbreak=↪             " Change wrap line break
 set fillchars=diff:⣿,vert:│ " Change fillchars
+
+" Ripgrep
+set grepprg=rg\ --vimgrep
+set grepformat=%f:%l:%c:%m
 
 colorscheme nord
 

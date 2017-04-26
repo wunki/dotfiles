@@ -70,11 +70,10 @@
 
     ;; rust
     rust-mode
-    racer
     toml-mode
-    company-racer
-    flycheck-rust
     cargo
+    lsp-mode
+    lsp-rust
 
     ;; colors
     zenburn-theme

@@ -77,9 +77,8 @@ Plug 'Shougo/deoplete.nvim'
     inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
     inoremap <Leader><Tab> <Space><Space>
 
-Plug 'zenburn'
+Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline-themes'
-" Plug 'edkolev/tmuxline.vim'
 Plug 'vim-airline/vim-airline'
     let g:airline_powerline_fonts = 0
     let g:airline_left_sep = ''
@@ -145,7 +144,7 @@ set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮ " Change listchars
 set showbreak=↪             " Change wrap line break
 set fillchars=diff:⣿,vert:│ " Change fillchars
 
-colorscheme zenburn
+colorscheme nord
 
 " Use normal regular expressions
 nnoremap / /\v

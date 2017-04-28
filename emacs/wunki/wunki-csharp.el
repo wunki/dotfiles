@@ -4,7 +4,9 @@
   (omnisharp-mode 1)
   (flycheck-mode))
 
-(setq omnisharp-server-executable-path "/usr/local/bin/omnisharp")
+(if (mac?)
+    (setq omnisharp-server-executable-path "/usr/local/bin/omnisharp")
+  (setq omnisharp-server-executable-path "/opt/omnisharp-roslyn/OmniSharp.exe"))
 (add-hook 'csharp-mode-hook 'wunki-csharp-mode-hook)
 (eval-after-load 'company
   '(add-to-list 'company-backends 'company-omnisharp))

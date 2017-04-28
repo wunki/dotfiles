@@ -137,7 +137,6 @@ Missing packages are installed automatically."
 (require 'wunki-erlang)            ; erlang
 (require 'wunki-elixir)            ; elixir
 (require 'wunki-csharp)            ; c#
-(require 'wunki-go)                ; go
 (require 'wunki-c)                 ; c
 (require 'wunki-erc)               ; irc
 (when (file-exists-p "~/mail")     ; mu4e

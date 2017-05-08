@@ -5,8 +5,8 @@
 
 ;; load theme and don't ask if it's save.
 (if (display-graphic-p)
-    (load-theme 'zenburn t)
-  (load-theme 'zenburn t))
+    (load-theme 'nord t)
+  (load-theme 'nord t))
 
 ;; font
 (let ((font "Iosevka")

@@ -130,14 +130,9 @@ Missing packages are installed automatically."
 (require 'wunki-org)               ; org-mode
 (require 'wunki-eshell)            ; eshell settings
 (require 'wunki-html)              ; HTML files
-(require 'wunki-lisp)              ; lisp languages
-(require 'wunki-scheme)            ; scheme languages
 (require 'wunki-rust)              ; rust
 (require 'wunki-python)            ; python
-(require 'wunki-erlang)            ; erlang
-(require 'wunki-elixir)            ; elixir
 (require 'wunki-csharp)            ; c#
-(require 'wunki-c)                 ; c
 (require 'wunki-erc)               ; irc
 (when (file-exists-p "~/mail")     ; mu4e
   (require 'wunki-mu4e))

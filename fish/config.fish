@@ -69,6 +69,7 @@ prepend_to_path "$HOME/.bin"
 prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.local/bin"
 prepend_to_path "$HOME/.cabal/bin"
+prepend_to_path "$HOME/.npm/bin"
 
 # Google Cloud SDK
 prepend_to_path "$HOME/.google-cloud-sdk/bin"

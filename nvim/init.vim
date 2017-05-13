@@ -100,12 +100,16 @@ Plug 'fatih/vim-go'
 Plug 'elixir-lang/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 
+" Elm
+Plug 'elmcast/elm-vim'
+  let g:elm_format_autosave = 1
+
 " Language server
 Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
-let g:LanguageClient_serverCommands = {
-    \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
-    \ }
-let g:LanguageClient_autoStart = 1
+  let g:LanguageClient_serverCommands = {
+      \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+      \ }
+  let g:LanguageClient_autoStart = 1
 
 " Mac only
 if has("mac")

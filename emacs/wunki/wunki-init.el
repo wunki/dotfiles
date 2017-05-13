@@ -74,6 +74,9 @@
     lsp-mode
     lsp-rust
 
+    ;; elm
+    elm-mode
+
     ;; c-sharp
     omnisharp
     csharp-mode
@@ -132,6 +135,7 @@ Missing packages are installed automatically."
 (require 'wunki-html)              ; HTML files
 (require 'wunki-rust)              ; rust
 (require 'wunki-python)            ; python
+(require 'wunki-elm)               ; elm programming language
 (require 'wunki-csharp)            ; c#
 (require 'wunki-erc)               ; irc
 (when (file-exists-p "~/mail")     ; mu4e

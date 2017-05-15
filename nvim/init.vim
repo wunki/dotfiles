@@ -82,7 +82,6 @@ Plug 'Shougo/deoplete.nvim'
     inoremap <Leader><Tab> <Space><Space>
 
 Plug 'arcticicestudio/nord-vim'
-Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
     let g:airline_powerline_fonts = 0

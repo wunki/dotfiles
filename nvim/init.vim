@@ -1,5 +1,3 @@
-let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-
 call plug#begin('~/.config/nvim/plugged')
 
 " Essentials
@@ -81,7 +79,7 @@ Plug 'Shougo/deoplete.nvim'
     inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
     inoremap <Leader><Tab> <Space><Space>
 
-Plug 'arcticicestudio/nord-vim'
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
     let g:airline_powerline_fonts = 0
@@ -156,12 +154,13 @@ set completeopt-=preview
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮ " Change listchars
 set showbreak=↪             " Change wrap line break
 set fillchars=diff:⣿,vert:│ " Change fillchars
+set termguicolors
 
 " Ripgrep
 set grepprg=rg\ --vimgrep
 set grepformat=%f:%l:%c:%m
 
-colorscheme nord
+colorscheme gruvbox
 
 " Use normal regular expressions
 nnoremap / /\v

@@ -135,6 +135,7 @@ Missing packages are installed automatically."
 (require 'wunki-html)              ; HTML files
 (require 'wunki-rust)              ; rust
 (require 'wunki-python)            ; python
+(require 'wunki-elixir)            ; elixir
 (require 'wunki-elm)               ; elm programming language
 (require 'wunki-csharp)            ; c#
 (require 'wunki-erc)               ; irc

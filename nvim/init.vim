@@ -80,6 +80,7 @@ Plug 'Shougo/deoplete.nvim'
     inoremap <Leader><Tab> <Space><Space>
 
 Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
     let g:airline_powerline_fonts = 0
@@ -160,7 +161,7 @@ set termguicolors
 set grepprg=rg\ --vimgrep
 set grepformat=%f:%l:%c:%m
 
-colorscheme gruvbox
+colorscheme nord
 
 " Use normal regular expressions
 nnoremap / /\v

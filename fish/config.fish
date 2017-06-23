@@ -119,8 +119,7 @@ set -x NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 prepend_to_path "$NPM_PACKAGES/bin"
 
 # Ruby
-prepend_to_path "$HOME/.gem/ruby/2.0.0/bin"
-prepend_to_path "$HOME/.gem/ruby/2.3.0/bin"
+prepend_to_path "$HOME/.gem/ruby/2.4.0/bin"
 
 # Python
 prepend_to_path "$HOME/.pyenv/bin"

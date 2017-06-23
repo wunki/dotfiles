@@ -167,6 +167,13 @@ Including indent-buffer, which should not be called automatically on save."
   (let ((fill-column (point-max)))
     (fill-region (region-beginning) (region-end) nil)))
 
+(defun wunki/beautify-json ()
+  (interactive)
+  (let ((b (if mark-active (min (point) (mark)) (point-min)))
+        (e (if mark-active (max (point) (mark)) (point-max))))
+    (shell-command-on-region b e
+     "python -mjson.tool" (current-buffer) t)))
+
 (if (fboundp 'with-eval-after-load)
     (defalias 'after-load 'with-eval-after-load)
   (defmacro after-load (feature &rest body)

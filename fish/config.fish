@@ -92,6 +92,9 @@ function clippy; rustup run nightly cargo clippy; end
 function rust-musl-builder; docker run --rm -it -v "$PWD":/home/rust/src ekidd/rust-musl-builder; end
 set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
 
+# Erlang and Elixir
+set -x ERL_AFLAGS "-kernel shell_history enabled"
+
 # Set the correct path with rustup
 if type -Pq rustc
   set -x RUST_SRC_PATH (rustc --print sysroot)"/lib/rustlib/src/rust/src"

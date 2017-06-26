@@ -24,9 +24,8 @@ Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, bra
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
 Plug 'ctrlpvim/ctrlp.vim'
   if executable('rg')
-    set grepprg=rg\ --color=never
-    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-"    let g:ctrlp_use_caching = 0
+    let g:ctrlp_user_command = 'rg --files %s'
+    let g:ctrlp_use_caching = 0
   endif
 Plug 'Shougo/vimproc', {'do': 'make'}                    " command execution
 Plug 'Shougo/echodoc.vim'                                " show function signature

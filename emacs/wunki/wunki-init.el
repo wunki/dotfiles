@@ -54,7 +54,7 @@
     
     ;; org
     org
-    org-plus-contrib
+    ;; org-plus-contrib
     org-magit
     ox-gfm
     

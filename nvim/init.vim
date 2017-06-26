@@ -22,24 +22,12 @@ Plug 'mbbill/undotree'                                   " easy undoing
   nnoremap <silent> <Leader>ut :UndotreeToggle<cr>
 Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, brackend and quotes
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-  map <C-p> :Files<cr>
-  nmap <C-p> :Files<cr>
-  nmap <Leader>c :Commits<cr>
-Plug 'junegunn/fzf.vim'
-  let g:fzf_colors =
-  \ { 'fg':      ['fg', 'Normal'],
-    \ 'bg':      ['bg', 'Normal'],
-    \ 'hl':      ['fg', 'Comment'],
-    \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-    \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-    \ 'hl+':     ['fg', 'Statement'],
-    \ 'info':    ['fg', 'PreProc'],
-    \ 'prompt':  ['fg', 'Conditional'],
-    \ 'pointer': ['fg', 'Exception'],
-    \ 'marker':  ['fg', 'Keyword'],
-    \ 'spinner': ['fg', 'Label'],
-    \ 'header':  ['fg', 'Comment'] }
+Plug 'ctrlpvim/ctrlp.vim'
+  if executable('rg')
+    set grepprg=rg\ --color=never
+    let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+"    let g:ctrlp_use_caching = 0
+  endif
 Plug 'Shougo/vimproc', {'do': 'make'}                    " command execution
 Plug 'Shougo/echodoc.vim'                                " show function signature
 Plug 'aliva/vim-fish', { 'for': 'fish' }

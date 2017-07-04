@@ -68,6 +68,7 @@ Plug 'Shougo/deoplete.nvim'
 
 Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
+Plug 'KeitaNakamura/neodark.vim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
     let g:airline_powerline_fonts = 0

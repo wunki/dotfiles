@@ -87,6 +87,7 @@ end
 # Rust
 prepend_to_path "$HOME/.cargo/bin"
 function ct; cargo test -- --nocapture; end
+function ctl; cargo test --lib -- --nocapture $argv; end
 function cb; cargo build; end
 function clippy; rustup run nightly cargo clippy; end
 function rust-musl-builder; docker run --rm -it -v "$PWD":/home/rust/src ekidd/rust-musl-builder; end

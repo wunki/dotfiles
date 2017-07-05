@@ -1,6 +1,0 @@
-name: exercism
-root: ~/Projects/exercism
-
-windows:
-  - titan: nvim titan
-  - cargo: #

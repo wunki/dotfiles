@@ -1,8 +1,0 @@
-# ~/.tmuxinator/wunki-blog.yml
-
-name: blog
-root: ~/src/wunki-blog
-
-windows:
-  - vim: vim .
-  - server: jekyll serve -w

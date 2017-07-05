@@ -1,9 +1,0 @@
-# ~/.tmuxinator/gibbon-static.yml
-
-name: gibbon-static
-root: ~/Projects/gibbon-static
-
-windows:
-  - vim: n .
-  - pg-tunnel: ssh -4 -L 5433:192.168.6.4:5432 -N prime.wunki.org
-  - run: #

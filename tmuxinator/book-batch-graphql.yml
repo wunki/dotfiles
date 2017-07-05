@@ -1,9 +1,8 @@
 name: book-batch-graphql
 root: ~/projects/book-batch-graphql
-on_project_first_start: ssh -L 5432:127.0.0.1:5432 -N sql.wunki.org
 
 windows:
   - vim: nvim .
   - cargo: #
-  - psql: psql -h 127.0.0.1 -U postgres book_batch_dev
+  - psql: psql -h 172.16.1.14 -U wunki book_batch_dev
 

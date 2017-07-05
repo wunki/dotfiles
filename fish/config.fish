@@ -85,6 +85,10 @@ if test -f "/usr/local/share/autojump/autojump.fish"
   . "/usr/local/share/autojump/autojump.fish"
 end
 
+if test -f "$HOME/.autojump/share/autojump/autojump.fish"
+  . "$HOME/.autojump/share/autojump/autojump.fish"
+end
+
 # Rust
 prepend_to_path "$HOME/.cargo/bin"
 function ct; cargo test -- --nocapture; end

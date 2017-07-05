@@ -77,6 +77,7 @@ Plug 'vim-airline/vim-airline'
 
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+  let g:rustfmt_autosave = 1
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 " Go

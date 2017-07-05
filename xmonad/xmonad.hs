@@ -67,8 +67,8 @@ manageHook' :: ManageHook
 manageHook' = doF W.swapDown <+> manageDocks <+> manageHook defaultConfig <+> myManageHook
 
 myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
-    [ ((0, xF86XK_AudioLowerVolume), spawn "amixer -q sset Master 1-")        -- Lower volume
-    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q sset Master 1+")        -- Raise volume
+    [ ((0, xF86XK_AudioLowerVolume), spawn "amixer -D pulse sset Master 5%-")        -- Lower volume
+    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -D pulse sset Master 5%+")        -- Raise volume
     , ((0, xF86XK_AudioMute), spawn "amixer -q sset Master toggle")           -- Mute
     , ((0, xF86XK_AudioPlay), spawn "mpc toggle")                             -- Play/pause
     , ((0, xF86XK_AudioPrev), spawn "mpc prev")                               -- Previous song

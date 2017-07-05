@@ -1,5 +1,5 @@
-name: book-batch-graphql
-root: ~/projects/book-batch-graphql
+name: book-batch
+root: ~/projects/book-batch
 
 windows:
   - vim: nvim .

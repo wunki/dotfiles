@@ -64,7 +64,6 @@
  'org-babel-load-languages
  '((emacs-lisp . t)
    (C . t)
-   (sh . t)
    (ditaa . t)
    (python . t)
    (haskell . t)

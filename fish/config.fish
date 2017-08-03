@@ -23,6 +23,7 @@ function gf; git pull origin master; end
 function mux; tmuxinator $argv; end
 function ghp; python -m grip; end
 function dino; mosh dino.wunki.org -- fish; end
+function e; emacsclient -nq -a emacs $argv; end
 
 # OpenVPN
 function start-vpn; sudo systemctl start openvpn-client@$argv.service; end

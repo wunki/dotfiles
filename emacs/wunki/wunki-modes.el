@@ -27,6 +27,9 @@
 ;; blinking
 (blink-cursor-mode -1)
 
+;; don't keep asking me to reload tags
+(setq tags-revert-without-query 1)
+
 ;; auto-completion
 (setq company-tooltip-limit 20)                      ; bigger popup window
 (setq company-idle-delay .3)                         ; decrease delay before autocompletion popup shows

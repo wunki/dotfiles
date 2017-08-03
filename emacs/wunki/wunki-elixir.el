@@ -15,6 +15,7 @@
   (flycheck-mode))
 
 ;; source code for erlang and elixir so we can jump to definitions
+(setq alchemist-hooks-test-on-save t)
 (setq alchemist-goto-erlang-source-dir "~/projects/otp/")
 (setq alchemist-goto-elixir-source-dir "~/projects/elixir/")
 

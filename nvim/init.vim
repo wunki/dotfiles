@@ -66,7 +66,7 @@ Plug 'Shougo/deoplete.nvim'
     inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
     inoremap <Leader><Tab> <Space><Space>
 
-Plug 'morhetz/gruvbox'
+Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'arcticicestudio/nord-vim'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'vim-airline/vim-airline-themes'
@@ -150,7 +150,9 @@ set termguicolors
 set grepprg=rg\ --vimgrep
 set grepformat=%f:%l:%c:%m
 
-colorscheme nord
+" Indent line
+let g:deepspace_italics=1
+colorscheme deep-space
 
 " Use normal regular expressions
 nnoremap / /\v

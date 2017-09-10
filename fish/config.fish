@@ -25,6 +25,9 @@ function ghp; python -m grip; end
 function dino; mosh dino.wunki.org -- fish; end
 function e; emacsclient -nq -a emacs $argv; end
 
+# Tunnels
+function kafka-tunnel; ssh -L 9092:172.16.1.18:9092 -N dino.wunki.org; end
+
 # OpenVPN
 function start-vpn; sudo systemctl start openvpn-client@$argv.service; end
 function stop-vpn; sudo systemctl stop openvpn-client@$argv.service; end

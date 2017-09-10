@@ -6,7 +6,7 @@
 ;; load theme and don't ask if it's save.
 (if (display-graphic-p)
     (load-theme 'sanityinc-tomorrow-blue t)
-  (load-theme 'sanityinc-tomorrow-blue t))
+  (load-theme 'zenburn t))
 
 ;; font
 (let ((font "Iosevka")

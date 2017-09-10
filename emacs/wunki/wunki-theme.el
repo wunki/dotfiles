@@ -9,7 +9,7 @@
   (load-theme 'zenburn t))
 
 ;; font
-(let ((font "Operator Mono")
+(let ((font "Operator Mono Book")
       (size (if (mac?) 14 9)))
   (add-to-list 'default-frame-alist (cons 'font (format "%s-%s" font size)))
   (set-frame-font (format "%s-%s" font size) nil t))

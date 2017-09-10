@@ -27,6 +27,7 @@ function e; emacsclient -nq -a emacs $argv; end
 
 # Tunnels
 function kafka-tunnel; ssh -L 9092:172.16.1.18:9092 -N dino.wunki.org; end
+function syncthing-tunnel; ssh -L 8385:127.0.0.1:8384 -N dino.wunki.org; end
 
 # OpenVPN
 function start-vpn; sudo systemctl start openvpn-client@$argv.service; end

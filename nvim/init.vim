@@ -153,7 +153,7 @@ set grepformat=%f:%l:%c:%m
 
 " Indent line
 let g:deepspace_italics=1
-colorscheme deep-space
+colorscheme nord
 
 " Use normal regular expressions
 nnoremap / /\v
@@ -208,4 +208,22 @@ au BufRead ~/.mutt/tmp/mutt-* set tw=72 formatoptions=tcql
 
 " Make comments italic
 highlight Comment cterm=italic
+
+" colors for the terminal
+let g:terminal_color_0  = '#3B4252'
+let g:terminal_color_1  = '#BF616A'
+let g:terminal_color_2  = '#A3BE8C'
+let g:terminal_color_3  = '#EBCB8B'
+let g:terminal_color_4  = '#81A1C1'
+let g:terminal_color_5  = '#B48EAD'
+let g:terminal_color_6  = '#88C0D0'
+let g:terminal_color_7  = '#E5E9F0'
+let g:terminal_color_8  = '#4C566A'
+let g:terminal_color_9  = '#BF616A'
+let g:terminal_color_10 = '#A3BE8C'
+let g:terminal_color_11 = '#EBCB8B'
+let g:terminal_color_12 = '#81A1C1'
+let g:terminal_color_13 = '#B48EAD'
+let g:terminal_color_14 = '#8FBCBB'
+let g:terminal_color_15 = '#ECEFF4'
 

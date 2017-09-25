@@ -153,7 +153,7 @@ set grepformat=%f:%l:%c:%m
 
 " Indent line
 let g:deepspace_italics=1
-colorscheme nord
+colorscheme deep-space
 
 " Use normal regular expressions
 nnoremap / /\v

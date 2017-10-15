@@ -31,7 +31,7 @@ unclutter -idle 3 &
 setxkbmap dvorak -option ctrl:nocaps
 
 # Set background
-feh --bg-tile ~/pictures/wallpapers/green-space.jpg
+feh --bg-tile ~/pictures/wallpapers/dark_mosaic.png
 
 # Thunar
 thunar --daemon &

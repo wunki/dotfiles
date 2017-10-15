@@ -57,7 +57,7 @@ myLayout = tiled ||| noBorders Full ||| Grid
 myManageHook :: ManageHook
 myManageHook = manageDocks <+> composeAll
     [ className =? "Chromium"                --> doF (W.shift "3:Browser")
-    , className =? "Firefox-bin"             --> doF (W.shift "3:Browser")
+    , className =? "Firefox-beta"            --> doF (W.shift "3:Browser")
     , className =? "Firefox"                 --> doF (W.shift "3:Browser")
     , className =? "Emacs"                   --> doF (W.shift "1:Project")
     , className =? "Code"                    --> doF (W.shift "1:Project")
@@ -73,13 +73,13 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((0, xF86XK_AudioPlay), spawn "mpc toggle")                             -- Play/pause
     , ((0, xF86XK_AudioPrev), spawn "mpc prev")                               -- Previous song
     , ((0, xF86XK_AudioNext), spawn "mpc next")                               -- Next song
-    , ((0, xF86XK_Launch1),   spawn "firefox-nightly")                                -- Launch Firefox
+    , ((0, xF86XK_Launch1),   spawn "firefox-beta-bin")                       -- Launch Firefox
     , ((modMask, xK_b), sendMessage ToggleStruts)             -- Hide top bar
     , ((modMask .|. controlMask, xK_s), spawn "scrot -q90 /home/wunki/pictures/screenshots/%Y-%m-%d-%H%M%S.png")
     , ((modMask .|. controlMask, xK_p), sendMessage MagnifyMore)
     , ((modMask .|. controlMask, xK_l), sendMessage MagnifyLess)
     , ((modMask .|. controlMask, xK_m), sendMessage Toggle)
-    , ((modMask .|. controlMask, xK_w), raiseMaybe (spawn "firefox-nightly") (className =? "Firefox"))
+    , ((modMask .|. controlMask, xK_w), raiseMaybe (spawn "firefox-beta-bin") (className =? "Firefox"))
     , ((modMask .|. controlMask, xK_e), raiseMaybe (spawn "~/bin/em") (className =? "Emacs"))
     , ((modMask .|. controlMask, xK_c), raiseMaybe (spawn "code") (className =? "Code"))
     -- cycle through workspaces

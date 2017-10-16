@@ -5,6 +5,7 @@ Plug 'edkolev/tmuxline.vim'
 Plug 'w0rp/ale'
   let g:ale_lint_on_save = 1
   let g:ale_lint_on_text_changed = 0
+Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-eunuch'                                  " unix helper commands
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping

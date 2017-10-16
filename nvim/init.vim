@@ -1,6 +1,7 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " Essentials
+Plug 'edkolev/tmuxline.vim'
 Plug 'w0rp/ale'
   let g:ale_lint_on_save = 1
   let g:ale_lint_on_text_changed = 0
@@ -71,6 +72,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'KeitaNakamura/neodark.vim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
+    let g:airline_theme='deep_space'
     let g:airline_powerline_fonts = 0
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
@@ -83,6 +85,11 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 " Go
 Plug 'fatih/vim-go'
+
+" Haskell
+Plug 'pbrisbin/vim-syntax-shakespeare'
+Plug 'neovimhaskell/haskell-vim'
+Plug 'eagletmt/neco-ghc'
 
 " Elixir
 Plug 'elixir-lang/vim-elixir'

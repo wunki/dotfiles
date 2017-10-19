@@ -24,11 +24,6 @@ Plug 'mbbill/undotree'                                   " easy undoing
   nnoremap <silent> <Leader>ut :UndotreeToggle<cr>
 Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, brackend and quotes
 Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
-Plug 'ctrlpvim/ctrlp.vim'
-  if executable('rg')
-    let g:ctrlp_user_command = 'rg --files %s'
-    let g:ctrlp_use_caching = 0
-  endif
 Plug 'Shougo/vimproc', {'do': 'make'}                    " command execution
 Plug 'Shougo/echodoc.vim'                                " show function signature
 Plug 'aliva/vim-fish', { 'for': 'fish' }
@@ -58,6 +53,13 @@ Plug 'majutsushi/tagbar'                                 " sidebar to jump to re
         \'i:impls,trait implementations',
     \]
   \}
+
+" FZF
+set rtp+=/usr/local/opt/fzf
+Plug 'junegunn/fzf.vim'
+nmap ; :Buffers<CR>
+nmap <Leader>r :Tags<CR>
+nmap <Leader>t :Files<CR>
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'

@@ -47,8 +47,13 @@ set -x VISUAL 'nvim'
 set -x TERM 'xterm-256color'
 set -x XDG_DATA_HOME {$HOME}/.local/share
 
+
 # Ripgrep and FZF
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --smart-case --glob "!.git/*"'
+
+if test -d "/usr/local/opt/fzf"
+  . "/usr/local/opt/fzf/shell/key-bindings.fish"
+end
 
 # Mu: mail search
 function mu-reindex; mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end

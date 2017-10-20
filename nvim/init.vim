@@ -5,6 +5,10 @@ Plug 'w0rp/ale'
   let g:ale_lint_on_save = 1
   let g:ale_lint_on_text_changed = 0
 Plug 'sbdchd/neoformat'
+augroup fmt
+  autocmd!
+  autocmd BufWritePre *.hs undojoin | Neoformat
+augroup END
 Plug 'tpope/vim-eunuch'                                  " unix helper commands
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
@@ -155,6 +159,7 @@ vnoremap / /\v
 
 " FZF
 set rtp+=/usr/local/opt/fzf
+set rtp+=~/.fzf
 nmap ; :Buffers<CR>
 nmap <Leader>r :Tags<CR>
 nmap <Leader>t :Files<CR>

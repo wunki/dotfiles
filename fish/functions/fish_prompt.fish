@@ -22,7 +22,7 @@ function fish_prompt
 
     # Hostname
     if test -n "$SSH_CONNECTION"
-      set_color $fish_color_quote
+      set_color blue
       printf '%s | ' (hostname -s)
     end
 

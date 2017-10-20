@@ -217,3 +217,6 @@ au BufRead ~/.mutt/tmp/mutt-* set tw=72 formatoptions=tcql
 " Make comments italic
 highlight Comment cterm=italic
 
+" Vertical split background color
+hi VertSplit ctermfg=231 ctermbg=236 cterm=bold guifg=#44475a guibg=#44475a gui=bold
+

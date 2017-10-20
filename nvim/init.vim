@@ -72,10 +72,10 @@ Plug 'Shougo/deoplete.nvim'
 
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'arcticicestudio/nord-vim'
-Plug 'KeitaNakamura/neodark.vim'
+Plug 'morhetz/gruvbox'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
-    let g:airline_theme='deep_space'
+    let g:airline_theme='gruvbox'
     let g:airline_powerline_fonts = 0
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
@@ -162,8 +162,7 @@ set grepprg=rg\ --vimgrep
 set grepformat=%f:%l:%c:%m
 
 " Indent line
-let g:deepspace_italics=1
-colorscheme deep-space
+colorscheme gruvbox
 
 " Use normal regular expressions
 nnoremap / /\v

@@ -1,7 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
 
 " Essentials
-Plug 'edkolev/tmuxline.vim'
 Plug 'w0rp/ale'
   let g:ale_lint_on_save = 1
   let g:ale_lint_on_text_changed = 0
@@ -9,26 +8,20 @@ Plug 'sbdchd/neoformat'
 Plug 'tpope/vim-eunuch'                                  " unix helper commands
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
-Plug 'tpope/vim-obsession'                               " better vim sessions
 Plug 'tpope/vim-speeddating'                             " easily increment numbers and dates
 Plug 'tpope/vim-endwise'                                 " automatically close blocks in languages like ruby or elixir
 Plug 'airblade/vim-gitgutter'                            " show git changes in the gutter
 Plug 'rking/ag.vim'                                      " silver searcher
-Plug 'mattn/webapi-vim'
-Plug 'mattn/gist-vim'                                    " post to gist
 Plug 'tpope/vim-commentary'                              " comment mappings
 Plug 'tpope/vim-surround'                                " surround commands
 Plug 'godlygeek/tabular'                                 " easy indenting
-Plug 'Lokaltog/vim-easymotion'                           " move by selecting a letter
 Plug 'mbbill/undotree'                                   " easy undoing
-  nnoremap <silent> <Leader>ut :UndotreeToggle<cr>
-Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, brackend and quotes
-Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
-Plug 'Shougo/vimproc', {'do': 'make'}                    " command execution
 Plug 'Shougo/echodoc.vim'                                " show function signature
+  nnoremap <silent> <Leader>ut :UndotreeToggle<cr>
+Plug 'Shougo/vimproc', {'do': 'make'}                    " command execution
 Plug 'aliva/vim-fish', { 'for': 'fish' }
-Plug 'vitalk/vim-simple-todo'                            " simple todo's
 Plug 'othree/html5.vim', { 'for': 'html' }
+Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
   map <C-t> :Tagbar<CR>
   let g:tagbar_type_markdown = {
@@ -54,12 +47,6 @@ Plug 'majutsushi/tagbar'                                 " sidebar to jump to re
     \]
   \}
 
-" FZF
-set rtp+=/usr/local/opt/fzf
-Plug 'junegunn/fzf.vim'
-nmap ; :Buffers<CR>
-nmap <Leader>r :Tags<CR>
-nmap <Leader>t :Files<CR>
 
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
@@ -72,10 +59,9 @@ Plug 'Shougo/deoplete.nvim'
 
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'arcticicestudio/nord-vim'
-Plug 'morhetz/gruvbox'
+Plug 'dracula/vim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
-    let g:airline_theme='gruvbox'
     let g:airline_powerline_fonts = 0
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
@@ -87,19 +73,19 @@ Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 " Go
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'for': 'go' }
 
 " Haskell
-Plug 'pbrisbin/vim-syntax-shakespeare'
-Plug 'neovimhaskell/haskell-vim'
-Plug 'eagletmt/neco-ghc'
+Plug 'pbrisbin/vim-syntax-shakespeare', { 'for': 'haskell' }
+Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
+Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
 
 " Elixir
-Plug 'elixir-lang/vim-elixir'
-Plug 'slashmili/alchemist.vim'
+Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
+Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
 
 " Elm
-Plug 'elmcast/elm-vim'
+Plug 'elmcast/elm-vim', { 'for': 'elm' }
   let g:elm_format_autosave = 1
 
 " Language server
@@ -108,11 +94,6 @@ Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
       \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
       \ }
   let g:LanguageClient_autoStart = 1
-
-" Mac only
-if has("mac")
-  Plug 'rizzatti/dash.vim'
-endif
 
 call plug#end()
 
@@ -162,11 +143,21 @@ set grepprg=rg\ --vimgrep
 set grepformat=%f:%l:%c:%m
 
 " Indent line
-colorscheme gruvbox
+colorscheme dracula
+
+" Change mapleader to comma
+let mapleader = ","
+let maplocalleader = "_"
 
 " Use normal regular expressions
 nnoremap / /\v
 vnoremap / /\v
+
+" FZF
+set rtp+=/usr/local/opt/fzf
+nmap ; :Buffers<CR>
+nmap <Leader>r :Tags<CR>
+nmap <Leader>t :Files<CR>
 
 " Bash-like filename completion
 set wildmenu
@@ -179,10 +170,6 @@ set backupdir=~/.config/nvim/tmp/backup// " backups
 set directory=~/.config/nvim/tmp/swap//   " swap files
 set backup                                " enable backups
 set noswapfile                            " no swapping
-
-" Change mapleader to comma
-let mapleader = ","
-let maplocalleader = "_"
 
 " Faster scrolling
 nnoremap <C-e> 3<C-e>
@@ -217,22 +204,4 @@ au BufRead ~/.mutt/tmp/mutt-* set tw=72 formatoptions=tcql
 
 " Make comments italic
 highlight Comment cterm=italic
-
-" colors for the terminal
-let g:terminal_color_0  = '#3B4252'
-let g:terminal_color_1  = '#BF616A'
-let g:terminal_color_2  = '#A3BE8C'
-let g:terminal_color_3  = '#EBCB8B'
-let g:terminal_color_4  = '#81A1C1'
-let g:terminal_color_5  = '#B48EAD'
-let g:terminal_color_6  = '#88C0D0'
-let g:terminal_color_7  = '#E5E9F0'
-let g:terminal_color_8  = '#4C566A'
-let g:terminal_color_9  = '#BF616A'
-let g:terminal_color_10 = '#A3BE8C'
-let g:terminal_color_11 = '#EBCB8B'
-let g:terminal_color_12 = '#81A1C1'
-let g:terminal_color_13 = '#B48EAD'
-let g:terminal_color_14 = '#8FBCBB'
-let g:terminal_color_15 = '#ECEFF4'
 

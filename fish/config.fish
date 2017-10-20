@@ -55,6 +55,10 @@ if test -d "/usr/local/opt/fzf"
   . "/usr/local/opt/fzf/shell/key-bindings.fish"
 end
 
+if test -d "/usr/local/share/examples/fzf"
+  . "/usr/local/share/examples/fzf/shell/key-bindings.fish"
+end
+
 # Mu: mail search
 function mu-reindex; mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
 function mu-index; mu index --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end

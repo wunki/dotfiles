@@ -127,7 +127,7 @@ set showcmd                 " shows partial command in the last line
 set ruler                   " show the line and column number of the cursor
 set backspace=indent,eol,start
 set formatoptions=qrn1
-set cursorline              " show me the line where the cursor is
+set nocursorline              " show me the line where the cursor is
 set nofoldenable            " don't do any folding for now
 set guicursor+=a:blinkon0   " don't blink the cursor please
 set winwidth=79             " resize active window to minimally contains 79 chars width

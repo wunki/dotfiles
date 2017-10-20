@@ -77,6 +77,10 @@
     ;; elm
     elm-mode
 
+    ;; haskell
+    intero
+    hindent
+
     ;; c-sharp
     omnisharp
     csharp-mode
@@ -122,22 +126,22 @@ Missing packages are installed automatically."
                   (or (buffer-file-name) load-file-name)))
 (add-to-list 'load-path config-dir)
 
-(require 'wunki-defuns)            ; my functions
-(require 'wunki-modes)             ; settings for specific modes
-(require 'wunki-bindings)          ; load bindings
-(require 'wunki-theme)             ; set the theme and font
+(require 'wunki-defuns)
+(require 'wunki-modes)
+(require 'wunki-bindings)
+(require 'wunki-theme)
 (when (mac?)
-    (require 'wunki-mac))          ; mac settings
-(require 'wunki-temp)              ; temporary files
-(require 'wunki-git)               ; (ma)git settings
-(require 'wunki-org)               ; org-mode
-(require 'wunki-eshell)            ; eshell settings
-(require 'wunki-html)              ; HTML files
-(require 'wunki-rust)              ; rust
-(require 'wunki-python)            ; python
-(require 'wunki-elixir)            ; elixir
-(require 'wunki-elm)               ; elm programming language
-(require 'wunki-csharp)            ; c#
-(require 'wunki-erc)               ; irc
-(when (file-exists-p "~/mail")     ; mu4e
+    (require 'wunki-mac))
+(require 'wunki-temp)
+(require 'wunki-git)
+(require 'wunki-org)
+(require 'wunki-eshell)
+(require 'wunki-html)
+(require 'wunki-rust)
+(require 'wunki-python)
+(require 'wunki-elm)
+(require 'wunki-haskell)
+(require 'wunki-csharp)
+(require 'wunki-erc)
+(when (file-exists-p "~/mail")
   (require 'wunki-mu4e))

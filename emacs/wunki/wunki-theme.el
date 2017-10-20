@@ -5,12 +5,12 @@
 
 ;; load theme and don't ask if it's save.
 (if (display-graphic-p)
-    (load-theme 'sanityinc-tomorrow-blue t)
-  (load-theme 'zenburn t))
+    (load-theme 'dracula t)
+  (load-theme 'dracula t))
 
 ;; font
 (let ((font "Iosevka")
-      (size (if (mac?) 14 9)))
+      (size (if (mac?) 14 10)))
   (add-to-list 'default-frame-alist (cons 'font (format "%s-%s" font size)))
   (set-frame-font (format "%s-%s" font size) nil t))
 

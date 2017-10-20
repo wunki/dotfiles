@@ -90,8 +90,8 @@
  '(haskell-notify-p t)
  '(haskell-process-show-debug-tips nil)
  '(haskell-process-type (quote cabal-repl))
- '(haskell-stylish-on-save t t)
- '(haskell-tags-on-save t t)
+ '(haskell-stylish-on-save t)
+ '(haskell-tags-on-save t)
  '(org-agenda-files
    (quote
     ("/Users/wunki/Stack/Org/inbox.org" "/Users/wunki/Stack/Org/today.org" "/Users/wunki/Stack/Org/servers.org")))
@@ -105,7 +105,8 @@
     ((indent-tabs-mode . 1)
      (pony-settings make-pony-project :python "/home/wunki/.virtualenvs/mijnmazda/bin/python"))))
  '(smtpmail-smtp-server "mail.messagingengine.com")
- '(smtpmail-smtp-service 587))
+ '(smtpmail-smtp-service 587)
+ '(tramp-syntax (quote default) nil (tramp)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

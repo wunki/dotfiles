@@ -5,10 +5,10 @@ Plug 'w0rp/ale'
   let g:ale_lint_on_save = 1
   let g:ale_lint_on_text_changed = 0
 Plug 'sbdchd/neoformat'
-augroup fmt
-  autocmd!
-  autocmd BufWritePre *.hs undojoin | Neoformat
-augroup END
+  augroup fmt
+    autocmd!
+    autocmd BufWritePre *.hs undojoin | Neoformat
+  augroup END
 Plug 'tpope/vim-eunuch'                                  " unix helper commands
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
@@ -83,6 +83,14 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'pbrisbin/vim-syntax-shakespeare', { 'for': 'haskell' }
 Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
 Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
+Plug 'parsonsmatt/intero-neovim', { 'for': 'haskell' }
+  let g:intero_use_neomake = 0
+  augroup interoMaps
+    au!
+    au FileType haskell map <silent> <leader>t <Plug>InteroGenericType
+    au FileType haskell map <silent> <leader>T <Plug>InteroType
+    au FileType haskell nnoremap <silent> <leader>it :InteroTypeInsert<CR>
+  augroup END
 
 " Elixir
 Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
@@ -162,7 +170,7 @@ set rtp+=/usr/local/opt/fzf
 set rtp+=~/.fzf
 nmap ; :Buffers<CR>
 nmap <Leader>r :Tags<CR>
-nmap <Leader>t :Files<CR>
+nmap <Leader>f :Files<CR>
 
 " Bash-like filename completion
 set wildmenu
@@ -182,7 +190,6 @@ nnoremap <C-y> 3<C-y>
 
 " Shortcuts
 inoremap hh <ESC>
-map <silent> <Leader>nm :Neomake<cr>
 nmap <silent> <Leader>l :set list!<CR>
 noremap <silent> <leader>nn :set nu!<cr>
 noremap <silent> <Leader>nr :set relativenumber!<cr>

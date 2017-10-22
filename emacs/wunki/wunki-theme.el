@@ -5,8 +5,8 @@
 
 ;; load theme and don't ask if it's save.
 (if (display-graphic-p)
-    (load-theme 'dracula t)
-  (load-theme 'dracula t))
+    (load-theme 'sanityinc-tomorrow-blue t)
+  (load-theme 'sanityinc-tomorrow-blue t))
 
 ;; font
 (let ((font "Iosevka")

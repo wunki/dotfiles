@@ -33,6 +33,11 @@
     default-text-scale   ; easily scale text
     fic-mode             ; highlight fixme, todo etc.
     twittering-mode      ; twitter client
+
+    ;; colors
+    zenburn-theme
+    nord-theme
+    color-theme-sanityinc-tomorrow
     
     ;; file modes
     js2-mode
@@ -54,18 +59,12 @@
     
     ;; org
     org
-    ;; org-plus-contrib
     org-magit
     ox-gfm
     
     ;; package management
     async
     paradox
-
-    ;; elixir
-    elixir-mode
-    alchemist
-    flycheck-mix
 
     ;; rust
     rust-mode
@@ -80,15 +79,6 @@
     ;; haskell
     intero
     hindent
-
-    ;; c-sharp
-    omnisharp
-    csharp-mode
-
-    ;; colors
-    zenburn-theme
-    nord-theme
-    color-theme-sanityinc-tomorrow    
     ))
 
 ;; install packages if not there yet, copied from prelude
@@ -141,7 +131,6 @@ Missing packages are installed automatically."
 (require 'wunki-python)
 (require 'wunki-elm)
 (require 'wunki-haskell)
-(require 'wunki-csharp)
 (require 'wunki-erc)
 (when (file-exists-p "~/mail")
   (require 'wunki-mu4e))

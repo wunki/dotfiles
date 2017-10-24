@@ -26,13 +26,10 @@
     ido-ubiquitous       ; use ido everywhere
     flx-ido              ; matching engine for ido
     undo-tree            ; show undo's in a tree
-    avy                  ; jump around inside a buffer
-    ace-window           ; switch between emacs windows
     anzu                 ; display current and total matches
     company              ; autocomplete engine
     default-text-scale   ; easily scale text
     fic-mode             ; highlight fixme, todo etc.
-    twittering-mode      ; twitter client
 
     ;; colors
     zenburn-theme

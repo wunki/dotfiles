@@ -5,14 +5,14 @@
 
 ;; load theme and don't ask if it's save.
 (if (display-graphic-p)
-    (load-theme 'sanityinc-tomorrow-blue t)
+    (load-theme 'challenger-deep t)
   (load-theme 'sanityinc-tomorrow-blue t))
 
 ;; font
 (let ((font "Iosevka")
-      (size (if (mac?) 14 10)))
+      (size (if (mac?) 16 10)))
   (add-to-list 'default-frame-alist (cons 'font (format "%s-%s" font size)))
-  (set-frame-font (format "%s-%s" font size) nil t))
+  (set-frame-font (format "%s-%s:weight=Light" font size) nil t))
 
 ;; increase space between lines on the mac.
 (if (mac?)

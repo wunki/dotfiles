@@ -35,6 +35,7 @@
     zenburn-theme
     nord-theme
     color-theme-sanityinc-tomorrow
+    challenger-deep-theme
     
     ;; file modes
     js2-mode

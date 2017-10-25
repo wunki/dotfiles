@@ -1,4 +1,4 @@
-;; disable scrollbars and menu bar on the mac. On Linux you can disable it in
+;; disable scrollbars and menu bar on the mac. On Unix you can disable it in
 ;; Xdefaults.
 (when (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 (when (fboundp 'tool-bar-mode) (tool-bar-mode -1))
@@ -7,9 +7,8 @@
 ;; browser
 (setq browse-url-browser-function 'browse-url-default-macosx-browser)
 
-;; dash for documentation
-(global-set-key (kbd "C-c d") 'dash-at-point)
-(global-set-key (kbd "C-c C-d") 'dash-at-point-with-docset)
+;; best place to start
+(setq default-directory "~/Projects/")
 
 (defun swap-meta-and-super ()
   "Swap the mapping of Meta and Super.

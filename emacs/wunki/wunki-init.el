@@ -9,6 +9,7 @@
 ;; my packages
 (defvar wunki-packages
   '(projectile           ; project manegement
+    paradox              ; improved package management
     expand-region        ; easily select regions
     spaceline            ; pretty modeline
     diminish             ; remove modes from the modeline
@@ -33,41 +34,31 @@
 
     ;; colors
     zenburn-theme
-    nord-theme
     color-theme-sanityinc-tomorrow
     challenger-deep-theme
     
     ;; file modes
-    js2-mode
     web-mode
     yaml-mode
     markdown-mode
     fish-mode
-    erlang
     google-c-style
     nginx-mode
     dockerfile-mode
-    vue-mode
-
+    toml-mode
+    
     ;; git
     magit
-    eshell-git-prompt
     gitconfig-mode
     gitignore-mode
+    eshell-git-prompt
     
     ;; org
     org
     org-magit
-    ox-gfm
     
-    ;; package management
-    async
-    paradox
-
     ;; rust
     rust-mode
-    toml-mode
-    cargo
     lsp-mode
     lsp-rust
 

@@ -191,7 +191,7 @@
 (global-anzu-mode t)
 
 ;; format linum mode
-(setq linum-format "%4d \u2502 ")
+(setq linum-format "%4d \u2502")
 
 ;; cleanup modeline
 (diminish 'projectile-mode)

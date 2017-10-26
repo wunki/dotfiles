@@ -1,13 +1,5 @@
-;; load ghci-ng, which is a lot faster
-(when (executable-find "ghci-ng")
-  (setq-default haskell-process-args-cabal-repl
-                '("--ghc-option=-ferror-spans" "--with-ghc=ghci-ng")))
-
-;; cleanup haskell on save
+;; Format on save
 (setq-default haskell-stylish-on-save t)
-
-;; haskell tags
-(setq-default haskell-tags-on-save t)
  
 (eval-after-load 'haskell-mode
   '(progn

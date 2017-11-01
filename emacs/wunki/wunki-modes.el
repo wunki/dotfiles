@@ -92,26 +92,16 @@
 (setq-default dired-details-hidden-string "--- ")
 (dired-details-install)
 
-;; ido-mode
-(ido-mode t)
-(ido-ubiquitous-mode t)
-(flx-ido-mode t)
-(setq ido-enable-prefix nil
-      ido-enable-flex-matching t
-      ido-use-faces nil                ; don't use faces because we have flx
-      ido-use-filename-at-point nil
-      ido-max-prospects 10
-      ido-ignore-buffers
-      '("\\` " "^\\*ESS\\*" "^\\*Messages\\*" "^\\*Help\\*" "^\\*Buffer"
-        "^\\*.*Completions\\*$" "^\\*Ediff" "^\\*tramp" "^\\*cvs-"
-        "_region_" " output\\*$" "^TAGS$" "^\*Ido")
-      ido-ignore-directories
-      '("\\`auto/" "\\`auto-save-list/" "\\`backups/" "\\`semanticdb/"
-        "\\`target/" "\\`\\.git/" "\\`\\.svn/" "\\`CVS/" "\\`\\.\\./"
-        "\\`.sass-cache/" "\\`\\./" "\\`Godeps/")
-      ido-ignore-files
-      '("\\`auto/" "\\.prv/" "_region_" "\\.class/"  "\\`CVS/" "\\`#"
-        "\\`.#" "\\`\\.\\./" "\\`\\./" "\\.hi" "\\.org_archive" "\\.test"))
+;; ivy
+(ivy-mode 1)
+(global-set-key (kbd "C-s") 'swiper)
+(global-set-key (kbd "M-x") 'counsel-M-x)
+(global-set-key (kbd "C-x C-f") 'counsel-find-file)
+(global-set-key (kbd "<f1> f") 'counsel-describe-function)
+(global-set-key (kbd "<f1> v") 'counsel-describe-variable)
+(global-set-key (kbd "<f1> l") 'counsel-find-library)
+(global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
+(global-set-key (kbd "<f2> u") 'counsel-unicode-char)
 
 ; auto-fill
 (add-hook 'html-mode-hook 'turn-off-auto-fill)

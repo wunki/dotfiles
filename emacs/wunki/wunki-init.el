@@ -24,13 +24,13 @@
     browse-kill-ring     ; show the kill ring
     exec-path-from-shell ; use env vars in emacs
     flycheck             ; linter
-    ido-ubiquitous       ; use ido everywhere
-    flx-ido              ; matching engine for ido
     undo-tree            ; show undo's in a tree
     anzu                 ; display current and total matches
     company              ; autocomplete engine
     default-text-scale   ; easily scale text
     fic-mode             ; highlight fixme, todo etc.
+    ivy
+    counsel
 
     ;; colors
     zenburn-theme

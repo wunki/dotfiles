@@ -1,3 +1,3 @@
-(setq default-directory "C:/Projects/")
+(setq default-directory "C:/Users/petar/Projects/")
 
 (provide 'wunki-windows)

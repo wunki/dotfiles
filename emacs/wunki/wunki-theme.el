@@ -10,12 +10,21 @@
 
 ;; font
 (let ((font "Iosevka")
-      (size (if (mac?) 16 12)))
+      (size (if (mac?) 14 12)))
   (add-to-list 'default-frame-alist (cons 'font (format "%s-%s" font size)))
   (set-frame-font (format "%s-%s:weight=Light" font size) nil t))
+
+;; unboldify all the things
+(mapc
+   (lambda (face)
+     (when (eq (face-attribute face :weight) 'bold)
+       (set-face-attribute face nil :weight 'normal)))
+   (face-list))
 
 ;; increase space between lines on the mac.
 (if (mac?)
     (setq line-spacing 2))
+
+(set-face-bold 'bold nil)
 
 (provide 'wunki-theme)

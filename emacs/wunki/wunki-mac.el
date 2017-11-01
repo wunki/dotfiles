@@ -31,6 +31,9 @@ Windows external keyboard from time to time."
 (global-set-key (kbd "M-h") 'ns-do-hide-emacs)
 (global-set-key (kbd "M-H") 'ns-do-hide-others)
 
+;; font ligatures
+(mac-auto-operator-composition-mode t)
+
 ;; start out with meta as super, not the apple key
 ;; (swap-meta-and-super)
 

@@ -123,11 +123,6 @@
   (setq flycheck-check-syntax-automatically '(mode-enabled save)))
 
 ;; flyspell
-(if (windows?)
-  (add-hook 'clojure-mode-hook 'flyspell-prog-mode)
-  (add-hook 'haskell-mode-hook 'flyspell-prog-mode)
-  (add-hook 'python-mode-hook 'flyspell-prog-mode)
-  (add-hook 'git-commit-mode-hook 'turn-on-flyspell))
 (setq flyspell-issue-message-flag nil)             ; don't show a message, slows things down.
 
 ;; PO

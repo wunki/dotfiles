@@ -89,11 +89,6 @@
 ;; replac buffer-menu with ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
-;; moving around
-(global-set-key (kbd "M-g w") 'avy-goto-word-or-subword-1)
-(global-set-key (kbd "M-g f") 'avy-goto-line)
-(global-set-key (kbd "M-p") 'ace-window)
-
 ;; quickly edit files
 (global-set-key (kbd "C-c 1") 'ido-todos)
 (global-set-key (kbd "C-c 2") 'projectile-switch-project)

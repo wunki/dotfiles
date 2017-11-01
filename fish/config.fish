@@ -91,6 +91,7 @@ prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.local/bin"
 prepend_to_path "$HOME/.cabal/bin"
 prepend_to_path "$HOME/.npm/bin"
+prepend_to_path "/usr/local/share/dotnet"
 
 # Google Cloud SDK
 prepend_to_path "$HOME/.google-cloud-sdk/bin"

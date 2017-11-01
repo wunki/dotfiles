@@ -17,6 +17,7 @@
 (if (windows?)
     (setq projectile-indexing-method 'alien))
 (projectile-global-mode)
+(counsel-projectile-on)
 
 ;; deletes region when starting typing
 (pending-delete-mode t)
@@ -102,6 +103,9 @@
 (global-set-key (kbd "<f1> l") 'counsel-find-library)
 (global-set-key (kbd "<f2> i") 'counsel-info-lookup-symbol)
 (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
+
+(setq ivy-re-builders-alist
+      '((t . ivy--regex-fuzzy)))
 
 ; auto-fill
 (add-hook 'html-mode-hook 'turn-off-auto-fill)

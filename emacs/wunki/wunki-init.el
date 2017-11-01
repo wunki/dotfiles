@@ -31,6 +31,7 @@
     fic-mode             ; highlight fixme, todo etc.
     ivy
     counsel
+    counsel-projectile
 
     ;; colors
     zenburn-theme

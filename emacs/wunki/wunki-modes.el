@@ -52,7 +52,10 @@
 ;; powerline
 (require 'spaceline-config)
 (setq powerline-default-separator 'bar)
-(spaceline-spacemacs-theme)
+
+(if (mac?)
+    (spaceline-all-the-icons-theme)
+  (spaceline-spacemacs-theme))
 
 ;; indent after newline
 (electric-indent-mode t)

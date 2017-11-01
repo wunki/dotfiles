@@ -33,10 +33,11 @@
     counsel
     counsel-projectile
 
-    ;; colors
+    ;; looks
     zenburn-theme
     color-theme-sanityinc-tomorrow
     challenger-deep-theme
+    spaceline-all-the-icons
     
     ;; file modes
     web-mode

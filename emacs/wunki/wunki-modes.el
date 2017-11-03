@@ -53,8 +53,13 @@
 (require 'spaceline-config)
 (setq powerline-default-separator 'bar)
 
+
 (if (mac?)
-    (spaceline-all-the-icons-theme)
+    (progn
+      (setq spaceline-all-the-icons-separator-type 'none)
+      (setq spaceline-all-the-icons-primary-separator "\u2502")
+      (spaceline-all-the-icons-theme)
+      (spaceline-toggle-all-the-icons-time-off))
   (spaceline-spacemacs-theme))
 
 ;; indent after newline

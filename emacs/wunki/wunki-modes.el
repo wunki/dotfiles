@@ -112,7 +112,8 @@
 (global-set-key (kbd "<f2> u") 'counsel-unicode-char)
 
 (setq ivy-re-builders-alist
-      '((t . ivy--regex-fuzzy)))
+      '((read-file-name-internal . ivy--regex-fuzzy)
+        (t . ivy--regex-plus)))
 
 ; auto-fill
 (add-hook 'html-mode-hook 'turn-off-auto-fill)

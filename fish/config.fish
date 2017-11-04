@@ -156,6 +156,9 @@ if type -Pq pyenv
   status --is-interactive; and . (pyenv virtualenv-init -|psub)
 end
 
+# Dotnet
+set -x DOTNET_CLI_TELEMETRY_OPTOUT "true"
+
 # AWS settings
 prepend_to_path "$HOME/.aws/bin"
 set -x AWS_IAM_HOME "$HOME/.aws/iam"

@@ -53,8 +53,7 @@
 (require 'spaceline-config)
 (setq powerline-default-separator 'bar)
 
-
-(if (mac?)
+(if (or (mac?) (unix?))
     (progn
       (setq spaceline-all-the-icons-separator-type 'none)
       (setq spaceline-all-the-icons-primary-separator "\u2502")

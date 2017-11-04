@@ -105,8 +105,7 @@
     ((indent-tabs-mode . 1)
      (pony-settings make-pony-project :python "/home/wunki/.virtualenvs/mijnmazda/bin/python"))))
  '(smtpmail-smtp-server "mail.messagingengine.com")
- '(smtpmail-smtp-service 587)
- '(tramp-syntax (quote default)))
+ '(smtpmail-smtp-service 587))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

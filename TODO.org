@@ -1,6 +1,3 @@
 #+CATEGORY: dotfiles
 
 * Wunki's Dotfiles
-** TODO Don't sleep when closing lid and having an external monitor.
-** TODO Minimize Vim installation for servers
-** TODO Remove all gitmodules

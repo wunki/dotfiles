@@ -12,4 +12,8 @@
      (add-hook 'haskell-mode-hook (lambda ()
                                     (run-hooks 'wunki-haskell-mode-hook)))))
 
+;; hlint as warnings
+(with-eval-after-load 'intero
+    (flycheck-add-next-checker 'intero '(warning . haskell-hlint)))
+
 (provide 'wunki-haskell)

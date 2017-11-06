@@ -10,9 +10,10 @@
 
 ;; font
 (let ((font "Iosevka")
-      (size (if (mac?) 14 9)))
+      (size (if (mac?) 14 10))
+      (weight (if (mac?) "Light" "Book")))
   (add-to-list 'default-frame-alist (cons 'font (format "%s-%s" font size)))
-  (set-frame-font (format "%s-%s:weight=Light" font size) nil t))
+  (set-frame-font (format "%s-%s:weight=%s" font size weight) nil t))
 
 ;; unboldify all the things
 (mapc

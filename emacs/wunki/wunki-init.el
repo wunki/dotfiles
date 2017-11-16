@@ -64,6 +64,9 @@
     lsp-mode
     lsp-rust
 
+    ;; csharp
+    omnisharp
+
     ;; elm
     elm-mode
 
@@ -126,5 +129,6 @@ Missing packages are installed automatically."
 (require 'wunki-elm)
 (require 'wunki-haskell)
 (require 'wunki-erc)
+(require 'wunki-csharp)
 (when (file-exists-p "~/mail")
   (require 'wunki-mu4e))

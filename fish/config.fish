@@ -48,23 +48,6 @@ set -x VISUAL 'nvim'
 set -x TERM 'xterm-256color'
 set -x XDG_DATA_HOME {$HOME}/.local/share
 
-
-# Ripgrep and FZF
-set -x FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow -g "!.git/" 2> /dev/null'
-set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
-
-if contains (uname -s) "Darwin"
-  set -x FZF_ALT_C_COMMAND 'cd ~/; bfs -type d -nohidden'
-end
-
-if test -d "/usr/local/opt/fzf"
-  . "/usr/local/opt/fzf/shell/key-bindings.fish"
-end
-
-if test -d "/usr/local/share/examples/fzf"
-  . "/usr/local/share/examples/fzf/shell/key-bindings.fish"
-end
-
 # Mu: mail search
 function mu-reindex; mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
 function mu-index; mu index --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
@@ -97,6 +80,20 @@ prepend_to_path "/usr/local/share/dotnet"
 
 # Google Cloud SDK
 prepend_to_path "$HOME/.google-cloud-sdk/bin"
+
+# Ripgrep and FZF
+set -x FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow -g "!.git/" 2> /dev/null'
+set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+
+if contains (uname -s) "Darwin"
+  set -x FZF_ALT_C_COMMAND 'cd ~/; bfs -type d -nohidden'
+end
+
+if test -d "$HOME/.fzf"
+  prepend_to_path "$HOME/.fzf/bin"
+  . "$HOME/.config/fish/functions/fzf_key_bindings.fish"
+end
+
 
 # Mac specific settings
 if contains (uname -s) "Darwin"

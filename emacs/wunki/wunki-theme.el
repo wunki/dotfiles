@@ -9,7 +9,7 @@
   (load-theme 'sanityinc-tomorrow-blue t))
 
 ;; font
-(let ((font "Iosevka")
+(let ((font "Fira Code")
       (size (if (mac?) 14 10))
       (weight (if (mac?) "Light" "Book")))
   (add-to-list 'default-frame-alist (cons 'font (format "%s-%s" font size)))

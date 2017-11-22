@@ -9,9 +9,9 @@
   (load-theme 'sanityinc-tomorrow-blue t))
 
 ;; font
-(let ((font "Fira Code")
-      (size (if (mac?) 14 10))
-      (weight (if (mac?) "Light" "Book")))
+(let ((font "Fantasque Sans Mono")
+      (size (if (mac?) 14 9))
+      (weight (if (mac?) "Light" "Regular")))
   (add-to-list 'default-frame-alist (cons 'font (format "%s-%s" font size)))
   (set-frame-font (format "%s-%s:weight=%s" font size weight) nil t))
 

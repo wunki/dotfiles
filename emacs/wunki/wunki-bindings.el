@@ -116,7 +116,7 @@
 (global-set-key (kbd "C-c q") 'save-buffers-kill-emacs)
 
 ;; fullscreen
-(global-set-key (kbd "<f12>") 'toggle-frame-fullscreen)
+(global-set-key (kbd "C-c f") 'toggle-frame-fullscreen)
 
 ;; font size
 (global-set-key (kbd "C-M-=") 'default-text-scale-increase)

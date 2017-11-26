@@ -32,6 +32,7 @@
     ivy
     counsel
     counsel-projectile
+    projectile-ripgrep
 
     ;; looks
     zenburn-theme

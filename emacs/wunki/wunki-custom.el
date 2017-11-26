@@ -90,14 +90,14 @@
  '(haskell-notify-p t)
  '(haskell-process-show-debug-tips nil)
  '(haskell-process-type (quote cabal-repl))
- '(haskell-stylish-on-save t)
+ '(haskell-stylish-on-save t t)
  '(haskell-tags-on-save t)
  '(org-agenda-files
    (quote
     ("/Users/wunki/Stack/Org/inbox.org" "/Users/wunki/Stack/Org/today.org" "/Users/wunki/Stack/Org/servers.org")))
  '(package-selected-packages
    (quote
-    (spaceline-all-the-icons counsel-projectile counsel ivy rainbow-mode challenger-deep-theme kaolin-themes projectile-ripgrep elm-mode lsp-rust nord-theme badwolf-theme dracula-theme omnisharp lsp-mode cargo vue-mode flycheck-mix ruby-end go-eldoc go-mode pyenv-mode anaconda-mode ox-gfm dockerfile-mode rust-mode haskell-mode cider yaml-mode company avy flycheck multiple-cursors expand-region projectile magit alchemist zenburn-theme yagist web-mode undo-tree twittering-mode toml-mode tao-theme surround spaceline solarized-theme smex smartparens salt-mode rustfmt rainbow-delimiters racer pyenv-mode-auto paradox pandoc-mode org-pomodoro org-magit nginx-mode move-text markdown-mode js2-mode intero idomenu ido-ubiquitous hindent gruvbox-theme gotest google-c-style golint go-projectile gitignore-mode gitconfig-mode fullframe flycheck-rust flycheck-hdevtools flx-ido fish-mode fic-mode exec-path-from-shell eshell-git-prompt erlang dired-details diminish default-text-scale dash-at-point darktooth-theme csharp-mode company-racer company-go company-ghc company-anaconda color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clojurescript-mode cljdoc clj-refactor change-inner buffer-move browse-kill-ring anzu ag ack-and-a-half ace-window)))
+    (markdown-toc undo-treep spaceline-all-the-icons counsel-projectile counsel ivy rainbow-mode challenger-deep-theme kaolin-themes projectile-ripgrep elm-mode lsp-rust nord-theme badwolf-theme dracula-theme omnisharp lsp-mode cargo vue-mode flycheck-mix ruby-end go-eldoc go-mode pyenv-mode anaconda-mode ox-gfm dockerfile-mode rust-mode haskell-mode cider yaml-mode company avy flycheck multiple-cursors expand-region projectile magit alchemist zenburn-theme yagist web-mode undo-tree twittering-mode toml-mode tao-theme surround spaceline solarized-theme smex smartparens salt-mode rustfmt rainbow-delimiters racer pyenv-mode-auto paradox pandoc-mode org-pomodoro org-magit nginx-mode move-text markdown-mode js2-mode intero idomenu ido-ubiquitous hindent gruvbox-theme gotest google-c-style golint go-projectile gitignore-mode gitconfig-mode fullframe flycheck-rust flycheck-hdevtools flx-ido fish-mode fic-mode exec-path-from-shell eshell-git-prompt erlang dired-details diminish default-text-scale dash-at-point darktooth-theme csharp-mode company-racer company-go company-ghc company-anaconda color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clojurescript-mode cljdoc clj-refactor change-inner buffer-move browse-kill-ring anzu ag ack-and-a-half ace-window)))
  '(paradox-github-token t)
  '(python-shell-interpreter "python2")
  '(safe-local-variable-values
@@ -105,7 +105,8 @@
     ((indent-tabs-mode . 1)
      (pony-settings make-pony-project :python "/home/wunki/.virtualenvs/mijnmazda/bin/python"))))
  '(smtpmail-smtp-server "mail.messagingengine.com")
- '(smtpmail-smtp-service 587))
+ '(smtpmail-smtp-service 587)
+ '(tramp-syntax (quote default) nil (tramp)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.

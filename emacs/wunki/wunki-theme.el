@@ -22,10 +22,6 @@
        (set-face-attribute face nil :weight 'normal)))
    (face-list))
 
-;; increase space between lines on the mac.
-(if (mac?)
-    (setq line-spacing 2))
-
 (set-face-bold 'bold nil)
 
 (provide 'wunki-theme)

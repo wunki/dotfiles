@@ -10,10 +10,9 @@
 
 ;; font
 (let ((font "Operator Mono")
-      (size (if (mac?) 15 9))
-      (weight (if (mac?) "Light" "Regular")))
+      (size (if (mac?) 15 10)))
   (add-to-list 'default-frame-alist (cons 'font (format "%s-%s" font size)))
-  (set-frame-font (format "%s-%s:weight=%s" font size weight) nil t))
+  (set-frame-font (format "%s-%s" font size) nil t))
 
 ;; unboldify all the things
 ;; (mapc

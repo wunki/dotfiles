@@ -111,6 +111,9 @@ Missing packages are installed automatically."
                   (or (buffer-file-name) load-file-name)))
 (add-to-list 'load-path config-dir)
 
+;; my own themes
+(add-to-list 'custom-theme-load-path (concat config-dir "themes"))
+
 (require 'wunki-defuns)
 (require 'wunki-modes)
 (require 'wunki-bindings)

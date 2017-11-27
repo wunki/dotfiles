@@ -5,23 +5,23 @@
 
 ;; load theme and don't ask if it's save.
 (if (display-graphic-p)
-    (load-theme 'challenger-deep t)
+    (load-theme 'funki t)
   (load-theme 'sanityinc-tomorrow-blue t))
 
 ;; font
-(let ((font "Fantasque Sans Mono")
-      (size (if (mac?) 14 9))
+(let ((font "Operator Mono")
+      (size (if (mac?) 15 9))
       (weight (if (mac?) "Light" "Regular")))
   (add-to-list 'default-frame-alist (cons 'font (format "%s-%s" font size)))
   (set-frame-font (format "%s-%s:weight=%s" font size weight) nil t))
 
 ;; unboldify all the things
-(mapc
-   (lambda (face)
-     (when (eq (face-attribute face :weight) 'bold)
-       (set-face-attribute face nil :weight 'normal)))
-   (face-list))
+;; (mapc
+;;    (lambda (face)
+;;      (when (eq (face-attribute face :weight) 'bold)
+;;        (set-face-attribute face nil :weight 'normal)))
+;;    (face-list))
 
-(set-face-bold 'bold nil)
+;(set-face-bold 'bold nil)
 
 (provide 'wunki-theme)

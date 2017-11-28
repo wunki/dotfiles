@@ -8,7 +8,7 @@
 (define-key global-map (kbd "<f8>") 'org-cycle-agenda-files)
 
 ;; root directory of org files
-(setq org-root (expand-file-name "~/org"))
+(setq org-root (expand-file-name "~/Org"))
 
 ;; journal
 (setq org-journal-dir (format "%s/%s" org-root "journal"))
@@ -21,7 +21,6 @@
                              (format "%s/%s" org-root "today.org")
                              (format "%s/%s" org-root "personal.org")
                              (format "%s/%s" org-root "degreed.org")
-                             (format "%s/%s" org-root "servers.org")
                              (format "%s/%s" org-root "books.org")
                              (format "%s/%s" org-root "courses.org"))
       org-default-notes-file (format "%s/%s" org-root "inbox.org"))
@@ -77,14 +76,10 @@
 
 ;; capture templates
 (setq org-capture-templates
-      '(("t" "Todo" entry (file+headline (format "%s/%s" org-root "inbox.org") "Tasks")
+      `(("t" "Todo" entry (file+headline ,(concat org-root "/inbox.org") "Tasks")
              "* TODO %?\n  %i\n  %a")
-        ("j" "Journal" entry (file+datetree (format "%s/%s" org-root "journal.org"))
-             "* %?\nEntered on %U\n  %i\n  %a")
-        ("n" "Note" entry (file (format "%s/%s" org-root "notes.org"))
-         "* NOTE %?\n  %i\n  %a")
-        ("w" "" entry (file+headline (format "%s/%s" org-root "websites.org") "Notes")
-         "* %^{Title}\n\n  Source: %u, %c\n\n  %i")))
+        ("j" "Journal" entry (file+olp+datetree ,(concat org-root "/journal.org"))
+             "* %?\nEntered on %U\n  %i\n  %a")))
 
 ;; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup)

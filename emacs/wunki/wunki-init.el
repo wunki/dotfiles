@@ -59,6 +59,7 @@
     ;; org
     org
     org-magit
+    org-projectile
     
     ;; rust
     rust-mode

@@ -21,9 +21,23 @@
                              (format "%s/%s" org-root "today.org")
                              (format "%s/%s" org-root "personal.org")
                              (format "%s/%s" org-root "degreed.org")
-                             (format "%s/%s" org-root "books.org")
-                             (format "%s/%s" org-root "courses.org"))
+                             (format "%s/%s" org-root "books.org"))
       org-default-notes-file (format "%s/%s" org-root "inbox.org"))
+
+;; capture templates
+(setq org-capture-templates
+      `(("t" "Todo" entry (file+headline ,(concat org-root "/inbox.org") "Tasks")
+             "* TODO %?\n  %i\n  %a")
+        ("j" "Journal" entry (file+olp+datetree ,(concat org-root "/journal.org"))
+             "* %?\nEntered on %U\n  %i\n  %a")))
+
+;; projects
+(require 'org-projectile)
+(org-projectile-per-project)
+(setq org-projectile-per-project-filepath "todo.org")
+(push (org-projectile-project-todo-entry) org-capture-templates)
+(setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
+(global-set-key (kbd "C-c n p") 'org-projectile-project-todo-completing-read)
 
 ;; always use indent-mode
 (setq org-startup-indented t)
@@ -73,13 +87,6 @@
 (setq org-src-fontify-natively t)
 (setq org-src-tab-acts-natively t)
 (setq org-ditaa-jar-path "/usr/share/ditaa/ditaa.jar")
-
-;; capture templates
-(setq org-capture-templates
-      `(("t" "Todo" entry (file+headline ,(concat org-root "/inbox.org") "Tasks")
-             "* TODO %?\n  %i\n  %a")
-        ("j" "Journal" entry (file+olp+datetree ,(concat org-root "/journal.org"))
-             "* %?\nEntered on %U\n  %i\n  %a")))
 
 ;; Tags with fast selection keys
 (setq org-tag-alist (quote ((:startgroup)

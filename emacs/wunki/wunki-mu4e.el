@@ -24,7 +24,7 @@
 
 ;; general settings
 (setq mail-user-agent 'mu4e-user-agent                   ; mu4e as default mail agent
-      mu4e-attachment-dir "~/downloads"                  ; put attachements in download dir
+      mu4e-attachment-dir "~/Downloads"                  ; put attachements in download dir
       mu4e-get-mail-command "offlineimap"                ; fetch email with offlineimap
       mu4e-update-interval 900                           ; check for mail every 15 minutes
       mu4e-confirm-quit nil                              ; don't ask me to quit
@@ -40,12 +40,12 @@
 )
 
 ;; maildir locations
-(setq mu4e-maildir       "~/mail"
+(setq mu4e-maildir       "~/Mail"
       mu4e-sent-folder   "/wunki/sent"
       mu4e-drafts-folder "/wunki/drafts"
       mu4e-trash-folder  "/wunki/trash"
       mu4e-refile-folder "/wunki/archive"
-      smtpmail-queue-dir "~/mail/queue/cur")
+      smtpmail-queue-dir "~/Mail/queue/cur")
 
 ;; sending mail
 (setq message-send-mail-function 'smtpmail-send-it

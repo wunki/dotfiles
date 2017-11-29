@@ -94,7 +94,7 @@
  '(haskell-tags-on-save t)
  '(org-agenda-files
    (quote
-    ("/Users/wunki/Stack/Org/inbox.org" "/Users/wunki/Stack/Org/today.org" "/Users/wunki/Stack/Org/servers.org")))
+    ("/home/wunki/Org/inbox.org" "/home/wunki/Org/today.org" "/home/wunki/Org/degreed.org" "~/Projects/wunki-dotfiles/todo.org")))
  '(package-selected-packages
    (quote
     (org-projectile markdown-toc undo-treep spaceline-all-the-icons counsel-projectile counsel ivy rainbow-mode challenger-deep-theme kaolin-themes projectile-ripgrep elm-mode lsp-rust nord-theme badwolf-theme dracula-theme omnisharp lsp-mode cargo vue-mode flycheck-mix ruby-end go-eldoc go-mode pyenv-mode anaconda-mode ox-gfm dockerfile-mode rust-mode haskell-mode cider yaml-mode company avy flycheck multiple-cursors expand-region projectile magit alchemist zenburn-theme yagist web-mode undo-tree twittering-mode toml-mode tao-theme surround spaceline solarized-theme smex smartparens salt-mode rustfmt rainbow-delimiters racer pyenv-mode-auto paradox pandoc-mode org-pomodoro org-magit nginx-mode move-text markdown-mode js2-mode intero idomenu ido-ubiquitous hindent gruvbox-theme gotest google-c-style golint go-projectile gitignore-mode gitconfig-mode fullframe flycheck-rust flycheck-hdevtools flx-ido fish-mode fic-mode exec-path-from-shell eshell-git-prompt erlang dired-details diminish default-text-scale dash-at-point darktooth-theme csharp-mode company-racer company-go company-ghc company-anaconda color-theme-sanityinc-tomorrow color-theme-sanityinc-solarized clojurescript-mode cljdoc clj-refactor change-inner buffer-move browse-kill-ring anzu ag ack-and-a-half ace-window)))

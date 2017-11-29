@@ -80,8 +80,8 @@
          (user-mail-address    "petar@wunki.org")
          (mu4e-sent-folder     "/wunki/sent")
          (mu4e-drafts-folder   "/wunki/drafts")
-         (mu4e-compose-signature "Petar Radosevic - wunki.org")
-         (smtpmail-smtp-server "mail.messagingengine.com")
+         (mu4e-compose-signature "Petar Radosevic - bitsonpaper.com")
+         (smtpmail-smtp-server "smtp.fastmail.fm")
          (smtpmail-smtp-user   "wunki@fastmail.fm"))
         ))
 

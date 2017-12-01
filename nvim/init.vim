@@ -24,6 +24,7 @@ Plug 'Shougo/echodoc.vim'                                " show function signatu
   nnoremap <silent> <Leader>ut :UndotreeToggle<cr>
 Plug 'Shougo/vimproc', {'do': 'make'}                    " command execution
 Plug 'aliva/vim-fish', { 'for': 'fish' }
+Plug 'pearofducks/ansible-vim'
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'junegunn/fzf.vim'
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions

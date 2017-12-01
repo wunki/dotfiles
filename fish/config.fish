@@ -40,7 +40,7 @@ if type -Pq nvim
 end
 
 # Environment variables
-set -x PROJECT_DIR {$HOME}/projects
+set -x PROJECT_DIR {$HOME}/Projects
 set -x LANG 'en_US.UTF-8'
 set -x LC_ALL 'en_US.UTF-8'
 set -x EDITOR 'nvim'

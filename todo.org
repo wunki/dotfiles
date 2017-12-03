@@ -1,2 +1,3 @@
+#+CATEGORY: dotfiles
 
-* TODO Ability to send emails with Emacs
+* Wunki's Dotfiles

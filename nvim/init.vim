@@ -62,11 +62,16 @@ Plug 'Shougo/deoplete.nvim'
     inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
     inoremap <Leader><Tab> <Space><Space>
 
+Plug 'tyrannicaltoucan/vim-quantum'
+    let g:quantum_italics=1
+Plug 'cocopon/iceberg.vim'
+Plug 'sindresorhus/focus', {'rtp': 'vim'}
 Plug 'tyrannicaltoucan/vim-deep-space'
 Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
+    let g:airline_theme='iceberg'
     let g:airline_powerline_fonts = 0
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
@@ -156,7 +161,7 @@ set grepprg=rg\ --vimgrep
 set grepformat=%f:%l:%c:%m
 
 " Indent line
-colorscheme dracula
+colorscheme iceberg
 
 " Change mapleader to comma
 let mapleader = ","
@@ -217,7 +222,3 @@ au BufRead ~/.mutt/tmp/mutt-* set tw=72 formatoptions=tcql
 
 " Make comments italic
 highlight Comment cterm=italic
-
-" Vertical split background color
-hi VertSplit ctermfg=231 ctermbg=236 cterm=bold guifg=#44475a guibg=#44475a gui=bold
-

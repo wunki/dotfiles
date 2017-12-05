@@ -8,7 +8,8 @@
 
 ;; my packages
 (defvar wunki-packages
-  '(projectile           ; project manegement
+  '(use-package
+    projectile           ; project manegement
     paradox              ; improved package management
     expand-region        ; easily select regions
     spaceline            ; pretty modeline

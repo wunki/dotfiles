@@ -15,12 +15,12 @@
   (set-frame-font (format "%s-%s" font size) nil t))
 
 ;; unboldify all the things
-;; (mapc
-;;    (lambda (face)
-;;      (when (eq (face-attribute face :weight) 'bold)
-;;        (set-face-attribute face nil :weight 'normal)))
-;;    (face-list))
+(mapc
+   (lambda (face)
+     (when (eq (face-attribute face :weight) 'bold)
+       (set-face-attribute face nil :weight 'normal)))
+   (face-list))
 
-;(set-face-bold 'bold nil)
+(set-face-bold 'bold nil)
 
 (provide 'wunki-theme)

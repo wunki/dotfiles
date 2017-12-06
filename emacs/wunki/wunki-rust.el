@@ -3,7 +3,7 @@
 (require 'lsp-flycheck)
 
 (with-eval-after-load 'lsp-mode
-  (setq lsp-rust-rls-command '("rustup" "run" "nightly-2017-11-30" "rls"))
+  (setq lsp-rust-rls-command '("rustup" "run" "nightly-2017-12-01" "rls"))
   (require 'lsp-rust))
 
 (defun wunki-rust-mode-hook ()

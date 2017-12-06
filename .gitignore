@@ -45,3 +45,4 @@ emacs/server
 /fish/functions/fish_user_key_bindings.fish
 /fish/functions/last_job_id.fish
 /fish/functions/fzf_key_bindings.fish
+/emacs/magithub/cache

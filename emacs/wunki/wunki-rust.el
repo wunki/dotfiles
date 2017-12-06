@@ -1,12 +1,17 @@
-(require 'lsp-rust)
+
 (require 'lsp-mode)
 (require 'lsp-flycheck)
+
+(with-eval-after-load 'lsp-mode
+  (setq lsp-rust-rls-command '("rustup" "run" "nightly-2017-11-30" "rls"))
+  (require 'lsp-rust))
+
 (defun wunki-rust-mode-hook ()
-  (lsp-mode)
+  (setq lsp-highlight-symbol-at-point nil)
+  (setq rust-format-on-save t)
+  (lsp-rust-enable)
   (flycheck-mode))
 
-(setq lsp-highlight-symbol-at-point nil)
-(setq rust-format-on-save t)
 (add-hook 'rust-mode-hook 'wunki-rust-mode-hook)
 
 (provide 'wunki-rust)

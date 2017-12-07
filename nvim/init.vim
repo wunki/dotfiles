@@ -98,10 +98,6 @@ Plug 'parsonsmatt/intero-neovim', { 'for': 'haskell' }
     au FileType haskell nnoremap <silent> <leader>it :InteroTypeInsert<CR>
   augroup END
 
-" Elixir
-Plug 'elixir-lang/vim-elixir', { 'for': 'elixir' }
-Plug 'slashmili/alchemist.vim', { 'for': 'elixir' }
-
 " Elm
 Plug 'elmcast/elm-vim', { 'for': 'elm' }
   let g:elm_format_autosave = 1
@@ -112,6 +108,9 @@ Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
       \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
       \ }
   let g:LanguageClient_autoStart = 1
+  nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+  nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+  nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
 
 call plug#end()
 

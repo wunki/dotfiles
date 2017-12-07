@@ -736,6 +736,11 @@
                                         (,ct (:inherit italic :foreground ,ct-magenta-d))))
      `(markdown-bold-face              ((,c (:inherit bold :foreground ,red-d))
                                         (,ct (:inherit bold :foreground ,ct-red-d))))
+
+     ;; lsp-mode
+     `(lsp-face-highlight-textual ((,c (:background ,ct-region))
+                                   (,ct (:background ,ct-region))))
+     
      ;; org-mode
      `(org-tag                   ((,c (:foreground ,yellow :bold nil))
                                   (,ct (:foreground ,ct-yellow :bold nil))))

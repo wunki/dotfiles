@@ -71,7 +71,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'dracula/vim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
-    let g:airline_theme='iceberg'
+    let g:airline_theme='quantum'
     let g:airline_powerline_fonts = 0
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
@@ -108,9 +108,9 @@ Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
       \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
       \ }
   let g:LanguageClient_autoStart = 1
-  nnoremap <silent> K :call LanguageClient_textDocument_hover()<CR>
+  nnoremap <silent> gt :call LanguageClient_textDocument_hover()<CR>
   nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-  nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+  nnoremap <silent> gr :call LanguageClient_textDocument_rename()<CR>
 
 call plug#end()
 
@@ -160,7 +160,7 @@ set grepprg=rg\ --vimgrep
 set grepformat=%f:%l:%c:%m
 
 " Indent line
-colorscheme iceberg
+colorscheme quantum
 
 " Change mapleader to comma
 let mapleader = ","

@@ -46,6 +46,8 @@ Plug 'morhetz/gruvbox'
 Plug 'itchyny/lightline.vim'
 Plug 'cocopon/iceberg.vim'
 Plug 'ywjno/vim-tomorrow-theme'
+Plug 'edkolev/tmuxline.vim'
+Plug 'tyrannicaltoucan/vim-quantum'
 
 " HTML
 Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html', 'sls'] }
@@ -102,9 +104,9 @@ else
 endif
 
 " Themes
-colors gruvbox
+colors quantum
 let g:lightline = {
-      \ 'colorscheme': 'gruvbox',
+      \ 'colorscheme': 'quantum',
       \ }
 
 " Find Shell

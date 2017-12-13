@@ -25,6 +25,7 @@ function ghp; python -m grip; end
 function dino; mosh dino.wunki.org -- fish; end
 function e; emacsclient -nq -a emacs $argv; end
 function v; nvim $argv; end
+function psql; sudo -u postgres psql; end
 
 # Tunnels
 function kafka-tunnel; ssh -L 9092:172.16.1.18:9092 -N dino.wunki.org; end

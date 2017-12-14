@@ -27,6 +27,7 @@ Plug 'aliva/vim-fish', { 'for': 'fish' }
 Plug 'pearofducks/ansible-vim'
 Plug 'othree/html5.vim', { 'for': 'html' }
 Plug 'junegunn/fzf.vim'
+Plug 'chr4/nginx.vim', { 'for': 'nginx' }
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
   map <C-t> :Tagbar<CR>
   let g:tagbar_type_markdown = {

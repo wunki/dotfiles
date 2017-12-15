@@ -100,6 +100,11 @@ if contains (uname -s) "Darwin"
   . "$HOME/.config/fish/functions/mac.fish"
 end
 
+# Mac specific settings
+if contains (uname -s) "Darwin"
+  prepend_to_path "/Applications/Postgres.app/Contents/Versions/9.6/bin"
+end
+
 # Autjump: Quickly jump to directories
 if test -f "/usr/local/share/autojump/autojump.fish"
   . "/usr/local/share/autojump/autojump.fish"

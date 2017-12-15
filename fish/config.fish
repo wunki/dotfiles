@@ -98,6 +98,7 @@ end
 # Mac specific settings
 if contains (uname -s) "Darwin"
   . "$HOME/.config/fish/functions/mac.fish"
+  function ssh; env TERM=xterm-256color ssh $argv; end
 end
 
 # Mac specific settings

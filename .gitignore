@@ -1,3 +1,4 @@
+.stignore
 *.spl
 *.dat
 .netrwhist

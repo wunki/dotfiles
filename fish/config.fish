@@ -25,11 +25,12 @@ function ghp; python -m grip; end
 function dino; mosh dino.wunki.org -- fish; end
 function e; emacsclient -nq -a emacs $argv; end
 function v; nvim $argv; end
-function psql; sudo -u postgres psql; end
+function clip; xclip -selection clipboard $argv; end
 
 # Tunnels
 function kafka-tunnel; ssh -L 9092:172.16.1.18:9092 -N dino.wunki.org; end
 function syncthing-tunnel; ssh -L 8385:127.0.0.1:8384 -N dino.wunki.org; end
+function postgres-tunnel; ssh -L 5433:172.16.1.1:5432 -N dino.wunki.org; end
 
 # OpenVPN
 function start-vpn; sudo systemctl start openvpn-client@$argv.service; end

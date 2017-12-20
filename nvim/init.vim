@@ -65,11 +65,7 @@ Plug 'Shougo/deoplete.nvim'
 
 Plug 'tyrannicaltoucan/vim-quantum'
     let g:quantum_italics=1
-Plug 'cocopon/iceberg.vim'
 Plug 'sindresorhus/focus', {'rtp': 'vim'}
-Plug 'tyrannicaltoucan/vim-deep-space'
-Plug 'arcticicestudio/nord-vim'
-Plug 'dracula/vim'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
     let g:airline_theme='quantum'

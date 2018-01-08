@@ -1,3 +1,0 @@
-#+CATEGORY: dotfiles
-
-* Wunki's Dotfiles

@@ -62,7 +62,7 @@ Plug 'Shougo/deoplete.nvim'
     let g:deoplete#sources#syntax#min_keyword_length = 3
     inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
     inoremap <Leader><Tab> <Space><Space>
-
+Plug 'morhetz/gruvbox'
 Plug 'tyrannicaltoucan/vim-quantum'
     let g:quantum_italics=1
 Plug 'sindresorhus/focus', {'rtp': 'vim'}
@@ -102,7 +102,7 @@ Plug 'elmcast/elm-vim', { 'for': 'elm' }
 " Language server
 Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
   let g:LanguageClient_serverCommands = {
-      \ 'rust': ['rustup', 'run', 'nightly', 'rls'],
+      \ 'rust': ['rustup', 'run', 'nightly-2017-11-30', 'rls'],
       \ }
   let g:LanguageClient_autoStart = 1
   nnoremap <silent> gt :call LanguageClient_textDocument_hover()<CR>
@@ -170,9 +170,20 @@ vnoremap / /\v
 " FZF
 set rtp+=/usr/local/opt/fzf
 set rtp+=~/.fzf
-nmap ; :Buffers<CR>
-nmap <Leader>r :Tags<CR>
-nmap <Leader>f :Files<CR>
+nmap <C-p> :Files<cr>
+
+let g:fzf_action = {
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-i': 'split',
+      \ 'ctrl-s': 'vsplit' }
+let g:fzf_layout = { 'down': '~20%' }
+
+let g:rg_command = '
+      \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+      \ -g "*.{js,json,php,md,styl,pug,jade,html,config,py,cpp,c,go,hs,rb,conf,fa,lst}"
+      \ -g "!{.config,.git,node_modules,vendor,build,yarn.lock,*.sty,*.bst,*.coffee,dist}/*" '
+
+command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 
 " Bash-like filename completion
 set wildmenu

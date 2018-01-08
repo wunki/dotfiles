@@ -53,7 +53,6 @@ Plug 'majutsushi/tagbar'                                 " sidebar to jump to re
     \]
   \}
 
-
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
     let g:acp_enableAtStartup = 0
@@ -63,12 +62,13 @@ Plug 'Shougo/deoplete.nvim'
     inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
     inoremap <Leader><Tab> <Space><Space>
 Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 Plug 'tyrannicaltoucan/vim-quantum'
     let g:quantum_italics=1
 Plug 'sindresorhus/focus', {'rtp': 'vim'}
 Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
-    let g:airline_theme='quantum'
+    let g:airline_theme='nord'
     let g:airline_powerline_fonts = 0
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
@@ -157,7 +157,7 @@ set grepprg=rg\ --vimgrep
 set grepformat=%f:%l:%c:%m
 
 " Indent line
-colorscheme quantum
+colorscheme nord
 
 " Change mapleader to comma
 let mapleader = ","

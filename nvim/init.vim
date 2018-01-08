@@ -61,12 +61,9 @@ Plug 'Shougo/deoplete.nvim'
     let g:deoplete#sources#syntax#min_keyword_length = 3
     inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
     inoremap <Leader><Tab> <Space><Space>
-Plug 'morhetz/gruvbox'
 Plug 'arcticicestudio/nord-vim'
 Plug 'tyrannicaltoucan/vim-quantum'
     let g:quantum_italics=1
-Plug 'sindresorhus/focus', {'rtp': 'vim'}
-Plug 'vim-airline/vim-airline-themes'
 Plug 'vim-airline/vim-airline'
     let g:airline_theme='nord'
     let g:airline_powerline_fonts = 0
@@ -82,19 +79,6 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 " Go
 Plug 'fatih/vim-go', { 'for': 'go' }
 
-" Haskell
-Plug 'pbrisbin/vim-syntax-shakespeare', { 'for': 'haskell' }
-Plug 'neovimhaskell/haskell-vim', { 'for': 'haskell' }
-Plug 'eagletmt/neco-ghc', { 'for': 'haskell' }
-Plug 'parsonsmatt/intero-neovim', { 'for': 'haskell' }
-  let g:intero_use_neomake = 0
-  augroup interoMaps
-    au!
-    au FileType haskell map <silent> <leader>t <Plug>InteroGenericType
-    au FileType haskell map <silent> <leader>T <Plug>InteroType
-    au FileType haskell nnoremap <silent> <leader>it :InteroTypeInsert<CR>
-  augroup END
-
 " Elm
 Plug 'elmcast/elm-vim', { 'for': 'elm' }
   let g:elm_format_autosave = 1
@@ -102,7 +86,7 @@ Plug 'elmcast/elm-vim', { 'for': 'elm' }
 " Language server
 Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
   let g:LanguageClient_serverCommands = {
-      \ 'rust': ['rustup', 'run', 'nightly-2017-11-30', 'rls'],
+      \ 'rust': ['rls'],
       \ }
   let g:LanguageClient_autoStart = 1
   nnoremap <silent> gt :call LanguageClient_textDocument_hover()<CR>
@@ -139,6 +123,7 @@ set scrolloff=3             " keep 3 lines below/above cursor
 set noshowmode              " no need for the mode, lightline shows it
 set showcmd                 " shows partial command in the last line
 set ruler                   " show the line and column number of the cursor
+set number                  " Show line number
 set backspace=indent,eol,start
 set formatoptions=qrn1
 set nocursorline              " show me the line where the cursor is
@@ -151,13 +136,11 @@ set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮ " Change listchars
 set showbreak=↪             " Change wrap line break
 set fillchars=diff:⣿,vert:│ " Change fillchars
 set termguicolors
+colorscheme nord
 
 " Ripgrep
 set grepprg=rg\ --vimgrep
 set grepformat=%f:%l:%c:%m
-
-" Indent line
-colorscheme nord
 
 " Change mapleader to comma
 let mapleader = ","
@@ -228,4 +211,5 @@ tnoremap <Esc> <C-\><C-n>
 au BufRead ~/.mutt/tmp/mutt-* set tw=72 formatoptions=tcql
 
 " Make comments italic
-highlight Comment cterm=italic
+hi Comment gui=italic cterm=italic
+hi htmlArg gui=italic cterm=italic

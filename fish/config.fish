@@ -83,7 +83,7 @@ prepend_to_path "/usr/local/share/dotnet"
 prepend_to_path "$HOME/.google-cloud-sdk/bin"
 
 # Ripgrep and FZF
-set -x FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow -g "!.git/" 2> /dev/null'
+set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g "!.git/" 2> /dev/null'
 set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 
 if contains (uname -s) "Darwin"
@@ -99,11 +99,8 @@ end
 # Mac specific settings
 if contains (uname -s) "Darwin"
   . "$HOME/.config/fish/functions/mac.fish"
+  
   function ssh; env TERM=xterm-256color ssh $argv; end
-end
-
-# Mac specific settings
-if contains (uname -s) "Darwin"
   prepend_to_path "/Applications/Postgres.app/Contents/Versions/9.6/bin"
 end
 
@@ -121,6 +118,7 @@ prepend_to_path "$HOME/.cargo/bin"
 function ct; cargo test -- --nocapture; end
 function ctl; cargo test --lib -- --nocapture $argv; end
 function cb; cargo build; end
+function cdoc; cargo doc --no-deps --open; end
 function clippy; rustup run nightly cargo clippy; end
 function rust-musl-builder; docker run --rm -it -v "$PWD":/home/rust/src ekidd/rust-musl-builder; end
 set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib

@@ -14,6 +14,7 @@ Plug 'tpope/vim-repeat'                                  " make the . command av
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
 Plug 'tpope/vim-speeddating'                             " easily increment numbers and dates
 Plug 'tpope/vim-endwise'                                 " automatically close blocks in languages like ruby or elixir
+Plug 'jiangmiao/auto-pairs'
 Plug 'airblade/vim-gitgutter'                            " show git changes in the gutter
 Plug 'rking/ag.vim'                                      " silver searcher
 Plug 'tpope/vim-commentary'                              " comment mappings

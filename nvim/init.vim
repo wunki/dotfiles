@@ -1,5 +1,14 @@
 call plug#begin('~/.config/nvim/plugged')
 
+" Helper function to determine OS
+if !exists("g:os")
+  if has("win64") || has("win32") || has("win16")
+    let g:os = "Windows"
+  else
+    let g:os = substitute(system('uname'), '\n', '', '')
+  endif
+endif
+
 " Essentials
 Plug 'w0rp/ale'
   let g:ale_lint_on_save = 1
@@ -21,8 +30,11 @@ Plug 'tpope/vim-commentary'                              " comment mappings
 Plug 'tpope/vim-surround'                                " surround commands
 Plug 'godlygeek/tabular'                                 " easy indenting
 Plug 'mbbill/undotree'                                   " easy undoing
-Plug 'Shougo/echodoc.vim'                                " show function signature
   nnoremap <silent> <Leader>ut :UndotreeToggle<cr>
+Plug 'Shougo/echodoc.vim'                                " show function signature
+if g:os == "FreeBSD"
+  Plug 'wincent/vim-clipper'
+endif
 Plug 'Shougo/vimproc', {'do': 'make'}                    " command execution
 Plug 'aliva/vim-fish', { 'for': 'fish' }
 Plug 'pearofducks/ansible-vim'

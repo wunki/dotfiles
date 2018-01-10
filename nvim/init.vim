@@ -74,11 +74,10 @@ Plug 'Shougo/deoplete.nvim'
     let g:deoplete#sources#syntax#min_keyword_length = 3
     inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
     inoremap <Leader><Tab> <Space><Space>
+Plug 'cocopon/iceberg.vim'
 Plug 'arcticicestudio/nord-vim'
-Plug 'tyrannicaltoucan/vim-quantum'
-    let g:quantum_italics=1
 Plug 'vim-airline/vim-airline'
-    let g:airline_theme='nord'
+    let g:airline_theme='iceberg'
     let g:airline_powerline_fonts = 0
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
@@ -149,7 +148,7 @@ set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮ " Change listchars
 set showbreak=↪             " Change wrap line break
 set fillchars=diff:⣿,vert:│ " Change fillchars
 set termguicolors
-colorscheme nord
+colorscheme iceberg
 
 " Ripgrep
 set grepprg=rg\ --vimgrep

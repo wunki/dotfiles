@@ -48,6 +48,7 @@ set -x LC_ALL 'en_US.UTF-8'
 set -x EDITOR 'nvim'
 set -x VISUAL 'nvim'
 set -x XDG_DATA_HOME {$HOME}/.local/share
+set -x GPG_TTY (tty)
 
 # Mu: mail search
 function mu-reindex; mu index --rebuild --maildir=~/Mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
@@ -92,7 +93,7 @@ end
 
 if test -d "$HOME/.fzf"
   prepend_to_path "$HOME/.fzf/bin"
-  . "$HOME/.config/fish/functions/fzf_key_bindings.fish"
+  . "$HOME/.fzf/shell/key-bindings.fish"
 end
 
 

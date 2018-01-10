@@ -105,6 +105,12 @@ if contains (uname -s) "Darwin"
   prepend_to_path "/Applications/Postgres.app/Contents/Versions/9.6/bin"
 end
 
+# Unix specific settings
+if contains (uname -s) "Linux"
+  function alafull; wmctrl -r 'Alacritty' -b toggle,fullscreen; end
+  bind $argv \ef alafull
+end
+
 # Autjump: Quickly jump to directories
 if test -f "/usr/local/share/autojump/autojump.fish"
   . "/usr/local/share/autojump/autojump.fish"

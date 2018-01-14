@@ -29,6 +29,8 @@ Plug 'rking/ag.vim'                                      " silver searcher
 Plug 'tpope/vim-commentary'                              " comment mappings
 Plug 'tpope/vim-surround'                                " surround commands
 Plug 'godlygeek/tabular'                                 " easy indenting
+Plug 'vimwiki/vimwiki'
+  let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
 Plug 'mbbill/undotree'                                   " easy undoing
   nnoremap <silent> <Leader>ut :UndotreeToggle<cr>
 Plug 'Shougo/echodoc.vim'                                " show function signature
@@ -141,7 +143,7 @@ set formatoptions=qrn1
 set nocursorline              " show me the line where the cursor is
 set nofoldenable            " don't do any folding for now
 set guicursor+=a:blinkon0   " don't blink the cursor please
-set winwidth=79             " resize active window to minimally contains 79 chars width
+set winwidth=80             " resize active window to minimally contains 80 chars width
 set clipboard=unnamedplus   " enable clipboard when on gui
 set completeopt-=preview
 set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮ " Change listchars

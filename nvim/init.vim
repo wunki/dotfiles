@@ -30,7 +30,12 @@ Plug 'tpope/vim-commentary'                              " comment mappings
 Plug 'tpope/vim-surround'                                " surround commands
 Plug 'godlygeek/tabular'                                 " easy indenting
 Plug 'vimwiki/vimwiki'
-  let g:vimwiki_list = [{'path': '~/wiki/', 'syntax': 'markdown', 'ext': '.md'}]
+  if isdirectory("~/wiki")
+    let g:vimwiki_path = "~/wiki"
+  else
+    let g:vimwiki_path = "~/Wiki"
+  end
+  let g:vimwiki_list = [{'path': vimwiki_path, 'syntax': 'markdown', 'ext': '.md'}]
 Plug 'mbbill/undotree'                                   " easy undoing
   nnoremap <silent> <Leader>ut :UndotreeToggle<cr>
 Plug 'Shougo/echodoc.vim'                                " show function signature

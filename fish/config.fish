@@ -42,7 +42,12 @@ if type -Pq nvim
 end
 
 # Environment variables
-set -x PROJECT_DIR {$HOME}/Projects
+
+if contains (uname -s) "FreeBSD"
+  set -x PROJECT_DIR {$HOME}/projects
+else
+  set -x PROJECT_DIR {$HOME}/Projects
+end
 set -x LANG 'en_US.UTF-8'
 set -x LC_ALL 'en_US.UTF-8'
 set -x EDITOR 'nvim'
@@ -95,7 +100,6 @@ if test -d "$HOME/.fzf"
   prepend_to_path "$HOME/.fzf/bin"
   . "$HOME/.fzf/shell/key-bindings.fish"
 end
-
 
 # Mac specific settings
 if contains (uname -s) "Darwin"

@@ -136,5 +136,6 @@ Missing packages are installed automatically."
 (require 'wunki-haskell)
 (require 'wunki-erc)
 (require 'wunki-csharp)
+(require 'wunki-lisp)
 (when (file-exists-p "~/Mail")
   (require 'wunki-mu4e))

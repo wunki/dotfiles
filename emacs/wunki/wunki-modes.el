@@ -17,7 +17,7 @@
 (if (windows?)
     (setq projectile-indexing-method 'alien))
 (projectile-global-mode)
-(counsel-projectile-on)
+(counsel-projectile-mode t)
 
 ;; deletes region when starting typing
 (pending-delete-mode t)

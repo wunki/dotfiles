@@ -20,13 +20,6 @@
         (load "carp-mode")
         (load "inf-carp-mode"))))
 
-;; cleanup
-(require 'clj-refactor)
-(add-to-list 'cljr-project-clean-functions 'cleanup-buffer)
-(add-hook 'clojure-mode-hook (lambda ()
-                               (clj-refactor-mode 1)
-                               (cljr-add-keybindings-with-prefix "C-c C-m")))
-
 ;; lisp implementation is SBCL
 (setq inferior-lisp-program "/usr/bin/sbcl --noinform")
 

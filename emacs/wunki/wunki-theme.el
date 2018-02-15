@@ -10,7 +10,7 @@
 
 ;; font
 (let ((font "Operator Mono")
-      (size (if (mac?) 14 10)))
+      (size (if (mac?) 15 10)))
   (add-to-list 'default-frame-alist (cons 'font (format "%s-%s" font size)))
   (set-frame-font (format "%s-%s:light" font size) nil t))
 

@@ -17,6 +17,9 @@
 (add-hook 'cider-mode-hook 'eldoc-mode)
 (add-hook 'cider-repl-mode-hook #'eldoc-mode)
 
+;; cider configuration
+(setq cider-repl-display-chelp-banner 'nil)
+
 ;; extra key bindings
 (eval-after-load 'clojure-mode
   '(define-key clojure-mode-map (kbd "M-q") 'sp-indent-defun))

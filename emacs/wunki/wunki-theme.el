@@ -6,7 +6,7 @@
 ;; load theme and don't ask if it's save.
 (if (display-graphic-p)
     (load-theme 'funki t)
-  (load-theme 'funki t))
+  (load-theme 'zenburn t))
 
 ;; font
 (let ((font "Operator Mono")

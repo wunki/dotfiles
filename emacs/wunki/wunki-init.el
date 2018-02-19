@@ -68,13 +68,7 @@
 
     ;; clojure
     cider
-
-    ;; csharp
-    omnisharp
-
-    ;; clojure
-    cider
-
+    
     ;; elm
     elm-mode
 
@@ -138,10 +132,7 @@ Missing packages are installed automatically."
 (require 'wunki-html)
 (require 'wunki-rust)
 (require 'wunki-python)
-(require 'wunki-elm)
-(require 'wunki-haskell)
 (require 'wunki-erc)
-(require 'wunki-csharp)
 (require 'wunki-lisp)
 (when (file-exists-p "~/Mail")
   (require 'wunki-mu4e))

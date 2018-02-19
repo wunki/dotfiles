@@ -10,13 +10,7 @@
 
 (require 'fullframe)
 (after-load 'magit
-  (fullframe magit-status magit-mode-quit-window)
-  (setq magithub-feature-autoinject t))
-
-(use-package magithub
-  :after magit
-  :ensure t
-  :config (magithub-feature-autoinject t))
+  (fullframe magit-status magit-mode-quit-window))
 
 (if (eq system-type 'windows-nt)
     (add-to-list 'exec-path "C:/Program Files/Git/bin"))

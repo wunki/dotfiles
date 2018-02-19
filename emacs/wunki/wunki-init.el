@@ -72,6 +72,9 @@
     ;; csharp
     omnisharp
 
+    ;; clojure
+    cider
+
     ;; elm
     elm-mode
 
@@ -129,7 +132,8 @@ Missing packages are installed automatically."
 (require 'wunki-temp)
 (require 'wunki-git)
 (require 'wunki-org)
-(require 'wunki-term)
+(when (not (windows?))
+  (require 'wunki-term))
 (require 'wunki-eshell)
 (require 'wunki-html)
 (require 'wunki-rust)

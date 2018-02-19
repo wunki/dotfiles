@@ -58,7 +58,6 @@
     eshell-git-prompt
     
     ;; org
-    org
     org-magit
     org-projectile
     

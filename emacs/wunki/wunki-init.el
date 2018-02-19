@@ -67,6 +67,9 @@
     lsp-mode
     lsp-rust
 
+    ;; clojure
+    cider
+
     ;; csharp
     omnisharp
 

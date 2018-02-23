@@ -24,6 +24,7 @@ function mux; tmuxinator $argv; end
 function ghp; python -m grip; end
 function dino; mosh dino.wunki.org -- fish; end
 function e; emacsclient -nq -a emacs $argv; end
+function et; emacsclient -t; end
 function v; nvim $argv; end
 function clip; xclip -selection clipboard $argv; end
 

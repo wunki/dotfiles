@@ -18,7 +18,7 @@
 (add-hook 'cider-repl-mode-hook #'eldoc-mode)
 
 ;; cider configuration
-(setq cider-repl-display-chelp-banner 'nil)
+(setq cider-repl-display-help-banner 'nil)
 
 ;; extra key bindings
 (eval-after-load 'clojure-mode

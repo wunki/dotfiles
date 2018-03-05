@@ -47,3 +47,4 @@ emacs/server
 /fish/functions/last_job_id.fish
 /fish/functions/fzf_key_bindings.fish
 /emacs/magithub/cache
+/emacs/smex-items

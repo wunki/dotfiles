@@ -131,6 +131,7 @@ Missing packages are installed automatically."
 (require 'wunki-eshell)
 (require 'wunki-html)
 (require 'wunki-rust)
+(require 'wunki-haskell)
 (require 'wunki-python)
 (require 'wunki-erc)
 (require 'wunki-lisp)

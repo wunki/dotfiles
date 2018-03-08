@@ -9,7 +9,7 @@ if !exists("g:os")
   endif
 endif
 
-" Essentials
+" Basics
 Plug 'w0rp/ale'
   let g:ale_lint_on_save = 1
   let g:ale_lint_on_text_changed = 0
@@ -22,32 +22,17 @@ Plug 'tpope/vim-eunuch'                                  " unix helper commands
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
 Plug 'tpope/vim-speeddating'                             " easily increment numbers and dates
-Plug 'tpope/vim-endwise'                                 " automatically close blocks in languages like ruby or elixir
-Plug 'jiangmiao/auto-pairs'
+Plug 'jiangmiao/auto-pairs'                              " close pairing symbols automatically
 Plug 'airblade/vim-gitgutter'                            " show git changes in the gutter
 Plug 'rking/ag.vim'                                      " silver searcher
 Plug 'tpope/vim-commentary'                              " comment mappings
 Plug 'tpope/vim-surround'                                " surround commands
 Plug 'godlygeek/tabular'                                 " easy indenting
-Plug 'vimwiki/vimwiki'
-  if isdirectory("~/wiki")
-    let g:vimwiki_path = "~/wiki"
-  else
-    let g:vimwiki_path = "~/Wiki"
-  end
-  let g:vimwiki_list = [{'path': vimwiki_path, 'syntax': 'markdown', 'ext': '.md'}]
 Plug 'mbbill/undotree'                                   " easy undoing
   nnoremap <silent> <Leader>ut :UndotreeToggle<cr>
 Plug 'Shougo/echodoc.vim'                                " show function signature
-if g:os == "FreeBSD"
-  Plug 'wincent/vim-clipper'
-endif
 Plug 'Shougo/vimproc', {'do': 'make'}                    " command execution
-Plug 'aliva/vim-fish', { 'for': 'fish' }
-Plug 'pearofducks/ansible-vim'
-Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'junegunn/fzf.vim'
-Plug 'chr4/nginx.vim', { 'for': 'nginx' }
+Plug 'junegunn/fzf.vim'                                  " quick file/buffer browsing
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
   map <C-t> :Tagbar<CR>
   let g:tagbar_type_markdown = {
@@ -73,6 +58,11 @@ Plug 'majutsushi/tagbar'                                 " sidebar to jump to re
     \]
   \}
 
+" Clipboard sharing
+if g:os == "FreeBSD"
+  Plug 'wincent/vim-clipper'
+endif
+
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
     let g:acp_enableAtStartup = 0
@@ -81,14 +71,21 @@ Plug 'Shougo/deoplete.nvim'
     let g:deoplete#sources#syntax#min_keyword_length = 3
     inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
     inoremap <Leader><Tab> <Space><Space>
+
+" Colors
 Plug 'cocopon/iceberg.vim'
-Plug 'arcticicestudio/nord-vim'
 Plug 'vim-airline/vim-airline'
     let g:airline_theme='iceberg'
     let g:airline_powerline_fonts = 0
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
     let g:airline#extensions#whitespace#enabled = 0
+
+" Filetype support
+Plug 'othree/html5.vim', { 'for': 'html' }
+Plug 'chr4/nginx.vim', { 'for': 'nginx' }
+Plug 'aliva/vim-fish', { 'for': 'fish' }
+Plug 'pearofducks/ansible-vim'
 
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }

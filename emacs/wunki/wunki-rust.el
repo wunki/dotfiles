@@ -1,5 +1,5 @@
 (require 'lsp-mode)
-(require 'lsp-flycheck)
+(require 'lsp-ui)
 
 (with-eval-after-load 'lsp-mode
   (require 'lsp-rust))
@@ -8,6 +8,7 @@
   (setq lsp-highlight-symbol-at-point t)
   (setq rust-format-on-save t)
   (lsp-rust-enable)
+  (lsp-ui-mode)
   (flycheck-mode))
 
 (add-hook 'rust-mode-hook 'wunki-rust-mode-hook)

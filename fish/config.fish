@@ -131,12 +131,9 @@ function ct; cargo test -- --nocapture; end
 function ctl; cargo test --lib -- --nocapture $argv; end
 function cb; cargo build; end
 function cdoc; cargo doc --no-deps --open; end
-function clippy; rustup run nightly cargo clippy; end
+function clippy; cargo +nightly clippy; end
 function rust-musl-builder; docker run --rm -it -v "$PWD":/home/rust/src ekidd/rust-musl-builder; end
 set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
-
-# Erlang and Elixir
-set -x ERL_AFLAGS "-kernel shell_history enabled"
 
 # Set the correct path with rustup
 if type -Pq rustc
@@ -150,11 +147,6 @@ prepend_to_path "$GOPATH/bin"
 function gb; go build; end
 function gt; go test -v ./...; end
 function gc; gocov test | gocov report; end
-
-# Clojure
-set -x BOOT_COLOR 1
-set -x BOOT_JVM_OPTIONS "-Xmx2g -client -XX:+TieredCompilation -XX:TieredStopAtLevel=1 -XX:+UseConcMarkSweepGC -XX:+CMSClassUnloadingEnabled -Xverify:none"
-set -x BOOT_CLOJURE_VERSION "1.9.0-alpha14"
 
 # NodeJS
 set -x NPM_PACKAGES "$HOME/.npm-packages"
@@ -179,11 +171,6 @@ set -x DOTNET_CLI_TELEMETRY_OPTOUT "true"
 prepend_to_path "$HOME/.aws/bin"
 set -x AWS_IAM_HOME "$HOME/.aws/iam"
 set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
-
-# Fuck: correcting mistyped stuff
-if type -Pq thefuck
-  eval (thefuck --alias | tr '\n' ';')
-end
 
 # Direnv: adding environment variables per directory in a .envrc
 if type -Pq direnv

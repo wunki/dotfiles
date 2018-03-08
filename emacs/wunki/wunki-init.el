@@ -65,6 +65,7 @@
     rust-mode
     lsp-mode
     lsp-rust
+    lsp-ui
 
     ;; clojure
     cider

@@ -31,6 +31,7 @@ Plug 'godlygeek/tabular'                                 " easy indenting
 Plug 'mbbill/undotree'                                   " easy undoing
   nnoremap <silent> <Leader>ut :UndotreeToggle<cr>
 Plug 'Shougo/echodoc.vim'                                " show function signature
+  let g:echodoc#enable_at_startup = 1
 Plug 'Shougo/vimproc', {'do': 'make'}                    " command execution
 Plug 'junegunn/fzf.vim'                                  " quick file/buffer browsing
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions

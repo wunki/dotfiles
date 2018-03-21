@@ -8,7 +8,7 @@
   (setq lsp-highlight-symbol-at-point t)
   (setq rust-format-on-save t)
   (lsp-rust-enable)
-  (lsp-ui-mode)
+  ;; (lsp-ui-mode) -- ugly!
   (flycheck-mode))
 
 (add-hook 'rust-mode-hook 'wunki-rust-mode-hook)

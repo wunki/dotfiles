@@ -34,7 +34,7 @@ unclutter -idle 3 &
 setxkbmap dvorak -option ctrl:nocaps
 
 # Set background
-feh --bg-tile ~/pictures/wallpapers/noisy_net.png
+feh --bg-fill ~/pictures/wallpapers/nightfall.jpg
 
 # Thunar
 thunar --daemon &

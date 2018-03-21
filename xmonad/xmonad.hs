@@ -4,11 +4,13 @@ import           XMonad.Prompt
 import           XMonad.Prompt.Window
 import qualified XMonad.StackSet              as W
 import           XMonad.Util.Run              (spawnPipe)
+import 					 XMonad.Util.SpawnOnce        (spawnOnce)
 
 -- Hooks
 import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.SetWMName
+import           XMonad.Hooks.EwmhDesktops (ewmh, fullscreenEventHook)
 
 -- Actions
 import           XMonad.Actions.WindowGo
@@ -26,25 +28,23 @@ import           System.IO
 
 main :: IO()
 main = do
-    xmobar <- spawnPipe "xmobar"  -- start xmobar
     xmonad $ docks defaultConfig
         { manageHook = manageHook'
         , modMask = mod4Mask
         , layoutHook = avoidStruts myLayout
-        , logHook = dynamicLogWithPP $ xmobarPP
-                    { ppOutput = hPutStrLn xmobar
-                    , ppUrgent = xmobarColor "#BF616A" ""
-                    , ppTitle = xmobarColor "#D8DEE9" ""
-                    , ppCurrent = xmobarColor "#81A1C1" ""
-                    }
-        , borderWidth = 1
+				, borderWidth = 1
         , normalBorderColor  = "#4C566A"
         , focusedBorderColor = "#81A1C1"
         , workspaces = ["1:Project", "2:Shells", "3:Browser", "4", "5"]
         , terminal  = "alacritty"
         , keys = \c -> myKeys c `M.union` keys defaultConfig c
-        , startupHook = setWMName "LG3D"
+        , startupHook = myStartupHook <+> startupHook defaultConfig
+				, handleEventHook = fullscreenEventHook <+> handleEventHook defaultConfig
         }
+
+-- Startup
+myStartupHook = do
+	spawnOnce "$HOME/bin/polybar-restart"
 
 -- Layouts
 myLayout = tiled ||| noBorders Full ||| Grid
@@ -73,13 +73,13 @@ myKeys conf@(XConfig {XMonad.modMask = modMask, workspaces = ws}) = M.fromList $
     , ((0, xF86XK_AudioPlay), spawn "mpc toggle")                             -- Play/pause
     , ((0, xF86XK_AudioPrev), spawn "mpc prev")                               -- Previous song
     , ((0, xF86XK_AudioNext), spawn "mpc next")                               -- Next song
-    , ((0, xF86XK_Launch1),   spawn "firefox-beta")                       -- Launch Firefox
+    , ((0, xF86XK_Launch1),   spawn "firefox")                       -- Launch Firefox
     , ((modMask, xK_b), sendMessage ToggleStruts)             -- Hide top bar
     , ((modMask .|. controlMask, xK_s), spawn "scrot -q90 /home/wunki/pictures/screenshots/%Y-%m-%d-%H%M%S.png")
     , ((modMask .|. controlMask, xK_p), sendMessage MagnifyMore)
     , ((modMask .|. controlMask, xK_l), sendMessage MagnifyLess)
     , ((modMask .|. controlMask, xK_m), sendMessage Toggle)
-    , ((modMask .|. controlMask, xK_w), raiseMaybe (spawn "firefox-beta") (className =? "Firefox"))
+    , ((modMask .|. controlMask, xK_w), raiseMaybe (spawn "firefox") (className =? "Firefox"))
     , ((modMask .|. controlMask, xK_e), raiseMaybe (spawn "~/bin/em") (className =? "Emacs"))
     , ((modMask .|. controlMask, xK_c), raiseMaybe (spawn "code") (className =? "Code"))
     -- cycle through workspaces

@@ -169,6 +169,7 @@ vnoremap / /\v
 
 " FZF
 set rtp+=/usr/local/opt/fzf
+set rtp+=/usr/share/vim/vimfiles
 set rtp+=~/.fzf
 nmap <C-p> :Files<cr>
 

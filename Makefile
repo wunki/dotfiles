@@ -65,7 +65,7 @@ xmonad::
 
 xorg::
 	@ln -fs $(DOTFILES)/xorg/Xresources				${HOME}/.Xresources
-	@ln -fs $(DOTFILES)/xorg/xinitrc					${HOME}/.xinitrc
+	@ln -fs $(DOTFILES)/xorg/xprofile         ${HOME}/.xprofile
 	@ln -fns $(DOTFILES)/xorg/fonts.conf			${HOME}/.fonts.conf
 	@echo Xorg is symlinked.
 

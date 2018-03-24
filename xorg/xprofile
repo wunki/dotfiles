@@ -40,7 +40,7 @@ feh --bg-fill ~/pictures/wallpapers/nightfall.jpg
 thunar --daemon &
 
 # I want to be able to sleep at night
-# redshift -l 52:4 -t 6000:4800 -m vidmode &
+redshift -l 52:4 -t 6000:4800 -m vidmode &
 
 # SSH agent
 eval `ssh-agent`

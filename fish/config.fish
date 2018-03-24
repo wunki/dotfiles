@@ -166,6 +166,7 @@ end
 
 # Dotnet
 set -x DOTNET_CLI_TELEMETRY_OPTOUT "true"
+set -x DOTNET_SKIP_FIRST_TIME_EXPERIENCE "true"
 
 # AWS settings
 prepend_to_path "$HOME/.aws/bin"

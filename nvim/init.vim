@@ -13,6 +13,9 @@ endif
 Plug 'w0rp/ale'
   let g:ale_lint_on_save = 1
   let g:ale_lint_on_text_changed = 0
+  let g:ale_set_loclist = 0
+  let g:ale_set_quickfix = 1
+  let g:ale_open_list = 1
 Plug 'sbdchd/neoformat'
   augroup fmt
     autocmd!
@@ -81,6 +84,7 @@ Plug 'vim-airline/vim-airline'
     let g:airline_left_sep = ''
     let g:airline_right_sep = ''
     let g:airline#extensions#whitespace#enabled = 0
+    let g:airline#extensions#ale#enabled = 1
 
 " Filetype support
 Plug 'othree/html5.vim', { 'for': 'html' }

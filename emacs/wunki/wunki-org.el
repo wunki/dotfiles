@@ -34,7 +34,7 @@
 ;; projects
 (require 'org-projectile)
 (org-projectile-per-project)
-(setq org-projectile-per-project-filepath "todo.org")
+(setq org-projectile-per-project-filepath "notes.org")
 (push (org-projectile-project-todo-entry) org-capture-templates)
 (setq org-agenda-files (append org-agenda-files (org-projectile-todo-files)))
 (global-set-key (kbd "C-c n p") 'org-projectile-project-todo-completing-read)

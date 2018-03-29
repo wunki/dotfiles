@@ -50,4 +50,3 @@ export PATH="$HOME/bin:$HOME/.npm/bin:$HOME/.cargo/bin:$HOME/lib/elixir/bin:$PAT
 
 # Add Rust source path for Emacs
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
-

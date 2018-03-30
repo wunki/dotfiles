@@ -7,7 +7,7 @@ gtkrc=$(DOTFILES)/gtk/${UNAME}-gtkrc.mine
 gtk2=$(DOTFILES)/gtk/${UNAME}-gtkrc-2.0
 tmux=$(DOTFILES)/tmux/${UNAME}-tmux.conf
 
-all:: vim emacs bin zsh bash tmux xmonad xorg gtk mpv conkeror ghc
+all:: vim bin zsh bash tmux xmonad xorg gtk mpv conkeror ghc
 
 print-%: ; @echo $*=$($*)
 
@@ -22,11 +22,6 @@ nvim::
 	@ln -fns $(DOTFILES)/nvim										${HOME}/.config/nvim
 	@ln -fs ${HOME}/.config/nvim/init.vim				${HOME}/.config/init.vim
 	@echo NeoVim is symlinked.
-
-emacs::
-	@ln -fs $(DOTFILES)/emacs/emacs.el					${HOME}/.emacs
-	@ln -fns $(DOTFILES)/emacs									${HOME}/.emacs.d
-	@echo Emacs is symlinked.
 
 bin::
 	@ln -fns $(DOTFILES)/bin									${HOME}/.bin

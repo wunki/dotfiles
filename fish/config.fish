@@ -28,6 +28,9 @@ function et; emacsclient -t; end
 function v; nvim $argv; end
 function clip; xclip -selection clipboard $argv; end
 
+# Override term for SSH
+function ssh; env TERM=xterm-256color ssh $argv; end
+
 # Tunnels
 function kafka-tunnel; ssh -L 9092:172.16.1.18:9092 -N dino.wunki.org; end
 function syncthing-tunnel; ssh -L 8385:127.0.0.1:8384 -N dino.wunki.org; end
@@ -57,8 +60,8 @@ set -x XDG_DATA_HOME {$HOME}/.local/share
 set -x GPG_TTY (tty)
 
 # Mu: mail search
-function mu-reindex; mu index --rebuild --maildir=~/Mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
-function mu-index; mu index --maildir=~/Mail --my-address=petar@wunki.org --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
+function mu-reindex; mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@degreed.com --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
+function mu-index; mu index --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@degreed.com --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
 
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"
   if test -d $argv[1]
@@ -104,8 +107,7 @@ end
 # Mac specific settings
 if contains (uname -s) "Darwin"
   . "$HOME/.config/fish/functions/mac.fish"
-  
-  function ssh; env TERM=xterm-256color ssh $argv; end
+
   prepend_to_path "/Applications/Postgres.app/Contents/Versions/9.6/bin"
 end
 

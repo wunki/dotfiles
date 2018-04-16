@@ -34,7 +34,7 @@ unclutter -idle 3 &
 setxkbmap dvorak -option ctrl:nocaps
 
 # Set background
-feh --bg-fill ~/pictures/wallpapers/wallhaven-639473.jpg
+feh --bg-fill ~/pictures/wallpapers/699273.png
 
 # Thunar
 thunar --daemon &

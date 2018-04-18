@@ -36,8 +36,8 @@ setxkbmap dvorak -option ctrl:nocaps
 # Set background
 feh --bg-fill ~/pictures/wallpapers/699273.png
 
-# Thunar
-thunar --daemon &
+# Bluetooth management
+blueman-applet &
 
 # I want to be able to sleep at night
 redshift -l 52:4 -t 6000:4800 -m vidmode &

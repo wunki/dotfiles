@@ -24,6 +24,9 @@ xset r rate 300 80
 # Extra keybindings
 xbindkeys &
 
+# Enable DPMS (power saving of manitor)
+xset +dpms
+
 # Set the left cursor as default
 xsetroot -cursor_name left_ptr
 
@@ -42,8 +45,8 @@ blueman-applet &
 # I want to be able to sleep at night
 redshift -l 52:4 -t 6000:4800 -m vidmode &
 
-# SSH agent
-eval `ssh-agent`
+# Keychain for managing SSH agent
+eval $(export SHELL=sh; keychain --agents ssh --nogui --eval --quiet)
 
 # Add my own path to bin, needed for dmenu
 export PATH="$HOME/bin:$HOME/.npm/bin:$HOME/.cargo/bin:$HOME/lib/elixir/bin:$PATH"

@@ -27,6 +27,9 @@ function e; emacsclient -nq -a emacs $argv; end
 function et; emacsclient -t; end
 function v; nvim $argv; end
 function clip; xclip -selection clipboard $argv; end
+if contains (uname -s) "Linux"
+  function pacman-orphans; sudo pacman -Rs (pacman -Qqtd); end
+end
 
 # Override term for SSH
 function ssh; env TERM=xterm-256color ssh $argv; end
@@ -46,7 +49,6 @@ if type -Pq nvim
 end
 
 # Environment variables
-
 if contains (uname -s) "FreeBSD"
   set -x PROJECT_DIR {$HOME}/projects
 else
@@ -155,8 +157,8 @@ set -x NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 prepend_to_path "$NPM_PACKAGES/bin"
 
 # Ruby
+prepend_to_path "$HOME/.gem/ruby/2.5.0/bin"
 prepend_to_path "$HOME/.gem/ruby/2.4.0/bin"
-prepend_to_path "$HOME/.gem/ruby/2.3.0/bin"
 
 # Python
 prepend_to_path "$HOME/.pyenv/bin"

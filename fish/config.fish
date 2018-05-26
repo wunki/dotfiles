@@ -35,9 +35,11 @@ end
 function ssh; env TERM=xterm-256color ssh $argv; end
 
 # Tunnels
-function kafka-tunnel; ssh -L 9092:172.16.1.18:9092 -N dino.wunki.org; end
-function syncthing-tunnel; ssh -L 8385:127.0.0.1:8384 -N dino.wunki.org; end
-function postgres-tunnel; ssh -L 5432:172.16.1.1:5432 -N dino.wunki.org; end
+function tunnel-kafka; ssh -L 9092:172.16.1.18:9092 -N dino.wunki.org; end
+function tunnel-syncthing; ssh -L 8385:127.0.0.1:8384 -N dino.wunki.org; end
+function tunnel-postgres; ssh -L 5432:172.16.1.1:5432 -N dino.wunki.org; end
+function tunnel-consul; ssh -L 8500:127.0.0.1:8500 -N dino.wunki.org; end
+function tunnel-nomad; ssh -L 4646:172.16.1.1:4646 -N dino.wunki.org; end
 
 # OpenVPN
 function start-vpn; sudo systemctl start openvpn-client@$argv.service; end
@@ -49,10 +51,10 @@ if type -Pq nvim
 end
 
 # Environment variables
-if contains (uname -s) "FreeBSD"
-  set -x PROJECT_DIR {$HOME}/projects
-else
+if contains (uname -s) "Darwin"
   set -x PROJECT_DIR {$HOME}/Projects
+else
+  set -x PROJECT_DIR {$HOME}/projects
 end
 set -x LANG 'en_US.UTF-8'
 set -x LC_ALL 'en_US.UTF-8'

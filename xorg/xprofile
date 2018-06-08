@@ -33,6 +33,10 @@ xsetroot -cursor_name left_ptr
 # Hide the mouse cursor
 unclutter -idle 3 &
 
+# Lock it down! But only do it manually.
+# Currently hangs when screen is turned off...
+# light-locker --no-lock-on-suspend &
+
 # Dvorak keyboard
 setxkbmap dvorak -option ctrl:nocaps
 

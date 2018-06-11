@@ -49,6 +49,9 @@ blueman-applet &
 # I want to be able to sleep at night
 redshift -l 52:4 -t 6000:4800 -m vidmode &
 
+# Easy mounting of USB disks
+udiskie --no-automount --no-notify --tray --use-udisks2 &
+
 # Keychain for managing SSH agent
 eval $(export SHELL=sh; keychain --agents ssh --nogui --eval --quiet)
 

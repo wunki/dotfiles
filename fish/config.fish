@@ -40,6 +40,7 @@ function tunnel-syncthing; ssh -L 8385:127.0.0.1:8384 -N dino.wunki.org; end
 function tunnel-postgres; ssh -L 5432:172.16.1.1:5432 -N dino.wunki.org; end
 function tunnel-consul; ssh -L 8500:127.0.0.1:8500 -L 8600:127.0.0.1:8600 -N dino.wunki.org; end
 function tunnel-nomad; ssh -L 4646:172.16.1.1:4646 -N dino.wunki.org; end
+function tunnel-sab; ssh -L 8080:127.0.0.1:8080 -N home.wunki.org; end
 
 # OpenVPN
 function start-vpn; sudo systemctl start openvpn-client@$argv.service; end
@@ -139,6 +140,9 @@ function cdoc; cargo doc --no-deps --open; end
 function clippy; cargo +nightly clippy; end
 function rust-musl-builder; docker run --rm -it -v "$PWD":/home/rust/src ekidd/rust-musl-builder; end
 set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
+
+# Clojure
+set -x BOOT_CLOJURE_VERSION "1.9.0"
 
 # Set the correct path with rustup
 if type -Pq rustc

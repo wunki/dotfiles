@@ -105,7 +105,10 @@ Plug 'elmcast/elm-vim', { 'for': 'elm' }
   let g:elm_format_autosave = 1
 
 " Language server
-Plug 'autozimu/LanguageClient-neovim', { 'do': ':UpdateRemotePlugins' }
+Plug 'autozimu/LanguageClient-neovim', { 
+  \ 'do': 'bash install.sh',
+  \ 'branch': 'next',
+  \ }
   let g:LanguageClient_serverCommands = {
       \ 'rust': ['rls'],
       \ }

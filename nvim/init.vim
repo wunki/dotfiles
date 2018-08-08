@@ -78,6 +78,8 @@ Plug 'Shougo/deoplete.nvim'
 
 " Colors
 Plug 'cocopon/iceberg.vim'
+Plug 'edkolev/tmuxline.vim'
+
 Plug 'vim-airline/vim-airline'
     let g:airline_theme='iceberg'
     let g:airline_powerline_fonts = 0

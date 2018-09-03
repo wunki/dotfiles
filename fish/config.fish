@@ -36,7 +36,7 @@ function ssh; env TERM=xterm-256color ssh $argv; end
 
 # Tunnels
 function tunnel-kafka; ssh -L 9092:172.16.1.18:9092 -N dino.wunki.org; end
-function tunnel-syncthing; ssh -L 8385:127.0.0.1:8384 -N dino.wunki.org; end
+function tunnel-rslsync; ssh -L 8888:127.0.0.1:8888 -N dino.wunki.org; end
 function tunnel-postgres; ssh -L 5432:172.16.1.1:5432 -N dino.wunki.org; end
 function tunnel-consul; ssh -L 8500:127.0.0.1:8500 -L 8600:127.0.0.1:8600 -N dino.wunki.org; end
 function tunnel-nomad; ssh -L 4646:172.16.1.1:4646 -N dino.wunki.org; end

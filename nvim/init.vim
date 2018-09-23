@@ -38,35 +38,8 @@ Plug 'Shougo/echodoc.vim'                                " show function signatu
 Plug 'Shougo/vimproc', {'do': 'make'}                    " command execution
 Plug 'junegunn/fzf.vim'                                  " quick file/buffer browsing
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
-  map <C-t> :Tagbar<CR>
-  let g:tagbar_type_markdown = {
-    \ 'ctagstype' : 'markdown',
-    \ 'kinds' : [
-        \ 'h:Heading_L1',
-        \ 'i:Heading_L2',
-        \ 'k:Heading_L3'
-    \ ]
-  \ }
-
-  let g:tagbar_type_rust = {
-    \ 'ctagstype' : 'rust',
-    \ 'kinds' : [
-        \'T:types,type definitions',
-        \'f:functions,function definitions',
-        \'g:enum,enumeration names',
-        \'s:structure names',
-        \'m:modules,module names',
-        \'c:consts,static constants',
-        \'t:traits,traits',
-        \'i:impls,trait implementations',
-    \]
-  \}
-
-" Clipboard sharing
-if g:os == "FreeBSD"
-  Plug 'wincent/vim-clipper'
-endif
-
+  map <C-t> :TagbarToggle<CR>
+  
 " Autocomplete
 Plug 'Shougo/deoplete.nvim'
     let g:acp_enableAtStartup = 0

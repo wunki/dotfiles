@@ -34,18 +34,12 @@ end
 # Override term for SSH
 function ssh; env TERM=xterm-256color ssh $argv; end
 
-# Tunnels
-function tunnel-kafka; ssh -L 9092:172.16.1.18:9092 -N dino.wunki.org; end
-function tunnel-rslsync; ssh -L 8889:127.0.0.1:8888 -N dino.wunki.org; end
-function tunnel-postgres; ssh -L 5432:172.16.1.1:5432 -N dino.wunki.org; end
-function tunnel-consul; ssh -L 8500:127.0.0.1:8500 -L 8600:127.0.0.1:8600 -N dino.wunki.org; end
-function tunnel-nomad; ssh -L 4646:172.16.1.1:4646 -N dino.wunki.org; end
-function tunnel-sab; ssh -L 8080:127.0.0.1:8080 -N home.wunki.org; end
-function tunnel-redis; ssh -L 6379:172.16.1.1:6379 -N dino.wunki.org; end
-
 # OpenVPN
 function start-vpn; sudo systemctl start openvpn-client@$argv.service; end
 function stop-vpn; sudo systemctl stop openvpn-client@$argv.service; end
+
+set -x NOMAD_ADDR "http://172.16.1.1:4646"
+set -x CONSUL_HTTP_ADDR "172.16.1.1:8500"
 
 # Use nvim when installed
 if type -Pq nvim

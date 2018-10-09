@@ -72,7 +72,7 @@ function prepend_to_path -d "Prepend the given dir to PATH if it exists and is n
   end
 end
 
-function curl_time -d "Measure the response time fo a given request"
+function curl_time -d "Measure the response time for a given URL"
     curl -so /dev/null -w "\
    namelookup:  %{time_namelookup}s\n\
       connect:  %{time_connect}s\n\

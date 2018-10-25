@@ -37,6 +37,7 @@ if type -Pq exa
   set -U fish_user_abbreviations $fish_user_abbreviations 'l=exa'
   set -U fish_user_abbreviations $fish_user_abbreviations 'ls=exa'
   set -U fish_user_abbreviations $fish_user_abbreviations 'll=exa -l'
+  set -U fish_user_abbreviations $fish_user_abbreviations 'llg=exa -l --git'
   set -U fish_user_abbreviations $fish_user_abbreviations 'lll=exa -la'
 else
   set -U fish_user_abbreviations $fish_user_abbreviations 'l=ls'

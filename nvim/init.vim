@@ -12,15 +12,9 @@ endif
 " Basics
 Plug 'w0rp/ale'
   let g:ale_lint_on_save = 1
+  let g:ale_lint_on_enter = 0
   let g:ale_lint_on_text_changed = 0
-  let g:ale_set_loclist = 0
-  let g:ale_set_quickfix = 1
-  let g:ale_open_list = 1
-Plug 'sbdchd/neoformat'
-  augroup fmt
-    autocmd!
-    autocmd BufWritePre *.hs undojoin | Neoformat
-  augroup END
+  let g:ale_rust_cargo_check_all_targets = 1
 Plug 'tpope/vim-eunuch'                                  " unix helper commands
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
@@ -41,13 +35,14 @@ Plug 'majutsushi/tagbar'                                 " sidebar to jump to re
   map <C-t> :TagbarToggle<CR>
   
 " Autocomplete
-Plug 'Shougo/deoplete.nvim'
-    let g:acp_enableAtStartup = 0
-    let g:deoplete#enable_at_startup = 1
-    let g:deoplete#enable_ignore_case = 'ignorecase'
-    let g:deoplete#sources#syntax#min_keyword_length = 3
-    inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : deoplete#mappings#manual_complete()
-    inoremap <Leader><Tab> <Space><Space>
+Plug 'ncm2/ncm2'
+Plug 'roxma/nvim-yarp'
+Plug 'ncm2/ncm2-path'
+  autocmd BufEnter * call ncm2#enable_for_buffer()
+  set completeopt=noinsert,menuone,noselect 
+  " tab to select and don't hijack my enter key 
+  inoremap <expr><Tab> (pumvisible()?(empty(v:completed_item)?"\<C-n>":"\<C-y>"):"\<Tab>")
+  inoremap <expr><CR> (pumvisible()?(empty(v:completed_item)?"\<CR>\<CR>":"\<C-y>"):"\<CR>")
 
 " Colors
 Plug 'cocopon/iceberg.vim'
@@ -68,6 +63,7 @@ Plug 'pearofducks/ansible-vim'
 " Rust
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
   let g:rustfmt_autosave = 1
+  let g:rustfmt_command = 'rustfmt +nightly'
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 " Go
@@ -128,10 +124,11 @@ set nofoldenable            " don't do any folding for now
 set guicursor+=a:blinkon0   " don't blink the cursor please
 set winwidth=80             " resize active window to minimally contains 80 chars width
 set clipboard=unnamedplus   " enable clipboard when on gui
-set completeopt-=preview
-set listchars=tab:▸\ ,eol:¬,extends:❯,precedes:❮ " Change listchars
-set showbreak=↪             " Change wrap line break
-set fillchars=diff:⣿,vert:│ " Change fillchars
+set listchars=nbsp:¬,extends:»,precedes:«,trail:•
+set showbreak=↪             " change wrap line break
+set fillchars=diff:⣿,vert:│ " change fillchars
+set splitright              " new windows are on the right
+set splitbelow              " new windows are below the current one
 set termguicolors
 colorscheme iceberg
 
@@ -188,6 +185,11 @@ nmap <silent> <Leader>l :set list!<CR>
 noremap <silent> <leader>nn :set nu!<cr>
 noremap <silent> <Leader>nr :set relativenumber!<cr>
 nnoremap <C-l> :nohlsearch<CR><C-l>
+nnoremap <leader>, :set invlist<cr>
+
+" Left and right for switching between buffers
+nnoremap <left> :bp<CR>
+nnoremap <right> :bn<CR>
 
 " Quick edit
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>

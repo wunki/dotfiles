@@ -123,7 +123,7 @@ set ruler                   " show the line and column number of the cursor
 set number                  " Show line number
 set backspace=indent,eol,start
 set formatoptions=qrn1
-set nocursorline              " show me the line where the cursor is
+set nocursorline            " show me the line where the cursor is
 set nofoldenable            " don't do any folding for now
 set guicursor+=a:blinkon0   " don't blink the cursor please
 set winwidth=80             " resize active window to minimally contains 80 chars width

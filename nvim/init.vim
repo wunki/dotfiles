@@ -31,6 +31,7 @@ Plug 'Shougo/echodoc.vim'                                " show function signatu
   let g:echodoc#enable_at_startup = 1
 Plug 'Shougo/vimproc', {'do': 'make'}                    " command execution
 Plug 'junegunn/fzf.vim'                                  " quick file/buffer browsing
+Plug 'airblade/vim-rooter'                               " automatically set the root path
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
   map <C-t> :TagbarToggle<CR>
   
@@ -68,6 +69,9 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 
 " Go
 Plug 'fatih/vim-go', { 'for': 'go' }
+  let g:go_play_open_browser = 0
+  let g:go_fmt_fail_silently = 1
+  let g:go_fmt_command = "goimports"
 
 " Elm
 Plug 'elmcast/elm-vim', { 'for': 'elm' }

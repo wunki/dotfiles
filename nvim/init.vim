@@ -84,6 +84,7 @@ Plug 'autozimu/LanguageClient-neovim', {
   \ }
   let g:LanguageClient_serverCommands = {
       \ 'rust': ['rls'],
+      \ 'go' : ['go-langserver', '-gocodecompletion'],
       \ }
   let g:LanguageClient_autoStart = 1
   nnoremap <silent> gt :call LanguageClient_textDocument_hover()<CR>

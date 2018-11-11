@@ -62,7 +62,7 @@ end
 
 # Environment variables
 if contains (uname -s) "Darwin"
-  set -x PROJECT_DIR {$HOME}/Projects
+  set -x PROJECT_DIR {$HOME}/Code
 else
   set -x PROJECT_DIR {$HOME}/projects
 end

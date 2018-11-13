@@ -56,7 +56,10 @@ udiskie --no-automount --no-notify --tray --use-udisks2 &
 eval $(export SHELL=sh; keychain --agents ssh --nogui --eval --quiet)
 
 # Add my own path to bin, needed for dmenu
-export PATH="$HOME/bin:$HOME/.npm/bin:$HOME/.cargo/bin:$HOME/lib/elixir/bin:$PATH"
+export PATH="$HOME/bin:$HOME/.npm/bin:$HOME/.cargo/bin:$HOME/lib/elixir/bin:$PATH:$HOME/projects/go/bin"
+
+# Set the GOPATH
+export GOPATH="$HOME/projects/go"
 
 # Add Rust source path for Emacs
 export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"

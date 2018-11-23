@@ -15,6 +15,7 @@ Plug 'w0rp/ale'
   let g:ale_lint_on_enter = 0
   let g:ale_lint_on_text_changed = 0
   let g:ale_rust_cargo_check_all_targets = 1
+  let g:ale_linters = {'go': ['gometalinter']}
 Plug 'tpope/vim-eunuch'                                  " unix helper commands
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
@@ -57,6 +58,8 @@ Plug 'vim-airline/vim-airline'
 
 " Filetype support
 Plug 'othree/html5.vim', { 'for': 'html' }
+Plug 'hail2u/vim-css3-syntax'
+Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 Plug 'chr4/nginx.vim', { 'for': 'nginx' }
 Plug 'aliva/vim-fish', { 'for': 'fish' }
 Plug 'pearofducks/ansible-vim'

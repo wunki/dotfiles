@@ -1,0 +1,18 @@
+{
+    "telemetry.enableTelemetry": false,
+    "workbench.sideBar.location": "right",
+    "editor.fontFamily": "Operator Mono SSm",
+    "git.autofetch": true,
+    "window.zoomLevel": 1,
+    "explorer.confirmDragAndDrop": false,
+    "workbench.startupEditor": "newUntitledFile",
+    "terminal.integrated.fontSize": 11,
+    "editor.fontSize": 11,
+    "git.confirmSync": false,
+    "editor.formatOnSave": true,
+    "breadcrumbs.enabled": true,
+    "workbench.colorTheme": "City Lights",
+    "workbench.iconTheme": "city-lights-icons-vsc",
+    "telemetry.enableCrashReporter": false,
+    "terminal.integrated.macOptionIsMeta": true
+}

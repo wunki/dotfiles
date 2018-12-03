@@ -15,7 +15,6 @@ Plug 'w0rp/ale'
   let g:ale_lint_on_enter = 0
   let g:ale_lint_on_text_changed = 0
   let g:ale_rust_cargo_check_all_targets = 1
-  let g:ale_linters = {'go': ['gometalinter']}
 Plug 'tpope/vim-eunuch'                                  " unix helper commands
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping

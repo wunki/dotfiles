@@ -113,6 +113,7 @@ prepend_to_path "$HOME/.local/bin"
 prepend_to_path "$HOME/.cabal/bin"
 prepend_to_path "$HOME/.npm/bin"
 prepend_to_path "$HOME/.npm-packages/bin"
+prepend_to_path "$HOME/.rbenv/shims"
 prepend_to_path "/usr/local/share/dotnet"
 
 # Google Cloud SDK
@@ -121,6 +122,7 @@ prepend_to_path "$HOME/.google-cloud-sdk/bin"
 # Ripgrep and FZF
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g "!.git/" 2> /dev/null'
 set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
+
 
 if contains (uname -s) "Darwin"
   set -x FZF_ALT_C_COMMAND 'cd ~/; bfs -type d -nohidden'

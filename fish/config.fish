@@ -13,7 +13,6 @@ function __fish_default_command_not_found_handler --on-event fish_command_not_fo
 end
 
 # Shortcuts
-set -U fish_user_abbreviations
 function bup; brew update; and brew upgrade; and brew cleanup; end
 function t1; tree --dirsfirst -ChFL 1; end
 function t2; tree --dirsfirst -ChFL 2; end
@@ -30,19 +29,19 @@ function v; nvim $argv; end
 function clip; xclip -selection clipboard $argv; end
 
 if contains (uname -s) "Linux"
-  set -U fish_user_abbreviations $fish_user_abbreviations 'pacman-orphans=sudo pacman -Rs (pacman -Qqtd)'
+  abbr -a -g paco 'sudo pacman -Rs (pacman -Qqtd)'
 end
 
 if type -Pq exa
-  set -U fish_user_abbreviations $fish_user_abbreviations 'l=exa'
-  set -U fish_user_abbreviations $fish_user_abbreviations 'ls=exa'
-  set -U fish_user_abbreviations $fish_user_abbreviations 'll=exa -l'
-  set -U fish_user_abbreviations $fish_user_abbreviations 'llg=exa -l --git'
-  set -U fish_user_abbreviations $fish_user_abbreviations 'lll=exa -la'
+  abbr -a -g l 'exa'
+  abbr -a -g ls 'exa'
+  abbr -a -g ll 'exa -l'
+  abbr -a -g llg 'exa -l --git'
+  abbr -a -g lll 'exa -la'
 else
-  set -U fish_user_abbreviations $fish_user_abbreviations 'l=ls'
-  set -U fish_user_abbreviations $fish_user_abbreviations 'll=ls -l'
-  set -U fish_user_abbreviations $fish_user_abbreviations 'lll=ls -la'
+  abbr -a -g l 'ls'
+  abbr -a -g ll 'ls -l'
+  abbr -a -g lll 'ls -la'
 end
 
 # Override term for SSH
@@ -75,8 +74,8 @@ set -x XDG_DATA_HOME {$HOME}/.local/share
 set -x GPG_TTY (tty)
 
 # Mu: mail search
-function mu-reindex; mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@degreed.com --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
-function mu-index; mu index --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@degreed.com --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com; end
+alias mu-reindex 'mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@degreed.com --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com'
+alias mu-index 'mu index --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@degreed.com --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com'
 
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"
   if test -d $argv[1]

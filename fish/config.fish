@@ -187,6 +187,7 @@ prepend_to_path "$NPM_PACKAGES/bin"
 # Ruby
 prepend_to_path "$HOME/.gem/ruby/2.5.0/bin"
 prepend_to_path "$HOME/.gem/ruby/2.4.0/bin"
+status --is-interactive; and source (rbenv init -|psub)
 
 # Python
 prepend_to_path "$HOME/.pyenv/bin"

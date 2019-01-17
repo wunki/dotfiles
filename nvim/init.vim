@@ -74,6 +74,7 @@ Plug 'fatih/vim-go', { 'for': 'go' }
   let g:go_play_open_browser = 0
   let g:go_fmt_fail_silently = 1
   let g:go_fmt_command = "goimports"
+  au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
 
 " Elm
 Plug 'elmcast/elm-vim', { 'for': 'elm' }

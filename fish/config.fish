@@ -105,6 +105,7 @@ prepend_to_path "/usr/sbin"
 prepend_to_path "/usr/local/sbin"
 prepend_to_path "/usr/local/bin"
 prepend_to_path "/usr/local/opt/go/libexec/bin"
+prepend_to_path "/usr/local/opt/mono/bin"
 prepend_to_path "/usr/bin/core_perl"
 prepend_to_path "$HOME/.bin"
 prepend_to_path "$HOME/bin"
@@ -117,6 +118,9 @@ prepend_to_path "/usr/local/share/dotnet"
 
 # Google Cloud SDK
 prepend_to_path "$HOME/.google-cloud-sdk/bin"
+if test -d "$HOME/Code/google-cloud-sdk/"
+    . "$HOME/Code/google-cloud-sdk/path.fish.inc"
+end
 
 # Ripgrep and FZF
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g "!.git/" 2> /dev/null'

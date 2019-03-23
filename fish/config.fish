@@ -44,6 +44,10 @@ else
   abbr -a -g lll 'ls -la'
 end
 
+if type -Pq bat
+  abbr -a -g cat 'bat'
+end
+
 # Override term for SSH
 function ssh; env TERM=xterm-256color ssh $argv; end
 

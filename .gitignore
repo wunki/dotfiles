@@ -49,3 +49,4 @@ emacs/server
 /fish/fish_variables
 /emacs/magithub/cache
 /emacs/smex-items
+.sync

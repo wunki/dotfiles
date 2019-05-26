@@ -35,16 +35,6 @@ Plug 'airblade/vim-rooter'                               " automatically set the
 Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
   map <C-t> :TagbarToggle<CR>
   
-" Autocomplete
-Plug 'ncm2/ncm2'
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2-path'
-  autocmd BufEnter * call ncm2#enable_for_buffer()
-  set completeopt=noinsert,menuone,noselect 
-  " tab to select and don't hijack my enter key 
-  inoremap <expr><Tab> (pumvisible()?(empty(v:completed_item)?"\<C-n>":"\<C-y>"):"\<Tab>")
-  inoremap <expr><CR> (pumvisible()?(empty(v:completed_item)?"\<CR>\<CR>":"\<C-y>"):"\<CR>")
-
 " Colors
 Plug 'cocopon/iceberg.vim'
 
@@ -80,19 +70,25 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'elmcast/elm-vim', { 'for': 'elm' }
   let g:elm_format_autosave = 1
 
-" Language server
-Plug 'autozimu/LanguageClient-neovim', { 
-  \ 'do': 'bash install.sh',
-  \ 'branch': 'next',
-  \ }
-  let g:LanguageClient_serverCommands = {
-      \ 'rust': ['rls'],
-      \ 'go' : ['go-langserver', '-gocodecompletion'],
-      \ }
-  let g:LanguageClient_autoStart = 1
-  nnoremap <silent> gt :call LanguageClient_textDocument_hover()<CR>
-  nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-  nnoremap <silent> gr :call LanguageClient_textDocument_rename()<CR>
+" Autocomplete and language server
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+  nmap <silent> gd <Plug>(coc-definition)
+  nmap <silent> gy <Plug>(coc-type-definition)
+  nmap <silent> gi <Plug>(coc-implementation)
+  nmap <silent> gr <Plug>(coc-references)
+  " Remap for rename current word
+  nmap <leader>rn <Plug>(coc-rename)
+
+  " Use K to show documentation in preview window
+  nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+  function! s:show_documentation()
+    if (index(['vim','help'], &filetype) >= 0)
+      execute 'h '.expand('<cword>')
+    else
+      call CocAction('doHover')
+    endif
+  endfunction
 
 call plug#end()
 

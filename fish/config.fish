@@ -232,3 +232,7 @@ end
 if test -f "/usr/share/autojump/autojump.fish"
   . "/usr/share/autojump/autojump.fish"
 end
+
+if test -d "$HOME/.asdf"
+  source ~/.asdf/asdf.fish
+end

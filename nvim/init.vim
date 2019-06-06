@@ -71,6 +71,7 @@ Plug 'elmcast/elm-vim', { 'for': 'elm' }
   let g:elm_format_autosave = 1
 
 " Elixir
+Plug 'elixir-editors/vim-elixir'
 Plug 'slashmili/alchemist.vim'
 
 " Autocomplete and language server

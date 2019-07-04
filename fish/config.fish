@@ -27,6 +27,7 @@ function e; emacsclient -nq -a emacs $argv; end
 function et; emacsclient -t; end
 function v; nvim $argv; end
 function clip; xclip -selection clipboard $argv; end
+function open-ports; sudo lsof -PiTCP -sTCP:LISTEN; end
 
 if contains (uname -s) "Linux"
   abbr -a -g paco 'sudo pacman -Rs (pacman -Qqtd)'

@@ -49,6 +49,10 @@ if type -Pq bat
   abbr -a -g cat 'bat'
 end
 
+# Elixir
+abbr -a -g miex 'iex -S mix'
+set -x ERL_AFLAGS "-kernel shell_history enabled"
+
 # Override term for SSH
 function ssh; env TERM=xterm-256color ssh $argv; end
 
@@ -78,8 +82,8 @@ set -x XDG_DATA_HOME {$HOME}/.local/share
 set -x GPG_TTY (tty)
 
 # Mu: mail search
-alias mu-reindex 'mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@degreed.com --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com'
-alias mu-index 'mu index --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@degreed.com --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com'
+alias mu-reindex 'mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@degreed.com --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com --my-address=petar@petar.dev'
+alias mu-index 'mu index --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@degreed.com --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com --my-address=petar@petar.dev'
 
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"
   if test -d $argv[1]

@@ -60,8 +60,8 @@ function ssh; env TERM=xterm-256color ssh $argv; end
 function start-vpn; sudo systemctl start openvpn-client@$argv.service; end
 function stop-vpn; sudo systemctl stop openvpn-client@$argv.service; end
 
-set -x NOMAD_ADDR "http://172.16.1.1:4646"
-set -x CONSUL_HTTP_ADDR "172.16.1.1:8500"
+set -x NOMAD_ADDR "http://10.7.96.3:4646"
+set -x CONSUL_HTTP_ADDR "10.7.96.3:8500"
 
 # Use nvim when installed
 if type -Pq nvim

@@ -63,6 +63,9 @@ function stop-vpn; sudo systemctl stop openvpn-client@$argv.service; end
 set -x NOMAD_ADDR "http://10.7.96.3:4646"
 set -x CONSUL_HTTP_ADDR "10.7.96.3:8500"
 
+# PostgreSQL -- don't go to the users database which never exists...
+set -x PGDATABASE "postgres"
+
 # Use nvim when installed
 if type -Pq nvim
   function vim; nvim $argv; end

@@ -123,6 +123,7 @@ prepend_to_path "$HOME/.npm/bin"
 prepend_to_path "$HOME/.npm-packages/bin"
 prepend_to_path "$HOME/.rbenv/shims"
 prepend_to_path "$HOME/.yarn/bin"
+prepend_to_path "/usr/local/opt/gettext/bin"
 prepend_to_path "$HOME/Library/Python/3.7/bin/"
 prepend_to_path "/usr/local/share/dotnet"
 

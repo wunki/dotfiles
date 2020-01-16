@@ -51,6 +51,7 @@ end
 
 # Elixir
 abbr -a -g miex 'iex -S mix'
+abbr -a -g mtm 'mix test --only module:'
 set -x ERL_AFLAGS "-kernel shell_history enabled"
 
 # Override term for SSH

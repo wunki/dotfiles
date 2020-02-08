@@ -76,7 +76,7 @@ end
 if contains (uname -s) "Darwin"
   set -x PROJECT_DIR {$HOME}/Code
 else
-  set -x PROJECT_DIR {$HOME}/projects
+  set -x PROJECT_DIR {$HOME}/code
 end
 set -x LANG 'en_US.UTF-8'
 set -x LC_ALL 'en_US.UTF-8'

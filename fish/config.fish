@@ -132,9 +132,9 @@ prepend_to_path "$HOME/Library/Python/3.7/bin/"
 prepend_to_path "/usr/local/share/dotnet"
 
 # Google Cloud SDK
-prepend_to_path "$HOME/.gcs/google-cloud-sdk/bin"
-if test -d "$HOME/.gcs/google-cloud-sdk/"
-    . "$HOME/.gcs/google-cloud-sdk/path.fish.inc"
+prepend_to_path "$HOME/.local/google-cloud-sdk/bin"
+if test -d "$HOME/.local/google-cloud-sdk/"
+    . "$HOME/.local/google-cloud-sdk/path.fish.inc"
 end
 
 # Ripgrep and FZF

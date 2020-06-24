@@ -54,6 +54,9 @@ abbr -a -g miex 'iex -S mix'
 abbr -a -g mtm 'mix test --only module:'
 set -x ERL_AFLAGS "-kernel shell_history enabled"
 
+# Java on ASDF
+. ~/.asdf/plugins/java/set-java-home.fish
+
 # Override term for SSH
 function ssh; env TERM=xterm-256color ssh $argv; end
 

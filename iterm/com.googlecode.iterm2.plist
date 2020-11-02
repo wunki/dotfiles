@@ -304,7 +304,7 @@
 	<key>LoadPrefsFromCustomFolder</key>
 	<true/>
 	<key>NSNavLastRootDirectory</key>
-	<string>/Applications</string>
+	<string>~/Code/dotfiles/wunki-dotfiles/iterm</string>
 	<key>NSNavPanelExpandedSizeForOpenMode</key>
 	<string>{799, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
@@ -351,15 +351,15 @@
 	<key>NSWindow Frame NSColorPanel</key>
 	<string>0 138 224 275 0 0 1680 1027 </string>
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
-	<string>440 434 799 448 0 0 1680 1027 </string>
+	<string>320 321 799 448 0 0 1440 877 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>530 476 620 392 0 0 1680 1027 </string>
+	<string>410 363 620 392 0 0 1440 877 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>269 136 796 486 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>147 333 1090 522 0 0 1680 1027 </string>
+	<string>99 255 570 486 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>99 418 650 476 0 0 1680 1027 </string>
+	<string>99 450 650 436 0 0 1680 1027 </string>
 	<key>NeverWarnAboutShortLivedSessions_CCEC6C5F-F55B-4BD8-A1C2-83AAA1CC22DE</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_CCEC6C5F-F55B-4BD8-A1C2-83AAA1CC22DE_selection</key>
@@ -976,7 +976,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>MonoLisa-Regular 13</string>
+			<string>Iosevka-Term-Slab 14</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1047,17 +1047,19 @@
 	</array>
 	<key>NoSyncAllAppVersions</key>
 	<array>
-		<string>3.3.6</string>
-		<string>3.3.8</string>
-		<string>3.3.4</string>
-		<string>3.3.1</string>
-		<string>3.3.3</string>
 		<string>3.3.5</string>
-		<string>3.3.7</string>
+		<string>3.3.3</string>
+		<string>3.3.1</string>
+		<string>3.3.8</string>
+		<string>3.3.12</string>
+		<string>3.3.6</string>
+		<string>3.3.11</string>
+		<string>3.3.0beta8</string>
+		<string>3.3.4</string>
+		<string>3.3.2</string>
 		<string>3.3.9</string>
 		<string>3.3.0</string>
-		<string>3.3.0beta8</string>
-		<string>3.3.2</string>
+		<string>3.3.7</string>
 	</array>
 	<key>NoSyncBFPFavorites</key>
 	<array>
@@ -1066,29 +1068,31 @@
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
-		<string>MonoLisa</string>
-		<string>Dank Mono</string>
+		<string>Iosevka Term Curly Slab</string>
+		<string>Iosevka Term Curly</string>
+		<string>Iosevka Term Slab</string>
+		<string>Iosevka Term</string>
 	</array>
 	<key>NoSyncFrame_SessionsPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1680, 1050}}</string>
+		<string>{{0, 0}, {1440, 900}}</string>
 		<key>topLeft</key>
-		<string>{269, 605}</string>
+		<string>{269, 595}</string>
 	</dict>
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1680, 1050}}</string>
+		<string>{{0, 0}, {1440, 900}}</string>
 		<key>topLeft</key>
-		<string>{269, 673}</string>
+		<string>{447, 811}</string>
 	</dict>
 	<key>NoSyncHaveWarnedAboutPasteConfirmationChange</key>
 	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>0556646C-4B4B-4721-9F31-2212D2A7B188</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>254</integer>
+	<integer>380</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1855,7 +1859,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/petar/Code/tools/wunki-dotfiles/iterm</string>
+	<string>/Users/petar/Code/dotfiles/wunki-dotfiles/iterm</string>
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>
@@ -1871,11 +1875,11 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-03-15T07:23:58Z</date>
+	<date>2020-10-21T05:48:04Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
-	<integer>1965990803</integer>
+	<integer>2419753119</integer>
 	<key>SUUpdateRelaunchingMarker</key>
 	<false/>
 	<key>ShowNewOutputIndicator</key>
@@ -1897,6 +1901,6 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.3.9</string>
+	<string>3.3.12</string>
 </dict>
 </plist>

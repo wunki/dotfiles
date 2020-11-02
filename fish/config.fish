@@ -81,8 +81,8 @@ else
 end
 set -x LANG 'en_US.UTF-8'
 set -x LC_ALL 'en_US.UTF-8'
-set -x EDITOR 'nvim'
-set -x VISUAL 'nvim'
+set -x EDITOR 'emacsclient -n'
+set -x VISUAL 'emacsclient -n'
 set -x XDG_DATA_HOME {$HOME}/.local/share
 set -x GPG_TTY (tty)
 
@@ -131,6 +131,7 @@ prepend_to_path "$HOME/.yarn/bin"
 prepend_to_path "/usr/local/opt/gettext/bin"
 prepend_to_path "$HOME/Library/Python/3.7/bin/"
 prepend_to_path "/usr/local/share/dotnet"
+prepend_to_path "$HOME/Code/zig"
 
 # Google Cloud SDK
 prepend_to_path "$HOME/.local/google-cloud-sdk/bin"

@@ -132,6 +132,12 @@ prepend_to_path "/usr/local/opt/gettext/bin"
 prepend_to_path "$HOME/Library/Python/3.7/bin/"
 prepend_to_path "/usr/local/share/dotnet"
 prepend_to_path "$HOME/Code/zig"
+prepend_to_path "/Applications/Emacs.app/Contents/MacOS/bin"
+
+# Emacs on the Mac
+if test -d "/Applications/Emacs.app"
+    function emacs; /Applications/Emacs.app/Contents/MacOS/Emacs -nw; end
+end
 
 # Google Cloud SDK
 prepend_to_path "$HOME/.local/google-cloud-sdk/bin"

@@ -248,7 +248,13 @@ if test -f "/usr/share/autojump/autojump.fish"
 end
 
 if test -d "$HOME/.asdf"
-  source /usr/local/opt/asdf/asdf.fish
+  source $HOME/.asdf/asdf.fish
 end
 
+# Configuration specific to WSL2
+if string match -q "*microsoft*" (uname -a)
+  set -x DISPLAY (cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+  set -x GDK_SCALE 2
+  keychain --eval --quiet --agents ssh id_rsa | source
+end
 

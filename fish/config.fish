@@ -20,15 +20,11 @@ function t3; tree --dirsfirst -ChFL 3; end
 function gs; git status --ignore-submodules=dirty; end
 function gp; git push origin master; end
 function gf; git pull origin master; end
-function mux; tmuxinator $argv; end
-function ghp; python -m grip; end
-function dino; mosh dino.wunki.org -- fish; end
-function e; emacsclient -nq -a emacs $argv; end
-function et; emacsclient -t; end
+function e; emacsclient --no-wait --create-frame --quiet -a emacs $argv; end
+function et; emacsclient -tty; end
 function v; nvim $argv; end
 function clip; xclip -selection clipboard $argv; end
 function open-ports; sudo lsof -PiTCP -sTCP:LISTEN; end
-function gg; gigalixir $argv; end
 
 if contains (uname -s) "Linux"
   abbr -a -g paco 'sudo pacman -Rs (pacman -Qqtd)'
@@ -78,8 +74,8 @@ else
 end
 set -x LANG 'en_US.UTF-8'
 set -x LC_ALL 'en_US.UTF-8'
-set -x EDITOR 'emacsclient -n'
-set -x VISUAL 'emacsclient -n'
+set -x EDITOR 'emacsclient --no-wait --create-frame --quiet -a emacs'
+set -x VISUAL 'emacsclient --no-wait --create-frame --quiet -a emacs'
 set -x XDG_DATA_HOME {$HOME}/.local/share
 set -x GPG_TTY (tty)
 
@@ -161,12 +157,6 @@ if contains (uname -s) "Darwin"
   . "$HOME/.config/fish/functions/mac.fish"
 
   prepend_to_path "/Applications/Postgres.app/Contents/Versions/11.0/bin"
-end
-
-# Unix specific settings
-if contains (uname -s) "Linux"
-  function alafull; wmctrl -r 'Alacritty' -b toggle,fullscreen; end
-  bind $argv \ef alafull
 end
 
 # Autjump: Quickly jump to directories
@@ -257,4 +247,7 @@ if string match -q "*microsoft*" (uname -a)
   set -x GDK_SCALE 2
   keychain --eval --quiet --agents ssh id_rsa | source
 end
+
+# Configuration for vterm in Emacs
+. "$HOME/.config/fish/functions/vterm.fish"
 

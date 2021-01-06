@@ -182,6 +182,10 @@ set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
 # Clojure
 set -x BOOT_CLOJURE_VERSION "1.9.0"
 
+# Nomad and Consul
+set -x NOMAD_ADDR "http://10.0.0.4:4646"
+set -x CONSUL_HTTP_ADDR "10.0.0.4:8500"
+
 # Set the correct path with rustup
 if type -Pq rustc
   set -x RUST_SRC_PATH (rustc --print sysroot)"/lib/rustlib/src/rust/src"

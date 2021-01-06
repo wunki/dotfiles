@@ -126,6 +126,7 @@ prepend_to_path "$HOME/Library/Python/3.7/bin/"
 prepend_to_path "/usr/local/share/dotnet"
 prepend_to_path "$HOME/Code/zig"
 prepend_to_path "/Applications/Emacs.app/Contents/MacOS/bin"
+prepend_to_path "/mnt/c/Program\ Files/Docker/Docker/resources/bin"
 
 # Emacs on the Mac
 if test -d "/Applications/Emacs.app"
@@ -249,5 +250,5 @@ if string match -q "*microsoft*" (uname -a)
 end
 
 # Configuration for vterm in Emacs
-. "$HOME/.config/fish/functions/vterm.fish"
+# . "$HOME/.config/fish/functions/vterm.fish"
 

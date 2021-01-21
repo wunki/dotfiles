@@ -79,10 +79,6 @@ set -x VISUAL 'emacsclient --no-wait --create-frame --quiet -a emacs'
 set -x XDG_DATA_HOME {$HOME}/.local/share
 set -x GPG_TTY (tty)
 
-# Mu: mail search
-alias mu-reindex 'mu index --rebuild --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@degreed.com --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com --my-address=petar@petar.dev'
-alias mu-index 'mu index --maildir=~/mail --my-address=petar@wunki.org --my-address=petar@degreed.com --my-address=petar@gibbon.co --my-address=petar@breadandpepper.com --my-address=hello@gibbon.co --my-address=hello@breadandpepper.com --my-address=petar@petar.dev'
-
 function prepend_to_path -d "Prepend the given dir to PATH if it exists and is not already in it"
   if test -d $argv[1]
     if not contains $argv[1] $PATH
@@ -249,7 +245,8 @@ end
 # Configuration specific to WSL2
 if string match -q "*microsoft*" (uname -a)
   set -x DISPLAY (cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
-  set -x GDK_SCALE 2
+  set -x GDK_SCALE 0.5
+  set -x GDK_DPI_SCALE 2
   keychain --eval --quiet --agents ssh id_rsa | source
 end
 

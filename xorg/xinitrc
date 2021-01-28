@@ -1,7 +1,7 @@
 #!/bin/env sh
 
 # QT must be able to find my theme
-export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
+# export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
 # Set the correct DPI
 xrandr --dpi 192
@@ -28,24 +28,27 @@ xsetroot -cursor_name left_ptr
 unclutter -idle 3 &
 
 # Dvorak keyboard
-setxkbmap dvorak -option ctrl:nocaps
+setxkbmap dvorak
 
 # Set background
-feh --bg-tile ~/pictures/wallpapers/dark_mosaic.png
-
-# Thunar
-thunar --daemon &
+# feh --bg-tile ~/pictures/wallpapers/dark_mosaic.png
 
 # I want to be able to sleep at night
 # redshift -l 52:4 -t 6000:4800 -m vidmode &
 
-# SSH agent
-eval `ssh-agent`
+# Keychain for managing SSH agent
+eval $(export SHELL=sh; keychain --agents ssh --nogui --eval --quiet)
 
-# Add home bin path, needed for dmenu
-export PATH="$HOME/bin:$HOME/.npm/bin:$HOME/.cargo/bin:$HOME/lib/elixir/bin:$PATH"
+# Extra paths for dmenu
+export PATH="$HOME/bin:$HOME/.npm/bin:$HOME/.cargo/bin:$HOME/lib/elixir/bin:$PATH:$HOME/projects/go/bin"
+
+# Required to launch applications from Systemd
+source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+
+# Default terminal for i3
+export TERMINAL=/usr/sbin/alacritty
 
 #
 # Start window manager
 #
-exec xmonad > $HOME/.xmonad.log 2>&1
+exec i3

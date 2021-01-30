@@ -156,15 +156,6 @@ if contains (uname -s) "Darwin"
   prepend_to_path "/Applications/Postgres.app/Contents/Versions/11.0/bin"
 end
 
-# Autjump: Quickly jump to directories
-if test -f "/usr/local/share/autojump/autojump.fish"
-  . "/usr/local/share/autojump/autojump.fish"
-end
-
-if test -f "$HOME/.autojump/share/autojump/autojump.fish"
-  . "$HOME/.autojump/share/autojump/autojump.fish"
-end
-
 # Rust
 prepend_to_path "$HOME/.cargo/bin"
 function ct; cargo test -- --nocapture; end

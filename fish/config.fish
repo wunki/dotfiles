@@ -118,9 +118,9 @@ prepend_to_path "$HOME/.npm-packages/bin"
 prepend_to_path "$HOME/.rbenv/shims"
 prepend_to_path "$HOME/.yarn/bin"
 prepend_to_path "/usr/local/opt/gettext/bin"
-prepend_to_path "$HOME/Library/Python/3.7/bin/"
+prepend_to_path "$HOME/Library/Python/3.7/bin"
+prepend_to_path "$HOME/.local/share/zig"
 prepend_to_path "/usr/local/share/dotnet"
-prepend_to_path "$HOME/Code/zig"
 prepend_to_path "/Applications/Emacs.app/Contents/MacOS/bin"
 prepend_to_path "/mnt/c/Program\ Files/Docker/Docker/resources/bin"
 
@@ -243,4 +243,3 @@ end
 
 # Configuration for vterm in Emacs
 # . "$HOME/.config/fish/functions/vterm.fish"
-

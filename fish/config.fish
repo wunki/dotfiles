@@ -122,7 +122,8 @@ prepend_to_path "$HOME/Library/Python/3.7/bin"
 prepend_to_path "$HOME/.local/share/zig"
 prepend_to_path "/usr/local/share/dotnet"
 prepend_to_path "/Applications/Emacs.app/Contents/MacOS/bin"
-prepend_to_path "/mnt/c/Program\ Files/Docker/Docker/resources/bin"
+prepend_to_path "/mnt/c/Program Files/Docker/Docker/resources/bin"
+prepend_to_path "/mnt/c/Users/Petar Radosevic/AppData/Local/Programs/Microsoft VS Code/bin"
 
 # Emacs on the Mac
 if test -d "/Applications/Emacs.app"

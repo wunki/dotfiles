@@ -30,7 +30,7 @@ if contains (uname -s) "Linux"
   abbr -a -g paco 'sudo pacman -Rs (pacman -Qqtd)'
 end
 
-if type -Pq exa
+if type -q exa
   abbr -a -g l 'exa'
   abbr -a -g ls 'exa'
   abbr -a -g ll 'exa -l'
@@ -42,7 +42,7 @@ else
   abbr -a -g lll 'ls -la'
 end
 
-if type -Pq bat
+if type -q bat
   abbr -a -g cat 'bat'
 end
 
@@ -62,7 +62,7 @@ function stop-vpn; sudo systemctl stop openvpn-client@$argv.service; end
 set -x PGDATABASE "postgres"
 
 # Use nvim when installed
-if type -Pq nvim
+if type -q nvim
   function vim; nvim $argv; end
 end
 
@@ -175,7 +175,7 @@ set -x NOMAD_ADDR "http://10.0.0.4:4646"
 set -x CONSUL_HTTP_ADDR "10.0.0.4:8500"
 
 # Set the correct path with rustup
-if type -Pq rustc
+if type -q rustc
   set -x RUST_SRC_PATH (rustc --print sysroot)"/lib/rustlib/src/rust/src"
 end
 
@@ -195,13 +195,13 @@ prepend_to_path "$NPM_PACKAGES/bin"
 # Ruby
 prepend_to_path "$HOME/.gem/ruby/2.5.0/bin"
 prepend_to_path "$HOME/.gem/ruby/2.4.0/bin"
-if type -Pq pyenv
+if type -q pyenv
   status --is-interactive; and source (rbenv init -|psub)
 end
 
 # Python
 prepend_to_path "$HOME/.pyenv/bin"
-if type -Pq pyenv
+if type -q pyenv
   status --is-interactive; and . (pyenv init -|psub)
   status --is-interactive; and . (pyenv virtualenv-init -|psub)
 end
@@ -216,12 +216,12 @@ set -x AWS_IAM_HOME "$HOME/.aws/iam"
 set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
 
 # Direnv: adding environment variables per directory in a .envrc
-if type -Pq direnv
+if type -q direnv
   eval (direnv hook fish)
 end
 
 # Hub: easy access to github
-if type -Pq hub
+if type -q hub
   function git; hub $argv; end
 end
 

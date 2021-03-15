@@ -239,6 +239,7 @@ if string match -q "*microsoft*" (uname -a)
   set -x DISPLAY (cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
   set -x GDK_SCALE 0.5
   set -x GDK_DPI_SCALE 2
+  set -x PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
   keychain --eval --quiet --agents ssh id_rsa | source
 end
 

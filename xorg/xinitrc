@@ -28,7 +28,7 @@ xsetroot -cursor_name left_ptr
 unclutter -idle 3 &
 
 # Dvorak keyboard
-setxkbmap dvorak
+setxkbmap dvorak -option ctrl:swapcaps
 
 # Set background
 # feh --bg-tile ~/pictures/wallpapers/dark_mosaic.png

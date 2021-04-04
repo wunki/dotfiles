@@ -10,30 +10,15 @@ if !exists("g:os")
 endif
 
 " Basics
-Plug 'w0rp/ale'
-  let g:ale_lint_on_save = 1
-  let g:ale_lint_on_enter = 0
-  let g:ale_lint_on_text_changed = 0
-  let g:ale_rust_cargo_check_all_targets = 1
-Plug 'tpope/vim-eunuch'                                  " unix helper commands
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
-Plug 'tpope/vim-speeddating'                             " easily increment numbers and dates
-Plug 'jiangmiao/auto-pairs'                              " close pairing symbols automatically
 Plug 'airblade/vim-gitgutter'                            " show git changes in the gutter
-Plug 'rking/ag.vim'                                      " silver searcher
 Plug 'tpope/vim-commentary'                              " comment mappings
 Plug 'tpope/vim-surround'                                " surround commands
-Plug 'godlygeek/tabular'                                 " easy indenting
-Plug 'mbbill/undotree'                                   " easy undoing
-  nnoremap <silent> <Leader>ut :UndotreeToggle<cr>
 Plug 'Shougo/echodoc.vim'                                " show function signature
   let g:echodoc#enable_at_startup = 1
-Plug 'Shougo/vimproc', {'do': 'make'}                    " command execution
 Plug 'junegunn/fzf.vim'                                  " quick file/buffer browsing
 Plug 'airblade/vim-rooter'                               " automatically set the root path
-Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
-  map <C-t> :TagbarToggle<CR>
   
 " Colors
 Plug 'cocopon/iceberg.vim'
@@ -52,47 +37,6 @@ Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
 Plug 'chr4/nginx.vim', { 'for': 'nginx' }
 Plug 'aliva/vim-fish', { 'for': 'fish' }
 Plug 'pearofducks/ansible-vim'
-
-" Rust
-Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-  let g:rustfmt_autosave = 1
-  let g:rustfmt_command = 'rustfmt +nightly'
-Plug 'cespare/vim-toml', { 'for': 'toml' }
-
-" Go
-Plug 'fatih/vim-go', { 'for': 'go' }
-  let g:go_play_open_browser = 0
-  let g:go_fmt_fail_silently = 1
-  let g:go_fmt_command = "goimports"
-  au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
-
-" Elm
-Plug 'elmcast/elm-vim', { 'for': 'elm' }
-  let g:elm_format_autosave = 1
-
-" Elixir
-Plug 'elixir-editors/vim-elixir'
-Plug 'slashmili/alchemist.vim'
-
-" Autocomplete and language server
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  nmap <silent> gd <Plug>(coc-definition)
-  nmap <silent> gy <Plug>(coc-type-definition)
-  nmap <silent> gi <Plug>(coc-implementation)
-  nmap <silent> gr <Plug>(coc-references)
-  " Remap for rename current word
-  nmap <leader>rn <Plug>(coc-rename)
-
-  " Use K to show documentation in preview window
-  nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-  function! s:show_documentation()
-    if (index(['vim','help'], &filetype) >= 0)
-      execute 'h '.expand('<cword>')
-    else
-      call CocAction('doHover')
-    endif
-  endfunction
 
 call plug#end()
 

@@ -15,8 +15,6 @@ Plug 'tpope/vim-unimpaired'                              " bracket mappings for 
 Plug 'airblade/vim-gitgutter'                            " show git changes in the gutter
 Plug 'tpope/vim-commentary'                              " comment mappings
 Plug 'tpope/vim-surround'                                " surround commands
-Plug 'Shougo/echodoc.vim'                                " show function signature
-  let g:echodoc#enable_at_startup = 1
 Plug 'junegunn/fzf.vim'                                  " quick file/buffer browsing
 Plug 'airblade/vim-rooter'                               " automatically set the root path
   
@@ -44,10 +42,10 @@ filetype plugin indent on
 
 " Visuals
 syntax on                   " enable syntax highlighting
+set bg=dark                 " dark background
 set cmdheight=2             " lower command line one lines high
 set mouse=nv                " mouse in normal and visual mode
 set modifiable              " needed for vimpager
-set bg=dark                 " dark background
 set showmatch               " show matching brackets (), {}' []
 set showcmd                 " show command
 set modeline                " enable modelines

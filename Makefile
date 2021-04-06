@@ -17,7 +17,7 @@ vim::
 	@ln -fs $(DOTFILES)/vim/ycm_extra_conf.py			${HOME}/.ycm_extra_conf.py
 	@echo Vim is symlinked.
 
-nvim::
+neovim::
 	@test -d ${HOME}/.config || mkdir						${HOME}/.config
 	@ln -fns $(DOTFILES)/nvim										${HOME}/.config/nvim
 	@ln -fs ${HOME}/.config/nvim/init.vim				${HOME}/.config/init.vim

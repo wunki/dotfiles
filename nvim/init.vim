@@ -15,8 +15,11 @@ Plug 'tpope/vim-unimpaired'                              " bracket mappings for 
 Plug 'airblade/vim-gitgutter'                            " show git changes in the gutter
 Plug 'tpope/vim-commentary'                              " comment mappings
 Plug 'tpope/vim-surround'                                " surround commands
-Plug 'junegunn/fzf.vim'                                  " quick file/buffer browsing
 Plug 'airblade/vim-rooter'                               " automatically set the root path
+
+" Browsing files
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
   
 " Colors
 Plug 'cocopon/iceberg.vim'
@@ -95,9 +98,6 @@ nnoremap / /\v
 vnoremap / /\v
 
 " FZF
-set rtp+=/usr/local/opt/fzf
-set rtp+=/usr/share/vim/vimfiles
-set rtp+=~/.fzf
 nmap <C-p> :Files<cr>
 
 let g:fzf_action = {

@@ -23,21 +23,22 @@ Plug 'junegunn/fzf.vim'
   
 " Colors
 Plug 'cocopon/iceberg.vim'
+Plug 'https://gitlab.com/yorickpeterse/vim-paper.git'
 
 Plug 'vim-airline/vim-airline'
-    let g:airline_powerline_fonts = 0
-    let g:airline_left_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline#extensions#whitespace#enabled = 0
-    let g:airline#extensions#ale#enabled = 1
+   let g:airline_powerline_fonts = 0
+   let g:airline_left_sep = ''
+   let g:airline_right_sep = ''
+   let g:airline#extensions#whitespace#enabled = 0
+   let g:airline#extensions#ale#enabled = 1
+Plug 'vim-airline/vim-airline-themes'
+
+" Language Server
+source $HOME/.config/nvim/coc.vimrc
 
 " Filetype support
-Plug 'othree/html5.vim', { 'for': 'html' }
-Plug 'hail2u/vim-css3-syntax'
-Plug 'cakebaker/scss-syntax.vim', { 'for': 'scss' }
-Plug 'chr4/nginx.vim', { 'for': 'nginx' }
-Plug 'aliva/vim-fish', { 'for': 'fish' }
-Plug 'pearofducks/ansible-vim'
+Plug 'sheerun/vim-polyglot'
+  autocmd FileType elixir setlocal formatprg=mix\ format\ -
 
 call plug#end()
 

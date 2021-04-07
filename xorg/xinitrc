@@ -3,11 +3,8 @@
 # QT must be able to find my theme
 # export GTK2_RC_FILES="$HOME/.gtkrc-2.0"
 
-# Set the correct DPI
-xrandr --dpi 192
-
 # X Settings
-xrdb .Xresources
+xrdb -merge .Xresources
 
 # Disable PC-Speaker
 xset b off &
@@ -31,7 +28,7 @@ unclutter -idle 3 &
 setxkbmap dvorak -option ctrl:swapcaps
 
 # Set background
-# feh --bg-tile ~/pictures/wallpapers/dark_mosaic.png
+feh --bg-fill ~/pictures/wallpapers/plants.jpg
 
 # I want to be able to sleep at night
 # redshift -l 52:4 -t 6000:4800 -m vidmode &
@@ -42,11 +39,8 @@ eval $(export SHELL=sh; keychain --agents ssh --nogui --eval --quiet)
 # Extra paths for dmenu
 export PATH="$HOME/bin:$HOME/.npm/bin:$HOME/.cargo/bin:$HOME/lib/elixir/bin:$PATH:$HOME/projects/go/bin"
 
-# Required to launch applications from Systemd
-source /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
-
 # Default terminal for i3
-export TERMINAL=/usr/sbin/alacritty
+export TERMINAL=/usr/local/bin/alacritty
 
 #
 # Start window manager

@@ -21,7 +21,6 @@ function gs; git status --ignore-submodules=dirty; end
 function gp; git push origin master; end
 function gf; git pull origin master; end
 function e; emacsclient --no-wait --create-frame --quiet -a emacs $argv; end
-function et; emacsclient -tty; end
 function v; nvim $argv; end
 function sv; doas nvim $argv; end
 function clip; xclip -selection clipboard $argv; end
@@ -75,8 +74,8 @@ else
 end
 set -x LANG 'en_US.UTF-8'
 set -x LC_ALL 'en_US.UTF-8'
-set -x EDITOR 'emacsclient --no-wait --create-frame --quiet -a emacs'
-set -x VISUAL 'emacsclient --no-wait --create-frame --quiet -a emacs'
+set -x EDITOR 'nvim'
+set -x VISUAL 'nvim'
 set -x XDG_DATA_HOME {$HOME}/.local/share
 set -x GPG_TTY (tty)
 
@@ -110,6 +109,7 @@ prepend_to_path "/usr/local/bin"
 prepend_to_path "/usr/local/opt/go/libexec/bin"
 prepend_to_path "/usr/local/opt/mono/bin"
 prepend_to_path "/usr/bin/core_perl"
+prepend_to_path "/usr/local/lib/erlang23/bin"
 prepend_to_path "$HOME/.bin"
 prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.local/bin"

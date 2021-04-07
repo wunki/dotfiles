@@ -31,7 +31,7 @@ setxkbmap dvorak -option ctrl:swapcaps
 feh --bg-fill ~/pictures/wallpapers/plants.jpg
 
 # I want to be able to sleep at night
-# redshift -l 52:4 -t 6000:4800 -m vidmode &
+redshift -l 52:4 -t 6000:4800 -m randr &
 
 # Keychain for managing SSH agent
 eval $(export SHELL=sh; keychain --agents ssh --nogui --eval --quiet)

@@ -69,6 +69,8 @@ end
 # Environment variables
 if contains (uname -s) "Darwin"
   set -x PROJECT_DIR {$HOME}/Code
+else if contains (uname -s) "FreeBSD"
+  set -x PROJECT_DIR {$HOME}/src
 else
   set -x PROJECT_DIR {$HOME}/code
 end

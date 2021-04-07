@@ -1,4 +1,5 @@
 {
+  "elixir.pathToElixirLS": "~/src/elixir-ls/release/language_server.sh",
   "languageserver": {
     "rust": {
       "command": "ra_lsp_server",

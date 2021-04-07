@@ -23,6 +23,7 @@ function gf; git pull origin master; end
 function e; emacsclient --no-wait --create-frame --quiet -a emacs $argv; end
 function et; emacsclient -tty; end
 function v; nvim $argv; end
+function sv; doas nvim $argv; end
 function clip; xclip -selection clipboard $argv; end
 function open-ports; sudo lsof -PiTCP -sTCP:LISTEN; end
 

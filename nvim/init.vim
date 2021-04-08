@@ -107,8 +107,8 @@ set grepprg=rg\ --vimgrep
 set grepformat=%f:%l:%c:%m
 
 " Change mapleader to comma
-let mapleader = ","
-let maplocalleader = "_"
+let mapleader = " "
+let maplocalleader = ","
 
 " Use normal regular expressions
 nnoremap / /\v

@@ -28,7 +28,7 @@ unclutter -idle 3 &
 setxkbmap dvorak -option ctrl:swapcaps
 
 # Set background
-feh --bg-fill ~/pictures/wallpapers/plants.jpg
+feh --bg-fill ~/pictures/wallpapers/r2d2.jpg
 
 # I want to be able to sleep at night
 redshift -l 52:4 -t 6000:4800 -m randr &

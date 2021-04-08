@@ -17,9 +17,23 @@ Plug 'tpope/vim-commentary'                              " comment mappings
 Plug 'tpope/vim-surround'                                " surround commands
 Plug 'airblade/vim-rooter'                               " automatically set the root path
 
-" Browsing files
+" Browsing with FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+  nmap <C-p> :Files<cr>
+  let g:fzf_action = {
+      \ 'ctrl-t': 'tab split',
+      \ 'ctrl-i': 'split',
+      \ 'ctrl-s': 'vsplit' }
+
+  let g:fzf_layout = { 'down': '20%' }
+
+  let g:rg_command = '
+      \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
+      \ -g "*.{js,json,php,md,styl,pug,jade,html,config,py,cpp,c,go,hs,rb,conf,fa,lst}"
+      \ -g "!{.config,.git,node_modules,vendor,build,yarn.lock,*.sty,*.bst,*.coffee,dist}/*" '
+
+command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
   
 " Colors
 Plug 'cocopon/iceberg.vim'
@@ -39,6 +53,8 @@ source $HOME/.config/nvim/coc.vimrc
 " Filetype support
 Plug 'sheerun/vim-polyglot'
   autocmd FileType elixir setlocal formatprg=mix\ format\ -
+
+Plug 'Olical/conjure', {'tag': 'v4.17.0'}
 
 call plug#end()
 
@@ -97,22 +113,6 @@ let maplocalleader = "_"
 " Use normal regular expressions
 nnoremap / /\v
 vnoremap / /\v
-
-" FZF
-nmap <C-p> :Files<cr>
-
-let g:fzf_action = {
-      \ 'ctrl-t': 'tab split',
-      \ 'ctrl-i': 'split',
-      \ 'ctrl-s': 'vsplit' }
-let g:fzf_layout = { 'down': '~20%' }
-
-let g:rg_command = '
-      \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
-      \ -g "*.{js,json,php,md,styl,pug,jade,html,config,py,cpp,c,go,hs,rb,conf,fa,lst}"
-      \ -g "!{.config,.git,node_modules,vendor,build,yarn.lock,*.sty,*.bst,*.coffee,dist}/*" '
-
-command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
 
 " Bash-like filename completion
 set wildmenu

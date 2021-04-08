@@ -24,8 +24,12 @@ xsetroot -cursor_name left_ptr
 # Hide the mouse cursor
 unclutter -idle 3 &
 
-# Dvorak keyboard
-setxkbmap dvorak -option ctrl:swapcaps
+# Dvorak keyboard, and use caps lock as modifier and escape
+setxkbmap dvorak -option 'caps:ctrl_modifier'
+xcape -e 'Caps_Lock=Escape'
+
+# Restore the keyboard setup if it's plugged in again
+inputplug -c ~/.bin/on_new_keyboard.sh
 
 # Set background
 feh --bg-fill ~/pictures/wallpapers/r2d2.jpg

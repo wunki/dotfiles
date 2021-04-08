@@ -6,6 +6,10 @@
 	<false/>
 	<key>AllowClipboardAccess</key>
 	<true/>
+	<key>BadgeRightMargin</key>
+	<integer>10</integer>
+	<key>BadgeTopMargin</key>
+	<integer>10</integer>
 	<key>CompactMinimalTabBarHeight</key>
 	<real>32</real>
 	<key>Custom Color Presets</key>
@@ -506,6 +510,8 @@
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
+			<key>Blink Allowed</key>
+			<false/>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>

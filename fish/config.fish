@@ -46,6 +46,8 @@ end
 # Use bat because of syntax highlighting
 if type -q bat
   abbr -a -g cat 'bat'
+  set -x BAT_THEME "Nord"
+  set -x COLORTERM "truecolor"
 end
 
 # Elixir

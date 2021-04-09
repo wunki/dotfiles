@@ -30,6 +30,7 @@ if contains (uname -s) "Linux"
   abbr -a -g paco 'sudo pacman -Rs (pacman -Qqtd)'
 end
 
+# Use EXA for listing files
 if type -q exa
   abbr -a -g l 'exa'
   abbr -a -g ls 'exa'
@@ -42,6 +43,7 @@ else
   abbr -a -g lll 'ls -la'
 end
 
+# Use bat because of syntax highlighting
 if type -q bat
   abbr -a -g cat 'bat'
 end
@@ -53,10 +55,6 @@ set -x ERL_AFLAGS "-kernel shell_history enabled"
 
 # Override term for SSH
 function ssh; env TERM=xterm-256color ssh $argv; end
-
-# OpenVPN
-function start-vpn; sudo systemctl start openvpn-client@$argv.service; end
-function stop-vpn; sudo systemctl stop openvpn-client@$argv.service; end
 
 # PostgreSQL -- don't go to the users database which never exists...
 set -x PGDATABASE "postgres"
@@ -143,7 +141,6 @@ end
 set -x FZF_DEFAULT_COMMAND 'rg --files --hidden --follow -g "!.git/" 2> /dev/null'
 set -x FZF_CTRL_T_COMMAND "$FZF_DEFAULT_COMMAND"
 
-
 if contains (uname -s) "Darwin"
   set -x FZF_ALT_C_COMMAND 'cd ~/; bfs -type d -nohidden'
 end
@@ -162,20 +159,6 @@ end
 
 # Rust
 prepend_to_path "$HOME/.cargo/bin"
-function ct; cargo test -- --nocapture; end
-function ctl; cargo test --lib -- --nocapture $argv; end
-function cb; cargo build; end
-function cdoc; cargo doc --no-deps --open; end
-function clippy; cargo +nightly clippy; end
-function rust-musl-builder; docker run --rm -it -v "$PWD":/home/rust/src ekidd/rust-musl-builder; end
-set -x LD_LIBRARY_PATH {LD_LIBRARY_PATH}:/usr/local/lib
-
-# Clojure
-set -x BOOT_CLOJURE_VERSION "1.9.0"
-
-# Nomad and Consul
-set -x NOMAD_ADDR "http://10.0.0.4:4646"
-set -x CONSUL_HTTP_ADDR "10.0.0.4:8500"
 
 # Set the correct path with rustup
 if type -q rustc
@@ -198,16 +181,6 @@ prepend_to_path "$NPM_PACKAGES/bin"
 # Ruby
 prepend_to_path "$HOME/.gem/ruby/2.5.0/bin"
 prepend_to_path "$HOME/.gem/ruby/2.4.0/bin"
-if type -q pyenv
-  status --is-interactive; and source (rbenv init -|psub)
-end
-
-# Python
-prepend_to_path "$HOME/.pyenv/bin"
-if type -q pyenv
-  status --is-interactive; and . (pyenv init -|psub)
-  status --is-interactive; and . (pyenv virtualenv-init -|psub)
-end
 
 # Dotnet
 set -x DOTNET_CLI_TELEMETRY_OPTOUT "true"
@@ -228,11 +201,6 @@ if type -q hub
   function git; hub $argv; end
 end
 
-# Autojump: quickly jump to directories
-if test -f "/usr/share/autojump/autojump.fish"
-  . "/usr/share/autojump/autojump.fish"
-end
-
 if test -d "$HOME/.asdf"
   source $HOME/.asdf/asdf.fish
 end
@@ -246,5 +214,3 @@ if string match -q "*microsoft*" (uname -a)
   keychain --eval --quiet --agents ssh id_rsa | source
 end
 
-# Configuration for vterm in Emacs
-# . "$HOME/.config/fish/functions/vterm.fish"

@@ -16,6 +16,7 @@ Plug 'airblade/vim-gitgutter'                            " show git changes in t
 Plug 'tpope/vim-commentary'                              " comment mappings
 Plug 'tpope/vim-surround'                                " surround commands
 Plug 'airblade/vim-rooter'                               " automatically set the root path
+Plug 'norcalli/nvim-colorizer.lua'
 
 " Browsing with FZF
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -37,16 +38,9 @@ command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>),
   
 " Colors
 Plug 'cocopon/iceberg.vim'
-Plug 'sainnhe/everforest'
-  let g:everforest_background = 'hard'
-
-Plug 'vim-airline/vim-airline'
-   let g:airline_powerline_fonts = 0
-   let g:airline_left_sep = ''
-   let g:airline_right_sep = ''
-   let g:airline#extensions#whitespace#enabled = 0
-   let g:airline#extensions#ale#enabled = 1
-Plug 'vim-airline/vim-airline-themes'
+Plug 'arcticicestudio/nord-vim'
+Plug 'itchyny/lightline.vim'
+  let g:lightline = { 'colorscheme': 'nord' }
 
 " Language Server
 source $HOME/.config/nvim/coc.vimrc
@@ -103,8 +97,11 @@ set showbreak=↪             " change wrap line break
 set fillchars=diff:⣿,vert:│ " change fillchars
 set splitright              " new windows are on the right
 set splitbelow              " new windows are below the current one
-set termguicolors
-colorscheme everforest
+" set fcs=eob:\  
+if (has("termguicolors"))
+ set termguicolors
+endif
+colorscheme nord
 
 " Ripgrep
 set grepprg=rg\ --vimgrep

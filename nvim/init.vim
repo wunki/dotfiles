@@ -37,7 +37,8 @@ command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>),
   
 " Colors
 Plug 'cocopon/iceberg.vim'
-Plug 'https://gitlab.com/yorickpeterse/vim-paper.git'
+Plug 'sainnhe/everforest'
+  let g:everforest_background = 'hard'
 
 Plug 'vim-airline/vim-airline'
    let g:airline_powerline_fonts = 0
@@ -54,7 +55,10 @@ source $HOME/.config/nvim/coc.vimrc
 Plug 'sheerun/vim-polyglot'
   autocmd FileType elixir setlocal formatprg=mix\ format\ -
 
+" Give me my parenthesis
 Plug 'Olical/conjure', {'tag': 'v4.17.0'}
+Plug 'guns/vim-sexp'
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
 call plug#end()
 
@@ -100,7 +104,7 @@ set fillchars=diff:⣿,vert:│ " change fillchars
 set splitright              " new windows are on the right
 set splitbelow              " new windows are below the current one
 set termguicolors
-colorscheme iceberg
+colorscheme everforest
 
 " Ripgrep
 set grepprg=rg\ --vimgrep

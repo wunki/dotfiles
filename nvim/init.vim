@@ -27,7 +27,7 @@ Plug 'junegunn/fzf.vim'
       \ 'ctrl-i': 'split',
       \ 'ctrl-s': 'vsplit' }
 
-  let g:fzf_layout = { 'down': '20%' }
+  let g:fzf_layout = { 'down': '30%' }
 
   let g:rg_command = '
       \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"

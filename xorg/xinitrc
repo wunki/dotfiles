@@ -32,7 +32,7 @@ xcape -e 'Caps_Lock=Escape'
 inputplug -c ~/.bin/on_new_keyboard.sh
 
 # Set background
-feh --bg-fill ~/pictures/wallpapers/r2d2.jpg
+feh --bg-fill ~/pictures/wallpapers/mountains.jpg
 
 # I want to be able to sleep at night
 redshift -l 52:4 -t 6000:4800 -m randr &

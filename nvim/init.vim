@@ -12,42 +12,33 @@ endif
 " Basics
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
-Plug 'airblade/vim-gitgutter'                            " show git changes in the gutter
 Plug 'tpope/vim-commentary'                              " comment mappings
 Plug 'tpope/vim-surround'                                " surround commands
 Plug 'airblade/vim-rooter'                               " automatically set the root path
-Plug 'norcalli/nvim-colorizer.lua'
+Plug 'norcalli/nvim-colorizer.lua'                       " display colors nicely
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " better syntax formatting
 
-" Browsing with FZF
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-  nmap <C-p> :Files<cr>
-  let g:fzf_action = {
-      \ 'ctrl-t': 'tab split',
-      \ 'ctrl-i': 'split',
-      \ 'ctrl-s': 'vsplit' }
+" Git
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
 
-  let g:fzf_layout = { 'down': '30%' }
-
-  let g:rg_command = '
-      \ rg --column --line-number --no-heading --fixed-strings --ignore-case --no-ignore --hidden --follow --color "always"
-      \ -g "*.{js,json,php,md,styl,pug,jade,html,config,py,cpp,c,go,hs,rb,conf,fa,lst}"
-      \ -g "!{.config,.git,node_modules,vendor,build,yarn.lock,*.sty,*.bst,*.coffee,dist}/*" '
-
-command! -bang -nargs=* F call fzf#vim#grep(g:rg_command .shellescape(<q-args>), 1, <bang>0)
+" Browsing files
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
   
+ 
 " Colors
 Plug 'cocopon/iceberg.vim'
 Plug 'arcticicestudio/nord-vim'
+Plug 'sainnhe/everforest'
+  let g:everforest_background = 'hard'
+  let g:everforest_enable_italic = 1
 Plug 'itchyny/lightline.vim'
-  let g:lightline = { 'colorscheme': 'nord' }
+  let g:lightline = { 'colorscheme': 'everforest' }
 
 " Language Server
 source $HOME/.config/nvim/coc.vimrc
-
-" Filetype support
-Plug 'sheerun/vim-polyglot'
-  autocmd FileType elixir setlocal formatprg=mix\ format\ -
 
 " Give me my parenthesis
 Plug 'Olical/conjure', {'tag': 'v4.17.0'}
@@ -55,6 +46,8 @@ Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
 call plug#end()
+
+lua require('gitsigns').setup()
 
 filetype plugin indent on
 
@@ -101,7 +94,7 @@ set splitbelow              " new windows are below the current one
 if (has("termguicolors"))
  set termguicolors
 endif
-colorscheme nord
+colorscheme everforest
 
 " Ripgrep
 set grepprg=rg\ --vimgrep
@@ -158,6 +151,12 @@ vnoremap Q gq
 
 " Terminal
 tnoremap <Esc> <C-\><C-n>
+
+" Browsing files
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
 " Mutt
 au BufRead ~/.mutt/tmp/mutt-* set tw=72 formatoptions=tcql

@@ -46,7 +46,7 @@ end
 # Use bat because of syntax highlighting
 if type -q bat
   abbr -a -g cat 'bat'
-  set -x BAT_THEME "Nord"
+  set -x BAT_THEME "base16"
   set -x COLORTERM "truecolor"
 end
 
@@ -111,7 +111,6 @@ prepend_to_path "/usr/local/bin"
 prepend_to_path "/usr/local/opt/go/libexec/bin"
 prepend_to_path "/usr/local/opt/mono/bin"
 prepend_to_path "/usr/bin/core_perl"
-prepend_to_path "/usr/local/lib/erlang23/bin"
 prepend_to_path "$HOME/.bin"
 prepend_to_path "$HOME/bin"
 prepend_to_path "$HOME/.local/bin"
@@ -161,6 +160,9 @@ end
 
 # Rust
 prepend_to_path "$HOME/.cargo/bin"
+
+# Erlang
+export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac"
 
 # Set the correct path with rustup
 if type -q rustc

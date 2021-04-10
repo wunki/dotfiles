@@ -27,7 +27,6 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
   
- 
 " Colors
 Plug 'cocopon/iceberg.vim'
 Plug 'arcticicestudio/nord-vim'
@@ -40,6 +39,9 @@ Plug 'itchyny/lightline.vim'
 " Language Server
 source $HOME/.config/nvim/coc.vimrc
 
+" Elixir
+Plug 'elixir-editors/vim-elixir'
+
 " Give me my parenthesis
 Plug 'Olical/conjure', {'tag': 'v4.17.0'}
 Plug 'guns/vim-sexp'
@@ -47,7 +49,7 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
 call plug#end()
 
-lua require('gitsigns').setup()
+lua require('init')
 
 filetype plugin indent on
 
@@ -114,9 +116,9 @@ set wildmode=list:longest
 
 " Backup
 set undofile
-set undodir=~/.config/nvim/tmp/undo//     " undo files
-set backupdir=~/.config/nvim/tmp/backup// " backups
-set directory=~/.config/nvim/tmp/swap//   " swap files
+set undodir=~/.config/nvim/tmp/undo/      " undo files
+set backupdir=~/.config/nvim/tmp/backup/  " backups
+set directory=~/.config/nvim/tmp/swap/    " swap files
 set backup                                " enable backups
 set noswapfile                            " no swapping
 

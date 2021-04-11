@@ -7,7 +7,7 @@ gtkrc=$(DOTFILES)/gtk/${UNAME}-gtkrc.mine
 gtk2=$(DOTFILES)/gtk/${UNAME}-gtkrc-2.0
 tmux=$(DOTFILES)/tmux/${UNAME}-tmux.conf
 
-all:: vim bin zsh bash tmux xmonad xorg gtk mpv conkeror ghc
+all:: vim bin zsh bash tmux xmonad xorg gtk mpv conkeror clojure
 
 print-%: ; @echo $*=$($*)
 
@@ -76,9 +76,10 @@ mpv::
 	@ln -fns $(DOTFILES)/mpv/config						${HOME}/.mpv/config
 	@echo MPV is symlinked.
 
-ghc::
-	@ln -fs $(DOTFILES)/ghc/ghci 							${HOME}/.ghci
-	@echo GHC is symlinked.
+clojure::
+	@mkdir -p 																${HOME}/.clojure
+	@ln -fs $(DOTFILES)/clojure/deps.edn 			${HOME}/.clojure/deps.edn
+	@echo Clojure configuration is setup. Go write some parenthesis.
 
 termite::
 	@test -d ${HOME}/.config || mkdir					${HOME}/.config

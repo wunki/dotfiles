@@ -17,6 +17,8 @@ Plug 'tpope/vim-surround'                                " surround commands
 Plug 'airblade/vim-rooter'                               " automatically set the root path
 Plug 'norcalli/nvim-colorizer.lua'                       " display colors nicely
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " better syntax formatting
+Plug 'hrsh7th/nvim-compe'                                " autocomplete
+Plug 'jiangmiao/auto-pairs'                              " automatically close pairs
 
 " Git
 Plug 'nvim-lua/plenary.nvim'
@@ -37,13 +39,14 @@ Plug 'itchyny/lightline.vim'
   let g:lightline = { 'colorscheme': 'everforest' }
 
 " Language Server
-source $HOME/.config/nvim/coc.vimrc
+" source $HOME/.config/nvim/coc.vimrc
 
 " Elixir
 Plug 'elixir-editors/vim-elixir'
 
 " Give me my parenthesis
 Plug 'Olical/conjure', {'tag': 'v4.17.0'}
+Plug 'tami5/compe-conjure'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
@@ -97,6 +100,9 @@ if (has("termguicolors"))
  set termguicolors
 endif
 colorscheme everforest
+
+" Autocomplete configuration
+source $HOME/.config/nvim/compe.vimrc
 
 " Ripgrep
 set grepprg=rg\ --vimgrep

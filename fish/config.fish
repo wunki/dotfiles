@@ -163,6 +163,7 @@ prepend_to_path "$HOME/.cargo/bin"
 
 # Erlang
 export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac"
+prepend_to_path "/usr/local/lib/erlang23/bin"
 
 # Set the correct path with rustup
 if type -q rustc

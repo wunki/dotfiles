@@ -96,9 +96,9 @@ if type -q nvim
   abbr vim 'nvim'
 end
 
-if test -d "$HOME/.fzf"
-  prepend_to_path "$HOME/.fzf/bin"
-  . "$HOME/.fzf/shell/key-bindings.fish"
+# FZF
+if type -q fzf
+  set fzf_preview_dir_cmd exa --all --color=always
 end
 
 # Go

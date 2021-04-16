@@ -1,10 +1,5 @@
-# General settings
-set -x fish_greeting ""
-
-# Don't show any message on start
-function fish_title
-  true
-end
+# Don't show a greeting
+set -U fish_greeting
 
 # Environment
 set -x LANG 'en_US.UTF-8'
@@ -106,7 +101,7 @@ set -x GOPATH "$PROJECT_DIR/go"
 prepend_to_path "$GOPATH/bin"
 abbr gb 'go build'
 abbr gt 'go test -v ./...'
-function gc; gocov test | gocov report; end
+abbr gc 'gocov test | gocov report'
 
 # NodeJS
 set -x NPM_PACKAGES "$HOME/.npm-packages"

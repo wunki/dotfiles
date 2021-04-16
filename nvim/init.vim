@@ -41,8 +41,9 @@ Plug 'itchyny/lightline.vim'
 " Language Server
 " source $HOME/.config/nvim/coc.vimrc
 
-" Elixir
+" Languages
 Plug 'elixir-editors/vim-elixir'
+Plug 'dag/vim-fish'
 
 " Give me my parenthesis
 Plug 'Olical/conjure', {'tag': 'v4.17.0'}

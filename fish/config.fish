@@ -45,14 +45,14 @@ switch (uname)
     . $HOME/.config/fish/freebsd.fish
 end
 
-abbr t1     tree --dirsfirst -ChFL 1
-abbr t2     tree --dirsfirst -ChFL 2
-abbr t3     tree --dirsfirst -ChFL 3
-abbr gs     git status --ignore-submodules=dirty
-abbr gp     git push origin HEAD
-abbr gf     git pull origin HEAD
-abbr e      emacsclient --no-wait --create-frame --quiet -a emacs
-abbr cdr    cd (git rev-parse --show-toplevel)
+abbr t1     'tree --dirsfirst -ChFL 1'
+abbr t2     'tree --dirsfirst -ChFL 2'
+abbr t3     'tree --dirsfirst -ChFL 3'
+abbr gs     'git status --ignore-submodules=dirty'
+abbr gp     'git push origin HEAD'
+abbr gf     'git pull origin HEAD'
+abbr e      'emacsclient --no-wait --create-frame --quiet -a emacs'
+abbr cdr    'cd (git rev-parse --show-toplevel)'
 
 if type -q xclip
   abbr clip 'xclip -selection clipboard'
@@ -60,27 +60,27 @@ end
 
 # Use EXA for listing files
 if type -q exa
-  abbr l    exa
-  abbr ls   exa
-  abbr ll   exa -l
-  abbr llg  exa -l --git
-  abbr lll  exa -la
+  abbr l    'exa'
+  abbr ls   'exa'
+  abbr ll   'exa -l'
+  abbr llg  'exa -l --git'
+  abbr lll  'exa -la'
 else
-  abbr l    ls
-  abbr ll   ls -l
-  abbr lll  ls -la
+  abbr l    'ls'
+  abbr ll   'ls -l'
+  abbr lll  'ls -la'
 end
 
 # Use bat because of syntax highlighting
 if type -q bat
-  abbr cat bat
+  abbr cat 'bat'
   set -x BAT_THEME "base16"
   set -x COLORTERM "truecolor"
 end
 
 # Erlang and Elixir
-abbr miex   iex -S mix
-abbr mtm    mix test --only module:
+abbr miex   'iex -S mix'
+abbr mtm    'mix test --only module:'
 prepend_to_path "/usr/local/lib/erlang23/bin"
 
 if type -q erl
@@ -94,10 +94,10 @@ end
 
 # Use nvim when installed
 if type -q nvim
-  abbr v    nvim
-  abbr vim  nvim
+  abbr v    'nvim'
+  abbr vim  'nvim'
 else
-  abbr v    vim
+  abbr v    'vim'
 end
 
 # FZF
@@ -109,11 +109,11 @@ end
 if type -q go
   set -x GOPATH "$PROJECT_DIR/go"
   prepend_to_path "$GOPATH/bin"
-  abbr gb go build
-  abbr gt go test -v ./...
+  abbr gb  'go build'
+  abbr gt  'go test -v ./...'
   
   if type -q gocov
-    abbr "gc gocov test | gocov report"
+    abbr gc 'gocov test | gocov report'
   end
 end
 

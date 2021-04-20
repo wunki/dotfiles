@@ -41,6 +41,13 @@ Plug 'itchyny/lightline.vim'
 " Language Server
 " source $HOME/.config/nvim/coc.vimrc
 
+" File explorer
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'kyazdani42/nvim-tree.lua'
+  nnoremap <C-n> :NvimTreeToggle<CR>
+  nnoremap <leader>r :NvimTreeRefresh<CR>
+  nnoremap <leader>n :NvimTreeFindFile<CR>
+
 " Languages
 Plug 'elixir-editors/vim-elixir'
 Plug 'dag/vim-fish'
@@ -89,7 +96,7 @@ set formatoptions=qrn1
 set nocursorline            " show me the line where the cursor is
 set nofoldenable            " don't do any folding for now
 set guicursor+=a:blinkon0   " don't blink the cursor please
-set winwidth=80             " resize active window to minimally contains 80 chars width
+" set winwidth=80             " resize active window to minimally contains 80 chars width
 set clipboard=unnamedplus   " enable clipboard when on gui
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 set showbreak=↪             " change wrap line break

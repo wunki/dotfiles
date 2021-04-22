@@ -19,6 +19,11 @@ Plug 'norcalli/nvim-colorizer.lua'                       " display colors nicely
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " better syntax formatting
 Plug 'hrsh7th/nvim-compe'                                " autocomplete
 Plug 'jiangmiao/auto-pairs'                              " automatically close pairs
+Plug 'sbdchd/neoformat'                                  " formatting
+augroup fmt
+  autocmd!
+  autocmd BufWritePre * undojoin | Neoformat
+augroup END
 
 " Git
 Plug 'nvim-lua/plenary.nvim'

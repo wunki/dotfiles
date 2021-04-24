@@ -43,12 +43,13 @@ Plug 'sainnhe/everforest'
 Plug 'itchyny/lightline.vim'
   let g:lightline = { 'colorscheme': 'everforest' }
 
-" Language Server
-" source $HOME/.config/nvim/coc.vimrc
+" Language server
+Plug 'neovim/nvim-lspconfig'
 
 " File explorer
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'kyazdani42/nvim-tree.lua'
+  let g:nvim_tree_gitignore = 1
   nnoremap <C-n> :NvimTreeToggle<CR>
   nnoremap <leader>r :NvimTreeRefresh<CR>
   nnoremap <leader>n :NvimTreeFindFile<CR>
@@ -66,6 +67,18 @@ Plug 'tpope/vim-sexp-mappings-for-regular-people'
 call plug#end()
 
 lua require('init')
+
+" Setup language server
+lua << EOF
+require'lspconfig'.elixirls.setup{
+    cmd = { "/home/petar/src/elixir-ls/release/language_server.sh" };
+}
+EOF
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> K <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gsd <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> gsw <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 
 filetype plugin indent on
 

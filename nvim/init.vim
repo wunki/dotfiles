@@ -71,7 +71,7 @@ lua require('init')
 " Setup language server
 lua << EOF
 require'lspconfig'.elixirls.setup{
-    cmd = { "/home/petar/src/elixir-ls/release/language_server.sh" };
+    cmd = { vim.fn.expand("$HOME/.local/share/elixir-ls/release/language_server.sh") };
 }
 EOF
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>

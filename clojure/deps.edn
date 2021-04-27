@@ -5,10 +5,14 @@
                  :exec-fn clj-new/create
                  :exec-args {:template "app"}},
 
+           :clj-kondo
+           {:extra-deps {clj-kondo/clj-kondo {:mvn/version "RELEASE"}}
+            :main-opts ["-m" "clj-kondo.main"]},
+
            ;; Simple nREPL server with no additional libraries
            :repl/nrepl
            {:extra-deps {nrepl/nrepl                {:mvn/version "0.8.3"}}
-            :main-opts  ["-m" "nrepl.cmdline"]}
+            :main-opts  ["-m" "nrepl.cmdline"]},
 
            ;; Run an interactive Clojure REPL with nREPL connection and CIDER libraries
            ;; clojure -M:repl/cider

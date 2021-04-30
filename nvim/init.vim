@@ -45,6 +45,7 @@ Plug 'itchyny/lightline.vim'
 
 " Language server
 Plug 'neovim/nvim-lspconfig'
+Plug 'glepnir/lspsaga.nvim'
 
 " File explorer
 Plug 'kyazdani42/nvim-web-devicons'

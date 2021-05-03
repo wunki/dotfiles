@@ -35,8 +35,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
   
 " Colors
-Plug 'cocopon/iceberg.vim'
-Plug 'arcticicestudio/nord-vim'
 Plug 'sainnhe/everforest'
   let g:everforest_background = 'hard'
   let g:everforest_enable_italic = 1

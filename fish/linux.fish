@@ -1,5 +1,5 @@
-abbr paco sudo pacman -Rs (pacman -Qqtd)
-abbr sudo lsof -PiTCP -sTCP:LISTEN
+abbr paco 'sudo pacman -Rs (pacman -Qqtd)'
+abbr sudo 'lsof -PiTCP -sTCP:LISTEN'
 
 prepend_to_path "/mnt/c/Program Files/Docker/Docker/resources/bin"
 prepend_to_path "/mnt/c/Users/Petar Radosevic/AppData/Local/Programs/Microsoft VS Code/bin"

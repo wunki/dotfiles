@@ -19,6 +19,7 @@ Plug 'norcalli/nvim-colorizer.lua'                       " display colors nicely
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " better syntax formatting
 Plug 'hrsh7th/nvim-compe'                                " autocomplete
 Plug 'jiangmiao/auto-pairs'                              " automatically close pairs
+Plug 'neomake/neomake'                                   " provide linting
 Plug 'sbdchd/neoformat'                                  " formatting
 augroup fmt
   autocmd!
@@ -130,6 +131,12 @@ colorscheme embark
 
 " Autocomplete configuration
 source $HOME/.config/nvim/compe.vimrc
+
+" Neomake for linting
+let g:neomake_elixir_enabled_makers = ['credo']
+
+" call Neomake when reading after 1s, and imm. after writing.
+call neomake#configure#automake('rw', 1000)
 
 " Ripgrep
 set grepprg=rg\ --vimgrep

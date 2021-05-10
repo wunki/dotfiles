@@ -38,8 +38,10 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'sainnhe/everforest'
   let g:everforest_background = 'hard'
   let g:everforest_enable_italic = 1
+Plug 'embark-theme/vim', { 'as': 'embark' }
+  let g:embark_terminal_italics = 1
 Plug 'itchyny/lightline.vim'
-  let g:lightline = { 'colorscheme': 'everforest' }
+  let g:lightline = { 'colorscheme': 'embark' }
 
 " Language server
 Plug 'neovim/nvim-lspconfig'
@@ -124,7 +126,7 @@ set splitbelow              " new windows are below the current one
 if (has("termguicolors"))
  set termguicolors
 endif
-colorscheme everforest
+colorscheme embark
 
 " Autocomplete configuration
 source $HOME/.config/nvim/compe.vimrc

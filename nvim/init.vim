@@ -110,20 +110,19 @@ set scrolloff=3             " keep 3 lines below/above cursor
 set noshowmode              " no need for the mode, lightline shows it
 set showcmd                 " shows partial command in the last line
 set ruler                   " show the line and column number of the cursor
-set number                  " Show line number
+set nonumber                " don't show line numbers
 set backspace=indent,eol,start
 set formatoptions=qrn1
-set nocursorline            " show me the line where the cursor is
-set nofoldenable            " don't do any folding for now
+set cursorline              " show me the line where the cursor is
+set nofoldenable            " don't do any folding 
 set guicursor+=a:blinkon0   " don't blink the cursor please
-" set winwidth=80             " resize active window to minimally contains 80 chars width
+set winwidth=80             " resize active window to minimally contains 80 chars width
 set clipboard=unnamedplus   " enable clipboard when on gui
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 set showbreak=↪             " change wrap line break
 set fillchars=diff:⣿,vert:│ " change fillchars
 set splitright              " new windows are on the right
 set splitbelow              " new windows are below the current one
-" set fcs=eob:\  
 if (has("termguicolors"))
  set termguicolors
 endif

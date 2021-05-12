@@ -75,6 +75,7 @@ lua << EOF
 require'lspconfig'.elixirls.setup{
     cmd = { vim.fn.expand("$HOME/.local/share/elixir-ls/release/language_server.sh") };
 }
+require'lspconfig'.clojure_lsp.setup{}
 EOF
 nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
 nnoremap <silent> gr <cmd>lua vim.lsp.buf.references()<CR>

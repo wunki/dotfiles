@@ -62,7 +62,7 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'dag/vim-fish'
 
 " Give me my parenthesis
-Plug 'Olical/conjure', {'tag': 'v4.18.0'}
+Plug 'Olical/conjure', {'tag': 'v4.19.0'}
 Plug 'tami5/compe-conjure'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'

@@ -47,6 +47,12 @@ Plug 'itchyny/lightline.vim'
 " Language server
 Plug 'neovim/nvim-lspconfig'
 Plug 'glepnir/lspsaga.nvim'
+lua << EOF
+vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnosticsDefaultError"})
+vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagnosticsDefaultWarning"})
+vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "", numhl = "LspDiagnosticsDefaultInformation"})
+vim.fn.sign_define("LspDiagnosticsSignHint", {text = "", numhl = "LspDiagnosticsDefaultHint"})
+EOF
 
 " File explorer
 Plug 'kyazdani42/nvim-web-devicons'

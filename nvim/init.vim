@@ -14,7 +14,6 @@ Plug 'tpope/vim-repeat'                                  " make the . command av
 Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
 Plug 'tpope/vim-commentary'                              " comment mappings
 Plug 'tpope/vim-surround'                                " surround commands
-Plug 'tpope/vim-endwise'                                 " automatically add end to languages like Elixir and Ruby
 Plug 'airblade/vim-rooter'                               " automatically set the root path
 Plug 'norcalli/nvim-colorizer.lua'                       " display colors nicely
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'} " better syntax formatting

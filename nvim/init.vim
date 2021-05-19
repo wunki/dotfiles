@@ -123,7 +123,6 @@ set formatoptions=qrn1
 set cursorline              " show me the line where the cursor is
 set nofoldenable            " don't do any folding 
 set guicursor+=a:blinkon0   " don't blink the cursor please
-set winwidth=80             " resize active window to minimally contains 80 chars width
 set clipboard=unnamedplus   " enable clipboard when on gui
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 set showbreak=↪             " change wrap line break

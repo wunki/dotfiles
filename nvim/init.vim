@@ -1,13 +1,4 @@
-call plug#begin('~/.config/nvim/plugged')
-
-" Helper function to determine OS
-if !exists("g:os")
-  if has("win64") || has("win32") || has("win16")
-    let g:os = "Windows"
-  else
-    let g:os = substitute(system('uname'), '\n', '', '')
-  endif
-endif
+call plug#begin(stdpath('data') . '/plugged')
 
 " Basics
 Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
@@ -72,9 +63,15 @@ Plug 'tami5/compe-conjure'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
+" Configuration in Fennel
+Plug 'Olical/aniseed', { 'tag': 'v3.18.0' }
+
 call plug#end()
 
-lua require('init')
+" Load fennel configuration
+let g:aniseed#env = v:true
+
+" BELOW NEEDS TO BE MOVED
 
 " Setup language server
 lua << EOF

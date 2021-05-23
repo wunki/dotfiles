@@ -54,10 +54,6 @@ abbr gf 'git pull origin HEAD'
 abbr e 'emacsclient --no-wait --create-frame --quiet -a emacs'
 abbr cdr 'cd (git rev-parse --show-toplevel)'
 
-if type -q xclip
-    abbr clip 'xclip -selection clipboard'
-end
-
 # Use EXA for listing files
 if type -q exa
     abbr l exa

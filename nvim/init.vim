@@ -114,7 +114,8 @@ set scrolloff=3             " keep 3 lines below/above cursor
 set noshowmode              " no need for the mode, lightline shows it
 set showcmd                 " shows partial command in the last line
 set ruler                   " show the line and column number of the cursor
-set nonumber                " don't show line numbers
+set number                  " show line numbers
+set relativenumber          " show relative numbers from the current line
 set backspace=indent,eol,start
 set formatoptions=qrn1
 set cursorline              " show me the line where the cursor is

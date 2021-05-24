@@ -36,4 +36,4 @@ local a = _local_0_[1]
 local _2amodule_2a = _0_0
 local _2amodule_name_2a = "nvim-config"
 do local _ = ({nil, _0_0, nil, {{}, nil, nil, nil}})[2] end
-return a.println("Hello, world")
+return a.println("Bok pero! Sretno kodiranje")

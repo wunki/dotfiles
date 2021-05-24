@@ -1,5 +1,5 @@
 (module nvim-config
   {autoload {a aniseed.core}})
 
-(a.println "Hello, world")
+(a.println "Bok pero! Sretno kodiranje")
 

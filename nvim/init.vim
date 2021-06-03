@@ -30,7 +30,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'sainnhe/everforest'
   let g:everforest_background = 'hard'
   let g:everforest_enable_italic = 1
-Plug 'embark-theme/vim', { 'as': 'everforest' }
+Plug 'embark-theme/vim', { 'as': 'embark' }
   let g:embark_terminal_italics = 1
 Plug 'itchyny/lightline.vim'
   let g:lightline = { 'colorscheme': 'everforest' }
@@ -58,13 +58,13 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'dag/vim-fish'
 
 " Give me my parenthesis
-Plug 'Olical/conjure', {'tag': 'v4.19.0'}
+Plug 'Olical/conjure', {'tag': 'v4.20.0'}
 Plug 'tami5/compe-conjure'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
 " Configuration in Fennel
-Plug 'Olical/aniseed', { 'tag': 'v3.18.0' }
+Plug 'Olical/aniseed', { 'tag': 'v3.19.0' }
 
 call plug#end()
 

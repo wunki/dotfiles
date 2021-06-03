@@ -82,7 +82,7 @@ end
 # Erlang and Elixir
 abbr miex 'iex -S mix'
 abbr mtm 'mix test --only module:'
-prepend_to_path /usr/local/lib/erlang23/bin
+prepend_to_path /usr/local/lib/erlang24/bin
 
 if type -q erl
     set -x ERL_AFLAGS "-kernel shell_history enabled"

@@ -56,6 +56,14 @@ Plug 'kyazdani42/nvim-tree.lua'
 " Languages
 Plug 'elixir-editors/vim-elixir'
 Plug 'dag/vim-fish'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+  autocmd FileType go nmap <buffer> <leader>r <plug>(go-run)
+  autocmd FileType go nmap <buffer> <leader>b <plug>(go-build)
+  autocmd FileType go nmap <buffer> <leader>t <plug>(go-test)
+  autocmd FileType go nmap <buffer> <leader>e <plug>(go-rename)
+  autocmd FileType go nmap <buffer> gd <plug>(go-def-vertical)
+  autocmd FileType go nmap <buffer> <c-]> <plug>(go-def-vertical)
+  autocmd FileType go nmap <buffer> <leader>i <plug>(go-info)
 
 " Give me my parenthesis
 Plug 'Olical/conjure', {'tag': 'v4.20.0'}
@@ -63,15 +71,7 @@ Plug 'tami5/compe-conjure'
 Plug 'guns/vim-sexp'
 Plug 'tpope/vim-sexp-mappings-for-regular-people'
 
-" Configuration in Fennel
-Plug 'Olical/aniseed', { 'tag': 'v3.19.0' }
-
 call plug#end()
-
-" Load fennel configuration
-let g:aniseed#env = v:true
-
-" BELOW NEEDS TO BE MOVED
 
 " Setup language server
 lua << EOF
@@ -128,13 +128,11 @@ set showbreak=↪             " change wrap line break
 set fillchars=diff:⣿,vert:│ " change fillchars
 set splitright              " new windows are on the right
 set splitbelow              " new windows are below the current one
+set completeopt=menuone,noselect
 if (has("termguicolors"))
  set termguicolors
 endif
 colorscheme everforest
-
-" Autocomplete configuration
-source $HOME/.config/nvim/compe.vimrc
 
 " Neomake for linting
 let g:neomake_elixir_enabled_makers = ['credo']

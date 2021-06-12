@@ -7,6 +7,9 @@ set -x LC_ALL 'en_US.UTF-8'
 set -x XDG_DATA_HOME {$HOME}/.local/share
 set -x GPG_TTY (tty)
 
+# Where I store all my projects
+set -x PROJECT_DIR "$HOME/code"
+
 if type -q nvim
     set -x EDITOR nvim
     set -x VISUAL nvim

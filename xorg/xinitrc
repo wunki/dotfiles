@@ -26,13 +26,9 @@ unclutter -idle 3 &
 
 # Dvorak keyboard
 setxkbmap dvorak 
-# xcape -e 'Caps_Lock=Escape'
 
 # Restore the keyboard setup if it's plugged in again
 inputplug -c ~/.bin/on_new_keyboard.sh
-
-# Set background
-feh --bg-fill ~/pictures/wallpapers/mountains.jpg
 
 # I want to be able to sleep at night
 redshift -l 52:4 -t 6000:4800 -m randr &

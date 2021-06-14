@@ -18,6 +18,7 @@ return require("packer").startup(
         use "sbdchd/neoformat"
         use "nvim-lua/plenary.nvim"
         use "kabouzeid/nvim-lspinstall"
+        use {"fatih/vim-go", run = ':GoUpdateBinaries'}
 
         use "lewis6991/gitsigns.nvim"
         use "akinsho/nvim-bufferline.lua"

@@ -27,7 +27,9 @@ opt("o", "timeoutlen", 500)
 
 -- for indenline
 opt("b", "expandtab", true)
-opt("b", "shiftwidth", 2)
+opt("b", "shiftwidth", 4)
+opt("b", "tabstop", 4)
+opt("b", "softtabstop", 4)
 
 local M = {}
 

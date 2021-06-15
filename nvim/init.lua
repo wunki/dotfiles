@@ -38,7 +38,7 @@ require "telescope-nvim"
 require "nvimTree" -- file tree stuff
 require "file-icons"
 
--- git signs , lsp symbols etc
+-- git signs, lsp symbols etc
 require "gitsigns-nvim"
 require("nvim-autopairs").setup()
 require("lspkind").init()

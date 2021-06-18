@@ -45,6 +45,11 @@ export PATH="$HOME/bin:$HOME/.npm/bin:$HOME/.cargo/bin:$HOME/lib/elixir/bin:$PAT
 # Default terminal for i3
 export TERMINAL=/bin/alacritty
 
+# Set HiDPI settings
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+
 #
 # Start window manager
 #

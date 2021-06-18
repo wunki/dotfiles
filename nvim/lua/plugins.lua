@@ -19,6 +19,7 @@ return require("packer").startup(
         use "nvim-lua/plenary.nvim"
         use "kabouzeid/nvim-lspinstall"
         use {"fatih/vim-go", run = ':GoUpdateBinaries'}
+        use {"cespare/vim-toml"}
 
         use "lewis6991/gitsigns.nvim"
         use "akinsho/nvim-bufferline.lua"
@@ -30,7 +31,7 @@ return require("packer").startup(
         use "hrsh7th/vim-vsnip"
         use "rafamadriz/friendly-snippets"
 
-        -- file managing , picker etc
+        -- file managing, picker etc
         use "kyazdani42/nvim-tree.lua"
         use "kyazdani42/nvim-web-devicons"
         use "ryanoasis/vim-devicons"

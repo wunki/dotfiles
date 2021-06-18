@@ -2,6 +2,7 @@
 require "plugins"
 require "utils"
 require "statusline"
+require "neoformat"
 
 require("colorizer").setup()
 require("neoscroll").setup() -- smooth scroll
@@ -21,7 +22,6 @@ cmd "syntax on"
 cmd "colorscheme everforest"
 
 -- blankline
-
 g.indentLine_enabled = 1
 g.indent_blankline_char = "▏"
 

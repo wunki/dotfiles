@@ -9,6 +9,7 @@ return require("packer").startup(
         -- colors
         use "norcalli/nvim-colorizer.lua"
         use "sainnhe/everforest"
+        use "sainnhe/gruvbox-material"
 
         -- lang stuff
         use "nvim-treesitter/nvim-treesitter"

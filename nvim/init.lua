@@ -19,7 +19,9 @@ g.auto_save = 0
 
 -- colorscheme related stuff
 cmd "syntax on"
-cmd "colorscheme everforest"
+g.gruvbox_material_enable_italic = 1
+g.gruvbox_material_background = 'hard'
+cmd "colorscheme gruvbox-material"
 
 -- blankline
 g.indentLine_enabled = 1

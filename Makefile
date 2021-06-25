@@ -84,3 +84,8 @@ clojure::
 termite::
 	@test -d ${HOME}/.config || mkdir					${HOME}/.config
 	@ln -fns $(DOTFILES)/termite						${HOME}/.config/termite
+
+i3::
+	@ln -fns $(DOTFILES)/i3								${HOME}/.config/i3
+	@ln -fns $(DOTFILES)/i3blocks						${HOME}/.config/i3blocks
+	@echo i3 configuration is setup.

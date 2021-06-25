@@ -28,7 +28,7 @@ unclutter -idle 3 &
 setxkbmap dvorak 
 
 # Restore the keyboard setup if it's plugged in again
-inputplug -c ~/.bin/on_new_keyboard.sh
+# inputplug -c ~/.bin/on_new_keyboard.sh
 
 # I want to be able to sleep at night
 redshift -l 52:4 -t 6000:4800 -m randr &
@@ -40,17 +40,15 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 
 # Extra paths for dmenu
-export PATH="$HOME/bin:$HOME/.npm/bin:$HOME/.cargo/bin:$HOME/lib/elixir/bin:$PATH:$HOME/projects/go/bin"
+export PATH="$HOME/.local/bin:$HOME/.npm/bin:$HOME/.cargo/bin:$HOME/lib/elixir/bin:$PATH:$HOME/projects/go/bin"
 
 # Default terminal for i3
 export TERMINAL=/bin/alacritty
 
-# Set HiDPI settings
-export GDK_SCALE=2
-export GDK_DPI_SCALE=0.5
-export QT_AUTO_SCREEN_SCALE_FACTOR=1
+# Start the eww daemon
+eww daemon
 
 #
 # Start window manager
 #
-exec i3
+exec bspwm

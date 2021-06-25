@@ -29,7 +29,6 @@ prepend_to_path /usr/local/bin
 prepend_to_path /usr/local/share/dotnet
 
 # Local Paths
-prepend_to_path "$HOME/.bin"
 prepend_to_path "$HOME/.local/bin"
 prepend_to_path "$HOME/.npm/bin"
 prepend_to_path "$HOME/.npm-packages/bin"

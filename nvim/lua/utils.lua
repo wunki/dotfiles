@@ -32,6 +32,7 @@ opt("b", "tabstop", 4)
 opt("b", "softtabstop", 4)
 
 local M = {}
+local cmd = vim.cmd
 
 function M.is_buffer_empty()
     -- Check whether the current buffer is empty
@@ -42,6 +43,16 @@ function M.has_width_gt(cols)
     -- Check if the windows width is greater than a given number of columns
     return vim.fn.winwidth(0) / 2 > cols
 end
+
+function M.create_augroup(autocmds, name)
+    cmd('augroup ' .. name)
+    cmd('autocmd!')
+    for _, autocmd in ipairs(autocmds) do
+        cmd('autocmd ' .. table.concat(autocmd, ' '))
+    end
+    cmd('augroup END')
+end
+
 -- file extension specific tabbing
-vim.cmd([[autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4]])
+cmd([[autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4]])
 return M

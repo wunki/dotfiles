@@ -36,7 +36,6 @@ function on_attach(client, bufnr)
 end
 
 -- lspInstall + lspconfig stuff
-
 local function setup_servers()
     require "lspinstall".setup()
 

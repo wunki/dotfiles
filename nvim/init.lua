@@ -1,6 +1,6 @@
 -- load all plugins
 require "plugins"
-require "utils"
+local u = require "utils"
 require "statusline"
 require "neoformat"
 
@@ -49,6 +49,12 @@ require("lspkind").init()
 vim.api.nvim_exec([[
    au BufEnter term://* setlocal nonumber
 ]], false)
+
+-- set elixir as filetype, currently a bug in neovim
+u.create_augroup({
+    { 'BufRead,BufNewFile', 'mix.lock,*.exs,*.ex', 'setlocal', 'ft=elixir' },
+    { 'BufRead,BufNewFile', '*.eex,*.leex', 'setlocal', 'ft=eelixir' },
+}, 'elixir')
 
 -- setup for TrueZen.nvim
 require "zenmode"

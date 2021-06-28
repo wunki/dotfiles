@@ -44,7 +44,7 @@ return require("packer").startup(
         use "tweekmonster/startuptime.vim"
         use "907th/vim-auto-save"
         use "karb94/neoscroll.nvim"
-        use "kdav5758/TrueZen.nvim"
+        use "Pocco81/TrueZen.nvim"
         use "folke/which-key.nvim"
         use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
     end,

@@ -7,15 +7,20 @@ gtkrc=$(DOTFILES)/gtk/${UNAME}-gtkrc.mine
 gtk2=$(DOTFILES)/gtk/${UNAME}-gtkrc-2.0
 tmux=$(DOTFILES)/tmux/${UNAME}-tmux.conf
 
-all:: vim bin zsh bash tmux xmonad xorg gtk mpv conkeror clojure
+all:: alacritty vim bin zsh bash tmux xmonad xorg gtk mpv conkeror clojure
 
 print-%: ; @echo $*=$($*)
+
+
+alacritty::
+	@ln -fs $(DOTFILES)/alacritty/alacritty.yml 			${HOME}/.config/alacritty/alacritty.yml
+	@echo Alacritty configuration has been linked. 
 
 vim::
 	@ln -fs $(DOTFILES)/vim/vimrc									${HOME}/.vimrc
 	@ln -fns $(DOTFILES)/vim											${HOME}/.vim
 	@ln -fs $(DOTFILES)/vim/ycm_extra_conf.py			${HOME}/.ycm_extra_conf.py
-	@echo Vim is symlinked.
+	@echo Vim is linked.
 
 neovim::
 	@test -d ${HOME}/.config || mkdir						${HOME}/.config

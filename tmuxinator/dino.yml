@@ -1,6 +1,0 @@
-name: dino
-root: ~/projects/dino
-
-windows:
-  - vim: vim .
-  - ansible: #

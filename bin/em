@@ -1,3 +1,0 @@
-#!/usr/bin/env sh
-pgrep emacs || emacs --daemon
-emacsclient -n -c

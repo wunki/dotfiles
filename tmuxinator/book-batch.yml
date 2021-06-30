@@ -1,8 +1,0 @@
-name: book-batch
-root: ~/projects/book-batch
-
-windows:
-  - vim: nvim .
-  - cargo: #
-  - psql: psql -h 172.16.1.14 -U wunki book_batch_dev
-

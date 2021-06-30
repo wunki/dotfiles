@@ -1,5 +1,5 @@
 DOTFILES 	:= $(PWD)
-UNAME 	:= $(shell uname -s)
+UNAME 		:= $(shell uname -s)
 
 # These files are different per machine
 xmobar=$(DOTFILES)/xmonad/${UNAME}-xmobarrc
@@ -7,90 +7,44 @@ gtkrc=$(DOTFILES)/gtk/${UNAME}-gtkrc.mine
 gtk2=$(DOTFILES)/gtk/${UNAME}-gtkrc-2.0
 tmux=$(DOTFILES)/tmux/${UNAME}-tmux.conf
 
-all:: alacritty vim bin zsh bash tmux xmonad xorg gtk mpv conkeror clojure
+all:: alacritty vim neovim fish tmux xorg gtk
 
 print-%: ; @echo $*=$($*)
 
-
 alacritty::
-	@ln -fs $(DOTFILES)/alacritty/alacritty.yml 			${HOME}/.config/alacritty/alacritty.yml
+	@ln -fs $(DOTFILES)/alacritty/alacritty.yml			${HOME}/.config/alacritty/alacritty.yml
 	@echo Alacritty configuration has been linked. 
 
 vim::
-	@ln -fs $(DOTFILES)/vim/vimrc									${HOME}/.vimrc
-	@ln -fns $(DOTFILES)/vim											${HOME}/.vim
+	@ln -fs $(DOTFILES)/vim/vimrc						${HOME}/.vimrc
+	@ln -fns $(DOTFILES)/vim							${HOME}/.vim
 	@ln -fs $(DOTFILES)/vim/ycm_extra_conf.py			${HOME}/.ycm_extra_conf.py
 	@echo Vim is linked.
 
 neovim::
-	@test -d ${HOME}/.config || mkdir						${HOME}/.config
-	@ln -fns $(DOTFILES)/nvim										${HOME}/.config/nvim
-	@ln -fs ${HOME}/.config/nvim/init.vim				${HOME}/.config/init.vim
-	@echo NeoVim is symlinked.
-
-bin::
-	@ln -fns $(DOTFILES)/bin									${HOME}/.bin
-	@echo bin files are linked to homedir.
-
-bash::
-	@ln -fs $(DOTFILES)/bash/bash_profile			${HOME}/.bash_profile
-	@ln -fs $(DOTFILES)/bash/bashrc						${HOME}/.bashrc
-	@ln -fs $(DOTFILES)/bash/bash_aliases			${HOME}/.bash_aliases
-	@echo Bash is symlinked.
+	@test -d ${HOME}/.config || mkdir				${HOME}/.config
+	@ln -fns $(DOTFILES)/neovim						${HOME}/.config/nvim
+	@echo Neovim is symlinked.
 
 fish::
-	@test -d ${HOME}/.config || mkdir					${HOME}/.config
-	@ln -fns $(DOTFILES)/fish									${HOME}/.config/fish
+	@test -d ${HOME}/.config || mkdir				${HOME}/.config
+	@ln -fns $(DOTFILES)/fish						${HOME}/.config/fish
 	@echo Fish is symlinked.
 
-tarsnap::
-	@ln -fs $(DOTFILES)/tarsnap/tarsnapperrc	${HOME}/.tarsnapperrc
-	@ln -fs $(DOTFILES)/tarsnap/tarsnaprc			${HOME}/.tarsnaprc
-	@echo tarsnap is symlinked.
-
 tmux::
-	@ln -fs $(tmux)					                    ${HOME}/.tmux.conf
+	@ln -fs $(tmux)									${HOME}/.tmux.conf
 	@ln -fs $(DOTFILES)/tmux/tmux-status.conf		${HOME}/.tmux-status.conf
 	@echo tmux is symlinked.
 
-tmuxinator::
-	@ln -fns $(DOTFILES)/tmuxinator						${HOME}/.tmuxinator
-	@echo tmuxinator is symlinked.
-
-xmonad::
-	@mkdir -p																	${HOME}/.xmonad
-	@ln -fs $(xmobar)													${HOME}/.xmobarrc
-	@ln -fns $(DOTFILES)/xmonad/xmonad.hs			${HOME}/.xmonad/xmonad.hs
-	@echo XMonad is symlinked.
-
 xorg::
 	@ln -fs $(DOTFILES)/xorg/Xresources				${HOME}/.Xresources
-	@ln -fs $(DOTFILES)/xorg/xinitrc          ${HOME}/.xinitrc
+	@ln -fs $(DOTFILES)/xorg/xinitrc              	${HOME}/.xinitrc
 	@ln -fns $(DOTFILES)/xorg/fonts.conf			${HOME}/.fonts.conf
 	@echo Xorg is symlinked.
 
 gtk::
-	@ln -fs $(gtk2)														${HOME}/.gtkrc-2.0
-	@ln -fs $(gtkrc)													${HOME}/.gtkrc.mine
-	@ln -fns $(DOTFILES)/gtk/themes			  		${HOME}/.themes
-	@ln -fs $(DOTFILES)/gtk/user-dirs.dirs		${HOME}/.config/user-dirs.dirs
+	@ln -fs $(gtk2)									${HOME}/.gtkrc-2.0
+	@ln -fs $(gtkrc)								${HOME}/.gtkrc.mine
+	@ln -fns $(DOTFILES)/gtk/themes					${HOME}/.themes
+	@ln -fs $(DOTFILES)/gtk/user-dirs.dirs			${HOME}/.config/user-dirs.dirs
 	@echo GTK is symlinked.
-
-mpv::
-	@mkdir -p ${HOME}/.mpv
-	@ln -fns $(DOTFILES)/mpv/config						${HOME}/.mpv/config
-	@echo MPV is symlinked.
-
-clojure::
-	@mkdir -p 																${HOME}/.clojure
-	@ln -fs $(DOTFILES)/clojure/deps.edn 			${HOME}/.clojure/deps.edn
-	@echo Clojure configuration is setup. Go write some parenthesis.
-
-termite::
-	@test -d ${HOME}/.config || mkdir					${HOME}/.config
-	@ln -fns $(DOTFILES)/termite						${HOME}/.config/termite
-
-i3::
-	@ln -fns $(DOTFILES)/i3								${HOME}/.config/i3
-	@ln -fns $(DOTFILES)/i3blocks						${HOME}/.config/i3blocks
-	@echo i3 configuration is setup.

@@ -1,4 +1,4 @@
-# Wunki's dotfiles
+# Dotfiles
 
 These are my dotfiles.
 

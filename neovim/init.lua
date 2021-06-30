@@ -21,7 +21,10 @@ g.auto_save = 0
 cmd "syntax on"
 g.gruvbox_material_enable_italic = 1
 g.gruvbox_material_background = 'hard'
-cmd "colorscheme gruvbox-material"
+
+g.everforest_enable_italic = 1
+g.everforest_background = 'hard'
+cmd "colorscheme everforest"
 
 -- blankline
 g.indentLine_enabled = 1

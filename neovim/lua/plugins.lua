@@ -20,8 +20,8 @@ return require("packer").startup(
         use "nvim-lua/plenary.nvim"
         use "kabouzeid/nvim-lspinstall"
         use {"fatih/vim-go", run = ':GoUpdateBinaries'}
-        use {"cespare/vim-toml"}
-        use {"dhruvasagar/vim-table-mode"}
+        use "cespare/vim-toml"
+        use "dhruvasagar/vim-table-mode"
 
         use "lewis6991/gitsigns.nvim"
         use "akinsho/nvim-bufferline.lua"

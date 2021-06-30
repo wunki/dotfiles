@@ -1,7 +1,0 @@
-name: amazon-product-api
-root: ~/projects/amazon-product-api-rs
-
-windows:
-  - vim: nvim .
-  - cargo: #
-

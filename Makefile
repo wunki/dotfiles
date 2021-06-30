@@ -17,9 +17,7 @@ alacritty::
 
 vim::
 	@ln -fs $(DOTFILES)/vim/vimrc						${HOME}/.vimrc
-	@ln -fns $(DOTFILES)/vim							${HOME}/.vim
-	@ln -fs $(DOTFILES)/vim/ycm_extra_conf.py			${HOME}/.ycm_extra_conf.py
-	@echo Vim is linked.
+	@echo Vim is symlinked.
 
 neovim::
 	@test -d ${HOME}/.config || mkdir				${HOME}/.config

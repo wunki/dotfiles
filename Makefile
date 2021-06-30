@@ -15,6 +15,14 @@ alacritty::
 	@ln -fs $(DOTFILES)/alacritty/alacritty.yml			${HOME}/.config/alacritty/alacritty.yml
 	@echo Alacritty configuration has been linked. 
 
+fish::
+	@test -d ${HOME}/.config || mkdir				${HOME}/.config
+	@ln -fns $(DOTFILES)/fish						${HOME}/.config/fish
+	@printf "Please run the following to install plugins: \n\n\
+	\tfisher install jethrokuan/z \n\
+	\tfisher install PatrickF1/fzf.fish\n\n"
+	@echo Fish is symlinked.
+
 vim::
 	@ln -fs $(DOTFILES)/vim/vimrc						${HOME}/.vimrc
 	@echo Vim is symlinked.
@@ -23,11 +31,6 @@ neovim::
 	@test -d ${HOME}/.config || mkdir				${HOME}/.config
 	@ln -fns $(DOTFILES)/neovim						${HOME}/.config/nvim
 	@echo Neovim is symlinked.
-
-fish::
-	@test -d ${HOME}/.config || mkdir				${HOME}/.config
-	@ln -fns $(DOTFILES)/fish						${HOME}/.config/fish
-	@echo Fish is symlinked.
 
 tmux::
 	@ln -fs $(tmux)									${HOME}/.tmux.conf

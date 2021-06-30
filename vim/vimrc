@@ -1,125 +1,14 @@
 " Vim configuration file by Petar Radosevic
-
 set nocompatible            " use vim defaults
 set cmdheight=2             " lower command line two lines high
 set modifiable              " needed for vimpager
 set encoding=utf-8          " utf-8 encoding
 set fileencoding=utf-8      " save files as utf-8
 set bg=dark                 " dark background
-syntax on                   " enable syntax highlighting
-filetype plugin indent on
-
-call plug#begin('~/.vim/plugged')
-
-" Essentials
-Plug 'tpope/vim-eunuch'                                  " unix helper commands
-Plug 'tpope/vim-repeat'                                  " make the . command available to more plugins
-Plug 'tpope/vim-unimpaired'                              " bracket mappings for easy jumping
-Plug 'tpope/vim-obsession'                               " better vim sessions
-Plug 'rking/ag.vim'                                      " silver searcher
-Plug 'commentary.vim'                                    " comment mappings
-Plug 'surround.vim'                                      " surround commands
-Plug 'godlygeek/tabular'                                 " easy indenting
-Plug 'Lokaltog/vim-easymotion'                           " move by selecting a letter
-Plug 'scrooloose/syntastic'                              " syntax checker
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }  " sidebar tree
-Plug 'mbbill/undotree'                                   " easy undoing
-Plug 'jiangmiao/auto-pairs'                              " pair parenthesis, brackend and quotes
-Plug 'dhruvasagar/vim-table-mode', { 'for': 'markdown' } " table creation in markdown
-Plug 'bronson/vim-trailing-whitespace'                   " remove trailing whitespace
-Plug 'majutsushi/tagbar'                                 " sidebar to jump to regions
-Plug 'Shougo/vimproc', {'do': 'gmake'}                   " command execution
-Plug 'Shougo/neocomplete.vim'                            " autocompletion
-
-" Fuzzy file finder
-Plug 'junegunn/fzf', { 'dir': $XDG_DATA_HOME . '/.fzf', 'do': 'yes n \| ./install --all' }
-let g:fzf_action = {
-      \ 'ctrl-s': 'split',
-      \ 'ctrl-v': 'vsplit'
-      \ }
-nnoremap <c-p> :FZF<cr>
-
-" Looks
-Plug 'jnurmine/Zenburn'
-    let g:zenburn_disable_Label_underline = 1
-Plug 'morhetz/gruvbox'
-Plug 'itchyny/lightline.vim'
-Plug 'cocopon/iceberg.vim'
-Plug 'ywjno/vim-tomorrow-theme'
-Plug 'edkolev/tmuxline.vim'
-Plug 'tyrannicaltoucan/vim-quantum'
-
-" HTML
-Plug 'Glench/Vim-Jinja2-Syntax', { 'for': ['html', 'sls'] }
-Plug 'othree/html5.vim', { 'for': 'html' }
-
-" Go
-Plug 'fatih/vim-go', { 'for': 'go' }
-Plug 'benmills/vim-golang-alternate', { 'for': 'go' }
-
-" Rust
-Plug 'wting/rust.vim', { 'for': 'rust' }
-Plug 'phildawes/racer', { 'do': 'cargo build --release', 'for': 'rust' }
-Plug 'cespare/vim-toml', { 'for': 'toml' }
-
-" Fish
-Plug 'aliva/vim-fish', { 'for': 'fish' }
-
-" Salt
-Plug 'saltstack/salt-vim', { 'for': 'sls' }
-
-call plug#end()
-
-" Neocomplete
-let g:neocomplete#data_directory = '~/.neocomplcache'
-let g:neocomplete#enable_at_startup = 1
-
-" tab completion
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" GUI
-if has("gui_running")
-    if has('mac')
-        set guifont=Fira\ Mono:h14
-    else
-        set guifont=Fira\ Mono\ 9
-    endif
-    set guioptions-=e
-    set guioptions-=T
-    set guioptions-=m
-    set guioptions-=r
-    set guioptions-=L
-    set guioptions-=b
-    set guioptions+=a
-    set guioptions+=c
-    set noeb vb t_vb=       " keep it quiet...
-    set anti                " anti-aliasing
-    set mousehide           " hide the mouse when typing
-else
-    " 256 colors setting
-    set t_Co=256
-    set mouse=a
-    set ttymouse=xterm
-    set termencoding=utf-8
-endif
-
-" Themes
-colors quantum
-let g:lightline = {
-      \ 'colorscheme': 'quantum',
-      \ }
-
-" Find Shell
-if executable('/usr/local/bin/zsh')
-    set shell=/usr/local/bin/zsh
-elseif executable('/usr/local/bin/bash')
-    set shell=/usr/local/bin/bash
-elseif executable('/bin/bash')
-    set shell=/bin/bash
-else
-    set shell=/bin/sh
-endif
-
+set t_Co=256
+set mouse=a
+set ttymouse=xterm
+set termencoding=utf-8
 set showmatch               " show matching brackets (), {}' []
 set showcmd                 " show command
 set modelines=0             " don't use modelines
@@ -146,14 +35,12 @@ set nofoldenable            " don't do any folding for now
 set guicursor+=a:blinkon0   " don't blink the cursor please
 set winwidth=79             " resize active window to minimally contains 79 chars width
 
+syntax on                   " enable syntax highlighting
+filetype plugin indent on
+
 " Enable a .vimrc per project
 set exrc                    " enable per-directory .vimrc files
 set secure                  " disable unsafe commands in local .vimrc files
-
-" Dictionary on the mac
-if has('mac')
-    nmap <silent> <Leader>d :!open dict://<cword><CR><CR>
-endif
 
 " Ignore these files in netrw
 let g:netrw_list_hide= '.*\.swp$,.*\~$,.*\.pyc$'
@@ -161,11 +48,6 @@ let g:netrw_list_hide= '.*\.swp$,.*\~$,.*\.pyc$'
 " Use normal regular expressions
 nnoremap / /\v
 vnoremap / /\v
-
-" YouCompleteMe
-let g:ycm_min_num_of_chars_for_completion = 3
-let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
-let g:ycm_server_keep_logfiles = 1
 
 " Bash-like filename completion
 set wildmenu
@@ -204,16 +86,6 @@ set directory=~/.vim/tmp/swap//   " swap files
 set backup                        " enable backups
 set noswapfile                    " no swapping
 
-" Tagbar
-map <C-t> :Tagbar<CR>
-
-" NerdTree
-map <C-n> :NERDTreeToggle<CR>
-let NERDTreeIgnore=['\~$', '\.pyc', '\.swp$', '\.git', '\.hg', '\.svn',
-            \ '\.ropeproject', '\.o', '\.bzr', '\.ipynb_checkpoints', '__pycache__',
-            \ '\.egg$', '\.egg-info$', '\.tox$', '\.idea$', '\.sass-cache',
-            \ '\.env*$', '\.env[0-9]$', '\.coverage$']
-
 " Faster scrolling
 nnoremap <C-e> 3<C-e>
 nnoremap <C-y> 3<C-y>
@@ -225,57 +97,11 @@ set shiftwidth=4                  " indent is also with 4 spaces
 set expandtab                     " expand tabs to spaces
 
 " Change mapleader to comma
-let mapleader = ","
+let mapleader = " "
 let maplocalleader = "_"
 
 " Toggle whitespace invisibles
 nmap <leader>l :set list!<CR>
-
-" Vimwiki
-let g:vimwiki_list = [{'path': '~/wiki/'}]
-let g:vimwiki_dir_link = ''                 " open files in netrw
-
-" Go settings
-au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
-let g:go_fmt_command = "goimports"
-let g:go_auto_type_info = 1
-
-au FileType go nmap <leader>r <Plug>(go-run)
-au FileType go nmap <leader>b <Plug>(go-build)
-au FileType go nmap <leader>t <Plug>(go-test)
-au FileType go nmap <Leader>i <Plug>(go-info)
-au FileType go nmap <Leader>d <Plug>(go-doc)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-au FileType go nmap gd <Plug>(go-def)
-
-" Rust settings
-let g:racer_cmd = "/home/wunki/.vim/plugged/racer/target/release/cargo"
-if has('mac')
-    let $RUST_SRC_PATH="/Users/wunki/Rust/rust/src"
-else
-    let $RUST_SRC_PATH="/home/wunki/rust/rust/src"
-end
-
-" Markdown detection
-autocmd BufNewFile,BufReadPost *.mkd,*.markdown,*.md set filetype=markdown
-
-" Textile settings
-au BufRead *.tex set tw=79
-
-" Mutt settings
-au BufRead ~/.mutt/tmp/mutt-* set tw=72 formatoptions=tcql
-
-" C settings
-au FileType C setlocal shiftwidth=4 tabstop=4 softtabstop=4 cindent
-
-" RestructuredText
-augroup rst
-    autocmd BufRead *.rst set ai tw=79 spell filetype=rst formatoptions=tcroqn2 comments=n:>
-augroup END
-
-" JSON
-au! BufRead,BufNewFile *.json setfiletype json
 
 " Quickly escape to normal mode
 inoremap hh <ESC>
@@ -295,27 +121,6 @@ nnoremap k gk
 nnoremap Q gqip
 vnoremap Q gq
 
-" Undo tree
-nnoremap <F5> :UndotreeToggle<cr>
-
-" Ctrlp
-let g:ctrlp_working_path_mode = 0
-nnoremap <silent> <C-b> :CtrlPBuffer<cr>
-nnoremap <silent> <C-B> :CtrlPBookmarkDir<cr>
-
-" Commentary
-nmap <leader>c <Plug>CommentaryLine
-xmap <leader>c <Plug>Commentary
-
-augroup plugin_commentary
-    au!
-    au FileType htmldjango setlocal commentstring={#\ %s\ #}
-    au FileType clojurescript setlocal commentstring=;\ %s
-    au FileType lisp setlocal commentstring=;\ %s
-    au FileType rust setlocal commentstring=//\ %s
-    au FileType cf3 setlocal commentstring=\#\ %s
-augroup END
-
 " Sessions
 set ssop-=options    " do not store global and local values in a session
 set ssop-=folds      " do not store folds
@@ -323,52 +128,3 @@ set ssop-=folds      " do not store folds
 " Completion
 set complete=.,w,b,u,t
 set completeopt=menu,menuone
-
-" Clojure
-let g:clojure_align_multiline_strings = 1
-
-" Erlang
-au BufRead,BufNewFile rebar.config set filetype=erlang
-
-" Python
-let g:pymode_rope_complete_on_dot = 0
-
-" Syntastic
-let g:syntastic_echo_current_error = 0
-let g:syntastic_enable_highlighting = 0
-let g:syntastic_always_populate_loc_list = 1
-
-" Github issues
-let g:github_issues_no_omni = 1
-
-" Passwords
-let passfile = $HOME."/.vimpass"
-if filereadable($passfile)
-    source $passfile
-end
-
-" Tagbar
-let g:tagbar_type_markdown = {
-            \ 'ctagstype' : 'markdown',
-            \ 'kinds' : [
-            \ 'h:headings',
-            \ 'l:links',
-            \ 'i:images'
-            \],
-            \ "sort" : 0
-            \ }
-
-let g:tagbar_type_rust = {
-            \ 'ctagstype' : 'rust',
-            \ 'kinds' : [
-            \'T:types,type definitions',
-            \'f:functions,function definitions',
-            \'g:enum,enumeration names',
-            \'s:structure names',
-            \'m:modules,module names',
-            \'c:consts,static constants',
-            \'t:traits,traits',
-            \'i:impls,trait implementations',
-            \  ]
-            \}
-

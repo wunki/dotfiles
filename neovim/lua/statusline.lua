@@ -5,15 +5,15 @@ local condition = require("galaxyline.condition")
 gl.short_line_list = {" "}
 
 local colors = {
-    bg = "#1d2021",
-    fg = "#d4be98",
-    green = "#a9b665",
-    red = "#ea6962",
-    lightbg = "#504945",
-    lightbg2 = "#665c54",
-    blue = "#7daea3",
-    yellow = "#d8a657",
-    grey = "#7c6f64"
+    bg = "#2b3339",
+    fg = "#d3c6aa",
+    green = "#a7c080",
+    red = "#e67e80",
+    lightbg = "#4b565c",
+    lightbg2 = "#4b565c",
+    blue = "#7fbbb3",
+    yellow = "#dbbc7f",
+    grey = "#d3c6aa"
 }
 
 gls.left[2] = {

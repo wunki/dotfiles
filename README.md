@@ -8,10 +8,10 @@ TBD: insert screenshots here.
 
 ## Software
 
-| Name        | Description                   |
-|-------------|-------------------------------|
-| [Alacritty] | Alacritty is a fast terminal. |
-| [fish] | My shell of choice. Good defaults and easy to add functionality |
+| Name        | Description                                                     |
+|-------------|-----------------------------------------------------------------|
+| [Alacritty] | Alacritty is a fast terminal.                                   |
+| [fish]      | My shell of choice. Good defaults and easy to add functionality |
 
 [alacritty]: https://github.com/alacritty/alacritty
 

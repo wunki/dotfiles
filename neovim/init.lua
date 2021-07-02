@@ -1,6 +1,5 @@
 -- load all plugins
 require "plugins"
-local u = require "utils"
 require "statusline"
 require "neoformat"
 
@@ -11,6 +10,7 @@ require("neoscroll").setup() -- smooth scroll
 require "nvim-lspconfig"
 require "compe-completion"
 
+local u = require "utils"
 local cmd = vim.cmd
 local g = vim.g
 
@@ -40,8 +40,9 @@ require "treesitter-nvim"
 require "mappings"
 
 require "telescope-nvim"
-require "nvimTree" -- file tree stuff
+require "nvimTree" 
 require "file-icons"
+require "whichkey"
 
 -- git signs, lsp symbols etc
 require "gitsigns-nvim"
@@ -58,7 +59,3 @@ u.create_augroup({
     { 'BufRead,BufNewFile', 'mix.lock,*.exs,*.ex', 'setlocal', 'ft=elixir' },
     { 'BufRead,BufNewFile', '*.eex,*.leex', 'setlocal', 'ft=eelixir' },
 }, 'elixir')
-
--- setup for TrueZen.nvim
-require "zenmode"
-require "whichkey"

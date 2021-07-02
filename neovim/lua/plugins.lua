@@ -7,7 +7,14 @@ return require("packer").startup(
         use "wbthomason/packer.nvim"
 
         -- colors
-        use "norcalli/nvim-colorizer.lua"
+        use {
+            "norcalli/nvim-colorizer.lua",
+            event = "BufRead",
+            config = function()
+                require("colorizer").setup()
+                vim.cmd("ColorizerReloadAllBuffers")
+            end
+        }
         use "sainnhe/everforest"
         use "sainnhe/gruvbox-material"
 
@@ -37,9 +44,15 @@ return require("packer").startup(
         use "kyazdani42/nvim-tree.lua"
         use "kyazdani42/nvim-web-devicons"
         use "ryanoasis/vim-devicons"
-        use "nvim-telescope/telescope.nvim"
-        use "nvim-telescope/telescope-media-files.nvim"
-        use "nvim-lua/popup.nvim"
+        use {
+		    "nvim-telescope/telescope.nvim",
+            requires = {
+                {"nvim-lua/popup.nvim"},
+                {"nvim-lua/plenary.nvim"},
+                {"nvim-telescope/telescope-fzf-native.nvim", run = "make"},
+                {"nvim-telescope/telescope-media-files.nvim"}
+            },
+        }
 
         -- misc
         use "tweekmonster/startuptime.vim"

@@ -11,6 +11,7 @@ TBD: insert screenshots here.
 | Name        | Description                   |
 |-------------|-------------------------------|
 | [Alacritty] | Alacritty is a fast terminal. |
+| [fish] | My shell of choice. Good defaults and easy to add functionality |
 
 [alacritty]: https://github.com/alacritty/alacritty
 

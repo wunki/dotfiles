@@ -1,6 +1,10 @@
 # Dotfiles
 
-These are my dotfiles.
+I'm a firm believer that you should invest in the tools that you use for your profession. Both hardware, having a good ergonomic setup and software, mastering and tweaking the tools you use daily.
+
+Regardless of all the advancements we had in the GUI. **The command line is still the best developer experience.**
+
+I'll admit that I spend way too much time tweaking my configuration. That's why this repository is here, so you don't have to. Enjoy!
 
 ## Screenshots
 
@@ -14,12 +18,13 @@ TBD: insert screenshots here.
 | [Fish]      | Shell with good defaults and easy to configure                                        |
 | [Neovim]    | Fast to start, easy to extend. And now configurable with Lua. Must use version 0.5.0+ |
 | [Tmux]      | When editing remote I use Tmux to save sessions and manage my windows                 |
-| [BPSWM]     | BPSWM as a Window manager. Also using [Polybar] (status bar) and [Rofi] (launcher)    |
+| [BSPWM]     | BPSWM as a Window manager. Also using [Polybar] (status bar) and [Rofi] (launcher)    |
 
 [Alacritty]: https://github.com/alacritty/alacritty
 [Fish]: https://fishshell.com/
 [Neovim]: https://github.com/neovim/neovim
 [BSPWM]: https://github.com/baskerville/bspwm
+[Tmux]: https://github.com/tmux/tmux
 [Polybar]: https://github.com/polybar/polybar
 [Rofi]: https://github.com/davatorium/rofi
 

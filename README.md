@@ -8,7 +8,7 @@ I'll admit that I spend way too much time tweaking my configuration. That's why 
 
 ## Screenshots
 
-TBD: insert screenshots here.
+<img src ="https://www.dropbox.com/s/65rthjr6n8kyt8y/Jul05-10-50.png?raw=1"><hr>
 
 ## Software
 
@@ -29,6 +29,8 @@ TBD: insert screenshots here.
 [Rofi]: https://github.com/davatorium/rofi
 
 ## Usage
+
+Clone the repository under a more descriptive name: `git clone https://github.com/wunki/wunki-dotfiles.git wunki-dotfiles`.
 
 The dotfiles directory contains a `Makefile` which will symlink files into the right place. Proceed with caution though, it will override your own configuration. To give an example, you can run `make neovim` to configure Neovim.
 

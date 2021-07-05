@@ -59,7 +59,7 @@ return require("packer").startup(
         use "907th/vim-auto-save"
         use "karb94/neoscroll.nvim"
         use "folke/which-key.nvim"
-        use {"lukas-reineke/indent-blankline.nvim", branch = "lua"}
+        use {"lukas-reineke/indent-blankline.nvim"}
     end,
     {
         display = {

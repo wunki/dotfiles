@@ -8,7 +8,14 @@ I'll admit that I spend way too much time tweaking my configuration. That's why 
 
 ## Screenshots
 
-![Desktop](screenshots/fullscreen.png)
+![Fullscreen desktop with stats](screenshots/fullscreen.png)
+---
+Neovim with [nvim-tree.lua] and [Telesope] open:
+
+![Neovim with Neotree and Telescope](screenshots/neovim.png)
+
+[nvim-tree.lua]: https://github.com/kyazdani42/nvim-tree.lua 
+[Telescope]: https://github.com/nvim-telescope/telescope.nvim
 
 ## Software
 

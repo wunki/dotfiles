@@ -8,7 +8,7 @@ I'll admit that I spend way too much time tweaking my configuration. That's why 
 
 ## Screenshots
 
-<img src ="https://www.dropbox.com/s/65rthjr6n8kyt8y/Jul05-10-50.png?raw=1"><hr>
+![Desktop](.screenshots/fullscreen.png)
 
 ## Software
 

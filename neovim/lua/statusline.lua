@@ -4,7 +4,7 @@ local condition = require("galaxyline.condition")
 
 gl.short_line_list = {" "}
 
-local colors = {
+local colors_everforrest = {
     bg = "#2b3339",
     fg = "#d3c6aa",
     green = "#a7c080",
@@ -16,13 +16,27 @@ local colors = {
     grey = "#d3c6aa"
 }
 
+local colors_gruvbox = {
+    bg = "#1d2021",
+    fg = "#d4be98",
+    green = "#a9b665",
+    red = "#ea6962",
+    lightbg = "#282828",
+    lightbg2 = "#32302f",
+    blue = "#7daea3",
+    yellow = "#d8a657",
+    grey = "#7c6f64"
+}
+
+local colors = colors_gruvbox
+
 gls.left[2] = {
     statusIcon = {
         provider = function()
-            return "   "
+            return "    "
         end,
         highlight = {colors.bg, colors.blue},
-        separator = "  ",
+        separator = " ",
         separator_highlight = {colors.blue, colors.lightbg}
     }
 }
@@ -40,7 +54,7 @@ gls.left[4] = {
         provider = {"FileName"},
         condition = condition.buffer_not_empty,
         highlight = {colors.fg, colors.lightbg},
-        separator = " ",
+        separator = " ",
         separator_highlight = {colors.lightbg, colors.lightbg2}
     }
 }
@@ -52,7 +66,7 @@ gls.left[5] = {
             return "  " .. dir_name .. " "
         end,
         highlight = {colors.grey, colors.lightbg2},
-        separator = " ",
+        separator = " ",
         separator_highlight = {colors.lightbg2, colors.bg}
     }
 }

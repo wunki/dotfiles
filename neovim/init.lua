@@ -5,7 +5,6 @@ require "statusline"
 require "neoformat"
 
 vim.o.termguicolors = true
-require("colorizer").setup()
 require("neoscroll").setup() -- smooth scroll
 
 -- lsp stuff

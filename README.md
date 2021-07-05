@@ -8,7 +8,7 @@ I'll admit that I spend way too much time tweaking my configuration. That's why 
 
 ## Screenshots
 
-![Desktop](.screenshots/fullscreen.png)
+![Desktop](screenshots/fullscreen.png)
 
 ## Software
 

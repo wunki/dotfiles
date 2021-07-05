@@ -25,7 +25,7 @@ g.gruvbox_material_background = 'hard'
 
 g.everforest_enable_italic = 1
 g.everforest_background = 'hard'
-cmd "colorscheme everforest"
+cmd "colorscheme gruvbox-material"
 
 -- blankline
 g.indentLine_enabled = 1

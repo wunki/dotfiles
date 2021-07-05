@@ -10,7 +10,7 @@ I'll admit that I spend way too much time tweaking my configuration. That's why 
 
 ![Fullscreen desktop with stats](screenshots/fullscreen.png)
 ---
-Neovim with [nvim-tree.lua] and [Telesope] open:
+Neovim with [nvim-tree.lua] and [Telescope] file picker open:
 
 ![Neovim with Neotree and Telescope](screenshots/neovim.png)
 

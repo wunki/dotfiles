@@ -52,6 +52,7 @@ export TERMINAL=/bin/alacritty
 eww daemon
 
 #
-# Start window manager
+# Start BSPWM and log its output for debugging
 #
-exec bspwm
+exec bspwm >/tmp/bspwm-$(date +'%F-%k-%M-%S').log 2>&1
+

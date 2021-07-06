@@ -7,6 +7,8 @@ gtkrc=$(DOTFILES)/gtk/${UNAME}-gtkrc.mine
 gtk2=$(DOTFILES)/gtk/${UNAME}-gtkrc-2.0
 tmux=$(DOTFILES)/tmux/${UNAME}-tmux.conf
 
+BSPWM_DIR=${HOME}/.config/bspwm
+
 all:: alacritty vim neovim fish tmux xorg gtk
 
 print-%: ; @echo $*=$($*)
@@ -16,8 +18,8 @@ alacritty::
 	@echo Alacritty configuration has been linked. 
 
 fish::
-	@test -d ${HOME}/.config || mkdir				${HOME}/.config
-	@ln -fns $(DOTFILES)/fish						${HOME}/.config/fish
+	@test -d ${HOME}/.config || mkdir ${HOME}/.config	${HOME}/.config
+	@ln -fns $(DOTFILES)/fish							${HOME}/.config/fish
 	@printf "Please run the following to install plugins: \n\n\
 	\tfisher install jethrokuan/z \n\
 	\tfisher install PatrickF1/fzf.fish\n\n"
@@ -41,8 +43,10 @@ bpswm::
 	@echo Window manager has been symlinked.
 
 bspwm::
+	[ -d $(BSPWM_DIR) ] || mkdir -p $(BSPWM_DIR)
 	@ln -fs $(DOTFILES)/bspwm/Xresources			${HOME}/.Xresources
 	@ln -fs $(DOTFILES)/bspwm/xinitrc              	${HOME}/.xinitrc
+	@ln -fs $(DOTFILES)/bspwm/bspwmrc              	$(BSPWM_DIR)/bspwmrc
 	@echo BSPWM is symlinked.
 
 gtk::

@@ -1,0 +1,42 @@
+#!/usr/bin/env sh
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+# ##############################################################################
+# #                                AUTOSTART APPS                              #
+# ##############################################################################
+
+dunst --config $HOME/.config/dunst/dunstrc &
+eww daemon &
+picom --config $HOME/.config/picom/picom.conf &
+hsetroot -fill "$HOME/dropbox/Wallpapers/wallhaven-yj82zk.jpg"
+sh $HOME/.config/polybar/launch.sh
+
+# ##############################################################################
+# #                            GENERAL CONFIGURATION                           #
+# ##############################################################################
+
+bspc monitor -d I II III IV V VI VII VIII
+
+bspc config border_width         3
+bspc config window_gap           25
+
+bspc config top_padding          37
+bspc config bottom_padding       0
+
+bspc config normal_border_color  "#282828"
+bspc config active_border_color  "#282828"
+bspc config focused_border_color "#282828"
+
+bspc config split_ratio          0.52
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+# ##############################################################################
+# #                                 WINDOW RULES                               #
+# ##############################################################################
+
+bspc rule -a discord desktop=^3 state=floating
+bspc rule -a Thunar desktop=^4 state=floating
+bspc rule -a firefox desktop=^2 state=floating 
+

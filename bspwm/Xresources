@@ -1,0 +1,6 @@
+! Set the cursor
+Xcursor.theme: Vanilla-DMZ-AA
+Xcursor.size: 36
+
+! XFT Settings
+Xft.dpi:        163

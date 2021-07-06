@@ -43,11 +43,12 @@ bpswm::
 	@echo Window manager has been symlinked.
 
 bspwm::
-	[ -d $(BSPWM_DIR) ] || mkdir -p $(BSPWM_DIR)
+	@[ -d $(BSPWM_DIR) ] || mkdir -p $(BSPWM_DIR)
 	@ln -fs $(DOTFILES)/bspwm/Xresources			${HOME}/.Xresources
 	@ln -fs $(DOTFILES)/bspwm/xinitrc              	${HOME}/.xinitrc
 	@ln -fs $(DOTFILES)/bspwm/bspwmrc              	$(BSPWM_DIR)/bspwmrc
-	@ln -fs $(DOTFILES)/bspwm/polybar              	${HOME}/.config/polybar
+	@ln -fns $(DOTFILES)/bspwm/polybar              ${HOME}/.config/polybar
+	@ln -fns $(DOTFILES)/bspwm/dunst                ${HOME}/.config/dunst
 	@echo BSPWM is symlinked.
 
 gtk::

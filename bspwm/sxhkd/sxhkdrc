@@ -3,7 +3,7 @@
 # ##############################################################################
 
 # Focus next/prev window
-super + {_,shift + }f
+super + {_,shift + }n
     bspc node -f {next,prev}.local.!hidden.window
 
 # Fullscreen window with gaps

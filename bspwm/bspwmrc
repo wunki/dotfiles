@@ -36,7 +36,7 @@ bspc config gapless_monocle      true
 # #                                 WINDOW RULES                               #
 # ##############################################################################
 
-bspc rule -a discord desktop=^3 state=floating
+bspc rule -a discord desktop=^4 state=floating
 bspc rule -a Thunar desktop=^4 state=floating
-bspc rule -a firefox desktop=^2 state=floating 
+bspc rule -a firefox desktop=^3 state=floating 
 

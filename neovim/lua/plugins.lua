@@ -59,7 +59,11 @@ return require("packer").startup(
         use "907th/vim-auto-save"
         use "karb94/neoscroll.nvim"
         use "folke/which-key.nvim"
-        use {"lukas-reineke/indent-blankline.nvim"}
+        use "lukas-reineke/indent-blankline.nvim"
+        use {
+            "TimUntersberger/neogit",
+            requires = "nvim-lua/plenary.nvim"
+        }
     end,
     {
         display = {

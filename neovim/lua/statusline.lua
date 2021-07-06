@@ -4,40 +4,26 @@ local condition = require("galaxyline.condition")
 
 gl.short_line_list = {" "}
 
-local colors_everforrest = {
-    bg = "#2b3339",
-    fg = "#d3c6aa",
-    green = "#a7c080",
-    red = "#e67e80",
-    lightbg = "#4b565c",
-    lightbg2 = "#4b565c",
-    blue = "#7fbbb3",
-    yellow = "#dbbc7f",
-    grey = "#d3c6aa"
-}
+local global_theme = "themes/" .. vim.g.nvchad_theme
+local colors = require(global_theme)
 
-local colors_gruvbox = {
-    bg = "#1d2021",
-    fg = "#d4be98",
-    green = "#a9b665",
-    red = "#ea6962",
-    lightbg = "#282828",
-    lightbg2 = "#32302f",
-    blue = "#7daea3",
-    yellow = "#d8a657",
-    grey = "#7c6f64"
+gls.left[1] = {
+    FirstElement = {
+        provider = function()
+            return "▋"
+        end,
+        highlight = {colors.nord_blue, colors.nord_blue}
+    }
 }
-
-local colors = colors_gruvbox
 
 gls.left[2] = {
     statusIcon = {
         provider = function()
-            return "    "
+            return "  "
         end,
-        highlight = {colors.bg, colors.blue},
-        separator = " ",
-        separator_highlight = {colors.blue, colors.lightbg}
+        highlight = {colors.statusline_bg, colors.nord_blue},
+        separator = "  ",
+        separator_highlight = {colors.nord_blue, colors.lightbg}
     }
 }
 
@@ -45,7 +31,7 @@ gls.left[3] = {
     FileIcon = {
         provider = "FileIcon",
         condition = condition.buffer_not_empty,
-        highlight = {colors.fg, colors.lightbg}
+        highlight = {colors.white, colors.lightbg}
     }
 }
 
@@ -53,8 +39,8 @@ gls.left[4] = {
     FileName = {
         provider = {"FileName"},
         condition = condition.buffer_not_empty,
-        highlight = {colors.fg, colors.lightbg},
-        separator = " ",
+        highlight = {colors.white, colors.lightbg},
+        separator = " ",
         separator_highlight = {colors.lightbg, colors.lightbg2}
     }
 }
@@ -65,9 +51,9 @@ gls.left[5] = {
             local dir_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":t")
             return "  " .. dir_name .. " "
         end,
-        highlight = {colors.grey, colors.lightbg2},
-        separator = " ",
-        separator_highlight = {colors.lightbg2, colors.bg}
+        highlight = {colors.grey_fg2, colors.lightbg2},
+        separator = " ",
+        separator_highlight = {colors.lightbg2, colors.statusline_bg}
     }
 }
 
@@ -84,7 +70,7 @@ gls.left[6] = {
         provider = "DiffAdd",
         condition = checkwidth,
         icon = "  ",
-        highlight = {colors.fg, colors.bg}
+        highlight = {colors.white, colors.statusline_bg}
     }
 }
 
@@ -93,7 +79,7 @@ gls.left[7] = {
         provider = "DiffModified",
         condition = checkwidth,
         icon = "   ",
-        highlight = {colors.grey, colors.bg}
+        highlight = {colors.grey_fg2, colors.statusline_bg}
     }
 }
 
@@ -102,7 +88,7 @@ gls.left[8] = {
         provider = "DiffRemove",
         condition = checkwidth,
         icon = "  ",
-        highlight = {colors.grey, colors.bg}
+        highlight = {colors.grey_fg2, colors.statusline_bg}
     }
 }
 
@@ -110,7 +96,7 @@ gls.left[9] = {
     DiagnosticError = {
         provider = "DiagnosticError",
         icon = "  ",
-        highlight = {colors.red, colors.bg}
+        highlight = {colors.red, colors.statusline_bg}
     }
 }
 
@@ -118,22 +104,21 @@ gls.left[10] = {
     DiagnosticWarn = {
         provider = "DiagnosticWarn",
         icon = "  ",
-        highlight = {colors.yellow, colors.bg}
+        highlight = {colors.yellow, colors.statusline_bg}
     }
 }
 
 gls.right[1] = {
     lsp_status = {
-        provider = function(msg)
-            msg = msg or "No Active Lsp"
+        provider = function()
             local clients = vim.lsp.get_active_clients()
             if next(clients) ~= nil then
-                return " " .. "  " .. " active "
+                return " " .. "  " .. " LSP "
             else
                 return ""
             end
         end,
-        highlight = {colors.grey, colors.bg}
+        highlight = {colors.grey_fg2, colors.statusline_bg}
     }
 }
 
@@ -142,18 +127,18 @@ gls.right[2] = {
         provider = function()
             return " "
         end,
-        condition = require("galaxyline.provider_vcs").check_git_workspace,
-        highlight = {colors.grey, colors.lightbg},
-        separator = "",
-        separator_highlight = {colors.lightbg, colors.bg}
+        condition = require("galaxyline.condition").check_git_workspace,
+        highlight = {colors.grey_fg2, colors.statusline_bg},
+        separator = " ",
+        separator_highlight = {colors.statusline_bg, colors.statusline_bg}
     }
 }
 
 gls.right[3] = {
     GitBranch = {
         provider = "GitBranch",
-        condition = require("galaxyline.provider_vcs").check_git_workspace,
-        highlight = {colors.grey, colors.lightbg}
+        condition = require("galaxyline.condition").check_git_workspace,
+        highlight = {colors.grey_fg2, colors.statusline_bg}
     }
 }
 
@@ -162,9 +147,9 @@ gls.right[4] = {
         provider = function()
             return " "
         end,
-        highlight = {colors.bg, colors.red},
+        highlight = {colors.statusline_bg, colors.red},
         separator = " ",
-        separator_highlight = {colors.red, colors.lightbg}
+        separator_highlight = {colors.red, colors.statusline_bg}
     }
 }
 

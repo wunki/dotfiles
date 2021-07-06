@@ -8,10 +8,7 @@ env:
   TERM: 'xterm-256color'
 
 window:
-  # Window padding (changes require restart)
-  #
-  # Blank space added around the window in pixels. This padding is scaled
-  # by DPI and the specified value is always added at both opposing sides.
+  dynamic_title: true
   padding:
     x: 24
     y: 24
@@ -310,7 +307,6 @@ schemes:
       white:   '0xe6d5ae'
 
 colors: *gruvbox_material_hard_dark
-
 
 cursor:
   style: 'Beam'

@@ -21,8 +21,8 @@ window {
     border:           0;
     padding:          0;
     anchor:           north;
-    location:         center;
-    y-offset:         0%;
+    location:         north;
+    y-offset:         21%;
 }
 
 mainbox {

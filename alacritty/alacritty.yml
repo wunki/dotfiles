@@ -309,7 +309,8 @@ schemes:
       cyan:    '0x4c7a5d'
       white:   '0xe6d5ae'
 
-colors: *everforest_dark_hard
+colors: *gruvbox_material_hard_dark
+
 
 cursor:
   style: 'Beam'

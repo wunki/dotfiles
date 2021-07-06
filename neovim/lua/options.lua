@@ -36,4 +36,16 @@ vim.g.loaded_matchit = 0
 vim.g.loaded_matchparen = 0
 vim.g.loaded_spec = 0
 
+-- follow the leader, leader
+vim.g.mapleader = " "
+vim.g.auto_save = false
 
+-- hide line numbers , statusline in specific buffers!
+vim.api.nvim_exec(
+    [[
+   au BufEnter term://* setlocal nonumber
+   au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif
+   au BufEnter term://* set laststatus=0 
+]],
+    false
+)

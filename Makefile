@@ -47,6 +47,7 @@ bspwm::
 	@ln -fs $(DOTFILES)/bspwm/Xresources			${HOME}/.Xresources
 	@ln -fs $(DOTFILES)/bspwm/xinitrc              	${HOME}/.xinitrc
 	@ln -fs $(DOTFILES)/bspwm/bspwmrc              	$(BSPWM_DIR)/bspwmrc
+	@ln -fs $(DOTFILES)/bspwm/polybar              	${HOME}/.config/polybar
 	@echo BSPWM is symlinked.
 
 gtk::

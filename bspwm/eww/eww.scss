@@ -1,0 +1,165 @@
+// This is literally messy as fuck.
+// Please make a PR if your eyes are bleeding :)
+
+* {
+    all: unset;
+}
+
+window {
+    color: #d5c4a1;
+    font-family: "CaskaydiaCove Nerd Font";
+}
+
+button:hover {
+    color: #89B8C2;
+}
+
+.eww-window, .layout-manager, .system-manager {
+    border-radius: 10px;
+}
+
+.triangle, .date {
+    background-color: transparent;
+}
+
+.eww-window {
+    background-color: #1D2021;
+}
+
+.layout-manager, .system-manager {
+    background-color: #282828;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.layout-manager {
+    background-color: transparent;
+    margin-top: -25px;
+}
+
+// TRIANGLE
+
+.tr-text {
+    font-size: 26px;
+    color: #1D2021;
+}
+
+// DATE
+
+.time {
+    margin: 15px 75px -20px 75px;
+    font-size: 50px;
+    color: #d5c4a1;
+}
+
+.semicolon {
+    margin: 0px;
+    margin-top: -5px;
+    color: #282828;
+}
+
+.day {
+    margin-top: 25px;
+    margin-bottom: 20px;
+
+    font-size: 16px;
+    font-weight: bold;
+    color: #83a598;
+}
+
+// LAYOUT MANAGER
+
+.layout-btn button {
+    font-family: "Material Icons";
+    font-size: 27px;
+
+    margin: 30px;
+    margin-left: 7px;
+    margin-right: 7px;
+}
+
+// SYSTEM MANAGER
+
+.system-manager slider {
+    all: unset;
+}
+
+.label-ram-bar, .label-vol-bar, .label-brightness-bar {
+    font-size: 23px;
+    font-family: "Material Icons";
+
+    margin-top: 12px;
+    margin-left: -35px;
+}
+
+.label-ram-bar {
+    margin-top: 25px;
+    margin-left: -62px;
+    font-size: 27px;
+    color: #fb4939;
+}
+
+.label-brightness-bar {
+    margin-left: -64px;
+    color: #B8BB26;
+}
+
+.label-vol-bar {
+    margin-left: -64px;
+    color: #FABD2F;
+}
+
+.ram-bar scale trough highlight {
+    all: unset;
+    background-image: linear-gradient(to right, #fb4939, #EA6962);
+	color: #000000;
+	border-radius: 10px;
+}
+
+.brightness-bar scale trough highlight {
+    all: unset;
+    background-image: linear-gradient(to right, #B8BB26, #A9B665);
+    color: #000000;
+    border-radius: 10px;
+
+}
+
+.vol-bar scale trough highlight {
+    all: unset;
+    background-image: linear-gradient(to right, #FABD2F, #FFC745);
+    color: #000000;
+    border-radius: 10px;
+
+}
+
+.ram-bar scale trough {
+	all: unset;
+	background-color: #32302f;
+	border-radius: 50px;
+
+	min-height: 5px;
+    min-width: 150px;
+
+    margin: 25px 40px 0px -65px;
+}
+
+.vol-bar scale trough, .brightness-bar scale trough {
+	all: unset;
+	background-color: #32302f;
+	border-radius: 50px;
+
+	min-height: 5px;
+    min-width: 150px;
+
+    margin: 10px 40px 0px -65px;
+}
+
+.powermenu-btn button {
+    font-family: "Material Icons";
+    font-size: 30px;
+
+    margin: 23px;
+    margin-left: 7px;
+    margin-right: 7px;
+    padding: 0px 15px 0px 15px;
+}

@@ -47,8 +47,20 @@ bspwm::
 	@ln -fs $(DOTFILES)/bspwm/Xresources			${HOME}/.Xresources
 	@ln -fs $(DOTFILES)/bspwm/xinitrc              	${HOME}/.xinitrc
 	@ln -fs $(DOTFILES)/bspwm/bspwmrc              	$(BSPWM_DIR)/bspwmrc
+	@ln -fs $(DOTFILES)/bspwm/gtkrc-2.0             ${HOME}/.gtkrc-2.0
+	@ln -fns $(DOTFILES)/bspwm/gtk-3.0              ${HOME}/.config/gtk-3.0
+	@echo Using Polybar as status bar.
 	@ln -fns $(DOTFILES)/bspwm/polybar              ${HOME}/.config/polybar
+	@echo Using Dunst for notifications.
 	@ln -fns $(DOTFILES)/bspwm/dunst                ${HOME}/.config/dunst
+	@echo Using Picom for transparency and shadows.
+	@ln -fns $(DOTFILES)/bspwm/picom                ${HOME}/.config/picom
+	@echo Using SXHKD for hotkeys.
+	@ln -fns $(DOTFILES)/bspwm/sxhkd                ${HOME}/.config/sxhkd
+	@echo Using Rofi for hotkeys.
+	@ln -fns $(DOTFILES)/bspwm/rofi 				${HOME}/.config/rofi
+	@echo Using eww for widgets.
+	@ln -fns $(DOTFILES)/bspwm/eww 					${HOME}/.config/eww
 	@echo BSPWM is symlinked.
 
 gtk::

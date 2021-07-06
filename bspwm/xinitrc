@@ -39,6 +39,7 @@ redshift -l 52:4 -t 6000:4800 -m randr &
 # sxhkd, used for key bindings does not work well with Fish
 export SXHKD_SHELL=/usr/bin/bash
 
+# I only want to type my SSH password once
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 export SSH_AUTH_SOCK
 

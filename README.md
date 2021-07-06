@@ -60,3 +60,9 @@ I also make use of some convenient command line tools which enrich the default c
 [fzf]: https://github.com/junegunn/fzf
 [btm]: https://github.com/ClementTsang/bottom
 
+## Credits
+
+The Neovim configuration is mostly a copy from [NvChad], with some of my own adjustments.
+
+[NvChad]: https://github.com/siduck76/NvChad
+

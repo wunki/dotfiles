@@ -90,7 +90,7 @@ return packer.startup(
             },
             cmd = "Telescope",
             config = function()
-                require("telescope-nvim").config()
+                require("plugins/telescope").config()
             end
         }
 
@@ -138,7 +138,7 @@ return packer.startup(
                 "SessionSave"
             },
             setup = function()
-                require("dashboard").config()
+                require("plugins/dashboard").config()
             end
         }
 
@@ -148,7 +148,7 @@ return packer.startup(
         use {
             "Pocco81/AutoSave.nvim",
             config = function()
-                require("zenmode").autoSave()
+                require("plugins/zenmode").autoSave()
             end,
             cond = function()
                 return vim.g.auto_save == true
@@ -168,7 +168,7 @@ return packer.startup(
             "Pocco81/TrueZen.nvim",
             cmd = {"TZAtaraxis", "TZMinimalist", "TZFocus"},
             config = function()
-                require("zenmode").config()
+                require("plugins/zenmode").config()
             end
         }
 

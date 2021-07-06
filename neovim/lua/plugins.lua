@@ -25,7 +25,7 @@ return packer.startup(
             "nvim-treesitter/nvim-treesitter",
             event = "BufRead",
             config = function()
-                require("treesitter-nvim").config()
+                require("plugins/treesitter").config()
             end
         }
 
@@ -33,7 +33,7 @@ return packer.startup(
             "neovim/nvim-lspconfig",
             event = "BufRead",
             config = function()
-                require("nvim-lspconfig").config()
+                require("plugins/lspconfig").config()
             end
         }
 
@@ -52,7 +52,7 @@ return packer.startup(
             "hrsh7th/nvim-compe",
             event = "InsertEnter",
             config = function()
-                require("compe-completion").config()
+                require("plugins/compe").config()
             end,
             wants = {"LuaSnip"},
             requires = {
@@ -61,7 +61,7 @@ return packer.startup(
                     wants = "friendly-snippets",
                     event = "InsertCharPre",
                     config = function()
-                        require("compe-completion").snippets()
+                        require("plugins/compe").snippets()
                     end
                 },
                 "rafamadriz/friendly-snippets"
@@ -75,7 +75,7 @@ return packer.startup(
             "kyazdani42/nvim-tree.lua",
             cmd = "NvimTreeToggle",
             config = function()
-                require("nvimTree").config()
+                require("plugins/nvim-tree").config()
             end
         }
 
@@ -99,7 +99,7 @@ return packer.startup(
             "lewis6991/gitsigns.nvim",
             event = "BufRead",
             config = function()
-                require("gitsigns-nvim").config()
+                require("plugins/gitsigns").config()
             end
         }
 
@@ -178,7 +178,7 @@ return packer.startup(
             "lukas-reineke/indent-blankline.nvim",
             event = "BufRead",
             setup = function()
-                require("misc-utils").blankline()
+                require("utils").blankline()
             end
         }
     end,

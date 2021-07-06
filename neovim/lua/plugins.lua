@@ -5,8 +5,19 @@ return packer.startup(
     function()
         use "wbthomason/packer.nvim"
 
-        use "akinsho/nvim-bufferline.lua"
-        use "glepnir/galaxyline.nvim"
+        use {
+          "akinsho/nvim-bufferline.lua",
+          config = function()
+            require("plugins/bufferline").config()
+          end
+        }
+        
+        use {
+          "glepnir/galaxyline.nvim",
+          config = function()
+            require("plugins/galaxyline").config()
+          end
+        }
 
         -- color related stuff
         use "siduck76/nvim-base16.lua"
@@ -79,7 +90,13 @@ return packer.startup(
             end
         }
 
-        use "kyazdani42/nvim-web-devicons"
+        use {
+          "kyazdani42/nvim-web-devicons",
+          config = function()
+            require("plugins/devicons").config()
+          end
+        }
+
         use {
             "nvim-telescope/telescope.nvim",
             requires = {

@@ -50,3 +50,4 @@ emacs/server
 /emacs/magithub/cache
 /emacs/smex-items
 .sync
+neovim/plugin

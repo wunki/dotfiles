@@ -11,7 +11,7 @@ return packer.startup(
             require("plugins/bufferline").config()
           end
         }
-        
+
         use {
           "glepnir/galaxyline.nvim",
           config = function()
@@ -111,13 +111,20 @@ return packer.startup(
             end
         }
 
-        -- git stuff
+        -- Git
         use {
             "lewis6991/gitsigns.nvim",
             event = "BufRead",
             config = function()
                 require("plugins/gitsigns").config()
             end
+        }
+
+
+        use {
+          "TimUntersberger/neogit",
+          requires = "nvim-lua/plenary.nvim",
+          cmd = "Neogit"
         }
 
         -- misc plugins

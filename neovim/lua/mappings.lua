@@ -116,6 +116,9 @@ map("n", "<Leader>fb", [[<Cmd>Telescope buffers<CR>]], opt)
 map("n", "<Leader>fh", [[<Cmd>Telescope help_tags<CR>]], opt)
 map("n", "<Leader>fo", [[<Cmd>Telescope oldfiles<CR>]], opt)
 
+-- Neogit
+map("n", "<Leader>gs", [[<Cmd> Neogit kind=split <CR>]], opt)
+
 -- bufferline tab stuff
 map("n", "<S-t>", ":tabnew<CR>", opt) -- new tab
 map("n", "<S-x>", ":bd!<CR>", opt) -- close tab

@@ -30,15 +30,18 @@ map("n", "<leader>zm", ":TZMinimalist<CR>", opt)
 map("n", "<leader>zf", ":TZFocus<CR>", opt)
 
 map("n", "<C-s>", ":w <CR>", opt)
--- vim.cmd("inoremap jh <Esc>")
 
 -- Commenter Keybinding
 map("n", "<leader>/", ":CommentToggle<CR>", opt)
 map("v", "<leader>/", ":CommentToggle<CR>", opt)
 
+-- Close the current buffer
 map("n", "<C-q>", ":bp<bar>sp<bar>bn<bar>bd! <CR>", opt)
 
--- compe stuff
+-- Clear search highlights
+map("n", "<C-l>", ":nohlsearch <CR>", opt)
+
+-- Compe stuff
 
 local t = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)

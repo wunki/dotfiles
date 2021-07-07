@@ -19,8 +19,15 @@ return packer.startup(
           end
         }
 
-        -- color related stuff
+        -- colors
         use "siduck76/nvim-base16.lua"
+        use {
+          "sainnhe/gruvbox-material",
+          setup = function()
+            vim.g.gruvbox_material_enable_italic = 1
+            vim.g.gruvbox_material_background='hard'
+          end
+        }
 
         use {
             "norcalli/nvim-colorizer.lua",
@@ -31,7 +38,7 @@ return packer.startup(
             end
         }
 
-        -- language related plugins
+        -- languages
         use {
             "nvim-treesitter/nvim-treesitter",
             event = "BufRead",

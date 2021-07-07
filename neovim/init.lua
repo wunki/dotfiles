@@ -8,6 +8,6 @@ vim.g.wunki_theme = "gruvbox"
 local base16 = require "base16"
 base16(base16.themes["nvchad-softgruv"], true)
 
--- custom colorss
+-- custom colors
 require "highlights"
 

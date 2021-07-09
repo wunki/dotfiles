@@ -7,9 +7,9 @@
 	<key>AllowClipboardAccess</key>
 	<true/>
 	<key>BadgeRightMargin</key>
-	<integer>10</integer>
+	<integer>0</integer>
 	<key>BadgeTopMargin</key>
-	<integer>10</integer>
+	<integer>0</integer>
 	<key>CompactMinimalTabBarHeight</key>
 	<real>32</real>
 	<key>Custom Color Presets</key>
@@ -2070,6 +2070,8 @@
 			<real>1</real>
 			<key>Idle Code</key>
 			<integer>0</integer>
+			<key>Initial Use Transparency</key>
+			<false/>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -2378,11 +2380,11 @@
 			<key>Name</key>
 			<string>Petar</string>
 			<key>Non Ascii Font</key>
-			<string>CaskaydiaCoveNerdFontComplete- 14</string>
+			<string>CaskaydiaCoveNerdFontComplete- 16</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>MonoLisaNerdFontComplete-Regular 14</string>
+			<string>MonoLisaNerdFontComplete-Regular 13</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -2450,6 +2452,8 @@
 			<integer>4</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
+			<key>Unicode Normalization</key>
+			<integer>0</integer>
 			<key>Unicode Version</key>
 			<integer>9</integer>
 			<key>Unlimited Scrollback</key>
@@ -2525,6 +2529,8 @@
 	<false/>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
+	<key>UseBorder</key>
+	<false/>
 	<key>VisualIndicatorForEsc</key>
 	<false/>
 	<key>WindowNumber</key>

@@ -7,14 +7,14 @@ return packer.startup(function()
    use({
       'akinsho/nvim-bufferline.lua',
       config = function()
-         require('plugins/bufferline').config()
+         require('plugins.bufferline').config()
       end,
    })
 
    use({
       'glepnir/galaxyline.nvim',
       config = function()
-         require('plugins/galaxyline').config()
+         require('plugins.galaxyline').config()
       end,
    })
 
@@ -46,7 +46,7 @@ return packer.startup(function()
       'nvim-treesitter/nvim-treesitter',
       event = 'BufRead',
       config = function()
-         require('plugins/treesitter').config()
+         require('plugins.treesitter').config()
       end,
    })
 
@@ -54,7 +54,7 @@ return packer.startup(function()
       'neovim/nvim-lspconfig',
       event = 'BufRead',
       config = function()
-         require('plugins/lspconfig').config()
+         require('plugins.lspconfig').config()
       end,
    })
 
@@ -86,7 +86,7 @@ return packer.startup(function()
       'hrsh7th/nvim-compe',
       event = 'InsertEnter',
       config = function()
-         require('plugins/compe').config()
+         require('plugins.compe').config()
       end,
       wants = { 'LuaSnip' },
       requires = {
@@ -95,28 +95,40 @@ return packer.startup(function()
             wants = 'friendly-snippets',
             event = 'InsertCharPre',
             config = function()
-               require('plugins/compe').snippets()
+               require('plugins.compe').snippets()
             end,
          },
          'rafamadriz/friendly-snippets',
       },
    })
 
-   use({ 'sbdchd/neoformat', cmd = 'Neoformat' })
+   use({
+      'sbdchd/neoformat',
+      event = 'VimEnter',
+      config = function()
+         vim.api.nvim_exec(
+            [[
+              augroup fmt
+                autocmd!
+                autocmd BufWritePre *.rs try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
+              augroup END
+            ]], true)
+      end,
+   })
 
    -- file managing , picker etc
    use({
       'kyazdani42/nvim-tree.lua',
       cmd = 'NvimTreeToggle',
       config = function()
-         require('plugins/nvim-tree').config()
+         require('plugins.nvim-tree').config()
       end,
    })
 
    use({
       'kyazdani42/nvim-web-devicons',
       config = function()
-         require('plugins/devicons').config()
+         require('plugins.devicons').config()
       end,
    })
 
@@ -130,7 +142,7 @@ return packer.startup(function()
       },
       cmd = 'Telescope',
       config = function()
-         require('plugins/telescope').config()
+         require('plugins.telescope').config()
       end,
    })
 
@@ -139,7 +151,7 @@ return packer.startup(function()
       'lewis6991/gitsigns.nvim',
       event = 'BufRead',
       config = function()
-         require('plugins/gitsigns').config()
+         require('plugins.gitsigns').config()
       end,
    })
 
@@ -182,7 +194,7 @@ return packer.startup(function()
          'SessionSave',
       },
       setup = function()
-         require('plugins/dashboard').config()
+         require('plugins.dashboard').config()
       end,
    })
 
@@ -192,7 +204,7 @@ return packer.startup(function()
    use({
       'Pocco81/AutoSave.nvim',
       config = function()
-         require('plugins/zenmode').autoSave()
+         require('plugins.zenmode').autoSave()
       end,
       cond = function()
          return vim.g.auto_save == true
@@ -212,11 +224,9 @@ return packer.startup(function()
       'Pocco81/TrueZen.nvim',
       cmd = { 'TZAtaraxis', 'TZMinimalist', 'TZFocus' },
       config = function()
-         require('plugins/zenmode').config()
+         require('plugins.zenmode').config()
       end,
    })
-
-   --   use "alvan/vim-closetag" -- for html autoclosing tag
 
    use({
       'lukas-reineke/indent-blankline.nvim',

@@ -1,3 +1,5 @@
+require 'nvim_utils'
+
 local M = {}
 
 M.config = function()
@@ -84,6 +86,15 @@ M.config = function()
       vim.cmd('bufdo e') -- triggers FileType autocmd that starts the server
    end
 
+   -- Automagically format code.
+   local autocmds = {
+     format = {
+       {"BufWritePre", "*.go", "lua vim.lsp.buf.formatting_sync(nil, 100)"},
+       {"BufWritePre", "*.rs", "lua vim.lsp.buf.formatting_sync(nil, 100)"}
+     }
+   }
+   nvim_create_augroups(autocmds)
+   
    -- replace the default lsp diagnostic letters with prettier symbols
    vim.fn.sign_define('LspDiagnosticsSignError', { text = '', numhl = 'LspDiagnosticsDefaultError' })
    vim.fn.sign_define('LspDiagnosticsSignWarning', { text = '', numhl = 'LspDiagnosticsDefaultWarning' })

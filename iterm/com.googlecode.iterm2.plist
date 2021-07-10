@@ -7,9 +7,9 @@
 	<key>AllowClipboardAccess</key>
 	<true/>
 	<key>BadgeRightMargin</key>
-	<integer>0</integer>
+	<integer>10</integer>
 	<key>BadgeTopMargin</key>
-	<integer>0</integer>
+	<integer>10</integer>
 	<key>CompactMinimalTabBarHeight</key>
 	<real>32</real>
 	<key>Custom Color Presets</key>

@@ -3,6 +3,7 @@ local use = packer.use
 
 return packer.startup(function()
    use('wbthomason/packer.nvim')
+   use 'norcalli/nvim_utils'
 
    use({
       'akinsho/nvim-bufferline.lua',
@@ -100,20 +101,6 @@ return packer.startup(function()
          },
          'rafamadriz/friendly-snippets',
       },
-   })
-
-   use({
-      'sbdchd/neoformat',
-      event = 'VimEnter',
-      config = function()
-         vim.api.nvim_exec(
-            [[
-              augroup fmt
-                autocmd!
-                autocmd BufWritePre *.rs try | undojoin | Neoformat | catch /^Vim\%((\a\+)\)\=:E790/ | finally | silent Neoformat | endtry
-              augroup END
-            ]], true)
-      end,
    })
 
    -- file managing , picker etc

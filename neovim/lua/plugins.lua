@@ -106,7 +106,7 @@ return packer.startup(function()
       },
    })
 
-   -- file managing , picker etc
+   -- file managing, picker etc
    use({
       'kyazdani42/nvim-tree.lua',
       cmd = 'NvimTreeToggle',

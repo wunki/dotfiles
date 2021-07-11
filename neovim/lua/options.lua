@@ -40,22 +40,22 @@ vim.g.loaded_spec = 0
 vim.g.mapleader = ' '
 vim.g.auto_save = false
 
--- hide line numbers, statusline in specific buffers!
--- todo: move below into autocmds
-vim.api.nvim_exec(
-   [[
-   au BufEnter term://* setlocal nonumber
-   au BufEnter,BufWinEnter,WinEnter,CmdwinEnter * if bufname('%') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif
-   au BufEnter term://* set laststatus=0 
-]],
-   false
-)
-
+require('nvim_utils')
 local autocmds = {
-  -- file extension specific tabbing
-  tabbing = {
-    {"FileType", "go", "setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4"},
-  }
-}
-require('nvim_utils').nvim_create_augroups(autocmds)
+   -- line numbers in the terminal.
+   line_numbers = {
+      { 'BufEnter', 'term://*', 'setlocal nonumber' },
+      {
+         'Bufenter,BufWinEnter,WinEnter,CmdwinEnter',
+         '*',
+         'if bufname(\'%\') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif',
+      },
+      { 'BufEnter', 'term://*', 'set laststatus=0' },
+   },
 
+   -- indentation for languages
+   tabbing = {
+      { 'FileType', 'go', 'setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4' },
+   },
+}
+nvim_create_augroups(autocmds)

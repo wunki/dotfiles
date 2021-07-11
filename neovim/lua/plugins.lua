@@ -3,7 +3,7 @@ local use = packer.use
 
 return packer.startup(function()
    use('wbthomason/packer.nvim')
-   use 'norcalli/nvim_utils'
+   use('norcalli/nvim_utils')
 
    use({
       'akinsho/nvim-bufferline.lua',
@@ -59,7 +59,10 @@ return packer.startup(function()
       end,
    })
 
-   use('kabouzeid/nvim-lspinstall')
+   use({
+      'kabouzeid/nvim-lspinstall',
+      event = 'VimEnter',
+   })
 
    use({
       'onsails/lspkind-nvim',

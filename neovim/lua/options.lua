@@ -1,5 +1,3 @@
-require 'nvim_utils'
-
 local opt = vim.opt
 
 opt.ruler = false
@@ -59,5 +57,5 @@ local autocmds = {
     {"FileType", "go", "setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4"},
   }
 }
-nvim_create_augroups(autocmds)
+require('nvim_utils').nvim_create_augroups(autocmds)
 

@@ -14,7 +14,6 @@ end
 -- vim.cmd([[autocmd Filetype python setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4]])
 
 -- blankline config
-
 M.blankline = function()
    vim.g.indentLine_enabled = 1
    vim.g.indent_blankline_char = '·'

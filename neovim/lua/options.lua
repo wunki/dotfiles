@@ -1,3 +1,5 @@
+require 'nvim_utils'
+
 local opt = vim.opt
 
 opt.ruler = false
@@ -40,7 +42,8 @@ vim.g.loaded_spec = 0
 vim.g.mapleader = ' '
 vim.g.auto_save = false
 
--- hide line numbers , statusline in specific buffers!
+-- hide line numbers, statusline in specific buffers!
+-- todo: move below into autocmds
 vim.api.nvim_exec(
    [[
    au BufEnter term://* setlocal nonumber
@@ -49,3 +52,12 @@ vim.api.nvim_exec(
 ]],
    false
 )
+
+local autocmds = {
+  -- file extension specific tabbing
+  tabbing = {
+    {"FileType", "go", "setlocal noexpandtab tabstop=4 shiftwidth=4 softtabstop=4"},
+  }
+}
+nvim_create_augroups(autocmds)
+

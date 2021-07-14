@@ -42,7 +42,7 @@ vim.g.auto_save = false
 
 require('nvim_utils')
 local autocmds = {
-   -- line numbers in the terminal.
+   -- line numbers in the terminal, switch to relative line numbers in visual mode.
    line_numbers = {
       { 'BufEnter', 'term://*', 'setlocal nonumber' },
       {
@@ -51,6 +51,8 @@ local autocmds = {
          'if bufname(\'%\') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif',
       },
       { 'BufEnter', 'term://*', 'set laststatus=0' },
+      { 'BufEnter,FocusGained,InsertLeave', '*', 'set relativenumber'},
+      { 'BufLeave,FocusLost,InsertEnter', '*', 'set norelativenumber'}
    },
 
    -- indentation for languages

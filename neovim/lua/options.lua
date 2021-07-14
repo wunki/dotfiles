@@ -17,7 +17,7 @@ opt.clipboard = 'unnamedplus'
 -- Numbers
 opt.number = true
 opt.numberwidth = 2
--- opt.relativenumber = true
+opt.relativenumber = true
 
 -- for indenline
 opt.expandtab = true

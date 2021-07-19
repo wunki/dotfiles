@@ -53,7 +53,7 @@ super + ctrl + space
 
 # Start alacritty
 super + Return
-    alacritty
+    wezterm
 
 # Open application menu
 super + d

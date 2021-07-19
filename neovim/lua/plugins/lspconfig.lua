@@ -46,6 +46,16 @@ M.config = function()
       require('lspinstall').setup()
       local servers = require('lspinstall').installed_servers()
 
+      lspconf.rust_analyzer.setup {
+        settings = {
+          ["rust-analyzer"] = {
+            rustfmt = {
+              extraArgs = { "+nightly"}
+            }
+          }
+        }
+      }
+
       for _, lang in pairs(servers) do
          if lang ~= 'lua' then
             lspconf[lang].setup({

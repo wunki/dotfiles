@@ -2380,11 +2380,11 @@
 			<key>Name</key>
 			<string>Petar</string>
 			<key>Non Ascii Font</key>
-			<string>CaskaydiaCoveNerdFontComplete- 16</string>
+			<string>LilexNerdFontCompleteM-Regular 16</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>MonoLisaNerdFontComplete-Regular 13</string>
+			<string>CaskaydiaCoveNerdFontComplete- 16</string>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>

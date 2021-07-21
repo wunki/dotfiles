@@ -38,6 +38,7 @@ prepend_to_path "$HOME/.yarn/bin"
 # This fixes u bug where we weren't able to install components on FreeBSD
 set -x RUSTUP_UPDATE_ROOT https://dev-static.rust-lang.org/rustup
 prepend_to_path "$HOME/.cargo/bin"
+abbr rfmt 'cargo +nightly fmt'
 
 # Zig
 prepend_to_path "$PROJECT_DIR/zig"

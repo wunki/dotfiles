@@ -10,8 +10,8 @@ env:
 window:
   dynamic_title: true
   padding:
-    x: 24
-    y: 24
+    x: 5
+    y: 5
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.

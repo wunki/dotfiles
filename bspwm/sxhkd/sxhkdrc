@@ -11,8 +11,8 @@ alt + {_,shift + }f
     sh $HOME/.local/bin/tglbar {hide,show}
 
 # Move the focused window
-super + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
+super + shift { Left, Down, Up, Right }
+        bspc node -s {west,south,north,east}
 
 # Kill the focused window
 super + c
@@ -53,7 +53,7 @@ super + ctrl + space
 
 # Start alacritty
 super + Return
-    wezterm
+    alacritty
 
 # Open application menu
 super + d

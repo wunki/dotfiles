@@ -149,6 +149,12 @@ return packer.startup(function()
       'TimUntersberger/neogit',
       requires = 'nvim-lua/plenary.nvim',
       cmd = 'Neogit',
+      config = function()
+        local neogit = require("neogit")
+        neogit.setup {
+          disable_commit_confirmation = true
+        }
+      end
    })
 
    -- misc plugins
@@ -165,6 +171,8 @@ return packer.startup(function()
    })
 
    use({ 'andymass/vim-matchup', event = 'CursorMoved' })
+
+   use({ 'jeffkreeftmeijer/vim-numbertoggle' })
 
    use({
       'terrortylor/nvim-comment',

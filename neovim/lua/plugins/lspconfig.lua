@@ -41,7 +41,6 @@ M.config = function()
    capabilities.textDocument.completion.completionItem.snippetSupport = true
 
    -- lspInstall + lspconfig stuff
-
    local function setup_servers()
       require('lspinstall').setup()
       local servers = require('lspinstall').installed_servers()
@@ -101,8 +100,7 @@ M.config = function()
    -- Automagically format code.
    local autocmds = {
      lsp_format = {
-       {"BufWritePre", "*.go", "lua vim.lsp.buf.formatting_sync(nil, 100)"},
-       {"BufWritePre", "*.rs", "lua vim.lsp.buf.formatting_sync(nil, 100)"}
+       {"BufWritePre", "*.go,*.rs,*.exs,*.ex", "lua vim.lsp.buf.formatting_sync(nil, 100)"},
      }
    }
    nvim_create_augroups(autocmds)

@@ -219,6 +219,14 @@ return packer.startup(function()
    })
 
    use({
+     "folke/twilight.nvim",
+     config = function()
+       require("twilight").setup {
+       }
+     end
+   })
+
+   use({
       'lukas-reineke/indent-blankline.nvim',
       event = 'BufRead',
       setup = function()

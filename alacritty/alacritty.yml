@@ -38,7 +38,7 @@ font:
     style: Italic
 
   # Point size
-  size: 9
+  size: 10
 
 schemes:
   everforest_dark_hard: &everforest_dark_hard

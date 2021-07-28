@@ -24,17 +24,17 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: 'MonoLisa Nerd Font'
+    family: 'BlexMono Nerd Font'
     style: Regular
 
   # Bold font face
   bold:
-    family: 'MonoLisa Nerd Font'
+    family: 'BlexMono Nerd Font'
     style: Bold
 
   # Italic font face
   italic:
-    family: 'MonoLisa Nerd Font'
+    family: 'BlexMono Nerd Font'
     style: Italic
 
   # Point size

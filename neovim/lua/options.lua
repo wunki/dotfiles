@@ -50,9 +50,7 @@ local autocmds = {
          '*',
          'if bufname(\'%\') == "NvimTree" | set laststatus=0 | else | set laststatus=2 | endif',
       },
-      { 'BufEnter', 'term://*', 'set laststatus=0' },
-      { 'BufEnter,FocusGained,InsertLeave', '*', 'set relativenumber'},
-      { 'BufLeave,FocusLost,InsertEnter', '*', 'set norelativenumber'}
+      { 'BufEnter', 'term://*', 'set laststatus=0' }
    },
 
    -- indentation for languages

@@ -39,10 +39,12 @@ map('v', '<leader>/', ':CommentToggle<CR>', opt)
 map('n', '<C-q>', ':bp<bar>sp<bar>bn<bar>bd! <CR>', opt)
 
 -- Clear search highlights
-map('n', '<C-l>', ':nohlsearch <CR>', opt)
+map('n', '<C-l>', ':nohlsearch<CR>', opt)
+
+-- Vim test
+map('n', 't<C-n>', ':TestNearest<CR>', opt)
 
 -- Compe stuff
-
 local t = function(str)
    return vim.api.nvim_replace_termcodes(str, true, true, true)
 end

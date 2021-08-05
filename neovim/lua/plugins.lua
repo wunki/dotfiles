@@ -85,7 +85,7 @@ return packer.startup(function()
       },
    })
 
-   -- load compe in insert mode only
+   -- autocompletions
    use({
       'hrsh7th/nvim-compe',
       event = 'InsertEnter',
@@ -169,6 +169,8 @@ return packer.startup(function()
          })
       end,
    })
+
+   use({ 'vim-test/vim-test' })
 
    use({ 'andymass/vim-matchup', event = 'CursorMoved' })
 

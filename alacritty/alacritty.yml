@@ -24,21 +24,21 @@ scrolling:
 # Font configuration
 font:
   normal:
-    family: 'BlexMono Nerd Font'
+    family: 'MonoLisa Nerd Font'
     style: Regular
 
   # Bold font face
   bold:
-    family: 'BlexMono Nerd Font'
+    family: 'MonoLisa Nerd Font'
     style: Bold
 
   # Italic font face
   italic:
-    family: 'BlexMono Nerd Font'
+    family: 'MonoLisa Nerd Font'
     style: Italic
 
   # Point size
-  size: 10
+  size: 9
 
 schemes:
   everforest_dark_hard: &everforest_dark_hard

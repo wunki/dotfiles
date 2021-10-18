@@ -9,7 +9,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 dunst --config $HOME/.config/dunst/dunstrc &
 eww daemon &
 picom --config $HOME/.config/picom/picom.conf &
-hsetroot -fill "$HOME/dropbox/Wallpapers/wallhaven-yj82zk.jpg"
+hsetroot -fill "$HOME/dropbox/Wallpapers/wallhaven-9mrdm1.jpg"
 sh $HOME/.config/polybar/launch.sh
 
 # ##############################################################################
@@ -39,4 +39,5 @@ bspc config gapless_monocle      true
 bspc rule -a discord desktop=^4 state=floating
 bspc rule -a Thunar desktop=^4 state=floating
 bspc rule -a firefox desktop=^3 state=floating 
+bspc rule -a Code desktop=^2 state=floating 
 

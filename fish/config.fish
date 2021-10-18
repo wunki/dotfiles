@@ -83,12 +83,16 @@ if type -q bat
 end
 
 # Erlang and Elixir
+set -x ERL_AFLAGS "-kernel shell_history enabled"
+set -x KERL_CONFIGURE_OPTIONS "--disable-debug --without-javac"
 abbr miex 'iex -S mix'
 abbr mtm 'mix test --only module:'
 prepend_to_path /usr/local/lib/erlang24/bin
 
-if type -q erl
-    set -x ERL_AFLAGS "-kernel shell_history enabled"
+# Python
+if type -q pyenv
+    status is-login; and pyenv init --path | source
+    status is-interactive; and pyenv init - | source
 end
 
 # PostgreSQL -- don't go to the users database which never exists...
@@ -147,4 +151,8 @@ end
 # Version manager for different languages
 if test -d "$HOME/.asdf"
     . $HOME/.asdf/asdf.fish
+end
+
+if test -d "/opt/asdf-vm"
+    . /opt/asdf-vm/asdf.fish
 end

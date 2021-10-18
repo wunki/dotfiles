@@ -21,6 +21,13 @@ return packer.startup(function()
 
    -- colors
    use('siduck76/nvim-base16.lua')
+   use({
+      'folke/tokyonight.nvim',
+       event = 'VimEnter',
+       config = function()
+          vim.cmd('colorscheme tokyonight')
+       end,
+   })
 
    use({
       'sainnhe/gruvbox-material',
@@ -28,7 +35,6 @@ return packer.startup(function()
       config = function()
          vim.g.gruvbox_material_enable_italic = 1
          vim.g.gruvbox_material_background = 'hard'
-         vim.cmd('colorscheme gruvbox-material')
       end,
       after = 'indent-blankline.nvim',
    })

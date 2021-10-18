@@ -2,6 +2,7 @@ fish_history
 fishd.*
 fish_read_history
 fish_variables
+fish_plugins
 /functions/*
 
 # These files are managed by fisherman, so let's ignore them
@@ -19,7 +20,5 @@ fish_variables
 !/functions/fisher.fish
 !/functions/gg.fish
 !/functions/_min*.fish
-!/functions/fish_greeting.fish
 !/functions/update-abbreviations.fish
 !/functions/update-abbreviations-*.fish
-!/functions/fish_title.fish

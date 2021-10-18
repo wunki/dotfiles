@@ -28,7 +28,7 @@ unclutter -idle 3 &
 setxkbmap dvorak 
 
 # Restore the keyboard setup if it's plugged in again
-# inputplug -c ~/.bin/on_new_keyboard.sh
+inputplug -c ~/.local/bin/on_new_keyboard.sh
 
 # I want to be able to sleep at night
 redshift -l 52:4 -t 6000:4800 -m randr &

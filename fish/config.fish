@@ -33,6 +33,7 @@ prepend_to_path "$HOME/.local/bin"
 prepend_to_path "$HOME/.npm/bin"
 prepend_to_path "$HOME/.npm-packages/bin"
 prepend_to_path "$HOME/.yarn/bin"
+prepend_to_path "$HOME/.pyenv/bin"
 
 # Rust
 # This fixes u bug where we weren't able to install components on FreeBSD

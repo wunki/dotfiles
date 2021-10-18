@@ -21,6 +21,7 @@ fish::
 	@test -d ${HOME}/.config || mkdir ${HOME}/.config	${HOME}/.config
 	@ln -fns $(DOTFILES)/fish							${HOME}/.config/fish
 	@printf "Please run the following to install plugins: \n\n\
+	\tfisher install pure-fish/pure \n\
 	\tfisher install jethrokuan/z \n\
 	\tfisher install PatrickF1/fzf.fish\n\n"
 	@echo Fish is symlinked.

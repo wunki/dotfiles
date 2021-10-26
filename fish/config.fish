@@ -20,30 +20,30 @@ end
 
 # Start with a clean path variable
 set -e PATH
-prepend_to_path /bin
-prepend_to_path /sbin
-prepend_to_path /usr/bin
-prepend_to_path /usr/sbin
-prepend_to_path /usr/local/sbin
-prepend_to_path /usr/local/bin
-prepend_to_path /usr/local/share/dotnet
+fish_add_path -aP /bin
+fish_add_path -aP /sbin
+fish_add_path -aP /usr/bin
+fish_add_path -aP /usr/sbin
+fish_add_path -aP /usr/local/sbin
+fish_add_path -aP /usr/local/bin
+fish_add_path -aP /usr/local/share/dotnet
 
 # Local Paths
-prepend_to_path "$HOME/.local/bin"
-prepend_to_path "$HOME/.npm/bin"
-prepend_to_path "$HOME/.npm-packages/bin"
-prepend_to_path "$HOME/.yarn/bin"
-prepend_to_path "$HOME/.pyenv/bin"
-prepend_to_path "$HOME/.fzf/bin"
+fish_add_path -aP "$HOME/.local/bin"
+fish_add_path -aP "$HOME/.npm/bin"
+fish_add_path -aP "$HOME/.npm-packages/bin"
+fish_add_path -aP "$HOME/.yarn/bin"
+fish_add_path -aP "$HOME/.pyenv/bin"
+fish_add_path -aP "$HOME/.fzf/bin"
 
 # Rust
 # This fixes u bug where we weren't able to install components on FreeBSD
 set -x RUSTUP_UPDATE_ROOT https://dev-static.rust-lang.org/rustup
-prepend_to_path "$HOME/.cargo/bin"
+fish_add_path -aP "$HOME/.cargo/bin"
 abbr rfmt 'cargo +nightly fmt'
 
 # Zig
-prepend_to_path "$PROJECT_DIR/zig"
+fish_add_path -aP "$PROJECT_DIR/zig"
 
 # System specific configuration
 switch (uname)
@@ -89,7 +89,7 @@ set -x ERL_AFLAGS "-kernel shell_history enabled"
 set -x KERL_CONFIGURE_OPTIONS "--disable-debug --without-javac"
 abbr miex 'iex -S mix'
 abbr mtm 'mix test --only module:'
-prepend_to_path /usr/local/lib/erlang24/bin
+fish_add_path -aP /usr/local/lib/erlang24/bin
 
 # Python
 if type -q pyenv
@@ -98,9 +98,7 @@ if type -q pyenv
 end
 
 # PostgreSQL -- don't go to the users database which never exists...
-if type -q pgcli
-    set -x PGDATABASE postgres
-end
+type -q pgcli ; and set -x PGDATABASE postgres
 
 # Use nvim when installed
 if type -q nvim
@@ -111,27 +109,23 @@ else
 end
 
 # FZF
-if type -q fzf
-    set fzf_preview_dir_cmd exa --all --color=always
-end
+type -q fzf ; and set fzf_preview_dir_cmd exa --all --color=always
 
 # Go
 if type -q go
     set -x GOPATH "$PROJECT_DIR/go"
-    prepend_to_path "$GOPATH/bin"
+    fish_add_path -aP "$GOPATH/bin"
     abbr gb 'go build'
     abbr gt 'go test -v ./...'
 
-    if type -q gocov
-        abbr gc 'gocov test | gocov report'
-    end
+    type -q gocov ; and abbr gc 'gocov test | gocov report'
 end
 
 # NodeJS
 if type -q npm
     set -x NPM_PACKAGES "$HOME/.npm-packages"
     set -x NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-    prepend_to_path "$NPM_PACKAGES/bin"
+    fish_add_path -aP "$NPM_PACKAGES/bin"
 end
 
 # .NET Core
@@ -141,7 +135,7 @@ if type -q dotnet
 end
 
 # AWS 
-prepend_to_path "$HOME/.aws/bin"
+fish_add_path -aP "$HOME/.aws/bin"
 set -x AWS_IAM_HOME "$HOME/.aws/iam"
 set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
 
@@ -151,10 +145,5 @@ if type -q direnv
 end
 
 # Version manager for different languages
-if test -d "$HOME/.asdf"
-    . $HOME/.asdf/asdf.fish
-end
-
-if test -d "/opt/asdf-vm"
-    . /opt/asdf-vm/asdf.fish
-end
+test -d "$HOME/.asdf" ; and source $HOME/.asdf/asdf.fish
+test -d "/opt/asdf-vm" ; and source /opt/asdf-vm/asdf.fish

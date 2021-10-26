@@ -4,9 +4,9 @@ if string match -q "*microsoft*" (uname -a)
     
     keychain --eval --quiet --agents ssh id_rsa | source
 
-    prepend_to_path "/mnt/c/Program Files/Docker/Docker/resources/bin"
-    prepend_to_path "/mnt/c/Users/petar/AppData/Local/Programs/Microsoft VS Code/bin"
-    prepend_to_path "/mnt/c/Windows/System32"
+    fish_add_path -aP "/mnt/c/Program Files/Docker/Docker/resources/bin"
+    fish_add_path -aP "/mnt/c/Users/petar/AppData/Local/Programs/Microsoft VS Code/bin"
+    fish_add_path -aP "/mnt/c/Windows/System32"
 
     abbr clip 'clip.exe'
 end

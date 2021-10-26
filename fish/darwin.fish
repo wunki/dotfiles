@@ -14,9 +14,9 @@ if test -d "/Applications/Emacs.app"
     abbr emacs '/Applications/Emacs.app/Contents/MacOS/Emacs -nw'
 end
 
-prepend_to_path "/Applications/Emacs.app/Contents/MacOS/bin"
-prepend_to_path /usr/local/opt/go/libexec/bin
-prepend_to_path /usr/local/opt/mono/bin
-prepend_to_path "/Applications/Postgres.app/Contents/Versions/11.0/bin"
-prepend_to_path /usr/local/Cellar/emacs/HEAD/bin
-prepend_to_path "/Applications/Postgres.app/Contents/Versions/latest/bin"
+fish_add_path -aP "/Applications/Emacs.app/Contents/MacOS/bin"
+fish_add_path -aP /usr/local/opt/go/libexec/bin
+fish_add_path -aP /usr/local/opt/mono/bin
+fish_add_path -aP "/Applications/Postgres.app/Contents/Versions/11.0/bin"
+fish_add_path -aP /usr/local/Cellar/emacs/HEAD/bin
+fish_add_path -aP "/Applications/Postgres.app/Contents/Versions/latest/bin"

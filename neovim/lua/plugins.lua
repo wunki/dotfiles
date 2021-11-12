@@ -23,10 +23,11 @@ return packer.startup(function()
    use('siduck76/nvim-base16.lua')
    use({
       'folke/tokyonight.nvim',
-       event = 'VimEnter',
-       config = function()
-          vim.cmd('colorscheme tokyonight')
-       end,
+      event = 'VimEnter',
+      config = function()
+         vim.g.tokyonight_enable_italic = 0
+         vim.cmd('colorscheme tokyonight')
+      end,
    })
 
    use({
@@ -59,7 +60,7 @@ return packer.startup(function()
 
    use({
       'neovim/nvim-lspconfig',
-      after = "nvim-lspinstall",
+      after = 'nvim-lspinstall',
       config = function()
          require('plugins.lspconfig').config()
       end,
@@ -115,7 +116,7 @@ return packer.startup(function()
    -- file managing, picker etc
    use({
       'kyazdani42/nvim-tree.lua',
-      cmd = 'NvimTreeToggle',
+      cmd = {'NvimTreeToggle', 'NvimTreeFocus'},
       config = function()
          require('plugins.nvim-tree').config()
       end,
@@ -156,11 +157,11 @@ return packer.startup(function()
       requires = 'nvim-lua/plenary.nvim',
       cmd = 'Neogit',
       config = function()
-        local neogit = require("neogit")
-        neogit.setup {
-          disable_commit_confirmation = true
-        }
-      end
+         local neogit = require('neogit')
+         neogit.setup({
+            disable_commit_confirmation = true,
+         })
+      end,
    })
 
    -- misc plugins
@@ -235,11 +236,10 @@ return packer.startup(function()
    })
 
    use({
-     "folke/twilight.nvim",
-     config = function()
-       require("twilight").setup {
-       }
-     end
+      'folke/twilight.nvim',
+      config = function()
+         require('twilight').setup({})
+      end,
    })
 
    use({

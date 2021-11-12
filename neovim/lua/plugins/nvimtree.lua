@@ -1,6 +1,6 @@
-local present, nvimtree = pcall(require, 'nvim-tree')
+local ok, nvimtree = pcall(require, 'nvim-tree')
 
-if not present then
+if not ok then
    return
 end
 
@@ -9,7 +9,7 @@ local g = vim.g
 vim.o.termguicolors = true
 
 g.nvim_tree_add_trailing = 0 -- append a trailing slash to folder names
-g.nvim_tree_git_hl = git_status
+g.nvim_tree_git_hl = 1
 g.nvim_tree_gitignore = 0
 g.nvim_tree_highlight_opened_files = 0
 g.nvim_tree_indent_markers = 1
@@ -21,7 +21,7 @@ g.nvim_tree_show_icons = {
    folders = 1,
    -- folder_arrows= 1
    files = 1,
-   git = git_status,
+   git = 1
 }
 
 g.nvim_tree_icons = {
@@ -64,7 +64,7 @@ nvimtree.setup({
    },
    disable_netrw = true,
    hijack_netrw = true,
-   ignore_ft_on_setup = { 'dashboard' },
+   ignore_ft_on_setup = { "dashboard" },
    auto_close = false,
    open_on_tab = false,
    hijack_cursor = true,
@@ -75,7 +75,7 @@ nvimtree.setup({
    },
    view = {
       allow_resize = true,
-      side = 'left',
+      side = "left",
       width = 25,
    },
 })

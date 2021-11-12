@@ -1,5 +1,3 @@
--- plugins made by @Pocco81 =)
-
 local M = {}
 
 M.config = function()

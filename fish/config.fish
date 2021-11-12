@@ -18,8 +18,7 @@ else
     set -x VISUAL vim
 end
 
-# Start with a clean path variable
-set -e PATH
+# Add to path if they exist
 fish_add_path -aP /bin
 fish_add_path -aP /sbin
 fish_add_path -aP /usr/bin
@@ -95,6 +94,7 @@ fish_add_path -aP /usr/local/lib/erlang24/bin
 if type -q pyenv
     status is-login; and pyenv init --path | source
     status is-interactive; and pyenv init - | source
+    status --is-interactive; and pyenv virtualenv-init - | source
 end
 
 # PostgreSQL -- don't go to the users database which never exists...

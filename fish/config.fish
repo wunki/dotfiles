@@ -34,6 +34,7 @@ fish_add_path -aP "$HOME/.npm-packages/bin"
 fish_add_path -aP "$HOME/.yarn/bin"
 fish_add_path -aP "$HOME/.pyenv/bin"
 fish_add_path -aP "$HOME/.fzf/bin"
+fish_add_path -aP "$HOME/.fly/bin"
 
 # Rust
 # This fixes u bug where we weren't able to install components on FreeBSD
@@ -147,3 +148,7 @@ end
 # Version manager for different languages
 test -d "$HOME/.asdf" ; and source $HOME/.asdf/asdf.fish
 test -d "/opt/asdf-vm" ; and source /opt/asdf-vm/asdf.fish
+
+if type -q asdf
+    fish_add_path -aP (asdf where elixir)/.mix/escripts
+end

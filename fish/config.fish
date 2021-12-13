@@ -99,6 +99,7 @@ if type -q pyenv
 end
 
 # PostgreSQL -- don't go to the users database which never exists...
+fish_add_path -aP /usr/local/opt/libpq/bin
 type -q pgcli ; and set -x PGDATABASE postgres
 
 # Use nvim when installed

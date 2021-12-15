@@ -100,6 +100,7 @@ end
 
 # PostgreSQL -- don't go to the users database which never exists...
 fish_add_path -aP /usr/local/opt/libpq/bin
+fish_add_path -aP /Applications/Postgres.app/Contents/Versions/latest/bin
 type -q pgcli ; and set -x PGDATABASE postgres
 
 # Use nvim when installed
@@ -147,9 +148,13 @@ if type -q direnv
 end
 
 # Version manager for different languages
-test -d "$HOME/.asdf" ; and source $HOME/.asdf/asdf.fish
-test -d "/opt/asdf-vm" ; and source /opt/asdf-vm/asdf.fish
+test -f "$HOME/.asdf/asdf.fish" ; and source $HOME/.asdf/asdf.fish
+test -d "/opt/homebrew/opt/asdf" ; and source /opt/homebrew/opt/asdf/libexec/asdf.fish
 
 if type -q asdf
     fish_add_path -aP (asdf where elixir)/.mix/escripts
+end
+
+if status --is-interactive
+  eval (/opt/homebrew/bin/brew shellenv)
 end

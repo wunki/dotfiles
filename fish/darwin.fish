@@ -1,7 +1,7 @@
 set -x PROJECT_DIR {$HOME}/Code
-set -x OPENSSL_INCLUDE_DIR /usr/local/opt/openssl/include
-set -x OPENSSL_LIB /usr/local/opt/openssl/lib
-set -x OPENSSL_ROOT_DIR /usr/local/opt/openssl
+set -x OPENSSL_INCLUDE_DIR (brew --prefix)/opt/openssl/include
+set -x OPENSSL_LIB (brew --prefix)/opt/openssl/lib
+set -x OPENSSL_ROOT_DIR (brew --prefix)/opt/openssl
 
 function bup --description "Updates, upgrades and cleanes Homebrew"
     brew update

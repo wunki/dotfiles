@@ -26,6 +26,7 @@ fish_add_path -aP /usr/sbin
 fish_add_path -aP /usr/local/sbin
 fish_add_path -aP /usr/local/bin
 fish_add_path -aP /usr/local/share/dotnet
+fish_add_path -aP (brew --prefix)/opt/node@14/bin
 
 # Local Paths
 fish_add_path -aP "$HOME/.local/bin"
@@ -62,6 +63,7 @@ abbr gs 'git status --ignore-submodules=dirty'
 abbr gp 'git push origin HEAD'
 abbr gf 'git pull origin HEAD'
 abbr e 'emacsclient --no-wait --create-frame --quiet -a emacs'
+abbr n 'nvim'
 abbr cdr 'cd (git rev-parse --show-toplevel)'
 
 # Use EXA for listing files
@@ -149,7 +151,7 @@ end
 
 # Version manager for different languages
 test -f "$HOME/.asdf/asdf.fish" ; and source $HOME/.asdf/asdf.fish
-test -d "/opt/homebrew/opt/asdf" ; and source /opt/homebrew/opt/asdf/libexec/asdf.fish
+test -d (brew --prefix)"/opt/asdf" ; and source (brew --prefix)/opt/asdf/libexec/asdf.fish
 
 if type -q asdf
     fish_add_path -aP (asdf where elixir)/.mix/escripts

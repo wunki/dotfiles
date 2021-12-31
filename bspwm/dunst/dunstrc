@@ -1,5 +1,5 @@
 [global]
-    font = JetBrains Mono 9 
+    font = JetBrains Mono 9
 
     # Allow a small subset of html markup:
     # <b>bold</b>

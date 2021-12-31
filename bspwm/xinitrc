@@ -24,8 +24,10 @@ xsetroot -cursor_name left_ptr
 # Hide the mouse cursor
 unclutter -idle 3 &
 
-# Dvorak keyboard
-setxkbmap dvorak 
+# Dvorak keyboard, where we map our caps lock to Control on long press,
+# escape on short press
+setxkbmap dvorak -option ctrl:nocaps -option altwin:swap_alt_win
+xcape -e 'Control_L=Escape'
 
 # Restore the keyboard setup if it's plugged in again
 inputplug -c ~/.local/bin/on_new_keyboard.sh

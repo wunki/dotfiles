@@ -20,3 +20,10 @@ fish_add_path -aP /usr/local/opt/mono/bin
 fish_add_path -aP "/Applications/Postgres.app/Contents/Versions/11.0/bin"
 fish_add_path -aP /usr/local/Cellar/emacs/HEAD/bin
 fish_add_path -aP "/Applications/Postgres.app/Contents/Versions/latest/bin"
+fish_add_path -aP (brew --prefix)/opt/node@14/bin
+
+test -d (brew --prefix)"/opt/asdf" ; and source (brew --prefix)/opt/asdf/libexec/asdf.fish
+
+if status --is-interactive
+  eval (/opt/homebrew/bin/brew shellenv)
+end

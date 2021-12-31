@@ -7,6 +7,16 @@ set -x LC_ALL 'en_US.UTF-8'
 set -x XDG_DATA_HOME {$HOME}/.local/share
 set -x GPG_TTY (tty)
 
+# System specific configuration
+switch (uname)
+    case Linux
+        . $HOME/.config/fish/linux.fish
+    case Darwin
+        . $HOME/.config/fish/darwin.fish
+    case FreeBSD
+        . $HOME/.config/fish/freebsd.fish
+end
+
 # Where I store all my projects
 set -x PROJECT_DIR "$HOME/code"
 
@@ -26,7 +36,6 @@ fish_add_path -aP /usr/sbin
 fish_add_path -aP /usr/local/sbin
 fish_add_path -aP /usr/local/bin
 fish_add_path -aP /usr/local/share/dotnet
-fish_add_path -aP (brew --prefix)/opt/node@14/bin
 
 # Local Paths
 fish_add_path -aP "$HOME/.local/bin"
@@ -45,16 +54,6 @@ abbr rfmt 'cargo +nightly fmt'
 
 # Zig
 fish_add_path -aP "$PROJECT_DIR/zig"
-
-# System specific configuration
-switch (uname)
-    case Linux
-        . $HOME/.config/fish/linux.fish
-    case Darwin
-        . $HOME/.config/fish/darwin.fish
-    case FreeBSD
-        . $HOME/.config/fish/freebsd.fish
-end
 
 abbr t1 'tree --dirsfirst -ChFL 1'
 abbr t2 'tree --dirsfirst -ChFL 2'
@@ -151,12 +150,7 @@ end
 
 # Version manager for different languages
 test -f "$HOME/.asdf/asdf.fish" ; and source $HOME/.asdf/asdf.fish
-test -d (brew --prefix)"/opt/asdf" ; and source (brew --prefix)/opt/asdf/libexec/asdf.fish
 
 if type -q asdf
     fish_add_path -aP (asdf where elixir)/.mix/escripts
-end
-
-if status --is-interactive
-  eval (/opt/homebrew/bin/brew shellenv)
 end

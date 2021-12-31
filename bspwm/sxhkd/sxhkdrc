@@ -7,8 +7,8 @@ super + {_,shift + }n
     bspc node -f {next,prev}.local.!hidden.window
 
 # Fullscreen window with gaps
-alt + {_,shift + }f
-    sh $HOME/.local/bin/tglbar {hide,show}
+# alt + {_,shift + }f
+#     sh $HOME/.local/bin/tglbar {hide,show}
 
 # Move the focused window
 super + shift { Left, Down, Up, Right }
@@ -16,22 +16,22 @@ super + shift { Left, Down, Up, Right }
 
 # Kill the focused window
 super + c
-    bspc node -c
+   bspc node -c
 
 # Move to or send window to workspace #
 super + {_,shift + }{1-7}
-	bspc {desktop -f,node -d} '^{1-7}'
+  bspc {desktop -f,node -d} '^{1-7}'
 
 # Resize window
 super + shift + {h,j,k,l}
-	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+  bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
 super + alt + {h,j,k,l}
-	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+  bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 # Set window state
 super + {alt + t,shift + t,space,f}
-	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+  bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
 
 # Add focused window to a tabbed instance
 super + t; {h,j,k,l}
@@ -45,11 +45,11 @@ super + t; r
 
 # Set new window orientation
 super + ctrl + {h,j,k,l}
-	bspc node -p {west,south,north,east}
+  bspc node -p {west,south,north,east}
 
 # Cancel the new window orientation
 super + ctrl + space
-	bspc node -p cancel
+  bspc node -p cancel
 
 # Start alacritty
 super + Return
@@ -57,7 +57,7 @@ super + Return
 
 # Open application menu
 super + d
-    sh $HOME/.local/bin/appmnu
+    sh $HOME/.config/rofi/bin/launcher_colorful
 
 # Toggle eww dashboard
 super + {_,shift + }p
@@ -85,8 +85,7 @@ XF86AudioMute
 # Manage brightness
 XF86MonBrightness{Up,Down}
     brightnessctl set 5%{+,-}
-   
+
 # Quit and restart bspwm
 super + alt + {q,shift + }
     bspc {quit,wm -r}
-

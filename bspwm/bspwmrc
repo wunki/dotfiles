@@ -9,7 +9,7 @@ pgrep -x sxhkd > /dev/null || sxhkd &
 dunst --config $HOME/.config/dunst/dunstrc &
 eww daemon &
 picom --config $HOME/.config/picom/picom.conf &
-hsetroot -fill "$HOME/dropbox/Wallpapers/sparkling-rings.jpg"
+hsetroot -fill "$HOME/pictures/wallpapers/wallhaven-k7v9yq.png"
 sh $HOME/.config/polybar/launch.sh
 
 # ##############################################################################

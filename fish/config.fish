@@ -20,13 +20,9 @@ end
 # Where I store all my projects
 set -x PROJECT_DIR "$HOME/code"
 
-if type -q nvim
-    set -x EDITOR nvim
-    set -x VISUAL nvim
-else
-    set -x EDITOR vim
-    set -x VISUAL vim
-end
+set -x EDITOR "$HOME/.local/bin/run-emacsclient-cli"
+set -x VISUAL "$EDITOR"
+set -x ALTERNATE_EDITOR "vim"
 
 # Add to path if they exist
 fish_add_path -aP /bin
@@ -45,6 +41,7 @@ fish_add_path -aP "$HOME/.yarn/bin"
 fish_add_path -aP "$HOME/.pyenv/bin"
 fish_add_path -aP "$HOME/.fzf/bin"
 fish_add_path -aP "$HOME/.fly/bin"
+fish_add_path -aP "$HOME/.cask/bin"
 
 # Rust
 # This fixes u bug where we weren't able to install components on FreeBSD
@@ -96,7 +93,7 @@ fish_add_path -aP /usr/local/lib/erlang24/bin
 if type -q pyenv
     status is-login; and pyenv init --path | source
     status is-interactive; and pyenv init - | source
-    status --is-interactive; and pyenv virtualenv-init - | source
+    status is-interactive; and pyenv virtualenv-init - | source
 end
 
 # PostgreSQL -- don't go to the users database which never exists...

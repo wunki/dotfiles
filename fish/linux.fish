@@ -1,3 +1,6 @@
+set -x TERM "alacritty"
+abbr ssh 'env TERM=xterm-256color ssh'
+
 # Configuration specific to WSL2 Linux
 if string match -q "*microsoft*" (uname -a)
     set -x PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring

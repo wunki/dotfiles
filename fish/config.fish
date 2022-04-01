@@ -20,16 +20,13 @@ end
 # Where I store all my projects
 set -x PROJECT_DIR "$HOME/code"
 
-set -x EDITOR "$HOME/.local/bin/run-emacsclient-cli"
+set -x EDITOR "nvim"
 set -x VISUAL "$EDITOR"
 set -x ALTERNATE_EDITOR "vim"
 
 # Add to path if they exist
 fish_add_path -aP /bin
-fish_add_path -aP /sbin
 fish_add_path -aP /usr/bin
-fish_add_path -aP /usr/sbin
-fish_add_path -aP /usr/local/sbin
 fish_add_path -aP /usr/local/bin
 fish_add_path -aP /usr/local/share/dotnet
 
@@ -58,8 +55,9 @@ abbr t3 'tree --dirsfirst -ChFL 3'
 abbr gs 'git status --ignore-submodules=dirty'
 abbr gp 'git push origin HEAD'
 abbr gf 'git pull origin HEAD'
-abbr e 'emacsclient --no-wait --create-frame --quiet -a emacs'
-abbr n 'nvim'
+abbr em 'emacsclient --no-wait --create-frame --quiet -a emacs'
+abbr e 'nvim'
+abbr se 'sudoedit'
 abbr cdr 'cd (git rev-parse --show-toplevel)'
 
 # Use EXA for listing files
@@ -90,11 +88,11 @@ abbr mtm 'mix test --only module:'
 fish_add_path -aP /usr/local/lib/erlang24/bin
 
 # Python
-if type -q pyenv
-    status is-login; and pyenv init --path | source
-    status is-interactive; and pyenv init - | source
-    status is-interactive; and pyenv virtualenv-init - | source
-end
+# if type -q pyenv
+#     status is-login; and pyenv init --path | source
+#     status is-interactive; and pyenv init - | source
+#     status is-interactive; and pyenv virtualenv-init - | source
+# end
 
 # PostgreSQL -- don't go to the users database which never exists...
 fish_add_path -aP /usr/local/opt/libpq/bin

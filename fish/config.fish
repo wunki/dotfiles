@@ -49,12 +49,18 @@ abbr rfmt 'cargo +nightly fmt'
 # Zig
 fish_add_path -aP "$PROJECT_DIR/zig"
 
+# Tree
 abbr t1 'tree --dirsfirst -ChFL 1'
 abbr t2 'tree --dirsfirst -ChFL 2'
 abbr t3 'tree --dirsfirst -ChFL 3'
+
+# Git shortcuts
+abbr gc 'git commit'
 abbr gs 'git status --ignore-submodules=dirty'
 abbr gp 'git push origin HEAD'
 abbr gf 'git pull origin HEAD'
+
+# Editing
 abbr em 'emacsclient --no-wait --create-frame --quiet -a emacs'
 abbr e 'nvim'
 abbr se 'sudoedit'

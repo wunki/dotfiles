@@ -6,7 +6,10 @@ end
 # Mac specific paths
 fish_add_path -aP /opt/homebrew/bin
 fish_add_path -aP (brew --prefix)/opt/node@14/bin
+fish_add_path -aP (brew --prefix)/opt/python@3.9/libexec/bin
 
+set -x TERMINFO "/Applications/kitty.app/Contents/Resources/kitty/terminfo"
+set -x SHELL xterm-kitty
 set -x PROJECT_DIR {$HOME}/Code
 set -x OPENSSL_INCLUDE_DIR (brew --prefix)/opt/openssl/include
 set -x OPENSSL_LIB (brew --prefix)/opt/openssl/lib

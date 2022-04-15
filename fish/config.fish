@@ -66,6 +66,9 @@ abbr e 'nvim'
 abbr se 'sudoedit'
 abbr cdr 'cd (git rev-parse --show-toplevel)'
 
+# SSH through kitty
+abbr s 'kitty +kitten ssh'
+
 # Use EXA for listing files
 if type -q exa
     abbr l exa

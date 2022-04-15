@@ -1,4 +1,4 @@
-set -x TERM "alacritty"
+set -x TERM "xterm-kitty"
 abbr ssh 'env TERM=xterm-256color ssh'
 
 # Configuration specific to WSL2 Linux

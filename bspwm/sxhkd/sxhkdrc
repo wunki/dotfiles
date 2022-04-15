@@ -51,9 +51,9 @@ super + ctrl + {h,j,k,l}
 super + ctrl + space
   bspc node -p cancel
 
-# Start alacritty
+# Start kitty
 super + Return
-    alacritty
+    kitty
 
 # Open application menu
 super + d

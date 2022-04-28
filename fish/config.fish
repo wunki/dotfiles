@@ -41,10 +41,9 @@ fish_add_path -aP "$HOME/.fly/bin"
 fish_add_path -aP "$HOME/.cask/bin"
 
 # Rust
-# This fixes u bug where we weren't able to install components on FreeBSD
-set -x RUSTUP_UPDATE_ROOT https://dev-static.rust-lang.org/rustup
 fish_add_path -aP "$HOME/.cargo/bin"
 abbr rfmt 'cargo +nightly fmt'
+set -x RUSTC_WRAPPER (which sccache)
 
 # Zig
 fish_add_path -aP "$PROJECT_DIR/zig"

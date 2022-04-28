@@ -27,6 +27,7 @@ bin/racer
 fish/fish_read_history
 fish/functions/__*
 fish/secret_env.fish
+fish/conf.d
 /emacs/ido.last
 /emacs/recentf
 *~

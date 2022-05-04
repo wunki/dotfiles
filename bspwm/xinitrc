@@ -26,7 +26,7 @@ unclutter -idle 3 &
 
 # Dvorak keyboard, where we map our caps lock to Control on long press,
 # escape on short press
-setxkbmap dvorak -option ctrl:nocaps -option altwin:swap_alt_win
+setxkbmap dvorak -option ctrl:nocaps 
 xcape -e 'Control_L=Escape'
 
 # Restore the keyboard setup if it's plugged in again

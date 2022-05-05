@@ -48,6 +48,12 @@ set -x RUSTC_WRAPPER (which sccache)
 # Zig
 fish_add_path -aP "$PROJECT_DIR/zig"
 
+# Nim
+fish_add_path -aP "$HOME/.nimble/bin"
+
+# Common Lisp
+fish_add_path -aP "$HOME/.roswell/bin"
+
 # Tree
 abbr t1 'tree --dirsfirst -ChFL 1'
 abbr t2 'tree --dirsfirst -ChFL 2'
@@ -94,6 +100,11 @@ set -x KERL_CONFIGURE_OPTIONS "--disable-debug --without-javac"
 abbr miex 'iex -S mix'
 abbr mtm 'mix test --only module:'
 fish_add_path -aP /usr/local/lib/erlang24/bin
+
+# Clojure and Java
+if test -d ~/.asdf/plugins/java
+  . ~/.asdf/plugins/java/set-java-home.fish
+end
 
 # Python
 # if type -q pyenv

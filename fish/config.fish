@@ -52,6 +52,7 @@ fish_add_path -aP "$PROJECT_DIR/zig"
 fish_add_path -aP "$HOME/.nimble/bin"
 
 # Common Lisp
+abbr sbcl 'ros -L sbcl-bin run --'
 fish_add_path -aP "$HOME/.roswell/bin"
 
 # Tree

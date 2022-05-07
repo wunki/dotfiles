@@ -4,6 +4,7 @@
 # Configuration specific to WSL2 Linux
 if string match -q "*microsoft*" (uname -a)
     set -x PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
+    set -x GTK_THEME "Adwaita:dark"
     
     # keychain --eval --quiet --agents ssh id_rsa | source
 

@@ -28,6 +28,7 @@ fish/fish_read_history
 fish/functions/__*
 fish/secret_env.fish
 fish/conf.d
+fish/fish_variables
 /emacs/ido.last
 /emacs/recentf
 *~

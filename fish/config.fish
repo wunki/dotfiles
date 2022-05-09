@@ -67,8 +67,7 @@ abbr gp 'git push origin HEAD'
 abbr gf 'git pull origin HEAD'
 
 # Editing
-abbr em 'emacsclient --no-wait --create-frame --quiet -a emacs'
-abbr e 'nvim'
+abbr e 'emacsclient --no-wait --quiet -a emacs'
 abbr se 'sudoedit'
 abbr cdr 'cd (git rev-parse --show-toplevel)'
 

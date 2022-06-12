@@ -25,7 +25,7 @@ bin/exercism
 bin/cargo
 bin/racer
 fish/fish_read_history
-fish/functions/__*
+fish/functions/*
 fish/secret_env.fish
 fish/conf.d
 fish/fish_variables

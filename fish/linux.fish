@@ -6,7 +6,7 @@ if string match -q "*microsoft*" (uname -a)
     set -x PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
     set -x GTK_THEME "Adwaita:dark"
     
-    # keychain --eval --quiet --agents ssh id_rsa | source
+    keychain --eval --quiet --agents ssh id_rsa | source
 
     fish_add_path -aP "/mnt/c/Program Files/Docker/Docker/resources/bin"
     fish_add_path -aP "/mnt/c/Users/petar/AppData/Local/Programs/Microsoft VS Code/bin"

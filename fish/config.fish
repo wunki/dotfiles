@@ -43,7 +43,7 @@ fish_add_path -aP "$HOME/.cask/bin"
 # Rust
 fish_add_path -aP "$HOME/.cargo/bin"
 abbr rfmt 'cargo +nightly fmt'
-if type -q exa
+if type -q sccache
     set -x RUSTC_WRAPPER (which sccache)
 end
 

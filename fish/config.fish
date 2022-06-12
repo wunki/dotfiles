@@ -43,17 +43,15 @@ fish_add_path -aP "$HOME/.cask/bin"
 # Rust
 fish_add_path -aP "$HOME/.cargo/bin"
 abbr rfmt 'cargo +nightly fmt'
-set -x RUSTC_WRAPPER (which sccache)
+if type -q exa
+    set -x RUSTC_WRAPPER (which sccache)
+end
 
 # Zig
 fish_add_path -aP "$PROJECT_DIR/zig"
 
 # Nim
 fish_add_path -aP "$HOME/.nimble/bin"
-
-# Common Lisp
-abbr sbcl 'ros -L sbcl-bin run --'
-fish_add_path -aP "$HOME/.roswell/bin"
 
 # Tree
 abbr t1 'tree --dirsfirst -ChFL 1'
@@ -70,9 +68,6 @@ abbr gf 'git pull origin HEAD'
 abbr e 'emacsclient --no-wait --quiet -a emacs'
 abbr se 'sudoedit'
 abbr cdr 'cd (git rev-parse --show-toplevel)'
-
-# SSH through kitty
-abbr s 'kitty +kitten ssh'
 
 # Use EXA for listing files
 if type -q exa
@@ -105,13 +100,6 @@ fish_add_path -aP /usr/local/lib/erlang24/bin
 if test -d ~/.asdf/plugins/java
   . ~/.asdf/plugins/java/set-java-home.fish
 end
-
-# Python
-# if type -q pyenv
-#     status is-login; and pyenv init --path | source
-#     status is-interactive; and pyenv init - | source
-#     status is-interactive; and pyenv virtualenv-init - | source
-# end
 
 # PostgreSQL -- don't go to the users database which never exists...
 fish_add_path -aP /usr/local/opt/libpq/bin

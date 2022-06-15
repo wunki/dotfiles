@@ -48,10 +48,7 @@ if type -q sccache
 end
 
 # Zig
-fish_add_path -aP "$PROJECT_DIR/zig"
-
-# Nim
-fish_add_path -aP "$HOME/.nimble/bin"
+fish_add_path -aP "~/.local/share/zig"
 
 # Tree
 abbr t1 'tree --dirsfirst -ChFL 1'

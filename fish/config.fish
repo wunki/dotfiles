@@ -48,7 +48,7 @@ if type -q sccache
 end
 
 # Zig
-fish_add_path -aP "~/.local/share/zig"
+fish_add_path -aP "$HOME/.local/share/zig"
 
 # Tree
 abbr t1 'tree --dirsfirst -ChFL 1'

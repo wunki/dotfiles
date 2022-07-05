@@ -20,7 +20,7 @@ end
 # Where I store all my projects
 set -x PROJECT_DIR "$HOME/code"
 
-set -x EDITOR "nvim"
+set -x EDITOR "emacsclient --no-wait --quiet -a emacs"
 set -x VISUAL "$EDITOR"
 set -x ALTERNATE_EDITOR "vim"
 
@@ -49,6 +49,7 @@ end
 
 # Zig
 fish_add_path -aP "$HOME/.local/share/zig"
+fish_add_path -aP "$HOME/.local/share/zls"
 
 # Tree
 abbr t1 'tree --dirsfirst -ChFL 1'

@@ -18,7 +18,7 @@ switch (uname)
 end
 
 # Where I store all my projects
-set -x PROJECT_DIR "$HOME/code"
+set -x PROJECT_DIR "$HOME/Code"
 
 set -x EDITOR "emacsclient --no-wait --quiet -a emacs"
 set -x VISUAL "$EDITOR"
@@ -119,10 +119,9 @@ type -q fzf ; and set fzf_preview_dir_cmd exa --all --color=always
 if type -q go
     set -x GOPATH "$PROJECT_DIR/go"
     fish_add_path -aP "$GOPATH/bin"
+
     abbr gb 'go build'
     abbr gt 'go test -v ./...'
-
-    type -q gocov ; and abbr gc 'gocov test | gocov report'
 end
 
 # NodeJS

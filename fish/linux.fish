@@ -2,7 +2,7 @@
 if string match -q "*microsoft*" (uname -a)
     set -x PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
     set -x GTK_THEME "Adwaita:dark"
-
+    set -x BROWSER "wslview"
 
     # This makes sure that keychain outputs a fish compatible command
     set -x SHELL "fish"

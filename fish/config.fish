@@ -28,7 +28,6 @@ set -x ALTERNATE_EDITOR "vim"
 fish_add_path -aP /bin
 fish_add_path -aP /usr/bin
 fish_add_path -aP /usr/local/bin
-fish_add_path -aP /usr/local/share/dotnet
 
 # Local Paths
 fish_add_path -aP "$HOME/.local/bin"
@@ -36,7 +35,6 @@ fish_add_path -aP "$HOME/.npm/bin"
 fish_add_path -aP "$HOME/.npm-packages/bin"
 fish_add_path -aP "$HOME/.yarn/bin"
 fish_add_path -aP "$HOME/.pyenv/bin"
-fish_add_path -aP "$HOME/.fzf/bin"
 fish_add_path -aP "$HOME/.fly/bin"
 fish_add_path -aP "$HOME/.cask/bin"
 

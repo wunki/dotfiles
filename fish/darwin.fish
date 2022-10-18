@@ -8,6 +8,10 @@ fish_add_path -aP /opt/homebrew/bin
 fish_add_path -aP (brew --prefix)/opt/node@14/bin
 fish_add_path -aP (brew --prefix)/opt/python@3.9/libexec/bin
 
+# Emacs
+fish_add_path -aP /Applications/Emacs.app/Contents/MacOS
+fish_add_path -aP /Applications/Emacs.app/Contents/MacOS/bin
+
 # set -x TERMINFO "/Applications/kitty.app/Contents/Resources/kitty/terminfo"
 set -x SHELL fish
 set -x PROJECT_DIR {$HOME}/Code

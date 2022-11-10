@@ -35,6 +35,11 @@ neovim::
 	@ln -fns $(DOTFILES)/neovim						${HOME}/.config/nvim
 	@echo Neovim is symlinked.
 
+helix::
+	@test -d ${HOME}/.config || mkdir				${HOME}/.config
+	@ln -fs $(DOTFILES)/helix/config.toml					${HOME}/.config/helix/config.toml
+	@echo Helix is symlinked.
+
 tmux::
 	@ln -fs $(tmux)									${HOME}/.tmux.conf
 	@ln -fs $(DOTFILES)/tmux/tmux-status.conf		${HOME}/.tmux-status.conf

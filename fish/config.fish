@@ -61,7 +61,7 @@ abbr gp 'git push origin HEAD'
 abbr gf 'git pull origin HEAD'
 
 # Editing
-abbr e 'emacsclient --no-wait --quiet -a emacs'
+abbr e 'emacs -nw'
 abbr se 'sudoedit'
 abbr cdr 'cd (git rev-parse --show-toplevel)'
 
@@ -91,6 +91,7 @@ set -x KERL_CONFIGURE_OPTIONS "--disable-debug --without-javac"
 abbr miex 'iex -S mix'
 abbr mtm 'mix test --only module:'
 fish_add_path -aP /usr/local/lib/erlang24/bin
+fish_add_path -aP "$HOME/.local/share/elixir-ls/release"
 
 # Clojure and Java
 if test -d ~/.asdf/plugins/java

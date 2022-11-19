@@ -47,7 +47,7 @@ end
 
 # Zig
 fish_add_path -aP "$HOME/.local/share/zig"
-fish_add_path -aP "$HOME/.local/share/zls"
+fish_add_path -aP "$HOME/.local/share/zls/bin"
 
 # Tree
 abbr t1 'tree --dirsfirst -ChFL 1'

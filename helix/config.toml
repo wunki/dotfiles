@@ -1,1 +1,11 @@
-theme = "ayu_dark"
+theme = "tokyonight"
+
+[editor]
+mouse = false
+rulers = [80]
+true-color = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"

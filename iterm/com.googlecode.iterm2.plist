@@ -5344,13 +5344,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.1906890869140625</real>
+				<real>0.14901960784313725</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.12359477579593658</real>
+				<real>0.10588235294117647</real>
 				<key>Red Component</key>
-				<real>0.1059383824467659</real>
+				<real>0.10588235294117647</real>
 			</dict>
 			<key>Background Image Location</key>
 			<string></string>
@@ -5780,7 +5780,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>MonoLisa-Regular 14</string>
+			<string>IBMPlexMono 15</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Option Key Sends</key>
@@ -6734,6 +6734,6 @@
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
-	<true/>
+	<false/>
 </dict>
 </plist>

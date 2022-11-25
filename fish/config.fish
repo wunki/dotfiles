@@ -20,7 +20,7 @@ end
 # Where I store all my projects
 set -x PROJECT_DIR "$HOME/Code"
 
-set -x EDITOR "emacsclient --no-wait --quiet -a emacs"
+set -x EDITOR "hx"
 set -x VISUAL "$EDITOR"
 set -x ALTERNATE_EDITOR "vim"
 
@@ -61,7 +61,7 @@ abbr gp 'git push origin HEAD'
 abbr gf 'git pull origin HEAD'
 
 # Editing
-abbr e 'emacs -nw'
+abbr e 'hx'
 abbr se 'sudoedit'
 abbr cdr 'cd (git rev-parse --show-toplevel)'
 

@@ -1,7 +1,6 @@
 theme = "tokyonight"
 
 [editor]
-mouse = false
 rulers = [80]
 true-color = true
 

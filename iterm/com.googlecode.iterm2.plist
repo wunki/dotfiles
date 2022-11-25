@@ -6,6 +6,8 @@
 	<false/>
 	<key>AllowClipboardAccess</key>
 	<true/>
+	<key>AlternateMouseScroll</key>
+	<true/>
 	<key>BadgeRightMargin</key>
 	<integer>10</integer>
 	<key>BadgeTopMargin</key>
@@ -5780,7 +5782,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>IBMPlexMono 15</string>
+			<string>MonoLisa-Regular 13</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Option Key Sends</key>

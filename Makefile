@@ -37,7 +37,8 @@ neovim::
 
 helix::
 	@test -d ${HOME}/.config || mkdir				${HOME}/.config
-	@ln -fs $(DOTFILES)/helix/config.toml					${HOME}/.config/helix/config.toml
+	@ln -fs $(DOTFILES)/helix/config.toml			${HOME}/.config/helix/config.toml
+	@ln -fs $(DOTFILES)/helix/languages.toml		${HOME}/.config/helix/languages.toml
 	@echo Helix is symlinked.
 
 tmux::

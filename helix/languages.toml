@@ -1,3 +1,9 @@
 [[language]]
 name = "elixir"
 auto-format = true
+
+[[language]]
+name = "rust"
+
+[language.config.checkOnSave]
+command = "clippy"

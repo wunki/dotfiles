@@ -146,6 +146,9 @@ if type -q direnv
     eval (direnv hook fish)
 end
 
+# Docker
+fish_add_path -aP $HOME/.docker/cli-plugins
+
 # Version manager for different languages
 test -f "$HOME/.asdf/asdf.fish" ; and source $HOME/.asdf/asdf.fish
 

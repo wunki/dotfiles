@@ -45,10 +45,6 @@ if type -q sccache
     set -x RUSTC_WRAPPER (which sccache)
 end
 
-# Zig
-fish_add_path -aP "$HOME/.local/share/zig"
-fish_add_path -aP "$HOME/.local/share/zls/bin"
-
 # Tree
 abbr t1 'tree --dirsfirst -ChFL 1'
 abbr t2 'tree --dirsfirst -ChFL 2'

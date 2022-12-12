@@ -1,4 +1,4 @@
-theme = "tokyonight"
+theme = "catppuccin_mocha"
 
 [editor]
 rulers = [80]

@@ -9,7 +9,7 @@ if string match -q "*microsoft*" (uname -a)
     keychain --eval --quiet --agents ssh id_rsa | source
 
     # Run Syncthing on startup. It won't fire if syncthing is already running
-    ~/.local/bin/start-syncing
+    # ~/.local/bin/start-syncing
 
     fish_add_path -aP "/mnt/c/Program Files/Docker/Docker/resources/bin"
     fish_add_path -aP "/mnt/c/Users/petar/AppData/Local/Programs/Microsoft VS Code/bin"

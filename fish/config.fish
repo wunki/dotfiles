@@ -61,6 +61,9 @@ abbr e 'hx'
 abbr se 'sudoedit'
 abbr cdr 'cd (git rev-parse --show-toplevel)'
 
+# Handy shortcuts
+abbr wakeup 'ssh -t pi.petar \'wakeonlan 24:4B:FE:8E:1E:34\''
+
 # Use EXA for listing files
 if type -q exa
     abbr l exa

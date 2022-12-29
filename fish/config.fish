@@ -63,6 +63,7 @@ abbr cdr 'cd (git rev-parse --show-toplevel)'
 
 # Handy shortcuts
 abbr wakeup 'ssh -t pi.petar \'wakeonlan 24:4B:FE:8E:1E:34\''
+abbr tt 'tmux new-session -A -s main'
 
 # Use EXA for listing files
 if type -q exa

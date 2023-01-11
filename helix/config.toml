@@ -1,8 +1,10 @@
-theme = "tokyonight"
+theme = "everforest_dark"
 
 [editor]
 rulers = [80]
 true-color = true
+gutters = ["diff", "line-numbers", "spacer", "diagnostics"]
+cursorline = true
 
 [editor.cursor-shape]
 insert = "bar"
@@ -11,4 +13,4 @@ select = "underline"
 
 [editor.file-picker]
 hidden = false
-
+max-depth = 3

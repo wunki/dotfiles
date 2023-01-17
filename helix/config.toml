@@ -3,13 +3,18 @@ theme = "everforest_dark"
 [editor]
 rulers = [80]
 true-color = true
-gutters = ["diff", "line-numbers", "spacer", "diagnostics"]
+gutters = ["diff", "spacer", "diagnostics", "spacer"]
 cursorline = true
 
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
 select = "underline"
+
+[editor.indent-guides]
+render = true
+character = "·"
+skip-levels = 1
 
 [editor.file-picker]
 hidden = false

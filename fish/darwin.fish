@@ -1,9 +1,9 @@
-set -U brew_prefix (brew --prefix)
-
 # Setup homebrew
 if status is-interactive
   eval (/opt/homebrew/bin/brew shellenv)
 end
+
+set -U brew_prefix (brew --prefix)
 
 # Mac specific paths
 fish_add_path -aP /opt/homebrew/bin

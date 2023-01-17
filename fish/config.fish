@@ -138,12 +138,3 @@ fish_add_path -aP $HOME/.docker/cli-plugins
 
 # ASDF: version manager for different languages
 test -f "$HOME/.asdf/asdf.fish" ; and source $HOME/.asdf/asdf.fish
-
-if type -q asdf
-    fish_add_path -aP (asdf where elixir)/.mix/escripts
-
-    if test -d ~/.asdf/plugins/java
-      . ~/.asdf/plugins/java/set-java-home.fish
-    end
-end
-

@@ -20,6 +20,8 @@ end
 # Where I store all my projects
 set -x PROJECT_DIR "$HOME/Code"
 
+# Shell variables
+set -x SHELL fish
 set -x EDITOR "hx"
 set -x VISUAL "$EDITOR"
 set -x ALTERNATE_EDITOR "vim"
@@ -31,12 +33,8 @@ fish_add_path -aP /usr/local/bin
 
 # Local Paths
 fish_add_path -aP "$HOME/.local/bin"
-fish_add_path -aP "$HOME/.npm/bin"
-fish_add_path -aP "$HOME/.npm-packages/bin"
-fish_add_path -aP "$HOME/.yarn/bin"
 fish_add_path -aP "$HOME/.pyenv/bin"
 fish_add_path -aP "$HOME/.fly/bin"
-fish_add_path -aP "$HOME/.cask/bin"
 
 # Rust
 fish_add_path -aP "$HOME/.cargo/bin"
@@ -61,8 +59,7 @@ abbr e 'hx'
 abbr se 'sudoedit'
 abbr cdr 'cd (git rev-parse --show-toplevel)'
 
-# Handy shortcuts
-abbr wakeup 'ssh -t pi.petar \'wakeonlan 24:4B:FE:8E:1E:34\''
+# Tmux
 abbr tt 'tmux new-session -A -s main'
 
 # Use EXA for listing files
@@ -89,18 +86,12 @@ end
 set -x ERL_AFLAGS "-kernel shell_history enabled"
 set -x KERL_CONFIGURE_OPTIONS "--disable-debug --without-javac"
 abbr miex 'iex -S mix'
-abbr mtm 'mix test --only module:'
-fish_add_path -aP /usr/local/lib/erlang24/bin
-fish_add_path -aP "$HOME/.local/share/elixir-ls/release"
 
-# Clojure and Java
-if test -d ~/.asdf/plugins/java
-  . ~/.asdf/plugins/java/set-java-home.fish
-end
+fish_add_path -aP /usr/local/lib/erlang25/bin
+fish_add_path -aP "$HOME/.local/share/elixir-ls/release"
 
 # PostgreSQL -- don't go to the users database which never exists...
 fish_add_path -aP /usr/local/opt/libpq/bin
-fish_add_path -aP /Applications/Postgres.app/Contents/Versions/latest/bin
 type -q pgcli ; and set -x PGDATABASE postgres
 
 # Use nvim when installed
@@ -123,9 +114,6 @@ set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS
 if type -q go
     set -x GOPATH "$PROJECT_DIR/go"
     fish_add_path -aP "$GOPATH/bin"
-
-    abbr gb 'go build'
-    abbr gt 'go test -v ./...'
 end
 
 # NodeJS
@@ -133,12 +121,6 @@ if type -q npm
     set -x NPM_PACKAGES "$HOME/.npm-packages"
     set -x NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
     fish_add_path -aP "$NPM_PACKAGES/bin"
-end
-
-# .NET Core
-if type -q dotnet
-    set -x DOTNET_CLI_TELEMETRY_OPTOUT true
-    set -x DOTNET_SKIP_FIRST_TIME_EXPERIENCE true
 end
 
 # AWS 
@@ -154,9 +136,14 @@ end
 # Docker
 fish_add_path -aP $HOME/.docker/cli-plugins
 
-# Version manager for different languages
+# ASDF: version manager for different languages
 test -f "$HOME/.asdf/asdf.fish" ; and source $HOME/.asdf/asdf.fish
 
 if type -q asdf
     fish_add_path -aP (asdf where elixir)/.mix/escripts
+
+    if test -d ~/.asdf/plugins/java
+      . ~/.asdf/plugins/java/set-java-home.fish
+    end
 end
+

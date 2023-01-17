@@ -23,7 +23,8 @@ fish::
 	@printf "Please run the following to install plugins: \n\n\
 	\tfisher install mattgreen/lucid.fish \n\
 	\tfisher install jethrokuan/z \n\
-	\tfisher install PatrickF1/fzf.fish\n\n"
+	\tfisher install PatrickF1/fzf.fish\n"
+	\tfisher install jorgebucaran/autopair.fish\n\n"
 	@echo Fish is symlinked.
 
 vim::

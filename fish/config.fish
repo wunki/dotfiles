@@ -104,11 +104,17 @@ end
 
 # FZF
 type -q fzf ; and set fzf_preview_dir_cmd exa --all --color=always
-set -gx FZF_DEFAULT_OPTS "$FZF_DEFAULT_OPTS 
-	--color=fg:#c0caf5,bg:#1a1b26,hl:#bb9af7
-	--color=fg+:#c0caf5,bg+:#1a1b26,hl+:#7dcfff
-	--color=info:#7aa2f7,prompt:#7dcfff,pointer:#7dcfff 
-	--color=marker:#9ece6a,spinner:#9ece6a,header:#9ece6a"
+set -gx FZF_DEFAULT_OPTS "
+--multi
+--height=50%
+--prompt='❯ '
+--pointer='-'
+--marker='+'
+--ansi
+--tabstop=4
+--color=dark
+--color=hl:2:bold,fg+:4:bold,bg+:-1,hl+:2:bold,info:3:bold,border:0,prompt:2,pointer:5,marker:1,header:6
+"
 
 # Go
 if type -q go

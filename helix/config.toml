@@ -6,6 +6,9 @@ true-color = true
 gutters = ["diff", "spacer", "diagnostics", "spacer"]
 cursorline = true
 
+[keys.normal]
+Z = { Q = ":quit!", Z = ":wq" }
+
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"

@@ -4,7 +4,7 @@ theme = "kanagawa"
 rulers = [80]
 true-color = true
 gutters = ["diff", "spacer", "diagnostics", "spacer"]
-cursorline = true
+cursorline = false
 
 [keys.normal]
 Z = { Q = ":quit!", Z = ":wq" }

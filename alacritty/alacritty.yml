@@ -12,6 +12,9 @@ window:
   padding:
     x: 5
     y: 5
+  dimensions:
+    columns: 128
+    lines: 32
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -38,7 +41,7 @@ font:
     style: Italic
 
   # Point size
-  size: 11
+  size: 10
 
 cursor:
   style: Block

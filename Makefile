@@ -23,7 +23,7 @@ fish::
 	@printf "Please run the following to install plugins: \n\n\
 	\tfisher install IlanCosman/tide@v5 \n\
 	\tfisher install jethrokuan/z \n\
-	\tfisher install PatrickF1/fzf.fish\n"
+	\tfisher install PatrickF1/fzf.fish\n\
 	\tfisher install jorgebucaran/autopair.fish\n\n"
 	@echo Fish is symlinked.
 

@@ -9,7 +9,7 @@ tmux=$(DOTFILES)/tmux/${UNAME}-tmux.conf
 
 BSPWM_DIR=${HOME}/.config/bspwm
 
-all:: alacritty vim neovim fish tmux xorg gtk
+all:: alacritty vim neovim fish tmux xorg gtk zsh
 
 print-%: ; @echo $*=$($*)
 
@@ -35,6 +35,10 @@ neovim::
 	@test -d ${HOME}/.config || mkdir				${HOME}/.config
 	@ln -fns $(DOTFILES)/neovim						${HOME}/.config/nvim
 	@echo Neovim is symlinked.
+	
+zsh::
+	@ln -fs $(DOTFILES)/zsh/zprofile				${HOME}/.zprofile
+	@ln -fs $(DOTFILES)/zsh/zshrc					${HOME}/.zshrc
 
 helix::
 	@test -d ${HOME}/.config || mkdir				${HOME}/.config

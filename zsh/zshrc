@@ -1,0 +1,52 @@
+# My ZSH configuration which I try to keep as minimal and
+# fast as possible.
+
+# Set some important environment variables
+if (( $+commands[hx] ))
+then
+  export EDITOR=hx
+else
+  export EDITOR=vi
+fi
+
+# Extend the path
+path+=("$HOME/.local/bin")
+path+=("$HOME/.cargo/bin")
+export PATH
+
+# Shortcuts
+alias tt='tmux new-session -A -s main'
+
+# Replace `ls` with `exa`, if installed
+if (( $+commands[exa] ))
+then
+  alias ls='exa'                              # ls
+  alias l='exa -lbF --git'                    # list, size, type, git
+  alias ll='exa -lbGF --git'                  # long list
+  alias llm='exa -lbGd --git --sort=modified' # long list, modified date sort
+fi
+
+# Some useful Git shortcuts
+alias gc='git commit'
+alias gs='git status --ignore-submodules=dirty'
+alias gp='git push origin HEAD'
+alias gf='git pull origin HEAD'
+
+# ASDF version manager
+if [ -d "$HOME/.asdf" ]
+then
+  . $HOME/.asdf/asdf.sh
+fi
+
+# Quickly jump to directories with the help of Z
+if [ -d "$HOME/Code/zsh-z" ]
+then
+  source $HOME/Code/zsh-z/zsh-z.plugin.zsh
+fi
+
+# `direnv` adds environment variables per directory
+eval "$(direnv hook zsh)"
+
+# Pure prompt, make sure to install first
+autoload -U promptinit; promptinit
+prompt pure

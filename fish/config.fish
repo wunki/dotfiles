@@ -36,6 +36,13 @@ fish_add_path -aP "$HOME/.local/bin"
 fish_add_path -aP "$HOME/.pyenv/bin"
 fish_add_path -aP "$HOME/.fly/bin"
 
+# Configure the tide prompt
+set --global tide_character_icon λ
+set --global tide_character_color_failure "fb7da7"
+set --global tide_character_color "76c5a4"
+set --global tide_pwd_color_anchors "8bb8d0"
+set --global tide_pwd_color_dirs "5385af"
+
 # Rust
 fish_add_path -aP "$HOME/.cargo/bin"
 abbr rfmt 'cargo +nightly fmt'

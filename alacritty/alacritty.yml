@@ -12,15 +12,15 @@ window:
   option_as_alt: OnlyLeft
 
 scrolling:
-  # Maximum number of lines in the scrollback buffer.
-  # Specifying '0' will disable scrolling.
   history: 1000
-
-  # Scrolling distance multiplier.
   multiplier: 3
 
 # Font configuration
 font:
+  offset:
+    x: 0 # letter spacing
+    y: 3 # line spacing
+
   normal:
     family: 'Berkeley Mono'
     style: Regular

@@ -2,11 +2,11 @@ env:
   TERM: 'alacritty-direct'
 
 window:
-  dynamic_title: true
-  decorations: transparent
+  dynamic_title: false
+  title: First, solve the problem. Then, write the code.
   padding:
     x: 5
-    y: 30
+    y: 5
   dimensions:
     columns: 128
     lines: 32
@@ -14,7 +14,7 @@ window:
 
 scrolling:
   history: 1000
-  multiplier: 3
+  multiplier: 5
 
 # Font configuration
 font:

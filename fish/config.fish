@@ -36,12 +36,13 @@ fish_add_path -aP "$HOME/.local/bin"
 fish_add_path -aP "$HOME/.pyenv/bin"
 fish_add_path -aP "$HOME/.fly/bin"
 
-# Configure the tide prompt
+# Configure the tide prompt with oh-lucy colors
 set --global tide_character_icon λ
-set --global tide_character_color_failure "fb7da7"
-set --global tide_character_color "76c5a4"
-set --global tide_pwd_color_anchors "8bb8d0"
-set --global tide_pwd_color_dirs "5385af"
+set --global tide_character_color_failure "FB7DA7"
+set --global tide_character_color "76C5A4"
+set --global tide_pwd_color_anchors "8BB8D0"
+set --global tide_pwd_color_dirs "5385AF"
+set --global tide_git_color_branch "7EC49D"
 
 # Rust
 fish_add_path -aP "$HOME/.cargo/bin"
@@ -62,7 +63,7 @@ abbr gp 'git push origin HEAD'
 abbr gf 'git pull origin HEAD'
 
 # Editing
-abbr e 'hx'
+abbr e 'nvim'
 abbr se 'sudoedit'
 abbr cdr 'cd (git rev-parse --show-toplevel)'
 
@@ -151,3 +152,6 @@ fish_add_path -aP $HOME/.docker/cli-plugins
 
 # ASDF: version manager for different languages
 test -f "$HOME/.asdf/asdf.fish" ; and source $HOME/.asdf/asdf.fish
+
+test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+

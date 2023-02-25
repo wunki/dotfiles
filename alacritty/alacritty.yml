@@ -3,9 +3,10 @@ env:
 
 window:
   dynamic_title: true
+  decorations: transparent
   padding:
     x: 5
-    y: 5
+    y: 30
   dimensions:
     columns: 128
     lines: 32

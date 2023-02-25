@@ -47,32 +47,26 @@ cursor:
   style: Block
   blinking: On
 
-# Moonlight
 colors:
   primary:
-    background: '0x1e2030'
-    foreground: '0x7f85a3'
-
-  cursor:
-    text:   '0x7f85a3'
-    cursor: '0x808080'
-
+    background: '#1E1D23'
+    foreground: '#DED7D0'
   normal:
-    black:   '0x444a73'
-    red:     '0xff5370'
-    green:   '0x4fd6be'
-    yellow:  '0xffc777'
-    blue:    '0x3e68d7'
-    magenta: '0xfc7b7b'
-    cyan:    '0x86e1fc'
-    white:   '0xd0d0d0'
-
+    black:   '#938884'
+    red:     '#FF7DA3'
+    green:   '#7EC49D'
+    yellow:  '#EFD472'
+    blue:    '#8BB8D0'
+    magenta: '#BDA9D4'
+    cyan:    '#BDA9D4'
+    white:   '#DED7D0'
   bright:
-    black:   '0x828bb8'
-    red:     '0xff98a4'
-    green:   '0xc3e88d'
-    yellow:  '0xffc777'
-    blue:    '0x82aaff'
-    magenta: '0xff966c'
-    cyan:    '0xb4f9f8'
-    white:   '0x5f8787'
+    black:   '#938884'
+    red:     '#FF7DA3'
+    green:   '#7EC49D'
+    yellow:  '#EFD472'
+    blue:    '#8BB8D0'
+    magenta: '#BDA9D4'
+    cyan:    '#BDA9D4'
+    white:   '#DED7D0'
+

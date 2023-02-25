@@ -17,3 +17,10 @@ if string match -q "*microsoft*" (uname -a)
 
     abbr clip 'clip.exe'
 end
+
+# Java installation through Adoptium
+set -l java_version "19.0.2+7"
+if test -d "/opt/jdk-$java_version"
+    set -x JAVA_HOME "/opt/jdk-$java_version"
+    fish_add_path -aP "$JAVA_HOME/bin"
+end

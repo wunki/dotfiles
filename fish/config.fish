@@ -137,6 +137,9 @@ if type -q npm
     fish_add_path -aP "$NPM_PACKAGES/bin"
 end
 
+# Java
+fish_add_path -aP "$HOME/.local/share/jdtls/bin"
+
 # AWS 
 fish_add_path -aP "$HOME/.aws/bin"
 set -x AWS_IAM_HOME "$HOME/.aws/iam"

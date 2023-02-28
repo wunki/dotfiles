@@ -22,7 +22,7 @@ set -x PROJECT_DIR "$HOME/Code"
 
 # Shell variables
 set -x SHELL fish
-set -x EDITOR "hx"
+set -x EDITOR "nvim"
 set -x VISUAL "$EDITOR"
 set -x ALTERNATE_EDITOR "vim"
 
@@ -68,7 +68,7 @@ abbr se 'sudoedit'
 abbr cdr 'cd (git rev-parse --show-toplevel)'
 
 # Tmux
-abbr tt 'tmux new-session -A -s main'
+abbr tt 'tmux new-session -A -s Main'
 
 # Use EXA for listing files
 if type -q exa
@@ -138,7 +138,7 @@ if type -q npm
 end
 
 # Java
-fish_add_path -aP "$HOME/.local/share/jdtls/bin"
+fish_add_path -aP "$HOME/.local/share/maven/bin"
 
 # AWS 
 fish_add_path -aP "$HOME/.aws/bin"

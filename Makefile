@@ -14,6 +14,7 @@ all:: alacritty vim neovim fish tmux xorg gtk zsh
 print-%: ; @echo $*=$($*)
 
 alacritty::
+	@test -d ${HOME}/.config/alacritty || mkdir ${HOME}/.config/alacritty	${HOME}/.config/alacritty
 	@ln -fs $(DOTFILES)/alacritty/alacritty.yml			${HOME}/.config/alacritty/alacritty.yml
 	@echo Alacritty configuration has been linked. 
 

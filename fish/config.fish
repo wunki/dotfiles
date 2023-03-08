@@ -37,7 +37,7 @@ fish_add_path -aP "$HOME/.pyenv/bin"
 fish_add_path -aP "$HOME/.fly/bin"
 
 # Configure the tide prompt with oh-lucy colors
-set --global tide_character_icon Ω
+set --global tide_character_icon λ
 set --global tide_character_color_failure "FB7DA7"
 set --global tide_character_color "76C5A4"
 set --global tide_pwd_color_anchors "8BB8D0"

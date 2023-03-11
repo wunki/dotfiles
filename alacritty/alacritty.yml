@@ -44,7 +44,7 @@ cursor:
   blinking: On
 
 shell:
-  program: /opt/homebrew/bin/fish
+  program: fish
 
 colors:
   primary:

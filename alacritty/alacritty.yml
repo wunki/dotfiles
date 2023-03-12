@@ -37,7 +37,7 @@ font:
     style: Italic
 
   # Point size
-  size: 13
+  size: 9
 
 cursor:
   style: Block

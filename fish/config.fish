@@ -86,7 +86,8 @@ end
 # Use bat because of syntax highlighting
 if type -q bat
     abbr cat bat
-    set -x BAT_THEME base16
+    set -x BAT_THEME zenburn
+    set -x BAT_PAGER
     set -x COLORTERM truecolor
 end
 

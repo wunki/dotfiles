@@ -1,10 +1,17 @@
+# Java installation through Adoptium
+set -l java_version "19.0.2+7"
+if test -d "/opt/jdk-$java_version"
+    set -x JAVA_HOME "/opt/jdk-$java_version"
+    fish_add_path -aP "$JAVA_HOME/bin"
+end
+
 # Configuration specific to WSL2 Linux
 if string match -q "*microsoft*" (uname -a)
     set -x PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
     set -x GTK_THEME "Adwaita:dark"
     set -x BROWSER "wslview"
 
-    # This makes sure that keychain outputs a fish compatible command
+    # Setup SSH key agent
     set -x SHELL "fish"
     keychain --eval --quiet --agents ssh id_rsa | source
 
@@ -18,9 +25,5 @@ if string match -q "*microsoft*" (uname -a)
     abbr clip 'clip.exe'
 end
 
-# Java installation through Adoptium
-set -l java_version "19.0.2+7"
-if test -d "/opt/jdk-$java_version"
-    set -x JAVA_HOME "/opt/jdk-$java_version"
-    fish_add_path -aP "$JAVA_HOME/bin"
-end
+# Easily startup the keychain.
+abbr keys 'keychain --eval --quiet --agents ssh id_rsa | source'

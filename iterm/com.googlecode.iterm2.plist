@@ -9751,7 +9751,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>BerkeleyMono-Regular 13</string>
+			<string>BerkeleyMono-Regular 14</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Option Key Sends</key>
@@ -9829,7 +9829,7 @@
 			<key>Use Non-ASCII Font</key>
 			<false/>
 			<key>Vertical Spacing</key>
-			<real>1.0700000000000001</real>
+			<real>1.0800000000000001</real>
 			<key>Visual Bell</key>
 			<false/>
 			<key>Window Type</key>

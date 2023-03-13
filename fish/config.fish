@@ -92,7 +92,8 @@ end
 
 # Erlang and Elixir
 set -x ERL_AFLAGS "-kernel shell_history enabled"
-set -x KERL_CONFIGURE_OPTIONS "--disable-debug --without-javac"
+set -x KERL_BUILD_DOCS "yes"
+set -x KERL_CONFIGURE_OPTIONS "--disable-debug --without-javac --without-wx"
 abbr miex 'iex -S mix'
 
 fish_add_path -aP /usr/local/lib/erlang25/bin

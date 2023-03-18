@@ -68,7 +68,7 @@ abbr se 'sudoedit'
 abbr cdr 'cd (git rev-parse --show-toplevel)'
 
 # Tmux
-abbr tt 'tmux new-session -A -s Main'
+abbr tt 'tmux new-session -A -s main'
 
 # Use EXA for listing files
 if type -q exa

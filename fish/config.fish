@@ -139,6 +139,9 @@ if type -q npm
     fish_add_path -aP "$NPM_PACKAGES/bin"
 end
 
+# Common Lisp
+abbr lisp 'rlwrap sbcl'
+
 # Java
 fish_add_path -aP "$HOME/.local/share/maven/bin"
 

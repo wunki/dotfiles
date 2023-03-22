@@ -26,3 +26,5 @@ bin/racer
 /fish/secret_env.fish
 /fish/conf.d
 /fish/fish_variables
+/fish/completions/tide.fish
+/fish/completions/fzf_configure_bindings.fish

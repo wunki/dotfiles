@@ -161,8 +161,6 @@ fish_add_path -aP $HOME/.docker/cli-plugins
 # ASDF: version manager for different languages
 test -f "$HOME/.asdf/asdf.fish" ; and source $HOME/.asdf/asdf.fish
 
-test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
-
 # Emacs VTERM configuration
 # This makes sure that the right escape sequences are sent.
 if [ "$INSIDE_EMACS" = 'vterm' ]

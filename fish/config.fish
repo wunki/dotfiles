@@ -165,8 +165,6 @@ test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shel
 
 # Emacs VTERM configuration
 # This makes sure that the right escape sequences are sent.
-
-
 if [ "$INSIDE_EMACS" = 'vterm' ]
     function vterm_printf;
         if begin; [  -n "$TMUX" ]  ; and  string match -q -r "screen|tmux" "$TERM"; end 

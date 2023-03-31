@@ -6,12 +6,15 @@ if (( $+commands[hx] ))
 then
   export EDITOR=hx
 else
-  export EDITOR=vi
+  export EDITOR=vim
 fi
 
 # Extend the path
+typeset -U PATH path
+
 path+=("$HOME/.local/bin")
 path+=("$HOME/.cargo/bin")
+path+=("/Applications/Racket/bin")
 export PATH
 
 # Shortcuts

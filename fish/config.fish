@@ -35,6 +35,7 @@ fish_add_path -aP /usr/local/bin
 fish_add_path -aP "$HOME/.local/bin"
 fish_add_path -aP "$HOME/.pyenv/bin"
 fish_add_path -aP "$HOME/.fly/bin"
+fish_add_path -aP "$HOME/.local/share/racket/bin"
 
 # Configure the tide prompt with oh-lucy colors
 set --global tide_character_icon λ

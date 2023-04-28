@@ -1,5 +1,5 @@
 env:
-  TERM: 'alacritty-direct'
+  TERM: 'alacritty'
 
 window:
   dynamic_title: false

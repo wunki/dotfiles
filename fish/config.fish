@@ -33,7 +33,6 @@ fish_add_path -aP /usr/local/bin
 
 # Local Paths
 fish_add_path -aP "$HOME/.local/bin"
-fish_add_path -aP "$HOME/.pyenv/bin"
 fish_add_path -aP "$HOME/.fly/bin"
 fish_add_path -aP "$HOME/.local/share/racket/bin"
 
@@ -64,6 +63,7 @@ abbr gp 'git push origin HEAD'
 abbr gf 'git pull origin HEAD'
 
 # Editing
+fish_add_path -aP /opt/nvim/bin
 abbr e 'nvim'
 abbr se 'sudoedit'
 abbr cdr 'cd (git rev-parse --show-toplevel)'
@@ -165,4 +165,14 @@ test -f "$HOME/.asdf/asdf.fish" ; and source $HOME/.asdf/asdf.fish
 # VTerm in Emacs
 if [ "$INSIDE_EMACS" = 'vterm' ]
     . $HOME/.config/fish/vterm.fish
+end
+
+# Sync shell history across machines
+if type -q atuin
+    atuin init fish | source
+end
+
+# Add Pyenv configuration
+if type -q pyenv
+    pyenv init - | source
 end

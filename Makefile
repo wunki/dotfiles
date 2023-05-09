@@ -5,7 +5,6 @@ UNAME 		:= $(shell uname -s)
 xmobar=$(DOTFILES)/xmonad/${UNAME}-xmobarrc
 gtkrc=$(DOTFILES)/gtk/${UNAME}-gtkrc.mine
 gtk2=$(DOTFILES)/gtk/${UNAME}-gtkrc-2.0
-tmux=$(DOTFILES)/tmux/${UNAME}-tmux.conf
 
 BSPWM_DIR=${HOME}/.config/bspwm
 
@@ -48,7 +47,7 @@ helix::
 	@echo Helix is symlinked.
 
 tmux::
-	@ln -fs $(tmux)									${HOME}/.tmux.conf
+	@ln -fs $(DOTFILES)/tmux/tmux.conf				${HOME}/.tmux.conf
 	@ln -fs $(DOTFILES)/tmux/tmux-status.conf		${HOME}/.tmux-status.conf
 	@echo tmux is symlinked.
 

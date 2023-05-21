@@ -61,6 +61,7 @@ abbr gc 'git commit'
 abbr gs 'git status --ignore-submodules=dirty'
 abbr gp 'git push origin HEAD'
 abbr gf 'git pull origin HEAD'
+abbr lg 'lazygit'
 
 # Editing
 fish_add_path -aP /opt/nvim/bin

@@ -70,7 +70,7 @@ abbr se 'sudoedit'
 abbr cdr 'cd (git rev-parse --show-toplevel)'
 
 # Tmux
-abbr tt 'tmux new-session -A -s main'
+abbr tt 'tmux attach || tmux new-session -s main'
 
 # Use EXA for listing files
 if type -q exa
@@ -173,7 +173,11 @@ if type -q atuin
     atuin init fish | source
 end
 
+# Trying out Rye for managing Python
+fish_add_path -aP $HOME/.rye/shims
+
 # Add Pyenv configuration
-if type -q pyenv
-    pyenv init - | source
-end
+#fish_add_path -aP $HOME/.pyenv/bin
+#if type -q pyenv
+#    pyenv init - | source
+#end

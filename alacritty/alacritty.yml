@@ -37,14 +37,18 @@ font:
     style: Italic
 
   # Point size
-  size: 9
+  size: 14
 
 cursor:
   style: Block
   blinking: On
 
 shell:
-  program: fish
+  program: /opt/homebrew/bin/fish
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux new-session -A -s main"
 
 colors:
   primary:

@@ -1,16 +1,24 @@
 {
-  "theme": "Atelier Sulphurpool Light",
-  "buffer_font_size": 12,
+  "theme": "Rosé Pine Dawn",
   "buffer_font_family": "Berkeley Mono",
+  "terminal": {
+    "option_as_meta": true
+  },
   "vim_mode": true,
   "telemetry": {
     "metrics": false
   },
-  "terminal": {
-    "shell": {
-      "program": "/opt/homebrew/bin/fish"
-    },
-    "option_as_meta": true,
-    "copy_on_select": true
+  "buffer_font_size": 13,
+  "language_overrides": {
+    "Python": {
+      "format_on_save": {
+        "external": {
+          "command": "black",
+          "arguments": [
+            "-"
+          ]
+        }
+      }
+    }
   }
 }

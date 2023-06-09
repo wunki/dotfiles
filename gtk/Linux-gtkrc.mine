@@ -1,7 +1,0 @@
-gtk-icon-theme-name="Vertex-Icons"
-gtk-font-name = "Fira Sans 8"
-style "user-font"
-{
-    font_name = "Fira Sans 8"
-}
-widget_class "*" style "user-font"

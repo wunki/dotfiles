@@ -13,7 +13,7 @@
 	<key>BadgeTopMargin</key>
 	<integer>10</integer>
 	<key>Command</key>
-	<string></string>
+	<string>/opt/homebrew/bin/fish</string>
 	<key>CompactMinimalTabBarHeight</key>
 	<real>32</real>
 	<key>Custom Color Presets</key>
@@ -9097,13 +9097,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.14117647058823529</real>
+				<real>0.19607843458652496</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.11372549019607843</real>
+				<real>0.16078431904315948</real>
 				<key>Red Component</key>
-				<real>0.11372549019607843</real>
+				<real>0.15294118225574493</real>
 			</dict>
 			<key>Ansi 1 Color</key>
 			<dict>
@@ -9307,13 +9307,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.14117647058823529</real>
+				<real>0.12156862765550613</real>
 				<key>Color Space</key>
 				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.11764705882352941</real>
+				<real>0.10588235408067703</real>
 				<key>Red Component</key>
-				<real>0.11764705882352941</real>
+				<real>0.10196078568696976</real>
 			</dict>
 			<key>Background Image Location</key>
 			<string></string>

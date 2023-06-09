@@ -1,10 +1,15 @@
 # Dotfiles
 
-I'm a firm believer that you should invest in the tools that you use for your profession. Both hardware, having a good ergonomic setup and software, mastering and tweaking the tools you use daily.
+I believe it's a worthwhile investment, to improve and tweak the tools you use daily. Both hardware, having a good ergonomic setup and software, mastering and tweaking the tools you use daily.
 
-Regardless of all the advancements we had in the GUI. **The command line is still the best developer experience.**
+Regardless of all the advancements we had in the GUI. **The command line still gives the best developer experience.**
 
 I'll admit that I spend way too much time tweaking my configuration. That's why this repository is here, so you don't have to. Enjoy!
+
+I also have seperate configurations for both Emacs and Neovim. You can find those here:
+
+  * [petar-does-emacs](https://github.com/wunki/petar-does-emacs)
+  * [petar-uses-neovim](https://github.com/wunki/petar-uses-neovim)
 
 ## Screenshots
 
@@ -23,17 +28,13 @@ Neovim with [nvim-tree.lua] and [Telescope] file picker open:
 |-------------|---------------------------------------------------------------------------------------|
 | [Alacritty] | Alacritty is a fast terminal.                                                         |
 | [Fish]      | Shell with good defaults and easy to configure                                        |
-| [Neovim]    | Fast to start, easy to extend. And now configurable with Lua. Must use version 0.5.0+ |
 | [Tmux]      | When editing remote I use Tmux to save sessions and manage my windows                 |
-| [BSPWM]     | BPSWM as a Window manager. Also using [Polybar] (status bar) and [Rofi] (launcher)    |
+| [Zed]       | Fast GUI editor |
 
 [Alacritty]: https://github.com/alacritty/alacritty
 [Fish]: https://fishshell.com/
-[Neovim]: https://github.com/neovim/neovim
-[BSPWM]: https://github.com/baskerville/bspwm
 [Tmux]: https://github.com/tmux/tmux
-[Polybar]: https://github.com/polybar/polybar
-[Rofi]: https://github.com/davatorium/rofi
+[Zed]: https://zed.dev
 
 ## Usage
 
@@ -59,10 +60,3 @@ I also make use of some convenient command line tools which enrich the default c
 [exa]: https://github.com/ogham/exa
 [fzf]: https://github.com/junegunn/fzf
 [btm]: https://github.com/ClementTsang/bottom
-
-## Credits
-
-The Neovim configuration is mostly a copy from [NvChad], with some of my own adjustments.
-
-[NvChad]: https://github.com/siduck76/NvChad
-

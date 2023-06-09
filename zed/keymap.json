@@ -1,0 +1,8 @@
+[
+    {
+        "context": "Editor",
+        "bindings": {
+            "gd": "editor::GoToDefinition"
+        }
+    }
+]

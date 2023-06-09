@@ -1,0 +1,16 @@
+{
+  "theme": "Atelier Sulphurpool Light",
+  "buffer_font_size": 12,
+  "buffer_font_family": "Berkeley Mono",
+  "vim_mode": true,
+  "telemetry": {
+    "metrics": false
+  },
+  "terminal": {
+    "shell": {
+      "program": "/opt/homebrew/bin/fish"
+    },
+    "option_as_meta": true,
+    "copy_on_select": true
+  }
+}

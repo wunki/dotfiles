@@ -4,12 +4,15 @@
   "terminal": {
     "option_as_meta": true
   },
-  "vim_mode": true,
+  "vim_mode": false,
   "telemetry": {
     "metrics": false
   },
   "buffer_font_size": 13,
   "language_overrides": {
+    "HTML": {
+      "format_on_save": "off"
+    },
     "Elixir": {
       "format_on_save": {
         "external": {

@@ -1,8 +1,11 @@
 {
-  "theme": "Rosé Pine Dawn",
+  "theme": "Rosé Pine",
   "buffer_font_family": "Berkeley Mono",
   "terminal": {
-    "option_as_meta": true
+    "option_as_meta": true,
+    "shell": {
+      "program": "fish"
+    }
   },
   "vim_mode": false,
   "telemetry": {

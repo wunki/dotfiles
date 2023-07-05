@@ -1,13 +1,18 @@
 {
-  "theme": "Rosé Pine",
+  "theme": "Gruvbox Light Hard",
   "buffer_font_family": "Berkeley Mono",
+  "soft_wrap": "editor_width",
+  "preferred_line_length": 100,
+  "journal": {
+    "path": "~/Documents/Journal"
+  },
   "terminal": {
     "option_as_meta": true,
     "shell": {
       "program": "fish"
     }
   },
-  "vim_mode": false,
+  "vim_mode": true,
   "telemetry": {
     "metrics": false
   },

@@ -23,28 +23,32 @@ font:
     y: 2 # line spacing
 
   normal:
-    family: 'BerkeleyMono Nerd Font Mono'
+    family: 'Berkeley Mono'
     style: Regular
 
   # Bold font face
   bold:
-    family: 'BerkeleyMono Nerd Font Mono'
+    family: 'Berkeley Mono'
     style: Bold
 
   # Italic font face
   italic:
-    family: 'BerkeleyMono Nerd Font Mono'
+    family: 'Berkeley Mono'
     style: Italic
 
   # Point size
-  size: 13
+  size: 10
 
 cursor:
   style: Block
   blinking: On
 
 shell:
-  program: /opt/homebrew/bin/fish
+  program: /usr/bin/fish
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux new-session -A -s main"
 
 schemes:
   gruvbox_material_hard_dark: &gruvbox_material_hard_dark

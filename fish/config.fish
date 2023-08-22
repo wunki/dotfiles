@@ -39,8 +39,13 @@ fish_add_path -aP "$HOME/.local/bin"
 fish_add_path -aP "$HOME/.fly/bin"
 fish_add_path -aP "$HOME/.local/share/racket/bin"
 
+# Setup starship
+if type -q starship
+    eval (starship init fish)
+end
+
 # Configure the tide prompt with oh-lucy colors
-set --global tide_character_icon λ
+set --global tide_character_icon "🐟"
 set --global tide_character_color_failure "FB7DA7"
 set --global tide_character_color "76C5A4"
 set --global tide_pwd_color_anchors "8BB8D0"
@@ -178,9 +183,3 @@ end
 
 # Trying out Rye for managing Python
 fish_add_path -aP $HOME/.rye/shims
-
-# Add Pyenv configuration
-#fish_add_path -aP $HOME/.pyenv/bin
-#if type -q pyenv
-#    pyenv init - | source
-#end

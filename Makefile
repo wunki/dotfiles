@@ -1,7 +1,7 @@
 DOTFILES 	:= $(PWD)
 UNAME 		:= $(shell uname -s)
 
-all:: alacritty vim neovim fish tmux zsh zed helix
+all:: alacritty vim fish tmux zsh zed helix
 
 print-%: ; @echo $*=$($*)
 
@@ -22,11 +22,6 @@ fish::
 vim::
 	@ln -fs $(DOTFILES)/vim/vimrc					${HOME}/.vimrc
 	@echo Vim is symlinked.
-
-neovim::
-	@test -d ${HOME}/.config || mkdir				${HOME}/.config
-	@ln -fns $(DOTFILES)/neovim						${HOME}/.config/nvim
-	@echo Neovim is symlinked.
 
 zsh::
 	@ln -fs $(DOTFILES)/zsh/zprofile				${HOME}/.zprofile

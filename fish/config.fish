@@ -96,7 +96,7 @@ end
 # Use bat because of syntax highlighting
 if type -q bat
     abbr cat bat
-    set -x BAT_THEME zenburn
+    set -x BAT_THEME ansi
     set -x BAT_PAGER
     set -x COLORTERM truecolor
 end
@@ -106,9 +106,6 @@ set -x ERL_AFLAGS "-kernel shell_history enabled"
 set -x KERL_BUILD_DOCS "yes"
 set -x KERL_CONFIGURE_OPTIONS "--disable-debug --without-javac --without-wx"
 abbr miex 'iex -S mix'
-
-fish_add_path -aP /usr/local/lib/erlang25/bin
-fish_add_path -aP "$HOME/.local/share/elixir-ls/release"
 
 # PostgreSQL -- don't go to the users database which never exists...
 fish_add_path -aP /usr/local/opt/libpq/bin

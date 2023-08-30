@@ -5,15 +5,21 @@ if test -d "/opt/jdk-$java_version"
     fish_add_path -aP "$JAVA_HOME/bin"
 end
 
+function setup-ssh-agent
+    if test -z "$SSH_AUTH_SOCK"
+        set -x SSH_AUTH_SOCK (keychain --eval --quiet --agents ssh id_rsa | source)
+    end
+end
+
 # Configuration specific to WSL2 Linux
 if string match -q "*microsoft*" (uname -a)
     set -x PYTHON_KEYRING_BACKEND keyring.backends.null.Keyring
     set -x GTK_THEME "Adwaita:dark"
     set -x BROWSER "wslview"
+    set -x SHELL "fish"
 
     # Setup SSH key agent
-    set -x SHELL "fish"
-    keychain --eval --quiet --agents ssh id_rsa | source
+    setup-ssh-agent
 
     # Run Syncthing on startup. It won't fire if syncthing is already running
     # ~/.local/bin/start-syncing
@@ -24,6 +30,3 @@ if string match -q "*microsoft*" (uname -a)
 
     abbr clip 'clip.exe'
 end
-
-# Easily startup the keychain.
-abbr keys 'keychain --eval --quiet --agents ssh id_rsa | source'

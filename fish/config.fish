@@ -21,7 +21,7 @@ switch (uname)
 end
 
 # Where I store all my projects
-set -x PROJECT_DIR "$HOME/Code"
+set -x PROJECT_DIR "$HOME/Developer"
 
 # Shell variables
 set -x SHELL fish
@@ -134,8 +134,9 @@ set -gx FZF_DEFAULT_OPTS "
 "
 
 # Go
+fish_add_path -aP "/usr/local/go/bin"
 if type -q go
-    set -x GOPATH "$PROJECT_DIR/go"
+    set -x GOPATH "$PROJECT_DIR/Go"
     fish_add_path -aP "$GOPATH/bin"
 end
 

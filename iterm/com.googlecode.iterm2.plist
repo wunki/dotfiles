@@ -1388,13 +1388,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.15686275064945221</real>
+				<real>0.12941176470588237</real>
 				<key>Color Space</key>
-				<string>sRGB</string>
+				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.15686275064945221</real>
+				<real>0.12941176470588237</real>
 				<key>Red Component</key>
-				<real>0.15686275064945221</real>
+				<real>0.11372549019607843</real>
 			</dict>
 			<key>Background Color (Light)</key>
 			<dict>
@@ -2039,7 +2039,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>BerkeleyMono-Regular 12</string>
+			<string>BerkeleyMonoNFM-Regular 13</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Option Key Sends</key>

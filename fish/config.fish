@@ -81,12 +81,12 @@ abbr cdr 'cd (git rev-parse --show-toplevel)'
 abbr tt 'tmux attach || tmux new-session -s main'
 
 # Use EXA for listing files
-if type -q exa
-    abbr l exa
-    abbr ls exa
-    abbr ll 'exa -l'
-    abbr llg 'exa -l --git'
-    abbr lll 'exa -la'
+if type -q eza
+    abbr l eza
+    abbr ls eza
+    abbr ll 'eza -l'
+    abbr llg 'eza -l --git'
+    abbr lll 'eza -la'
 else
     abbr l ls
     abbr ll 'ls -l'
@@ -120,7 +120,7 @@ else
 end
 
 # FZF
-type -q fzf ; and set fzf_preview_dir_cmd exa --all --color=always
+type -q fzf ; and set fzf_preview_dir_cmd eza --all --color=always
 set -gx FZF_DEFAULT_OPTS "
 --multi
 --height=50%
@@ -134,13 +134,13 @@ set -gx FZF_DEFAULT_OPTS "
 "
 
 # Go
-fish_add_path -aP "/usr/local/go/bin"
 if type -q go
     set -x GOPATH "$PROJECT_DIR/Go"
     fish_add_path -aP "$GOPATH/bin"
 end
 
 # NodeJS
+fish_add_path -aP /opt/homebrew/opt/node@18/bin
 if type -q npm
     set -x NPM_PACKAGES "$HOME/.npm-packages"
     set -x NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"

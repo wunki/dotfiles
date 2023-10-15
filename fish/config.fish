@@ -105,6 +105,9 @@ end
 set -x ERL_AFLAGS "-kernel shell_history enabled"
 set -x KERL_BUILD_DOCS "yes"
 set -x KERL_CONFIGURE_OPTIONS "--disable-debug --without-javac --without-wx"
+
+fish_add_path -aP "$HOME/.mix/escripts"
+
 abbr miex 'iex -S mix'
 
 # PostgreSQL -- don't go to the users database which never exists...

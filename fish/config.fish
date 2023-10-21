@@ -111,7 +111,7 @@ fish_add_path -aP "$HOME/.mix/escripts"
 abbr miex 'iex -S mix'
 
 # PostgreSQL -- don't go to the users database which never exists...
-fish_add_path -aP /usr/local/opt/libpq/bin
+fish_add_path -aP /opt/homebrew/opt/libpq/bin
 type -q pgcli ; and set -x PGDATABASE postgres
 
 # Use nvim when installed
@@ -168,6 +168,10 @@ end
 
 # Docker
 fish_add_path -aP $HOME/.docker/cli-plugins
+
+# Ruby
+fish_add_path -aP /opt/homebrew/opt/ruby/bin
+fish_add_path -aP /opt/homebrew/lib/ruby/gems/3.2.0/bin
 
 # ASDF: version manager for different languages
 test -f "$HOME/.asdf/asdf.fish" ; and source $HOME/.asdf/asdf.fish

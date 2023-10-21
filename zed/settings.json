@@ -3,6 +3,9 @@
   "buffer_font_family": "Berkeley Mono",
   "soft_wrap": "editor_width",
   "preferred_line_length": 100,
+  "elixir": {
+    "lsp": "next_ls"
+  },
   "journal": {
     "path": "~/Documents/Journal"
   },
@@ -17,33 +20,5 @@
   "telemetry": {
     "metrics": false
   },
-  "buffer_font_size": 13,
-  "language_overrides": {
-    "HTML": {
-      "format_on_save": "off"
-    },
-    "Elixir": {
-      "format_on_save": {
-        "external": {
-          "command": "mix",
-          "arguments": [
-            "format",
-            "--stdin-filename",
-            "{buffer_path}",
-            "-"
-          ]
-        }
-      }
-    },
-    "Python": {
-      "format_on_save": {
-        "external": {
-          "command": "black",
-          "arguments": [
-            "-"
-          ]
-        }
-      }
-    }
-  }
+  "buffer_font_size": 13
 }

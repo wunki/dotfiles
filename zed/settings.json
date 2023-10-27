@@ -1,5 +1,5 @@
 {
-  "theme": "Rosé Pine Moon",
+  "theme": "Andromeda",
   "buffer_font_family": "Berkeley Mono",
   "soft_wrap": "editor_width",
   "preferred_line_length": 100,
@@ -12,9 +12,13 @@
   "terminal": {
     "option_as_meta": true,
     "font_family": "BerkeleyMono Nerd Font Mono",
+    "font_size": 13,
     "shell": {
       "program": "fish"
     }
+  },
+  "elixir": {
+    "lsp": "next_ls"
   },
   "vim_mode": true,
   "telemetry": {

@@ -129,6 +129,9 @@ if test -d $HOME/.zvm
     fish_add_path -aP $ZVM_INSTALL
 end
 
+# Lua
+fish_add_path -aP "$HOME/.luarocks/bin"
+
 # Go
 if type -q go
     set -x GOPATH "$PROJECT_DIR/Go"

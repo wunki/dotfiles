@@ -122,19 +122,12 @@ else
     abbr v vim
 end
 
-# FZF
-type -q fzf ; and set fzf_preview_dir_cmd eza --all --color=always
-set -gx FZF_DEFAULT_OPTS "
---multi
---height=50%
---prompt='❯ '
---pointer='-'
---marker='+'
---ansi
---tabstop=4
---color=dark
---color=hl:2:bold,fg+:4:bold,bg+:-1,hl+:2:bold,info:3:bold,border:0,prompt:2,pointer:5,marker:1,header:6
-"
+# Zig
+if test -d $HOME/.zvm
+    set -x ZVM_INSTALL "$HOME/.zvm/self"
+    fish_add_path -aP "$HOME/.zvm/bin"
+    fish_add_path -aP $ZVM_INSTALL
+end
 
 # Go
 if type -q go
@@ -143,7 +136,6 @@ if type -q go
 end
 
 # NodeJS
-fish_add_path -aP /opt/homebrew/opt/node@18/bin
 if type -q npm
     set -x NPM_PACKAGES "$HOME/.npm-packages"
     set -x NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
@@ -156,7 +148,7 @@ abbr lisp 'rlwrap sbcl'
 # Java
 fish_add_path -aP "$HOME/.local/share/maven/bin"
 
-# AWS 
+# AWS
 fish_add_path -aP "$HOME/.aws/bin"
 set -x AWS_IAM_HOME "$HOME/.aws/iam"
 set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
@@ -173,8 +165,11 @@ fish_add_path -aP $HOME/.docker/cli-plugins
 fish_add_path -aP /opt/homebrew/opt/ruby/bin
 fish_add_path -aP /opt/homebrew/lib/ruby/gems/3.2.0/bin
 
-# ASDF: version manager for different languages
-test -f "$HOME/.asdf/asdf.fish" ; and source $HOME/.asdf/asdf.fish
+# RTX
+if type -q rtx
+    fish_add_path -aP "$HOME/.local/share/rtx/shims"
+    rtx activate fish | source
+end
 
 # VTerm in Emacs
 if [ "$INSIDE_EMACS" = 'vterm' ]

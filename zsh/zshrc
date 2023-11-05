@@ -1,33 +1,35 @@
+#!/bin/zsh -f
+
 # My ZSH configuration which I try to keep as minimal and
 # fast as possible.
 
+# Autocompletion
+autoload -U compinit; compinit
+
 # Set some important environment variables
-if (( $+commands[hx] ))
-then
-  export EDITOR=hx
-else
-  export EDITOR=vim
-fi
+export EDITOR=vim
+
+# Use Emacs key bindings
+bindkey -e
 
 # Extend the path
 typeset -U PATH path
 
 path+=("$HOME/.local/bin")
 path+=("$HOME/.cargo/bin")
-path+=("/Applications/Racket/bin")
 path+=("$HOME/Developer/Go/bin")
 export PATH
 
 # Shortcuts
 alias tt='tmux new-session -A -s main'
 
-# Replace `ls` with `exa`, if installed
-if (( $+commands[exa] ))
+# Replace `ls` with `eza`, if installed
+if (( $+commands[eza] ))
 then
-  alias ls='exa'                              # ls
-  alias l='exa -lbF --git'                    # list, size, type, git
-  alias ll='exa -lbGF --git'                  # long list
-  alias llm='exa -lbGd --git --sort=modified' # long list, modified date sort
+  alias ls='eza'                              # ls
+  alias l='eza -lbF --git'                    # list, size, type, git
+  alias ll='eza -lbGF --git'                  # long list
+  alias llm='eza -lbGd --git --sort=modified' # long list, modified date sort
 fi
 
 # Some useful Git shortcuts
@@ -42,15 +44,30 @@ then
   . $HOME/.asdf/asdf.sh
 fi
 
-# Quickly jump to directories with the help of Z
-if [ -d "$HOME/Code/zsh-z" ]
-then
-  source $HOME/Code/zsh-z/zsh-z.plugin.zsh
-fi
-
 # `direnv` adds environment variables per directory
 eval "$(direnv hook zsh)"
 
-# Pure prompt, make sure to install first
-autoload -U promptinit; promptinit
-prompt pure
+# Quickly jump to directories with the help of Z
+if [ -d "$HOME/.zsh/zsh-z" ]
+then
+  source $HOME/.zsh/zsh-z/zsh-z.plugin.zsh
+fi
+
+# Fish like auto-suggestions
+if [ -d "$HOME/.zsh/zsh-autosuggestions" ]
+then
+    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
+
+# Fish like highlighting
+if [ -d "$HOME/.zsh/zsh-syntax-highlighting" ]
+then
+   source /Users/petar/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
+# Nice menu for auto-complete, must be loaded after
+# the Z plugin.
+zstyle ':completion:*' menu select
+
+# Starship prompt
+eval "$(starship init zsh)"

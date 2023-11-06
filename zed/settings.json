@@ -1,11 +1,8 @@
 {
-  "theme": "Andromeda",
+  "theme": "Rosé Pine",
   "buffer_font_family": "Berkeley Mono",
   "soft_wrap": "editor_width",
   "preferred_line_length": 100,
-  "elixir": {
-    "lsp": "next_ls"
-  },
   "journal": {
     "path": "~/Documents/Journal"
   },
@@ -14,7 +11,7 @@
     "font_family": "BerkeleyMono Nerd Font Mono",
     "font_size": 13,
     "shell": {
-      "program": "fish"
+      "program": "zsh"
     }
   },
   "elixir": {

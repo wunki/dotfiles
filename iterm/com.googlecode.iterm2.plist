@@ -4443,6 +4443,8 @@
 				<key>Red Component</key>
 				<real>0.49019607901573181</real>
 			</dict>
+			<key>Load Shell Integration Automatically</key>
+			<true/>
 			<key>Minimum Contrast</key>
 			<real>0.0</real>
 			<key>Minimum Contrast (Dark)</key>

@@ -32,6 +32,7 @@ export PATH
 
 # Shortcuts
 alias tt='tmux new-session -A -s main'
+alias bup='brew update && brew upgrade && brew cleanup'
 
 # Replace `ls` with `eza`, if installed
 if (( $+commands[eza] ))
@@ -54,8 +55,11 @@ then
   . $HOME/.asdf/asdf.sh
 fi
 
-# `direnv` adds environment variables per directory
-eval "$(direnv hook zsh)"
+# Setup environment variables per directory.
+if (( $+commands[direnv] ))
+then
+  eval "$(direnv hook zsh)"
+fi
 
 # Quickly jump to directories with the help of Z
 if [ -d "$HOME/.zsh/zsh-z" ]
@@ -79,9 +83,11 @@ fi
 # the Z plugin.
 zstyle ':completion:*' menu select
 
-# Integration with Emacs eat package
-[ -n "$EAT_SHELL_INTEGRATION_DIR" ] && \
+# Check if EAT_SHELL_INTEGRATION_DIR exists and is a directory before sourcing
+if [ -n "$EAT_SHELL_INTEGRATION_DIR" ] && [ -d "$EAT_SHELL_INTEGRATION_DIR" ]
+then
   source "$EAT_SHELL_INTEGRATION_DIR/zsh"
+fi
 
 # Starship prompt
 eval "$(starship init zsh)"

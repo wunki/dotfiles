@@ -9,15 +9,25 @@ autoload -U compinit; compinit
 # Set some important environment variables
 export EDITOR=vim
 
-# Use Emacs key bindings
+# Use Emacs key bindings, ZSH will default this to
+# Vim if the default editor is Vim.
 bindkey -e
 
 # Extend the path
 typeset -U PATH path
 
+# Local path
 path+=("$HOME/.local/bin")
+
+# Rust
 path+=("$HOME/.cargo/bin")
+
+# Go
 path+=("$HOME/Developer/Go/bin")
+
+# Zig
+path+=("$HOME/.zvm/bin")
+
 export PATH
 
 # Shortcuts
@@ -68,6 +78,10 @@ fi
 # Nice menu for auto-complete, must be loaded after
 # the Z plugin.
 zstyle ':completion:*' menu select
+
+# Integration with Emacs eat package
+[ -n "$EAT_SHELL_INTEGRATION_DIR" ] && \
+  source "$EAT_SHELL_INTEGRATION_DIR/zsh"
 
 # Starship prompt
 eval "$(starship init zsh)"

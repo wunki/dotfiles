@@ -79,6 +79,13 @@ then
    source /Users/petar/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
+# Automatically close, delete and skip matching delimiting pairs.
+if [ -d "$HOME/.zsh/zsh-autopair" ]
+then
+   source /Users/petar/.zsh/zsh-autopair/autopair.zsh
+   autopair-init
+fi
+
 # Nice menu for auto-complete, must be loaded after
 # the Z plugin.
 zstyle ':completion:*' menu select

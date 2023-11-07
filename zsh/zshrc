@@ -96,5 +96,11 @@ then
   source "$EAT_SHELL_INTEGRATION_DIR/zsh"
 fi
 
+# Sync commandline history between sessions.
+if (( $+commands[atuin] ))
+then
+  eval "$(atuin init zsh)"
+fi
+
 # Starship prompt
 eval "$(starship init zsh)"

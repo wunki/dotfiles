@@ -33,6 +33,7 @@ export PATH
 # Shortcuts
 alias tt='tmux new-session -A -s main'
 alias bup='brew update && brew upgrade && brew cleanup'
+alias cat='bat -p'
 
 # Replace `ls` with `eza`, if installed
 if (( $+commands[eza] ))

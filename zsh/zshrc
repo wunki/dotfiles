@@ -33,15 +33,20 @@ export PATH
 # Shortcuts
 alias tt='tmux new-session -A -s main'
 alias bup='brew update && brew upgrade && brew cleanup'
-alias cat='bat -p'
+
+
+if (( $+commands[bat] ))
+then
+    alias cat='bat'
+fi
 
 # Replace `ls` with `eza`, if installed
 if (( $+commands[eza] ))
 then
-  alias ls='eza'                              # ls
-  alias l='eza -lbF --git'                    # list, size, type, git
-  alias ll='eza -lbGF --git'                  # long list
-  alias llm='eza -lbGd --git --sort=modified' # long list, modified date sort
+    alias ls='eza'                              # ls
+    alias l='eza -lbF --git'                    # list, size, type, git
+    alias ll='eza -lbGF --git'                  # long list
+    alias llm='eza -lbGd --git --sort=modified' # long list, modified date sort
 fi
 
 # Some useful Git shortcuts

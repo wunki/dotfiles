@@ -9,7 +9,7 @@
   "terminal": {
     "option_as_meta": true,
     "font_family": "BerkeleyMono Nerd Font Mono",
-    "font_size": 13,
+    "font_size": 12,
     "shell": {
       "program": "zsh"
     }

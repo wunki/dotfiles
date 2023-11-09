@@ -26,6 +26,7 @@ path+=("$HOME/.cargo/bin")
 path+=("$HOME/Developer/Go/bin")
 
 # Zig
+path+=("$HOME/.zvm/self")
 path+=("$HOME/.zvm/bin")
 
 export PATH
@@ -33,7 +34,6 @@ export PATH
 # Shortcuts
 alias tt='tmux new-session -A -s main'
 alias bup='brew update && brew upgrade && brew cleanup'
-
 
 if (( $+commands[bat] ))
 then

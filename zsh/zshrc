@@ -3,9 +3,6 @@
 # My ZSH configuration which I try to keep as minimal and
 # fast as possible.
 
-# Autocompletion
-autoload -U compinit; compinit
-
 # Set some important environment variables
 export EDITOR=nvim
 
@@ -66,6 +63,14 @@ if (( $+commands[direnv] ))
 then
   eval "$(direnv hook zsh)"
 fi
+
+# Autocompletion, including homebrew completions
+if (( $+commands[brew] ))
+then
+  fpath+=$(brew --prefix)/share/site-functions
+  fpath+=$(brew --prefix)/share/zsh-completions
+fi
+autoload -Uz compinit; compinit
 
 # Quickly jump to directories with the help of Z
 if [ -d "$HOME/.zsh/zsh-z" ]

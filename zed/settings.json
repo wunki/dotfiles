@@ -1,4 +1,7 @@
 {
+  "project_panel": {
+    "dock": "right"
+  },
   "theme": "Rosé Pine",
   "buffer_font_family": "Berkeley Mono",
   "soft_wrap": "editor_width",
@@ -11,7 +14,7 @@
     "font_family": "BerkeleyMono Nerd Font Mono",
     "font_size": 12,
     "shell": {
-      "program": "zsh"
+      "program": "fish"
     }
   },
   "elixir": {

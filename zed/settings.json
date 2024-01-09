@@ -2,8 +2,8 @@
   "project_panel": {
     "dock": "right"
   },
-  "theme": "Rosé Pine",
-  "buffer_font_family": "Berkeley Mono",
+  "theme": "Andromeda",
+  "buffer_font_family": "MonoLisa",
   "soft_wrap": "editor_width",
   "preferred_line_length": 100,
   "journal": {
@@ -11,14 +11,11 @@
   },
   "terminal": {
     "option_as_meta": true,
-    "font_family": "BerkeleyMono Nerd Font Mono",
+    "font_family": "MonoLisa",
     "font_size": 12,
     "shell": {
       "program": "fish"
     }
-  },
-  "elixir": {
-    "lsp": "next_ls"
   },
   "vim_mode": true,
   "telemetry": {

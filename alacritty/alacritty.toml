@@ -1,0 +1,81 @@
+[cursor]
+style = "Block"
+
+[env]
+TERM = "xterm-256color"
+
+[font]
+size = 12
+
+[font.normal]
+family = "MonoLisa"
+style = "Regular"
+
+[font.bold]
+family = "MonoLisa"
+style = "Bold"
+
+[font.italic]
+family = "MonoLisa"
+style = "Italic"
+
+[font.offset]
+x = 0
+y = 0
+
+[scrolling]
+history = 1000
+multiplier = 5
+
+[shell]
+program = "/opt/homebrew/bin/fish"
+
+[window]
+dynamic_title = false
+option_as_alt = "OnlyLeft"
+title = "First, solve the problem. Then, write the code."
+
+[window.dimensions]
+columns = 128
+lines = 32
+
+[window.padding]
+x = 5
+y = 5
+
+# Kanagawa colors
+[[colors.indexed_colors]]
+color = "0xffa066"
+index = 16
+
+[[colors.indexed_colors]]
+color = "0xff5d62"
+index = 17
+
+[colors.bright]
+black = "0x727169"
+blue = "0x7fb4ca"
+cyan = "0x7aa89f"
+green = "0x98bb6c"
+magenta = "0x938aa9"
+red = "0xe82424"
+white = "0xdcd7ba"
+yellow = "0xe6c384"
+
+[colors.normal]
+black = "0x090618"
+blue = "0x7e9cd8"
+cyan = "0x6a9589"
+green = "0x76946a"
+magenta = "0x957fb8"
+red = "0xc34043"
+white = "0xc8c093"
+yellow = "0xc0a36e"
+
+[colors.primary]
+background = "0x1f1f28"
+foreground = "0xdcd7ba"
+
+[colors.selection]
+background = "0x2d4f67"
+foreground = "0xc8c093"

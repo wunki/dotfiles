@@ -6,8 +6,8 @@ all:: alacritty vim fish tmux zsh zed helix
 print-%: ; @echo $*=$($*)
 
 alacritty::
-	@test -d ${HOME}/.config/alacritty || mkdir ${HOME}/.config/alacritty	${HOME}/.config/alacritty
-	@ln -fs $(DOTFILES)/alacritty/alacritty.yml			${HOME}/.config/alacritty/alacritty.yml
+	@test -d ${HOME}/.config/alacritty || mkdir ${HOME}/.config/alacritty	
+	@ln -fs $(DOTFILES)/alacritty/alacritty.toml			${HOME}/.config/alacritty/alacritty.toml
 	@echo Alacritty configuration has been linked.
 
 fish::

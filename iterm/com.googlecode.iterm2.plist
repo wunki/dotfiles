@@ -5153,6 +5153,19 @@
 			</dict>
 			<key>Load Shell Integration Automatically</key>
 			<true/>
+			<key>Match Background Color</key>
+			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
+				<key>Blue Component</key>
+				<real>0.0</real>
+				<key>Color Space</key>
+				<string>P3</string>
+				<key>Green Component</key>
+				<real>1</real>
+				<key>Red Component</key>
+				<real>1</real>
+			</dict>
 			<key>Minimum Contrast</key>
 			<real>0.0</real>
 			<key>Minimum Contrast (Dark)</key>
@@ -5168,7 +5181,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>MonoLisa-Regular 12</string>
+			<string>BerkeleyMonoNFM-Regular 12</string>
 			<key>Only The Default BG Color Uses Transparency</key>
 			<false/>
 			<key>Option Key Sends</key>

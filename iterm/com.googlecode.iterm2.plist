@@ -5164,7 +5164,7 @@
 			<key>Name</key>
 			<string>Petar</string>
 			<key>Non Ascii Font</key>
-			<string>BerkeleyMonoNFM-Regular 11</string>
+			<string>GeistMonoNFM-Regular 11</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
@@ -5327,7 +5327,7 @@
 			<key>Use Italic Font</key>
 			<true/>
 			<key>Use Non-ASCII Font</key>
-			<true/>
+			<false/>
 			<key>Use Selected Text Color</key>
 			<true/>
 			<key>Use Separate Colors for Light and Dark Mode</key>

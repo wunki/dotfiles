@@ -28,3 +28,4 @@ bin/racer
 /fish/fish_variables
 /fish/completions/tide.fish
 /fish/completions/fzf_configure_bindings.fish
+/zed/.tmp*

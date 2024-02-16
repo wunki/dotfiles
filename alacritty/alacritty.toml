@@ -29,6 +29,7 @@ multiplier = 5
 
 [shell]
 program = "/opt/homebrew/bin/fish"
+args = ["-l", "-c", "tmux attach || tmux new-session -A -s main"]
 
 [window]
 dynamic_title = false

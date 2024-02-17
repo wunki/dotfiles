@@ -1,6 +1,9 @@
 [cursor]
 style = "Block"
 
+[debug]
+persistent_logging = true
+
 [env]
 TERM = "xterm-256color"
 
@@ -8,15 +11,15 @@ TERM = "xterm-256color"
 size = 12
 
 [font.normal]
-family = "MonoLisa"
+family = "BerkeleyMono Nerd Font Mono"
 style = "Regular"
 
 [font.bold]
-family = "MonoLisa"
+family = "BerkeleyMono Nerd Font Mono"
 style = "Bold"
 
 [font.italic]
-family = "MonoLisa"
+family = "BerkeleyMono Nerd Font Mono"
 style = "Italic"
 
 [font.offset]
@@ -29,7 +32,7 @@ multiplier = 5
 
 [shell]
 program = "/opt/homebrew/bin/fish"
-args = ["-l", "-c", "tmux attach || tmux new-session -A -s main"]
+args = ["-i", "-l", "-c", "tmux attach || tmux new-session -A -s main"]
 
 [window]
 dynamic_title = false

@@ -39,11 +39,6 @@ fish_add_path -aP "$HOME/.local/bin"
 fish_add_path -aP "$HOME/.fly/bin"
 fish_add_path -aP "$HOME/.local/share/racket/bin"
 
-# Setup starship
-if type -q starship
-    eval (starship init fish)
-end
-
 # Configure the tide prompt with oh-lucy colors
 set --global tide_character_icon "🐟"
 set --global tide_character_color_failure "FB7DA7"
@@ -100,6 +95,11 @@ if type -q bat
     set -x BAT_PAGER
     set -x COLORTERM truecolor
 end
+
+# Use Hydro as our prompt.
+set -g hydro_symbol_prompt λ
+set -g hydro_multiline true
+set -g hydro_color_prompt "#ffa066"
 
 # Erlang and Elixir
 set -x ERL_AFLAGS "-kernel shell_history enabled"

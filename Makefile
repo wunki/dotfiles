@@ -1,5 +1,5 @@
-DOTFILES 	:= $(PWD)
-UNAME 		:= $(shell uname -s)
+DOTFILES	:= $(PWD)
+UNAME			:= $(shell uname -s)
 
 all:: alacritty vim fish tmux zsh zed helix
 
@@ -15,6 +15,7 @@ fish::
 	@ln -fns $(DOTFILES)/fish							${HOME}/.config/fish
 	@printf "Please run the following to install plugins: \n\n\
 	\tfisher install jethrokuan/z \n\
+	\tfisher install jethrokuan/hydroz \n\
 	\tfisher install jorgebucaran/autopair.fish\n\n"
 	@echo Fish is symlinked.
 

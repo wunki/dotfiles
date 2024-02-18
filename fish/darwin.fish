@@ -1,12 +1,13 @@
 # Setup homebrew
-if status is-interactive
-  eval (/opt/homebrew/bin/brew shellenv)
-end
+# Stopped running this because it considerably slowed down my Fish shell.
+#if status is-interactive
+  # eval (/opt/homebrew/bin/brew shellenv)
+#end
 
-set -U brew_prefix (brew --prefix)
+set -U brew_prefix /opt/homebrew
 
 # Mac specific paths
-fish_add_path -aP /opt/homebrew/bin
+fish_add_path -aP $brew_prefix/bin
 fish_add_path -aP $brew_prefix/opt/node@14/bin
 fish_add_path -aP $brew_prefix/opt/python@3.9/libexec/bin
 fish_add_path -aP /Applications/Postgres.app/Contents/Versions/latest/bin

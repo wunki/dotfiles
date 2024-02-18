@@ -102,8 +102,7 @@ fish_add_path -aP "$HOME/.mix/escripts"
 abbr miex 'iex -S mix'
 
 # PostgreSQL -- don't go to the users database which never exists...
-fish_add_path -aP /opt/homebrew/opt/libpq/bin
-type -q pgcli ; and set -x PGDATABASE postgres
+set -x PGDATABASE postgres
 
 # Use neovim
 abbr e nvim
@@ -141,14 +140,10 @@ set -x AWS_IAM_HOME "$HOME/.aws/iam"
 set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
 
 # Direnv: adding environment variables per directory in a .envrc
-eval (direnv hook fish)
+# eval (direnv hook fish)
 
 # Docker
 fish_add_path -aP $HOME/.docker/cli-plugins
-
-# Ruby
-fish_add_path -aP /opt/homebrew/opt/ruby/bin
-fish_add_path -aP /opt/homebrew/lib/ruby/gems/3.2.0/bin
 
 # VTerm in Emacs
 if [ "$INSIDE_EMACS" = 'vterm' ]

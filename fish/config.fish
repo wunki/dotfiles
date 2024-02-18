@@ -50,9 +50,6 @@ set --global tide_git_color_branch "7EC49D"
 # Rust
 fish_add_path -aP "$HOME/.cargo/bin"
 abbr rfmt 'cargo +nightly fmt'
-if type -q sccache
-    set -x RUSTC_WRAPPER (which sccache)
-end
 
 # Tree
 abbr t1 'tree --dirsfirst -ChFL 1'
@@ -75,18 +72,12 @@ abbr cdr 'cd (git rev-parse --show-toplevel)'
 # Tmux
 abbr tt 'tmux attach || tmux new-session -s main'
 
-# Use EXA for listing files
-if type -q eza
-    abbr l eza
-    abbr ls eza
-    abbr ll 'eza -l'
-    abbr llg 'eza -l --git'
-    abbr lll 'eza -la'
-else
-    abbr l ls
-    abbr ll 'ls -l'
-    abbr lll 'ls -la'
-end
+# Use eza for listing files
+abbr l eza
+abbr ls eza
+abbr ll 'eza -l'
+abbr llg 'eza -l --git'
+abbr lll 'eza -la'
 
 # Use bat because of syntax highlighting
 if type -q bat
@@ -114,13 +105,8 @@ abbr miex 'iex -S mix'
 fish_add_path -aP /opt/homebrew/opt/libpq/bin
 type -q pgcli ; and set -x PGDATABASE postgres
 
-# Use nvim when installed
-if type -q nvim
-    abbr v nvim
-    abbr vim nvim
-else
-    abbr v vim
-end
+# Use neovim
+abbr e nvim
 
 # Zig
 if test -d $HOME/.zvm
@@ -133,17 +119,15 @@ end
 fish_add_path -aP "$HOME/.luarocks/bin"
 
 # Go
-if type -q go
+if test -d $PROJECT_DIR/Go
     set -x GOPATH "$PROJECT_DIR/Go"
     fish_add_path -aP "$GOPATH/bin"
 end
 
 # NodeJS
-if type -q npm
-    set -x NPM_PACKAGES "$HOME/.npm-packages"
-    set -x NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
-    fish_add_path -aP "$NPM_PACKAGES/bin"
-end
+set -x NPM_PACKAGES "$HOME/.npm-packages"
+set -x NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+fish_add_path -aP "$NPM_PACKAGES/bin"
 
 # Common Lisp
 abbr lisp 'rlwrap sbcl'
@@ -157,9 +141,7 @@ set -x AWS_IAM_HOME "$HOME/.aws/iam"
 set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
 
 # Direnv: adding environment variables per directory in a .envrc
-if type -q direnv
-    eval (direnv hook fish)
-end
+eval (direnv hook fish)
 
 # Docker
 fish_add_path -aP $HOME/.docker/cli-plugins
@@ -168,20 +150,9 @@ fish_add_path -aP $HOME/.docker/cli-plugins
 fish_add_path -aP /opt/homebrew/opt/ruby/bin
 fish_add_path -aP /opt/homebrew/lib/ruby/gems/3.2.0/bin
 
-# RTX
-if type -q rtx
-    fish_add_path -aP "$HOME/.local/share/rtx/shims"
-    rtx activate fish | source
-end
-
 # VTerm in Emacs
 if [ "$INSIDE_EMACS" = 'vterm' ]
     . $HOME/.config/fish/vterm.fish
-end
-
-# Sync shell history across machines
-if type -q atuin
-    atuin init fish | source
 end
 
 # Trying out Rye for managing Python

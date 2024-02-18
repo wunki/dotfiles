@@ -17,6 +17,13 @@ fish_add_path -aP /Applications/Racket/bin
 fish_add_path -aP /Applications/Emacs.app/Contents/MacOS
 fish_add_path -aP /Applications/Emacs.app/Contents/MacOS/bin
 
+# Ruby
+fish_add_path -aP $brew_prefix/opt/ruby/bin
+fish_add_path -aP $brew_prefix/lib/ruby/gems/3.2.0/bin
+
+# PostgreSQL
+fish_add_path -aP $brew_prefix/opt/libpq/bin
+
 set -x OPENSSL_INCLUDE_DIR $brew_prefix/opt/openssl/include
 set -x OPENSSL_LIB $brew_prefix/opt/openssl/lib
 set -x OPENSSL_ROOT_DIR $brew_prefix/opt/openssl

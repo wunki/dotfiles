@@ -23,6 +23,7 @@ fish_add_path -aP $brew_prefix/lib/ruby/gems/3.2.0/bin
 
 # PostgreSQL
 fish_add_path -aP $brew_prefix/opt/libpq/bin
+fish_add_path -aP /Applications/Postgres.app/Contents/Versions/latest/bin
 
 set -x OPENSSL_INCLUDE_DIR $brew_prefix/opt/openssl/include
 set -x OPENSSL_LIB $brew_prefix/opt/openssl/lib

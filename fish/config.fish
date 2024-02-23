@@ -39,14 +39,6 @@ fish_add_path -aP "$HOME/.local/bin"
 fish_add_path -aP "$HOME/.fly/bin"
 fish_add_path -aP "$HOME/.local/share/racket/bin"
 
-# Configure the tide prompt with oh-lucy colors
-set --global tide_character_icon "🐟"
-set --global tide_character_color_failure "FB7DA7"
-set --global tide_character_color "76C5A4"
-set --global tide_pwd_color_anchors "8BB8D0"
-set --global tide_pwd_color_dirs "5385AF"
-set --global tide_git_color_branch "7EC49D"
-
 # Rust
 fish_add_path -aP "$HOME/.cargo/bin"
 abbr rfmt 'cargo +nightly fmt'
@@ -149,6 +141,17 @@ fish_add_path -aP $HOME/.docker/cli-plugins
 if [ "$INSIDE_EMACS" = 'vterm' ]
     . $HOME/.config/fish/vterm.fish
 end
+
+# FZF
+# Generated here: https://vitormv.github.io/fzf-themes#eyJib3JkZXJTdHlsZSI6InJvdW5kZWQiLCJib3JkZXJMYWJlbCI6IiIsImJvcmRlckxhYmVsUG9zaXRpb24iOjAsInByZXZpZXdCb3JkZXJTdHlsZSI6InJvdW5kZWQiLCJwYWRkaW5nIjoiIiwibWFyZ2luIjoiMSIsInByb21wdCI6Is67ICIsIm1hcmtlciI6Ij4iLCJwb2ludGVyIjoi4peGIiwic2VwYXJhdG9yIjoi4pSAIiwic2Nyb2xsYmFyIjoi4pSCIiwibGF5b3V0IjoicmV2ZXJzZSIsImluZm8iOiJyaWdodCIsImNvbG9ycyI6ImZnKzojZDBkMGQwLGJnKzojMTYxNjFELGhsOiM2QTk1ODksaGwrOiM2NTg1OTQsaW5mbzojRENEN0JBLG1hcmtlcjojOThCQjZDLHByb21wdDojRkY5RTNCLHNwaW5uZXI6IzkzOEFBOSxwb2ludGVyOiM5NTdGQjgsaGVhZGVyOiM3Njk0NkEsYm9yZGVyOiMyQTJBMzcsbGFiZWw6I0RDRDdCQSxxdWVyeTojZDlkOWQ5In0=
+set -Ux FZF_DEFAULT_OPTS '
+  --color=fg:-1,fg+:#d0d0d0,bg:-1,bg+:#16161D
+  --color=hl:#6A9589,hl+:#658594,info:#DCD7BA,marker:#98BB6C
+  --color=prompt:#FF9E3B,spinner:#938AA9,pointer:#957FB8,header:#76946A
+  --color=border:#2A2A37,label:#DCD7BA,query:#d9d9d9
+  --border="rounded" --preview-window="border-rounded"
+  --margin=1 --prompt="λ " --marker=">" --pointer="◆"
+  --separator="─" --scrollbar="│" --layout="reverse" --info="right"'
 
 # Trying out Rye for managing Python
 fish_add_path -aP $HOME/.rye/shims

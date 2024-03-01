@@ -33,6 +33,10 @@ zed::
 	@ln -fs $(DOTFILES)/zed							${HOME}/.config/zed
 	@echo Zed is symlinked.
 
+wezterm::
+	@ln -fs $(DOTFILES)/wezterm/wezterm.lua							${HOME}/.wezterm.lua
+	@echo Zed is symlinked.
+
 helix::
 	@test -d ${HOME}/.config || mkdir				${HOME}/.config
 	@ln -fs $(DOTFILES)/helix/config.toml			${HOME}/.config/helix/config.toml

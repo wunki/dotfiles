@@ -110,6 +110,7 @@ end
 fish_add_path -aP "$HOME/.luarocks/bin"
 
 # Go
+fish_add_path -aP "/usr/local/go/bin"
 if test -d $PROJECT_DIR/Go
     set -x GOPATH "$PROJECT_DIR/Go"
     fish_add_path -aP "$GOPATH/bin"

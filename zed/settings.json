@@ -2,8 +2,8 @@
   "project_panel": {
     "dock": "right"
   },
-  "theme": "Rosé Pine",
-  "buffer_font_family": "MonoLisa",
+  "theme": "Gruvbox Light Soft",
+  "buffer_font_family": "Berkeley Mono",
   "soft_wrap": "editor_width",
   "preferred_line_length": 100,
   "journal": {
@@ -19,6 +19,7 @@
   },
   "vim_mode": true,
   "telemetry": {
+    "diagnostics": false,
     "metrics": false
   },
   "buffer_font_size": 12

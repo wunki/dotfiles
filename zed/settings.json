@@ -1,26 +1,56 @@
 {
+  "show_copilot_suggestions": true,
+  "show_completions_on_input": false,
+  "cursor_blink": false,
+  "features": {
+    "copilot": true
+  },
   "project_panel": {
     "dock": "right"
   },
-  "theme": "Gruvbox Light Soft",
-  "buffer_font_family": "Berkeley Mono",
+  "assistant": {
+    "dock": "right"
+  },
+  "languages": {
+    "Zig": {
+      "show_copilot_suggestions": false
+    },
+    "Markdown": {
+      "show_copilot_suggestions": false
+    },
+    "JSON": {
+      "show_copilot_suggestions": false
+    }
+  },
+  "theme": "Gruvbox Light",
+  "buffer_font_family": "BerkeleyMono Nerd Font Mono",
+  "buffer_font_size": 12,
   "soft_wrap": "editor_width",
   "preferred_line_length": 100,
   "journal": {
     "path": "~/Documents/Journal"
   },
+  "scrollbar": {
+    "show": "never"
+  },
   "terminal": {
     "option_as_meta": true,
-    "font_family": "MonoLisa",
+    "dock": "bottom",
+    "blinking": "on",
+    "font_family": "BerkeleyMono Nerd Font Mono",
     "font_size": 12,
     "shell": {
       "program": "fish"
+    }
+  },
+  "lsp": {
+    "zls": {
+      "binary": "/Users/petar/local/bin/zls"
     }
   },
   "vim_mode": true,
   "telemetry": {
     "diagnostics": false,
     "metrics": false
-  },
-  "buffer_font_size": 12
+  }
 }

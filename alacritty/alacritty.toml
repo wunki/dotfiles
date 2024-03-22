@@ -10,18 +10,18 @@ persistent_logging = true
 TERM = "xterm-256color"
 
 [font]
-size = 12
+size = 13
 
 [font.normal]
-family = "MonoLisa Nerd Font Mono"
+family = "Iosevka Comfy"
 style = "Regular"
 
 [font.bold]
-family = "MonoLisa Nerd Font Mono"
-style = "SemiBold Regular"
+family = "Iosevka Comfy"
+style = "Bold"
 
 [font.italic]
-family = "MonoLisa Nerd Font Mono"
+family = "Iosevka Comfy"
 style = "Italic"
 
 [scrolling]
@@ -35,7 +35,7 @@ args = ["-i", "-l", "-c", "tmux attach || tmux new-session -A -s main"]
 [window]
 dynamic_title = false
 option_as_alt = "OnlyLeft"
-title = "First, solve the problem. Then, write the code."
+title = "Make it work, make it right, make it fast."
 
 [window.dimensions]
 columns = 128
@@ -45,3 +45,11 @@ lines = 32
 x = 5
 y = 5
 
+[[hints.enabled]]
+command = "open"
+hyperlinks = true
+post_processing = true
+persist = false
+mouse.enabled = true
+binding = { key = "U", mods = "Control|Shift" }
+regex = "(ipfs:|ipns:|magnet:|mailto:|gemini://|gopher://|https://|http://|news:|file:|git://|ssh:|ftp://)[^\u0000-\u001F\u007F-\u009F<>\"\\s{-}\\^⟨⟩`]+"

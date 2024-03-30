@@ -8,7 +8,7 @@ set -U brew_prefix /opt/homebrew
 
 # Mac specific paths
 fish_add_path -aP $brew_prefix/bin
-fish_add_path -aP $brew_prefix/opt/node@14/bin
+fish_add_path -aP $brew_prefix/opt/node@18/bin
 fish_add_path -aP $brew_prefix/opt/python@3.9/libexec/bin
 fish_add_path -aP /Applications/Postgres.app/Contents/Versions/latest/bin
 fish_add_path -aP /Applications/Racket/bin

@@ -1,4 +1,6 @@
 {
+  "ui_font_size": 15,
+  "ui_font_family": "Berkeley Mono",
   "show_copilot_suggestions": true,
   "show_completions_on_input": false,
   "cursor_blink": false,
@@ -9,7 +11,8 @@
     "dock": "right"
   },
   "assistant": {
-    "dock": "right"
+    "dock": "right",
+    "version": "1"
   },
   "languages": {
     "Zig": {
@@ -22,7 +25,7 @@
       "show_copilot_suggestions": false
     }
   },
-  "theme": "Gruvbox Light",
+  "theme": "Gruvbox Light Soft",
   "buffer_font_family": "BerkeleyMono Nerd Font Mono",
   "buffer_font_size": 12,
   "soft_wrap": "editor_width",
@@ -45,7 +48,9 @@
   },
   "lsp": {
     "zls": {
-      "binary": "/Users/petar/local/bin/zls"
+      "binary": {
+        "path": "/Users/petar/.local/bin/zls"
+      }
     }
   },
   "vim_mode": true,

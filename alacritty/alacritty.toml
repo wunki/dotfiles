@@ -10,18 +10,18 @@ persistent_logging = true
 TERM = "xterm-256color"
 
 [font]
-size = 13
+size = 12
 
 [font.normal]
-family = "Iosevka Comfy"
+family = "Geist Mono"
 style = "Regular"
 
 [font.bold]
-family = "Iosevka Comfy"
-style = "Bold"
+family = "Geist Mono"
+style = "Medium"
 
 [font.italic]
-family = "Iosevka Comfy"
+family = "Geist Mono"
 style = "Italic"
 
 [scrolling]

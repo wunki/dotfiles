@@ -1,0 +1,8 @@
+[
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      "space f f": "file_finder::Toggle"
+    }
+  }
+]

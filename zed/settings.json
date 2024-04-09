@@ -1,5 +1,5 @@
 {
-  "ui_font_size": 15,
+  "ui_font_size": 14,
   "ui_font_family": "Berkeley Mono",
   "show_copilot_suggestions": true,
   "show_completions_on_input": false,
@@ -15,6 +15,9 @@
     "version": "1"
   },
   "languages": {
+    "Rust": {
+      "show_copilot_suggestions": false
+    },
     "Zig": {
       "show_copilot_suggestions": false
     },
@@ -26,12 +29,16 @@
     }
   },
   "theme": "Gruvbox Light Soft",
-  "buffer_font_family": "BerkeleyMono Nerd Font Mono",
+  "buffer_font_family": "Berkeley Mono",
   "buffer_font_size": 12,
   "soft_wrap": "editor_width",
   "preferred_line_length": 100,
+  "inlay_hints": {
+    "enabled": true
+  },
   "journal": {
-    "path": "~/Documents/Journal"
+    "path": "~/Documents/Journal",
+    "hour_format": "hour24"
   },
   "scrollbar": {
     "show": "never"
@@ -40,7 +47,7 @@
     "option_as_meta": true,
     "dock": "bottom",
     "blinking": "on",
-    "font_family": "BerkeleyMono Nerd Font Mono",
+    "font_family": "Berkeley Mono",
     "font_size": 12,
     "shell": {
       "program": "fish"

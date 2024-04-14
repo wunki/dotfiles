@@ -34,3 +34,7 @@ function bup --description "Updates, upgrades and cleans Homebrew"
     brew upgrade
     brew cleanup
 end
+
+# ASDF package manager
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
+

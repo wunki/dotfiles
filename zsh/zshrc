@@ -55,7 +55,7 @@ alias gf='git pull origin HEAD'
 # ASDF version manager
 if [ -d "$HOME/.asdf" ]
 then
-  . $HOME/.asdf/asdf.sh
+  . /opt/homebrew/opt/asdf/libexec/asdf.sh
 fi
 
 # Setup environment variables per directory.
@@ -118,3 +118,4 @@ if (( $+commands[starship] ))
 then
   eval "$(starship init zsh)"
 fi
+

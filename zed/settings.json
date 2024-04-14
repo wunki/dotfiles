@@ -1,5 +1,5 @@
 {
-  "ui_font_size": 14,
+  "ui_font_size": 13,
   "ui_font_family": "Berkeley Mono",
   "show_copilot_suggestions": true,
   "show_completions_on_input": false,
@@ -30,7 +30,7 @@
   },
   "theme": "Gruvbox Light Soft",
   "buffer_font_family": "Berkeley Mono",
-  "buffer_font_size": 12,
+  "buffer_font_size": 11,
   "soft_wrap": "editor_width",
   "preferred_line_length": 100,
   "inlay_hints": {
@@ -48,17 +48,20 @@
     "dock": "bottom",
     "blinking": "on",
     "font_family": "Berkeley Mono",
-    "font_size": 12,
+    "font_size": 11,
     "shell": {
-      "program": "fish"
+      "program": "/opt/homebrew/bin/fish"
     }
   },
   "lsp": {
     "zls": {
       "binary": {
-        "path": "/Users/petar/.local/bin/zls"
+        "path": "/Users/petar/.local/bin/zls-master"
       }
     }
+  },
+  "file_types": {
+    "CSS": ["scss"]
   },
   "vim_mode": true,
   "telemetry": {

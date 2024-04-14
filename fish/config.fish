@@ -154,5 +154,6 @@ set -Ux FZF_DEFAULT_OPTS '
   --margin=1 --prompt="λ " --marker=">" --pointer="◆"
   --separator="─" --scrollbar="│" --layout="reverse" --info="right"'
 
-# Trying out Rye for managing Python
+# Python
+fish_add_path -aP "$HOME/Library/Python/3.9/bin"
 fish_add_path -aP $HOME/.rye/shims

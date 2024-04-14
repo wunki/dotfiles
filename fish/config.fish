@@ -10,6 +10,10 @@ set -x LC_ALL 'en_US.UTF-8'
 set -x XDG_DATA_HOME {$HOME}/.local/share
 set -x GPG_TTY (tty)
 
+if test -f $HOME/.config/fish/secrets.fish
+  . $HOME/.config/fish/secrets.fish
+end
+
 # System specific configuration
 switch (uname)
     case Linux
@@ -154,6 +158,5 @@ set -Ux FZF_DEFAULT_OPTS '
   --margin=1 --prompt="λ " --marker=">" --pointer="◆"
   --separator="─" --scrollbar="│" --layout="reverse" --info="right"'
 
-# Python
-fish_add_path -aP "$HOME/Library/Python/3.9/bin"
+# Trying out Rye for managing Python
 fish_add_path -aP $HOME/.rye/shims

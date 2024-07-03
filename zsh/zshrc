@@ -4,7 +4,12 @@
 # fast as possible.
 
 # Set some important environment variables
-export EDITOR=nvim
+if [[ $TERM_PROGRAM == "zed" ]]
+then
+  export EDITOR="zed --wait"
+else
+  export EDITOR=nvim
+fi
 
 # Use Emacs key bindings, ZSH will default this to
 # Vim if the default editor is Vim.
@@ -25,6 +30,16 @@ path+=("$HOME/Developer/Go/bin")
 # Zig
 path+=("$HOME/.zvm/self")
 path+=("$HOME/.zvm/bin")
+
+# Guile
+export GUILE_LOAD_PATH="/opt/homebrew/share/guile/site/3.0"
+export GUILE_LOAD_COMPILED_PATH="/opt/homebrew/lib/guile/3.0/site-ccache"
+export GUILE_SYSTEM_EXTENSIONS_PATH="/opt/homebrew/lib/guile/3.0/extensions"
+
+# LLVM -- need this to build Odin
+path+=("/opt/homebrew/opt/llvm@14/bin")
+export LDFLAGS="-L/opt/homebrew/opt/llvm@14/lib"
+export CPPFLAGS="-I/opt/homebrew/opt/llvm@14/include"
 
 export PATH
 
@@ -118,4 +133,3 @@ if (( $+commands[starship] ))
 then
   eval "$(starship init zsh)"
 fi
-

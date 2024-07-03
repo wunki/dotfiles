@@ -3,14 +3,6 @@
 # My ZSH configuration which I try to keep as minimal and
 # fast as possible.
 
-# Set some important environment variables
-if [[ $TERM_PROGRAM == "zed" ]]
-then
-  export EDITOR="zed --wait"
-else
-  export EDITOR=nvim
-fi
-
 # Use Emacs key bindings, ZSH will default this to
 # Vim if the default editor is Vim.
 bindkey -e
@@ -43,6 +35,14 @@ export CPPFLAGS="-I/opt/homebrew/opt/llvm@14/include"
 
 export PATH
 
+# Use the Zed editor if the ZED_TERM environment variable is set
+if [[ $ZED_TERM == "true" ]]
+then
+  export EDITOR="zed --wait"
+else
+  export EDITOR=nvim
+fi
+
 # Shortcuts
 alias tt='tmux new-session -A -s main'
 alias bup='brew update && brew upgrade && brew cleanup'
@@ -50,6 +50,12 @@ alias bup='brew update && brew upgrade && brew cleanup'
 if (( $+commands[bat] ))
 then
     alias cat='bat'
+fi
+
+# Magit on the commandline
+if (( $+commands[gitu] ))
+then
+    alias gu='gitu'
 fi
 
 # Replace `ls` with `eza`, if installed

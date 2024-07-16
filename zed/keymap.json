@@ -2,7 +2,12 @@
   {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
-      "space f f": "file_finder::Toggle"
+      "space f f": "file_finder::Toggle",
+      "space p n": "editor::GoToDiagnostic",
+      "space p p": "editor::GoToPrevDiagnostic",
+      "space r n": "editor::Rename",
+      "space r r": "editor::RestartLanguageServer",
+      "space t i": "editor::ToggleInlayHints"
     }
   }
 ]

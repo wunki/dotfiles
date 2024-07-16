@@ -28,6 +28,9 @@ export GUILE_LOAD_PATH="/opt/homebrew/share/guile/site/3.0"
 export GUILE_LOAD_COMPILED_PATH="/opt/homebrew/lib/guile/3.0/site-ccache"
 export GUILE_SYSTEM_EXTENSIONS_PATH="/opt/homebrew/lib/guile/3.0/extensions"
 
+# Racket
+path+=("/Applications/Racket v8.13/bin")
+
 # LLVM -- need this to build Odin
 path+=("/opt/homebrew/opt/llvm@14/bin")
 export LDFLAGS="-L/opt/homebrew/opt/llvm@14/lib"
@@ -134,8 +137,6 @@ then
   eval "$(atuin init zsh)"
 fi
 
-# Starship prompt
-if (( $+commands[starship] ))
-then
-  eval "$(starship init zsh)"
-fi
+# The pure prompt
+autoload -U promptinit; promptinit
+prompt pure

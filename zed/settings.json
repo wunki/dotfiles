@@ -1,9 +1,14 @@
 {
-  "ui_font_size": 13,
+  "ui_font_size": 14,
   "ui_font_family": "Berkeley Mono",
+  "tab_bar": {
+    "show": true
+  },
+  "current_line_highlight": "gutter",
   "show_copilot_suggestions": true,
-  "show_completions_on_input": false,
+  "show_completions_on_input": true,
   "cursor_blink": false,
+  "relative_line_numbers": true,
   "features": {
     "copilot": true
   },
@@ -12,13 +17,21 @@
   },
   "assistant": {
     "dock": "right",
-    "version": "1"
+    "version": "1",
+    "provider": {
+      "default_model": "claude-3-5-sonnet-20240620",
+      "name": "anthropic"
+    }
   },
   "languages": {
+    "Odin": {
+      "show_copilot_suggestions": false
+    },
     "Rust": {
       "show_copilot_suggestions": false
     },
     "Zig": {
+      "show_inline_completions": true,
       "show_copilot_suggestions": false
     },
     "Markdown": {
@@ -28,13 +41,13 @@
       "show_copilot_suggestions": false
     }
   },
-  "theme": "Gruvbox Light Soft",
+  "theme": "Gruvbox Light",
   "buffer_font_family": "Berkeley Mono",
-  "buffer_font_size": 11,
+  "buffer_font_size": 12,
   "soft_wrap": "editor_width",
   "preferred_line_length": 100,
   "inlay_hints": {
-    "enabled": true
+    "enabled": false
   },
   "journal": {
     "path": "~/Documents/Journal",
@@ -48,15 +61,26 @@
     "dock": "bottom",
     "blinking": "on",
     "font_family": "Berkeley Mono",
-    "font_size": 11,
+    "font_size": 12,
     "shell": {
       "program": "/opt/homebrew/bin/fish"
+    },
+    "env": {
+      "TERM_PROGRAM": "zed",
+      "EDITOR": "zed --wait"
     }
   },
   "lsp": {
     "zls": {
       "binary": {
-        "path": "/Users/petar/.local/bin/zls-master"
+        "path": "/Users/petar/.zvm/bin/zls"
+      }
+    },
+    "rust-analyzer": {
+      "initialization_options": {
+        "check": {
+          "command": "clippy"
+        }
       }
     }
   },

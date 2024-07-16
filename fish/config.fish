@@ -29,7 +29,7 @@ set -x PROJECT_DIR "$HOME/Developer"
 
 # Shell variables
 set -x SHELL fish
-set -x EDITOR "nvim"
+set -x EDITOR "zed --wait"
 set -x VISUAL "$EDITOR"
 set -x ALTERNATE_EDITOR "vim"
 
@@ -57,7 +57,24 @@ abbr gc 'git commit'
 abbr gs 'git status --ignore-submodules=dirty'
 abbr gp 'git push origin HEAD'
 abbr gf 'git pull origin HEAD'
-abbr lg 'lazygit'
+abbr gu 'gitu'
+
+function recover_file
+    if test (count $argv) -ne 1
+        echo "Usage: git_recover_file <path/to/deleted/file>"
+        return 1
+    end
+
+    set file_path $argv[1]
+    set commit_hash (git log --all --format=%H -n 1 -- $file_path)
+
+    if test -z "$commit_hash"
+        echo "Error: No commit found for file '$file_path'"
+        return 1
+    end
+
+    git show $commit_hash:$file_path
+end
 
 # Editing
 fish_add_path -aP /opt/nvim/bin
@@ -86,7 +103,8 @@ end
 # Use Hydro as our prompt.
 set -g hydro_symbol_prompt λ
 set -g hydro_multiline true
-set -g hydro_color_prompt "#ffa066"
+set -g hydro_color_prompt $fish_color_normal
+set -g hydro_color_git $fish_color_command
 
 # Erlang and Elixir
 set -x ERL_AFLAGS "-kernel shell_history enabled"
@@ -158,5 +176,7 @@ set -Ux FZF_DEFAULT_OPTS '
   --margin=1 --prompt="λ " --marker=">" --pointer="◆"
   --separator="─" --scrollbar="│" --layout="reverse" --info="right"'
 
-# Trying out Rye for managing Python
-fish_add_path -aP $HOME/.rye/shims
+# Command history
+if type -q atuin
+    atuin init fish | source
+end

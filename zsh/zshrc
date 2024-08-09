@@ -13,12 +13,22 @@ typeset -U PATH path
 # Local path
 path+=("$HOME/.local/bin")
 
+# Neovim
+path+=("/opt/nvim/bin")
+
 # Rust
 path+=("$HOME/.cargo/bin")
 
 # Zig
 path+=("$HOME/.zvm/self")
 path+=("$HOME/.zvm/bin")
+
+# Setup ASDF
+if [ -d "$HOME/.asdf" ]
+then
+  . "$HOME/.asdf/asdf.sh"
+  fpath=(${ASDF_DIR}/completions $fpath)
+fi
 
 export PATH
 
@@ -27,22 +37,22 @@ alias tt='tmux new-session -A -s main'
 
 if (( $+commands[bat] ))
 then
-    alias cat='bat'
+  alias cat='bat'
 fi
 
 # Magit on the commandline
 if (( $+commands[gitu] ))
 then
-    alias gu='gitu'
+  alias gu='gitu'
 fi
 
 # Replace `ls` with `eza`, if installed
 if (( $+commands[eza] ))
 then
-    alias ls='eza'                              # ls
-    alias l='eza -lbF --git'                    # list, size, type, git
-    alias ll='eza -lbGF --git'                  # long list
-    alias llm='eza -lbGd --git --sort=modified' # long list, modified date sort
+  alias ls='eza'                              # ls
+  alias l='eza -lbF --git'                    # list, size, type, git
+  alias ll='eza -lbGF --git'                  # long list
+  alias llm='eza -lbGd --git --sort=modified' # long list, modified date sort
 fi
 
 # Some useful Git shortcuts
@@ -66,20 +76,20 @@ fi
 # Fish like auto-suggestions
 if [ -d "$HOME/.zsh/zsh-autosuggestions" ]
 then
-    source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
+  source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 fi
 
 # Fish like highlighting
 if [ -d "$HOME/.zsh/zsh-syntax-highlighting" ]
 then
-   source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # Automatically close, delete and skip matching delimiting pairs.
 if [ -d "$HOME/.zsh/zsh-autopair" ]
 then
-   source ~/.zsh/zsh-autopair/autopair.zsh
-   autopair-init
+  source ~/.zsh/zsh-autopair/autopair.zsh
+  autopair-init
 fi
 
 # Nice menu for auto-complete, must be loaded after
@@ -100,7 +110,7 @@ fi
 
 # Mac-specific 
 if [[ "$(uname)" == "Darwin" ]]; then
-    source ~/.zshrc.mac
+  source ~/.zshrc.mac
 fi
 
 # Enable autocompletion

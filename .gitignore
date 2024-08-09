@@ -13,3 +13,4 @@
 /fish/completions/fzf_configure_bindings.fish
 /fish/secrets.fish
 /zed/.tmp*
+/zed/conversations

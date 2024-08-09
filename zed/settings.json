@@ -16,32 +16,31 @@
     "dock": "right"
   },
   "assistant": {
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-3-5-sonnet-20240620"
+    },
     "dock": "right",
-    "version": "1",
-    "provider": {
-      "default_model": "claude-3-5-sonnet-20240620",
-      "name": "anthropic"
-    }
+    "version": "2",
+    "provider": null
   },
   "languages": {
-    "Odin": {
-      "show_copilot_suggestions": false
+    "C": {
+      "show_inline_completions": false
     },
-    "Rust": {
-      "show_copilot_suggestions": false
+    "Elixir": {
+      "show_inline_completions": false,
+      "language_servers": ["!lexical", "!elixir-ls", "next-ls", "tailwindcss-language-server"],
+      "formatter": { "language_server": { "name": "next-ls" } },
+      "format_on_save": { "language_server": { "name": "next-ls" } }
     },
-    "Zig": {
-      "show_inline_completions": true,
-      "show_copilot_suggestions": false
-    },
-    "Markdown": {
-      "show_copilot_suggestions": false
-    },
-    "JSON": {
-      "show_copilot_suggestions": false
+    "HEEX": {
+      "language_servers": ["!lexical", "!elixir-ls", "next-ls", "tailwindcss-language-server"],
+      "formatter": { "language_server": { "name": "next-ls" } },
+      "format_on_save": { "language_server": { "name": "next-ls" } }
     }
   },
-  "theme": "Gruvbox Light",
+  "theme": "Zedokai Darker (Filter Ristretto)",
   "buffer_font_family": "Berkeley Mono",
   "buffer_font_size": 12,
   "soft_wrap": "editor_width",
@@ -59,7 +58,7 @@
   "terminal": {
     "option_as_meta": true,
     "dock": "bottom",
-    "blinking": "on",
+    "blinking": "off",
     "font_family": "Berkeley Mono",
     "font_size": 12,
     "shell": {
@@ -81,6 +80,21 @@
         "check": {
           "command": "clippy"
         }
+      }
+    },
+    "next-ls": {
+      "binary": {
+        "path": "/opt/homebrew/bin/nextls"
+      }
+    },
+    "lexical": {
+      "binary": {
+        "path": "/Users/petar/.local/share/lexical/bin/start_lexical.sh"
+      }
+    },
+    "elixir-ls": {
+      "binary": {
+        "path": "/Users/petar/.local/share/elixir-ls/release/language_server.sh"
       }
     }
   },

@@ -16,39 +16,14 @@ path+=("$HOME/.local/bin")
 # Rust
 path+=("$HOME/.cargo/bin")
 
-# Go
-path+=("$HOME/Developer/Go/bin")
-
 # Zig
 path+=("$HOME/.zvm/self")
 path+=("$HOME/.zvm/bin")
 
-# Guile
-export GUILE_LOAD_PATH="/opt/homebrew/share/guile/site/3.0"
-export GUILE_LOAD_COMPILED_PATH="/opt/homebrew/lib/guile/3.0/site-ccache"
-export GUILE_SYSTEM_EXTENSIONS_PATH="/opt/homebrew/lib/guile/3.0/extensions"
-
-# Racket
-path+=("/Applications/Racket v8.13/bin")
-
-# LLVM -- need this to build Odin
-path+=("/opt/homebrew/opt/llvm@14/bin")
-export LDFLAGS="-L/opt/homebrew/opt/llvm@14/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm@14/include"
-
 export PATH
-
-# Use the Zed editor if the ZED_TERM environment variable is set
-if [[ $ZED_TERM == "true" ]]
-then
-  export EDITOR="zed --wait"
-else
-  export EDITOR=nvim
-fi
 
 # Shortcuts
 alias tt='tmux new-session -A -s main'
-alias bup='brew update && brew upgrade && brew cleanup'
 
 if (( $+commands[bat] ))
 then
@@ -76,25 +51,11 @@ alias gs='git status --ignore-submodules=dirty'
 alias gp='git push origin HEAD'
 alias gf='git pull origin HEAD'
 
-# ASDF version manager
-if [ -d "$HOME/.asdf" ]
-then
-  . /opt/homebrew/opt/asdf/libexec/asdf.sh
-fi
-
 # Setup environment variables per directory.
 if (( $+commands[direnv] ))
 then
   eval "$(direnv hook zsh)"
 fi
-
-# Autocompletion, including homebrew completions
-if (( $+commands[brew] ))
-then
-  fpath+=$(brew --prefix)/share/site-functions
-  fpath+=$(brew --prefix)/share/zsh-completions
-fi
-autoload -Uz compinit; compinit
 
 # Quickly jump to directories with the help of Z
 if [ -d "$HOME/.zsh/zsh-z" ]
@@ -111,13 +72,13 @@ fi
 # Fish like highlighting
 if [ -d "$HOME/.zsh/zsh-syntax-highlighting" ]
 then
-   source /Users/petar/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+   source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
 # Automatically close, delete and skip matching delimiting pairs.
 if [ -d "$HOME/.zsh/zsh-autopair" ]
 then
-   source /Users/petar/.zsh/zsh-autopair/autopair.zsh
+   source ~/.zsh/zsh-autopair/autopair.zsh
    autopair-init
 fi
 
@@ -137,6 +98,15 @@ then
   eval "$(atuin init zsh)"
 fi
 
+# Mac-specific 
+if [[ "$(uname)" == "Darwin" ]]; then
+    source ~/.zshrc.mac
+fi
+
+# Enable autocompletion
+autoload -Uz compinit; compinit
+
 # The pure prompt
+fpath+=($HOME/.zsh/pure)
 autoload -U promptinit; promptinit
 prompt pure

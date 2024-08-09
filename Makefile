@@ -27,6 +27,7 @@ vim::
 zsh::
 	@ln -fs $(DOTFILES)/zsh/zprofile				${HOME}/.zprofile
 	@ln -fs $(DOTFILES)/zsh/zshrc					${HOME}/.zshrc
+	@ln -fs $(DOTFILES)/zsh/zshrc.mac				${HOME}/.zshrc.mac
 	@echo ZSH is symlinked.
 
 zed::

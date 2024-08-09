@@ -1,0 +1,7 @@
+{
+  "Inline HEEX": {
+    "prefix": "~H",
+    "body": ["console.log($1);", "$0"],
+    "description": "Create a new inlined HEEX template"
+  }
+}

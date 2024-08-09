@@ -49,6 +49,9 @@ set -gx CPPFLAGS "-I$brew_prefix/opt/llvm@14/include"
 # Add Odin
 fish_add_path -aP $HOME/Developer/Source/Odin
 
+# Needed for Zed build
+set -gx BINDGEN_EXTRA_CLANG_ARGS --sysroot=(xcrun --show-sdk-path)
+
 function bup --description "Updates, upgrades and cleans Homebrew"
     brew update
     brew upgrade

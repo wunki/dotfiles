@@ -16,6 +16,9 @@ path+=("$HOME/.local/bin")
 # Neovim
 path+=("/opt/nvim/bin")
 
+# Erlang
+export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac"
+
 # Rust
 path+=("$HOME/.cargo/bin")
 

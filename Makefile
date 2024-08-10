@@ -15,7 +15,7 @@ fish::
 	@ln -fns $(DOTFILES)/fish							${HOME}/.config/fish
 	@printf "Please run the following to install plugins: \n\n\
 	\tfisher install jethrokuan/z \n\
-	\tfisher install jethrokuan/hydroz \n\
+	\tfisher install jorgebucaran/hydro \n\
 	\tfisher install PatrickF1/fzf.fish \n\
 	\tfisher install jorgebucaran/autopair.fish\n\n"
 	@echo Fish is symlinked.

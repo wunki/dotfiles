@@ -30,17 +30,11 @@ else
   export EDITOR=nvim
 fi
 
-# ASDF version manager
-if [ -d "$HOME/.asdf" ]
-then
-  . /opt/homebrew/opt/asdf/libexec/asdf.sh
-fi
-
 # Autocompletion, including homebrew completions
 if (( $+commands[brew] ))
 then
-  fpath+=$(brew --prefix)/share/site-functions
-  fpath+=$(brew --prefix)/share/zsh-completions
+  fpath+=("$(brew --prefix)/share/zsh/site-functions")
+  fpath+=("$(brew --prefix)/share/zsh-completions")
 fi
 
 # Go

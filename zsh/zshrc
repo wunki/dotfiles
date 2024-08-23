@@ -64,11 +64,34 @@ alias gs='git status --ignore-submodules=dirty'
 alias gp='git push origin HEAD'
 alias gf='git pull origin HEAD'
 
+<<<<<<< HEAD
+=======
+# ASDF version manager
+if [ -d "$HOME/.asdf" ]
+then
+  . /opt/homebrew/opt/asdf/libexec/asdf.sh
+fi
+
+# Mise version manager
+if (( $+commands[eza] ))
+then
+  eval "$(~/.local/bin/mise activate zsh)"
+fi
+
+>>>>>>> ee78e7f (shrug)
 # Setup environment variables per directory.
 if (( $+commands[direnv] ))
 then
   eval "$(direnv hook zsh)"
 fi
+
+# Autocompletion, including homebrew completions
+if (( $+commands[brew] ))
+then
+  fpath+=("$(brew --prefix)/share/zsh/site-functions")
+  fpath+=("$(brew --prefix)/share/zsh-completions")
+fi
+autoload -Uz compinit; compinit
 
 # Quickly jump to directories with the help of Z
 if [ -d "$HOME/.zsh/zsh-z" ]

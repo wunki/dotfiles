@@ -1,6 +1,6 @@
 {
-  "ui_font_size": 14,
-  "ui_font_family": "Berkeley Mono",
+  "ui_font_size": 13,
+  "ui_font_family": "Geist Mono",
   "tab_bar": {
     "show": true
   },
@@ -30,18 +30,22 @@
     },
     "Elixir": {
       "show_inline_completions": false,
-      "language_servers": ["!lexical", "!elixir-ls", "next-ls", "tailwindcss-language-server"],
-      "formatter": { "language_server": { "name": "next-ls" } },
-      "format_on_save": { "language_server": { "name": "next-ls" } }
+      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"],
+      "formatter": { "language_server": { "name": "elixir-ls" } },
+      "format_on_save": { "language_server": { "name": "elixir-ls" } }
     },
     "HEEX": {
-      "language_servers": ["!lexical", "!elixir-ls", "next-ls", "tailwindcss-language-server"],
-      "formatter": { "language_server": { "name": "next-ls" } },
-      "format_on_save": { "language_server": { "name": "next-ls" } }
+      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"],
+      "formatter": { "language_server": { "name": "elixir-ls" } },
+      "format_on_save": { "language_server": { "name": "elixir-ls" } }
+    },
+    "JavaScript": {
+      "tab_size": 4,
+      "hard_tabs": true
     }
   },
   "theme": "Zedokai Darker (Filter Ristretto)",
-  "buffer_font_family": "Berkeley Mono",
+  "buffer_font_family": "Geist Mono",
   "buffer_font_size": 12,
   "soft_wrap": "editor_width",
   "preferred_line_length": 100,
@@ -59,10 +63,13 @@
     "option_as_meta": true,
     "dock": "bottom",
     "blinking": "off",
-    "font_family": "Berkeley Mono",
+    "font_family": "Geist Mono",
     "font_size": 12,
     "shell": {
-      "program": "/opt/homebrew/bin/fish"
+      "with_arguments": {
+        "program": "/opt/homebrew/bin/fish",
+        "args": ["-l", "-i"]
+      }
     },
     "env": {
       "TERM_PROGRAM": "zed",

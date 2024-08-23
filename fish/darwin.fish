@@ -1,7 +1,7 @@
 # Setup homebrew
 # Stopped running this because it considerably slowed down my Fish shell.
 #if status is-interactive
-  # eval (/opt/homebrew/bin/brew shellenv)
+# eval (/opt/homebrew/bin/brew shellenv)
 #end
 
 set -U brew_prefix /opt/homebrew
@@ -18,11 +18,14 @@ fish_add_path -aP /Applications/Racket\ v8.13/bin
 
 # Python
 fish_add_path -aP $brew_prefix/opt/python@3.9/libexec/bin
-fish_add_path -aP $home/Library/Python/3.9/bin
+fish_add_path -aP $HOME/Library/Python/3.9/bin
 
 # Emacs
 fish_add_path -aP /Applications/Emacs.app/Contents/MacOS
 fish_add_path -aP /Applications/Emacs.app/Contents/MacOS/bin
+
+# Mise version manager
+~/.local/bin/mise activate fish | source
 
 # Guile
 set -x GUILE_LOAD_PATH $brew_prefix/share/guile/site/3.0
@@ -57,6 +60,3 @@ function bup --description "Updates, upgrades and cleans Homebrew"
     brew upgrade
     brew cleanup
 end
-
-# ASDF package manager
-source /opt/homebrew/opt/asdf/libexec/asdf.fish

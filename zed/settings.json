@@ -30,14 +30,14 @@
     },
     "Elixir": {
       "show_inline_completions": false,
-      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"],
-      "formatter": { "language_server": { "name": "elixir-ls" } },
-      "format_on_save": { "language_server": { "name": "elixir-ls" } }
+      "language_servers": ["!lexical", "!elixir-ls", "next-ls", "tailwindcss-language-server"],
+      "formatter": { "language_server": { "name": "next-ls" } },
+      "format_on_save": { "language_server": { "name": "next-ls" } }
     },
     "HEEX": {
-      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"],
-      "formatter": { "language_server": { "name": "elixir-ls" } },
-      "format_on_save": { "language_server": { "name": "elixir-ls" } }
+      "language_servers": ["!lexical", "!elixir-ls", "next-ls", "tailwindcss-language-server"],
+      "formatter": { "language_server": { "name": "next-ls" } },
+      "format_on_save": { "language_server": { "name": "next-ls" } }
     },
     "JavaScript": {
       "tab_size": 4,
@@ -92,16 +92,6 @@
     "next-ls": {
       "binary": {
         "path": "/opt/homebrew/bin/nextls"
-      }
-    },
-    "lexical": {
-      "binary": {
-        "path": "/Users/petar/.local/share/lexical/bin/start_lexical.sh"
-      }
-    },
-    "elixir-ls": {
-      "binary": {
-        "path": "/Users/petar/.local/share/elixir-ls/release/language_server.sh"
       }
     }
   },

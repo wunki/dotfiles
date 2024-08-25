@@ -10,6 +10,11 @@ bindkey -e
 # Extend the path
 typeset -U PATH path
 
+# Environment
+export LANG='en_US.UTF-8'
+export LC_ALL='en_US.UTF-8'
+export XDG_DATA_HOME=$HOME/.local/share
+
 # Local path
 path+=("$HOME/.local/bin")
 

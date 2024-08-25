@@ -8,6 +8,7 @@ print-%: ; @echo $*=$($*)
 alacritty::
 	@test -d ${HOME}/.config/alacritty || mkdir ${HOME}/.config/alacritty	
 	@ln -fs $(DOTFILES)/alacritty/alacritty.toml			${HOME}/.config/alacritty/alacritty.toml
+	@ln -fns $(DOTFILES)/alacritty/themes			${HOME}/.config/alacritty/themes
 	@echo Alacritty configuration has been linked.
 
 fish::

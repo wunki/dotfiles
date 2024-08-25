@@ -1,4 +1,4 @@
-import = ["~/Developer/Source/alacritty-theme/themes/monokai_pro_ristretto.toml"]
+import = ["~/.config/alacritty/themes/ristretto.toml"]
 
 [cursor]
 style = "Block"

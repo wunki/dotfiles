@@ -116,8 +116,8 @@ then
 fi
 
 # Sync commandline history between sessions.
-if (( $+commands[atuin] ))
-then
+if [[ -d ~/.atuin ]] then
+  path+=("$HOME/.atuin/bin")
   eval "$(atuin init zsh)"
 fi
 

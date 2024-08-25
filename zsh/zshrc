@@ -15,6 +15,11 @@ export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 export XDG_DATA_HOME=$HOME/.local/share
 
+# Mac-specific stuff
+if [[ "$(uname)" == "Darwin" ]]; then
+  source ~/.zshrc.mac
+fi
+
 # Local path
 path+=("$HOME/.local/bin")
 
@@ -30,13 +35,6 @@ path+=("$HOME/.cargo/bin")
 # Zig
 path+=("$HOME/.zvm/self")
 path+=("$HOME/.zvm/bin")
-
-# Setup ASDF
-if [ -d "$HOME/.asdf" ]
-then
-  . "$HOME/.asdf/asdf.sh"
-  fpath=(${ASDF_DIR}/completions $fpath)
-fi
 
 export PATH
 
@@ -120,11 +118,6 @@ fi
 if (( $+commands[atuin] ))
 then
   eval "$(atuin init zsh)"
-fi
-
-# Mac-specific 
-if [[ "$(uname)" == "Darwin" ]]; then
-  source ~/.zshrc.mac
 fi
 
 # Enable autocompletion

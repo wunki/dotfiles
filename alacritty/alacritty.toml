@@ -14,7 +14,7 @@ size = 11
 
 [font.offset]
 x = 0
-y = 3
+y = 5
 
 [font.normal]
 family = "GeistMono Nerd Font Mono"

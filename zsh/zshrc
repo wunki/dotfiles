@@ -126,25 +126,21 @@ if [[ "$(hostname)" == *"bytebottom.com"* ]] || [[ "$HOST" == *"bytebottom.com"*
     ssh_env_file="$HOME/.ssh/ssh-agent-env"
 
     function ssh_agent_is_running() {
-        if [[ $(pgrep -u $USER ssh-agent | wc -l) -gt 0 ]]; then
-            return 0  # True, ssh-agent is running
-        else
-            return 1  # False, ssh-agent is not running
-        fi
+        [[ $(pgrep -u $USER ssh-agent | wc -l) -gt 0 ]]
     }
 
     function start_ssh_agent() {
         (umask 066; ssh-agent > $ssh_env_file)
-        . $ssh_env_file > /dev/null
+        source $ssh_env_file > /dev/null
     }
 
     function kill_ssh_agent() {
-        [ -n "$SSH_AGENT_PID" ] && ssh-agent -k > /dev/null 2>&1
+        [[ -n "$SSH_AGENT_PID" ]] && ssh-agent -k > /dev/null 2>&1
         rm -f $ssh_env_file
     }
 
     if ssh_agent_is_running; then
-        . $ssh_env_file > /dev/null
+        source $ssh_env_file > /dev/null
     else
         start_ssh_agent
     fi

@@ -123,30 +123,35 @@ fi
 
 # Setup SSH agent on remote server.
 if [[ "$(hostname)" == *"bytebottom.com"* ]] || [[ "$HOST" == *"bytebottom.com"* ]]; then
-    start_agent() {
-        (umask 066; ssh-agent > ~/.ssh-agent-env)
-        . ~/.ssh-agent-env > /dev/null
-    }
+    ssh_env_file="~/.ssh/ssh-agent-env"
 
-    kill_agent() {
-        [ -n "$SSH_AGENT_PID" ] && ssh-agent -k > /dev/null 2>&1
-        rm -f ~/.ssh-agent-env
-    }
-
-    if [ -f ~/.ssh-agent-env ]; then
-        . ~/.ssh-agent-env > /dev/null
-        if ! kill -0 $SSH_AGENT_PID &>/dev/null; then
-            start_agent
+    function ssh_agent_is_running() {
+        if [[ $(pgrep -u $USER ssh-agent | wc -l) -gt 0 ]]; then
+            return 0  # True, ssh-agent is running
+        else
+            return 1  # False, ssh-agent is not running
         fi
-    else
-        start_agent
-    fi
+    }
 
-    ssh-add -l | grep -q "$(ssh-keygen -lf ~/.ssh/id_rsa | awk '{print $2}')" || ssh-add ~/.ssh/id_rsa >/dev/null 2>&1
+    function start_ssh_agent() {
+        (umask 066; ssh-agent > ~/.ssh-agent-env)
+        . $ssh_env_file > /dev/null
+    }
+
+    function kill_ssh_agent() {
+        [ -n "$SSH_AGENT_PID" ] && ssh-agent -k > /dev/null 2>&1
+        rm -f $ssh_env_file
+    }
+
+    if ssh_agent_is_running; then
+        . $ssh_env_file > /dev/null
+    else
+        start_ssh_agent
+    fi
 
     # Kill the agent on disconnect
     if [ -z "$TMUX" ]; then
-        trap 'kill_agent' EXIT
+        trap 'kill_ssh_agent' EXIT
     fi
 fi
 

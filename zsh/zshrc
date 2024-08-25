@@ -121,22 +121,33 @@ then
   eval "$(atuin init zsh)"
 fi
 
-# Check if we're on bytebottom.com and run ssh-agent setup if true
+# Setup SSH agent on remote server.
 if [[ "$(hostname)" == *"bytebottom.com"* ]] || [[ "$HOST" == *"bytebottom.com"* ]]; then
-    # Start ssh-agent
-    if [ -z "$SSH_AUTH_SOCK" ]; then
-       # Check for a currently running instance of the agent
-       RUNNING_AGENT="`ps -ax | grep 'ssh-agent -s' | grep -v grep | wc -l | tr -d '[:space:]'`"
-       if [ "$RUNNING_AGENT" = "0" ]; then
-            ssh-agent -s &> $HOME/.ssh/ssh-agent
-       fi
-       eval `cat $HOME/.ssh/ssh-agent`
+    start_agent() {
+        (umask 066; ssh-agent > ~/.ssh-agent-env)
+        . ~/.ssh-agent-env > /dev/null
+    }
+
+    kill_agent() {
+        [ -n "$SSH_AGENT_PID" ] && ssh-agent -k > /dev/null 2>&1
+        rm -f ~/.ssh-agent-env
+    }
+
+    if [ -f ~/.ssh-agent-env ]; then
+        . ~/.ssh-agent-env > /dev/null
+        if ! kill -0 $SSH_AGENT_PID &>/dev/null; then
+            start_agent
+        fi
+    else
+        start_agent
     fi
 
-    # Add your SSH key to the agent
-    ssh-add ~/.ssh/id_rsa 2>/dev/null
+    ssh-add -l | grep -q "$(ssh-keygen -lf ~/.ssh/id_rsa | awk '{print $2}')" || ssh-add ~/.ssh/id_rsa >/dev/null 2>&1
 
-    echo "SSH agent started for bytebottom.com connection."
+    # Kill the agent on disconnect
+    if [ -z "$TMUX" ]; then
+        trap 'kill_agent' EXIT
+    fi
 fi
 
 # Enable autocompletion

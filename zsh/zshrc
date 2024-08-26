@@ -155,6 +155,10 @@ if [[ "$(hostname)" == *"bytebottom.com"* ]] || [[ "$HOST" == *"bytebottom.com"*
     fi
 fi
 
+# This marks the window as non-urgent, and thus prevents
+# Alacritty from bouncing the icon in the Dock. Yuck.
+echo -e "\e[?1042l"
+
 # Enable autocompletion
 autoload -Uz compinit; compinit
 

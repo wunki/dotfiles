@@ -11,7 +11,7 @@ set -x XDG_DATA_HOME {$HOME}/.local/share
 set -x GPG_TTY (tty)
 
 if test -f $HOME/.config/fish/secrets.fish
-  . $HOME/.config/fish/secrets.fish
+    . $HOME/.config/fish/secrets.fish
 end
 
 # System specific configuration
@@ -29,9 +29,9 @@ set -x PROJECT_DIR "$HOME/Developer"
 
 # Shell variables
 set -x SHELL fish
-set -x EDITOR "zed --wait"
+set -x EDITOR nvim
 set -x VISUAL "$EDITOR"
-set -x ALTERNATE_EDITOR "vim"
+set -x ALTERNATE_EDITOR vim
 
 # Add to path if they exist
 fish_add_path -aP /bin
@@ -57,7 +57,7 @@ abbr gc 'git commit'
 abbr gs 'git status --ignore-submodules=dirty'
 abbr gp 'git push origin HEAD'
 abbr gf 'git pull origin HEAD'
-abbr gu 'gitu'
+abbr gu gitu
 
 function recover_file
     if test (count $argv) -ne 1
@@ -78,8 +78,8 @@ end
 
 # Editing
 fish_add_path -aP /opt/nvim/bin
-abbr e 'nvim'
-abbr se 'sudoedit'
+abbr e nvim
+abbr se sudoedit
 abbr cdr 'cd (git rev-parse --show-toplevel)'
 
 # Tmux
@@ -108,7 +108,7 @@ set -g hydro_color_git $fish_color_command
 
 # Erlang and Elixir
 set -x ERL_AFLAGS "-kernel shell_history enabled"
-set -x KERL_BUILD_DOCS "yes"
+set -x KERL_BUILD_DOCS yes
 set -x KERL_CONFIGURE_OPTIONS "--disable-debug --without-javac --without-wx"
 
 fish_add_path -aP "$HOME/.mix/escripts"
@@ -132,7 +132,7 @@ end
 fish_add_path -aP "$HOME/.luarocks/bin"
 
 # Go
-fish_add_path -aP "/usr/local/go/bin"
+fish_add_path -aP /usr/local/go/bin
 if test -d $PROJECT_DIR/Go
     set -x GOPATH "$PROJECT_DIR/Go"
     fish_add_path -aP "$GOPATH/bin"
@@ -161,7 +161,7 @@ set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
 fish_add_path -aP $HOME/.docker/cli-plugins
 
 # VTerm in Emacs
-if [ "$INSIDE_EMACS" = 'vterm' ]
+if [ "$INSIDE_EMACS" = vterm ]
     . $HOME/.config/fish/vterm.fish
 end
 

@@ -49,6 +49,11 @@ fish_add_path -aP $brew_prefix/opt/llvm@14/bin
 set -gx LDFLAGS "-L$brew_prefix/opt/llvm@14/lib"
 set -gx CPPFLAGS "-I$brew_prefix/opt/llvm@14/include"
 
+# If I'm in the ZED shell, set the editor to Zed
+if set -q ZED_TERM
+    set -x EDITOR 'zed --wait'
+end
+
 # Add Odin
 fish_add_path -aP $HOME/Developer/Source/Odin
 

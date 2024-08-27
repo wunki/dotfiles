@@ -30,14 +30,14 @@
     },
     "Elixir": {
       "show_inline_completions": false,
-      "language_servers": ["!lexical", "!elixir-ls", "next-ls", "tailwindcss-language-server"],
-      "formatter": { "language_server": { "name": "next-ls" } },
-      "format_on_save": { "language_server": { "name": "next-ls" } }
+      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"],
+      "formatter": { "language_server": { "name": "elixir-ls" } },
+      "format_on_save": { "language_server": { "name": "elixir-ls" } }
     },
     "HEEX": {
-      "language_servers": ["!lexical", "!elixir-ls", "next-ls", "tailwindcss-language-server"],
-      "formatter": { "language_server": { "name": "next-ls" } },
-      "format_on_save": { "language_server": { "name": "next-ls" } }
+      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"],
+      "formatter": { "language_server": { "name": "elixir-ls" } },
+      "format_on_save": { "language_server": { "name": "elixir-ls" } }
     },
     "JavaScript": {
       "tab_size": 4,

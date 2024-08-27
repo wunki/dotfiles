@@ -16,6 +16,9 @@ export LC_ALL='en_US.UTF-8'
 export XDG_DATA_HOME=$HOME/.local/share
 export EDITOR="nvim"
 
+# My aliases
+alias ssb='ssh bytebottom.com'
+
 # Mac-specific stuff
 if [[ "$(uname)" == "Darwin" ]]; then
   source ~/.zshrc.mac
@@ -136,3 +139,4 @@ autoload -Uz compinit; compinit
 fpath+=($HOME/.zsh/pure)
 autoload -U promptinit; promptinit
 prompt pure
+

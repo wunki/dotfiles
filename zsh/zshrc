@@ -137,6 +137,7 @@ autoload -Uz compinit; compinit
 
 # The pure prompt
 fpath+=($HOME/.zsh/pure)
+PURE_PROMPT_SYMBOL='λ'
+
 autoload -U promptinit; promptinit
 prompt pure
-

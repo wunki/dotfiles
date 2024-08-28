@@ -104,7 +104,7 @@ end
 set -g hydro_symbol_prompt λ
 set -g hydro_multiline true
 set -g hydro_color_prompt $fish_color_normal
-set -g hydro_color_git $fish_color_command
+set -g hydro_color_git $fish_color_end
 
 # Erlang and Elixir
 set -x ERL_AFLAGS "-kernel shell_history enabled"

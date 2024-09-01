@@ -93,7 +93,7 @@ abbr llg 'eza -l --git'
 abbr lll 'eza -la'
 
 # Use bat because of syntax highlighting
-if type -q bat
+if command -q bat
     abbr cat bat
     set -x BAT_THEME ansi
     set -x BAT_PAGER
@@ -143,6 +143,9 @@ set -x NPM_PACKAGES "$HOME/.npm-packages"
 set -x NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 fish_add_path -aP "$NPM_PACKAGES/bin"
 
+# Deno
+fish_add_path -aP "$HOME/.deno/bin"
+
 # Common Lisp
 abbr lisp 'rlwrap sbcl'
 
@@ -155,7 +158,7 @@ set -x AWS_IAM_HOME "$HOME/.aws/iam"
 set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
 
 # Direnv: adding environment variables per directory in a .envrc
-# eval (direnv hook fish)
+eval (direnv hook fish)
 
 # Docker
 fish_add_path -aP $HOME/.docker/cli-plugins
@@ -163,6 +166,11 @@ fish_add_path -aP $HOME/.docker/cli-plugins
 # VTerm in Emacs
 if [ "$INSIDE_EMACS" = vterm ]
     . $HOME/.config/fish/vterm.fish
+end
+
+# Mise for tool versioning
+if command -q mise
+    $HOME/.local/bin/mise activate fish | source
 end
 
 # FZF
@@ -175,8 +183,3 @@ set -Ux FZF_DEFAULT_OPTS '
   --border="rounded" --preview-window="border-rounded"
   --margin=1 --prompt="λ " --marker=">" --pointer="◆"
   --separator="─" --scrollbar="│" --layout="reverse" --info="right"'
-
-# Command history
-if type -q atuin
-    atuin init fish | source
-end

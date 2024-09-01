@@ -117,12 +117,6 @@ then
   source "$EAT_SHELL_INTEGRATION_DIR/zsh"
 fi
 
-# Sync commandline history between sessions.
-if [[ -d ~/.atuin ]] then
-  path+=("$HOME/.atuin/bin")
-  eval "$(atuin init zsh)"
-fi
-
 # Setup SSH agent on remote server.
 if [[ "$(hostname)" == *"bytebottom.com"* ]] || [[ "$HOST" == *"bytebottom.com"* ]]; then
     eval $(keychain --eval --quiet id_rsa)

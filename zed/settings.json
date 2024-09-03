@@ -10,14 +10,15 @@
   "cursor_blink": false,
   "relative_line_numbers": true,
   "features": {
-    "copilot": true
+    "copilot": true,
+    "inline_completion_provider": "supermaven"
   },
   "project_panel": {
-    "dock": "right"
+    "dock": "left"
   },
   "assistant": {
     "default_model": {
-      "provider": "anthropic",
+      "provider": "zed.dev",
       "model": "claude-3-5-sonnet-20240620"
     },
     "dock": "right",

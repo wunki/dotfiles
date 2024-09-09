@@ -18,7 +18,7 @@
   },
   "assistant": {
     "default_model": {
-      "provider": "zed.dev",
+      "provider": "anthropic",
       "model": "claude-3-5-sonnet-20240620"
     },
     "dock": "right",
@@ -26,14 +26,17 @@
     "provider": null
   },
   "languages": {
+    "TypeScript": {
+      "show_inline_completions": false
+    },
     "C": {
       "show_inline_completions": false
     },
     "Elixir": {
-      "show_inline_completions": true,
-      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"],
-      "formatter": { "language_server": { "name": "elixir-ls" } },
-      "format_on_save": { "language_server": { "name": "elixir-ls" } }
+      "show_inline_completions": false,
+      "language_servers": ["!lexical", "elixir-ls", "next-ls", "tailwindcss-language-server"],
+      "formatter": { "language_server": { "name": "next-ls" } },
+      "format_on_save": { "language_server": { "name": "next-ls" } }
     },
     "HEEX": {
       "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"],
@@ -94,6 +97,11 @@
     "next-ls": {
       "binary": {
         "path": "/opt/homebrew/bin/nextls"
+      }
+    },
+    "elixir-ls": {
+      "binary": {
+        "path": "/Users/petar/.local/share/elixir_ls/language_server.sh"
       }
     }
   },

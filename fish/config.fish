@@ -138,12 +138,23 @@ if test -d $PROJECT_DIR/Go
     fish_add_path -aP "$GOPATH/bin"
 end
 
+# OCaml configuration
+if test -r "$HOME/.opam/opam-init/init.fish"
+    source "$HOME/.opam/opam-init/init.fish"
+end
+
 # NodeJS
 set -x NPM_PACKAGES "$HOME/.npm-packages"
 set -x NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 fish_add_path -aP "$NPM_PACKAGES/bin"
 
+set -gx PNPM_HOME "$HOME/.local/share/pnpm"
+if not string match -q -- $PNPM_HOME $PATH
+  set -gx PATH "$PNPM_HOME" $PATH
+end
+
 # Deno
+set -x DENO_FUTURE 1
 fish_add_path -aP "$HOME/.deno/bin"
 
 # Common Lisp

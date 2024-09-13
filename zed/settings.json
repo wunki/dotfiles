@@ -34,14 +34,14 @@
     },
     "Elixir": {
       "show_inline_completions": false,
-      "language_servers": ["!lexical", "elixir-ls", "next-ls", "tailwindcss-language-server"],
+      "language_servers": ["!lexical", "!elixir-ls", "next-ls", "tailwindcss-language-server"],
       "formatter": { "language_server": { "name": "next-ls" } },
       "format_on_save": { "language_server": { "name": "next-ls" } }
     },
     "HEEX": {
-      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"],
-      "formatter": { "language_server": { "name": "elixir-ls" } },
-      "format_on_save": { "language_server": { "name": "elixir-ls" } }
+      "language_servers": ["!lexical", "!lixir-ls", "next-ls", "tailwindcss-language-server"],
+      "formatter": { "language_server": { "name": "next-ls" } },
+      "format_on_save": { "language_server": { "name": "next-ls" } }
     },
     "JavaScript": {
       "show_inline_completions": false,
@@ -49,7 +49,7 @@
       "hard_tabs": true
     }
   },
-  "theme": "Zedokai Darker (Filter Ristretto)",
+  "theme": "Gruvbox Light",
   "buffer_font_family": "Geist Mono",
   "buffer_font_size": 11,
   "soft_wrap": "editor_width",

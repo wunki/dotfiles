@@ -79,6 +79,7 @@ end
 # Editing
 fish_add_path -aP /opt/nvim/bin
 abbr e nvim
+abbr vim nvim
 abbr se sudoedit
 abbr cdr 'cd (git rev-parse --show-toplevel)'
 
@@ -150,7 +151,7 @@ fish_add_path -aP "$NPM_PACKAGES/bin"
 
 set -gx PNPM_HOME "$HOME/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
-  set -gx PATH "$PNPM_HOME" $PATH
+    set -gx PATH "$PNPM_HOME" $PATH
 end
 
 # Deno

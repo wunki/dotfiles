@@ -17,15 +17,15 @@ x = 0
 y = 5
 
 [font.normal]
-family = "GeistMono Nerd Font Mono"
+family = "CommitMonoPetar"
 style = "Regular"
 
 [font.bold]
-family = "GeistMono Nerd Font Mono"
-style = "Medium"
+family = "CommitMonoPetar"
+style = "Bold"
 
 [font.italic]
-family = "GeistMono Nerd Font Mono"
+family = "CommitMonoPetar"
 style = "Italic"
 
 [scrolling]

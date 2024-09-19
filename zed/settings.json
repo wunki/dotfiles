@@ -1,8 +1,13 @@
 {
   "ui_font_size": 12,
-  "ui_font_family": "Geist Mono",
+  "ui_font_family": "CommitMonoPetar",
   "tab_bar": {
     "show": true
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
   },
   "current_line_highlight": "gutter",
   "show_copilot_suggestions": true,
@@ -11,7 +16,7 @@
   "relative_line_numbers": true,
   "features": {
     "copilot": true,
-    "inline_completion_provider": "supermaven"
+    "inline_completion_provider": "copilot"
   },
   "project_panel": {
     "dock": "left"
@@ -26,7 +31,7 @@
     "provider": null
   },
   "languages": {
-    "TypeScript": {
+    "Plain Text": {
       "show_inline_completions": false
     },
     "C": {
@@ -34,24 +39,29 @@
     },
     "Elixir": {
       "show_inline_completions": false,
-      "language_servers": ["!lexical", "!elixir-ls", "next-ls", "tailwindcss-language-server"],
-      "formatter": { "language_server": { "name": "next-ls" } },
-      "format_on_save": { "language_server": { "name": "next-ls" } }
+      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"],
+      "formatter": { "language_server": { "name": "elixir-ls" } },
+      "format_on_save": { "language_server": { "name": "elixir-ls" } }
     },
     "HEEX": {
-      "language_servers": ["!lexical", "!lixir-ls", "next-ls", "tailwindcss-language-server"],
-      "formatter": { "language_server": { "name": "next-ls" } },
-      "format_on_save": { "language_server": { "name": "next-ls" } }
+      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"],
+      "formatter": { "language_server": { "name": "elixir-ls" } },
+      "format_on_save": { "language_server": { "name": "elixir-ls" } }
     },
     "JavaScript": {
       "show_inline_completions": false,
       "tab_size": 4,
       "hard_tabs": true
+    },
+    "TypeScript": {
+      "show_inline_completions": true,
+      "tab_size": 4,
+      "hard_tabs": true
     }
   },
-  "theme": "Gruvbox Light",
-  "buffer_font_family": "Geist Mono",
-  "buffer_font_size": 11,
+  "theme": "Zedokai Darker (Filter Ristretto)",
+  "buffer_font_family": "CommitMonoPetar",
+  "buffer_font_size": 12,
   "soft_wrap": "editor_width",
   "preferred_line_length": 100,
   "inlay_hints": {
@@ -68,8 +78,8 @@
     "option_as_meta": true,
     "dock": "bottom",
     "blinking": "off",
-    "font_family": "Geist Mono",
-    "font_size": 11,
+    "font_family": "CommitMonoPetar",
+    "font_size": 12,
     "shell": {
       "with_arguments": {
         "program": "/opt/homebrew/bin/fish",
@@ -106,7 +116,8 @@
     }
   },
   "file_types": {
-    "CSS": ["scss"]
+    "CSS": ["scss"],
+    "Shell Script": [".envrc", ".env"]
   },
   "vim_mode": true,
   "telemetry": {

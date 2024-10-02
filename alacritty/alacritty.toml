@@ -14,18 +14,18 @@ size = 11
 
 [font.offset]
 x = 0
-y = 5
+y = 0
 
 [font.normal]
-family = "CommitMonoPetar"
+family = "Geist Mono 1.1"
 style = "Regular"
 
 [font.bold]
-family = "CommitMonoPetar"
+family = "Geist Mono 1.1"
 style = "Bold"
 
 [font.italic]
-family = "CommitMonoPetar"
+family = "Geist Mono 1.1"
 style = "Italic"
 
 [scrolling]

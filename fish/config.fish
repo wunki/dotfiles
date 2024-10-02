@@ -33,6 +33,12 @@ set -x EDITOR nvim
 set -x VISUAL "$EDITOR"
 set -x ALTERNATE_EDITOR vim
 
+# Zed editor
+if test "$TERM_PROGRAM" = "zed"
+    set -x EDITOR zed --wait
+    set -x VISUAL zed --wait
+end
+
 # Add to path if they exist
 fish_add_path -aP /bin
 fish_add_path -aP /usr/bin

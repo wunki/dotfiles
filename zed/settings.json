@@ -1,8 +1,9 @@
 {
+  "vertical_scroll_margin": 5,
   "ui_font_size": 12,
-  "ui_font_family": "CommitMonoPetar",
+  "ui_font_family": "Geist Mono",
   "tab_bar": {
-    "show": true
+    "show": false
   },
   "git": {
     "inline_blame": {
@@ -60,8 +61,8 @@
     }
   },
   "theme": "Zedokai Darker (Filter Ristretto)",
-  "buffer_font_family": "CommitMonoPetar",
-  "buffer_font_size": 12,
+  "buffer_font_family": "Geist Mono",
+  "buffer_font_size": 11,
   "soft_wrap": "editor_width",
   "preferred_line_length": 100,
   "inlay_hints": {
@@ -74,12 +75,16 @@
   "scrollbar": {
     "show": "never"
   },
+  "toolbar": {
+    "quick_actions": false,
+    "breadcrumbs": true
+  },
   "terminal": {
     "option_as_meta": true,
     "dock": "bottom",
     "blinking": "off",
-    "font_family": "CommitMonoPetar",
-    "font_size": 12,
+    "font_family": "Geist Mono",
+    "font_size": 11,
     "shell": {
       "with_arguments": {
         "program": "/opt/homebrew/bin/fish",
@@ -87,8 +92,7 @@
       }
     },
     "env": {
-      "TERM_PROGRAM": "zed",
-      "EDITOR": "zed --wait"
+      "TERM_PROGRAM": "zed"
     }
   },
   "lsp": {
@@ -102,11 +106,6 @@
         "check": {
           "command": "clippy"
         }
-      }
-    },
-    "next-ls": {
-      "binary": {
-        "path": "/opt/homebrew/bin/nextls"
       }
     },
     "elixir-ls": {

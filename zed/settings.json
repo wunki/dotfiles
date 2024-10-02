@@ -1,104 +1,101 @@
 {
-  "vertical_scroll_margin": 5,
-  "ui_font_size": 12,
-  "ui_font_family": "Geist Mono",
-  "tab_bar": {
-    "show": false
+  "assistant": {
+    "default_model": {
+      "model": "claude-3-5-sonnet-20240620",
+      "provider": "anthropic"
+    },
+    "dock": "right",
+    "provider": null,
+    "version": "2"
+  },
+  "buffer_font_family": "Geist Mono",
+  "buffer_font_size": 11,
+  "current_line_highlight": "gutter",
+  "cursor_blink": false,
+  "features": {
+    "copilot": true,
+    "inline_completion_provider": "copilot"
+  },
+  "file_types": {
+    "CSS": [
+      "scss"
+    ],
+    "Shell Script": [
+      ".envrc",
+      ".env"
+    ]
   },
   "git": {
     "inline_blame": {
       "enabled": false
     }
   },
-  "current_line_highlight": "gutter",
-  "show_copilot_suggestions": true,
-  "show_completions_on_input": true,
-  "cursor_blink": false,
-  "relative_line_numbers": true,
-  "features": {
-    "copilot": true,
-    "inline_completion_provider": "copilot"
-  },
-  "project_panel": {
-    "dock": "left"
-  },
-  "assistant": {
-    "default_model": {
-      "provider": "anthropic",
-      "model": "claude-3-5-sonnet-20240620"
-    },
-    "dock": "right",
-    "version": "2",
-    "provider": null
-  },
-  "languages": {
-    "Plain Text": {
-      "show_inline_completions": false
-    },
-    "C": {
-      "show_inline_completions": false
-    },
-    "Elixir": {
-      "show_inline_completions": false,
-      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"],
-      "formatter": { "language_server": { "name": "elixir-ls" } },
-      "format_on_save": { "language_server": { "name": "elixir-ls" } }
-    },
-    "HEEX": {
-      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"],
-      "formatter": { "language_server": { "name": "elixir-ls" } },
-      "format_on_save": { "language_server": { "name": "elixir-ls" } }
-    },
-    "JavaScript": {
-      "show_inline_completions": false,
-      "tab_size": 4,
-      "hard_tabs": true
-    },
-    "TypeScript": {
-      "show_inline_completions": true,
-      "tab_size": 4,
-      "hard_tabs": true
-    }
-  },
-  "theme": "Zedokai Darker (Filter Ristretto)",
-  "buffer_font_family": "Geist Mono",
-  "buffer_font_size": 11,
-  "soft_wrap": "editor_width",
-  "preferred_line_length": 100,
   "inlay_hints": {
     "enabled": false
   },
   "journal": {
-    "path": "~/Documents/Journal",
-    "hour_format": "hour24"
+    "hour_format": "hour24",
+    "path": "~/Documents/Journal"
   },
-  "scrollbar": {
-    "show": "never"
-  },
-  "toolbar": {
-    "quick_actions": false,
-    "breadcrumbs": true
-  },
-  "terminal": {
-    "option_as_meta": true,
-    "dock": "bottom",
-    "blinking": "off",
-    "font_family": "Geist Mono",
-    "font_size": 11,
-    "shell": {
-      "with_arguments": {
-        "program": "/opt/homebrew/bin/fish",
-        "args": ["-l", "-i"]
-      }
+  "languages": {
+    "C": {
+      "show_inline_completions": false
     },
-    "env": {
-      "TERM_PROGRAM": "zed"
+    "Elixir": {
+      "format_on_save": {
+        "language_server": {
+          "name": "elixir-ls"
+        }
+      },
+      "formatter": {
+        "language_server": {
+          "name": "elixir-ls"
+        }
+      },
+      "language_servers": [
+        "!lexical",
+        "elixir-ls",
+        "!next-ls",
+        "tailwindcss-language-server"
+      ],
+      "show_inline_completions": false
+    },
+    "HEEX": {
+      "format_on_save": {
+        "language_server": {
+          "name": "elixir-ls"
+        }
+      },
+      "formatter": {
+        "language_server": {
+          "name": "elixir-ls"
+        }
+      },
+      "language_servers": [
+        "!lexical",
+        "elixir-ls",
+        "!next-ls",
+        "tailwindcss-language-server"
+      ]
+    },
+    "JavaScript": {
+      "hard_tabs": true,
+      "show_inline_completions": false,
+      "tab_size": 4
+    },
+    "Plain Text": {
+      "show_inline_completions": false
+    },
+    "TypeScript": {
+      "hard_tabs": true,
+      "show_inline_completions": true,
+      "tab_size": 4
     }
   },
   "lsp": {
-    "zls": {
+    "elixir-ls": {
       "binary": {
-        "path": "/Users/petar/.zvm/bin/zls"
+        "path": "/Users/petar/.local/share/elixir_ls/language_server.sh"
       }
     },
     "rust-analyzer": {
@@ -108,19 +105,56 @@
         }
       }
     },
-    "elixir-ls": {
+    "zls": {
       "binary": {
-        "path": "/Users/petar/.local/share/elixir_ls/language_server.sh"
+        "path": "/Users/petar/.zvm/bin/zls"
       }
     }
   },
-  "file_types": {
-    "CSS": ["scss"],
-    "Shell Script": [".envrc", ".env"]
+  "preferred_line_length": 100,
+  "project_panel": {
+    "dock": "left"
   },
-  "vim_mode": true,
+  "relative_line_numbers": true,
+  "scrollbar": {
+    "show": "never"
+  },
+  "show_completions_on_input": true,
+  "show_copilot_suggestions": true,
+  "soft_wrap": "editor_width",
+  "tab_bar": {
+    "show": false
+  },
   "telemetry": {
     "diagnostics": false,
     "metrics": false
-  }
+  },
+  "terminal": {
+    "blinking": "off",
+    "dock": "bottom",
+    "env": {
+      "TERM_PROGRAM": "zed"
+    },
+    "font_family": "Geist Mono",
+    "font_size": 11,
+    "option_as_meta": true,
+    "shell": {
+      "with_arguments": {
+        "args": [
+          "-l",
+          "-i"
+        ],
+        "program": "/opt/homebrew/bin/fish"
+      }
+    }
+  },
+  "theme": "Zedokai Darker (Filter Ristretto)",
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": false
+  },
+  "ui_font_family": "Geist Mono",
+  "ui_font_size": 12,
+  "vertical_scroll_margin": 5,
+  "vim_mode": true
 }

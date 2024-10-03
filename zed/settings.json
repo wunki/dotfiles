@@ -8,7 +8,7 @@
     "provider": null,
     "version": "2"
   },
-  "buffer_font_family": "Geist Mono",
+  "buffer_font_family": "Geist Mono Nerd Font",
   "buffer_font_size": 11,
   "current_line_highlight": "gutter",
   "cursor_blink": false,
@@ -17,13 +17,8 @@
     "inline_completion_provider": "copilot"
   },
   "file_types": {
-    "CSS": [
-      "scss"
-    ],
-    "Shell Script": [
-      ".envrc",
-      ".env"
-    ]
+    "CSS": ["scss"],
+    "Shell Script": [".envrc", ".env"]
   },
   "git": {
     "inline_blame": {
@@ -52,12 +47,7 @@
           "name": "elixir-ls"
         }
       },
-      "language_servers": [
-        "!lexical",
-        "elixir-ls",
-        "!next-ls",
-        "tailwindcss-language-server"
-      ],
+      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"],
       "show_inline_completions": false
     },
     "HEEX": {
@@ -71,12 +61,7 @@
           "name": "elixir-ls"
         }
       },
-      "language_servers": [
-        "!lexical",
-        "elixir-ls",
-        "!next-ls",
-        "tailwindcss-language-server"
-      ]
+      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"]
     },
     "JavaScript": {
       "hard_tabs": true,
@@ -95,7 +80,7 @@
   "lsp": {
     "elixir-ls": {
       "binary": {
-        "path": "/Users/petar/.local/share/elixir_ls/language_server.sh"
+        "path": "/Users/petar/.local/share/elixir-ls/language_server.sh"
       }
     },
     "rust-analyzer": {
@@ -135,15 +120,12 @@
     "env": {
       "TERM_PROGRAM": "zed"
     },
-    "font_family": "Geist Mono",
+    "font_family": "Geist Mono Nerd Font",
     "font_size": 11,
     "option_as_meta": true,
     "shell": {
       "with_arguments": {
-        "args": [
-          "-l",
-          "-i"
-        ],
+        "args": ["-l", "-i"],
         "program": "/opt/homebrew/bin/fish"
       }
     }
@@ -153,7 +135,7 @@
     "breadcrumbs": true,
     "quick_actions": false
   },
-  "ui_font_family": "Geist Mono",
+  "ui_font_family": "Geist Mono Nerd Font",
   "ui_font_size": 12,
   "vertical_scroll_margin": 5,
   "vim_mode": true

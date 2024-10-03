@@ -175,9 +175,6 @@ fish_add_path -aP "$HOME/.aws/bin"
 set -x AWS_IAM_HOME "$HOME/.aws/iam"
 set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
 
-# Direnv: adding environment variables per directory in a .envrc
-eval (direnv hook fish)
-
 # Docker
 fish_add_path -aP $HOME/.docker/cli-plugins
 

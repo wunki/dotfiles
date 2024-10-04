@@ -1,8 +1,8 @@
 {
   "assistant": {
     "default_model": {
-      "model": "claude-3-5-sonnet-20240620",
-      "provider": "anthropic"
+      "model": "gpt-4o",
+      "provider": "copilot_chat"
     },
     "dock": "right",
     "provider": null,

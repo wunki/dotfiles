@@ -34,7 +34,7 @@ set -x VISUAL "$EDITOR"
 set -x ALTERNATE_EDITOR vim
 
 # Zed editor
-if test "$TERM_PROGRAM" = "zed"
+if test "$TERM_PROGRAM" = zed
     set -x EDITOR zed --wait
     set -x VISUAL zed --wait
 end
@@ -163,6 +163,10 @@ end
 # Deno
 set -x DENO_FUTURE 1
 fish_add_path -aP "$HOME/.deno/bin"
+
+# bun
+set -x BUN_INSTALL "$HOME/.bun"
+fish_add_path -aP "$BUN_INSTALL/bin"
 
 # Common Lisp
 abbr lisp 'rlwrap sbcl'

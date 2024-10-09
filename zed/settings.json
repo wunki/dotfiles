@@ -8,7 +8,7 @@
     "provider": null,
     "version": "2"
   },
-  "buffer_font_family": "Geist Mono Nerd Font",
+  "buffer_font_family": "GeistMono Nerd Font",
   "buffer_font_size": 11,
   "current_line_highlight": "gutter",
   "cursor_blink": false,
@@ -120,7 +120,7 @@
     "env": {
       "TERM_PROGRAM": "zed"
     },
-    "font_family": "Geist Mono Nerd Font",
+    "font_family": "GeistMono Nerd Font",
     "font_size": 11,
     "option_as_meta": true,
     "shell": {
@@ -135,7 +135,7 @@
     "breadcrumbs": true,
     "quick_actions": false
   },
-  "ui_font_family": "Geist Mono Nerd Font",
+  "ui_font_family": "GeistMono Nerd Font",
   "ui_font_size": 12,
   "vertical_scroll_margin": 5,
   "vim_mode": true

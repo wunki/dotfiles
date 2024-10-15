@@ -23,6 +23,9 @@ if command -q mise
     ~/.local/bin/mise activate fish | source
 end
 
+# Setup Tailscale
+alias tailscale "/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+
 # Guile
 set -x GUILE_LOAD_PATH $brew_prefix/share/guile/site/3.0
 set -x GUILE_LOAD_COMPILED_PATH $brew_prefix/lib/guile/3.0/site-ccache

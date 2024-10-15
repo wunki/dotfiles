@@ -1,8 +1,11 @@
 {
+  "inline_completions": {
+    "disabled_globs": [".env", "**/journal"]
+  },
   "assistant": {
     "default_model": {
-      "model": "gpt-4o",
-      "provider": "copilot_chat"
+      "model": "claude-3-5-sonnet-20240620",
+      "provider": "zed.dev"
     },
     "dock": "right",
     "provider": null,
@@ -14,7 +17,7 @@
   "cursor_blink": false,
   "features": {
     "copilot": true,
-    "inline_completion_provider": "copilot"
+    "inline_completion_provider": "supermaven"
   },
   "file_types": {
     "CSS": ["scss"],
@@ -30,9 +33,15 @@
   },
   "journal": {
     "hour_format": "hour24",
-    "path": "~/Documents/Journal"
+    "path": "~/Notes"
   },
   "languages": {
+    "Fish": {
+      "show_inline_completions": false
+    },
+    "Markdown": {
+      "show_inline_completions": false
+    },
     "C": {
       "show_inline_completions": false
     },
@@ -73,7 +82,7 @@
     },
     "TypeScript": {
       "hard_tabs": true,
-      "show_inline_completions": true,
+      "show_inline_completions": false,
       "tab_size": 4
     }
   },
@@ -93,6 +102,11 @@
     "zls": {
       "binary": {
         "path": "/Users/petar/.zvm/bin/zls"
+      }
+    },
+    "gopls": {
+      "initialization_options": {
+        "usePlaceholders": true
       }
     }
   },

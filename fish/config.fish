@@ -202,3 +202,7 @@ set -Ux FZF_DEFAULT_OPTS '
   --border="rounded" --preview-window="border-rounded"
   --margin=1 --prompt="λ " --marker=">" --pointer="◆"
   --separator="─" --scrollbar="│" --layout="reverse" --info="right"'
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH

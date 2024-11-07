@@ -35,7 +35,7 @@ set -x ALTERNATE_EDITOR vim
 
 # Zed editor
 if test "$TERM_PROGRAM" = zed
-    set -x EDITOR zed --wait
+    set -x EDITOR zed
     set -x VISUAL zed --wait
 end
 
@@ -202,6 +202,13 @@ set -Ux FZF_DEFAULT_OPTS '
   --border="rounded" --preview-window="border-rounded"
   --margin=1 --prompt="λ " --marker=">" --pointer="◆"
   --separator="─" --scrollbar="│" --layout="reverse" --info="right"'
+
+# atuin
+
+if test -d "$HOME/.atuin/bin"
+    fish_add_path -aP $HOME/.atuin/bin
+    atuin init fish | source
+end
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"

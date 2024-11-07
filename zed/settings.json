@@ -17,7 +17,7 @@
   "cursor_blink": false,
   "features": {
     "copilot": true,
-    "inline_completion_provider": "supermaven"
+    "inline_completion_provider": "copilot"
   },
   "file_types": {
     "CSS": ["scss"],
@@ -75,6 +75,8 @@
     "JavaScript": {
       "hard_tabs": true,
       "show_inline_completions": false,
+      "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint"],
+      "formatter": "language_server",
       "tab_size": 4
     },
     "Plain Text": {
@@ -83,10 +85,19 @@
     "TypeScript": {
       "hard_tabs": true,
       "show_inline_completions": false,
-      "tab_size": 4
+      "tab_size": 4,
+      "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint"],
+      "formatter": "language_server"
     }
   },
   "lsp": {
+    "deno": {
+      "settings": {
+        "deno": {
+          "enable": true
+        }
+      }
+    },
     "elixir-ls": {
       "binary": {
         "path": "/Users/petar/.local/share/elixir-ls/language_server.sh"
@@ -144,7 +155,7 @@
       }
     }
   },
-  "theme": "Zedokai Darker (Filter Ristretto)",
+  "theme": "Zedokai Darker (Filter Spectrum)",
   "toolbar": {
     "breadcrumbs": true,
     "quick_actions": false

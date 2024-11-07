@@ -5,14 +5,14 @@
   "assistant": {
     "default_model": {
       "model": "claude-3-5-sonnet-latest",
-      "provider": "zed.dev"
+      "provider": "anthropic"
     },
     "dock": "right",
     "provider": null,
     "version": "2"
   },
   "buffer_font_family": "GeistMono Nerd Font",
-  "buffer_font_size": 11,
+  "buffer_font_size": 12,
   "current_line_highlight": "gutter",
   "cursor_blink": false,
   "features": {
@@ -56,7 +56,12 @@
           "name": "elixir-ls"
         }
       },
-      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"],
+      "language_servers": [
+        "!lexical",
+        "elixir-ls",
+        "!next-ls",
+        "tailwindcss-language-server"
+      ],
       "show_inline_completions": false
     },
     "HEEX": {
@@ -70,12 +75,22 @@
           "name": "elixir-ls"
         }
       },
-      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"]
+      "language_servers": [
+        "!lexical",
+        "elixir-ls",
+        "!next-ls",
+        "tailwindcss-language-server"
+      ]
     },
     "JavaScript": {
       "hard_tabs": true,
       "show_inline_completions": false,
-      "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint"],
+      "language_servers": [
+        "deno",
+        "!typescript-language-server",
+        "!vtsls",
+        "!eslint"
+      ],
       "formatter": "language_server",
       "tab_size": 4
     },
@@ -85,16 +100,16 @@
     "TypeScript": {
       "hard_tabs": true,
       "show_inline_completions": false,
-      "tab_size": 4,
-      "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint"],
-      "formatter": "language_server"
+      "tab_size": 4
+      // "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint"],
+      // "formatter": "language_server"
     }
   },
   "lsp": {
     "deno": {
       "settings": {
         "deno": {
-          "enable": true
+          "enable": false
         }
       }
     },
@@ -132,9 +147,6 @@
   "show_completions_on_input": true,
   "show_copilot_suggestions": true,
   "soft_wrap": "editor_width",
-  "tab_bar": {
-    "show": false
-  },
   "telemetry": {
     "diagnostics": false,
     "metrics": false
@@ -146,7 +158,7 @@
       "TERM_PROGRAM": "zed"
     },
     "font_family": "GeistMono Nerd Font",
-    "font_size": 11,
+    "font_size": 12,
     "option_as_meta": true,
     "shell": {
       "with_arguments": {

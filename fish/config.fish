@@ -10,6 +10,7 @@ set -x LC_ALL 'en_US.UTF-8'
 set -x XDG_DATA_HOME {$HOME}/.local/share
 set -x GPG_TTY (tty)
 
+# Keep my secret configuration files in here.
 if test -f $HOME/.config/fish/secrets.fish
     . $HOME/.config/fish/secrets.fish
 end

@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/themes/ristretto.toml"]
+general.import = ["~/.config/alacritty/themes/ristretto.toml"]
 
 [cursor]
 style = "Block"
@@ -10,29 +10,29 @@ persistent_logging = true
 TERM = "xterm-256color"
 
 [font]
-size = 11
+size = 12
 
 [font.offset]
 x = 0
-y = 0
+y = 5
 
 [font.normal]
-family = "Geist Mono 1.1"
+family = "GeistMono Nerd Font" 
 style = "Regular"
 
 [font.bold]
-family = "Geist Mono 1.1"
+family = "GeistMono Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "Geist Mono 1.1"
+family = "GeistMono Nerd Font"
 style = "Italic"
 
 [scrolling]
 history = 1000
 multiplier = 5
 
-[shell]
+[terminal.shell]
 program = "/opt/homebrew/bin/fish"
 args = ["-i", "-l"]
 

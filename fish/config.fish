@@ -108,7 +108,7 @@ if command -q bat
     set -x COLORTERM truecolor
 end
 
-# Use Hydro as our prompt.
+# Use Hydro as our prompt
 set -g hydro_symbol_prompt λ
 set -g hydro_multiline true
 set -g hydro_color_prompt $fish_color_normal

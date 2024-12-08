@@ -11,6 +11,12 @@
     }
   },
   {
+    "context": "Editor && showing_completion",
+    "bindings": {
+      "ctrl-y": "editor::ConfirmCompletion"
+    }
+  },
+  {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
       "space o": "tab_switcher::Toggle"

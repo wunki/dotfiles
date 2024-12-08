@@ -15,6 +15,7 @@
   "tab_bar": {
     "show": false
   },
+  "use_autoclose": false,
   "buffer_font_size": 12,
   "current_line_highlight": "gutter",
   "cursor_blink": false,
@@ -40,7 +41,7 @@
   },
   "languages": {
     "Fish": {
-      "show_inline_completions": false
+      "show_inline_completions": true
     },
     "Markdown": {
       "show_inline_completions": false
@@ -59,7 +60,12 @@
           "name": "elixir-ls"
         }
       },
-      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"],
+      "language_servers": [
+        "!lexical",
+        "elixir-ls",
+        "!next-ls",
+        "tailwindcss-language-server"
+      ],
       "show_inline_completions": false
     },
     "HEEX": {
@@ -73,13 +79,16 @@
           "name": "elixir-ls"
         }
       },
-      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"]
+      "language_servers": [
+        "!lexical",
+        "elixir-ls",
+        "!next-ls",
+        "tailwindcss-language-server"
+      ]
     },
     "JavaScript": {
       "hard_tabs": true,
       "show_inline_completions": false,
-      "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint"],
-      "formatter": "language_server",
       "tab_size": 4
     },
     "Plain Text": {
@@ -87,20 +96,11 @@
     },
     "TypeScript": {
       "hard_tabs": true,
-      "show_inline_completions": false,
+      "show_inline_completions": true,
       "tab_size": 4
-      // "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint"],
-      // "formatter": "language_server"
     }
   },
   "lsp": {
-    "deno": {
-      "settings": {
-        "deno": {
-          "enable": false
-        }
-      }
-    },
     "elixir-ls": {
       "binary": {
         "path": "/Users/petar/.local/share/elixir-ls/language_server.sh"
@@ -155,7 +155,7 @@
       }
     }
   },
-  "theme": "Zedokai Darker (Filter Spectrum)",
+  "theme": "Github Dark Tritanopia",
   "toolbar": {
     "breadcrumbs": true,
     "quick_actions": false

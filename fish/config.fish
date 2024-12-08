@@ -66,21 +66,9 @@ abbr gp 'git push origin HEAD'
 abbr gf 'git pull origin HEAD'
 abbr gu gitu
 
-function recover_file
-    if test (count $argv) -ne 1
-        echo "Usage: git_recover_file <path/to/deleted/file>"
-        return 1
-    end
-
-    set file_path $argv[1]
-    set commit_hash (git log --all --format=%H -n 1 -- $file_path)
-
-    if test -z "$commit_hash"
-        echo "Error: No commit found for file '$file_path'"
-        return 1
-    end
-
-    git show $commit_hash:$file_path
+# Helper functions
+function mkcd
+    mkdir -p $argv[1]; and cd $argv[1]
 end
 
 # Editing
@@ -115,11 +103,11 @@ set -g hydro_color_prompt $fish_color_normal
 set -g hydro_color_git $fish_color_end
 
 # Erlang and Elixir
+fish_add_path -aP "$HOME/.mix/escripts"
+
 set -x ERL_AFLAGS "-kernel shell_history enabled"
 set -x KERL_BUILD_DOCS yes
 set -x KERL_CONFIGURE_OPTIONS "--disable-debug --without-javac --without-wx"
-
-fish_add_path -aP "$HOME/.mix/escripts"
 
 abbr miex 'iex -S mix'
 
@@ -205,7 +193,6 @@ set -Ux FZF_DEFAULT_OPTS '
   --separator="─" --scrollbar="│" --layout="reverse" --info="right"'
 
 # atuin
-
 if test -d "$HOME/.atuin/bin"
     fish_add_path -aP $HOME/.atuin/bin
     atuin init fish | source
@@ -214,3 +201,8 @@ end
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
+
+# direnv
+if command -q direnv
+    eval (direnv hook fish)
+end

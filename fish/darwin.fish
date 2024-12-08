@@ -1,6 +1,9 @@
 # Setup homebrew
 set -U brew_prefix /opt/homebrew
 
+# Don't show me hints
+set -x HOMEBREW_NO_ENV_HINTS true
+
 # Mac specific paths
 fish_add_path -aP $brew_prefix/bin
 
@@ -16,6 +19,15 @@ fish_add_path -pP $brew_prefix/opt/python3/bin
 # Emacs
 fish_add_path -aP /Applications/Emacs.app/Contents/MacOS
 fish_add_path -aP /Applications/Emacs.app/Contents/MacOS/bin
+
+# Auto completion
+if test -d "$brew_prefix/share/fish/completions"
+    set -p fish_complete_path (brew --prefix)/share/fish/completions
+end
+
+if test -d "$brew_prefix/share/fish/vendor_completions.d"
+    set -p fish_complete_path (brew --prefix)/share/fish/vendor_completions.d
+end
 
 # Mise version manager
 if command -q mise

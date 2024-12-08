@@ -10,22 +10,22 @@ persistent_logging = true
 TERM = "xterm-256color"
 
 [font]
-size = 12
+size = 13
 
 [font.offset]
 x = 0
-y = 5
+y = 1
 
 [font.normal]
-family = "GeistMono Nerd Font" 
+family = "CartographCF Nerd Font"
 style = "Regular"
 
 [font.bold]
-family = "GeistMono Nerd Font"
+family = "CartographCF Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "GeistMono Nerd Font"
+family = "CartographCF Nerd Font"
 style = "Italic"
 
 [scrolling]

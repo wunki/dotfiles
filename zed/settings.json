@@ -16,7 +16,7 @@
     "show": false
   },
   "use_autoclose": false,
-  "buffer_font_size": 13,
+  "buffer_font_size": 12,
   "current_line_highlight": "gutter",
   "cursor_blink": false,
   "features": {
@@ -136,7 +136,7 @@
       "TERM_PROGRAM": "zed"
     },
     "font_family": "Cartograph CF",
-    "font_size": 13,
+    "font_size": 12,
     "option_as_meta": true,
     "shell": {
       "with_arguments": {
@@ -153,5 +153,6 @@
   "ui_font_family": "Geist Mono",
   "ui_font_size": 12,
   "vertical_scroll_margin": 5,
-  "vim_mode": true
+  "vim_mode": true,
+  "vim": {}
 }

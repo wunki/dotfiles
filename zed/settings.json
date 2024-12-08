@@ -12,6 +12,7 @@
     "version": "2"
   },
   "buffer_font_family": "Cartograph CF",
+  "buffer_font_weight": 300,
   "tab_bar": {
     "show": false
   },
@@ -136,6 +137,7 @@
       "TERM_PROGRAM": "zed"
     },
     "font_family": "Cartograph CF",
+    "font_weight": 300,
     "font_size": 12,
     "option_as_meta": true,
     "shell": {

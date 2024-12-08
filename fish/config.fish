@@ -140,6 +140,7 @@ if test -r "$HOME/.opam/opam-init/init.fish"
 end
 
 # NodeJS
+abbr pp pnpm
 set -x NPM_PACKAGES "$HOME/.npm-packages"
 set -x NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 fish_add_path -aP "$NPM_PACKAGES/bin"

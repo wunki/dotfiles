@@ -11,8 +11,7 @@
     "provider": null,
     "version": "2"
   },
-  "buffer_font_family": "Cartograph CF",
-  "buffer_font_weight": 300,
+  "buffer_font_family": "Intel One Mono",
   "tab_bar": {
     "show": false
   },
@@ -136,8 +135,7 @@
     "env": {
       "TERM_PROGRAM": "zed"
     },
-    "font_family": "Cartograph CF",
-    "font_weight": 300,
+    "font_family": "Intel One Mono",
     "font_size": 12,
     "option_as_meta": true,
     "shell": {

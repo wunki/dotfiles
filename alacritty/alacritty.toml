@@ -10,7 +10,7 @@ persistent_logging = true
 TERM = "xterm-256color"
 
 [font]
-size = 13
+size = 12
 
 [font.offset]
 x = 0
@@ -18,7 +18,7 @@ y = 1
 
 [font.normal]
 family = "CartographCF Nerd Font"
-style = "Regular"
+style = "Light"
 
 [font.bold]
 family = "CartographCF Nerd Font"

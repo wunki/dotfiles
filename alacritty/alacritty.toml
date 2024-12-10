@@ -17,15 +17,14 @@ x = 0
 y = 1
 
 [font.normal]
-family = "CartographCF Nerd Font"
-style = "Light"
+family = "Maple Mono NF"
 
 [font.bold]
-family = "CartographCF Nerd Font"
+family = "Maple Mono NF"
 style = "Bold"
 
 [font.italic]
-family = "CartographCF Nerd Font"
+family = "Clincher Code"
 style = "Italic"
 
 [scrolling]

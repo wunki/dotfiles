@@ -24,7 +24,7 @@ family = "Maple Mono NF"
 style = "Bold"
 
 [font.italic]
-family = "Clincher Code"
+family = "Maple Mono NF"
 style = "Italic"
 
 [scrolling]

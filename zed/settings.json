@@ -2,10 +2,6 @@
   "inline_completions": {
     "disabled_globs": [".env", "**/journal"]
   },
-  "buffer_font_features": {
-    "calt": false,
-    "liga": false
-  },
   "assistant": {
     "default_model": {
       "model": "claude-3-5-sonnet-latest",
@@ -19,7 +15,7 @@
   "tab_bar": {
     "show": true
   },
-  "use_autoclose": false,
+  "use_autoclose": true,
   "buffer_font_size": 12,
   "current_line_highlight": "gutter",
   "cursor_blink": false,
@@ -64,12 +60,7 @@
           "name": "elixir-ls"
         }
       },
-      "language_servers": [
-        "!lexical",
-        "elixir-ls",
-        "!next-ls",
-        "tailwindcss-language-server"
-      ],
+      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"],
       "show_inline_completions": false
     },
     "HEEX": {
@@ -83,12 +74,7 @@
           "name": "elixir-ls"
         }
       },
-      "language_servers": [
-        "!lexical",
-        "elixir-ls",
-        "!next-ls",
-        "tailwindcss-language-server"
-      ]
+      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"]
     },
     "JavaScript": {
       "hard_tabs": true,
@@ -159,7 +145,7 @@
       }
     }
   },
-  "theme": "Rosé Pine",
+  "theme": "Zedokai Darker (Filter Spectrum)",
   "toolbar": {
     "breadcrumbs": true,
     "quick_actions": false

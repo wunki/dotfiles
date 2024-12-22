@@ -2,6 +2,10 @@
   "inline_completions": {
     "disabled_globs": [".env", "**/journal"]
   },
+  "buffer_font_features": {
+    "calt": false,
+    "liga": false
+  },
   "assistant": {
     "default_model": {
       "model": "claude-3-5-sonnet-latest",
@@ -11,7 +15,7 @@
     "provider": null,
     "version": "2"
   },
-  "buffer_font_family": "Maple Mono NF",
+  "buffer_font_family": "Maple Mono",
   "tab_bar": {
     "show": true
   },
@@ -135,7 +139,7 @@
     "env": {
       "TERM_PROGRAM": "zed"
     },
-    "font_family": "Maple Mono NF",
+    "font_family": "Maple Mono",
     "font_size": 12,
     "option_as_meta": true,
     "shell": {
@@ -145,7 +149,7 @@
       }
     }
   },
-  "theme": "Tokyo Night",
+  "theme": "Rosé Pine",
   "toolbar": {
     "breadcrumbs": true,
     "quick_actions": false

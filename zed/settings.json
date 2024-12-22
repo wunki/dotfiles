@@ -64,7 +64,12 @@
           "name": "elixir-ls"
         }
       },
-      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"],
+      "language_servers": [
+        "!lexical",
+        "elixir-ls",
+        "!next-ls",
+        "tailwindcss-language-server"
+      ],
       "show_inline_completions": false
     },
     "HEEX": {
@@ -78,7 +83,12 @@
           "name": "elixir-ls"
         }
       },
-      "language_servers": ["!lexical", "elixir-ls", "!next-ls", "tailwindcss-language-server"]
+      "language_servers": [
+        "!lexical",
+        "elixir-ls",
+        "!next-ls",
+        "tailwindcss-language-server"
+      ]
     },
     "JavaScript": {
       "hard_tabs": true,

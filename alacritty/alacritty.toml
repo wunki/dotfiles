@@ -17,14 +17,15 @@ x = 0
 y = 1
 
 [font.normal]
-family = "SpaceMono Nerd Font"
+family = "Maple Mono NF"
+style = "Regular"
 
 [font.bold]
-family = "SpaceMono Nerd Font"
+family = "Maple Mono NF"
 style = "Bold"
 
 [font.italic]
-family = "SpaceMono Nerd Font"
+family = "Maple mono NF"
 style = "Italic"
 
 [scrolling]

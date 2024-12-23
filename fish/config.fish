@@ -194,7 +194,7 @@ set -Ux FZF_DEFAULT_OPTS '
   --separator="─" --scrollbar="│" --layout="reverse" --info="right"'
 
 # atuin
-if test -d "$HOME/.atuin/bin"
+if command -q atuin
     fish_add_path -aP $HOME/.atuin/bin
     atuin init fish | source
 end

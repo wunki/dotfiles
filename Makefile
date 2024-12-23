@@ -1,15 +1,9 @@
 DOTFILES	:= $(PWD)
 UNAME			:= $(shell uname -s)
 
-all:: alacritty vim fish tmux zsh zed helix
+all:: vim fish tmux zsh zed 
 
 print-%: ; @echo $*=$($*)
-
-alacritty::
-	@test -d ${HOME}/.config/alacritty || mkdir ${HOME}/.config/alacritty	
-	@ln -fs $(DOTFILES)/alacritty/alacritty.toml			${HOME}/.config/alacritty/alacritty.toml
-	@ln -fns $(DOTFILES)/alacritty/themes			${HOME}/.config/alacritty/themes
-	@echo Alacritty configuration has been linked.
 
 fish::
 	@test -d ${HOME}/.config || mkdir ${HOME}/.config	${HOME}/.config
@@ -34,16 +28,6 @@ zsh::
 zed::
 	@ln -fs $(DOTFILES)/zed							${HOME}/.config/zed
 	@echo Zed is symlinked.
-
-wezterm::
-	@ln -fs $(DOTFILES)/wezterm/wezterm.lua							${HOME}/.wezterm.lua
-	@echo Zed is symlinked.
-
-helix::
-	@test -d ${HOME}/.config || mkdir				${HOME}/.config
-	@ln -fs $(DOTFILES)/helix/config.toml			${HOME}/.config/helix/config.toml
-	@ln -fs $(DOTFILES)/helix/languages.toml		${HOME}/.config/helix/languages.toml
-	@echo Helix is symlinked.
 
 tmux::
 	@ln -fs $(DOTFILES)/tmux/tmux.conf				${HOME}/.tmux.conf

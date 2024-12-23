@@ -1,7 +1,7 @@
 DOTFILES	:= $(PWD)
-UNAME			:= $(shell uname -s)
+UNAME		:= $(shell uname -s)
 
-all:: vim fish tmux zsh zed 
+all:: fish tmux zsh zed 
 
 print-%: ; @echo $*=$($*)
 

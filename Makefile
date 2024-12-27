@@ -1,7 +1,7 @@
 DOTFILES	:= $(PWD)
 UNAME		:= $(shell uname -s)
 
-all:: fish tmux zsh zed 
+all:: fish tmux ghostty
 
 print-%: ; @echo $*=$($*)
 
@@ -15,15 +15,15 @@ fish::
 	\tfisher install jorgebucaran/autopair.fish\n\n"
 	@echo Fish is symlinked.
 
-vim::
-	@ln -fs $(DOTFILES)/vim/vimrc					${HOME}/.vimrc
-	@echo Vim is symlinked.
-
 zsh::
 	@ln -fs $(DOTFILES)/zsh/zprofile				${HOME}/.zprofile
 	@ln -fs $(DOTFILES)/zsh/zshrc					${HOME}/.zshrc
 	@ln -fs $(DOTFILES)/zsh/zshrc.mac				${HOME}/.zshrc.mac
 	@echo ZSH is symlinked.
+
+ghostty::
+	@ln -fs $(DOTFILES)/ghostty						${HOME}/.config/ghostty
+	@echo Ghostty is symlinked.
 
 zed::
 	@ln -fs $(DOTFILES)/zed							${HOME}/.config/zed

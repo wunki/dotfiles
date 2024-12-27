@@ -1,0 +1,13 @@
+command = /opt/homebrew/bin/fish -il
+
+font-family = "GeistMono Nerd Font"
+font-size = 12
+adjust-cell-height = 20%
+
+theme = gruvbox-material
+background = #1d2022
+palette = 8=#44403d
+
+mouse-hide-while-typing = true
+shell-integration = fish
+

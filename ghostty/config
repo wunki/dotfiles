@@ -6,6 +6,9 @@ adjust-cell-height = 20%
 
 theme = gruvbox-material
 background = #1d2022
+
+# Need to fix the gruvbox-material pallette a bit,
+# darker background and color8 is black, which is not how it should be.
 palette = 8=#44403d
 
 mouse-hide-while-typing = true

@@ -1,8 +1,9 @@
 command = /opt/homebrew/bin/fish -il
 
-font-family = "GeistMono Nerd Font"
+font-family = "Drafting* Mono"
 font-size = 12
-adjust-cell-height = 20%
+font-style-bold = Medium
+adjust-cell-height = 10%
 
 theme = gruvbox-material
 background = #1d2022
@@ -10,7 +11,12 @@ background = #1d2022
 # Need to fix the gruvbox-material pallette a bit,
 # darker background and color8 is black, which is not how it should be.
 palette = 8=#44403d
+cursor-color = #ea6962
 
+macos-option-as-alt = true
 mouse-hide-while-typing = true
+copy-on-select = true
 shell-integration = fish
+title = " "
+confirm-close-surface = false
 

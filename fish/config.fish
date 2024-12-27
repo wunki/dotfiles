@@ -151,7 +151,6 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 
 # Deno
-set -x DENO_FUTURE 1
 fish_add_path -aP "$HOME/.deno/bin"
 
 # bun

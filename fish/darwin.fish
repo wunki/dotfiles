@@ -29,18 +29,8 @@ if test -d "$brew_prefix/share/fish/vendor_completions.d"
     set -p fish_complete_path (brew --prefix)/share/fish/vendor_completions.d
 end
 
-# Mise version manager
-if command -q mise
-    ~/.local/bin/mise activate fish | source
-end
-
 # Setup Tailscale
 alias tailscale "/Applications/Tailscale.app/Contents/MacOS/Tailscale"
-
-# Guile
-set -x GUILE_LOAD_PATH $brew_prefix/share/guile/site/3.0
-set -x GUILE_LOAD_COMPILED_PATH $brew_prefix/lib/guile/3.0/site-ccache
-set -x GUILE_SYSTEM_EXTENSIONS_PATH $brew_prefix/lib/guile/3.0/extensions
 
 # Ruby
 fish_add_path -aP $brew_prefix/opt/ruby/bin

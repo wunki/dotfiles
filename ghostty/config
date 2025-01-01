@@ -3,20 +3,38 @@ command = /opt/homebrew/bin/fish -il
 shell-integration = fish
 
 # Fonts
-font-family = "TX-02"
+font-family = "Geist Mono"
 font-size = 12
-adjust-cell-height = 20%
+font-style-bold=Medium
+adjust-cell-height = 10%
 
 # Colors
 window-colorspace = display-p3
-theme = gruvbox-material
 selection-invert-fg-bg = true
-background = #1d2022
 
-# Need to fix the gruvbox-material pallette a bit,
-# darker background and color8 is black, which is not how it should be.
+# Handcoded Gruvbox material
 palette = 8=#44403d
-cursor-color = #ea6962
+palette = 0=#665c54
+palette = 1=#ea6962
+palette = 2=#a9b665
+palette = 3=#e78a4e
+palette = 4=#7daea3
+palette = 5=#d3869b
+palette = 6=#89b482
+palette = 7=#d4be98
+palette = 8=#928374
+palette = 9=#ea6962
+palette = 10=#a9b665
+palette = 11=#d8a657
+palette = 12=#7daea3
+palette = 13=#d3869b
+palette = 14=#89b482
+palette = 15=#d4be98
+background = #1E2021
+foreground = #d4be98
+cursor-color = #d4be98
+selection-background = #d4be98
+selection-foreground = #282828
 
 # Padding
 window-padding-balance = true
@@ -25,6 +43,52 @@ window-padding-y = 7
 
 # Options
 title = " "
-macos-option-as-alt = true
 mouse-hide-while-typing = true
 confirm-close-surface = false
+
+# Mac specific options
+macos-option-as-alt = true
+macos-icon = custom-style
+macos-icon-ghost-color = #ea6962
+macos-icon-screen-color = #44403d
+
+# Key bindings
+# keybindings
+keybind = cmd+t>r=reload_config
+keybind = cmd+t>x=close_surface
+
+keybind = cmd+t>n=new_window
+
+# tabs 
+keybind = cmd+t>c=new_tab
+keybind = cmd+t>shift+l=next_tab
+keybind = cmd+t>shift+h=previous_tab
+keybind = cmd+t>comma=move_tab:-1
+keybind = cmd+t>period=move_tab:1
+
+# quick tab switch
+keybind = cmd+t>1=goto_tab:1
+keybind = cmd+t>2=goto_tab:2
+keybind = cmd+t>3=goto_tab:3
+keybind = cmd+t>4=goto_tab:4
+keybind = cmd+t>5=goto_tab:5
+keybind = cmd+t>6=goto_tab:6
+keybind = cmd+t>7=goto_tab:7
+keybind = cmd+t>8=goto_tab:8
+keybind = cmd+t>9=goto_tab:9
+
+# split
+keybind = cmd+t>\=new_split:right
+keybind = cmd+t>-=new_split:down
+              
+keybind = cmd+t>j=goto_split:bottom
+keybind = cmd+t>k=goto_split:top
+keybind = cmd+t>h=goto_split:left
+keybind = cmd+t>l=goto_split:right
+
+keybind = cmd+t>z=toggle_split_zoom
+
+keybind = cmd+t>e=equalize_splits
+
+# other
+copy-on-select = clipboard

@@ -114,9 +114,6 @@ abbr miex 'iex -S mix'
 # PostgreSQL -- don't go to the users database which never exists...
 set -x PGDATABASE postgres
 
-# Use neovim
-abbr e nvim
-
 # Zig
 if test -d $HOME/.zvm
     set -x ZVM_INSTALL "$HOME/.zvm/self"
@@ -192,6 +189,11 @@ set -Ux FZF_DEFAULT_OPTS '
   --margin=1 --prompt="λ " --marker=">" --pointer="◆"
   --separator="─" --scrollbar="│" --layout="reverse" --info="right"'
 
+# zoxide, a smarter cd
+if command -q zoxide
+    zoxide init fish | source
+end
+
 # atuin
 if command -q atuin
     fish_add_path -aP $HOME/.atuin/bin
@@ -206,3 +208,4 @@ set --export PATH $BUN_INSTALL/bin $PATH
 if command -q direnv
     eval (direnv hook fish)
 end
+

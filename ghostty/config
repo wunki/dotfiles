@@ -1,62 +1,67 @@
-# Use the fish shell
+# vim: filetype=conf
+
+# fish shell
 command = /opt/homebrew/bin/fish -il
 shell-integration = fish
 
-# Fonts
+# fonts
 font-family = "Geist Mono"
 font-size = 12
-font-style-bold=Medium
+# font-style-bold=Medium
 adjust-cell-height = 10%
 
-# Colors
+# colors
 window-colorspace = display-p3
 selection-invert-fg-bg = true
 
-# Handcoded Gruvbox material
-palette = 8=#44403d
-palette = 0=#665c54
-palette = 1=#ea6962
-palette = 2=#a9b665
-palette = 3=#e78a4e
-palette = 4=#7daea3
-palette = 5=#d3869b
-palette = 6=#89b482
-palette = 7=#d4be98
-palette = 8=#928374
-palette = 9=#ea6962
-palette = 10=#a9b665
-palette = 11=#d8a657
-palette = 12=#7daea3
-palette = 13=#d3869b
-palette = 14=#89b482
-palette = 15=#d4be98
-background = #1E2021
-foreground = #d4be98
-cursor-color = #d4be98
-selection-background = #d4be98
-selection-foreground = #282828
+theme = catppuccin-mocha
+background = #181825
 
-# Padding
+# gruvbox material colorscheme
+# palette = 8=#44403d
+# palette = 0=#665c54
+# palette = 1=#ea6962
+# palette = 2=#a9b665
+# palette = 3=#e78a4e
+# palette = 4=#7daea3
+# palette = 5=#d3869b
+# palette = 6=#89b482
+# palette = 7=#d4be98
+# palette = 8=#928374
+# palette = 9=#ea6962
+# palette = 10=#a9b665
+# palette = 11=#d8a657
+# palette = 12=#7daea3
+# palette = 13=#d3869b
+# palette = 14=#89b482
+# palette = 15=#d4be98
+# background = #1E2021
+# foreground = #d4be98
+# cursor-color = #d4be98
+# selection-background = #d4be98
+# selection-foreground = #282828
+
+
+# padding
 window-padding-balance = true
 window-padding-x = 7
 window-padding-y = 7
 
-# Options
+# options
 title = " "
 mouse-hide-while-typing = true
 confirm-close-surface = false
+copy-on-select = clipboard
 
-# Mac specific options
+# mac
 macos-option-as-alt = true
 macos-icon = custom-style
-macos-icon-ghost-color = #ea6962
-macos-icon-screen-color = #44403d
+macos-icon-ghost-color = #f5e0dc
+macos-icon-screen-color = #1e1e2e
 
-# Key bindings
-# keybindings
-keybind = cmd+t>r=reload_config
+# bindings
+keybind = cmd+t>f=reload_config
 keybind = cmd+t>x=close_surface
-
 keybind = cmd+t>n=new_window
 
 # tabs 
@@ -78,17 +83,15 @@ keybind = cmd+t>8=goto_tab:8
 keybind = cmd+t>9=goto_tab:9
 
 # split
-keybind = cmd+t>\=new_split:right
-keybind = cmd+t>-=new_split:down
+keybind = cmd+t>r=new_split:right
+keybind = cmd+t>d=new_split:down
               
+# move between splits
 keybind = cmd+t>j=goto_split:bottom
 keybind = cmd+t>k=goto_split:top
 keybind = cmd+t>h=goto_split:left
 keybind = cmd+t>l=goto_split:right
 
+# zoom into split
 keybind = cmd+t>z=toggle_split_zoom
-
 keybind = cmd+t>e=equalize_splits
-
-# other
-copy-on-select = clipboard

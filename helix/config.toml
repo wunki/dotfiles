@@ -1,0 +1,25 @@
+theme = "gruvbox_material_dark_hard"
+
+[editor]
+line-number = "relative"
+auto-completion = false
+auto-format = true
+color-modes = true
+true-color = true
+auto-pairs = false
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.lsp]
+display-messages = false
+auto-signature-help = false
+
+[keys.insert]
+"C-space" = "completion"
+
+[editor.inline-diagnostics]
+cursor-line = "hint"
+other-lines = "error"

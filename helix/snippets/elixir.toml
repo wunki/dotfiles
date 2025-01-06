@@ -1,0 +1,31 @@
+[[snippets]]
+prefix = "lv"
+description= "liveview"
+body = 'use $1, :live_view'
+
+[[snippets]]
+prefix = "H"
+description = "HeeX template"
+body = '''
+~H"""
+$1
+"""
+'''
+
+[[snippets]]
+prefix = "def"
+description = "private function"
+body = '''
+def $1($2) do
+  $3
+end
+'''
+
+[[snippets]]
+prefix = "defp"
+description = "private function"
+body = '''
+defp $1($2) do
+  $3
+end
+'''

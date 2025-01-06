@@ -11,7 +11,7 @@
     "provider": null,
     "version": "2"
   },
-  "buffer_font_family": "Maple Mono",
+  "buffer_font_family": "Geist Mono",
   "tab_bar": {
     "show": true
   },
@@ -93,7 +93,7 @@
   "lsp": {
     "elixir-ls": {
       "binary": {
-        "path": "/Users/petar/.local/share/elixir-ls/language_server.sh"
+        "path": "/Users/petar/.local/bin/elixir-ls"
       }
     },
     "rust-analyzer": {
@@ -135,7 +135,7 @@
     "env": {
       "TERM_PROGRAM": "zed"
     },
-    "font_family": "Maple Mono",
+    "font_family": "Geist Mono",
     "font_size": 12,
     "option_as_meta": true,
     "shell": {

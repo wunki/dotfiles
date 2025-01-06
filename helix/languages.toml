@@ -1,0 +1,7 @@
+[[language]]
+name = "elixir"
+auto-format = true
+language-servers = [{name = "elixir-ls", except-features=["diagnostics"]}, "scls"]
+
+[language-server.scls]
+command = "simple-completion-language-server"

@@ -16,3 +16,4 @@
 /zed/.tmp*
 /zed/conversations
 /zed/prompts
+/helix/runtime

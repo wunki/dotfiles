@@ -4,14 +4,15 @@ set -U brew_prefix /opt/homebrew
 # Don't show me hints
 set -x HOMEBREW_NO_ENV_HINTS true
 
+# Don't update so aggressively
+set -x HOMEBREW_NO_AUTO_UPDATE 1
+set -x HOMEBREW_NO_INSTALL_UPGRADE 1
+
 # Mac specific paths
 fish_add_path -aP $brew_prefix/bin
 
 # PostgreSQL
 fish_add_path -aP /Applications/Postgres.app/Contents/Versions/latest/bin
-
-# Racket
-fish_add_path -aP /Applications/Racket\ v8.13/bin
 
 # Python
 fish_add_path -pP $brew_prefix/opt/python3/bin
@@ -54,9 +55,6 @@ set -x OPENSSL_ROOT_DIR $brew_prefix/opt/openssl
 if set -q ZED_TERM
     set -x EDITOR 'zed --wait'
 end
-
-# Needed for Zed build
-set -gx BINDGEN_EXTRA_CLANG_ARGS --sysroot=(xcrun --show-sdk-path)
 
 function bup --description "Updates, upgrades and cleans Homebrew"
     brew update

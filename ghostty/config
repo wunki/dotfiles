@@ -5,41 +5,41 @@ command = /opt/homebrew/bin/fish -il
 shell-integration = fish
 
 # fonts
-font-family = "Geist Mono"
+font-family = Geist Mono
 font-size = 12
-# font-style-bold=Medium
-adjust-cell-height = 10%
+font-style-bold = Medium
+adjust-cell-height = 17%
 
 # colors
 window-colorspace = display-p3
 selection-invert-fg-bg = true
 
-theme = catppuccin-mocha
-background = #181825
+# theme = gruvbox-material
+# background = #181825
 
 # gruvbox material colorscheme
-# palette = 8=#44403d
-# palette = 0=#665c54
-# palette = 1=#ea6962
-# palette = 2=#a9b665
-# palette = 3=#e78a4e
-# palette = 4=#7daea3
-# palette = 5=#d3869b
-# palette = 6=#89b482
-# palette = 7=#d4be98
-# palette = 8=#928374
-# palette = 9=#ea6962
-# palette = 10=#a9b665
-# palette = 11=#d8a657
-# palette = 12=#7daea3
-# palette = 13=#d3869b
-# palette = 14=#89b482
-# palette = 15=#d4be98
-# background = #1E2021
-# foreground = #d4be98
-# cursor-color = #d4be98
-# selection-background = #d4be98
-# selection-foreground = #282828
+palette = 8=#44403d
+palette = 0=#665c54
+palette = 1=#ea6962
+palette = 2=#a9b665
+palette = 3=#e78a4e
+palette = 4=#7daea3
+palette = 5=#d3869b
+palette = 6=#89b482
+palette = 7=#d4be98
+palette = 8=#928374
+palette = 9=#ea6962
+palette = 10=#a9b665
+palette = 11=#d8a657
+palette = 12=#7daea3
+palette = 13=#d3869b
+palette = 14=#89b482
+palette = 15=#d4be98
+background = #1E2021
+foreground = #d4be98
+cursor-color = #d4be98
+selection-background = #d4be98
+selection-foreground = #282828
 
 
 # padding

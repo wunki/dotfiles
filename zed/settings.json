@@ -8,7 +8,6 @@
       "provider": "anthropic"
     },
     "dock": "right",
-    "provider": null,
     "version": "2"
   },
   "buffer_font_family": "Geist Mono",
@@ -16,7 +15,7 @@
     "show": true
   },
   "use_autoclose": true,
-  "buffer_font_size": 12,
+  "buffer_font_size": 13.0,
   "current_line_highlight": "gutter",
   "cursor_blink": false,
   "features": {
@@ -145,7 +144,7 @@
       }
     }
   },
-  "theme": "Zedokai Darker (Filter Spectrum)",
+  "theme": "poimandres",
   "toolbar": {
     "breadcrumbs": true,
     "quick_actions": false

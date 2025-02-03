@@ -89,7 +89,7 @@ abbr llg 'eza -l --git'
 abbr lll 'eza -la'
 
 # Use bat because of syntax highlighting
-if command -q bat
+if type -q bat
     abbr cat bat
     set -x BAT_THEME ansi
     set -x BAT_PAGER
@@ -174,9 +174,7 @@ if [ "$INSIDE_EMACS" = vterm ]
 end
 
 # Mise for tool versioning
-if command -q mise
-    $HOME/.local/bin/mise activate fish | source
-end
+type -q mise; and $HOME/.local/bin/mise activate fish | source
 
 # FZF
 # Generated here: https://vitormv.github.io/fzf-themes#eyJib3JkZXJTdHlsZSI6InJvdW5kZWQiLCJib3JkZXJMYWJlbCI6IiIsImJvcmRlckxhYmVsUG9zaXRpb24iOjAsInByZXZpZXdCb3JkZXJTdHlsZSI6InJvdW5kZWQiLCJwYWRkaW5nIjoiIiwibWFyZ2luIjoiMSIsInByb21wdCI6Is67ICIsIm1hcmtlciI6Ij4iLCJwb2ludGVyIjoi4peGIiwic2VwYXJhdG9yIjoi4pSAIiwic2Nyb2xsYmFyIjoi4pSCIiwibGF5b3V0IjoicmV2ZXJzZSIsImluZm8iOiJyaWdodCIsImNvbG9ycyI6ImZnKzojZDBkMGQwLGJnKzojMTYxNjFELGhsOiM2QTk1ODksaGwrOiM2NTg1OTQsaW5mbzojRENEN0JBLG1hcmtlcjojOThCQjZDLHByb21wdDojRkY5RTNCLHNwaW5uZXI6IzkzOEFBOSxwb2ludGVyOiM5NTdGQjgsaGVhZGVyOiM3Njk0NkEsYm9yZGVyOiMyQTJBMzcsbGFiZWw6I0RDRDdCQSxxdWVyeTojZDlkOWQ5In0=
@@ -190,22 +188,13 @@ set -Ux FZF_DEFAULT_OPTS '
   --separator="─" --scrollbar="│" --layout="reverse" --info="right"'
 
 # zoxide, a smarter cd
-if command -q zoxide
-    zoxide init fish | source
-end
+type -q zoxide; and zoxide init fish | source
 
 # atuin
-if command -q atuin
-    fish_add_path -aP $HOME/.atuin/bin
-    atuin init fish | source
-end
+fish_add_path -aP $HOME/.atuin/bin
+type -q atuin; and atuin init fish | source
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
-
-# direnv
-if command -q direnv
-    eval (direnv hook fish)
-end
 

@@ -1,21 +1,18 @@
 # vim: filetype=conf
 
 # fish shell
-command = /opt/homebrew/bin/fish -il
+command = /usr/bin/fish -il
 shell-integration = fish
 
 # fonts
-font-family = Geist Mono
+# font-family = Geist Mono
 font-size = 12
-font-style-bold = Medium
+# font-style-bold = Medium
 adjust-cell-height = 17%
 
 # colors
 window-colorspace = display-p3
 selection-invert-fg-bg = true
-
-# theme = gruvbox-material
-# background = #181825
 
 # gruvbox material colorscheme
 palette = 8=#44403d
@@ -40,7 +37,6 @@ foreground = #d4be98
 cursor-color = #d4be98
 selection-background = #d4be98
 selection-foreground = #282828
-
 
 # padding
 window-padding-balance = true

@@ -1,3 +1,6 @@
+# Setup environment
+set -x SHELL /opt/homebrew/bin/fish
+
 # Setup homebrew
 set -U brew_prefix /opt/homebrew
 

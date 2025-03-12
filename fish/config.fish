@@ -29,7 +29,6 @@ end
 set -x PROJECT_DIR "$HOME/Developer"
 
 # Shell variables
-set -x SHELL fish
 set -x EDITOR nvim
 set -x VISUAL "$EDITOR"
 set -x ALTERNATE_EDITOR vim
@@ -65,6 +64,7 @@ abbr gs 'git status --ignore-submodules=dirty'
 abbr gp 'git push origin HEAD'
 abbr gf 'git pull origin HEAD'
 abbr gu gitu
+abbr gopen 'gh repo view --web'
 
 # Helper functions
 function mkcd
@@ -197,4 +197,3 @@ type -q atuin; and atuin init fish | source
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH
-

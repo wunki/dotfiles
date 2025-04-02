@@ -138,6 +138,7 @@ end
 
 # NodeJS
 abbr pp pnpm
+abbr ppx pnpmx
 set -x NPM_PACKAGES "$HOME/.npm-packages"
 set -x NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 fish_add_path -aP "$NPM_PACKAGES/bin"

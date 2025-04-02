@@ -1,50 +1,30 @@
 # vim: filetype=conf
 
 # fish shell
-command = /usr/bin/fish -il
+command = /opt/homebrew/bin/fish -il
 shell-integration = fish
 
 # fonts
-# font-family = Geist Mono
+font-family = TX-02
 font-size = 12
 # font-style-bold = Medium
-adjust-cell-height = 17%
+adjust-cell-height = 25%
 
 # colors
 window-colorspace = display-p3
 selection-invert-fg-bg = true
-
-# gruvbox material colorscheme
-palette = 8=#44403d
-palette = 0=#665c54
-palette = 1=#ea6962
-palette = 2=#a9b665
-palette = 3=#e78a4e
-palette = 4=#7daea3
-palette = 5=#d3869b
-palette = 6=#89b482
-palette = 7=#d4be98
-palette = 8=#928374
-palette = 9=#ea6962
-palette = 10=#a9b665
-palette = 11=#d8a657
-palette = 12=#7daea3
-palette = 13=#d3869b
-palette = 14=#89b482
-palette = 15=#d4be98
-background = #1E2021
-foreground = #d4be98
-cursor-color = #d4be98
-selection-background = #d4be98
-selection-foreground = #282828
+theme = Gruvbox Material
 
 # padding
 window-padding-balance = true
 window-padding-x = 7
 window-padding-y = 7
 
-# options
+# an empty bar, that's all I want
 title = " "
+macos-titlebar-proxy-icon = hidden
+
+# options
 mouse-hide-while-typing = true
 confirm-close-surface = false
 copy-on-select = clipboard

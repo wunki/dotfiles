@@ -1,145 +1,153 @@
 {
-    "ssh_connections": [
+  "ssh_connections": [
+    {
+      "host": "desktop",
+      "projects": [
         {
-            "host": "192.168.50.200",
-            "projects": [
-                {
-                    "paths": ["/home/petar/code/petar-dot-dev"]
-                }
-            ]
+          "paths": ["~/code/pledgewise"]
         }
-    ],
-    "show_edit_predictions": false,
-    "edit_predictions": {
-        "disabled_globs": [".env", "**/journal"]
+      ]
+    }
+  ],
+  "show_edit_predictions": true,
+  "edit_predictions": {
+    "mode": "subtle",
+    "disabled_globs": [".env", "**/journal"]
+  },
+  "assistant": {
+    "default_model": {
+      "model": "gemini-2.5-pro-exp-03-25",
+      "provider": "google"
     },
-    "assistant": {
-        "default_model": {
-            "model": "gemini-2.0-flash",
-            "provider": "google"
-        },
-        "dock": "right",
-        "version": "2"
+    "dock": "right",
+    "version": "2"
+  },
+  "buffer_font_family": "TX-02",
+  "tab_bar": {
+    "show": true
+  },
+  "use_autoclose": true,
+  "buffer_font_size": 13.0,
+  "current_line_highlight": "gutter",
+  "cursor_blink": false,
+  "features": {
+    "copilot": true,
+    "edit_prediction_provider": "zed"
+  },
+  "file_types": {
+    "CSS": ["scss"],
+    "Shell Script": [".envrc", ".env"]
+  },
+  "git": {
+    "inline_blame": {
+      "enabled": false
+    }
+  },
+  "inlay_hints": {
+    "enabled": false
+  },
+  "journal": {
+    "hour_format": "hour24",
+    "path": "~/Notes"
+  },
+  "languages": {
+    "HTML": {
+      "hard_tabs": false,
+      "tab_size": 2
     },
-    "buffer_font_family": "Geist Mono",
-    "tab_bar": {
-        "show": true
+    "JavaScript": {
+      // "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint"],
+      "hard_tabs": false,
+      "tab_size": 2
+      // "formatter": "language_server"
     },
-    "use_autoclose": true,
-    "buffer_font_size": 13.0,
-    "current_line_highlight": "gutter",
-    "cursor_blink": false,
-    "features": {
-        "copilot": true,
-        "edit_prediction_provider": "zed"
+    "TypeScript": {
+      // "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint"],
+      "hard_tabs": false,
+      "tab_size": 2
+      // "formatter": "language_server"
     },
-    "file_types": {
-        "CSS": ["scss"],
-        "Shell Script": [".envrc", ".env"]
-    },
-    "git": {
-        "inline_blame": {
-            "enabled": false
+    "Svelte": {
+      // "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint"],
+      "hard_tabs": false,
+      "tab_size": 2
+      // "formatter": "language_server"
+    }
+  },
+  "lsp": {
+    "deno": {
+      "settings": {
+        "deno": {
+          "enable": false
         }
-    },
-    "inlay_hints": {
-        "enabled": false
-    },
-    "journal": {
-        "hour_format": "hour24",
-        "path": "~/Notes"
-    },
-    "languages": {
-        "HTML": {
-            "hard_tabs": false,
-            "tab_size": 2
-        },
-        "JavaScript": {
-            // "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint"],
-            "hard_tabs": false,
-            "tab_size": 2
-            // "formatter": "language_server"
-        },
-        "TypeScript": {
-            // "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint"],
-            "hard_tabs": false,
-            "tab_size": 2
-            // "formatter": "language_server"
-        },
-        "Svelte": {
-            // "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint"],
-            "hard_tabs": false,
-            "tab_size": 2
-            // "formatter": "language_server"
-        }
+      }
     },
     "lsp": {
-        "deno": {
-            "settings": {
-                "deno": {
-                    "enable": false
-                }
-            }
-        },
-        "rust-analyzer": {
-            "initialization_options": {
-                "check": {
-                    "command": "clippy"
-                }
-            }
-        },
-        "zls": {
-            "binary": {
-                "path": "~/.zvm/bin/zls"
-            }
-        },
-        "gopls": {
-            "initialization_options": {
-                "usePlaceholders": true
-            }
+      "biome": {
+        "settings": {
+          "require_config_file": true
         }
+      }
     },
-    "preferred_line_length": 100,
-    "project_panel": {
-        "dock": "left"
-    },
-    "relative_line_numbers": true,
-    "scrollbar": {
-        "show": "never"
-    },
-    "show_completions_on_input": true,
-    "show_copilot_suggestions": true,
-    "soft_wrap": "editor_width",
-    "telemetry": {
-        "diagnostics": false,
-        "metrics": false
-    },
-    "terminal": {
-        "blinking": "off",
-        "dock": "bottom",
-        "env": {
-            "TERM_PROGRAM": "zed"
-        },
-        "font_family": "Geist Mono",
-        "font_size": 13,
-        "option_as_meta": true,
-        "shell": {
-            "with_arguments": {
-                "args": ["-l", "-i"],
-                "program": "/usr/bin/fish"
-            }
+    "rust-analyzer": {
+      "initialization_options": {
+        "check": {
+          "command": "clippy"
         }
+      }
     },
-    "theme": "Zedokai Darker (Filter Ristretto)",
-    "toolbar": {
-        "breadcrumbs": true,
-        "quick_actions": false
+    "zls": {
+      "binary": {
+        "path": "~/.zvm/bin/zls"
+      }
     },
-    "ui_font_family": "iA Writer Duo S",
-    "ui_font_size": 14,
-    "vertical_scroll_margin": 5,
-    "vim_mode": true,
-    "vim": {
-        "toggle_relative_line_numbers": true
+    "gopls": {
+      "initialization_options": {
+        "usePlaceholders": true
+      }
     }
+  },
+  "preferred_line_length": 100,
+  "project_panel": {
+    "dock": "left"
+  },
+  "relative_line_numbers": true,
+  "scrollbar": {
+    "show": "never"
+  },
+  "show_completions_on_input": true,
+  "show_copilot_suggestions": true,
+  "soft_wrap": "editor_width",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "terminal": {
+    "blinking": "off",
+    "dock": "bottom",
+    "env": {
+      "TERM_PROGRAM": "zed"
+    },
+    "font_family": "TX-02",
+    "font_size": 12,
+    "option_as_meta": true,
+    "shell": {
+      "with_arguments": {
+        "args": ["-l", "-i"],
+        "program": "/opt/homebrew/bin/fish"
+      }
+    }
+  },
+  "theme": "Rich Vesper",
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": false
+  },
+  "ui_font_family": "iA Writer Duo S",
+  "ui_font_size": 14,
+  "vertical_scroll_margin": 5,
+  "vim_mode": true,
+  "vim": {
+    "toggle_relative_line_numbers": true
+  }
 }

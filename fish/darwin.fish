@@ -37,8 +37,7 @@ end
 alias tailscale "/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 # Ruby
-fish_add_path -aP $brew_prefix/opt/ruby/bin
-fish_add_path -aP $brew_prefix/lib/ruby/gems/3.2.0/bin
+fish_add_path -pP $brew_prefix/opt/ruby/bin
 
 # PostgreSQL
 fish_add_path -aP $brew_prefix/opt/libpq/bin

@@ -1,6 +1,9 @@
 # Environment variables
 set -x SHELL /usr/bin/fish
 
+# Lua language server
+fish_add_path -aP "$HOME/.local/share/lua-language-server/bin"
+
 # Java installation through Adoptium
 set -l java_version "19.0.2+7"
 if test -d "/opt/jdk-$java_version"

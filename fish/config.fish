@@ -33,7 +33,7 @@ set -x EDITOR nvim
 set -x VISUAL "$EDITOR"
 set -x ALTERNATE_EDITOR vim
 
-# Zed editor
+# Zed editor if in Zed
 if test "$TERM_PROGRAM" = zed
     set -x EDITOR zed
     set -x VISUAL zed --wait

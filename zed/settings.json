@@ -1,4 +1,16 @@
 {
+  "context_servers": {
+    "Svelte MCP": {
+      "command": {
+        "path": "npx",
+        "args": ["-y", "mcp-svelte-docs"],
+        "env": {
+          "LIBSQL_URL": "file:svelte_mpc.db"
+        }
+      },
+      "settings": {}
+    }
+  },
   "ssh_connections": [
     {
       "host": "desktop",
@@ -15,10 +27,74 @@
     "disabled_globs": [".env", "**/journal"]
   },
   "assistant": {
-    "default_profile": "write",
+    "profiles": {
+      "ask": {
+        "name": "Ask",
+        "tools": {
+          "contents": true,
+          "diagnostics": true,
+          "fetch": true,
+          "list_directory": false,
+          "now": true,
+          "path_search": true,
+          "read_file": true,
+          "regex_search": true,
+          "thinking": true,
+          "web_search": true
+        },
+        "enable_all_context_servers": false,
+        "context_servers": {
+          "Svelte MCP": {
+            "tools": {
+              "svelte_pattern": true,
+              "svelte5_feature": true,
+              "svelte5_common_mistakes": true
+            }
+          }
+        }
+      },
+      "write": {
+        "name": "Write",
+        "tools": {
+          "terminal": true,
+          "batch_tool": true,
+          "code_actions": true,
+          "code_symbols": true,
+          "contents": true,
+          "copy_path": false,
+          "create_file": true,
+          "delete_path": false,
+          "diagnostics": true,
+          "find_replace_file": true,
+          "fetch": true,
+          "list_directory": false,
+          "move_path": false,
+          "now": true,
+          "path_search": true,
+          "read_file": true,
+          "regex_search": true,
+          "rename": true,
+          "symbol_info": true,
+          "thinking": true,
+          "web_search": true
+        },
+        "enable_all_context_servers": true,
+        "context_servers": {
+          "Svelte MCP": {
+            "tools": {
+              "svelte5_common_mistakes": true,
+              "svelte_pattern": true,
+              "svelte5_feature": true
+            }
+          }
+        }
+      }
+    },
+    "always_allow_tool_actions": true,
+    "default_profile": "ask",
     "default_model": {
-      "model": "gemini-2.5-pro-preview-03-25",
-      "provider": "google"
+      "model": "o3",
+      "provider": "openai"
     },
     "dock": "right",
     "version": "2"
@@ -142,7 +218,11 @@
       }
     }
   },
-  "theme": "Rich Vesper",
+  "theme": {
+    "mode": "system",
+    "dark": "Rich Vesper",
+    "light": "Gruvbox Light"
+  },
   "experimental.theme_overrides": {
     "players": [
       {

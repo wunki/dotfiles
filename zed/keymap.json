@@ -4,7 +4,7 @@
     "bindings": {
       "space f": "file_finder::Toggle",
       "space p n": "editor::GoToDiagnostic",
-      "space p p": "editor::GoToPrevDiagnostic",
+      "space p p": "editor::GoToPreviousDiagnostic",
       "space r n": "editor::Rename",
       "space r r": "editor::RestartLanguageServer",
       "space t i": "editor::ToggleInlayHints"
@@ -25,7 +25,8 @@
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
-      "space t": "workspace::NewCenterTerminal"
+      "space t": "workspace::NewCenterTerminal",
+      "space h": "pane::TogglePinTab"
     }
   }
 ]

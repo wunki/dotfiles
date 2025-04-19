@@ -33,8 +33,7 @@ zed::
 	@echo Zed is symlinked.
 
 tmux::
-	@ln -fs $(DOTFILES)/tmux/tmux.conf								${HOME}/.tmux.conf
-	@ln -fs $(DOTFILES)/tmux/tmux-status.conf					${HOME}/.tmux-status.conf
-	@ln -fs $(DOTFILES)/tmux/tmux-vesper-theme.conf		${HOME}/.tmux-vesper-theme.conf
-	@ln -fs $(DOTFILES)/tmux/tmux-zenbones-theme.conf	${HOME}/.tmux-zenbones-theme.conf
+	@ln -fs $(DOTFILES)/tmux/tmux.conf										${HOME}/.tmux.conf
+	@ln -fs $(DOTFILES)/tmux/tmux-lackluster-theme.conf		${HOME}/.tmux-lackluster-theme.conf
+	@ln -fs $(DOTFILES)/tmux/tmux-zenbones-theme.conf			${HOME}/.tmux-zenbones-theme.conf
 	@echo tmux is symlinked.

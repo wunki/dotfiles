@@ -13,7 +13,7 @@ adjust-cell-height = 25%
 # colors
 window-colorspace = display-p3
 selection-invert-fg-bg = true
-theme = light:zenbones_light,dark:vesper
+theme = light:zenbones_light,dark:lackluster
 
 # padding
 window-padding-balance = true

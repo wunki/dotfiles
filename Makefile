@@ -1,39 +1,71 @@
+# Variables
 DOTFILES	:= $(PWD)
+HOME		:= ${HOME} # Use the environment variable directly
+CONFIG_DIR	:= $(HOME)/.config
 UNAME		:= $(shell uname -s)
 
-all:: fish tmux ghostty
+# List all application targets here
+APP_TARGETS := fish zsh helix ghostty zed tmux
 
-print-%: ; @echo $*=$($*)
+# Define the default target 'all' to depend on all application targets
+.PHONY: all
+all: $(APP_TARGETS)
+	@echo "All specified dotfiles linked."
 
-fish::
-	@test -d ${HOME}/.config || mkdir ${HOME}/.config	${HOME}/.config
-	@ln -fns $(DOTFILES)/fish													${HOME}/.config/fish
-	@printf "Please run the following to install plugins: \n\n\
-	\tfisher install jorgebucaran/hydro \n\
-	\tfisher install jorgebucaran/autopair.fish \n\
-	\tfisher install jethrokuan/z\n\n"
-	@echo Fish is symlinked.
+# Declare all command targets as .PHONY
+.PHONY: $(APP_TARGETS) print-% ensure-config-dir
 
-zsh::
-	@ln -fs $(DOTFILES)/zsh/zprofile									${HOME}/.zprofile
-	@ln -fs $(DOTFILES)/zsh/zshrc											${HOME}/.zshrc
-	@ln -fs $(DOTFILES)/zsh/zshrc.mac									${HOME}/.zshrc.mac
-	@echo ZSH is symlinked.
+# --- Application Targets ---
 
-helix::
-	@ln -fs $(DOTFILES)/helix													${HOME}/.config/helix
-	@echo Helix is symlinked.
+# Target to ensure the ~/.config directory exists
+.PHONY: ensure-config-dir
+ensure-config-dir:
+	@echo "Ensuring $(CONFIG_DIR) exists..."
+	@mkdir -p $(CONFIG_DIR)
 
-ghostty::
-	@ln -fs $(DOTFILES)/ghostty												${HOME}/.config/ghostty
-	@echo Ghostty is symlinked.
+fish: ensure-config-dir
+	@echo "Linking fish configuration..."
+	@ln -fns $(DOTFILES)/fish $(CONFIG_DIR)/fish
+	@printf "Fish linked. Run fisher commands manually if needed:\n"
+	@printf "\t'fisher install jorgebucaran/hydro'\n"
+	@printf "\t'fisher install jorgebucaran/autopair.fish'\n"
+	@printf "\t'fisher install jethrokuan/z'\n\n"
 
-zed::
-	@ln -fs $(DOTFILES)/zed														${HOME}/.config/zed
-	@echo Zed is symlinked.
+zsh:
+	@echo "Linking zsh configuration..."
+	@ln -fns $(DOTFILES)/zsh/zprofile $(HOME)/.zprofile
+	@ln -fns $(DOTFILES)/zsh/zshrc $(HOME)/.zshrc
+ifeq ($(UNAME),Darwin)
+	@ln -fns $(DOTFILES)/zsh/zshrc.mac $(HOME)/.zshrc.mac
+	@echo "ZSH linked (including macOS specific file)."
+else
+	@echo "ZSH linked."
+endif
 
-tmux::
-	@ln -fs $(DOTFILES)/tmux/tmux.conf										${HOME}/.tmux.conf
-	@ln -fs $(DOTFILES)/tmux/tmux-lackluster-theme.conf		${HOME}/.tmux-lackluster-theme.conf
-	@ln -fs $(DOTFILES)/tmux/tmux-zenbones-theme.conf			${HOME}/.tmux-zenbones-theme.conf
-	@echo tmux is symlinked.
+helix: ensure-config-dir
+	@echo "Linking helix configuration..."
+	@ln -fns $(DOTFILES)/helix $(CONFIG_DIR)/helix
+	@echo "Helix linked."
+
+ghostty: ensure-config-dir
+	@echo "Linking ghostty configuration..."
+	@ln -fns $(DOTFILES)/ghostty $(CONFIG_DIR)/ghostty
+	@echo "Ghostty linked."
+
+zed: ensure-config-dir
+	@echo "Linking zed configuration..."
+	@ln -fns $(DOTFILES)/zed $(CONFIG_DIR)/zed
+	@echo "Zed linked."
+
+tmux:
+	@echo "Linking tmux configuration..."
+	@ln -fns $(DOTFILES)/tmux/tmux.conf $(HOME)/.tmux.conf
+	@ln -fns $(DOTFILES)/tmux/tmux-lackluster-theme.conf $(HOME)/.tmux-lackluster-theme.conf
+	@ln -fns $(DOTFILES)/tmux/tmux-zenbones-theme.conf $(HOME)/.tmux-zenbones-theme.conf
+	@echo "tmux linked."
+
+# --- Utility Targets ---
+
+# Print the value of any make variable (e.g., make print-DOTFILES)
+print-%:
+	@echo '$* = $($*)'

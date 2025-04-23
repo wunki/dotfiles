@@ -25,9 +25,6 @@ switch (uname)
         . $HOME/.config/fish/freebsd.fish
 end
 
-# Where I store all my projects
-set -x PROJECT_DIR "$HOME/Developer"
-
 # Shell variables
 set -x EDITOR nvim
 set -x VISUAL "$EDITOR"
@@ -123,13 +120,6 @@ end
 
 # Lua
 fish_add_path -aP "$HOME/.luarocks/bin"
-
-# Go
-fish_add_path -aP /usr/local/go/bin
-if test -d $PROJECT_DIR/Go
-    set -x GOPATH "$PROJECT_DIR/Go"
-    fish_add_path -aP "$GOPATH/bin"
-end
 
 # OCaml configuration
 if test -r "$HOME/.opam/opam-init/init.fish"

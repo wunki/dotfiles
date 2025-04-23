@@ -1,3 +1,6 @@
+# Where I store all my code
+set -x PROJECT_DIR "$HOME/Code"
+
 # Setup environment
 set -x SHELL /opt/homebrew/bin/fish
 
@@ -19,6 +22,13 @@ fish_add_path -aP /Applications/Postgres.app/Contents/Versions/latest/bin
 
 # Python
 fish_add_path -pP $brew_prefix/opt/python3/bin
+
+# Go
+fish_add_path -aP /usr/local/go/bin
+if type -q go
+    set -x GOPATH "$PROJECT_DIR/Go"
+    fish_add_path -aP "$GOPATH/bin"
+end
 
 # Emacs
 fish_add_path -aP /Applications/Emacs.app/Contents/MacOS

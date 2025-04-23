@@ -1,8 +1,18 @@
+# Where I store all my code
+set -x PROJECT_DIR "$HOME/code"
+
 # Environment variables
 set -x SHELL /usr/bin/fish
 
 # Lua language server
 fish_add_path -aP "$HOME/.local/share/lua-language-server/bin"
+
+# Go
+fish_add_path -aP /usr/local/go/bin
+if type -q go
+    set -x GOPATH "$PROJECT_DIR/go"
+    fish_add_path -aP "$GOPATH/bin"
+end
 
 # Java installation through Adoptium
 set -l java_version "19.0.2+7"

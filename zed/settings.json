@@ -91,7 +91,7 @@
       }
     },
     "always_allow_tool_actions": true,
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
       "model": "o3",
       "provider": "openai"

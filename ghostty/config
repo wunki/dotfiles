@@ -8,7 +8,7 @@ shell-integration = fish
 font-family = TX-02
 font-size = 11
 # font-style-bold = Medium
-adjust-cell-height = 25%
+adjust-cell-height = 28%
 
 # colors
 window-colorspace = display-p3

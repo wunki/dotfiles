@@ -70,14 +70,15 @@ end
 
 # Editing
 fish_add_path -aP /opt/nvim/bin
-abbr e nvim
+
+abbr e $EDITOR
 abbr vim nvim
 abbr se sudoedit
 abbr cdr 'cd (git rev-parse --show-toplevel)'
 
 # Tmux
 abbr tt 'tmux attach || tmux new-session -s main'
-abbr start "ssh -t bytebottom 'tmux attach || tmux new-session -s main'"
+abbr bb "ssh -t bytebottom 'tmux attach || tmux new-session -s main'"
 
 # Use eza for listing files
 abbr l eza

@@ -1,16 +1,5 @@
 {
-  "context_servers": {
-    "Svelte MCP": {
-      "command": {
-        "path": "npx",
-        "args": ["-y", "mcp-svelte-docs"],
-        "env": {
-          "LIBSQL_URL": "file:svelte_mpc.db"
-        }
-      },
-      "settings": {}
-    }
-  },
+  "context_servers": {},
   "ssh_connections": [
     {
       "host": "desktop",
@@ -23,10 +12,10 @@
   ],
   "show_edit_predictions": true,
   "edit_predictions": {
-    "mode": "subtle",
+    "mode": "eager",
     "disabled_globs": [".env", "**/journal"]
   },
-  "assistant": {
+  "agent": {
     "profiles": {
       "ask": {
         "name": "Ask",
@@ -36,9 +25,9 @@
           "fetch": true,
           "list_directory": false,
           "now": true,
-          "path_search": true,
+          "find_path": true,
           "read_file": true,
-          "regex_search": true,
+          "grep": true,
           "thinking": true,
           "web_search": true
         },
@@ -65,14 +54,14 @@
           "create_file": true,
           "delete_path": false,
           "diagnostics": true,
-          "find_replace_file": true,
+          "edit_file": true,
           "fetch": true,
           "list_directory": false,
           "move_path": false,
           "now": true,
-          "path_search": true,
+          "find_path": true,
           "read_file": true,
-          "regex_search": true,
+          "grep": true,
           "rename": true,
           "symbol_info": true,
           "thinking": true,
@@ -91,10 +80,10 @@
       }
     },
     "always_allow_tool_actions": true,
-    "default_profile": "write",
+    "default_profile": "ask",
     "default_model": {
-      "model": "o3",
-      "provider": "openai"
+      "model": "gemini-2.5-pro-preview-03-25",
+      "provider": "google"
     },
     "dock": "right",
     "version": "2"
@@ -105,6 +94,7 @@
   },
   "use_autoclose": true,
   "buffer_font_size": 12.0,
+  "agent_font_size": 13.0,
   "current_line_highlight": "gutter",
   "cursor_blink": false,
   "features": {

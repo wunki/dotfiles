@@ -7,7 +7,8 @@
       "space p p": "editor::GoToPreviousDiagnostic",
       "space r n": "editor::Rename",
       "space r r": "editor::RestartLanguageServer",
-      "space t i": "editor::ToggleInlayHints"
+      "space t i": "editor::ToggleInlayHints",
+      "space t l": "editor::ToggleLineNumbers"
     }
   },
   {
@@ -25,7 +26,6 @@
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
-      "space t": "workspace::NewCenterTerminal",
       "space h": "pane::TogglePinTab"
     }
   }

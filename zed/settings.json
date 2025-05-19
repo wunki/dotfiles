@@ -1,5 +1,16 @@
 {
-  "context_servers": {},
+  "icon_theme": "Zed (Default)",
+  "middle_click_paste": true,
+  "context_servers": {
+    "Tidewave": {
+      "command": {
+        "path": "/Users/petar/.local/bin/mcp-proxy",
+        "args": ["http://localhost:4000/tidewave/mcp"],
+        "env": null
+      },
+      "settings": {}
+    }
+  },
   "ssh_connections": [
     {
       "host": "desktop",
@@ -80,10 +91,10 @@
       }
     },
     "always_allow_tool_actions": true,
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
-      "model": "gemini-2.5-pro-preview-03-25",
-      "provider": "google"
+      "model": "claude-3-7-sonnet-thinking-latest",
+      "provider": "zed.dev"
     },
     "dock": "right",
     "version": "2"
@@ -122,23 +133,20 @@
       "hard_tabs": false,
       "tab_size": 2
     },
+    "Elixir": {
+      "language_servers": ["elixir-ls", "tailwindcss-language-server"]
+    },
     "JavaScript": {
-      // "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint"],
       "hard_tabs": false,
       "tab_size": 2
-      // "formatter": "language_server"
     },
     "TypeScript": {
-      // "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint"],
       "hard_tabs": false,
       "tab_size": 2
-      // "formatter": "language_server"
     },
     "Svelte": {
-      // "language_servers": ["deno", "!typescript-language-server", "!vtsls", "!eslint"],
       "hard_tabs": false,
       "tab_size": 2
-      // "formatter": "language_server"
     }
   },
   "lsp": {
@@ -190,6 +198,7 @@
     "metrics": false
   },
   "terminal": {
+    "copy_on_select": true,
     "blinking": "off",
     "dock": "bottom",
     "env": {
@@ -211,7 +220,7 @@
   "theme": {
     "mode": "system",
     "dark": "Rich Vesper",
-    "light": "Gruvbox Light"
+    "light": "Arrakis Day"
   },
   "experimental.theme_overrides": {
     "players": [

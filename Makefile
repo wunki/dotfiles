@@ -1,7 +1,6 @@
 # Variables
 DOTFILES	:= $(PWD)
-HOME		:= ${HOME} # Use the environment variable directly
-CONFIG_DIR	:= $(HOME)/.config
+CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
 # List all application targets here

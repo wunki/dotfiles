@@ -2,6 +2,11 @@
   "icon_theme": "Zed (Default)",
   "middle_click_paste": true,
   "context_servers": {
+    "mcp-server-context7": {
+      "settings": {
+        "default_minimum_tokens": "10000"
+      }
+    },
     "Tidewave": {
       "command": {
         "path": "/Users/petar/.local/bin/mcp-proxy",
@@ -91,9 +96,9 @@
       }
     },
     "always_allow_tool_actions": true,
-    "default_profile": "write",
+    "default_profile": "ask",
     "default_model": {
-      "model": "claude-3-7-sonnet-thinking-latest",
+      "model": "claude-sonnet-4-thinking-latest",
       "provider": "zed.dev"
     },
     "dock": "right",
@@ -220,7 +225,7 @@
   "theme": {
     "mode": "system",
     "dark": "Rich Vesper",
-    "light": "Arrakis Day"
+    "light": "Zed Legacy:  Andromeda"
   },
   "experimental.theme_overrides": {
     "players": [

@@ -60,6 +60,7 @@ tmux:
 	@echo "Linking tmux configuration..."
 	@ln -fns $(DOTFILES)/tmux/tmux.conf $(HOME)/.tmux.conf
 	@ln -fns $(DOTFILES)/tmux/tmux-lackluster-theme.conf $(HOME)/.tmux-lackluster-theme.conf
+	@ln -fns $(DOTFILES)/tmux/tmux-gruvbox-material-theme.conf $(HOME)/.tmux-gruvbox-material-theme.conf
 	@ln -fns $(DOTFILES)/tmux/tmux-zenbones-theme.conf $(HOME)/.tmux-zenbones-theme.conf
 	@echo "tmux linked."
 

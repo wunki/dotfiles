@@ -187,6 +187,9 @@ type -q zoxide; and zoxide init fish | source
 fish_add_path -aP $HOME/.atuin/bin
 type -q atuin; and atuin init fish | source
 
+# claude
+alias claude="$HOME/.claude/local/claude"
+
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH

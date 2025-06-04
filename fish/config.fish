@@ -190,6 +190,9 @@ type -q atuin; and atuin init fish | source
 # claude
 alias claude="$HOME/.claude/local/claude"
 
+# opencode
+fish_add_path /home/petar/.opencode/bin
+
 # bun
 set --export BUN_INSTALL "$HOME/.bun"
 set --export PATH $BUN_INSTALL/bin $PATH

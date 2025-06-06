@@ -25,36 +25,36 @@ switch (uname)
         . $HOME/.config/fish/freebsd.fish
 end
 
-# Shell variables
+# vars
 set -x EDITOR nvim
 set -x VISUAL "$EDITOR"
 set -x ALTERNATE_EDITOR vim
 
-# Zed editor if in Zed
+# zed
 if test "$TERM_PROGRAM" = zed
     set -x EDITOR zed
     set -x VISUAL zed --wait
 end
 
-# Add to path if they exist
+# paths
 fish_add_path -aP /bin
 fish_add_path -aP /usr/bin
 fish_add_path -aP /usr/local/bin
 
-# Local Paths
+# local paths
 fish_add_path -aP "$HOME/.local/bin"
 fish_add_path -aP "$HOME/.fly/bin"
 fish_add_path -aP "$HOME/.local/share/racket/bin"
 
-# Rust
+# rust
 fish_add_path -aP "$HOME/.cargo/bin"
 
-# Tree
+# tree
 abbr t1 'tree --dirsfirst -ChFL 1'
 abbr t2 'tree --dirsfirst -ChFL 2'
 abbr t3 'tree --dirsfirst -ChFL 3'
 
-# Git shortcuts
+# git
 abbr gc 'git commit'
 abbr gs 'git status --ignore-submodules=dirty'
 abbr gp 'git push origin HEAD'
@@ -62,7 +62,7 @@ abbr gf 'git pull origin HEAD'
 abbr gu gitu
 abbr gopen 'gh repo view --web'
 
-# Helper functions
+# quality of life
 function mkcd
     mkdir -p $argv[1]; and cd $argv[1]
 end
@@ -109,7 +109,7 @@ set -x KERL_CONFIGURE_OPTIONS "--disable-debug --without-javac --without-wx"
 
 abbr miex 'iex -S mix'
 
-# PostgreSQL -- don't go to the users database which never exists...
+# postgresql -- don't go to the users database which never exists...
 set -x PGDATABASE postgres
 
 # node
@@ -125,15 +125,15 @@ if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
 
-# deno
-fish_add_path -aP "$HOME/.deno/bin"
-
 # bun
 set -x BUN_INSTALL "$HOME/.bun"
 fish_add_path -aP "$BUN_INSTALL/bin"
 
 # common lisp
 abbr lisp 'rlwrap sbcl'
+
+# lua
+fish_add_path -aP "$HOME/.local/share/lua-language-server/bin"
 
 # aws
 fish_add_path -aP "$HOME/.aws/bin"
@@ -143,7 +143,7 @@ set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
 # docker
 fish_add_path -aP $HOME/.docker/cli-plugins
 
-# VTerm in Emacs
+# vterm in emacs
 if [ "$INSIDE_EMACS" = vterm ]
     . $HOME/.config/fish/vterm.fish
 end
@@ -151,7 +151,7 @@ end
 # mise
 type -q mise; and $HOME/.local/bin/mise activate fish | source
 
-# FZF
+# fzf
 # Generated here: https://vitormv.github.io/fzf-themes#eyJib3JkZXJTdHlsZSI6InJvdW5kZWQiLCJib3JkZXJMYWJlbCI6IiIsImJvcmRlckxhYmVsUG9zaXRpb24iOjAsInByZXZpZXdCb3JkZXJTdHlsZSI6InJvdW5kZWQiLCJwYWRkaW5nIjoiIiwibWFyZ2luIjoiMSIsInByb21wdCI6Is67ICIsIm1hcmtlciI6Ij4iLCJwb2ludGVyIjoi4peGIiwic2VwYXJhdG9yIjoi4pSAIiwic2Nyb2xsYmFyIjoi4pSCIiwibGF5b3V0IjoicmV2ZXJzZSIsImluZm8iOiJyaWdodCIsImNvbG9ycyI6ImZnKzojZDBkMGQwLGJnKzojMTYxNjFELGhsOiM2QTk1ODksaGwrOiM2NTg1OTQsaW5mbzojRENEN0JBLG1hcmtlcjojOThCQjZDLHByb21wdDojRkY5RTNCLHNwaW5uZXI6IzkzOEFBOSxwb2ludGVyOiM5NTdGQjgsaGVhZGVyOiM3Njk0NkEsYm9yZGVyOiMyQTJBMzcsbGFiZWw6I0RDRDdCQSxxdWVyeTojZDlkOWQ5In0=
 set -Ux FZF_DEFAULT_OPTS '
   --color=fg:-1,fg+:#d0d0d0,bg:-1,bg+:#16161D

@@ -48,7 +48,6 @@ fish_add_path -aP "$HOME/.local/share/racket/bin"
 
 # Rust
 fish_add_path -aP "$HOME/.cargo/bin"
-abbr rfmt 'cargo +nightly fmt'
 
 # Tree
 abbr t1 'tree --dirsfirst -ChFL 1'
@@ -68,7 +67,7 @@ function mkcd
     mkdir -p $argv[1]; and cd $argv[1]
 end
 
-# Editing
+# editor
 fish_add_path -aP /opt/nvim/bin
 
 abbr e $EDITOR
@@ -76,18 +75,18 @@ abbr vim nvim
 abbr se sudoedit
 abbr cdr 'cd (git rev-parse --show-toplevel)'
 
-# Tmux
+# tmux
 abbr tt 'tmux attach || tmux new-session -s main'
 abbr bb "ssh -t bytebottom 'tmux attach || tmux new-session -s main'"
 
-# Use eza for listing files
+# eza
 abbr l eza
 abbr ls eza
 abbr ll 'eza -l'
 abbr llg 'eza -l --git'
 abbr lll 'eza -la'
 
-# Use bat because of syntax highlighting
+# bat
 if type -q bat
     abbr cat bat
     set -x BAT_THEME ansi
@@ -95,13 +94,13 @@ if type -q bat
     set -x COLORTERM truecolor
 end
 
-# Use Hydro as our prompt
+# hydra prompt
 set -g hydro_symbol_prompt λ
 set -g hydro_multiline true
 set -g hydro_color_prompt $fish_color_normal
 set -g hydro_color_git $fish_color_end
 
-# Erlang and Elixir
+# beam
 fish_add_path -aP "$HOME/.mix/escripts"
 
 set -x ERL_AFLAGS "-kernel shell_history enabled"
@@ -113,52 +112,35 @@ abbr miex 'iex -S mix'
 # PostgreSQL -- don't go to the users database which never exists...
 set -x PGDATABASE postgres
 
-# Zig
-if test -d $HOME/.zvm
-    set -x ZVM_INSTALL "$HOME/.zvm/self"
-    fish_add_path -aP "$HOME/.zvm/bin"
-    fish_add_path -aP $ZVM_INSTALL
-end
-
-# Lua
-fish_add_path -aP "$HOME/.luarocks/bin"
-
-# OCaml configuration
-if test -r "$HOME/.opam/opam-init/init.fish"
-    source "$HOME/.opam/opam-init/init.fish"
-end
-
-# NodeJS
-abbr pp pnpm
-abbr ppx pnpmx
+# node
 set -x NPM_PACKAGES "$HOME/.npm-packages"
 set -x NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 fish_add_path -aP "$NPM_PACKAGES/bin"
+
+abbr pp pnpm
+abbr ppx pnpmx
 
 set -gx PNPM_HOME "$HOME/.local/share/pnpm"
 if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
 
-# Deno
+# deno
 fish_add_path -aP "$HOME/.deno/bin"
 
 # bun
 set -x BUN_INSTALL "$HOME/.bun"
 fish_add_path -aP "$BUN_INSTALL/bin"
 
-# Common Lisp
+# common lisp
 abbr lisp 'rlwrap sbcl'
 
-# Java
-fish_add_path -aP "$HOME/.local/share/maven/bin"
-
-# AWS
+# aws
 fish_add_path -aP "$HOME/.aws/bin"
 set -x AWS_IAM_HOME "$HOME/.aws/iam"
 set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
 
-# Docker
+# docker
 fish_add_path -aP $HOME/.docker/cli-plugins
 
 # VTerm in Emacs
@@ -166,7 +148,7 @@ if [ "$INSIDE_EMACS" = vterm ]
     . $HOME/.config/fish/vterm.fish
 end
 
-# Mise for tool versioning
+# mise
 type -q mise; and $HOME/.local/bin/mise activate fish | source
 
 # FZF
@@ -180,9 +162,6 @@ set -Ux FZF_DEFAULT_OPTS '
   --margin=1 --prompt="λ " --marker=">" --pointer="◆"
   --separator="─" --scrollbar="│" --layout="reverse" --info="right"'
 
-# zoxide, a smarter cd
-type -q zoxide; and zoxide init fish | source
-
 # atuin
 fish_add_path -aP $HOME/.atuin/bin
 type -q atuin; and atuin init fish | source
@@ -192,7 +171,3 @@ alias claude="$HOME/.claude/local/claude"
 
 # opencode
 fish_add_path /home/petar/.opencode/bin
-
-# bun
-set --export BUN_INSTALL "$HOME/.bun"
-set --export PATH $BUN_INSTALL/bin $PATH

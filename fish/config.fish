@@ -95,7 +95,8 @@ if type -q bat
 end
 
 # hydra prompt
-set -g hydro_symbol_prompt λ
+# set -g hydro_symbol_prompt λ
+set -g hydro_symbol_prompt ∴
 set -g hydro_multiline true
 set -g hydro_color_prompt $fish_color_normal
 set -g hydro_color_git $fish_color_end

@@ -17,8 +17,7 @@ end
 # Configuration specific to WSL2 Linux
 if string match -q "*microsoft*" (uname -a)
     set -x GTK_THEME "Adwaita:dark"
-    set -x BROWSER wslview
-    set -x SHELL fish
+    set -x BROWSER "/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"
 
     fish_add_path -aP "/mnt/c/Program Files/Docker/Docker/resources/bin"
     fish_add_path -aP "/mnt/c/Users/petar/AppData/Local/Programs/Microsoft VS Code/bin"

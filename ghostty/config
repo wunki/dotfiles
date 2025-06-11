@@ -5,10 +5,10 @@ command = /opt/homebrew/bin/fish -il
 shell-integration = fish
 
 # fonts
-font-family = TX-02
+font-family = Hermit
 font-size = 11
 # font-style-bold = Medium
-adjust-cell-height = 28%
+adjust-cell-height = 7%
 
 # colors
 window-colorspace = display-p3

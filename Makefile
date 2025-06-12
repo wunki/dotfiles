@@ -29,6 +29,7 @@ fish: ensure-config-dir
 	@printf "\t'fisher install jorgebucaran/hydro'\n"
 	@printf "\t'fisher install jorgebucaran/autopair.fish'\n"
 	@printf "\t'fisher install jethrokuan/z'\n\n"
+	@printf "\t'fisher install PatrickF1/fzf.fish'\n\n"
 
 zsh:
 	@echo "Linking zsh configuration..."

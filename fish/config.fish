@@ -144,6 +144,9 @@ set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
 # docker
 fish_add_path -aP $HOME/.docker/cli-plugins
 
+# opencode
+fish_add_path -aP /home/petar/.opencode/bin
+
 # vterm in emacs
 if [ "$INSIDE_EMACS" = vterm ]
     . $HOME/.config/fish/vterm.fish
@@ -165,9 +168,6 @@ type -q mise; and $HOME/.local/bin/mise activate fish | source
 
 # claude
 alias claude="$HOME/.claude/local/claude"
-
-# opencode
-fish_add_path /home/petar/.opencode/bin
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"

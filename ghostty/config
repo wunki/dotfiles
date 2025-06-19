@@ -5,10 +5,10 @@ command = /opt/homebrew/bin/fish -il
 shell-integration = fish
 
 # fonts
-font-family = Hermit
-font-size = 11
-# font-style-bold = Medium
-adjust-cell-height = 7%
+font-family = Comic Code
+font-size = 10
+font-style-bold = Medium
+adjust-cell-height = 12%
 
 # colors
 window-colorspace = display-p3
@@ -61,7 +61,7 @@ keybind = cmd+t>9=goto_tab:9
 # split
 keybind = cmd+t>r=new_split:right
 keybind = cmd+t>d=new_split:down
-              
+
 # move between splits
 keybind = cmd+t>j=goto_split:bottom
 keybind = cmd+t>k=goto_split:top
@@ -71,3 +71,6 @@ keybind = cmd+t>l=goto_split:right
 # zoom into split
 keybind = cmd+t>z=toggle_split_zoom
 keybind = cmd+t>e=equalize_splits
+
+# shift-enter in Claude
+keybind = shift+enter=text:\n

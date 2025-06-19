@@ -18,10 +18,10 @@
   },
   "ssh_connections": [
     {
-      "host": "desktop",
+      "host": "bytebottom.com",
       "projects": [
         {
-          "paths": ["~/code/pledgewise"]
+          "paths": ["/home/petar/dev/bytebottom/finde"]
         }
       ]
     }
@@ -96,9 +96,9 @@
       }
     },
     "always_allow_tool_actions": true,
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
-      "model": "claude-sonnet-4-thinking-latest",
+      "model": "claude-sonnet-4",
       "provider": "zed.dev"
     },
     "dock": "right",
@@ -227,8 +227,8 @@
   },
   "theme": {
     "mode": "system",
-    "dark": "Rich Vesper",
     "light": "Arrakis Day"
+    "dark": "Rich Vesper"
   },
   "experimental.theme_overrides": {
     "players": [

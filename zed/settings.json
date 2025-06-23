@@ -227,7 +227,7 @@
   },
   "theme": {
     "mode": "system",
-    "light": "Arrakis Day",
+    "light": "Gruvbox Light Hard",
     "dark": "Rich Vesper"
   },
   "experimental.theme_overrides": {
@@ -241,8 +241,8 @@
     "breadcrumbs": true,
     "quick_actions": false
   },
-  "ui_font_family": "iA Writer Duo S",
-  "ui_font_size": 12.0,
+  "ui_font_family": "iA Writer Mono S",
+  "ui_font_size": 13.0,
   "vertical_scroll_margin": 5,
   "vim_mode": true,
   "vim": {

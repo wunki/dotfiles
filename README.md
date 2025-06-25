@@ -2,8 +2,6 @@
 
 A carefully crafted collection of configuration files for Fish, Tmux, Ghostty, Helix, Zed and more, optimized for cross-platform use.
 
-![Terminal Screenshot](/screenshots/fullscreen.png)
-
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
 ## Features

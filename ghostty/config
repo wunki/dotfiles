@@ -5,10 +5,9 @@ command = /opt/homebrew/bin/fish -il
 shell-integration = fish
 
 # fonts
-font-family = MonoLisa
-font-style = Book
+font-family = Hermit
 font-size = 12
-adjust-cell-height = 14%
+adjust-cell-height = 7%
 
 # colors
 window-colorspace = display-p3

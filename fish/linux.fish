@@ -7,6 +7,9 @@ set -x SHELL /usr/bin/fish
 # Lua language server
 fish_add_path -aP "$HOME/.local/share/lua-language-server/bin"
 
+# Ruby
+fish_add_path -aP "$HOME/.local/share/gem/ruby/3.4.0/bin"
+
 # Go
 fish_add_path -aP /usr/local/go/bin
 if type -q go

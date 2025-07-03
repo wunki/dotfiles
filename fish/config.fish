@@ -77,7 +77,7 @@ abbr cdr 'cd (git rev-parse --show-toplevel)'
 
 # tmux
 abbr tt 'tmux attach || tmux new-session -s main'
-abbr ssb "ssh -t bb 'tmux attach || tmux new-session -s main'"
+abbr ssb "ssh -t 100.65.43.92 'tmux attach || tmux new-session -s main'"
 
 # eza
 abbr l eza
@@ -94,12 +94,14 @@ if type -q bat
     set -x COLORTERM truecolor
 end
 
-# hydra prompt
-# set -g hydro_symbol_prompt λ
+# hydro prompt
 set -g hydro_symbol_prompt ∴
 set -g hydro_multiline true
 set -g hydro_color_prompt $fish_color_normal
 set -g hydro_color_git $fish_color_end
+
+# starship
+starship init fish | source
 
 # beam
 fish_add_path -aP "$HOME/.mix/escripts"
@@ -154,6 +156,9 @@ end
 
 # mise
 type -q mise; and $HOME/.local/bin/mise activate fish | source
+
+# direnv
+direnv hook fish | source
 
 # fzf
 # Generated here: https://vitormv.github.io/fzf-themes#eyJib3JkZXJTdHlsZSI6InJvdW5kZWQiLCJib3JkZXJMYWJlbCI6IiIsImJvcmRlckxhYmVsUG9zaXRpb24iOjAsInByZXZpZXdCb3JkZXJTdHlsZSI6InJvdW5kZWQiLCJwYWRkaW5nIjoiIiwibWFyZ2luIjoiMSIsInByb21wdCI6Is67ICIsIm1hcmtlciI6Ij4iLCJwb2ludGVyIjoi4peGIiwic2VwYXJhdG9yIjoi4pSAIiwic2Nyb2xsYmFyIjoi4pSCIiwibGF5b3V0IjoicmV2ZXJzZSIsImluZm8iOiJyaWdodCIsImNvbG9ycyI6ImZnKzojZDBkMGQwLGJnKzojMTYxNjFELGhsOiM2QTk1ODksaGwrOiM2NTg1OTQsaW5mbzojRENEN0JBLG1hcmtlcjojOThCQjZDLHByb21wdDojRkY5RTNCLHNwaW5uZXI6IzkzOEFBOSxwb2ludGVyOiM5NTdGQjgsaGVhZGVyOiM3Njk0NkEsYm9yZGVyOiMyQTJBMzcsbGFiZWw6I0RDRDdCQSxxdWVyeTojZDlkOWQ5In0=

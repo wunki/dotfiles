@@ -77,7 +77,7 @@ abbr cdr 'cd (git rev-parse --show-toplevel)'
 
 # tmux
 abbr tt 'tmux attach || tmux new-session -s main'
-abbr ssb "ssh -t 100.65.43.92 'tmux attach || tmux new-session -s main'"
+abbr ssb "ssh -t bytebottom 'tmux attach || tmux new-session -s main'"
 
 # eza
 abbr l eza

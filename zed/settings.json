@@ -2,30 +2,13 @@
   "icon_theme": "Zed (Default)",
   "middle_click_paste": true,
   "context_servers": {
-    "mcp-server-context7": {
-      "settings": {
-        "default_minimum_tokens": "10000"
-      }
-    },
-    "Tidewave": {
-      "command": {
-        "path": "/Users/petar/.local/bin/mcp-proxy",
-        "args": ["http://localhost:4000/tidewave/mcp"],
-        "env": null
-      },
-      "settings": {}
+    "tidewave": {
+      "source": "custom",
+      "command": "/Users/petar/.local/bin/mcp-proxy",
+      "args": ["http://localhost:4000/tidewave/mcp"],
+      "env": null
     }
   },
-  "ssh_connections": [
-    {
-      "host": "bytebottom.com",
-      "projects": [
-        {
-          "paths": ["/home/petar/dev/bytebottom/finde"]
-        }
-      ]
-    }
-  ],
   "show_edit_predictions": true,
   "edit_predictions": {
     "mode": "eager",
@@ -98,23 +81,21 @@
     "always_allow_tool_actions": true,
     "default_profile": "write",
     "default_model": {
-      "model": "claude-sonnet-4",
+      "model": "claude-sonnet-4-thinking",
       "provider": "zed.dev"
     },
-    "dock": "right",
-    "version": "2"
+    "dock": "right"
   },
   "buffer_font_family": "TX-02",
   "tab_bar": {
     "show": true
   },
   "use_autoclose": true,
-  "buffer_font_size": 12.0,
-  "agent_font_size": 13.0,
+  "buffer_font_size": 13.0,
+  "agent_font_size": 15.0,
   "current_line_highlight": "gutter",
   "cursor_blink": false,
   "features": {
-    "copilot": true,
     "edit_prediction_provider": "zed"
   },
   "file_types": {
@@ -165,28 +146,11 @@
         }
       }
     },
-    "lsp": {
-      "biome": {
-        "settings": {
-          "require_config_file": true
-        }
-      }
-    },
     "rust-analyzer": {
       "initialization_options": {
         "check": {
           "command": "clippy"
         }
-      }
-    },
-    "zls": {
-      "binary": {
-        "path": "~/.zvm/bin/zls"
-      }
-    },
-    "gopls": {
-      "initialization_options": {
-        "usePlaceholders": true
       }
     }
   },
@@ -199,7 +163,6 @@
     "show": "never"
   },
   "show_completions_on_input": true,
-  "show_copilot_suggestions": true,
   "soft_wrap": "editor_width",
   "telemetry": {
     "diagnostics": false,
@@ -213,7 +176,7 @@
       "TERM_PROGRAM": "zed"
     },
     "font_family": "TX-02",
-    "font_size": 12.0,
+    "font_size": 13.0,
     "toolbar": {
       "breadcrumbs": false
     },

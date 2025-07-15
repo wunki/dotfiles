@@ -48,6 +48,7 @@ alias tailscale "/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 # Ruby
 fish_add_path -pP $brew_prefix/opt/ruby/bin
+fish_add_path -pP $brew_prefix/lib/ruby/gems/3.4.0/bin/
 
 # PostgreSQL
 fish_add_path -aP $brew_prefix/opt/libpq/bin
@@ -55,8 +56,8 @@ fish_add_path -aP /Applications/Postgres.app/Contents/Versions/latest/bin
 
 # SQLite
 fish_add_path -pP $brew_prefix/opt/sqlite3/bin
-set -gx LDFLAGS "-L/$brew_prefix/opt/sqlite/lib"
-set -gx CPPFLAGS "-I/$brew_prefix/opt/sqlite/include"
+set -gx LDFLAGS "-L$brew_prefix/opt/sqlite/lib"
+set -gx CPPFLAGS "-I$brew_prefix/opt/sqlite/include"
 
 # OpenSSL
 set -x OPENSSL_INCLUDE_DIR $brew_prefix/opt/openssl/include

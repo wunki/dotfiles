@@ -147,7 +147,7 @@ set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
 fish_add_path -aP $HOME/.docker/cli-plugins
 
 # opencode
-fish_add_path -aP /home/petar/.opencode/bin
+fish_add_path -aP $HOME/.opencode/bin
 
 # vterm in emacs
 if [ "$INSIDE_EMACS" = vterm ]
@@ -170,9 +170,6 @@ direnv hook fish | source
 #   --border="rounded" --preview-window="border-rounded"
 #   --margin=1 --prompt="λ " --marker=">" --pointer="◆"
 #   --separator="─" --scrollbar="│" --layout="reverse" --info="right"'
-
-# claude
-alias claude="$HOME/.claude/local/claude"
 
 # bun
 set --export BUN_INSTALL "$HOME/.bun"

@@ -12,7 +12,7 @@ adjust-cell-height = 7%
 # colors
 window-colorspace = display-p3
 selection-invert-fg-bg = true
-theme = light:zenbones_light,dark:gruvbox-material
+theme = light:zenbones_light,dark:lackluster
 
 # padding
 window-padding-balance = true

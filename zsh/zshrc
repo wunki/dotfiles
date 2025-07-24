@@ -135,9 +135,3 @@ PURE_PROMPT_SYMBOL='λ'
 
 autoload -U promptinit; promptinit
 prompt pure
-
-. "$HOME/.atuin/bin/env"
-
-eval "$(atuin init zsh)"
-
-. "$HOME/.local/share/../bin/env"

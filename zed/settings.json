@@ -2,6 +2,16 @@
   "icon_theme": "Zed (Default)",
   "middle_click_paste": true,
   "context_servers": {
+    "svelte-llm": {
+      "source": "custom",
+      "enabled": true,
+      "command": "/Users/petar/.bun/bin/bunx",
+      "args": [
+        "mcp-remote",
+        "https://svelte-llm.khromov.se/mcp/mcp"
+      ],
+      "env": {}
+    },
     "tidewave": {
       "source": "custom",
       "command": "/Users/petar/.local/bin/mcp-proxy",
@@ -11,7 +21,7 @@
   },
   "show_edit_predictions": true,
   "edit_predictions": {
-    "mode": "eager",
+    "mode": "subtle",
     "disabled_globs": [".env", "**/journal"]
   },
   "agent": {
@@ -81,8 +91,8 @@
     "always_allow_tool_actions": true,
     "default_profile": "write",
     "default_model": {
-      "model": "claude-sonnet-4-thinking",
-      "provider": "zed.dev"
+      "model": "claude-sonnet-4-thinking-latest",
+      "provider": "anthropic"
     },
     "dock": "right"
   },
@@ -115,6 +125,9 @@
     "path": "~/Notes"
   },
   "languages": {
+    "Markdown": {
+      "show_edit_predictions": false
+    },
     "HTML": {
       "hard_tabs": false,
       "tab_size": 2

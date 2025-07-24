@@ -1,12 +1,27 @@
+# AGENTS.md - Dotfiles Repository Guide
+
 ## Build, Lint, and Test Commands
 
-- To "build" or apply the dotfiles, run `make`. This creates symbolic links from this repository to the appropriate locations in your home directory.
-- There are no dedicated linting or testing commands.
+- **Apply dotfiles**: `make` (creates symlinks to ~/.config and ~/)
+- **Install specific tool**: `make fish`, `make tmux`, `make helix`, `make ghostty`, `make zed`, `make zsh`
+- **No linting/testing**: This is a configuration repository with no automated tests
 
 ## Code Style Guidelines
 
-- This repository consists of configuration files for various tools (fish, zsh, helix, etc.).
-- Follow the established style and conventions within each configuration file you edit.
-- For shell scripts (fish, zsh), maintain a clean and readable style. Use comments to explain complex commands or logic.
-- Naming conventions should be consistent with the existing files and configurations.
-- Error handling is managed by the individual tools' configurations.
+### General
+- This repository contains configuration files for development tools (fish, zsh, helix, tmux, ghostty, zed)
+- Follow existing conventions within each configuration file type
+- Use comments to explain complex logic or non-obvious configurations
+
+### Shell Scripts (Fish/Zsh)
+- Use lowercase with underscores for variables: `my_variable`
+- Comment complex functions and abbreviations
+- OS-specific code goes in separate files (darwin.fish, linux.fish, freebsd.fish)
+- Keep secrets in separate untracked files (secrets.fish)
+- Use `set -x` for exports in Fish, `export` in Zsh
+
+### Configuration Files
+- Maintain consistent indentation (spaces preferred)
+- Group related settings together with comments
+- Use descriptive names for custom themes and snippets
+- Follow each tool's native configuration format (TOML for Helix, JSON for Zed, etc.)

@@ -88,8 +88,16 @@
     "always_allow_tool_actions": true,
     "default_profile": "write",
     "default_model": {
+<<<<<<< HEAD
       "model": "claude-sonnet-4-thinking-latest",
       "provider": "anthropic"
+||||||| parent of 13d48dc (changes)
+      "model": "claude-sonnet-4-thinking",
+      "provider": "zed.dev"
+=======
+      "model": "claude-opus-4-thinking",
+      "provider": "zed.dev"
+>>>>>>> 13d48dc (changes)
     },
     "dock": "right"
   },

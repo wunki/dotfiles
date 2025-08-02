@@ -26,7 +26,6 @@ fish: ensure-config-dir
 	@echo "Linking fish configuration..."
 	@ln -fns $(DOTFILES)/fish $(CONFIG_DIR)/fish
 	@printf "Fish linked. Run fisher commands manually if needed:\n"
-	@printf "\t'fisher install jorgebucaran/hydro'\n"
 	@printf "\t'fisher install jorgebucaran/autopair.fish'\n"
 	@printf "\t'fisher install jethrokuan/z'\n\n"
 	@printf "\t'fisher install PatrickF1/fzf.fish'\n\n"

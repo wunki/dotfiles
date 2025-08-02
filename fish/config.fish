@@ -149,3 +149,7 @@ end
 if type -q direnv
     direnv hook fish | source
 end
+
+# bun
+set --export BUN_INSTALL "$HOME/.bun"
+set --export PATH $BUN_INSTALL/bin $PATH

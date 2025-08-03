@@ -101,7 +101,7 @@
     },
     "dock": "right"
   },
-  "buffer_font_family": "Hermit",
+  "buffer_font_family": "Zed Plex Mono",
   "tab_bar": {
     "show": true
   },
@@ -193,7 +193,7 @@
     "env": {
       "TERM_PROGRAM": "zed"
     },
-    "font_family": "Hermit",
+    "font_family": "Zed Plex Mono",
     "font_size": 13.0,
     "toolbar": {
       "breadcrumbs": false
@@ -209,7 +209,7 @@
   "theme": {
     "mode": "system",
     "light": "Gruvbox Light Hard",
-    "dark": "GitHub Dark Default"
+    "dark": "Rich Vesper"
   },
   "experimental.theme_overrides": {
     "players": [

@@ -3,11 +3,12 @@
 # fish shell
 command = /opt/homebrew/bin/fish -il
 shell-integration = fish
+shell-integration-features = sudo, title, ssh-terminfo
 
 # fonts
 font-family = Hermit
-font-size = 12
-adjust-cell-height = 7%
+font-size = 13
+adjust-cell-height = 4%
 
 # colors
 window-colorspace = display-p3
@@ -24,6 +25,7 @@ title = " "
 macos-titlebar-proxy-icon = hidden
 
 # options
+window-save-state = always
 mouse-hide-while-typing = true
 confirm-close-surface = false
 copy-on-select = clipboard

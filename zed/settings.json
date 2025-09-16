@@ -1,6 +1,13 @@
 {
   "icon_theme": "Zed (Default)",
   "middle_click_paste": true,
+  "auto_install_extensions": {
+    "yue-theme": true,
+    "dune-theme": true,
+    "elixir": true,
+    "fish": true,
+    "html": true
+  },
   "context_servers": {
     "svelte-llm": {
       "source": "custom",

@@ -1,78 +1,52 @@
 {
-  "icon_theme": "Zed (Default)",
-  "middle_click_paste": true,
-  "auto_install_extensions": {
-    "yue-theme": true,
-    "dune-theme": true,
-    "elixir": true,
-    "fish": true,
-    "html": true
-  },
-  "context_servers": {
-    "svelte-llm": {
-      "source": "custom",
-      "enabled": true,
-      "command": "/Users/petar/.bun/bin/bunx",
-      "args": ["mcp-remote", "https://svelte-llm.khromov.se/mcp/mcp"],
-      "env": {}
-    },
-    "tidewave": {
-      "source": "custom",
-      "command": "/Users/petar/.local/bin/mcp-proxy",
-      "args": ["http://localhost:4000/tidewave/mcp"],
-      "env": null
-    }
-  },
-  "language_models": {
-    "lmstudio": {
-      "available_models": [
-        {
-          "name": "qwen/qwen3-coder-30b",
-          "display_name": "qwen3-coder-30b",
-          "supports_tool_calls": true,
-          "supports_images": false,
-          "max_tokens": 128000
-        }
-      ]
-    }
-  },
-  "show_edit_predictions": true,
-  "edit_predictions": {
-    "mode": "subtle",
-    "disabled_globs": [".env", "**/journal"]
-  },
   "agent": {
+    "always_allow_tool_actions": true,
+    "default_model": {
+      "model": "gpt-5",
+      "provider": "openai"
+    },
+    "default_profile": "write",
+    "dock": "right",
     "notify_when_agent_waiting": "never",
     "profiles": {
       "ask": {
+        "context_servers": {
+          "Svelte MCP": {
+            "tools": {
+              "svelte5_common_mistakes": true,
+              "svelte5_feature": true,
+              "svelte_pattern": true
+            }
+          }
+        },
+        "enable_all_context_servers": false,
         "name": "Ask",
         "tools": {
           "contents": true,
           "diagnostics": true,
           "fetch": true,
+          "find_path": true,
+          "grep": true,
           "list_directory": false,
           "now": true,
-          "find_path": true,
           "read_file": true,
-          "grep": true,
           "thinking": true,
           "web_search": true
-        },
-        "enable_all_context_servers": false,
-        "context_servers": {
-          "Svelte MCP": {
-            "tools": {
-              "svelte_pattern": true,
-              "svelte5_feature": true,
-              "svelte5_common_mistakes": true
-            }
-          }
         }
       },
       "write": {
+        "context_servers": {
+          "Svelte MCP": {
+            "tools": {
+              "svelte5_common_mistakes": true,
+              "svelte5_feature": true,
+              "svelte_pattern": true
+            }
+          }
+        },
+        "enable_all_context_servers": true,
         "name": "Write",
         "tools": {
-          "terminal": true,
           "batch_tool": true,
           "code_actions": true,
           "code_symbols": true,
@@ -83,59 +57,88 @@
           "diagnostics": true,
           "edit_file": true,
           "fetch": true,
+          "find_path": true,
+          "grep": true,
           "list_directory": false,
           "move_path": false,
           "now": true,
-          "find_path": true,
           "read_file": true,
-          "grep": true,
           "rename": true,
           "symbol_info": true,
+          "terminal": true,
           "thinking": true,
           "web_search": true
-        },
-        "enable_all_context_servers": true,
-        "context_servers": {
-          "Svelte MCP": {
-            "tools": {
-              "svelte5_common_mistakes": true,
-              "svelte_pattern": true,
-              "svelte5_feature": true
-            }
-          }
         }
       }
-    },
-    "always_allow_tool_actions": true,
-    "default_profile": "write",
-    "default_model": {
-      "model": "gpt-5",
-      "provider": "openai"
-    },
-    "dock": "right"
+    }
+  },
+  "agent_font_size": 15.0,
+  "auto_install_extensions": {
+    "dune-theme": true,
+    "elixir": true,
+    "fish": true,
+    "html": true,
+    "yue-theme": true
   },
   "buffer_font_family": "Hermit",
-  "tab_bar": {
-    "show": true,
-    "show_nav_history_buttons": false
-  },
-  "use_autoclose": true,
   "buffer_font_size": 13.0,
-  "agent_font_size": 15.0,
+  "collaboration_panel": {
+    "button": false
+  },
+  "context_servers": {
+    "svelte-llm": {
+      "args": [
+        "mcp-remote",
+        "https://svelte-llm.khromov.se/mcp/mcp"
+      ],
+      "command": "/Users/petar/.bun/bin/bunx",
+      "enabled": true,
+      "env": {},
+      "source": "custom"
+    },
+    "tidewave": {
+      "args": [
+        "http://localhost:4000/tidewave/mcp"
+      ],
+      "command": "/Users/petar/.local/bin/mcp-proxy",
+      "env": null,
+      "source": "custom"
+    }
+  },
   "current_line_highlight": "gutter",
   "cursor_blink": false,
+  "edit_predictions": {
+    "disabled_globs": [
+      ".env",
+      "**/journal"
+    ],
+    "mode": "subtle"
+  },
+  "experimental.theme_overrides": {
+    "players": [
+      {
+        "selection": "#99FFE43d"
+      }
+    ]
+  },
   "features": {
     "edit_prediction_provider": "zed"
   },
   "file_types": {
-    "CSS": ["scss"],
-    "Shell Script": [".envrc", ".env"]
+    "CSS": [
+      "scss"
+    ],
+    "Shell Script": [
+      ".envrc",
+      ".env"
+    ]
   },
   "git": {
     "inline_blame": {
       "enabled": false
     }
   },
+  "icon_theme": "Zed (Default)",
   "inlay_hints": {
     "enabled": false
   },
@@ -143,14 +146,20 @@
     "hour_format": "hour24",
     "path": "~/Notes"
   },
+  "language_models": {
+    "lmstudio": {
+      "available_models": [
+        {
+          "display_name": "qwen3-coder-30b",
+          "max_tokens": 128000,
+          "name": "qwen/qwen3-coder-30b",
+          "supports_images": false,
+          "supports_tool_calls": true
+        }
+      ]
+    }
+  },
   "languages": {
-    "Markdown": {
-      "show_edit_predictions": false
-    },
-    "HTML": {
-      "hard_tabs": false,
-      "tab_size": 2
-    },
     "Elixir": {
       "language_servers": [
         "expert",
@@ -160,18 +169,25 @@
         "tailwindcss-language-server"
       ]
     },
-    "JavaScript": {
-      "hard_tabs": false,
-      "tab_size": 2,
-      "code_actions_on_format": {
-        "source.fixAll.eslint": true
-      }
-    },
-    "TypeScript": {
+    "HTML": {
       "hard_tabs": false,
       "tab_size": 2
     },
+    "JavaScript": {
+      "code_actions_on_format": {
+        "source.fixAll.eslint": true
+      },
+      "hard_tabs": false,
+      "tab_size": 2
+    },
+    "Markdown": {
+      "show_edit_predictions": false
+    },
     "Svelte": {
+      "hard_tabs": false,
+      "tab_size": 2
+    },
+    "TypeScript": {
       "hard_tabs": false,
       "tab_size": 2
     }
@@ -197,6 +213,7 @@
       }
     }
   },
+  "middle_click_paste": true,
   "preferred_line_length": 100,
   "project_panel": {
     "dock": "left"
@@ -206,55 +223,54 @@
     "show": "never"
   },
   "show_completions_on_input": true,
+  "show_edit_predictions": true,
   "soft_wrap": "editor_width",
+  "tab_bar": {
+    "show": true,
+    "show_nav_history_buttons": false
+  },
   "telemetry": {
     "diagnostics": false,
     "metrics": false
   },
   "terminal": {
-    "copy_on_select": true,
     "blinking": "off",
+    "copy_on_select": true,
     "dock": "bottom",
     "env": {
       "TERM_PROGRAM": "zed"
     },
     "font_family": "Hermit",
     "font_size": 13.0,
-    "toolbar": {
-      "breadcrumbs": false
-    },
     "option_as_meta": true,
     "shell": {
       "with_arguments": {
-        "args": ["-l", "-i"],
+        "args": [
+          "-l",
+          "-i"
+        ],
         "program": "/opt/homebrew/bin/fish"
       }
+    },
+    "toolbar": {
+      "breadcrumbs": false
     }
   },
   "theme": {
-    "mode": "system",
+    "dark": "Yue Newmoon",
     "light": "Gruvbox Light Hard",
-    "dark": "Yue Newmoon"
-  },
-  "experimental.theme_overrides": {
-    "players": [
-      {
-        "selection": "#99FFE43d"
-      }
-    ]
+    "mode": "system"
   },
   "toolbar": {
     "breadcrumbs": true,
     "quick_actions": false
   },
-  "collaboration_panel": {
-    "button": false
-  },
   "ui_font_family": "iA Writer Mono S",
   "ui_font_size": 13.0,
+  "use_autoclose": true,
   "vertical_scroll_margin": 5,
-  "vim_mode": true,
   "vim": {
     "toggle_relative_line_numbers": true
-  }
+  },
+  "vim_mode": true
 }

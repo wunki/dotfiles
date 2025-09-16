@@ -10,15 +10,6 @@
     "notify_when_agent_waiting": "never",
     "profiles": {
       "ask": {
-        "context_servers": {
-          "Svelte MCP": {
-            "tools": {
-              "svelte5_common_mistakes": true,
-              "svelte5_feature": true,
-              "svelte_pattern": true
-            }
-          }
-        },
         "enable_all_context_servers": false,
         "name": "Ask",
         "tools": {
@@ -35,15 +26,6 @@
         }
       },
       "write": {
-        "context_servers": {
-          "Svelte MCP": {
-            "tools": {
-              "svelte5_common_mistakes": true,
-              "svelte5_feature": true,
-              "svelte_pattern": true
-            }
-          }
-        },
         "enable_all_context_servers": true,
         "name": "Write",
         "tools": {
@@ -86,20 +68,8 @@
     "button": false
   },
   "context_servers": {
-    "svelte-llm": {
-      "args": [
-        "mcp-remote",
-        "https://svelte-llm.khromov.se/mcp/mcp"
-      ],
-      "command": "/Users/petar/.bun/bin/bunx",
-      "enabled": true,
-      "env": {},
-      "source": "custom"
-    },
     "tidewave": {
-      "args": [
-        "http://localhost:4000/tidewave/mcp"
-      ],
+      "args": ["http://localhost:4000/tidewave/mcp"],
       "command": "/Users/petar/.local/bin/mcp-proxy",
       "env": null,
       "source": "custom"
@@ -108,10 +78,7 @@
   "current_line_highlight": "gutter",
   "cursor_blink": false,
   "edit_predictions": {
-    "disabled_globs": [
-      ".env",
-      "**/journal"
-    ],
+    "disabled_globs": [".env", "**/journal"],
     "mode": "subtle"
   },
   "experimental.theme_overrides": {
@@ -125,13 +92,8 @@
     "edit_prediction_provider": "zed"
   },
   "file_types": {
-    "CSS": [
-      "scss"
-    ],
-    "Shell Script": [
-      ".envrc",
-      ".env"
-    ]
+    "CSS": ["scss"],
+    "Shell Script": [".envrc", ".env"]
   },
   "git": {
     "inline_blame": {
@@ -245,10 +207,7 @@
     "option_as_meta": true,
     "shell": {
       "with_arguments": {
-        "args": [
-          "-l",
-          "-i"
-        ],
+        "args": ["-l", "-i"],
         "program": "/opt/homebrew/bin/fish"
       }
     },

@@ -100,16 +100,17 @@
       }
     },
     "always_allow_tool_actions": true,
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
-      "model": "claude-opus-4-1-thinking",
-      "provider": "zed.dev"
+      "model": "gpt-5",
+      "provider": "openai"
     },
     "dock": "right"
   },
   "buffer_font_family": "Hermit",
   "tab_bar": {
-    "show": true
+    "show": true,
+    "show_nav_history_buttons": false
   },
   "use_autoclose": true,
   "buffer_font_size": 13.0,
@@ -226,7 +227,7 @@
   "theme": {
     "mode": "system",
     "light": "Gruvbox Light Hard",
-    "dark": "Gruvbox Light Soft"
+    "dark": "Yue Newmoon"
   },
   "experimental.theme_overrides": {
     "players": [
@@ -238,6 +239,9 @@
   "toolbar": {
     "breadcrumbs": true,
     "quick_actions": false
+  },
+  "collaboration_panel": {
+    "button": false
   },
   "ui_font_family": "iA Writer Mono S",
   "ui_font_size": 13.0,

@@ -74,3 +74,6 @@ function bup --description "Updates, upgrades and cleans Homebrew"
     brew upgrade
     brew cleanup
 end
+
+# Elixir: partition os_deps compile work by CPU cores / 2
+set -x MIX_OS_DEPS_COMPILE_PARTITION_COUNT (math --scale=0 (sysctl -n hw.physicalcpu) / 2)

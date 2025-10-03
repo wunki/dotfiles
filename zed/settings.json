@@ -2,8 +2,8 @@
   "agent": {
     "always_allow_tool_actions": true,
     "default_model": {
-      "model": "gpt-5",
-      "provider": "openai"
+      "model": "claude-sonnet-4",
+      "provider": "zed.dev"
     },
     "default_profile": "write",
     "dock": "right",
@@ -216,7 +216,7 @@
     }
   },
   "theme": {
-    "dark": "0x96f Theme",
+    "dark": "Yue Newmoon",
     "light": "Gruvbox Light Hard",
     "mode": "system"
   },

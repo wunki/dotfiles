@@ -7,13 +7,14 @@ shell-integration-features = sudo, title, ssh-terminfo
 
 # fonts
 font-family = Hermit
-font-size = 13
-adjust-cell-height = 4%
+font-size = 12
+adjust-cell-height = 7%
+font-style-bold = Medium
 
 # colors
 window-colorspace = display-p3
 selection-invert-fg-bg = true
-theme = light:zenbones_light,dark:gruvbox-material
+theme = light:Zenbones Light,dark:gruvbox-material
 
 # padding
 window-padding-balance = true

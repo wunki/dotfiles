@@ -14,7 +14,7 @@ normal = "block"
 select = "underline"
 
 [editor.lsp]
-display-messages = false
+display-messages = true
 auto-signature-help = false
 
 [keys.insert]

@@ -6,7 +6,7 @@ shell-integration = fish
 shell-integration-features = sudo, title, ssh-terminfo
 
 # fonts
-font-family = Hermit
+font-family = Maple Mono
 font-size = 12
 adjust-cell-height = 7%
 font-style-bold = Medium
@@ -14,7 +14,7 @@ font-style-bold = Medium
 # colors
 window-colorspace = display-p3
 selection-invert-fg-bg = true
-theme = light:Zenbones Light,dark:gruvbox-material
+theme = light:Flexoki Light,dark:gruvbox-material
 
 # padding
 window-padding-balance = true

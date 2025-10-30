@@ -2,7 +2,7 @@ theme = "gruvbox_material_dark_hard"
 
 [editor]
 line-number = "relative"
-auto-completion = false
+auto-completion = true
 auto-format = true
 color-modes = true
 true-color = true
@@ -18,8 +18,4 @@ display-messages = true
 auto-signature-help = false
 
 [keys.insert]
-"C-space" = "completion"
-
-[editor.inline-diagnostics]
-# cursor-line = "hint"
-#other-lines = "error"
+"C-y" = "completion"

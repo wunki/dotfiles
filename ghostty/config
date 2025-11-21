@@ -6,7 +6,7 @@ shell-integration = fish
 shell-integration-features = sudo, title, ssh-terminfo
 
 # fonts
-font-family = Maple Mono
+font-family = TX-02
 font-size = 12
 adjust-cell-height = 7%
 font-style-bold = Medium

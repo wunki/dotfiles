@@ -2,7 +2,7 @@
 set -x PROJECT_DIR "$HOME/Code"
 
 # Setup environment
-set -x SHELL /opt/homebrew/bin/fish
+set -x SHELL /usr/local/bin/fish
 
 # Setup homebrew
 set -U brew_prefix /opt/homebrew

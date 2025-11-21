@@ -1,13 +1,17 @@
 {
+  "agent_ui_font_size": 14.0,
+  "gutter": {
+    "line_numbers": false
+  },
   "buffer_font_weight": 400.0,
-  "agent_buffer_font_size": 14.0,
+  "agent_buffer_font_size": 12.0,
   "agent": {
     "always_allow_tool_actions": true,
     "default_model": {
-      "model": "claude-haiku-4-5",
+      "model": "claude-sonnet-4-5",
       "provider": "zed.dev"
     },
-    "default_profile": "write",
+    "default_profile": "ask",
     "dock": "right",
     "notify_when_agent_waiting": "never",
     "profiles": {
@@ -90,7 +94,6 @@
       }
     }
   },
-  "agent_ui_font_size": 14.0,
   "auto_install_extensions": {
     "dune-theme": true,
     "elixir": true,
@@ -98,8 +101,8 @@
     "html": true,
     "yue-theme": true
   },
-  "buffer_font_family": "Anonymous Pro",
-  "buffer_font_size": 14.0,
+  "buffer_font_family": "TX-02",
+  "buffer_font_size": 12.0,
   "collaboration_panel": {
     "button": false
   },
@@ -111,6 +114,7 @@
       "source": "custom"
     },
     "svelte": {
+      "env": {},
       "enabled": true,
       "command": "npx",
       "args": ["-y", "@sveltejs/mcp"],
@@ -197,23 +201,19 @@
     }
   },
   "lsp": {
-    "deno": {
+    "vscode-css-language-server": {
       "settings": {
-        "deno": {
-          "enable": false
+        "css": {
+          "lint": {
+            "unknownAtRules": "ignore"
+          }
         }
       }
     },
-    "elixir-ls": {
+    "expert": {
       "binary": {
-        "path": "/Users/petar/.local/share/elixir-ls/language_server.sh"
-      }
-    },
-    "rust-analyzer": {
-      "initialization_options": {
-        "check": {
-          "command": "clippy"
-        }
+        "path": "/Users/petar/.local/bin/expert_darwin_arm64",
+        "arguments": ["--stdio"]
       }
     }
   },
@@ -222,7 +222,7 @@
   "project_panel": {
     "dock": "left"
   },
-  "relative_line_numbers": true,
+  "relative_line_numbers": "enabled",
   "scrollbar": {
     "show": "never"
   },
@@ -244,24 +244,20 @@
     "env": {
       "TERM_PROGRAM": "zed"
     },
-    "font_family": "Anonymous Pro",
-    "font_size": 14.0,
+    "font_family": "TX-02",
+    "font_size": 12.0,
     "option_as_meta": true,
     "shell": {
       "with_arguments": {
         "args": ["-l", "-i"],
-        "program": "/opt/homebrew/bin/fish"
+        "program": "/usr/local/bin/fish"
       }
     },
     "toolbar": {
       "breadcrumbs": false
     }
   },
-  "theme": {
-    "dark": "Kanso Zen",
-    "light": "Gruvbox Light Hard",
-    "mode": "system"
-  },
+  "theme": "Zed Dark",
   "toolbar": {
     "breadcrumbs": true,
     "quick_actions": false

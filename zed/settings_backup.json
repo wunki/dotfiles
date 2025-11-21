@@ -1,15 +1,46 @@
 {
+  "agent_ui_font_size": 14.0,
+  "gutter": {
+    "line_numbers": false
+  },
+  "buffer_font_weight": 400.0,
+  "agent_buffer_font_size": 13.0,
   "agent": {
     "always_allow_tool_actions": true,
     "default_model": {
-      "model": "claude-3-5-haiku-latest",
-      "provider": "anthropic"
+      "model": "claude-sonnet-4-5",
+      "provider": "zed.dev"
     },
-    "default_profile": "ask",
+    "default_profile": "write",
     "dock": "right",
     "notify_when_agent_waiting": "never",
     "profiles": {
+      "minimal": {
+        "name": "Minimal",
+        "tools": {},
+        "enable_all_context_servers": false,
+        "context_servers": {
+          "svelte": {
+            "tools": {
+              "svelte-autofixer": true,
+              "playground-link": true,
+              "list-sections": true,
+              "get-documentation": true
+            }
+          }
+        }
+      },
       "ask": {
+        "context_servers": {
+          "svelte": {
+            "tools": {
+              "svelte-autofixer": true,
+              "playground-link": true,
+              "list-sections": true,
+              "get-documentation": true
+            }
+          }
+        },
         "enable_all_context_servers": false,
         "name": "Ask",
         "tools": {
@@ -26,6 +57,15 @@
         }
       },
       "write": {
+        "context_servers": {
+          "svelte": {
+            "tools": {
+              "svelte-autofixer": true,
+              "list-sections": true,
+              "get-documentation": true
+            }
+          }
+        },
         "enable_all_context_servers": true,
         "name": "Write",
         "tools": {
@@ -54,7 +94,6 @@
       }
     }
   },
-  "agent_font_size": 15.0,
   "auto_install_extensions": {
     "dune-theme": true,
     "elixir": true,
@@ -62,7 +101,7 @@
     "html": true,
     "yue-theme": true
   },
-  "buffer_font_family": "Zed Plex Mono",
+  "buffer_font_family": "TX-02",
   "buffer_font_size": 12.0,
   "collaboration_panel": {
     "button": false
@@ -75,6 +114,8 @@
       "source": "custom"
     },
     "svelte": {
+      "env": {},
+      "enabled": true,
       "command": "npx",
       "args": ["-y", "@sveltejs/mcp"],
       "source": "custom"
@@ -84,7 +125,7 @@
   "cursor_blink": false,
   "edit_predictions": {
     "disabled_globs": [".env", "**/journal"],
-    "mode": "subtle"
+    "mode": "eager"
   },
   "experimental.theme_overrides": {
     "players": [
@@ -167,16 +208,17 @@
         }
       }
     },
-    "elixir-ls": {
-      "binary": {
-        "path": "/Users/petar/.local/share/elixir-ls/language_server.sh"
-      }
-    },
     "rust-analyzer": {
       "initialization_options": {
         "check": {
           "command": "clippy"
         }
+      }
+    },
+    "expert": {
+      "binary": {
+        "path": "/Users/petar/.local/bin/expert_darwin_arm64",
+        "arguments": ["--stdio"]
       }
     }
   },
@@ -207,30 +249,26 @@
     "env": {
       "TERM_PROGRAM": "zed"
     },
-    "font_family": "Zed Plex Mono",
+    "font_family": "TX-02",
     "font_size": 12.0,
     "option_as_meta": true,
     "shell": {
       "with_arguments": {
         "args": ["-l", "-i"],
-        "program": "/opt/homebrew/bin/fish"
+        "program": "/usr/local/bin/fish"
       }
     },
     "toolbar": {
       "breadcrumbs": false
     }
   },
-  "theme": {
-    "dark": "Gruvbox ish Dark Hard",
-    "light": "Gruvbox Light Hard",
-    "mode": "system"
-  },
+  "theme": "Arrakis Day",
   "toolbar": {
     "breadcrumbs": true,
     "quick_actions": false
   },
   "ui_font_family": "iA Writer Mono S",
-  "ui_font_size": 12.0,
+  "ui_font_size": 13.0,
   "use_autoclose": true,
   "vertical_scroll_margin": 5,
   "vim": {

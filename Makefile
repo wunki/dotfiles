@@ -27,8 +27,9 @@ fish: ensure-config-dir
 	@ln -fns $(DOTFILES)/fish $(CONFIG_DIR)/fish
 	@printf "Fish linked. Run fisher commands manually if needed:\n"
 	@printf "\t'fisher install jorgebucaran/autopair.fish'\n"
-	@printf "\t'fisher install jethrokuan/z'\n\n"
-	@printf "\t'fisher install PatrickF1/fzf.fish'\n\n"
+	@printf "\t'fisher install jethrokuan/z'\n"
+	@printf "\t'fisher install PatrickF1/fzf.fish'\n"
+	@printf "\t'fisher install IlanCosman/tide@v6'\n\n"
 
 zsh:
 	@echo "Linking zsh configuration..."
@@ -64,6 +65,8 @@ tmux:
 	@ln -fns $(DOTFILES)/tmux/tmux-gruvbox-material-theme.conf $(HOME)/.tmux-gruvbox-material-theme.conf
 	@ln -fns $(DOTFILES)/tmux/tmux-zenbones-theme.conf $(HOME)/.tmux-zenbones-theme.conf
 	@ln -fns $(DOTFILES)/tmux/tmux-github-dark-theme.conf $(HOME)/.tmux-github-dark-theme.conf
+	@ln -fns $(DOTFILES)/tmux/tmux-zed-dark-theme.conf $(HOME)/.tmux-zed-dark-theme.conf
+	@ln -fns $(DOTFILES)/tmux/tmux-ayu-dark-theme.conf $(HOME)/.tmux-ayu-dark-theme.conf
 	@echo "tmux linked."
 
 # --- Utility Targets ---

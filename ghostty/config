@@ -1,7 +1,7 @@
 # vim: filetype=conf
 
 # fish shell
-command = /usr/local/bin/fish -il
+command = /opt/homebrew/bin/fish -il
 shell-integration = fish
 shell-integration-features = sudo, title, ssh-terminfo
 
@@ -14,7 +14,7 @@ font-style-bold = Medium
 # colors
 window-colorspace = display-p3
 selection-invert-fg-bg = true
-theme = light:Flexoki Light,dark:petar-dark
+theme = light:Flexoki Light,dark:Ayu
 
 # padding
 window-padding-balance = true

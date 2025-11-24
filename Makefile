@@ -41,6 +41,12 @@ ifeq ($(UNAME),Darwin)
 else
 	@echo "ZSH linked."
 endif
+	@printf "ZSH plugins need to be cloned manually:\n"
+	@printf "\t'git clone https://github.com/agkozak/zsh-z.git ~/.zsh/zsh-z'\n"
+	@printf "\t'git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions'\n"
+	@printf "\t'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting'\n"
+	@printf "\t'git clone https://github.com/hlissner/zsh-autopair.git ~/.zsh/zsh-autopair'\n"
+	@printf "\t'git clone https://github.com/sindresorhus/pure.git ~/.zsh/pure'\n\n"
 
 helix: ensure-config-dir
 	@echo "Linking helix configuration..."

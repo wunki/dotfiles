@@ -87,6 +87,12 @@ then
   eval "$(zoxide init zsh)"
 fi
 
+# Better shell history with Atuin
+if (( $+commands[atuin] ))
+then
+  eval "$(atuin init zsh)"
+fi
+
 # Fish like auto-suggestions
 [[ -d "$HOME/.zsh/zsh-autosuggestions" ]] && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 

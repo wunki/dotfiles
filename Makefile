@@ -25,11 +25,16 @@ ensure-config-dir:
 fish: ensure-config-dir
 	@echo "Linking fish configuration..."
 	@ln -fns $(DOTFILES)/fish $(CONFIG_DIR)/fish
-	@printf "Fish linked. Run fisher commands manually if needed:\n"
-	@printf "\t'fisher install jorgebucaran/autopair.fish'\n"
-	@printf "\t'fisher install jethrokuan/z'\n"
-	@printf "\t'fisher install PatrickF1/fzf.fish'\n"
-	@printf "\t'fisher install IlanCosman/tide@v6'\n\n"
+	@printf "Fish linked.\n\n"
+	@printf "Recommended tools (install via brew or package manager):\n"
+	@printf "\tbrew install eza        # Modern ls replacement\n"
+	@printf "\tbrew install bat        # Modern cat replacement\n"
+	@printf "\tbrew install fzf        # Fuzzy finder\n\n"
+	@printf "Fisher plugins (run after installing fisher):\n"
+	@printf "\tfisher install jorgebucaran/autopair.fish\n"
+	@printf "\tfisher install jethrokuan/z\n"
+	@printf "\tfisher install PatrickF1/fzf.fish\n"
+	@printf "\tfisher install IlanCosman/tide@v6\n\n"
 
 zsh:
 	@echo "Linking zsh configuration..."
@@ -41,12 +46,18 @@ ifeq ($(UNAME),Darwin)
 else
 	@echo "ZSH linked."
 endif
-	@printf "ZSH plugins need to be cloned manually:\n"
-	@printf "\t'git clone https://github.com/agkozak/zsh-z.git ~/.zsh/zsh-z'\n"
-	@printf "\t'git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions'\n"
-	@printf "\t'git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting'\n"
-	@printf "\t'git clone https://github.com/hlissner/zsh-autopair.git ~/.zsh/zsh-autopair'\n"
-	@printf "\t'git clone https://github.com/sindresorhus/pure.git ~/.zsh/pure'\n\n"
+	@printf "Recommended tools (install via brew or package manager):\n"
+	@printf "\tbrew install zoxide     # Directory jumping\n"
+	@printf "\tbrew install eza        # Modern ls replacement\n"
+	@printf "\tbrew install bat        # Modern cat replacement\n"
+	@printf "\tbrew install direnv     # Per-directory environment\n"
+	@printf "\tbrew install mise       # Version manager\n"
+	@printf "\tbrew install gitu       # Terminal UI for git\n\n"
+	@printf "ZSH plugins (clone manually):\n"
+	@printf "\tgit clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions\n"
+	@printf "\tgit clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ~/.zsh/fast-syntax-highlighting\n"
+	@printf "\tgit clone https://github.com/hlissner/zsh-autopair.git ~/.zsh/zsh-autopair\n"
+	@printf "\tgit clone https://github.com/sindresorhus/pure.git ~/.zsh/pure\n\n"
 
 helix: ensure-config-dir
 	@echo "Linking helix configuration..."

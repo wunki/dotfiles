@@ -14,33 +14,32 @@ typeset -U PATH path
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 export XDG_DATA_HOME=$HOME/.local/share
-export EDITOR="nvim"
-
-# My aliases
-alias ssb='ssh bytebottom.com'
 
 # Mac-specific stuff
 if [[ "$(uname)" == "Darwin" ]]; then
   source ~/.zshrc.mac
+else
+  export EDITOR="nvim"
 fi
 
-# Local path
-path+=("$HOME/.local/bin")
-
-# Neovim
-path+=("/opt/nvim/bin")
+# Path configuration
+path+=(
+  "$HOME/.local/bin"
+  "$HOME/.cargo/bin"        # Rust
+  "$HOME/.zvm/self"         # Zig
+  "$HOME/.zvm/bin"
+  "$HOME/.local/share/pnpm" # pnpm
+)
+[[ "$(uname)" != "Darwin" ]] && path+=("/opt/nvim/bin")  # Neovim (non-Mac)
+export PATH
 
 # Erlang
 export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac"
 
-# Rust
-path+=("$HOME/.cargo/bin")
-
-# Zig
-path+=("$HOME/.zvm/self")
-path+=("$HOME/.zvm/bin")
-
-export PATH
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+alias pp='pnpm'
+alias ppx='pnpx'
 
 # Shortcuts
 alias tt='tmux new-session -A -s main'
@@ -82,52 +81,44 @@ then
   eval "$(direnv hook zsh)"
 fi
 
-# Quickly jump to directories with the help of Z
-if [ -d "$HOME/.zsh/zsh-z" ]
+# Quickly jump to directories with zoxide
+if (( $+commands[zoxide] ))
 then
-  source $HOME/.zsh/zsh-z/zsh-z.plugin.zsh
+  eval "$(zoxide init zsh)"
 fi
 
 # Fish like auto-suggestions
-if [ -d "$HOME/.zsh/zsh-autosuggestions" ]
-then
-  source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
-fi
+[[ -d "$HOME/.zsh/zsh-autosuggestions" ]] && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# Fish like highlighting
-if [ -d "$HOME/.zsh/zsh-syntax-highlighting" ]
-then
-  source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
+# Fish like highlighting (using fast-syntax-highlighting for better performance)
+[[ -d "$HOME/.zsh/fast-syntax-highlighting" ]] && source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # Automatically close, delete and skip matching delimiting pairs.
-if [ -d "$HOME/.zsh/zsh-autopair" ]
-then
+if [[ -d "$HOME/.zsh/zsh-autopair" ]]; then
   source ~/.zsh/zsh-autopair/autopair.zsh
   autopair-init
 fi
 
-# Nice menu for auto-complete, must be loaded after
-# the Z plugin.
-zstyle ':completion:*' menu select
-
-# Check if EAT_SHELL_INTEGRATION_DIR exists and is a directory before sourcing
-if [ -n "$EAT_SHELL_INTEGRATION_DIR" ] && [ -d "$EAT_SHELL_INTEGRATION_DIR" ]
-then
-  source "$EAT_SHELL_INTEGRATION_DIR/zsh"
-fi
+# Emacs EAT shell integration
+[[ -n "$EAT_SHELL_INTEGRATION_DIR" && -d "$EAT_SHELL_INTEGRATION_DIR" ]] && source "$EAT_SHELL_INTEGRATION_DIR/zsh"
 
 # Setup SSH agent on remote server.
 if [[ "$(hostname)" == *"bytebottom.com"* ]] || [[ "$HOST" == *"bytebottom.com"* ]]; then
     eval $(keychain --eval --quiet id_rsa)
 fi
 
-# This marks the window as non-urgent, and thus prevents
-# Alacritty from bouncing the icon in the Dock. Yuck.
-echo -e "\e[?1042l"
+# Completion settings (must be before compinit)
+zstyle ':completion:*' menu select
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
 
-# Enable autocompletion
-autoload -Uz compinit; compinit
+# Enable autocompletion (rebuild once per day, skip security audit with -u)
+autoload -Uz compinit
+if [[ -n ~/.zcompdump(#qN.mh+24) ]]; then
+  compinit -u
+else
+  compinit -Cu
+fi
 
 # The pure prompt
 fpath+=($HOME/.zsh/pure)
@@ -135,8 +126,3 @@ PURE_PROMPT_SYMBOL='λ'
 
 autoload -U promptinit; promptinit
 prompt pure
-
-# Added by LM Studio CLI (lms)
-export PATH="$PATH:/Users/petar/.lmstudio/bin"
-# End of LM Studio CLI section
-

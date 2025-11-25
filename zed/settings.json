@@ -269,7 +269,7 @@
     "shell": {
       "with_arguments": {
         "args": ["-l", "-i"],
-        "program": "/opt/homebrew/bin/fish"
+        "program": "/opt/homebrew/bin/zsh"
       }
     },
     "toolbar": {

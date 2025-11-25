@@ -1,23 +1,16 @@
 # vim: filetype=zsh
 #
-# Guile
-export GUILE_LOAD_PATH="/opt/homebrew/share/guile/site/3.0"
-export GUILE_LOAD_COMPILED_PATH="/opt/homebrew/lib/guile/3.0/site-ccache"
-export GUILE_SYSTEM_EXTENSIONS_PATH="/opt/homebrew/lib/guile/3.0/extensions"
 
-# Homebrew
-eval "$(/opt/homebrew/bin/brew shellenv)"
+# Homebrew (hardcoded to avoid subprocess)
+export HOMEBREW_PREFIX="/opt/homebrew"
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
+export HOMEBREW_REPOSITORY="/opt/homebrew"
+path=("/opt/homebrew/bin" "/opt/homebrew/sbin" $path)
+export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
 
 # Orbstack -- Docker on the Mac
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
-
-# Racket
-path+=("/Applications/Racket v8.13/bin")
-
-# LLVM -- need this to build Odin
-path+=("/opt/homebrew/opt/llvm@14/bin")
-export LDFLAGS="-L/opt/homebrew/opt/llvm@14/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/llvm@14/include"
 
 # Shortcuts
 alias bup='brew update && brew upgrade && brew cleanup'
@@ -31,12 +24,8 @@ else
 fi
 
 # Autocompletion, including homebrew completions
-if (( $+commands[brew] ))
-then
-  fpath+=("$(brew --prefix)/share/zsh/site-functions")
-  fpath+=("$(brew --prefix)/share/zsh-completions")
-fi
+fpath+=("/opt/homebrew/share/zsh/site-functions")
+fpath+=("/opt/homebrew/share/zsh-completions")
 
 # Go
 path+=("$HOME/Developer/Go/bin")
-

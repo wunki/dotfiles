@@ -33,8 +33,7 @@ While not directly configured in this repository, my dotfiles include support fo
 
 - Git
 - Make
-- For Fish configuration: [Fisher](https://github.com/jorgebucaran/fisher) package manager
-- Terminal emulator compatible with your platform (Ghostty, iTerm2, etc.)
+- A package manager (Homebrew on macOS, apt/dnf on Linux)
 
 ## Installation
 
@@ -53,20 +52,62 @@ make
 
 # Install specific components
 make fish
+make zsh
 make tmux
 make helix
 make ghostty
 make zed
-make zsh
 ```
 
-After installing Fish configuration, you may want to install the recommended plugins:
+## Shell Setup
+
+### Common Tools (Both Fish and ZSH)
+
+These tools enhance both shells and should be installed first:
 
 ```bash
-# Install Fish plugins
-fisher install jorgebucaran/hydro
+brew install eza         # Modern ls replacement (aliased to ls)
+brew install bat         # Modern cat replacement (aliased to cat)
+brew install fzf         # Fuzzy finder
+```
+
+### Fish Setup
+
+1. Install Fisher (plugin manager):
+```bash
+curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+```
+
+2. Install plugins:
+```bash
 fisher install jorgebucaran/autopair.fish
 fisher install jethrokuan/z
+fisher install PatrickF1/fzf.fish
+fisher install IlanCosman/tide@v6
+```
+
+3. Configure Tide prompt:
+```bash
+tide configure
+```
+
+### ZSH Setup
+
+1. Install tools:
+```bash
+brew install zoxide      # Directory jumping (use 'z' command)
+brew install direnv      # Per-directory environment variables
+brew install mise        # Version manager for dev tools
+brew install gitu        # Terminal UI for git (aliased to 'gu')
+```
+
+2. Clone ZSH plugins:
+```bash
+mkdir -p ~/.zsh
+git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
+git clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ~/.zsh/fast-syntax-highlighting
+git clone https://github.com/hlissner/zsh-autopair.git ~/.zsh/zsh-autopair
+git clone https://github.com/sindresorhus/pure.git ~/.zsh/pure
 ```
 
 ## Customization

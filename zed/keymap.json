@@ -1,5 +1,11 @@
 [
   {
+    "context": "Editor && edit_prediction_conflict && showing_completions",
+    "bindings": {
+      "tab": "editor::AcceptEditPrediction"
+    }
+  },
+  {
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
       "space f": "file_finder::Toggle",

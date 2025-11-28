@@ -11,25 +11,25 @@
   "buffer_font_weight": 400.0,
   "agent_buffer_font_size": 12.0,
   "agent": {
+    "enable_feedback": false,
+    "use_modifier_to_send": false,
+    "commit_message_model": {
+      "provider": "anthropic",
+      "model": "claude-haiku-4-5-latest"
+    },
     "inline_assistant_model": {
       "provider": "zed.dev",
       "model": "gpt-5"
     },
     "always_allow_tool_actions": true,
     "default_model": {
-      "model": "gemini-3-pro-preview",
-      "provider": "google"
+      "model": "claude-opus-4-5",
+      "provider": "zed.dev"
     },
-    "default_profile": "ask-with-svelte",
+    "default_profile": "write",
     "dock": "right",
     "notify_when_agent_waiting": "never",
     "profiles": {
-      "ask-with-svelte": {
-        "name": "Ask with Svelte",
-        "tools": {},
-        "enable_all_context_servers": false,
-        "context_servers": {}
-      },
       "minimal": {
         "name": "Minimal",
         "tools": {},
@@ -47,8 +47,8 @@
       },
       "ask": {
         "default_model": {
-          "provider": "google",
-          "model": "gemini-3-pro-preview"
+          "provider": "anthropic",
+          "model": "claude-sonnet-4-5-latest"
         },
         "context_servers": {
           "svelte": {
@@ -68,7 +68,7 @@
           "fetch": true,
           "find_path": true,
           "grep": true,
-          "list_directory": false,
+          "list_directory": true,
           "now": true,
           "read_file": true,
           "thinking": true,
@@ -76,6 +76,10 @@
         }
       },
       "write": {
+        "default_model": {
+          "provider": "anthropic",
+          "model": "claude-sonnet-4-5-latest"
+        },
         "context_servers": {
           "svelte": {
             "tools": {
@@ -100,7 +104,7 @@
           "fetch": true,
           "find_path": true,
           "grep": true,
-          "list_directory": false,
+          "list_directory": true,
           "move_path": false,
           "now": true,
           "read_file": true,
@@ -126,18 +130,9 @@
     "button": false
   },
   "context_servers": {
-    "tidewave": {
-      "args": ["http://localhost:4000/tidewave/mcp"],
-      "command": "/Users/petar/.local/bin/mcp-proxy",
-      "env": null,
-      "source": "custom"
-    },
-    "svelte": {
-      "env": {},
+    "postgres": {
       "enabled": true,
-      "command": "npx",
-      "args": ["-y", "@sveltejs/mcp"],
-      "source": "custom"
+      "settings": {}
     }
   },
   "current_line_highlight": "gutter",
@@ -268,6 +263,7 @@
     "option_as_meta": true,
     "shell": {
       "with_arguments": {
+        "title_override": "zsh",
         "args": ["-l", "-i"],
         "program": "/opt/homebrew/bin/zsh"
       }

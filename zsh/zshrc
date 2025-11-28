@@ -29,6 +29,7 @@ path+=(
   "$HOME/.zvm/self"         # Zig
   "$HOME/.zvm/bin"
   "$HOME/.local/share/pnpm" # pnpm
+  "$HOME/.atuin/bin"        # atuin
 )
 [[ "$(uname)" != "Darwin" ]] && path+=("/opt/nvim/bin")  # Neovim (non-Mac)
 export PATH

@@ -105,9 +105,6 @@ if [[ -d "$HOME/.zsh/zsh-autopair" ]]; then
   autopair-init
 fi
 
-# Emacs EAT shell integration
-[[ -n "$EAT_SHELL_INTEGRATION_DIR" && -d "$EAT_SHELL_INTEGRATION_DIR" ]] && source "$EAT_SHELL_INTEGRATION_DIR/zsh"
-
 # Completion settings (must be before compinit)
 zstyle ':completion:*' menu select
 zstyle ':completion:*' use-cache on

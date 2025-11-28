@@ -108,11 +108,6 @@ fi
 # Emacs EAT shell integration
 [[ -n "$EAT_SHELL_INTEGRATION_DIR" && -d "$EAT_SHELL_INTEGRATION_DIR" ]] && source "$EAT_SHELL_INTEGRATION_DIR/zsh"
 
-# Setup SSH agent on remote server.
-if [[ "$(hostname)" == *"bytebottom.com"* ]] || [[ "$HOST" == *"bytebottom.com"* ]]; then
-    eval $(keychain --eval --quiet id_rsa)
-fi
-
 # Completion settings (must be before compinit)
 zstyle ':completion:*' menu select
 zstyle ':completion:*' use-cache on

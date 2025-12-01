@@ -9,7 +9,7 @@
     "line_numbers": false
   },
   "buffer_font_weight": 400.0,
-  "agent_buffer_font_size": 12.0,
+  "agent_buffer_font_size": 14.0,
   "agent": {
     "enable_feedback": false,
     "use_modifier_to_send": false,
@@ -28,7 +28,7 @@
     },
     "default_profile": "write",
     "dock": "right",
-    "notify_when_agent_waiting": "never",
+    "notify_when_agent_waiting": "primary_screen",
     "profiles": {
       "minimal": {
         "name": "Minimal",
@@ -124,8 +124,8 @@
     "html": true,
     "yue-theme": true
   },
-  "buffer_font_family": "TX-02",
-  "buffer_font_size": 12.0,
+  "buffer_font_family": "AnonymicePro Nerd Font Mono",
+  "buffer_font_size": 13.0,
   "collaboration_panel": {
     "button": false
   },
@@ -258,8 +258,8 @@
     "env": {
       "TERM_PROGRAM": "zed"
     },
-    "font_family": "TX-02",
-    "font_size": 12.0,
+    "font_family": "AnonymicePro Nerd Font Mono",
+    "font_size": 14.0,
     "option_as_meta": true,
     "shell": {
       "with_arguments": {
@@ -277,7 +277,7 @@
     "breadcrumbs": true,
     "quick_actions": false
   },
-  "ui_font_family": "iA Writer Mono S",
+  "ui_font_family": "AnonymicePro Nerd Font Mono",
   "ui_font_size": 13.0,
   "use_autoclose": true,
   "vertical_scroll_margin": 5,

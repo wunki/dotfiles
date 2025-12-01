@@ -4,7 +4,7 @@ CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
 # List all application targets here
-APP_TARGETS := fish zsh helix ghostty zed tmux
+APP_TARGETS := fish zsh helix ghostty zed tmux opencode
 
 # Define the default target 'all' to depend on all application targets
 .PHONY: all
@@ -85,6 +85,12 @@ tmux:
 	@ln -fns $(DOTFILES)/tmux/tmux-zed-dark-theme.conf $(HOME)/.tmux-zed-dark-theme.conf
 	@ln -fns $(DOTFILES)/tmux/tmux-ayu-dark-theme.conf $(HOME)/.tmux-ayu-dark-theme.conf
 	@echo "tmux linked."
+
+opencode: ensure-config-dir
+	@echo "Linking opencode themes..."
+	@mkdir -p $(CONFIG_DIR)/opencode
+	@ln -fns $(DOTFILES)/opencode/themes $(CONFIG_DIR)/opencode/themes
+	@echo "OpenCode themes linked."
 
 # --- Utility Targets ---
 

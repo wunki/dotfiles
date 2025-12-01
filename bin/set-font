@@ -1,0 +1,69 @@
+#!/bin/bash
+#
+# Set font across Zed and Ghostty configurations
+# Usage: set-font <font-name> [size]
+#
+
+set -e
+
+DOTFILES="${DOTFILES:-$HOME/Code/Dotfiles}"
+ZED_CONFIG="$DOTFILES/zed/settings.json"
+GHOSTTY_CONFIG="$DOTFILES/ghostty/config"
+
+usage() {
+    echo "Usage: set-font <font-name> [size]"
+    echo ""
+    echo "Examples:"
+    echo "  set-font 'JetBrains Mono'"
+    echo "  set-font 'JetBrains Mono' 14"
+    exit 1
+}
+
+if [[ -z "$1" ]]; then
+    usage
+fi
+
+FONT="$1"
+SIZE="$2"
+
+# Check for required tools
+if ! command -v jq &> /dev/null; then
+    echo "Error: jq is required but not installed"
+    exit 1
+fi
+
+if ! command -v sed &> /dev/null; then
+    echo "Error: sed is required but not installed"
+    exit 1
+fi
+
+# Update Zed settings
+echo "Updating Zed settings..."
+
+# Update buffer, terminal, and agent font families (not UI)
+jq --arg font "$FONT" '
+    .buffer_font_family = $font |
+    .terminal.font_family = $font
+' "$ZED_CONFIG" > "$ZED_CONFIG.tmp" && mv "$ZED_CONFIG.tmp" "$ZED_CONFIG"
+
+# Update sizes if provided
+if [[ -n "$SIZE" ]]; then
+    jq --argjson size "$SIZE" '
+        .buffer_font_size = $size |
+        .terminal.font_size = $size |
+        .agent_buffer_font_size = $size
+    ' "$ZED_CONFIG" > "$ZED_CONFIG.tmp" && mv "$ZED_CONFIG.tmp" "$ZED_CONFIG"
+fi
+
+# Update Ghostty config
+echo "Updating Ghostty config..."
+
+# Update font-family
+sed -i '' "s/^font-family = .*/font-family = $FONT/" "$GHOSTTY_CONFIG"
+
+# Update font-size if provided
+if [[ -n "$SIZE" ]]; then
+    sed -i '' "s/^font-size = .*/font-size = $SIZE/" "$GHOSTTY_CONFIG"
+fi
+
+echo "Done! Font set to: $FONT${SIZE:+ (size: $SIZE)}"

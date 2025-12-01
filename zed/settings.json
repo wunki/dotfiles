@@ -9,7 +9,7 @@
     "line_numbers": false
   },
   "buffer_font_weight": 400.0,
-  "agent_buffer_font_size": 14.0,
+  "agent_buffer_font_size": 12,
   "agent": {
     "enable_feedback": false,
     "use_modifier_to_send": false,
@@ -124,8 +124,8 @@
     "html": true,
     "yue-theme": true
   },
-  "buffer_font_family": "AnonymicePro Nerd Font Mono",
-  "buffer_font_size": 13.0,
+  "buffer_font_family": "TX-02",
+  "buffer_font_size": 12,
   "collaboration_panel": {
     "button": false
   },
@@ -138,7 +138,10 @@
   "current_line_highlight": "gutter",
   "cursor_blink": false,
   "edit_predictions": {
-    "disabled_globs": [".env", "**/journal"],
+    "disabled_globs": [
+      ".env",
+      "**/journal"
+    ],
     "mode": "eager"
   },
   "experimental.theme_overrides": {
@@ -152,8 +155,13 @@
     "edit_prediction_provider": "zed"
   },
   "file_types": {
-    "CSS": ["scss"],
-    "Shell Script": [".envrc", ".env"]
+    "CSS": [
+      "scss"
+    ],
+    "Shell Script": [
+      ".envrc",
+      ".env"
+    ]
   },
   "git": {
     "inline_blame": {
@@ -227,7 +235,9 @@
     "expert": {
       "binary": {
         "path": "/Users/petar/.local/bin/expert_darwin_arm64",
-        "arguments": ["--stdio"]
+        "arguments": [
+          "--stdio"
+        ]
       }
     }
   },
@@ -258,13 +268,16 @@
     "env": {
       "TERM_PROGRAM": "zed"
     },
-    "font_family": "AnonymicePro Nerd Font Mono",
-    "font_size": 14.0,
+    "font_family": "TX-02",
+    "font_size": 12,
     "option_as_meta": true,
     "shell": {
       "with_arguments": {
         "title_override": "zsh",
-        "args": ["-l", "-i"],
+        "args": [
+          "-l",
+          "-i"
+        ],
         "program": "/opt/homebrew/bin/zsh"
       }
     },

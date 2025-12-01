@@ -123,6 +123,8 @@ fi
 # The pure prompt
 fpath+=($HOME/.zsh/pure)
 PURE_PROMPT_SYMBOL='λ'
+zstyle ':prompt:pure:prompt:success' color blue
+zstyle ':prompt:pure:prompt:error' color red
 
 autoload -U promptinit; promptinit
 prompt pure

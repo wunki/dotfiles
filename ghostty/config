@@ -6,15 +6,15 @@ shell-integration = zsh
 shell-integration-features = sudo, title, ssh-terminfo
 
 # fonts
-font-family = TX-02
-font-size = 12
-adjust-cell-height = 7%
+font-family = AnonymicePro Nerd Font
+font-size = 13
+adjust-cell-height = 20%
 font-style-bold = Medium
 
 # colors
 window-colorspace = display-p3
 selection-invert-fg-bg = true
-theme = light:Flexoki Light,dark:Ayu
+theme = light:Flexoki Light,dark:finde
 
 # padding
 window-padding-balance = true

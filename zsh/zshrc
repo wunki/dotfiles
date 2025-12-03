@@ -38,7 +38,11 @@ export PATH
 # Erlang
 export KERL_CONFIGURE_OPTIONS="--disable-debug --without-javac"
 # Elixir: partition os_deps compile work by CPU cores / 2
-export MIX_OS_DEPS_COMPILE_PARTITION_COUNT=$(($(sysctl -n hw.physicalcpu) / 2))
+if [[ "$(uname)" == "Darwin" ]]; then
+  export MIX_OS_DEPS_COMPILE_PARTITION_COUNT=$(($(sysctl -n hw.physicalcpu) / 2))
+else
+  export MIX_OS_DEPS_COMPILE_PARTITION_COUNT=$(($(nproc) / 2))
+fi
 
 # pnpm
 export PNPM_HOME="$HOME/.local/share/pnpm"

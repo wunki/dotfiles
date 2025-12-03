@@ -29,3 +29,6 @@ fpath+=("/opt/homebrew/share/zsh-completions")
 
 # Go
 path+=("$HOME/Developer/Go/bin")
+
+# PostgreSQL (Postgres.app)
+path+=("/Applications/Postgres.app/Contents/Versions/latest/bin")

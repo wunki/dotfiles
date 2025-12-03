@@ -33,6 +33,7 @@ copy-on-select = clipboard
 
 # mac
 macos-option-as-alt = true
+bell-features = no-title,no-attention
 macos-icon = custom-style
 macos-icon-ghost-color = #f5e0dc
 macos-icon-screen-color = #1e1e2e

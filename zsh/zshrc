@@ -55,6 +55,7 @@ alias tt='tmux new-session -A -s main'
 if (( $+commands[bat] ))
 then
   alias cat='bat'
+  export BAT_THEME='base16'
 fi
 
 # Magit on the commandline

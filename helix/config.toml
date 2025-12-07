@@ -1,4 +1,4 @@
-theme = "gruvbox_material_dark_hard"
+theme = "material_deep_ocean"
 
 [editor]
 line-number = "relative"

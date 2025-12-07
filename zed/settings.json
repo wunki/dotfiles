@@ -1,4 +1,5 @@
 {
+  "colorize_brackets": true,
   "agent_servers": {
     "claude": {
       "default_mode": "plan"

@@ -50,7 +50,8 @@ alias pp='pnpm'
 alias ppx='pnpx'
 
 # Shortcuts
-alias tt='tmux new-session -A -s main'
+alias e='nvim'
+alias tt='tmux attach || tmux new-session -s main'
 
 if (( $+commands[bat] ))
 then

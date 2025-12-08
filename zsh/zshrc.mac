@@ -5,6 +5,8 @@
 export HOMEBREW_PREFIX="/opt/homebrew"
 export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
 export HOMEBREW_REPOSITORY="/opt/homebrew"
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_ENV_HINTS=1
 path=("/opt/homebrew/bin" "/opt/homebrew/sbin" $path)
 export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
@@ -14,6 +16,7 @@ source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 
 # Shortcuts
 alias bup='brew update && brew upgrade && brew cleanup'
+alias ia='open -a "iA Writer"'
 
 # Use the Zed editor if the ZED_TERM environment variable is set
 if [[ $ZED_TERM == "true" ]]

@@ -35,3 +35,25 @@ path+=("$HOME/Developer/Go/bin")
 
 # PostgreSQL (Postgres.app)
 path+=("/Applications/Postgres.app/Contents/Versions/latest/bin")
+
+# Neovim with tmux-aware socket for nvim:// URL handler
+# Use `nvs` to start nvim listening on /tmp/nvim-$SESSION_NAME
+# This allows browser links (nvim://file/...) to open files in the right instance
+nvs() {
+    if [[ -z "$TMUX" ]]; then
+        echo "nvs: not in a tmux session, use nvim instead"
+        return 1
+    fi
+
+    local session_name=$(tmux display-message -p '#S')
+    local socket_path="/tmp/nvim-$session_name"
+
+    # Clean up stale socket if it exists but no nvim is listening
+    if [[ -e "$socket_path" ]]; then
+        if ! nvim --server "$socket_path" --remote-expr "1" &>/dev/null; then
+            rm -f "$socket_path"
+        fi
+    fi
+
+    nvim --listen "$socket_path" "$@"
+}

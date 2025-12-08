@@ -4,7 +4,7 @@ CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
 # List all application targets here
-APP_TARGETS := fish zsh helix ghostty zed tmux opencode
+APP_TARGETS := fish zsh helix ghostty zed tmux opencode bin
 
 # Define the default target 'all' to depend on all application targets
 .PHONY: all
@@ -91,6 +91,19 @@ opencode: ensure-config-dir
 	@mkdir -p $(CONFIG_DIR)/opencode
 	@ln -fns $(DOTFILES)/opencode/themes $(CONFIG_DIR)/opencode/themes
 	@echo "OpenCode themes linked."
+
+bin:
+	@echo "Linking bin scripts to ~/.local/bin..."
+	@mkdir -p $(HOME)/.local/bin
+	@for f in $(DOTFILES)/bin/*; do \
+		if [ -x "$$f" ] && [ -f "$$f" ]; then \
+			name=$$(basename "$$f"); \
+			name=$${name%.*}; \
+			ln -fns "$$f" "$(HOME)/.local/bin/$$name"; \
+			echo "  Linked $$name"; \
+		fi \
+	done
+	@echo "Bin scripts linked."
 
 # --- Utility Targets ---
 

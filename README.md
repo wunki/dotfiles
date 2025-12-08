@@ -29,6 +29,29 @@ A carefully crafted collection of configuration files for Fish, Tmux, Ghostty, H
 
 While not directly configured in this repository, my dotfiles include support for terminal-based editors and tools, complementing my development workflow. The Tmux configuration works particularly well with Neovim for remote editing sessions.
 
+### Clickable Stacktraces (nvim:// URL Handler)
+
+This setup enables clicking file links in your browser (e.g., Phoenix error pages) to open them directly in the correct Neovim instance.
+
+**How it works:**
+1. `nvs` starts Neovim with a socket at `/tmp/nvim-$SESSION_NAME`
+2. Clicking `nvim://file/...` URLs opens files in that instance
+3. Automatically switches tmux session/pane and focuses Ghostty
+
+**Setup:**
+
+1. Run `make bin` to install the handler scripts
+2. Install the URL handler app (located at `~/Applications/Nvim URL Handler.app` after first setup)
+3. Add to your project's `.mise.toml`:
+
+```toml
+[env]
+_.source = "~/.local/bin/mise-tmux-session"
+PLUG_EDITOR = "nvim://file/__FILE__:__LINE__?tmux-session={{ env.TMUX_SESSION_NAME }}"
+```
+
+4. Start Neovim with `nvs` (instead of `nvim`) in your tmux session
+
 ## Prerequisites
 
 - Git

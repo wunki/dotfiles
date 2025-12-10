@@ -87,10 +87,9 @@ tmux:
 	@echo "tmux linked."
 
 opencode: ensure-config-dir
-	@echo "Linking opencode themes..."
-	@mkdir -p $(CONFIG_DIR)/opencode
-	@ln -fns $(DOTFILES)/opencode/themes $(CONFIG_DIR)/opencode/themes
-	@echo "OpenCode themes linked."
+	@echo "Linking opencode configuration..."
+	@ln -fns $(DOTFILES)/opencode $(CONFIG_DIR)/opencode
+	@echo "OpenCode linked."
 
 bin:
 	@echo "Linking bin scripts to ~/.local/bin..."

@@ -1,0 +1,15 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "theme": "finde",
+  "autoupdate": true,
+  "mcp": {},
+  "lsp": {
+    "expert": {
+      "command": ["expert_darwin_arm64", "--stdio"],
+      "extensions": [".ex", "exs"]
+    },
+    "elixir-ls": {
+      "disabled": true
+    }
+  }
+}

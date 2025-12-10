@@ -119,11 +119,10 @@
     }
   },
   "auto_install_extensions": {
-    "dune-theme": true,
     "elixir": true,
     "fish": true,
     "html": true,
-    "yue-theme": true
+    "toml": true
   },
   "buffer_font_family": "TX-02",
   "buffer_font_size": 12,
@@ -139,10 +138,7 @@
   "current_line_highlight": "gutter",
   "cursor_blink": false,
   "edit_predictions": {
-    "disabled_globs": [
-      ".env",
-      "**/journal"
-    ],
+    "disabled_globs": [".env", "**/journal"],
     "mode": "eager"
   },
   "experimental.theme_overrides": {
@@ -156,13 +152,8 @@
     "edit_prediction_provider": "zed"
   },
   "file_types": {
-    "CSS": [
-      "scss"
-    ],
-    "Shell Script": [
-      ".envrc",
-      ".env"
-    ]
+    "CSS": ["scss"],
+    "Shell Script": [".envrc", ".env"]
   },
   "git": {
     "inline_blame": {
@@ -200,6 +191,15 @@
         "tailwindcss-language-server"
       ]
     },
+    "HEEX": {
+      "language_servers": [
+        "expert",
+        "!elixir-ls",
+        "!next-ls",
+        "!lexical",
+        "tailwindcss-language-server"
+      ]
+    },
     "HTML": {
       "hard_tabs": false,
       "tab_size": 2
@@ -227,24 +227,21 @@
     "vscode-css-language-server": {
       "settings": {
         "css": {
-          "lint": {
-            "unknownAtRules": "ignore"
-          }
+          "validate": false
         }
       }
     },
     "expert": {
       "binary": {
         "path": "/Users/petar/.local/bin/expert_darwin_arm64",
-        "arguments": [
-          "--stdio"
-        ]
+        "arguments": ["--stdio"]
       }
     }
   },
   "middle_click_paste": true,
   "preferred_line_length": 100,
   "project_panel": {
+    "hide_root": false,
     "dock": "left"
   },
   "relative_line_numbers": "enabled",
@@ -275,10 +272,7 @@
     "shell": {
       "with_arguments": {
         "title_override": "zsh",
-        "args": [
-          "-l",
-          "-i"
-        ],
+        "args": ["-l", "-i"],
         "program": "/opt/homebrew/bin/zsh"
       }
     },

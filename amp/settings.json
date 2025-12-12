@@ -1,0 +1,57 @@
+{
+  "amp.cacheDirectory": "/Users/petar/.cache/amp",
+  "amp.git.commit.ampThread.enabled": false,
+  "amp.git.commit.coauthor.enabled": false,
+  "amp.commands.allowlist": [
+    "git",
+    "mix",
+    "sed",
+    "rm",
+    "psql"
+  ],
+  "amp.permissions": [
+    {
+      "tool": "Bash",
+      "matches": {
+        "cmd": "mix compile --warnings-as-errors --force"
+      },
+      "action": "allow"
+    },
+    {
+      "tool": "Bash",
+      "matches": {
+        "cmd": "git"
+      },
+      "action": "allow"
+    },
+    {
+      "tool": "Bash",
+      "matches": {
+        "cmd": "mix"
+      },
+      "action": "allow"
+    },
+    {
+      "tool": "Bash",
+      "matches": {
+        "cmd": "sed"
+      },
+      "action": "allow"
+    },
+    {
+      "tool": "Bash",
+      "matches": {
+        "cmd": "rm"
+      },
+      "action": "allow"
+    },
+    {
+      "tool": "Bash",
+      "matches": {
+        "cmd": "psql"
+      },
+      "action": "allow"
+    }
+  ],
+  "amp.dangerouslyAllowAll": true
+}

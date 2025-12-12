@@ -4,7 +4,7 @@ CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
 # List all application targets here
-APP_TARGETS := fish zsh helix ghostty zed tmux opencode bin
+APP_TARGETS := fish zsh helix ghostty zed tmux opencode bin amp
 
 # Define the default target 'all' to depend on all application targets
 .PHONY: all
@@ -90,6 +90,12 @@ opencode: ensure-config-dir
 	@echo "Linking opencode configuration..."
 	@ln -fns $(DOTFILES)/opencode $(CONFIG_DIR)/opencode
 	@echo "OpenCode linked."
+
+amp: ensure-config-dir
+	@echo "Linking amp configuration..."
+	@mkdir -p $(CONFIG_DIR)/amp
+	@ln -fns $(DOTFILES)/amp/settings.json $(CONFIG_DIR)/amp/settings.json
+	@echo "Amp linked."
 
 bin:
 	@echo "Linking bin scripts to ~/.local/bin..."

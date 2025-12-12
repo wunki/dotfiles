@@ -4,7 +4,7 @@ CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
 # List all application targets here
-APP_TARGETS := fish zsh helix ghostty zed tmux opencode bin amp
+APP_TARGETS := fish zsh helix ghostty zed tmux opencode bin amp claude
 
 # Define the default target 'all' to depend on all application targets
 .PHONY: all
@@ -95,7 +95,15 @@ amp: ensure-config-dir
 	@echo "Linking amp configuration..."
 	@mkdir -p $(CONFIG_DIR)/amp
 	@ln -fns $(DOTFILES)/amp/settings.json $(CONFIG_DIR)/amp/settings.json
+	@ln -fns $(DOTFILES)/claude/commands $(CONFIG_DIR)/amp/commands
 	@echo "Amp linked."
+
+claude:
+	@echo "Linking claude configuration..."
+	@mkdir -p $(HOME)/.claude
+	@ln -fns $(DOTFILES)/claude/skills $(HOME)/.claude/skills
+	@ln -fns $(DOTFILES)/claude/commands $(HOME)/.claude/commands
+	@echo "Claude linked."
 
 bin:
 	@echo "Linking bin scripts to ~/.local/bin..."

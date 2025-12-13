@@ -13,6 +13,20 @@
     {
       "tool": "Bash",
       "matches": {
+        "cmd": "bd *"
+      },
+      "action": "allow"
+    },
+    {
+      "tool": "Bash",
+      "matches": {
+        "cmd": "gh *"
+      },
+      "action": "allow"
+    },
+    {
+      "tool": "Bash",
+      "matches": {
         "cmd": "mix compile --warnings-as-errors --force"
       },
       "action": "allow"
@@ -53,5 +67,11 @@
       "action": "allow"
     }
   ],
-  "amp.dangerouslyAllowAll": true
+  "amp.dangerouslyAllowAll": true,
+  "amp.instructions": "Before starting any work, run 'bd onboard' to understand the current project state and available issues.",
+  "amp.mcpServers": {
+    "linear": {
+      "url": "https://mcp.linear.app/sse"
+    }
+  }
 }

@@ -77,6 +77,7 @@ fi
 alias gc='git commit'
 alias gs='git status --ignore-submodules=dirty'
 alias gp='git push origin HEAD'
+alias gpf='git push --force-with-lease origin HEAD'
 alias gf='git pull origin HEAD'
 
 # Mise version manager

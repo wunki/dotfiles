@@ -65,6 +65,7 @@ abbr t3 'tree --dirsfirst -ChFL 3'
 abbr gc 'git commit'
 abbr gs 'git status --ignore-submodules=dirty'
 abbr gp 'git push origin HEAD'
+abbr gpf 'git push --force-with-lease origin HEAD'
 abbr gf 'git pull origin HEAD'
 abbr gu gitu
 abbr gopen 'gh repo view --web'

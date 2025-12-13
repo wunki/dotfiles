@@ -260,9 +260,12 @@
     "metrics": false
   },
   "terminal": {
+    "scrollbar": {
+      "show": "auto"
+    },
     "blinking": "off",
     "copy_on_select": true,
-    "dock": "bottom",
+    "dock": "right",
     "env": {
       "TERM_PROGRAM": "zed"
     },

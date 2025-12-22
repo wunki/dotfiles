@@ -4,20 +4,13 @@
     "command": "claude",
     "use_new_terminal": true,
     "allow_concurrent_runs": false,
-    "reveal": "always"
+    "reveal": "always",
   },
   {
     "label": "Amp Code",
     "command": "amp",
     "use_new_terminal": true,
     "allow_concurrent_runs": false,
-    "reveal": "always"
+    "reveal": "always",
   },
-  {
-    "label": "Phoenix Server",
-    "command": "set -a && source .env && set +a && iex -S mix phx.server",
-    "use_new_terminal": true,
-    "allow_concurrent_runs": false,
-    "reveal": "always"
-  }
 ]

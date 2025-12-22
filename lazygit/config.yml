@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/jesseduffield/lazygit/master/schema/config.json
+
+gui:
+  # Show file tree instead of flat list
+  showFileTree: true
+  # Show number of lines changed per file
+  showNumstatInFilesView: true
+  # Nerd fonts icons (version 3)
+  nerdFontsVersion: "3"
+  # Border style
+  border: rounded
+  # Don't show random tips
+  showRandomTip: false
+git:
+  # Delta pager with clickable line numbers
+  pagers:
+    - pager: delta --paging=never --syntax-theme=base16 --hunk-header-style=omit
+      colorArg: always
+    # Difftastic as alternative (press | to switch)
+    - externalDiffCommand: difft --color=always
+  # Auto-fetch every 120 seconds
+  autoFetch: true
+  fetchAll: true
+  # Pull with rebase by default
+  pull:
+    mode: rebase
+# Use Neovim for editing
+os:
+  editPreset: nvim
+# Disable startup popups
+disableStartupPopups: true
+# Don't confirm on quit
+confirmOnQuit: false
+# Keybindings (keep defaults, just document useful ones)
+keybinding:
+  universal:
+    # scrolling
+    scrollUpMain-alt1: <disabled>
+    scrollDownMain-alt1: <disabled>

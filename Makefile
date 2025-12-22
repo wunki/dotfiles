@@ -4,7 +4,7 @@ CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
 # List all application targets here
-APP_TARGETS := fish zsh helix ghostty zed tmux opencode bin amp claude
+APP_TARGETS := fish zsh helix ghostty zed tmux opencode bin amp claude lazygit
 
 # Define the default target 'all' to depend on all application targets
 .PHONY: all
@@ -104,6 +104,17 @@ claude:
 	@ln -fns $(DOTFILES)/claude/skills $(HOME)/.claude/skills
 	@ln -fns $(DOTFILES)/claude/commands $(HOME)/.claude/commands
 	@echo "Claude linked."
+
+lazygit:
+	@echo "Linking lazygit configuration..."
+ifeq ($(UNAME),Darwin)
+	@mkdir -p $(HOME)/Library/Application\ Support
+	@ln -fns $(DOTFILES)/lazygit $(HOME)/Library/Application\ Support/lazygit
+else
+	@mkdir -p $(CONFIG_DIR)
+	@ln -fns $(DOTFILES)/lazygit $(CONFIG_DIR)/lazygit
+endif
+	@echo "Lazygit linked."
 
 bin:
 	@echo "Linking bin scripts to ~/.local/bin..."

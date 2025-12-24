@@ -6,7 +6,7 @@
 
 set -e
 
-DOTFILES="${DOTFILES:-$HOME/Code/Dotfiles}"
+DOTFILES="${DOTFILES:-$HOME/Code/dotfiles}"
 ZED_CONFIG="$DOTFILES/zed/settings.json"
 GHOSTTY_CONFIG="$DOTFILES/ghostty/config"
 
@@ -27,32 +27,23 @@ FONT="$1"
 SIZE="$2"
 
 # Check for required tools
-if ! command -v jq &> /dev/null; then
-    echo "Error: jq is required but not installed"
-    exit 1
-fi
-
 if ! command -v sed &> /dev/null; then
     echo "Error: sed is required but not installed"
     exit 1
 fi
 
-# Update Zed settings
+# Update Zed settings (using sed because Zed uses JSONC with trailing commas)
 echo "Updating Zed settings..."
 
-# Update buffer, terminal, and agent font families (not UI)
-jq --arg font "$FONT" '
-    .buffer_font_family = $font |
-    .terminal.font_family = $font
-' "$ZED_CONFIG" > "$ZED_CONFIG.tmp" && mv "$ZED_CONFIG.tmp" "$ZED_CONFIG"
+sed -i '' "s/\"buffer_font_family\": \"[^\"]*\"/\"buffer_font_family\": \"$FONT\"/" "$ZED_CONFIG"
+sed -i '' "s/\"font_family\": \"[^\"]*\"/\"font_family\": \"$FONT\"/" "$ZED_CONFIG"
 
 # Update sizes if provided
 if [[ -n "$SIZE" ]]; then
-    jq --argjson size "$SIZE" '
-        .buffer_font_size = $size |
-        .terminal.font_size = $size |
-        .agent_buffer_font_size = $size
-    ' "$ZED_CONFIG" > "$ZED_CONFIG.tmp" && mv "$ZED_CONFIG.tmp" "$ZED_CONFIG"
+    sed -i '' "s/\"buffer_font_size\": [0-9]*/\"buffer_font_size\": $SIZE/" "$ZED_CONFIG"
+    sed -i '' "s/\"agent_buffer_font_size\": [0-9]*/\"agent_buffer_font_size\": $SIZE/" "$ZED_CONFIG"
+    # Update terminal font_size (be specific to avoid matching other font_size fields)
+    sed -i '' "/\"terminal\":/,/^  }/s/\"font_size\": [0-9]*/\"font_size\": $SIZE/" "$ZED_CONFIG"
 fi
 
 # Update Ghostty config

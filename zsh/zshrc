@@ -137,3 +137,10 @@ zstyle ':prompt:pure:prompt:error' color red
 
 autoload -U promptinit; promptinit
 prompt pure
+
+# bun completions
+[ -s "/Users/petar/.bun/_bun" ] && source "/Users/petar/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

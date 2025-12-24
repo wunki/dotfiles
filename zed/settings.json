@@ -124,7 +124,7 @@
     "html": true,
     "toml": true,
   },
-  "buffer_font_family": "TX-02",
+  "buffer_font_family": "Space Mono",
   "buffer_font_size": 12,
   "collaboration_panel": {
     "button": false,
@@ -269,7 +269,7 @@
     "env": {
       "TERM_PROGRAM": "zed",
     },
-    "font_family": "TX-02",
+    "font_family": "Space Mono",
     "font_size": 12,
     "option_as_meta": true,
     "shell": {

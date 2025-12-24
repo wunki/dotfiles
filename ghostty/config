@@ -6,7 +6,7 @@ shell-integration = zsh
 shell-integration-features = sudo, title, ssh-terminfo
 
 # fonts
-font-family = TX-02
+font-family = Space Mono
 font-size = 12
 adjust-cell-height = 20%
 font-style-bold = Medium

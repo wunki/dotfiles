@@ -84,12 +84,15 @@ tmux:
 	@ln -fns $(DOTFILES)/tmux/tmux-github-dark-theme.conf $(HOME)/.tmux-github-dark-theme.conf
 	@ln -fns $(DOTFILES)/tmux/tmux-zed-dark-theme.conf $(HOME)/.tmux-zed-dark-theme.conf
 	@ln -fns $(DOTFILES)/tmux/tmux-ayu-dark-theme.conf $(HOME)/.tmux-ayu-dark-theme.conf
+	@ln -fns $(DOTFILES)/tmux/tmux-flexoki-light-theme.conf $(HOME)/.tmux-flexoki-light-theme.conf
 	@echo "tmux linked."
 
 opencode: ensure-config-dir
 	@echo "Linking opencode configuration..."
 	@ln -fns $(DOTFILES)/opencode $(CONFIG_DIR)/opencode
-	@echo "OpenCode linked."
+	@mkdir -p $(HOME)/.opencode
+	@ln -fns $(DOTFILES)/claude/skills $(HOME)/.opencode/skill
+	@echo "OpenCode linked (skills shared with Claude Code)."
 
 amp: ensure-config-dir
 	@echo "Linking amp configuration..."

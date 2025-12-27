@@ -4,7 +4,7 @@ CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
 # List all application targets here
-APP_TARGETS := fish zsh helix ghostty zed tmux opencode bin amp claude lazygit
+APP_TARGETS := fish zsh helix ghostty rio zed tmux opencode bin amp claude lazygit
 
 # Define the default target 'all' to depend on all application targets
 .PHONY: all
@@ -68,6 +68,11 @@ ghostty: ensure-config-dir
 	@echo "Linking ghostty configuration..."
 	@ln -fns $(DOTFILES)/ghostty $(CONFIG_DIR)/ghostty
 	@echo "Ghostty linked."
+
+rio: ensure-config-dir
+	@echo "Linking rio configuration..."
+	@ln -fns $(DOTFILES)/rio $(CONFIG_DIR)/rio
+	@echo "Rio linked."
 
 zed: ensure-config-dir
 	@echo "Linking zed configuration..."

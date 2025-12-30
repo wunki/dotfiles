@@ -2,13 +2,7 @@
   "amp.cacheDirectory": "/Users/petar/.cache/amp",
   "amp.git.commit.ampThread.enabled": false,
   "amp.git.commit.coauthor.enabled": false,
-  "amp.commands.allowlist": [
-    "git",
-    "mix",
-    "sed",
-    "rm",
-    "psql"
-  ],
+  "amp.commands.allowlist": ["git", "mix", "sed", "rm", "psql"],
   "amp.permissions": [
     {
       "tool": "Bash",

@@ -3,6 +3,7 @@
   "theme": "finde",
   "autoupdate": true,
   "mcp": {},
+  "plugin": ["opencode-openai-codex-auth@4.2.0"],
   "lsp": {
     "expert": {
       "command": ["expert_darwin_arm64", "--stdio"],

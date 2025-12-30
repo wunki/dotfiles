@@ -68,7 +68,7 @@ abbr gp 'git push origin HEAD'
 abbr gpf 'git push --force-with-lease origin HEAD'
 abbr gf 'git pull origin HEAD'
 abbr gu gitu
-abbr gopen 'gh repo view --web'
+abbr gho 'gh browse'
 
 # file listing (eza)
 abbr l eza

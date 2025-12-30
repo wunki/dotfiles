@@ -74,6 +74,7 @@ then
 fi
 
 # Some useful Git shortcuts
+alias gho='gh browse'
 alias gc='git commit'
 alias gs='git status --ignore-submodules=dirty'
 alias gp='git push origin HEAD'

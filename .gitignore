@@ -20,3 +20,10 @@
 /OpenCode.md
 /.claude
 /lazygit/state.yml
+
+# dev-browser skill artifacts
+/claude/skills/dev-browser/node_modules/
+/claude/skills/dev-browser/package-lock.json
+/claude/skills/dev-browser/bun.lock
+/claude/skills/dev-browser/tmp/
+/claude/skills/dev-browser/profiles/

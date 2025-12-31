@@ -4,7 +4,7 @@ CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
 # List all application targets here
-APP_TARGETS := fish zsh helix ghostty rio zed tmux opencode bin amp claude lazygit
+APP_TARGETS := fish zsh helix ghostty rio zed tmux opencode bin amp claude codex lazygit
 
 # Define the default target 'all' to depend on all application targets
 .PHONY: all
@@ -112,6 +112,19 @@ claude:
 	@ln -fns $(DOTFILES)/claude/skills $(HOME)/.claude/skills
 	@ln -fns $(DOTFILES)/claude/commands $(HOME)/.claude/commands
 	@echo "Claude linked."
+
+codex:
+	@echo "Linking codex configuration..."
+	@mkdir -p $(HOME)/.codex/skills
+	@ln -fns $(DOTFILES)/codex/config.toml $(HOME)/.codex/config.toml
+	@for skill in $(DOTFILES)/claude/skills/*/; do \
+		name=$$(basename "$$skill"); \
+		if [ "$$name" != "skill-creator" ]; then \
+			ln -fns "$$skill" "$(HOME)/.codex/skills/$$name"; \
+			echo "  Linked skill: $$name"; \
+		fi \
+	done
+	@echo "Codex linked (skills shared with Claude Code)."
 
 lazygit:
 	@echo "Linking lazygit configuration..."

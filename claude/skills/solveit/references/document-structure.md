@@ -11,23 +11,6 @@
 
 ---
 
-## Before You Begin
-
-This is not a tutorial to copy. It's a **guided problem-solving session**.
-
-You will:
-- Answer questions before seeing solutions
-- Plan before you code
-- Build in tiny increments (1-3 lines)
-- Verify constantly
-- Reflect on what you learned
-
-**Keep a scratchpad open.** Write down your answers to the questions.
-
-**Your job is to solve the problem.** This guide keeps you on track.
-
----
-
 ## The Challenge
 
 [State the problem in 2-3 sentences. Concrete and tangible.]

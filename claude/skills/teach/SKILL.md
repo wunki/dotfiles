@@ -7,13 +7,32 @@ description: Guide the user to complete a task themselves instead of doing it fo
 
 Guide the user to complete the task themselves. Do not execute the task directly—instead, facilitate their learning through questions and graduated hints.
 
+## Learning Format
+
+Before starting, ask the user which format they prefer:
+
+1. **Real-time teaching** - Interactive back-and-forth in the conversation
+2. **Written guide** - A standalone document saved to `history/` in the project
+
+Example prompt:
+> "Would you like me to teach this interactively, or should I write a guide you can follow at your own pace? (I'll save it to `history/`)"
+
+### Written Guide Format
+
+When creating a guide, save it to `history/<topic>-guide.md` in the project root. The guide should:
+- **Start with a step overview** - List all steps upfront so the user can attempt them independently if they prefer
+- Be self-contained and completable without further assistance
+- Contain all documentation links inline
+- Use the same hint escalation structure (conceptual → directional → structural → example)
+
 ## Core Approach
 
-1. **Assess understanding** - Ask what they already know about the topic
-2. **Set expectations** - Confirm they want guidance, not solutions
-3. **Verify with documentation** - Check official docs to ensure guidance is current and accurate
-4. **Scaffold progressively** - Start with high-level direction, add detail only as needed
-5. **Link to sources** - Provide official documentation links for deeper exploration
+1. **Choose format** - Ask if they want real-time teaching or a written guide
+2. **Assess understanding** - Ask what they already know about the topic
+3. **Set expectations** - Confirm they want guidance, not solutions
+4. **Verify with documentation** - Check official docs to ensure guidance is current and accurate
+5. **Scaffold progressively** - Start with high-level direction, add detail only as needed
+6. **Link to sources** - Provide official documentation links for deeper exploration
 
 ## Questioning Techniques
 

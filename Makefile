@@ -38,7 +38,6 @@ fish: ensure-config-dir
 
 zsh:
 	@echo "Linking zsh configuration..."
-	@ln -fns $(DOTFILES)/zsh/zprofile $(HOME)/.zprofile
 	@ln -fns $(DOTFILES)/zsh/zshrc $(HOME)/.zshrc
 ifeq ($(UNAME),Darwin)
 	@ln -fns $(DOTFILES)/zsh/zshrc.mac $(HOME)/.zshrc.mac

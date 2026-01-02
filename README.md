@@ -7,21 +7,76 @@ A carefully crafted collection of configuration files for Fish, Tmux, Ghostty, H
 ## Features
 
 - **Cross-platform compatibility**: Works on macOS, Linux, and FreeBSD
-- **Theme support**: Custom themes for terminals and editors including Lackluster (dark) and Zenbones (light)
+- **Theme support**: Custom themes including Finde, Gruvbox Material, Lackluster, Zenbones, and more
 - **Modern tools**: Configuration for cutting-edge tools like Ghostty terminal and Zed editor
 - **Shell enhancements**: Fish shell with useful abbreviations, functions, and OS-specific configurations
 - **Development optimized**: Tmux with sensible defaults and theme switching
+- **AI coding tools**: Shared skills and commands for Claude Code, OpenCode, Amp, and Codex
 
 ## Components
 
-| Component                                       | Description                                                        |
-| ----------------------------------------------- | ------------------------------------------------------------------ |
-| [Fish](https://fishshell.com/)                  | Shell with good defaults and easy to configure                     |
-| [Zsh](https://www.zsh.org/)                     | Alternative shell with platform-specific configurations            |
-| [Tmux](https://github.com/tmux/tmux)            | When editing remote I use Tmux to save sessions and manage windows |
-| [Ghostty](https://github.com/mitchellh/ghostty) | Modern GPU-accelerated terminal emulator                           |
-| [Helix](https://helix-editor.com/)              | A post-modern text editor written in Rust                          |
-| [Zed](https://zed.dev/)                         | High-performance, multiplayer code editor                          |
+### Shells
+
+| Component                      | Description                                             |
+| ------------------------------ | ------------------------------------------------------- |
+| [Fish](https://fishshell.com/) | Shell with good defaults and easy to configure          |
+| [Zsh](https://www.zsh.org/)    | Alternative shell with platform-specific configurations |
+
+### Terminals
+
+| Component                                       | Description                              |
+| ----------------------------------------------- | ---------------------------------------- |
+| [Ghostty](https://github.com/mitchellh/ghostty) | Modern GPU-accelerated terminal emulator |
+| [Rio](https://raphamorim.io/rio/)               | Hardware-accelerated terminal            |
+
+### Editors & Tools
+
+| Component                              | Description                                                        |
+| -------------------------------------- | ------------------------------------------------------------------ |
+| [Helix](https://helix-editor.com/)     | A post-modern text editor written in Rust                          |
+| [Zed](https://zed.dev/)                | High-performance, multiplayer code editor                          |
+| [Tmux](https://github.com/tmux/tmux)   | When editing remote I use Tmux to save sessions and manage windows |
+| [Lazygit](https://github.com/jesseduffield/lazygit) | Terminal UI for git commands                          |
+
+### AI Coding Tools
+
+| Component                                    | Description                                      |
+| -------------------------------------------- | ------------------------------------------------ |
+| [Claude Code](https://claude.ai/)            | Anthropic's CLI for Claude (skills and commands) |
+| [OpenCode](https://opencode.ai/)             | AI coding assistant (shares skills with Claude)  |
+| [Amp](https://amp.dev/)                      | AI-powered editor (shares commands with Claude)  |
+| [Codex](https://github.com/openai/codex-cli) | OpenAI's CLI (shares skills with Claude)         |
+
+## AI Coding Tools
+
+This repository includes a shared ecosystem of skills and commands for AI coding assistants. The skills are defined once in `claude/skills/` and symlinked to other tools.
+
+### Available Skills
+
+| Skill | Description |
+| ----- | ----------- |
+| `dev-browser` | Browser automation with persistent page state |
+| `frontend-design` | Create distinctive, production-grade frontend interfaces |
+| `ship` | Create a concrete plan for finishing a project |
+| `teach` | Guide the user to complete a task themselves |
+| `solveit` | Generate structured learning guides using the Polya method |
+| `beads` | Track complex, multi-session work with dependency graphs |
+| `skill-creator` | Guide for creating new skills |
+
+### Sharing Architecture
+
+```
+claude/skills/     <- Primary skill definitions
+     |
+     +-> ~/.claude/skills (Claude Code)
+     +-> ~/.opencode/skill (OpenCode)
+     +-> ~/.codex/skills (Codex)
+
+claude/commands/   <- Shared commands
+     |
+     +-> ~/.claude/commands (Claude Code)
+     +-> ~/.config/amp/commands (Amp)
+```
 
 ## Neovim
 
@@ -73,13 +128,28 @@ Use the Makefile to install specific components:
 # Install all configurations
 make
 
-# Install specific components
+# Shells
 make fish
 make zsh
-make tmux
-make helix
+
+# Terminals
 make ghostty
+make rio
+
+# Editors & Tools
+make helix
 make zed
+make tmux
+make lazygit
+
+# AI Coding Tools
+make claude
+make opencode
+make amp
+make codex
+
+# Scripts (nvim URL handler, etc.)
+make bin
 ```
 
 ## Shell Setup

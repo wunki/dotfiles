@@ -96,6 +96,7 @@ opencode: ensure-config-dir
 	@ln -fns $(DOTFILES)/opencode $(CONFIG_DIR)/opencode
 	@mkdir -p $(HOME)/.opencode
 	@ln -fns $(DOTFILES)/claude/skills $(HOME)/.opencode/skill
+	@ln -fns $(DOTFILES)/claude/CLAUDE.md $(CONFIG_DIR)/opencode/AGENTS.md
 	@echo "OpenCode linked (skills shared with Claude Code)."
 
 amp: ensure-config-dir
@@ -110,12 +111,14 @@ claude:
 	@mkdir -p $(HOME)/.claude
 	@ln -fns $(DOTFILES)/claude/skills $(HOME)/.claude/skills
 	@ln -fns $(DOTFILES)/claude/commands $(HOME)/.claude/commands
+	@ln -fns $(DOTFILES)/claude/CLAUDE.md $(HOME)/.claude/CLAUDE.md
 	@echo "Claude linked."
 
 codex:
 	@echo "Linking codex configuration..."
 	@mkdir -p $(HOME)/.codex/skills
 	@ln -fns $(DOTFILES)/codex/config.toml $(HOME)/.codex/config.toml
+	@ln -fns $(DOTFILES)/claude/CLAUDE.md $(HOME)/.codex/AGENTS.md
 	@for skill in $(DOTFILES)/claude/skills/*/; do \
 		name=$$(basename "$$skill"); \
 		if [ "$$name" != "skill-creator" ]; then \

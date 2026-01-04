@@ -5,7 +5,14 @@ model_reasoning_effort = "high"
 trust_level = "trusted"
 
 [projects."/Users/petar/Code/finde-ts"]
-trust_level = "untrusted"
+trust_level = "trusted"
+
+[projects."/Users/petar/.codex"]
+trust_level = "trusted"
+
+[mcp_servers.svelte]
+command = "npx"
+args = ["-y", "@sveltejs/mcp"]
 
 [features]
 ghost_commit = false

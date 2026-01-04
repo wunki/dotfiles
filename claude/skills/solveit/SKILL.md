@@ -1,6 +1,6 @@
 ---
 name: solveit
-description: Generate a structured learning guide for building a feature using the Pólya problem-solving method. Creates a self-contained Markdown document that guides the user through understanding, planning, executing, and reflecting on the implementation. Triggers on phrases like "create a solveit guide", "make a learning guide for", "solveit for", "guided problem-solving for", or when the user wants a documented curriculum for building a feature rather than real-time teaching.
+description: Generate a structured learning guide for building a feature using the Pólya problem-solving method. Creates a self-contained Markdown document that guides the user through understanding, planning, executing, and reflecting on the implementation. Triggers on phrases like "create a solveit guide", "make a learning guide for", "solveit for", "guided problem-solving for", or when the user wants a documented curriculum for building a feature rather than real-time guidance.
 ---
 
 # Solveit Guide Generator

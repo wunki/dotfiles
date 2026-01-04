@@ -36,14 +36,14 @@ If code is very confusing:
 
 ## Tooling & Workflow
 
-| Situation | Required action |
-| --- | --- |
-| Starting a task | Read this guide and align with any fresh user instructions. |
-| Command hangs > 5 min | Stop it, capture logs, and check with the user before retrying. |
-| Reviewing git status/diffs | Treat as read-only; never revert or assume missing changes were yours. |
-| Adding a dependency | Research well-maintained options and confirm fit with the user before adding. |
+| Situation                  | Required action                                                               |
+| -------------------------- | ----------------------------------------------------------------------------- |
+| Starting a task            | Read this guide and align with any fresh user instructions.                   |
+| Command hangs > 5 min      | Stop it, capture logs, and check with the user before retrying.               |
+| Reviewing git status/diffs | Treat as read-only; never revert or assume missing changes were yours.        |
+| Adding a dependency        | Research well-maintained options and confirm fit with the user before adding. |
 
-- **TypeScript projects**: check `package.json` for available scripts; confirm with the user before running `npm` or `pnpm` scripts.
+- **TypeScript projects**: check `package.json` for available scripts; confirm with the user before running `npm`, `pnpm` or `bun` scripts.
 - **AST-first where it helps**. Prefer `ast-grep` for tree-safe edits when it is better than regex.
 - **Git is read-only**. Do not run `git` commands that write to files; only run read-only commands like `git show`, `git status`, `git diff`.
 - **CI as source of truth**. If you need to know how to run tests, read through `.github/workflows`; it should behave the same locally.

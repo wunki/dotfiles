@@ -4,7 +4,7 @@ CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
 # List all application targets here
-APP_TARGETS := fish zsh helix ghostty rio zed tmux opencode bin amp claude codex lazygit
+APP_TARGETS := fish zsh helix ghostty rio zed tmux opencode bin amp claude codex lazygit skills
 
 # Define the default target 'all' to depend on all application targets
 .PHONY: all
@@ -104,6 +104,7 @@ amp: ensure-config-dir
 	@mkdir -p $(CONFIG_DIR)/amp
 	@ln -fns $(DOTFILES)/amp/settings.json $(CONFIG_DIR)/amp/settings.json
 	@ln -fns $(DOTFILES)/claude/commands $(CONFIG_DIR)/amp/commands
+	@ln -fns $(DOTFILES)/claude/CLAUDE.md $(CONFIG_DIR)/amp/AGENTS.md
 	@echo "Amp linked."
 
 claude:
@@ -121,10 +122,7 @@ codex:
 	@ln -fns $(DOTFILES)/claude/CLAUDE.md $(HOME)/.codex/AGENTS.md
 	@for skill in $(DOTFILES)/claude/skills/*/; do \
 		name=$$(basename "$$skill"); \
-		if [ "$$name" != "skill-creator" ]; then \
-			ln -fns "$$skill" "$(HOME)/.codex/skills/$$name"; \
-			echo "  Linked skill: $$name"; \
-		fi \
+		ln -fns "$$skill" "$(HOME)/.codex/skills/$$name"; \
 	done
 	@echo "Codex linked (skills shared with Claude Code)."
 
@@ -151,6 +149,15 @@ bin:
 		fi \
 	done
 	@echo "Bin scripts linked."
+
+skills:
+	@echo "Syncing skills to codex..."
+	@mkdir -p $(HOME)/.codex/skills
+	@for skill in $(DOTFILES)/claude/skills/*/; do \
+		name=$$(basename "$$skill"); \
+		ln -fns "$$skill" "$(HOME)/.codex/skills/$$name"; \
+	done
+	@echo "Skills synced to codex."
 
 # --- Utility Targets ---
 

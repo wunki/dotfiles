@@ -58,7 +58,7 @@ This repository includes a shared ecosystem of skills and commands for AI coding
 | `dev-browser` | Browser automation with persistent page state |
 | `frontend-design` | Create distinctive, production-grade frontend interfaces |
 | `ship` | Create a concrete plan for finishing a project |
-| `teach` | Guide the user to complete a task themselves |
+| `guide` | Interactive guidance to complete a task themselves |
 | `solveit` | Generate structured learning guides using the Polya method |
 | `beads` | Track complex, multi-session work with dependency graphs |
 | `skill-creator` | Guide for creating new skills |

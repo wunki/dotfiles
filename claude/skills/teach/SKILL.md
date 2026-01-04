@@ -24,6 +24,36 @@ When creating a guide, save it to `history/<topic>-guide.md` in the project root
 - Be self-contained and completable without further assistance
 - Contain all documentation links inline
 - Use the same hint escalation structure (conceptual → directional → structural → example)
+- **Include solutions for each step** - Provide the full solution in a collapsible `<details>` block so the user can peek if stuck
+- **Call out common misconceptions** - Proactively address mistakes learners typically make
+
+Example misconception callout:
+> **Common misconception:** Many assume `$effect` runs on every render like React's `useEffect`. It doesn't - Svelte's reactivity is compile-time, so `$effect` only runs when its tracked dependencies change.
+
+Example solution format in a guide:
+```markdown
+<details>
+<summary>Solution</summary>
+
+\`\`\`typescript
+function example() {
+  // full working code here
+}
+\`\`\`
+
+</details>
+```
+
+### Tests as Feedback Loop
+
+When the topic involves code, encourage writing tests as a learning feedback loop:
+- **User writes the tests** - Don't provide test code, describe what to verify
+- **Tests validate understanding** - Each step can include "Write a test that verifies X"
+- **Immediate feedback** - Passing tests confirm comprehension, failing tests guide further learning
+- **Only where it makes sense** - Skip for non-code topics (git concepts, architecture discussions, etc.)
+
+Example guidance in a guide:
+> "Now write a test that verifies your function handles empty input correctly. Run it - what happens?"
 
 ## Core Approach
 

@@ -4,7 +4,7 @@ CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
 # List all application targets here
-APP_TARGETS := fish zsh helix ghostty rio zed tmux opencode bin amp claude codex lazygit skills
+APP_TARGETS := fish zsh helix ghostty rio zed tmux bin lazygit
 
 # Define the default target 'all' to depend on all application targets
 .PHONY: all
@@ -91,40 +91,6 @@ tmux:
 	@ln -fns $(DOTFILES)/tmux/tmux-flexoki-light-theme.conf $(HOME)/.tmux-flexoki-light-theme.conf
 	@echo "tmux linked."
 
-opencode: ensure-config-dir
-	@echo "Linking opencode configuration..."
-	@ln -fns $(DOTFILES)/opencode $(CONFIG_DIR)/opencode
-	@mkdir -p $(HOME)/.opencode
-	@ln -fns $(DOTFILES)/claude/skills $(HOME)/.opencode/skill
-	@ln -fns $(DOTFILES)/claude/CLAUDE.md $(CONFIG_DIR)/opencode/AGENTS.md
-	@echo "OpenCode linked (skills shared with Claude Code)."
-
-amp: ensure-config-dir
-	@echo "Linking amp configuration..."
-	@mkdir -p $(CONFIG_DIR)/amp
-	@ln -fns $(DOTFILES)/amp/settings.json $(CONFIG_DIR)/amp/settings.json
-	@ln -fns $(DOTFILES)/claude/commands $(CONFIG_DIR)/amp/commands
-	@ln -fns $(DOTFILES)/claude/CLAUDE.md $(CONFIG_DIR)/amp/AGENTS.md
-	@echo "Amp linked."
-
-claude:
-	@echo "Linking claude configuration..."
-	@mkdir -p $(HOME)/.claude
-	@ln -fns $(DOTFILES)/claude/skills $(HOME)/.claude/skills
-	@ln -fns $(DOTFILES)/claude/commands $(HOME)/.claude/commands
-	@ln -fns $(DOTFILES)/claude/CLAUDE.md $(HOME)/.claude/CLAUDE.md
-	@echo "Claude linked."
-
-codex:
-	@echo "Linking codex configuration..."
-	@mkdir -p $(HOME)/.codex/skills
-	@ln -fns $(DOTFILES)/codex/config.toml $(HOME)/.codex/config.toml
-	@ln -fns $(DOTFILES)/claude/CLAUDE.md $(HOME)/.codex/AGENTS.md
-	@for skill in $(DOTFILES)/claude/skills/*/; do \
-		name=$$(basename "$$skill"); \
-		ln -fns "$$skill" "$(HOME)/.codex/skills/$$name"; \
-	done
-	@echo "Codex linked (skills shared with Claude Code)."
 
 lazygit:
 	@echo "Linking lazygit configuration..."
@@ -149,15 +115,6 @@ bin:
 		fi \
 	done
 	@echo "Bin scripts linked."
-
-skills:
-	@echo "Syncing skills to codex..."
-	@mkdir -p $(HOME)/.codex/skills
-	@for skill in $(DOTFILES)/claude/skills/*/; do \
-		name=$$(basename "$$skill"); \
-		ln -fns "$$skill" "$(HOME)/.codex/skills/$$name"; \
-	done
-	@echo "Skills synced to codex."
 
 # --- Utility Targets ---
 

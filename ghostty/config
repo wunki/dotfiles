@@ -14,7 +14,7 @@ font-style-bold = Medium
 # colors
 window-colorspace = display-p3
 selection-invert-fg-bg = true
-theme = light:Flexoki Light,dark:finde
+theme = light:Flexoki Light,dark:gondolin
 
 # padding
 window-padding-balance = true
@@ -22,7 +22,6 @@ window-padding-x = 7
 window-padding-y = 7
 
 # an empty bar, that's all I want
-title = " "
 macos-titlebar-proxy-icon = hidden
 macos-titlebar-style = tabs
 
@@ -72,6 +71,9 @@ keybind = cmd+t>l=goto_split:right
 # zoom into split
 keybind = cmd+t>z=toggle_split_zoom
 keybind = cmd+t>e=equalize_splits
+
+# split settings
+unfocused-split-opacity = 0.75
 
 # shift-enter in Claude
 keybind = shift+enter=text:\n

@@ -52,6 +52,7 @@ alias ppx='pnpx'
 # Shortcuts
 alias e='nvim'
 alias tt='tmux attach || tmux new-session -s main'
+alias ssb="ssh -t bytebottom 'tmux attach || tmux new-session -s main'"
 
 if (( $+commands[bat] ))
 then

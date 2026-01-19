@@ -29,7 +29,11 @@ macos-titlebar-style = tabs
 window-save-state = always
 mouse-hide-while-typing = true
 confirm-close-surface = false
+
+# clipboard
 copy-on-select = clipboard
+clipboard-read = allow
+clipboard-write = allow
 
 # mac
 macos-option-as-alt = true

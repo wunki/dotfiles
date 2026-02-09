@@ -1,7 +1,7 @@
 # vim: filetype=conf
 
 # fish shell
-command = /opt/homebrew/bin/zsh -il
+command = /opt/homebrew/bin/fish -il
 shell-integration = zsh
 shell-integration-features = sudo, title, ssh-terminfo
 

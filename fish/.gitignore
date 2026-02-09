@@ -12,7 +12,9 @@ fish_plugins
 # Allow some locally-managed configuration
 !/conf.d/_*.fish
 /conf.d/_pure_init.fish
+/conf.d/_tide_init.fish
 !/conf.d/[0-9]*.fish
+!/conf.d/tide.gondolin.fish
 !/completions/_*.fish
 
 # Excempted functions

@@ -8,7 +8,8 @@
 /fish/functions
 /fish/fish_read_history
 /fish/secret_env.fish
-/fish/conf.d
+/fish/conf.d/*
+!/fish/conf.d/tide.gondolin.fish
 /fish/fish_variables
 /fish/completions/fzf_configure_bindings.fish
 /fish/completions/fisher.fish

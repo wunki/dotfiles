@@ -14,9 +14,11 @@ typeset -U PATH path
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 export XDG_DATA_HOME=$HOME/.local/share
+export GOPATH="$HOME/code/go"
+os_name="$(uname)"
 
 # Mac-specific stuff
-if [[ "$(uname)" == "Darwin" ]]; then
+if [[ "$os_name" == "Darwin" ]]; then
   source ~/.zshrc.mac
 else
   export EDITOR="nvim"
@@ -31,6 +33,7 @@ path+=(
   "$HOME/.local/share/pnpm" # pnpm
   "$HOME/.atuin/bin"        # atuin
   "$HOME/.opencode/bin"     # opencode
+  "$GOPATH/bin"             # Go
 )
 [[ "$(uname)" != "Darwin" ]] && path+=("/opt/nvim/bin")  # Neovim (non-Mac)
 export PATH
@@ -48,6 +51,7 @@ fi
 export PNPM_HOME="$HOME/.local/share/pnpm"
 alias pp='pnpm'
 alias ppx='pnpx'
+alias oc='opencode'
 
 # Shortcuts
 alias e='nvim'

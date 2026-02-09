@@ -1,6 +1,15 @@
 {
+  "buffer_line_height": "comfortable",
   "colorize_brackets": true,
   "agent_servers": {
+    "opencode": {
+      "type": "extension",
+      "favorite_models": [
+        "openai/gpt-5.2-codex"
+      ],
+      "default_config_options": {},
+      "favorite_config_option_values": {}
+    },
     "claude": {
       "default_mode": "plan",
     },
@@ -124,7 +133,7 @@
     "html": true,
     "toml": true,
   },
-  "buffer_font_family": "Space Mono",
+  "buffer_font_family": "TX-02",
   "buffer_font_size": 12,
   "collaboration_panel": {
     "button": false,
@@ -160,7 +169,7 @@
       "enabled": false,
     },
   },
-  "icon_theme": "Zed (Default)",
+  "icon_theme": "Colored Zed Icons Theme Dark",
   "inlay_hints": {
     "enabled": false,
   },
@@ -269,7 +278,7 @@
     "env": {
       "TERM_PROGRAM": "zed",
     },
-    "font_family": "Space Mono",
+    "font_family": "TX-02",
     "font_size": 12,
     "option_as_meta": true,
     "shell": {
@@ -283,7 +292,7 @@
       "breadcrumbs": false,
     },
   },
-  "theme": "Zed Dark",
+  "theme": "Oscura",
   "toolbar": {
     "breadcrumbs": true,
     "quick_actions": false,

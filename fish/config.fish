@@ -7,7 +7,7 @@ fish_default_key_bindings
 # environment
 set -x LANG 'en_US.UTF-8'
 set -x LC_ALL 'en_US.UTF-8'
-set -x XDG_DATA_HOME {$HOME}/.local/share
+set -x XDG_DATA_HOME "$HOME/.local/share"
 set -x GPG_TTY (tty)
 
 # keep my secret configuration files in here.
@@ -132,10 +132,11 @@ fish_add_path -aP "$HOME/.local/share/lua-language-server/bin"
 fish_add_path -aP "$HOME/.aws/bin"
 set -x AWS_IAM_HOME "$HOME/.aws/iam"
 set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
-fish_add_path -aP $HOME/.docker/cli-plugins
+fish_add_path -aP "$HOME/.docker/cli-plugins"
 
 # development tools
-fish_add_path -aP $HOME/.opencode/bin
+fish_add_path -aP "$HOME/.opencode/bin"
+abbr oc opencode
 
 # editor integrations
 if [ "$INSIDE_EMACS" = vterm ]
@@ -154,6 +155,3 @@ end
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
-
-# opencode
-fish_add_path /Users/petar/.opencode/bin

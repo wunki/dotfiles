@@ -86,6 +86,25 @@ function mkcd
     mkdir -p $argv[1]; and cd $argv[1]
 end
 
+# tmux-aware nvim socket for nvim:// links
+function nvs --description "Start nvim with tmux session socket"
+    if not set -q TMUX
+        echo "nvs: not in a tmux session, use nvim instead"
+        return 1
+    end
+
+    set -l session_name (tmux display-message -p '#S')
+    set -l socket_path "/tmp/nvim-$session_name"
+
+    if test -e "$socket_path"
+        if not nvim --server "$socket_path" --remote-expr "1" >/dev/null 2>&1
+            rm -f "$socket_path"
+        end
+    end
+
+    nvim --listen "$socket_path" $argv
+end
+
 # tool configurations
 if type -q bat
     abbr cat bat

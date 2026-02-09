@@ -97,7 +97,7 @@ function nvs --description "Start nvim with tmux session socket"
     set -l socket_path "/tmp/nvim-$session_name"
 
     if test -e "$socket_path"
-        if not nvim --server "$socket_path" --remote-expr "1" >/dev/null 2>&1
+        if not nvim --server "$socket_path" --remote-expr 1 >/dev/null 2>&1
             rm -f "$socket_path"
         end
     end
@@ -139,6 +139,7 @@ set -x ERL_AFLAGS "-kernel shell_history enabled"
 set -x KERL_BUILD_DOCS yes
 set -x KERL_CONFIGURE_OPTIONS "--disable-debug --without-javac --without-wx"
 abbr miex 'iex -S mix'
+abbr piex 'iex -S mix phx.server'
 
 # postgresql
 set -x PGDATABASE postgres

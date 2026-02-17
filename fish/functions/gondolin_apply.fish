@@ -6,10 +6,13 @@ function gondolin_apply -d "Apply tide+fzf colors for current macOS appearance"
     # Accept override: gondolin_apply dark|light
     set -l mode $argv[1]
     if test -z "$mode"
-        if defaults read -g AppleInterfaceStyle &>/dev/null
-            set mode dark
-        else
-            set mode light
+        set mode dark
+        if type -q defaults
+            if defaults read -g AppleInterfaceStyle &>/dev/null
+                set mode dark
+            else
+                set mode light
+            end
         end
     end
 

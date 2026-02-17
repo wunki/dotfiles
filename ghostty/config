@@ -6,9 +6,9 @@ shell-integration = zsh
 shell-integration-features = sudo, title, ssh-terminfo
 
 # fonts
-font-family = Space Mono
+font-family = TX-02
 font-size = 12
-adjust-cell-height = 10%
+adjust-cell-height = 20%
 font-style-bold = Medium
 
 # colors
@@ -38,43 +38,6 @@ clipboard-write = allow
 # mac
 macos-option-as-alt = true
 bell-features = no-title,no-attention
-
-# bindings
-keybind = cmd+t>f=reload_config
-keybind = cmd+t>x=close_surface
-keybind = cmd+t>n=new_window
-
-# tabs 
-keybind = cmd+t>c=new_tab
-keybind = cmd+t>shift+l=next_tab
-keybind = cmd+t>shift+h=previous_tab
-keybind = cmd+t>comma=move_tab:-1
-keybind = cmd+t>period=move_tab:1
-
-# quick tab switch
-keybind = cmd+t>1=goto_tab:1
-keybind = cmd+t>2=goto_tab:2
-keybind = cmd+t>3=goto_tab:3
-keybind = cmd+t>4=goto_tab:4
-keybind = cmd+t>5=goto_tab:5
-keybind = cmd+t>6=goto_tab:6
-keybind = cmd+t>7=goto_tab:7
-keybind = cmd+t>8=goto_tab:8
-keybind = cmd+t>9=goto_tab:9
-
-# split
-keybind = cmd+t>r=new_split:right
-keybind = cmd+t>d=new_split:down
-
-# move between splits
-keybind = cmd+t>j=goto_split:bottom
-keybind = cmd+t>k=goto_split:top
-keybind = cmd+t>h=goto_split:left
-keybind = cmd+t>l=goto_split:right
-
-# zoom into split
-keybind = cmd+t>z=toggle_split_zoom
-keybind = cmd+t>e=equalize_splits
 
 # split settings
 unfocused-split-opacity = 0.75

@@ -21,6 +21,9 @@
   "buffer_font_weight": 400.0,
   "agent_buffer_font_size": 12,
   "agent": {
+    "tool_permissions": {
+      "default": "allow"
+    },
     "enable_feedback": false,
     "use_modifier_to_send": false,
     "commit_message_model": {
@@ -31,7 +34,6 @@
       "provider": "zed.dev",
       "model": "claude-sonnet-4-5",
     },
-    "always_allow_tool_actions": true,
     "default_model": {
       "model": "claude-opus-4-5-latest",
       "provider": "anthropic",
@@ -133,7 +135,7 @@
     "html": true,
     "toml": true,
   },
-  "buffer_font_family": "TX-02",
+  "buffer_font_family": "SpaceMono Nerd Font",
   "buffer_font_size": 12,
   "collaboration_panel": {
     "button": false,
@@ -147,6 +149,7 @@
   "current_line_highlight": "gutter",
   "cursor_blink": false,
   "edit_predictions": {
+    "provider": "zed",
     "disabled_globs": [".env", "**/journal"],
     "mode": "subtle",
   },
@@ -156,9 +159,6 @@
         "selection": "#99FFE43d",
       },
     ],
-  },
-  "features": {
-    "edit_prediction_provider": "zed",
   },
   "file_types": {
     "CSS": ["scss"],
@@ -292,7 +292,7 @@
       "breadcrumbs": false,
     },
   },
-  "theme": "Zed Dark",
+  "theme": "Polar",
   "toolbar": {
     "breadcrumbs": true,
     "quick_actions": false,

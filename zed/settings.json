@@ -1,14 +1,35 @@
 {
+  "ssh_connections": [
+    {
+      "host": "bytebottom",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/home/petar"
+          ]
+        },
+        {
+          "paths": [
+            "/home/petar/code/finde-ts/./"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "bytebottom",
+      "args": [],
+      "projects": []
+    }
+  ],
   "buffer_line_height": "comfortable",
   "colorize_brackets": true,
   "agent_servers": {
     "opencode": {
       "type": "extension",
-      "favorite_models": [
-        "openai/gpt-5.2-codex"
-      ],
+      "favorite_models": ["openai/gpt-5.2-codex"],
       "default_config_options": {},
-      "favorite_config_option_values": {}
+      "favorite_config_option_values": {},
     },
     "claude": {
       "default_mode": "plan",
@@ -22,7 +43,7 @@
   "agent_buffer_font_size": 12,
   "agent": {
     "tool_permissions": {
-      "default": "allow"
+      "default": "allow",
     },
     "enable_feedback": false,
     "use_modifier_to_send": false,
@@ -292,7 +313,7 @@
       "breadcrumbs": false,
     },
   },
-  "theme": "Polar",
+  "theme": "Polar Frozen",
   "toolbar": {
     "breadcrumbs": true,
     "quick_actions": false,

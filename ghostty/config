@@ -6,9 +6,9 @@ shell-integration = zsh
 shell-integration-features = sudo, title, ssh-terminfo
 
 # fonts
-font-family = Space Mono
+font-family = SpaceMono Nerd Font
 font-size = 12
-adjust-cell-height = 10%
+adjust-cell-height = 7%
 font-style-bold = Medium
 
 # colors

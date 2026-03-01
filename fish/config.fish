@@ -55,6 +55,7 @@ abbr e $EDITOR
 abbr vim nvim
 abbr se sudoedit
 abbr cdr 'cd (git rev-parse --show-toplevel)'
+abbr cpwd 'pwd | pbcopy'
 
 # tree shortcuts
 abbr t1 'tree --dirsfirst -ChFL 1'
@@ -175,3 +176,6 @@ end
 # Added by OrbStack: command-line tools and integration
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
+
+# Added by Amplify installer
+fish_add_path "/Users/petar/.local/bin"

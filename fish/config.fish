@@ -167,10 +167,15 @@ end
 # environment managers (with performance guards)
 if type -q mise
     $HOME/.local/bin/mise activate fish | source
+    mise completion fish | source
 end
 
 if type -q direnv
     direnv hook fish | source
+end
+
+if type -q zmx
+    zmx completions fish | source
 end
 
 # Added by OrbStack: command-line tools and integration

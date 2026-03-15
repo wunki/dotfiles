@@ -72,11 +72,11 @@ abbr gu gitu
 abbr gho 'gh browse'
 
 # file listing (eza)
-abbr l eza
-abbr ls eza
-abbr ll 'eza -l'
-abbr llg 'eza -l --git'
-abbr lll 'eza -la'
+abbr l 'eza --hyperlink'
+abbr ls 'eza --hyperlink'
+abbr ll 'eza --hyperlink -l'
+abbr llg 'eza --hyperlink -l --git'
+abbr lll 'eza --hyperlink -la'
 
 # tmux shortcuts
 abbr tt 'tmux attach || tmux new-session -s main'
@@ -177,5 +177,5 @@ end
 # This won't be added again if you remove it.
 source ~/.orbstack/shell/init2.fish 2>/dev/null || :
 
-# Added by Amplify installer
-fish_add_path "/Users/petar/.local/bin"
+# opencode
+fish_add_path /Users/petar/.opencode/bin

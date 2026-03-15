@@ -1,39 +1,19 @@
 {
-  "ssh_connections": [
-    {
-      "host": "bytebottom",
-      "args": [],
-      "projects": [
-        {
-          "paths": [
-            "/home/petar"
-          ]
-        },
-        {
-          "paths": [
-            "/home/petar/code/finde-ts/./"
-          ]
-        }
-      ]
-    },
-    {
-      "host": "bytebottom",
-      "args": [],
-      "projects": []
-    }
-  ],
+  "agent": {
+    "play_sound_when_agent_done": true,
+    "favorite_models": [],
+    "notify_when_agent_waiting": "never",
+    "model_parameters": [],
+  },
   "buffer_line_height": "comfortable",
   "colorize_brackets": true,
   "agent_servers": {
-    "opencode": {
-      "type": "extension",
-      "favorite_models": ["openai/gpt-5.2-codex"],
-      "default_config_options": {},
-      "favorite_config_option_values": {},
+    "gemini": {
+      "type": "registry"
     },
-    "claude": {
-      "default_mode": "plan",
-    },
+    "codex-acp": {
+      "type": "registry"
+    }
   },
   "agent_ui_font_size": 14.0,
   "gutter": {
@@ -41,131 +21,17 @@
   },
   "buffer_font_weight": 400.0,
   "agent_buffer_font_size": 12,
-  "agent": {
-    "tool_permissions": {
-      "default": "allow",
-    },
-    "enable_feedback": false,
-    "use_modifier_to_send": false,
-    "commit_message_model": {
-      "provider": "anthropic",
-      "model": "claude-haiku-4-5-latest",
-    },
-    "inline_assistant_model": {
-      "provider": "zed.dev",
-      "model": "claude-sonnet-4-5",
-    },
-    "default_model": {
-      "model": "claude-opus-4-5-latest",
-      "provider": "anthropic",
-    },
-    "default_profile": "write",
-    "dock": "right",
-    "notify_when_agent_waiting": "primary_screen",
-    "profiles": {
-      "minimal": {
-        "name": "Minimal",
-        "tools": {},
-        "enable_all_context_servers": false,
-        "context_servers": {
-          "svelte": {
-            "tools": {
-              "svelte-autofixer": true,
-              "playground-link": true,
-              "list-sections": true,
-              "get-documentation": true,
-            },
-          },
-        },
-      },
-      "ask": {
-        "default_model": {
-          "provider": "anthropic",
-          "model": "claude-sonnet-4-5-latest",
-        },
-        "context_servers": {
-          "svelte": {
-            "tools": {
-              "svelte-autofixer": true,
-              "playground-link": true,
-              "list-sections": true,
-              "get-documentation": true,
-            },
-          },
-        },
-        "enable_all_context_servers": false,
-        "name": "Ask",
-        "tools": {
-          "contents": true,
-          "diagnostics": true,
-          "fetch": true,
-          "find_path": true,
-          "grep": true,
-          "list_directory": true,
-          "now": true,
-          "read_file": true,
-          "thinking": true,
-          "web_search": true,
-        },
-      },
-      "write": {
-        "default_model": {
-          "provider": "anthropic",
-          "model": "claude-sonnet-4-5-latest",
-        },
-        "context_servers": {
-          "svelte": {
-            "tools": {
-              "svelte-autofixer": true,
-              "list-sections": true,
-              "get-documentation": true,
-            },
-          },
-        },
-        "enable_all_context_servers": true,
-        "name": "Write",
-        "tools": {
-          "batch_tool": true,
-          "code_actions": true,
-          "code_symbols": true,
-          "contents": true,
-          "copy_path": false,
-          "create_file": true,
-          "delete_path": false,
-          "diagnostics": true,
-          "edit_file": true,
-          "fetch": true,
-          "find_path": true,
-          "grep": true,
-          "list_directory": true,
-          "move_path": false,
-          "now": true,
-          "read_file": true,
-          "rename": true,
-          "symbol_info": true,
-          "terminal": true,
-          "thinking": true,
-          "web_search": true,
-        },
-      },
-    },
-  },
   "auto_install_extensions": {
     "elixir": true,
     "fish": true,
     "html": true,
     "toml": true,
+    "svelte": true,
   },
-  "buffer_font_family": "SpaceMono Nerd Font",
+  "buffer_font_family": "TX-02",
   "buffer_font_size": 12,
   "collaboration_panel": {
     "button": false,
-  },
-  "context_servers": {
-    "postgres": {
-      "enabled": true,
-      "settings": {},
-    },
   },
   "current_line_highlight": "gutter",
   "cursor_blink": false,
@@ -173,13 +39,6 @@
     "provider": "zed",
     "disabled_globs": [".env", "**/journal"],
     "mode": "subtle",
-  },
-  "experimental.theme_overrides": {
-    "players": [
-      {
-        "selection": "#99FFE43d",
-      },
-    ],
   },
   "file_types": {
     "CSS": ["scss"],
@@ -190,26 +49,8 @@
       "enabled": false,
     },
   },
-  "icon_theme": "Colored Zed Icons Theme Dark",
   "inlay_hints": {
     "enabled": false,
-  },
-  "journal": {
-    "hour_format": "hour24",
-    "path": "~/Notes",
-  },
-  "language_models": {
-    "lmstudio": {
-      "available_models": [
-        {
-          "display_name": "qwen3-coder-30b",
-          "max_tokens": 128000,
-          "name": "qwen/qwen3-coder-30b",
-          "supports_images": false,
-          "supports_tool_calls": true,
-        },
-      ],
-    },
   },
   "languages": {
     "Elixir": {
@@ -290,6 +131,7 @@
     "metrics": false,
   },
   "terminal": {
+    "font_family": "TX-02",
     "scrollbar": {
       "show": "auto",
     },
@@ -299,21 +141,20 @@
     "env": {
       "TERM_PROGRAM": "zed",
     },
-    "font_family": "TX-02",
-    "font_size": 12,
+    "font_size": 12.0,
     "option_as_meta": true,
     "shell": {
       "with_arguments": {
         "title_override": "zsh",
         "args": ["-l", "-i"],
-        "program": "/opt/homebrew/bin/zsh",
+        "program": "/opt/homebrew/bin/fish",
       },
     },
     "toolbar": {
       "breadcrumbs": false,
     },
   },
-  "theme": "Polar Frozen",
+  "theme": "Gruvbox Light Soft",
   "toolbar": {
     "breadcrumbs": true,
     "quick_actions": false,

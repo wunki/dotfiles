@@ -1,14 +1,7 @@
 [
   {
-    "label": "Claude Code",
+    "label": "Claude Code in the Terminal",
     "command": "claude",
-    "use_new_terminal": true,
-    "allow_concurrent_runs": false,
-    "reveal": "always",
-  },
-  {
-    "label": "Amp Code",
-    "command": "amp",
     "use_new_terminal": true,
     "allow_concurrent_runs": false,
     "reveal": "always",

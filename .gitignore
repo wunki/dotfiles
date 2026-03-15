@@ -6,6 +6,7 @@
 *~
 /.sync
 /fish/functions
+!/fish/functions/_tide_item_zmx.fish
 /fish/fish_read_history
 /fish/secret_env.fish
 /fish/conf.d/*

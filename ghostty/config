@@ -39,8 +39,14 @@ clipboard-write = allow
 macos-option-as-alt = true
 bell-features = no-title,no-attention
 
+# updates
+auto-update = off
+keybind = cmd+shift+u=check_for_updates
+
 # split settings
 unfocused-split-opacity = 0.75
 
 # shift-enter in Claude
 keybind = shift+enter=text:\n
+# copy hovered hyperlink target (for file:// links from eza)
+keybind = cmd+shift+y=copy_url_to_clipboard

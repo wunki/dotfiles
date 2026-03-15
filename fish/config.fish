@@ -82,6 +82,9 @@ abbr lll 'eza --hyperlink -la'
 abbr tt 'tmux attach || tmux new-session -s main'
 abbr ssb "ssh -t bytebottom 'tmux attach || tmux new-session -s main'"
 
+# autossh
+abbr ash 'autossh -M 0 -q'
+
 # quality of life functions
 function mkcd
     mkdir -p $argv[1]; and cd $argv[1]

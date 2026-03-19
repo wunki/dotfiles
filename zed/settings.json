@@ -1,5 +1,10 @@
 {
   "agent": {
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-opus-4-6-latest",
+      "enable_thinking": false
+    },
     "play_sound_when_agent_done": true,
     "favorite_models": [],
     "notify_when_agent_waiting": "never",
@@ -8,6 +13,9 @@
   "buffer_line_height": "comfortable",
   "colorize_brackets": true,
   "agent_servers": {
+    "claude-acp": {
+      "type": "registry"
+    },
     "gemini": {
       "type": "registry"
     },

@@ -10,6 +10,9 @@
     "notify_when_agent_waiting": "never",
     "model_parameters": [],
   },
+  "env": {
+    "GOPATH": "/Users/petar/Code/Go",
+  },
   "buffer_line_height": "comfortable",
   "colorize_brackets": true,
   "agent_servers": {

@@ -1,1 +1,1 @@
-# fzf colors now handled by gondolin_apply
+# fzf colors now handled by theme_apply

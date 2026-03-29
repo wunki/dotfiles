@@ -14,7 +14,7 @@ font-style-bold = Medium
 # colors
 window-colorspace = display-p3
 selection-invert-fg-bg = true
-theme = light:Flexoki Light,dark:gondolin
+theme = light:Melange Light,dark:gondolin
 
 # padding
 window-padding-balance = true

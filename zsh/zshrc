@@ -14,7 +14,7 @@ typeset -U PATH path
 export LANG='en_US.UTF-8'
 export LC_ALL='en_US.UTF-8'
 export XDG_DATA_HOME=$HOME/.local/share
-export GOPATH="$HOME/code/go"
+export GOPATH="$HOME/Code/Go"
 os_name="$(uname)"
 
 # Mac-specific stuff
@@ -144,9 +144,11 @@ zstyle ':prompt:pure:prompt:error' color red
 autoload -U promptinit; promptinit
 prompt pure
 
-# bun completions
-[ -s "/Users/petar/.bun/_bun" ] && source "/Users/petar/.bun/_bun"
+# Eat shell in Emacs
+[ -n "$EAT_SHELL_INTEGRATION_DIR" ] && \
+  source "$EAT_SHELL_INTEGRATION_DIR/zsh"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+[ -s "/Users/petar/.bun/_bun" ] && source "/Users/petar/.bun/_bun"

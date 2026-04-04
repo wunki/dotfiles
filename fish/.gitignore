@@ -24,3 +24,4 @@ fish_plugins
 !/functions/_min*.fish
 !/functions/update-abbreviations.fish
 !/functions/update-abbreviations-*.fish
+!/functions/theme_apply.fish

@@ -72,11 +72,11 @@ abbr gu gitu
 abbr gho 'gh browse'
 
 # file listing (eza)
-abbr l 'eza --hyperlink'
-abbr ls 'eza --hyperlink'
-abbr ll 'eza --hyperlink -l'
-abbr llg 'eza --hyperlink -l --git'
-abbr lll 'eza --hyperlink -la'
+abbr l eza
+abbr ls eza
+abbr ll eza
+abbr llg 'eza -l --git'
+abbr lll 'eza -la'
 
 # tmux shortcuts
 abbr tt 'tmux attach || tmux new-session -s main'

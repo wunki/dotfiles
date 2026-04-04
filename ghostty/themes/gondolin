@@ -1,4 +1,4 @@
-# finde - based on Zed Dark theme
+# gondolin theme
 palette = 0=#080A0D
 palette = 1=#fc6a67
 palette = 2=#a9dc76
@@ -17,7 +17,7 @@ palette = 14=#61ffcf
 palette = 15=#ffffff
 background = #080A0D
 foreground = #c6cad7
-cursor-color = #FFFFFF
+cursor-color = #83AEF8
 selection-background = #515A6A
 selection-foreground = #c6cad7
 split-divider-color = #2A3545

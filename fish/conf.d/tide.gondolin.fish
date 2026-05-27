@@ -11,8 +11,15 @@ if status is-interactive
     # Apply colors on startup
     theme_apply
 
-    # Re-check macOS appearance before each prompt (adds ~3ms)
+    # Re-check appearance periodically; querying the desktop portal costs a few ms.
     function __theme_check --on-event fish_prompt
-        theme_apply
+        set -q theme_check_interval; or set -g theme_check_interval 10
+        set -q __theme_check_count; or set -g __theme_check_count 0
+
+        set -g __theme_check_count (math $__theme_check_count + 1)
+        if test $__theme_check_count -ge $theme_check_interval
+            set -g __theme_check_count 0
+            theme_apply
+        end
     end
 end

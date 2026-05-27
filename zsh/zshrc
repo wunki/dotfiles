@@ -7,6 +7,12 @@
 # Vim if the default editor is Vim.
 bindkey -e
 
+# History
+HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt SHARE_HISTORY HIST_IGNORE_DUPS HIST_IGNORE_SPACE
+
 # Extend the path
 typeset -U PATH path
 

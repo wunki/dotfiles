@@ -1,0 +1,214 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  cat <<'USAGE'
+Usage: setup-go [--force] [--yes] [--version go1.25.3]
+
+Installs or updates Go using the official Linux tarball flow:
+  - remove /usr/local/go
+  - extract the downloaded archive into /usr/local
+  - configure GOPATH and GOBIN under ~/Code/go
+  - ensure Go's tool and binary directories are present in ~/.profile
+  - verify with go version
+
+Options:
+  --force              reinstall even if the requested version is installed
+  -y, --yes            do not ask before installing the latest version
+  --version VERSION    install a specific Go version, for example go1.25.3
+  -h, --help           show this help
+USAGE
+}
+
+force=0
+assume_yes=0
+requested_version=""
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --force)
+      force=1
+      shift
+      ;;
+    -y|--yes)
+      assume_yes=1
+      shift
+      ;;
+    --version)
+      if [[ $# -lt 2 ]]; then
+        echo "setup-go: --version requires an argument" >&2
+        exit 2
+      fi
+      requested_version="$2"
+      shift 2
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "setup-go: unknown option: $1" >&2
+      usage >&2
+      exit 2
+      ;;
+  esac
+done
+
+if [[ "$(uname -s)" != "Linux" ]]; then
+  echo "setup-go: this script currently supports Linux tarball installs only" >&2
+  exit 1
+fi
+
+if ! command -v curl >/dev/null 2>&1; then
+  echo "setup-go: curl is required" >&2
+  exit 1
+fi
+
+case "$(uname -m)" in
+  x86_64|amd64) go_arch="amd64" ;;
+  aarch64|arm64) go_arch="arm64" ;;
+  armv6l|armv7l) go_arch="armv6l" ;;
+  i386|i686) go_arch="386" ;;
+  *)
+    echo "setup-go: unsupported architecture: $(uname -m)" >&2
+    exit 1
+    ;;
+esac
+
+if [[ -n "$requested_version" ]]; then
+  go_version="$requested_version"
+else
+  go_version="$(curl -fsSL 'https://go.dev/VERSION?m=text' | sed -n '1p')"
+fi
+
+if [[ ! "$go_version" =~ ^go[0-9]+\.[0-9]+(\.[0-9]+)?$ ]]; then
+  echo "setup-go: invalid Go version from input or go.dev: $go_version" >&2
+  exit 1
+fi
+
+archive="${go_version}.linux-${go_arch}.tar.gz"
+url="https://go.dev/dl/${archive}"
+install_dir="/usr/local"
+go_root="${install_dir}/go"
+profile="${HOME}/.profile"
+go_workspace="${HOME}/Code/go"
+go_bin="${go_workspace}/bin"
+
+configure_shell_profile() {
+  mkdir -p "$go_workspace" "$go_bin"
+
+  touch "$profile"
+
+  if ! grep -qF '/usr/local/go/bin' "$profile"; then
+    cat >> "$profile" <<'PROFILE'
+
+# set PATH so it includes the Go toolchain if it exists
+if [ -d "/usr/local/go/bin" ] ; then
+    PATH="/usr/local/go/bin:$PATH"
+fi
+PROFILE
+    echo "Added /usr/local/go/bin to ${profile}."
+  fi
+
+  if ! grep -qF 'export GOBIN="$GOPATH/bin"' "$profile"; then
+    cat >> "$profile" <<'PROFILE'
+
+export GOPATH="$HOME/Code/go"
+export GOBIN="$GOPATH/bin"
+
+# set PATH so it includes Go-installed commands if they exist
+if [ -d "$GOBIN" ] ; then
+    PATH="$GOBIN:$PATH"
+fi
+PROFILE
+    echo "Added ${go_bin} to ${profile}."
+  fi
+}
+
+current_version=""
+if [[ -x "${go_root}/bin/go" ]]; then
+  current_version="$("${go_root}/bin/go" version | awk '{print $3}')"
+elif command -v go >/dev/null 2>&1; then
+  current_version="$(go version | awk '{print $3}')"
+fi
+
+if [[ "$force" -eq 0 && "$current_version" == "$go_version" ]]; then
+  configure_shell_profile
+  "${go_root}/bin/go" env -w GOPATH="$go_workspace" GOBIN="$go_bin"
+  echo "Go ${go_version} is already installed."
+  exit 0
+fi
+
+if [[ -z "$requested_version" && "$assume_yes" -eq 0 && -t 0 ]]; then
+  if [[ -n "$current_version" ]]; then
+    printf 'Current Go version: %s\n' "$current_version"
+  else
+    printf 'Go is not currently installed at %s.\n' "$go_root"
+  fi
+
+  read -r -p "Install latest Go version ${go_version}? [Y/n] " answer
+  case "$answer" in
+    ""|[Yy]|[Yy][Ee][Ss]) ;;
+    *)
+      echo "Canceled."
+      exit 0
+      ;;
+  esac
+fi
+
+tmpdir="$(mktemp -d)"
+cleanup() {
+  rm -rf "$tmpdir"
+}
+trap cleanup EXIT
+
+archive_path="${tmpdir}/${archive}"
+
+echo "Downloading ${url}"
+curl -fL --progress-bar "$url" -o "$archive_path"
+
+if command -v jq >/dev/null 2>&1 && command -v sha256sum >/dev/null 2>&1; then
+  echo "Checking SHA-256 checksum"
+  expected_sha256="$(
+    curl -fsSL 'https://go.dev/dl/?mode=json' |
+      jq -r --arg file "$archive" '
+        .[] | .files[] | select(.filename == $file) | .sha256
+      ' |
+      sed -n '1p'
+  )"
+
+  if [[ -n "$expected_sha256" && "$expected_sha256" != "null" ]]; then
+    actual_sha256="$(sha256sum "$archive_path" | awk '{print $1}')"
+    if [[ "$actual_sha256" != "$expected_sha256" ]]; then
+      echo "setup-go: checksum mismatch for ${archive}" >&2
+      exit 1
+    fi
+  else
+    echo "No checksum found for ${archive}; continuing without checksum verification."
+  fi
+else
+  echo "jq and sha256sum are not both available; skipping checksum verification."
+fi
+
+echo "Installing ${go_version} to ${go_root}"
+if [[ "$(id -u)" -eq 0 ]]; then
+  rm -rf "$go_root"
+  tar -C "$install_dir" -xzf "$archive_path"
+else
+  sudo rm -rf "$go_root"
+  sudo tar -C "$install_dir" -xzf "$archive_path"
+fi
+
+configure_shell_profile
+"${go_root}/bin/go" env -w GOPATH="$go_workspace" GOBIN="$go_bin"
+
+echo "Installed:"
+"${go_root}/bin/go" version
+echo "GOPATH: $("${go_root}/bin/go" env GOPATH)"
+echo "GOBIN:  $("${go_root}/bin/go" env GOBIN)"
+echo "Modules will be cached under: $("${go_root}/bin/go" env GOMODCACHE)"
+
+if ! command -v go >/dev/null 2>&1 || [[ "$(command -v go)" != "${go_root}/bin/go" ]]; then
+  echo
+  echo "Open a new shell or run: source ${profile}"
+fi

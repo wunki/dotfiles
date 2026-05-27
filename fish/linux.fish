@@ -1,5 +1,5 @@
 # Where I store all my code
-set -x PROJECT_DIR "$HOME/code"
+set -x PROJECT_DIR "$HOME/Code"
 
 # Environment variables
 set -x SHELL /usr/bin/fish

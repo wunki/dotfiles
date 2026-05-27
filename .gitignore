@@ -5,8 +5,10 @@
 .netrwhist
 *~
 /.sync
-/fish/functions
+/fish/functions/*
 !/fish/functions/_tide_item_zmx.fish
+!/fish/functions/theme_apply.fish
+!/fish/functions/theme_mode.fish
 /fish/fish_read_history
 /fish/secret_env.fish
 /fish/conf.d/*

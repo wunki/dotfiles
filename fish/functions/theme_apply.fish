@@ -1,4 +1,4 @@
-function theme_apply -d "Apply tide+fzf colors for current macOS appearance"
+function theme_apply -d "Apply tide+fzf colors for current system appearance"
     if not status is-interactive
         return
     end
@@ -6,14 +6,7 @@ function theme_apply -d "Apply tide+fzf colors for current macOS appearance"
     # Accept override: theme_apply dark|light
     set -l mode $argv[1]
     if test -z "$mode"
-        set mode dark
-        if type -q defaults
-            if defaults read -g AppleInterfaceStyle &>/dev/null
-                set mode dark
-            else
-                set mode light
-            end
-        end
+        set mode (theme_mode)
     end
 
     # Skip if mode hasn't changed (avoids unnecessary set -U writes)

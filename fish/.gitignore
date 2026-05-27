@@ -19,9 +19,9 @@ fish_plugins
 
 # Excempted functions
 !/functions/ls!.fish
-!/functions/fisher.fish
 !/functions/gg.fish
 !/functions/_min*.fish
 !/functions/update-abbreviations.fish
 !/functions/update-abbreviations-*.fish
 !/functions/theme_apply.fish
+!/functions/theme_mode.fish

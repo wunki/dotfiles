@@ -6,7 +6,7 @@ if status is-interactive
     # zmx session indicator
     set -U tide_zmx_bg_color normal
     set -U tide_zmx_color cyan
-    set -U tide_right_prompt_items zmx status cmd_duration context jobs direnv bun node python rustc java php pulumi ruby go kubectl distrobox toolbox terraform aws nix_shell crystal elixir zig
+    set -U tide_right_prompt_items zmx status cmd_duration context jobs direnv pulumi kubectl distrobox toolbox terraform aws nix_shell
 
     # Apply colors on startup
     theme_apply

@@ -9,7 +9,7 @@ shell-integration-features = sudo, title, ssh-terminfo
 font-family = Space Mono
 font-size = 12
 font-style-bold = Medium
-adjust-cell-height = 4%
+adjust-cell-height = 7%
 
 # colors
 window-colorspace = display-p3

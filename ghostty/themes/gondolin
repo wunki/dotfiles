@@ -18,6 +18,7 @@ palette = 15=#ffffff
 background = #080A0D
 foreground = #c6cad7
 cursor-color = #83AEF8
+cursor-text = #080A0D
 selection-background = #515A6A
 selection-foreground = #c6cad7
 split-divider-color = #2A3545

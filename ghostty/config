@@ -36,7 +36,7 @@ clipboard-read = allow
 clipboard-write = allow
 
 # mac
-macos-option-as-alt = false
+macos-option-as-alt = true
 bell-features = no-title,no-attention
 
 # updates

@@ -29,10 +29,11 @@ fish: ensure-config-dir
 	@printf "Recommended tools (install via brew or package manager):\n"
 	@printf "\tbrew install eza        # Modern ls replacement\n"
 	@printf "\tbrew install bat        # Modern cat replacement\n"
-	@printf "\tbrew install fzf        # Fuzzy finder\n\n"
+	@printf "\tbrew install fzf        # Fuzzy finder\n"
+	@printf "\tbrew install zoxide     # Smarter directory jumping\n\n"
 	@printf "Fisher plugins (run after installing fisher):\n"
 	@printf "\tfisher install jorgebucaran/autopair.fish\n"
-	@printf "\tfisher install jethrokuan/z\n"
+	@printf "\tfisher install meaningful-ooo/sponge\n"
 	@printf "\tfisher install PatrickF1/fzf.fish\n"
 	@printf "\tfisher install IlanCosman/tide@v6\n\n"
 

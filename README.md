@@ -162,6 +162,7 @@ These tools enhance both shells and should be installed first:
 brew install eza         # Modern ls replacement (aliased to ls)
 brew install bat         # Modern cat replacement (aliased to cat)
 brew install fzf         # Fuzzy finder
+brew install zoxide      # Smarter directory jumping
 ```
 
 ### Fish Setup
@@ -174,7 +175,7 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 2. Install plugins:
 ```bash
 fisher install jorgebucaran/autopair.fish
-fisher install jethrokuan/z
+fisher install meaningful-ooo/sponge
 fisher install PatrickF1/fzf.fish
 fisher install IlanCosman/tide@v6
 ```
@@ -188,7 +189,6 @@ tide configure
 
 1. Install tools:
 ```bash
-brew install zoxide      # Directory jumping (use 'z' command)
 brew install direnv      # Per-directory environment variables
 brew install mise        # Version manager for dev tools
 brew install gitu        # Terminal UI for git (aliased to 'gu')
@@ -224,4 +224,3 @@ Common issues and solutions:
 ## License
 
 MIT
-

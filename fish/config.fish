@@ -1,8 +1,5 @@
 # don't show a greeting
-set -U fish_greeting
-
-# use the default key bindings
-fish_default_key_bindings
+set -g fish_greeting
 
 # environment
 set -x LANG 'en_US.UTF-8'
@@ -55,7 +52,6 @@ abbr e $EDITOR
 abbr vim nvim
 abbr se sudoedit
 abbr cdr 'cd (git rev-parse --show-toplevel)'
-abbr cpwd 'pwd | pbcopy'
 
 # tree shortcuts
 abbr t1 'tree --dirsfirst -ChFL 1'
@@ -87,7 +83,12 @@ abbr ash 'autossh -M 0 -q'
 
 # quality of life functions
 function mkcd
-    mkdir -p $argv[1]; and cd $argv[1]
+    if test (count $argv) -eq 0
+        echo "mkcd: missing directory"
+        return 1
+    end
+
+    mkdir -p -- $argv[1]; and cd -- $argv[1]
 end
 
 # tmux-aware nvim socket for nvim:// links
@@ -117,9 +118,8 @@ if type -q bat
     set -x COLORTERM truecolor
 end
 
-# prompt (using starship)
-if type -q starship
-    starship init fish | source
+if status is-interactive; and type -q zoxide
+    zoxide init fish | source
 end
 
 # node.js ecosystem
@@ -170,15 +170,13 @@ end
 # environment managers (with performance guards)
 if type -q mise
     $HOME/.local/bin/mise activate fish | source
-    mise completion fish | source
+    if status is-interactive
+        mise completion fish | source
+    end
 end
 
-if type -q direnv
+if status is-interactive; and type -q direnv
     direnv hook fish | source
-end
-
-if type -q zmx
-    zmx completions fish | source
 end
 
 # Added by OrbStack: command-line tools and integration

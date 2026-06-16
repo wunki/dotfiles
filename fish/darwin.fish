@@ -7,7 +7,7 @@ if test -x /opt/homebrew/bin/fish
 end
 
 # Setup homebrew
-set -U brew_prefix /opt/homebrew
+set -g brew_prefix /opt/homebrew
 
 # Don't show me hints
 set -x HOMEBREW_NO_ENV_HINTS true
@@ -18,6 +18,8 @@ set -x HOMEBREW_NO_INSTALL_UPGRADE 1
 
 # Mac specific paths
 fish_add_path -aP "$brew_prefix/bin"
+
+abbr cpwd 'pwd | pbcopy'
 
 # Python
 fish_add_path -pP "$brew_prefix/opt/python3/bin"
@@ -75,4 +77,12 @@ function bup --description "Updates, upgrades and cleans Homebrew"
 end
 
 # Elixir: partition os_deps compile work by CPU cores / 2
-set -x MIX_OS_DEPS_COMPILE_PARTITION_COUNT (math --scale=0 (sysctl -n hw.physicalcpu) / 2)
+set -l physical_cpu_count (sysctl -n hw.physicalcpu 2>/dev/null)
+if test $status -eq 0; and string match -qr '^[0-9]+$' -- $physical_cpu_count
+    set -l os_deps_partition_count (math --scale=0 "$physical_cpu_count / 2")
+    if test $os_deps_partition_count -lt 1
+        set os_deps_partition_count 1
+    end
+
+    set -x MIX_OS_DEPS_COMPILE_PARTITION_COUNT $os_deps_partition_count
+end

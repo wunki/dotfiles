@@ -1,12 +1,9 @@
 # Tide prompt layout and auto-switching theme colors
 if status is-interactive
     # Prompt structure
-    set -U tide_left_prompt_items pwd git newline character
+    set -g tide_left_prompt_items pwd git newline character
 
-    # zmx session indicator
-    set -U tide_zmx_bg_color normal
-    set -U tide_zmx_color cyan
-    set -U tide_right_prompt_items zmx status cmd_duration context jobs direnv pulumi kubectl distrobox toolbox terraform aws nix_shell
+    set -g tide_right_prompt_items status cmd_duration context jobs direnv pulumi kubectl distrobox toolbox terraform aws nix_shell
 
     # Apply colors on startup
     theme_apply

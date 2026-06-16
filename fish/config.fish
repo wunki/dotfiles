@@ -169,7 +169,7 @@ end
 
 # environment managers (with performance guards)
 if type -q mise
-    $HOME/.local/bin/mise activate fish | source
+    mise activate fish | source
     if status is-interactive
         mise completion fish | source
     end
@@ -178,10 +178,3 @@ end
 if status is-interactive; and type -q direnv
     direnv hook fish | source
 end
-
-# Added by OrbStack: command-line tools and integration
-# This won't be added again if you remove it.
-source ~/.orbstack/shell/init2.fish 2>/dev/null || :
-
-# opencode
-fish_add_path /Users/petar/.opencode/bin

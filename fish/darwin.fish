@@ -21,6 +21,11 @@ fish_add_path -aP "$brew_prefix/bin"
 
 abbr cpwd 'pwd | pbcopy'
 
+# Added by OrbStack: command-line tools and integration
+if test -f "$HOME/.orbstack/shell/init2.fish"
+    source "$HOME/.orbstack/shell/init2.fish"
+end
+
 # Python
 fish_add_path -pP "$brew_prefix/opt/python3/bin"
 

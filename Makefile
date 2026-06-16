@@ -26,11 +26,16 @@ fish: ensure-config-dir
 	@echo "Linking fish configuration..."
 	@ln -fns $(DOTFILES)/fish $(CONFIG_DIR)/fish
 	@printf "Fish linked.\n\n"
-	@printf "Recommended tools (install via brew or package manager):\n"
-	@printf "\tbrew install eza        # Modern ls replacement\n"
-	@printf "\tbrew install bat        # Modern cat replacement\n"
-	@printf "\tbrew install fzf        # Fuzzy finder\n"
-	@printf "\tbrew install zoxide     # Smarter directory jumping\n\n"
+ifeq ($(UNAME),Darwin)
+	@printf "Recommended tools:\n"
+	@printf "\tbrew install eza bat fzf zoxide tree autossh direnv mise gitu\n\n"
+else
+	@printf "Recommended tools:\n"
+	@printf "\tDebian/Ubuntu: sudo apt install eza bat fzf zoxide tree autossh direnv git gh tmux\n"
+	@printf "\tFedora:        sudo dnf install eza bat fzf zoxide tree autossh direnv git gh tmux\n"
+	@printf "\tArch:          sudo pacman -S eza bat fzf zoxide tree autossh direnv github-cli tmux\n"
+	@printf "\tInstall separately as needed: mise, gitu, bun, pnpm, opencode, lua-language-server\n\n"
+endif
 	@printf "Fisher plugins (run after installing fisher):\n"
 	@printf "\tfisher install jorgebucaran/autopair.fish\n"
 	@printf "\tfisher install meaningful-ooo/sponge\n"

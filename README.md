@@ -159,10 +159,17 @@ make bin
 These tools enhance both shells and should be installed first:
 
 ```bash
-brew install eza         # Modern ls replacement (aliased to ls)
-brew install bat         # Modern cat replacement (aliased to cat)
-brew install fzf         # Fuzzy finder
-brew install zoxide      # Smarter directory jumping
+# macOS
+brew install eza bat fzf zoxide tree autossh direnv mise gitu
+
+# Debian/Ubuntu
+sudo apt install eza bat fzf zoxide tree autossh direnv git gh tmux
+
+# Fedora
+sudo dnf install eza bat fzf zoxide tree autossh direnv git gh tmux
+
+# Arch
+sudo pacman -S eza bat fzf zoxide tree autossh direnv github-cli tmux
 ```
 
 ### Fish Setup
@@ -189,9 +196,7 @@ tide configure
 
 1. Install tools:
 ```bash
-brew install direnv      # Per-directory environment variables
-brew install mise        # Version manager for dev tools
-brew install gitu        # Terminal UI for git (aliased to 'gu')
+brew install direnv mise gitu
 ```
 
 2. Clone ZSH plugins:

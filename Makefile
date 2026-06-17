@@ -1,10 +1,10 @@
 # Variables
-DOTFILES	:= $(PWD)
+DOTFILES	:= $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
 # List all application targets here
-APP_TARGETS := fish zsh helix ghostty rio zed tmux bin lazygit
+APP_TARGETS := fish zsh helix ghostty rio zed tmux bin lazygit agents pi
 
 # Define the default target 'all' to depend on all application targets
 .PHONY: all
@@ -121,6 +121,23 @@ bin:
 		fi \
 	done
 	@echo "Bin scripts linked."
+
+agents:
+	@echo "Linking shared agent instructions and skills..."
+	@if [ -e $(HOME)/.agents ] && [ ! -L $(HOME)/.agents ]; then \
+		backup=$(HOME)/.agents.bak.$$(date +%Y%m%d%H%M%S); \
+		mv $(HOME)/.agents $$backup; \
+		echo "Backed up existing ~/.agents to $$backup"; \
+	fi
+	@ln -fns $(DOTFILES)/agents $(HOME)/.agents
+	@echo "Shared agents linked."
+
+pi: agents
+	@echo "Linking Pi global configuration..."
+	@mkdir -p $(HOME)/.pi/agent/extensions
+	@ln -fns $(HOME)/.agents/AGENTS.md $(HOME)/.pi/agent/AGENTS.md
+	@ln -fns $(DOTFILES)/pi/agent/extensions/tmux.ts $(HOME)/.pi/agent/extensions/tmux.ts
+	@echo "Pi linked."
 
 # --- Utility Targets ---
 

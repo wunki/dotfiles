@@ -178,3 +178,6 @@ end
 if status is-interactive; and type -q direnv
     direnv hook fish | source
 end
+
+# opencode
+fish_add_path /home/petar/.opencode/bin

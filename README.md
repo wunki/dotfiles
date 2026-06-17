@@ -46,10 +46,11 @@ A carefully crafted collection of configuration files for Fish, Tmux, Ghostty, H
 | [OpenCode](https://opencode.ai/)             | AI coding assistant (shares skills with Claude)  |
 | [Amp](https://amp.dev/)                      | AI-powered editor (shares commands with Claude)  |
 | [Codex](https://github.com/openai/codex-cli) | OpenAI's CLI (shares skills with Claude)         |
+| [Pi](https://github.com/earendil-works/pi-coding-agent) | AI coding agent (global instructions and extensions) |
 
 ## AI Coding Tools
 
-This repository includes a shared ecosystem of skills and commands for AI coding assistants. The skills are defined once in `claude/skills/` and symlinked to other tools.
+This repository includes a shared ecosystem of skills, commands, and agent instructions for AI coding assistants. Shared Agent Skills and personal coding preferences live in `agents/` and are symlinked into tools that support them.
 
 ### Available Skills
 
@@ -66,16 +67,14 @@ This repository includes a shared ecosystem of skills and commands for AI coding
 ### Sharing Architecture
 
 ```
-claude/skills/     <- Primary skill definitions
+agents/           <- Shared AGENTS.md and Agent Skills
      |
-     +-> ~/.claude/skills (Claude Code)
-     +-> ~/.opencode/skill (OpenCode)
-     +-> ~/.codex/skills (Codex)
+     +-> ~/.agents (shared agents)
+     +-> ~/.pi/agent/AGENTS.md (Pi global instructions)
 
-claude/commands/   <- Shared commands
+pi/agent/extensions/ <- Pi global extensions
      |
-     +-> ~/.claude/commands (Claude Code)
-     +-> ~/.config/amp/commands (Amp)
+     +-> ~/.pi/agent/extensions
 ```
 
 ## Neovim
@@ -143,10 +142,8 @@ make tmux
 make lazygit
 
 # AI Coding Tools
-make claude
-make opencode
-make amp
-make codex
+make agents
+make pi
 
 # Scripts (nvim URL handler, etc.)
 make bin

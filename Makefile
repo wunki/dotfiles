@@ -4,7 +4,7 @@ CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
 # List all application targets here
-APP_TARGETS := fish zsh helix ghostty rio zed tmux bin lazygit agents pi
+APP_TARGETS := fish zsh helix ghostty rio zed tmux bin lazygit mise agents pi
 
 # Define the default target 'all' to depend on all application targets
 .PHONY: all
@@ -108,6 +108,12 @@ else
 	@ln -fns $(DOTFILES)/lazygit $(CONFIG_DIR)/lazygit
 endif
 	@echo "Lazygit linked."
+
+mise: ensure-config-dir
+	@echo "Linking mise configuration..."
+	@mkdir -p $(CONFIG_DIR)/mise
+	@ln -fns $(DOTFILES)/mise/config.toml $(CONFIG_DIR)/mise/config.toml
+	@echo "Mise linked."
 
 bin:
 	@echo "Linking bin scripts to ~/.local/bin..."

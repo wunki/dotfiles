@@ -1,6 +1,6 @@
 # Dotfiles
 
-A carefully crafted collection of configuration files for Fish, Tmux, Ghostty, Helix, Zed and more, optimized for cross-platform use.
+A carefully crafted collection of configuration files for Fish, Tmux, Ghostty, Helix, Zed, mise and more, optimized for cross-platform use.
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
@@ -10,7 +10,7 @@ A carefully crafted collection of configuration files for Fish, Tmux, Ghostty, H
 - **Theme support**: Custom themes including Finde, Gruvbox Material, Lackluster, Zenbones, and more
 - **Modern tools**: Configuration for cutting-edge tools like Ghostty terminal and Zed editor
 - **Shell enhancements**: Fish shell with useful abbreviations, functions, and OS-specific configurations
-- **Development optimized**: Tmux with sensible defaults and theme switching
+- **Development optimized**: Tmux with sensible defaults, theme switching, and mise-managed tool versions
 - **AI coding tools**: Shared skills and commands for Claude Code, OpenCode, Amp, and Codex
 
 ## Components
@@ -37,6 +37,7 @@ A carefully crafted collection of configuration files for Fish, Tmux, Ghostty, H
 | [Zed](https://zed.dev/)                | High-performance, multiplayer code editor                          |
 | [Tmux](https://github.com/tmux/tmux)   | When editing remote I use Tmux to save sessions and manage windows |
 | [Lazygit](https://github.com/jesseduffield/lazygit) | Terminal UI for git commands                          |
+| [mise](https://mise.jdx.dev/)        | Runtime and developer tool version manager            |
 
 ### AI Coding Tools
 
@@ -140,6 +141,7 @@ make helix
 make zed
 make tmux
 make lazygit
+make mise
 
 # AI Coding Tools
 make agents

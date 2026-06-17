@@ -3,8 +3,6 @@ name: ast-grep
 description: Use ast-grep for syntax-aware structural code search, analysis, linting, and safe rewrite planning. Load this when a task asks to find code by shape/AST, refactor repeated code patterns, inspect function/component/import usage structurally, write ast-grep rules, or when ripgrep would be too imprecise.
 ---
 
-# ast-grep
-
 Use `ast-grep` (`sg`) when the task depends on code structure: calls, imports, functions, components, conditionals, object literals, nested constructs, or safe repeated rewrites.
 
 Prefer `rg` for plain text/content search.

@@ -1,0 +1,15 @@
+[settings]
+experimental = true
+
+[tools]
+lua-language-server = "latest"
+node = "lts"
+"npm:@mermaid-js/mermaid-cli" = "latest"
+"npm:oxlint" = "latest"
+"npm:tree-sitter-cli" = "latest"
+"npm:oxfmt" = "latest"
+"npm:vscode-langservers-extracted" = "latest"
+"npm:typescript-language-server" = "latest"
+"npm:svelte-language-server" = "latest"
+"npm:hunkdiff" = "latest"
+"npm:@earendil-works/pi-coding-agent" = "latest"

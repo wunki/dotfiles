@@ -14,7 +14,7 @@ adjust-cell-height = 7%
 # colors
 window-colorspace = display-p3
 selection-invert-fg-bg = true
-theme = light:Melange Light,dark:gondolin
+theme = light:gondolin-light,dark:gondolin
 
 # padding
 window-padding-balance = true

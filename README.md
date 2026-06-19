@@ -171,6 +171,23 @@ sudo dnf install eza bat fzf zoxide tree autossh direnv git gh tmux
 sudo pacman -S eza bat fzf zoxide tree autossh direnv github-cli tmux
 ```
 
+### Mise-Managed Global CLIs
+
+Global npm CLIs are tracked with mise's npm backend instead of Node default package files. Node default package files are deprecated, and this keeps tool installs reproducible across machines and Node upgrades.
+
+```bash
+mise use -g \
+  'npm:hunkdiff@latest' \
+  'npm:@earendil-works/pi-coding-agent@latest'
+mise install
+mise reshim
+```
+
+| Tool | Purpose | Command |
+| ---- | ------- | ------- |
+| `hunkdiff` | Diff hunk formatting/review helper | `hunkdiff` |
+| Pi coding agent | AI coding agent CLI | `pi` |
+
 ### Fish Setup
 
 1. Install Fisher (plugin manager):

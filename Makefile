@@ -94,6 +94,8 @@ tmux:
 	@ln -fns $(DOTFILES)/tmux/tmux-github-dark-theme.conf $(HOME)/.tmux-github-dark-theme.conf
 	@ln -fns $(DOTFILES)/tmux/tmux-zed-dark-theme.conf $(HOME)/.tmux-zed-dark-theme.conf
 	@ln -fns $(DOTFILES)/tmux/tmux-ayu-dark-theme.conf $(HOME)/.tmux-ayu-dark-theme.conf
+	@ln -fns $(DOTFILES)/tmux/tmux-melange-light-theme.conf $(HOME)/.tmux-melange-light-theme.conf
+	@ln -fns $(DOTFILES)/tmux/tmux-rose-pine-dawn-theme.conf $(HOME)/.tmux-rose-pine-dawn-theme.conf
 	@ln -fns $(DOTFILES)/tmux/tmux-flexoki-light-theme.conf $(HOME)/.tmux-flexoki-light-theme.conf
 	@echo "tmux linked."
 

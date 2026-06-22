@@ -6,10 +6,10 @@ shell-integration = fish
 shell-integration-features = sudo, title, ssh-terminfo
 
 # fonts
-font-family = Space Mono
-font-size = 10
+font-family = IBM Plex Mono
+font-size = 9
 font-style-bold = Medium
-adjust-cell-height = 7%
+adjust-cell-height = 14%
 
 # colors
 window-colorspace = display-p3

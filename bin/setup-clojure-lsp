@@ -1,0 +1,147 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  cat <<'USAGE'
+Usage: setup-clojure-lsp [--static] [--version TAG]
+
+Downloads the clojure-lsp native binary archive from GitHub and installs it to:
+  ~/.local/bin/clojure-lsp
+
+Options:
+  --static       on Linux amd64, use the static native binary archive
+  --version TAG  install a specific release tag instead of latest
+  -h, --help     show this help
+USAGE
+}
+
+use_static=0
+version="latest"
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --static)
+      use_static=1
+      shift
+      ;;
+    --version)
+      if [[ $# -lt 2 ]]; then
+        echo "setup-clojure-lsp: --version requires an argument" >&2
+        exit 2
+      fi
+      version="$2"
+      shift 2
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "setup-clojure-lsp: unknown option: $1" >&2
+      usage >&2
+      exit 2
+      ;;
+  esac
+done
+
+if ! command -v curl >/dev/null 2>&1; then
+  echo "setup-clojure-lsp: curl is required" >&2
+  exit 1
+fi
+
+case "$(uname -s)" in
+  Linux) os="linux" ;;
+  Darwin) os="macos" ;;
+  *)
+    echo "setup-clojure-lsp: unsupported operating system: $(uname -s)" >&2
+    exit 1
+    ;;
+esac
+
+case "$(uname -m)" in
+  x86_64|amd64) arch="amd64" ;;
+  aarch64|arm64) arch="aarch64" ;;
+  *)
+    echo "setup-clojure-lsp: unsupported architecture: $(uname -m)" >&2
+    exit 1
+    ;;
+esac
+
+if [[ "$use_static" -eq 1 ]]; then
+  if [[ "$os" != "linux" || "$arch" != "amd64" ]]; then
+    echo "setup-clojure-lsp: --static is only available for Linux amd64" >&2
+    exit 1
+  fi
+  asset="clojure-lsp-native-static-linux-amd64.zip"
+else
+  asset="clojure-lsp-native-${os}-${arch}.zip"
+fi
+
+if [[ "$version" == "latest" ]]; then
+  url="https://github.com/clojure-lsp/clojure-lsp/releases/latest/download/${asset}"
+else
+  url="https://github.com/clojure-lsp/clojure-lsp/releases/download/${version}/${asset}"
+fi
+checksum_url="${url}.sha256"
+install_dir="${HOME}/.local/bin"
+install_path="${install_dir}/clojure-lsp"
+
+tmpdir="$(mktemp -d)"
+cleanup() {
+  rm -rf "$tmpdir"
+}
+trap cleanup EXIT
+
+archive_path="${tmpdir}/${asset}"
+extract_dir="${tmpdir}/extract"
+
+mkdir -p "$extract_dir"
+
+echo "Downloading ${url}"
+curl -fL --progress-bar "$url" -o "$archive_path"
+
+if curl -fsSL "$checksum_url" -o "${archive_path}.sha256"; then
+  if command -v sha256sum >/dev/null 2>&1; then
+    expected_sha256="$(awk '{print $1}' "${archive_path}.sha256")"
+    actual_sha256="$(sha256sum "$archive_path" | awk '{print $1}')"
+  elif command -v shasum >/dev/null 2>&1; then
+    expected_sha256="$(awk '{print $1}' "${archive_path}.sha256")"
+    actual_sha256="$(shasum -a 256 "$archive_path" | awk '{print $1}')"
+  else
+    expected_sha256=""
+    actual_sha256=""
+    echo "No SHA-256 tool found; skipping checksum verification."
+  fi
+
+  if [[ -n "${expected_sha256}" && "$actual_sha256" != "$expected_sha256" ]]; then
+    echo "setup-clojure-lsp: checksum mismatch for ${asset}" >&2
+    exit 1
+  fi
+else
+  echo "No checksum found for ${asset}; continuing without checksum verification."
+fi
+
+if command -v unzip >/dev/null 2>&1; then
+  unzip -q "$archive_path" -d "$extract_dir"
+elif command -v python3 >/dev/null 2>&1; then
+  python3 -m zipfile -e "$archive_path" "$extract_dir"
+else
+  echo "setup-clojure-lsp: unzip or python3 is required to extract ${asset}" >&2
+  exit 1
+fi
+
+binary_path="$(find "$extract_dir" -type f -name clojure-lsp -perm -u+x -print -quit)"
+if [[ -z "$binary_path" ]]; then
+  binary_path="$(find "$extract_dir" -type f -name clojure-lsp -print -quit)"
+fi
+
+if [[ -z "$binary_path" ]]; then
+  echo "setup-clojure-lsp: clojure-lsp binary not found in ${asset}" >&2
+  exit 1
+fi
+
+mkdir -p "$install_dir"
+install -m 0755 "$binary_path" "$install_path"
+
+echo "Installed ${install_path}"
+"$install_path" --version || true

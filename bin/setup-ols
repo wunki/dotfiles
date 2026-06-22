@@ -1,0 +1,68 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  cat <<'USAGE'
+Usage: setup-ols [--ref TAG_OR_BRANCH]
+
+Builds the Odin language server (ols) and odinfmt from source and links
+them into ~/.local/bin. Requires the Odin compiler (`odin`) on PATH.
+
+Keeps a persistent clone at ~/.local/share/ols so ols can find its
+adjacent `builtin/` folder. Re-run to update (git pull + rebuild).
+
+Options:
+  --ref REF    build a specific tag/branch instead of master
+  -h, --help   show this help
+USAGE
+}
+
+ref="master"
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --ref)
+      [[ $# -lt 2 ]] && { echo "setup-ols: --ref requires an argument" >&2; exit 2; }
+      ref="$2"; shift 2 ;;
+    -h|--help) usage; exit 0 ;;
+    *) echo "setup-ols: unknown option: $1" >&2; usage >&2; exit 2 ;;
+  esac
+done
+
+command -v odin >/dev/null 2>&1 || {
+  echo "setup-ols: the Odin compiler must be on PATH (try: mise install odin)" >&2
+  exit 1
+}
+command -v git >/dev/null 2>&1 || { echo "setup-ols: git is required" >&2; exit 1; }
+
+src="${HOME}/.local/share/ols"
+bin_dir="${HOME}/.local/bin"
+mkdir -p "$bin_dir"
+
+if [[ -d "$src/.git" ]]; then
+  echo "Updating ols clone at ${src}"
+  git -C "$src" fetch --quiet origin
+  git -C "$src" checkout --quiet "$ref"
+  git -C "$src" pull --quiet --ff-only origin "$ref" || true
+else
+  echo "Cloning ols into ${src}"
+  git clone --quiet https://github.com/DanielGavin/ols "$src"
+  git -C "$src" checkout --quiet "$ref"
+fi
+
+echo "Building ols"
+( cd "$src" && ./build.sh )
+echo "Building odinfmt"
+( cd "$src" && ./odinfmt.sh )
+
+# Locate the freshly built binaries (build outputs land in the repo root).
+ols_bin="$(find "$src" -maxdepth 1 -type f -name ols -perm -u+x -print -quit)"
+fmt_bin="$(find "$src" -maxdepth 1 -type f -name odinfmt -perm -u+x -print -quit)"
+[[ -n "$ols_bin" ]] || { echo "setup-ols: ols binary not found after build" >&2; exit 1; }
+[[ -n "$fmt_bin" ]] || { echo "setup-ols: odinfmt binary not found after build" >&2; exit 1; }
+
+ln -fns "$ols_bin" "${bin_dir}/ols"
+ln -fns "$fmt_bin" "${bin_dir}/odinfmt"
+
+echo "Linked:"
+echo "  ${bin_dir}/ols -> ${ols_bin}"
+echo "  ${bin_dir}/odinfmt -> ${fmt_bin}"

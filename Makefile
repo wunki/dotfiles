@@ -12,7 +12,7 @@ all: $(APP_TARGETS)
 	@echo "All specified dotfiles linked."
 
 # Declare all command targets as .PHONY
-.PHONY: $(APP_TARGETS) print-% ensure-config-dir
+.PHONY: $(APP_TARGETS) print-% ensure-config-dir setup-clojure-lsp setup-neil
 
 # --- Application Targets ---
 
@@ -146,6 +146,16 @@ pi: agents
 	@ln -fns $(HOME)/.agents/AGENTS.md $(HOME)/.pi/agent/AGENTS.md
 	@ln -fns $(DOTFILES)/pi/agent/extensions/tmux.ts $(HOME)/.pi/agent/extensions/tmux.ts
 	@echo "Pi linked."
+
+# --- Tool Installer Targets ---
+
+setup-clojure-lsp: bin
+	@echo "Installing/updating clojure-lsp..."
+	@$(DOTFILES)/bin/setup-clojure-lsp $(ARGS)
+
+setup-neil: bin
+	@echo "Installing/updating neil..."
+	@$(DOTFILES)/bin/setup-neil $(ARGS)
 
 # --- Utility Targets ---
 

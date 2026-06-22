@@ -1,0 +1,97 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  cat <<'USAGE'
+Usage: setup-neil [--ref REF]
+
+Installs or updates neil using the manual installation flow:
+  - requires babashka's `bb` command
+  - downloads https://raw.githubusercontent.com/babashka/neil/main/neil
+  - installs it to ~/.local/bin/neil
+
+Options:
+  --ref REF   download neil from a specific git ref instead of main
+  -h, --help  show this help
+USAGE
+}
+
+ref="main"
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --ref)
+      if [[ $# -lt 2 ]]; then
+        echo "setup-neil: --ref requires an argument" >&2
+        exit 2
+      fi
+      ref="$2"
+      shift 2
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "setup-neil: unknown option: $1" >&2
+      usage >&2
+      exit 2
+      ;;
+  esac
+done
+
+if ! command -v curl >/dev/null 2>&1; then
+  echo "setup-neil: curl is required" >&2
+  exit 1
+fi
+
+bb_on_path=1
+bb_path="$(command -v bb || true)"
+if [[ -z "$bb_path" ]] && command -v mise >/dev/null 2>&1; then
+  bb_on_path=0
+  bb_path="$(mise which bb 2>/dev/null || true)"
+fi
+
+if [[ -z "$bb_path" ]]; then
+  echo "setup-neil: babashka's bb command is required" >&2
+  if command -v mise >/dev/null 2>&1; then
+    echo "Install it with: mise use --global babashka@latest" >&2
+  fi
+  exit 1
+fi
+
+url="https://raw.githubusercontent.com/babashka/neil/${ref}/neil"
+install_dir="${HOME}/.local/bin"
+install_path="${install_dir}/neil"
+
+tmpfile="$(mktemp)"
+cleanup() {
+  rm -f "$tmpfile"
+}
+trap cleanup EXIT
+
+echo "Downloading ${url}"
+curl -fL --progress-bar "$url" -o "$tmpfile"
+
+if [[ ! -s "$tmpfile" ]]; then
+  echo "setup-neil: downloaded neil script is empty" >&2
+  exit 1
+fi
+
+if ! head -n 1 "$tmpfile" | grep -q '^#!/usr/bin/env bb$'; then
+  echo "setup-neil: downloaded file does not look like the neil bb script" >&2
+  exit 1
+fi
+
+mkdir -p "$install_dir"
+install -m 0755 "$tmpfile" "$install_path"
+
+echo "Installed ${install_path}"
+if ! echo "$PATH" | tr ':' '\n' | grep -qx "$install_dir"; then
+  echo "Note: ${install_dir} is not currently on PATH."
+fi
+
+if [[ "$bb_on_path" -eq 0 ]]; then
+  echo "Note: bb was found via mise at ${bb_path}, but not on PATH in this shell."
+  echo "      Make sure mise is activated so neil's /usr/bin/env bb shebang works."
+fi

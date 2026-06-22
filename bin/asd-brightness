@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+# Apple Studio Display brightness control for the keyboard media keys.
+# Usage: asd-brightness up|down|get
+#
+# Talks to the display over USB-HID via asdcontrol. The device is exposed at the
+# stable path /dev/apple-studio-display by /etc/udev/rules.d/50-apple-studio-display.rules.
+set -euo pipefail
+
+DEV=/dev/apple-studio-display
+ASD=/usr/local/bin/asdcontrol   # absolute path: keyd runs this with a minimal PATH
+MIN=400          # raw value reported at 0%
+MAX=60000        # raw value reported at 100%
+STEP=6           # percent change per keypress
+
+if [ ! -e "$DEV" ]; then
+    echo "Studio Display not found at $DEV" >&2
+    exit 1
+fi
+
+case "${1:-get}" in
+    up)   "$ASD" -s -b "$DEV" "+${STEP}%"  >/dev/null ;;
+    down) "$ASD" -s -b "$DEV" -- "-${STEP}%" >/dev/null ;;
+    get)  : ;;
+    *)    echo "usage: ${0##*/} up|down|get" >&2; exit 2 ;;
+esac
+
+# Print the resulting level as a percentage (handy for `get` / debugging).
+raw=$("$ASD" -s -b "$DEV")
+pct=$(( (raw - MIN) * 100 / (MAX - MIN) ))
+(( pct < 0 ))   && pct=0
+(( pct > 100 )) && pct=100
+echo "$pct"

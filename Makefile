@@ -147,6 +147,43 @@ pi: agents
 	@ln -fns $(DOTFILES)/pi/agent/extensions/tmux.ts $(HOME)/.pi/agent/extensions/tmux.ts
 	@echo "Pi linked."
 
+# --- Linux System Targets ---
+#
+# These install into /etc and require root, so they are Linux-only and NOT part
+# of `make all`. Run them explicitly: `make linux` (or `make keyd` / `make udev`).
+# Source files live under linux/<tool>/; the Makefile encodes each destination.
+
+# Install everything under linux/ on a Linux machine.
+.PHONY: linux
+linux: keyd udev
+	@echo "Linux system configuration linked."
+
+# keyd: capslock/alt remaps + Apple Studio Display brightness keys
+# (F15/F14 -> asd-brightness). Depends on `bin` so the script is linked first.
+.PHONY: keyd
+keyd: bin
+ifeq ($(UNAME),Linux)
+	@echo "Linking keyd configuration to /etc/keyd (requires sudo)..."
+	@sudo ln -fns $(DOTFILES)/linux/keyd/default.conf /etc/keyd/default.conf
+	@sudo sh -c 'keyd reload 2>/dev/null || keyd.rvaiya reload 2>/dev/null || systemctl restart keyd'
+	@echo "keyd linked and reloaded."
+else
+	@echo "keyd target is Linux-only; skipping on $(UNAME)."
+endif
+
+# udev: stable /dev/apple-studio-display node + user access for asdcontrol.
+.PHONY: udev
+udev:
+ifeq ($(UNAME),Linux)
+	@echo "Linking udev rules to /etc/udev/rules.d (requires sudo)..."
+	@sudo ln -fns $(DOTFILES)/linux/udev/50-apple-studio-display.rules /etc/udev/rules.d/50-apple-studio-display.rules
+	@sudo udevadm control --reload-rules
+	@sudo udevadm trigger --action=add --subsystem-match=usbmisc
+	@echo "udev rules linked and reloaded."
+else
+	@echo "udev target is Linux-only; skipping on $(UNAME)."
+endif
+
 # --- Tool Installer Targets ---
 
 setup-clojure-lsp: bin

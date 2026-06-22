@@ -1,0 +1,5 @@
+# Apple Studio Display brightness control via asdcontrol.
+# Step 1: tag all hiddev nodes belonging to the Studio Display (05ac:1114).
+KERNEL=="hiddev*", SUBSYSTEM=="usbmisc", ATTRS{idVendor}=="05ac", ATTRS{idProduct}=="1114", ENV{ASD_DISPLAY}="1"
+# Step 2: of those, interface 07 is the brightness HID. Grant access + stable symlink.
+ENV{ASD_DISPLAY}=="1", ATTRS{bInterfaceNumber}=="07", GROUP="users", MODE="0660", SYMLINK+="apple-studio-display"

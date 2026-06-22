@@ -149,6 +149,11 @@ make pi
 
 # Scripts (nvim URL handler, etc.)
 make bin
+
+# Linux system config (root-required, Linux-only; see "Linux System Config")
+make linux        # keyd + udev
+make keyd
+make udev
 ```
 
 ## Shell Setup
@@ -232,6 +237,72 @@ These dotfiles are organized to be easily customizable:
 - Theme switching is supported in Tmux and Ghostty
 - Each tool has its own directory for clean separation of concerns
 - Secrets are kept in separate files (secrets.fish) that are not tracked by git
+
+## Keyboard Repeat Rate (GNOME)
+
+On Ubuntu/GNOME (Wayland), key repeat is controlled by two `gsettings` keys
+under `org.gnome.desktop.peripherals.keyboard`. These live in GNOME's dconf
+database rather than a dotfile, so they need to be set per-machine.
+
+| Key | What it controls | Note |
+| --- | ---------------- | ---- |
+| `repeat-interval` | Repeat **rate** — ms between repeated characters | Lower = faster. `0` is unsafe (Wayland division-by-zero can break login); `1` is the floor |
+| `delay` | Initial **delay** before repeat kicks in | If too short, a normal tap registers a double character. This — not the rate — is what causes accidental doubles |
+
+My values (faster repeat, delay kept high enough to avoid double characters):
+
+```bash
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 18  # ~55 chars/sec
+gsettings set org.gnome.desktop.peripherals.keyboard delay 200
+```
+
+Changes apply immediately (no logout needed). To tune:
+
+- **Faster repeat:** lower `repeat-interval` (e.g. `12`)
+- **Accidental double characters:** raise `delay` (e.g. `230`)
+- **GNOME defaults:** `repeat-interval 30`, `delay 500`
+
+## Linux System Config
+
+Most of this repo is cross-platform user config that symlinks into `~/.config`
+or `$HOME`. Anything that is **Linux-only** and installs into `/etc` (so it needs
+root) lives under `linux/`, organized by tool. The Makefile encodes each
+destination and symlinks the repo file into place, so edits in the repo are live
+after a reload.
+
+```
+linux/
+  keyd/default.conf                   -> /etc/keyd/default.conf
+  udev/50-apple-studio-display.rules  -> /etc/udev/rules.d/50-apple-studio-display.rules
+```
+
+These targets need `sudo` and are intentionally **not** part of `make all`. Run
+them explicitly on Linux:
+
+```bash
+make linux   # everything below
+make keyd     # capslock/alt remaps + Studio Display brightness keys
+make udev     # stable /dev/apple-studio-display node + user access
+```
+
+### Apple Studio Display brightness keys
+
+The Studio Display has no `/sys/class/backlight` and no DDC/CI — its brightness
+is only reachable over Apple's USB-HID protocol via
+[`asdcontrol`](https://github.com/nikosdion/asdcontrol) (built to
+`/usr/local/bin/asdcontrol`). The pieces:
+
+- **`bin/asd-brightness`** — `up`/`down`/`get`, adjusts in 6% steps.
+- **`linux/udev/50-apple-studio-display.rules`** — exposes a stable
+  `/dev/apple-studio-display` symlink (pinned to the display's brightness HID,
+  USB interface 07) with `users`-group access, so no `sudo` is needed at runtime.
+- **`linux/keyd/default.conf`** — the keyboard's brightness keys arrive as
+  `F15`/`F14` (not `XF86MonBrightness`), so keyd's `command()` action runs
+  `asd-brightness` directly. This works system-wide regardless of the desktop,
+  unlike GNOME custom shortcuts on bare function keys.
+
+Install with `make keyd udev` (or `make linux`). Tune the step size via `STEP`
+in `bin/asd-brightness`.
 
 ## Troubleshooting
 

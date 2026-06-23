@@ -1,0 +1,74 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  cat <<'USAGE'
+Usage: setup-yt-dlp [--ref TAG]
+
+Downloads the standalone yt-dlp binary release from GitHub and links it
+into ~/.local/bin. The binary is self-contained (bundled Python), so no
+system Python is required. Re-run to update to the latest release.
+
+Picks the right asset for the current OS/arch:
+  linux x86_64   -> yt-dlp_linux
+  linux aarch64  -> yt-dlp_linux_aarch64
+  linux armv7l   -> yt-dlp_linux_armv7l
+  macos          -> yt-dlp_macos
+
+Options:
+  --ref TAG    install a specific release tag (e.g. 2025.06.09) instead
+               of the latest release
+  -h, --help   show this help
+USAGE
+}
+
+ref="latest"
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --ref)
+      [[ $# -lt 2 ]] && { echo "setup-yt-dlp: --ref requires an argument" >&2; exit 2; }
+      ref="$2"; shift 2 ;;
+    -h|--help) usage; exit 0 ;;
+    *) echo "setup-yt-dlp: unknown option: $1" >&2; usage >&2; exit 2 ;;
+  esac
+done
+
+command -v curl >/dev/null 2>&1 || { echo "setup-yt-dlp: curl is required" >&2; exit 1; }
+
+# Select the release asset for this platform.
+os="$(uname -s)"
+arch="$(uname -m)"
+case "$os" in
+  Linux)
+    case "$arch" in
+      x86_64)          asset="yt-dlp_linux" ;;
+      aarch64|arm64)   asset="yt-dlp_linux_aarch64" ;;
+      armv7l|armv7)    asset="yt-dlp_linux_armv7l" ;;
+      *) echo "setup-yt-dlp: unsupported Linux arch: $arch" >&2; exit 1 ;;
+    esac ;;
+  Darwin) asset="yt-dlp_macos" ;;
+  *) echo "setup-yt-dlp: unsupported OS: $os" >&2; exit 1 ;;
+esac
+
+if [[ "$ref" == "latest" ]]; then
+  url="https://github.com/yt-dlp/yt-dlp/releases/latest/download/${asset}"
+else
+  url="https://github.com/yt-dlp/yt-dlp/releases/download/${ref}/${asset}"
+fi
+
+bin_dir="${HOME}/.local/bin"
+dest="${bin_dir}/yt-dlp"
+mkdir -p "$bin_dir"
+
+tmp="$(mktemp)"
+trap 'rm -f "$tmp"' EXIT
+
+echo "Downloading ${asset} (${ref})"
+curl --fail --location --progress-bar --output "$tmp" "$url"
+
+chmod +x "$tmp"
+mv -f "$tmp" "$dest"
+trap - EXIT
+
+echo "Installed ${dest}"
+"$dest" --version

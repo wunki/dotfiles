@@ -1,0 +1,180 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  cat <<'USAGE'
+Usage: setup-neovim [--force] [--yes] [--version v0.11.4]
+
+Installs or updates Neovim using the official Linux tarball flow:
+  - download the release archive from GitHub
+  - remove /opt/nvim
+  - extract the downloaded archive into /opt/nvim
+  - verify with /opt/nvim/bin/nvim --version
+
+Options:
+  --force              reinstall even if the requested version is installed
+  -y, --yes            do not ask before installing the latest version
+  --version VERSION    install a specific Neovim version, for example v0.11.4
+                       or 0.11.4
+  -h, --help           show this help
+USAGE
+}
+
+force=0
+assume_yes=0
+requested_version=""
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --force)
+      force=1
+      shift
+      ;;
+    -y|--yes)
+      assume_yes=1
+      shift
+      ;;
+    --version)
+      if [[ $# -lt 2 ]]; then
+        echo "setup-neovim: --version requires an argument" >&2
+        exit 2
+      fi
+      requested_version="$2"
+      shift 2
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "setup-neovim: unknown option: $1" >&2
+      usage >&2
+      exit 2
+      ;;
+  esac
+done
+
+if [[ "$(uname -s)" != "Linux" ]]; then
+  echo "setup-neovim: this script currently supports Linux tarball installs only" >&2
+  exit 1
+fi
+
+command -v curl >/dev/null 2>&1 || { echo "setup-neovim: curl is required" >&2; exit 1; }
+command -v tar >/dev/null 2>&1 || { echo "setup-neovim: tar is required" >&2; exit 1; }
+
+if [[ "$(id -u)" -ne 0 ]] && ! command -v sudo >/dev/null 2>&1; then
+  echo "setup-neovim: sudo is required to install into /opt/nvim" >&2
+  exit 1
+fi
+
+case "$(uname -m)" in
+  x86_64|amd64) nvim_arch="x86_64" ;;
+  aarch64|arm64) nvim_arch="arm64" ;;
+  *)
+    echo "setup-neovim: unsupported architecture: $(uname -m)" >&2
+    exit 1
+    ;;
+esac
+
+if [[ -n "$requested_version" ]]; then
+  if [[ "$requested_version" =~ ^[0-9]+\.[0-9]+(\.[0-9]+)?$ ]]; then
+    nvim_version="v${requested_version}"
+  elif [[ "$requested_version" =~ ^v[0-9]+\.[0-9]+(\.[0-9]+)?$ ]]; then
+    nvim_version="$requested_version"
+  else
+    echo "setup-neovim: invalid Neovim version: $requested_version" >&2
+    exit 1
+  fi
+else
+  latest_url="$(curl -fsSL -o /dev/null -w '%{url_effective}' 'https://github.com/neovim/neovim/releases/latest')"
+  nvim_version="${latest_url##*/}"
+fi
+
+if [[ ! "$nvim_version" =~ ^v[0-9]+\.[0-9]+(\.[0-9]+)?$ ]]; then
+  echo "setup-neovim: invalid Neovim version from input or GitHub: $nvim_version" >&2
+  exit 1
+fi
+
+archive="nvim-linux-${nvim_arch}.tar.gz"
+url="https://github.com/neovim/neovim/releases/download/${nvim_version}/${archive}"
+checksum_url="${url}.sha256sum"
+nvim_root="/opt/nvim"
+
+current_version=""
+if [[ -x "${nvim_root}/bin/nvim" ]]; then
+  current_version="$({ "${nvim_root}/bin/nvim" --version || true; } | sed -n '1s/^NVIM //p')"
+fi
+
+if [[ "$force" -eq 0 && "$current_version" == "$nvim_version" ]]; then
+  echo "Neovim ${nvim_version} is already installed at ${nvim_root}."
+  exit 0
+fi
+
+if [[ -z "$requested_version" && "$assume_yes" -eq 0 && -t 0 ]]; then
+  if [[ -n "$current_version" ]]; then
+    printf 'Current Neovim version: %s\n' "$current_version"
+  else
+    printf 'Neovim is not currently installed at %s.\n' "$nvim_root"
+  fi
+
+  read -r -p "Install latest Neovim version ${nvim_version}? [Y/n] " answer
+  case "$answer" in
+    ""|[Yy]|[Yy][Ee][Ss]) ;;
+    *)
+      echo "Canceled."
+      exit 0
+      ;;
+  esac
+fi
+
+tmpdir="$(mktemp -d)"
+cleanup() {
+  rm -rf "$tmpdir"
+}
+trap cleanup EXIT
+
+archive_path="${tmpdir}/${archive}"
+
+echo "Downloading ${url}"
+curl -fL --progress-bar "$url" -o "$archive_path"
+
+if command -v sha256sum >/dev/null 2>&1; then
+  echo "Checking SHA-256 checksum"
+  if expected_sha256="$(curl -fsSL "$checksum_url" 2>/dev/null | awk '{print $1}')" && [[ -n "$expected_sha256" ]]; then
+    actual_sha256="$(sha256sum "$archive_path" | awk '{print $1}')"
+    if [[ "$actual_sha256" != "$expected_sha256" ]]; then
+      echo "setup-neovim: checksum mismatch for ${archive}" >&2
+      exit 1
+    fi
+  else
+    echo "No checksum found for ${archive}; continuing without checksum verification."
+  fi
+else
+  echo "sha256sum is not available; skipping checksum verification."
+fi
+
+run_as_root() {
+  if [[ "$(id -u)" -eq 0 ]]; then
+    "$@"
+  else
+    sudo "$@"
+  fi
+}
+
+echo "Installing ${nvim_version} to ${nvim_root}"
+run_as_root rm -rf "$nvim_root"
+run_as_root mkdir -p "$nvim_root"
+run_as_root tar -C "$nvim_root" --strip-components=1 -xzf "$archive_path"
+
+if [[ ! -x "${nvim_root}/bin/nvim" ]]; then
+  echo "setup-neovim: ${nvim_root}/bin/nvim was not installed" >&2
+  exit 1
+fi
+
+echo "Installed:"
+"${nvim_root}/bin/nvim" --version | sed -n '1p'
+
+if ! command -v nvim >/dev/null 2>&1 || [[ "$(command -v nvim)" != "${nvim_root}/bin/nvim" ]]; then
+  echo
+  echo "Ensure /opt/nvim/bin is on PATH, then open a new shell."
+fi

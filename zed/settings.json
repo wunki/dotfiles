@@ -1,37 +1,55 @@
 {
+  "buffer_font_weight": 300.0,
+  "diff_view_style": "split",
+  "cli_default_open_behavior": "new_window",
+  "outline_panel": {
+    "dock": "right",
+  },
+  "git_panel": {
+    "dock": "right",
+  },
+  "semantic_tokens": "combined",
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)",
+  },
+  "text_rendering_mode": "platform_default",
   "agent": {
+    "dock": "left",
+    "enable_feedback": false,
     "default_model": {
-      "provider": "anthropic",
-      "model": "claude-opus-4-6-latest",
-      "enable_thinking": false
+      "effort": "high",
+      "provider": "zed.dev",
+      "model": "gpt-5.5",
+      "enable_thinking": true,
     },
-    "play_sound_when_agent_done": true,
+    "play_sound_when_agent_done": "always",
     "favorite_models": [],
     "notify_when_agent_waiting": "never",
     "model_parameters": [],
   },
-  "env": {
-    "GOPATH": "/Users/petar/Code/Go",
-  },
   "buffer_line_height": "comfortable",
   "colorize_brackets": true,
   "agent_servers": {
+    "opencode": {
+      "type": "registry",
+    },
     "claude-acp": {
-      "type": "registry"
+      "type": "registry",
     },
     "gemini": {
-      "type": "registry"
+      "type": "registry",
     },
     "codex-acp": {
-      "type": "registry"
-    }
+      "type": "registry",
+    },
   },
-  "agent_ui_font_size": 14.0,
+  "agent_ui_font_size": 13.0,
   "gutter": {
     "line_numbers": false,
   },
-  "buffer_font_weight": 400.0,
-  "agent_buffer_font_size": 12,
+  "agent_buffer_font_size": 12.0,
   "auto_install_extensions": {
     "elixir": true,
     "fish": true,
@@ -40,16 +58,17 @@
     "svelte": true,
   },
   "buffer_font_family": "TX-02",
-  "buffer_font_size": 12,
+  "buffer_font_size": 13.0,
   "collaboration_panel": {
+    "dock": "right",
     "button": false,
   },
   "current_line_highlight": "gutter",
-  "cursor_blink": false,
+  "cursor_blink": true,
   "edit_predictions": {
     "provider": "zed",
     "disabled_globs": [".env", "**/journal"],
-    "mode": "subtle",
+    "mode": "eager",
   },
   "file_types": {
     "CSS": ["scss"],
@@ -66,16 +85,21 @@
   "languages": {
     "Elixir": {
       "language_servers": [
-        "expert",
+        "dexter",
+        "!expert",
         "!elixir-ls",
         "!next-ls",
         "!lexical",
         "tailwindcss-language-server",
       ],
     },
-    "HEEX": {
+    "EEx": {
+      "language_servers": ["dexter", "!expert", "!elixir-ls", "!next-ls", "!lexical"],
+    },
+    "HEEx": {
       "language_servers": [
-        "expert",
+        "dexter",
+        "!expert",
         "!elixir-ls",
         "!next-ls",
         "!lexical",
@@ -113,6 +137,22 @@
         },
       },
     },
+    "tailwindcss-language-server": {
+      "settings": {
+        "includeLanguages": {
+          "elixir": "html",
+          "heex": "html",
+        },
+        "experimental": {
+          "classRegex": ["class=\"([^\"]*)\"", "class='([^']*)'"],
+        },
+      },
+    },
+    "dexter": {
+      "initialization_options": {
+        "followDelegates": true,
+      },
+    },
     "expert": {
       "binary": {
         "path": "/Users/petar/.local/bin/expert_darwin_arm64",
@@ -124,7 +164,7 @@
   "preferred_line_length": 100,
   "project_panel": {
     "hide_root": false,
-    "dock": "left",
+    "dock": "right",
   },
   "relative_line_numbers": "enabled",
   "scrollbar": {
@@ -142,7 +182,9 @@
     "metrics": false,
   },
   "terminal": {
+    "font_weight": 400.0,
     "font_family": "TX-02",
+    "line_height": "comfortable",
     "scrollbar": {
       "show": "auto",
     },
@@ -156,7 +198,7 @@
     "option_as_meta": true,
     "shell": {
       "with_arguments": {
-        "title_override": "zsh",
+        "title_override": null,
         "args": ["-l", "-i"],
         "program": "/opt/homebrew/bin/fish",
       },
@@ -165,7 +207,11 @@
       "breadcrumbs": false,
     },
   },
-  "theme": "Gruvbox Light Soft",
+  "theme": {
+    "mode": "dark",
+    "light": "Melange Light",
+    "dark": "Gruvbox ish Dark Hard",
+  },
   "toolbar": {
     "breadcrumbs": true,
     "quick_actions": false,

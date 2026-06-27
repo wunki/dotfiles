@@ -6,24 +6,10 @@ shell-integration = fish
 shell-integration-features = sudo, title, ssh-terminfo
 
 # fonts
-<<<<<<< Updated upstream
-font-family = MonoLisa
-font-size = 9
-||||||| Stash base
-font-family = Space Mono
-font-size = 10
-=======
-font-family = Comic Code
+font-family = TX-02
 font-size = 12
->>>>>>> Stashed changes
 font-style-bold = Medium
-<<<<<<< Updated upstream
-adjust-cell-height = 21%
-||||||| Stash base
-adjust-cell-height = 7%
-=======
 adjust-cell-height = 14%
->>>>>>> Stashed changes
 
 # colors
 window-colorspace = display-p3

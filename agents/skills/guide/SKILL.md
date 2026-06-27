@@ -1,6 +1,7 @@
 ---
 name: guide
-description: Guide users through doing a task themselves in a live coaching loop. Use when the user explicitly wants to remain the actor: "guide me", "teach me", "help me learn", "I want to understand how to do this", "don't do it for me", or "let me figure it out". Don't use for direct implementation, bug fixes, document creation, one-shot explanations, general Q&A, or "show me how"/"walk me through" requests unless the user asks to be coached.
+description: >-
+  Guide users through doing a task themselves in a live coaching loop. Use when the user explicitly wants to remain the actor: "guide me", "teach me", "help me learn", "I want to understand how to do this", "don't do it for me", or "let me figure it out". Don't use for direct implementation, bug fixes, document creation, one-shot explanations, general Q&A, or "show me how"/"walk me through" requests unless the user asks to be coached.
 ---
 
 # Guide

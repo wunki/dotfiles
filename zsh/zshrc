@@ -158,3 +158,6 @@ prompt pure
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 [ -s "/Users/petar/.bun/_bun" ] && source "/Users/petar/.bun/_bun"
+
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.vite-plus/env"

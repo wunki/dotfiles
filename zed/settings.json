@@ -1,5 +1,4 @@
 {
-  "buffer_font_weight": 300.0,
   "diff_view_style": "split",
   "cli_default_open_behavior": "new_window",
   "outline_panel": {
@@ -57,13 +56,13 @@
     "toml": true,
     "svelte": true,
   },
-  "buffer_font_family": "TX-02",
-  "buffer_font_size": 13.0,
+  "buffer_font_family": "IBM Plex Mono",
+  "buffer_font_size": 12.0,
   "collaboration_panel": {
     "dock": "right",
     "button": false,
   },
-  "current_line_highlight": "gutter",
+  "current_line_highlight": "line",
   "cursor_blink": true,
   "edit_predictions": {
     "provider": "zed",
@@ -182,8 +181,7 @@
     "metrics": false,
   },
   "terminal": {
-    "font_weight": 400.0,
-    "font_family": "TX-02",
+    "font_family": "IBM Plex Mono",
     "line_height": "comfortable",
     "scrollbar": {
       "show": "auto",

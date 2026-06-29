@@ -6,6 +6,7 @@
 *~
 /.sync
 /fish/functions/*
+!/fish/functions/_tide_item_context.fish
 !/fish/functions/theme_apply.fish
 !/fish/functions/theme_mode.fish
 /fish/fish_read_history

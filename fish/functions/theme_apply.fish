@@ -44,9 +44,11 @@ function theme_apply -d "Apply tide+fzf colors for current system appearance"
         set -U tide_jobs_color FFE878
         set -U tide_time_color A2AEC0
 
-        set -U tide_context_color_default A2AEC0
+        # Hostname/context uses muted Gondolin foreground greys, not accent colors,
+        # so it stays visible without competing with git, kubectl, or status.
+        set -U tide_context_color_default 94a3b8
         set -U tide_context_color_root FF7A77
-        set -U tide_context_color_ssh 83AEF8
+        set -U tide_context_color_ssh 94a3b8
 
         set -U tide_direnv_color FFE878
         set -U tide_direnv_color_denied FF7A77
@@ -103,9 +105,11 @@ function theme_apply -d "Apply tide+fzf colors for current system appearance"
         set -U tide_jobs_color 9b6e20
         set -U tide_time_color 708089
 
-        set -U tide_context_color_default 708089
+        # Hostname/context uses muted Gondolin foreground greys, not accent colors,
+        # so it stays visible without competing with git, kubectl, or status.
+        set -U tide_context_color_default 829181
         set -U tide_context_color_root aa544d
-        set -U tide_context_color_ssh 46778d
+        set -U tide_context_color_ssh 829181
 
         set -U tide_direnv_color 9b6e20
         set -U tide_direnv_color_denied aa544d

@@ -18,6 +18,7 @@ fish_plugins
 !/completions/_*.fish
 
 # Excempted functions
+!/functions/_tide_item_context.fish
 !/functions/ls!.fish
 !/functions/gg.fish
 !/functions/_min*.fish

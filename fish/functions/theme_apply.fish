@@ -16,7 +16,7 @@ function theme_apply -d "Apply tide+fzf colors for current system appearance"
     set -g __theme_current_mode $mode
 
     set -U tide_character_icon λ
-    set -U tide_character_vi_icon_default ❯
+    set -U tide_character_vi_icon_default λ
     set -U tide_character_vi_icon_replace ▶
     set -U tide_character_vi_icon_visual V
 

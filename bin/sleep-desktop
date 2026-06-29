@@ -1,0 +1,184 @@
+#!/usr/bin/env bash
+#
+# sleep-desktop - suspend the desktop over SSH/Tailscale.
+#
+# The desktop is assumed to be reachable through Tailscale/MagicDNS as "desktop".
+# Override with --host or SLEEP_DESKTOP_SSH_HOST if your node has another name.
+#
+set -euo pipefail
+
+ssh_host="${SLEEP_DESKTOP_SSH_HOST:-desktop}"
+ssh_user="${SLEEP_DESKTOP_SSH_USER:-}"
+ssh_port="${SLEEP_DESKTOP_SSH_PORT:-}"
+stamp_path="${SLEEP_DESKTOP_STAMP_PATH:-.cache/dotfiles-desktop-sleep/slept-at}"
+resolve_with_tailscale=true
+
+usage() {
+  cat <<'USAGE'
+Usage: sleep-desktop [options]
+
+Suspend the desktop by SSHing to it over Tailscale and running systemctl suspend.
+
+Options:
+  --host HOST      SSH/Tailscale host for the desktop (default: desktop)
+  --user USER      SSH user for the desktop
+  --port PORT      SSH port for the desktop
+  --stamp-path PATH
+                   Path on the desktop for the sleep timestamp
+                   (default: ~/.cache/dotfiles-desktop-sleep/slept-at)
+  --no-resolve     Do not resolve the host through the Tailscale CLI first
+  -h, --help       Show this help
+
+Environment overrides:
+  SLEEP_DESKTOP_SSH_HOST
+  SLEEP_DESKTOP_SSH_USER
+  SLEEP_DESKTOP_SSH_PORT
+  SLEEP_DESKTOP_STAMP_PATH
+USAGE
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --host)
+      if [[ $# -lt 2 ]]; then
+        echo "sleep-desktop: --host requires an argument" >&2
+        exit 2
+      fi
+      ssh_host="$2"
+      shift 2
+      ;;
+    --user)
+      if [[ $# -lt 2 ]]; then
+        echo "sleep-desktop: --user requires an argument" >&2
+        exit 2
+      fi
+      ssh_user="$2"
+      shift 2
+      ;;
+    --port)
+      if [[ $# -lt 2 ]]; then
+        echo "sleep-desktop: --port requires an argument" >&2
+        exit 2
+      fi
+      ssh_port="$2"
+      shift 2
+      ;;
+    --stamp-path)
+      if [[ $# -lt 2 ]]; then
+        echo "sleep-desktop: --stamp-path requires an argument" >&2
+        exit 2
+      fi
+      stamp_path="$2"
+      shift 2
+      ;;
+    --no-resolve)
+      resolve_with_tailscale=false
+      shift
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "sleep-desktop: unknown option: $1" >&2
+      usage >&2
+      exit 2
+      ;;
+  esac
+done
+
+if [[ -z "$ssh_host" ]]; then
+  echo "sleep-desktop: SSH host cannot be empty" >&2
+  exit 2
+fi
+
+if [[ -n "$ssh_port" && ! "$ssh_port" =~ ^[0-9]+$ ]]; then
+  echo "sleep-desktop: SSH port must be numeric: $ssh_port" >&2
+  exit 2
+fi
+
+if [[ -z "$stamp_path" ]]; then
+  echo "sleep-desktop: stamp path cannot be empty" >&2
+  exit 2
+fi
+
+tailscale_cli() {
+  if command -v tailscale >/dev/null 2>&1; then
+    command -v tailscale
+  elif [[ -x /Applications/Tailscale.app/Contents/MacOS/Tailscale ]]; then
+    printf '%s\n' /Applications/Tailscale.app/Contents/MacOS/Tailscale
+  fi
+}
+
+resolve_ssh_host() {
+  local ts_cli resolved
+
+  if [[ "$resolve_with_tailscale" != true ]]; then
+    printf '%s\n' "$ssh_host"
+    return
+  fi
+
+  ts_cli="$(tailscale_cli || true)"
+  if [[ -n "$ts_cli" ]]; then
+    resolved="$("$ts_cli" ip -4 "$ssh_host" 2>/dev/null | awk 'NR == 1 { print; exit }')"
+    if [[ -n "$resolved" ]]; then
+      printf '%s\n' "$resolved"
+      return
+    fi
+  fi
+
+  printf '%s\n' "$ssh_host"
+}
+
+remote_host="$(resolve_ssh_host)"
+ssh_target="$remote_host"
+if [[ -n "$ssh_user" ]]; then
+  ssh_target="${ssh_user}@${remote_host}"
+fi
+
+ssh_args=(
+  -o ConnectTimeout=10
+  -o ControlMaster=no
+  -o ControlPath=none
+)
+if [[ -n "$ssh_port" ]]; then
+  ssh_args+=(-p "$ssh_port")
+fi
+
+echo "Suspending desktop via ${ssh_target}..."
+
+ssh "${ssh_args[@]}" "$ssh_target" sh -s -- "$stamp_path" <<'REMOTE'
+set -eu
+
+stamp_path="$1"
+case "$stamp_path" in
+  /*) ;;
+  *)
+    if [ -z "${HOME:-}" ]; then
+      echo "sleep-desktop: HOME is not set on the desktop." >&2
+      exit 1
+    fi
+    stamp_path="${HOME}/${stamp_path}"
+    ;;
+esac
+
+if ! command -v systemctl >/dev/null 2>&1; then
+  echo "sleep-desktop: systemctl not found on the desktop." >&2
+  exit 127
+fi
+
+mkdir -p "$(dirname "$stamp_path")"
+date +%s > "$stamp_path"
+
+if [ "$(id -u)" -eq 0 ]; then
+  systemctl suspend
+  exit
+fi
+
+if command -v sudo >/dev/null 2>&1 && sudo -n true 2>/dev/null; then
+  sudo -n systemctl suspend
+  exit
+fi
+
+systemctl suspend
+REMOTE

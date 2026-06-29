@@ -170,9 +170,9 @@ end
 # environment managers (with performance guards)
 if type -q mise
     mise activate fish | source
-    if status is-interactive
-        mise completion fish | source
-    end
+    # Completions are cached in completions/mise.fish (fish lazy-loads them on
+    # first `mise <tab>`), instead of running `mise completion fish` every
+    # startup. Regenerate with: mise completion fish > ~/.config/fish/completions/mise.fish
 end
 
 if status is-interactive; and type -q direnv

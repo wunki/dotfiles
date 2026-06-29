@@ -37,7 +37,6 @@ path+=(
   "$HOME/.zvm/self"         # Zig
   "$HOME/.zvm/bin"
   "$HOME/.local/share/pnpm" # pnpm
-  "$HOME/.atuin/bin"        # atuin
   "$HOME/.opencode/bin"     # opencode
   "$GOPATH/bin"             # Go
 )
@@ -108,12 +107,6 @@ fi
 if (( $+commands[zoxide] ))
 then
   eval "$(zoxide init zsh)"
-fi
-
-# Better shell history with Atuin
-if (( $+commands[atuin] ))
-then
-  eval "$(atuin init zsh)"
 fi
 
 # Fish like auto-suggestions

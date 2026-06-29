@@ -1,0 +1,168 @@
+#!/usr/bin/env bash
+#
+# wake-desktop - wake the desktop by sending Wake-on-LAN from the Pi.
+#
+# The Pi is assumed to be reachable through Tailscale/MagicDNS as "pi".
+# Override with --host or WAKE_DESKTOP_SSH_HOST if your node has another name.
+#
+set -euo pipefail
+
+desktop_mac="58:11:22:b6:b4:07"
+ssh_host="${WAKE_DESKTOP_SSH_HOST:-pi}"
+ssh_user="${WAKE_DESKTOP_SSH_USER:-}"
+ssh_port="${WAKE_DESKTOP_SSH_PORT:-}"
+resolve_with_tailscale=true
+
+usage() {
+  cat <<'USAGE'
+Usage: wake-desktop [options]
+
+Wake the desktop by SSHing to the Pi over Tailscale and running etherwake.
+
+Options:
+  --host HOST      SSH/Tailscale host for the Pi (default: pi)
+  --user USER      SSH user for the Pi
+  --port PORT      SSH port for the Pi
+  --mac MAC        Desktop MAC address (default: 58:11:22:b6:b4:07)
+  --no-resolve     Do not resolve the host through the Tailscale CLI first
+  -h, --help       Show this help
+
+Environment overrides:
+  WAKE_DESKTOP_SSH_HOST
+  WAKE_DESKTOP_SSH_USER
+  WAKE_DESKTOP_SSH_PORT
+USAGE
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --host)
+      if [[ $# -lt 2 ]]; then
+        echo "wake-desktop: --host requires an argument" >&2
+        exit 2
+      fi
+      ssh_host="$2"
+      shift 2
+      ;;
+    --user)
+      if [[ $# -lt 2 ]]; then
+        echo "wake-desktop: --user requires an argument" >&2
+        exit 2
+      fi
+      ssh_user="$2"
+      shift 2
+      ;;
+    --port)
+      if [[ $# -lt 2 ]]; then
+        echo "wake-desktop: --port requires an argument" >&2
+        exit 2
+      fi
+      ssh_port="$2"
+      shift 2
+      ;;
+    --mac)
+      if [[ $# -lt 2 ]]; then
+        echo "wake-desktop: --mac requires an argument" >&2
+        exit 2
+      fi
+      desktop_mac="$2"
+      shift 2
+      ;;
+    --no-resolve)
+      resolve_with_tailscale=false
+      shift
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "wake-desktop: unknown option: $1" >&2
+      usage >&2
+      exit 2
+      ;;
+  esac
+done
+
+if [[ -z "$ssh_host" ]]; then
+  echo "wake-desktop: SSH host cannot be empty" >&2
+  exit 2
+fi
+
+if [[ ! "$desktop_mac" =~ ^([[:xdigit:]]{2}:){5}[[:xdigit:]]{2}$ ]]; then
+  echo "wake-desktop: invalid MAC address: $desktop_mac" >&2
+  exit 2
+fi
+
+if [[ -n "$ssh_port" && ! "$ssh_port" =~ ^[0-9]+$ ]]; then
+  echo "wake-desktop: SSH port must be numeric: $ssh_port" >&2
+  exit 2
+fi
+
+tailscale_cli() {
+  if command -v tailscale >/dev/null 2>&1; then
+    command -v tailscale
+  elif [[ -x /Applications/Tailscale.app/Contents/MacOS/Tailscale ]]; then
+    printf '%s\n' /Applications/Tailscale.app/Contents/MacOS/Tailscale
+  fi
+}
+
+resolve_ssh_host() {
+  local ts_cli resolved
+
+  if [[ "$resolve_with_tailscale" != true ]]; then
+    printf '%s\n' "$ssh_host"
+    return
+  fi
+
+  ts_cli="$(tailscale_cli || true)"
+  if [[ -n "$ts_cli" ]]; then
+    resolved="$("$ts_cli" ip -4 "$ssh_host" 2>/dev/null | awk 'NR == 1 { print; exit }')"
+    if [[ -n "$resolved" ]]; then
+      printf '%s\n' "$resolved"
+      return
+    fi
+  fi
+
+  printf '%s\n' "$ssh_host"
+}
+
+remote_host="$(resolve_ssh_host)"
+ssh_target="$remote_host"
+if [[ -n "$ssh_user" ]]; then
+  ssh_target="${ssh_user}@${remote_host}"
+fi
+
+ssh_args=(-o ConnectTimeout=10)
+if [[ -n "$ssh_port" ]]; then
+  ssh_args+=(-p "$ssh_port")
+fi
+
+echo "Waking desktop ${desktop_mac} via ${ssh_target} with etherwake..."
+
+ssh "${ssh_args[@]}" "$ssh_target" sh -s -- "$desktop_mac" <<'REMOTE'
+set -eu
+
+mac="$1"
+
+if command -v etherwake >/dev/null 2>&1; then
+  if [ "$(id -u)" -eq 0 ]; then
+    etherwake "$mac"
+  else
+    sudo -n etherwake "$mac"
+  fi
+  exit
+fi
+
+if [ -x /usr/sbin/etherwake ]; then
+  if [ "$(id -u)" -eq 0 ]; then
+    /usr/sbin/etherwake "$mac"
+  else
+    sudo -n /usr/sbin/etherwake "$mac"
+  fi
+  exit
+fi
+
+echo "wake-desktop: etherwake not found on the Pi." >&2
+exit 127
+REMOTE

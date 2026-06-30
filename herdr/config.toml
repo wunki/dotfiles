@@ -1,0 +1,31 @@
+onboarding = false
+
+[terminal]
+default_shell = "fish"
+
+[keys]
+prefix = "ctrl+h"
+settings = "prefix+shift+s"
+reload_config = "prefix+r"
+new_workspace = "prefix+shift+c"
+rename_tab = "prefix+comma"
+split_horizontal = "prefix+s"
+resize_mode = "prefix+shift+r"
+
+[[keys.command]]
+key = "prefix+g"
+type = "pane"
+command = "hunk diff --watch --theme auto"
+
+[ui]
+prompt_new_tab_name = false
+show_agent_labels_on_pane_borders = true
+
+[ui.toast]
+delivery = "herdr"
+
+[ui.sound]
+enabled = false
+
+[experimental]
+pane_history = true

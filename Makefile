@@ -4,7 +4,7 @@ CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
 # List all application targets here
-APP_TARGETS := fish zsh helix ghostty rio zed tmux bin lazygit mise agents pi
+APP_TARGETS := fish zsh helix ghostty rio zed tmux herdr bin lazygit mise agents pi
 
 # Define the default target 'all' to depend on all application targets
 .PHONY: all
@@ -99,6 +99,11 @@ tmux:
 	@ln -fns $(DOTFILES)/tmux/tmux-flexoki-light-theme.conf $(HOME)/.tmux-flexoki-light-theme.conf
 	@echo "tmux linked."
 
+herdr: ensure-config-dir
+	@echo "Linking Herdr configuration..."
+	@mkdir -p $(CONFIG_DIR)/herdr
+	@ln -fns $(DOTFILES)/herdr/config.toml $(CONFIG_DIR)/herdr/config.toml
+	@echo "Herdr linked."
 
 lazygit:
 	@echo "Linking lazygit configuration..."

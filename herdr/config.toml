@@ -12,14 +12,10 @@ rename_tab = "prefix+comma"
 split_horizontal = "prefix+s"
 resize_mode = "prefix+shift+r"
 
-[[keys.command]]
-key = "prefix+g"
-type = "pane"
-command = "hunk diff --watch --theme auto"
-
 [ui]
 prompt_new_tab_name = false
 show_agent_labels_on_pane_borders = true
+agent_panel_sort = "spaces"
 
 [ui.toast]
 delivery = "herdr"
@@ -29,3 +25,7 @@ enabled = false
 
 [experimental]
 pane_history = true
+
+[theme]
+name = "rose-pine"
+auto_switch = true

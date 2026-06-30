@@ -7,7 +7,7 @@
 #
 set -euo pipefail
 
-desktop_mac="58:11:22:b6:b4:07"
+desktop_mac="58:11:22:b6:b4:06"
 ssh_host="${WAKE_DESKTOP_SSH_HOST:-pi}"
 ssh_user="${WAKE_DESKTOP_SSH_USER:-}"
 ssh_port="${WAKE_DESKTOP_SSH_PORT:-}"
@@ -31,7 +31,7 @@ Options:
   --host HOST      SSH/Tailscale host for the Pi (default: pi)
   --user USER      SSH user for the Pi
   --port PORT      SSH port for the Pi
-  --mac MAC        Desktop MAC address (default: 58:11:22:b6:b4:07)
+  --mac MAC        Desktop MAC address (default: 58:11:22:b6:b4:06)
   --desktop-host HOST
                    SSH/Tailscale host for the desktop after wake (default: desktop)
   --desktop-user USER

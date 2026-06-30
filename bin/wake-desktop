@@ -17,6 +17,8 @@ desktop_ssh_port="${WAKE_DESKTOP_TARGET_SSH_PORT:-}"
 stamp_path="${WAKE_DESKTOP_STAMP_PATH:-.cache/dotfiles-desktop-sleep/slept-at}"
 wait_for_desktop=true
 wait_timeout="${WAKE_DESKTOP_WAIT_TIMEOUT:-90}"
+probe_timeout="${WAKE_DESKTOP_PROBE_TIMEOUT:-2}"
+probe_interval="${WAKE_DESKTOP_PROBE_INTERVAL:-1}"
 resolve_with_tailscale=true
 
 usage() {
@@ -41,6 +43,10 @@ Options:
                    (default: ~/.cache/dotfiles-desktop-sleep/slept-at)
   --wait-timeout SECONDS
                    Seconds to wait for desktop SSH after Wake-on-LAN (default: 90)
+  --probe-timeout SECONDS
+                   Seconds to allow each desktop SSH probe (default: 2)
+  --probe-interval SECONDS
+                   Seconds to sleep between desktop SSH probes (default: 1)
   --no-wait        Do not wait for desktop SSH or report sleep duration
   --no-resolve     Do not resolve the host through the Tailscale CLI first
   -h, --help       Show this help
@@ -54,6 +60,8 @@ Environment overrides:
   WAKE_DESKTOP_TARGET_SSH_PORT
   WAKE_DESKTOP_STAMP_PATH
   WAKE_DESKTOP_WAIT_TIMEOUT
+  WAKE_DESKTOP_PROBE_TIMEOUT
+  WAKE_DESKTOP_PROBE_INTERVAL
 USAGE
 }
 
@@ -131,6 +139,22 @@ while [[ $# -gt 0 ]]; do
       wait_timeout="$2"
       shift 2
       ;;
+    --probe-timeout)
+      if [[ $# -lt 2 ]]; then
+        echo "wake-desktop: --probe-timeout requires an argument" >&2
+        exit 2
+      fi
+      probe_timeout="$2"
+      shift 2
+      ;;
+    --probe-interval)
+      if [[ $# -lt 2 ]]; then
+        echo "wake-desktop: --probe-interval requires an argument" >&2
+        exit 2
+      fi
+      probe_interval="$2"
+      shift 2
+      ;;
     --no-wait)
       wait_for_desktop=false
       shift
@@ -178,6 +202,16 @@ fi
 
 if [[ ! "$wait_timeout" =~ ^[0-9]+$ ]]; then
   echo "wake-desktop: wait timeout must be numeric: $wait_timeout" >&2
+  exit 2
+fi
+
+if [[ ! "$probe_timeout" =~ ^[0-9]+$ || "$probe_timeout" -eq 0 ]]; then
+  echo "wake-desktop: probe timeout must be a positive number: $probe_timeout" >&2
+  exit 2
+fi
+
+if [[ ! "$probe_interval" =~ ^[0-9]+$ || "$probe_interval" -eq 0 ]]; then
+  echo "wake-desktop: probe interval must be a positive number: $probe_interval" >&2
   exit 2
 fi
 
@@ -269,21 +303,48 @@ human_duration() {
   printf '%s\n' "${parts[*]}"
 }
 
+display_target() {
+  local host resolved user port target
+
+  host="$1"
+  resolved="$2"
+  user="$3"
+  port="$4"
+
+  target="$host"
+  if [[ -n "$user" ]]; then
+    target="${user}@${target}"
+  fi
+  if [[ -n "$port" ]]; then
+    target="${target}:${port}"
+  fi
+
+  if [[ "$resolved" != "$host" ]]; then
+    target="${target} -> ${resolved}"
+  fi
+
+  printf '%s\n' "$target"
+}
+
 remote_host="$(resolve_tailscale_host "$ssh_host")"
 ssh_target="$remote_host"
 if [[ -n "$ssh_user" ]]; then
   ssh_target="${ssh_user}@${remote_host}"
 fi
 
-ssh_args=(-o ConnectTimeout=10)
+ssh_args=(
+  -o ConnectTimeout=10
+  -o ControlMaster=no
+  -o ControlPath=none
+)
 if [[ -n "$ssh_port" ]]; then
   ssh_args+=(-p "$ssh_port")
 fi
 
 report_sleep_duration() {
-  local desktop_remote_host desktop_ssh_target deadline output status
+  local desktop_remote_host desktop_ssh_target deadline output status started_at
   local slept_at woke_at duration remote_stamp_path remote_command
-  local desktop_ssh_args
+  local desktop_ssh_args elapsed next_progress
 
   if [[ "$wait_for_desktop" != true ]]; then
     return
@@ -299,7 +360,7 @@ report_sleep_duration() {
     -n
     -T
     -o BatchMode=yes
-    -o ConnectTimeout=5
+    -o ConnectTimeout="$probe_timeout"
     -o ConnectionAttempts=1
     -o ControlMaster=no
     -o ControlPath=none
@@ -311,7 +372,9 @@ report_sleep_duration() {
     desktop_ssh_args+=(-p "$desktop_ssh_port")
   fi
 
-  echo "Waiting up to ${wait_timeout}s for desktop SSH at ${desktop_ssh_target}..."
+  echo "Waiting for desktop SSH..."
+  echo "  Target:  $(display_target "$desktop_ssh_host" "$desktop_remote_host" "$desktop_ssh_user" "$desktop_ssh_port")"
+  echo "  Timeout: ${wait_timeout}s"
 
   remote_stamp_path="$(shell_quote "$stamp_path")"
   remote_command='stamp_path='"$remote_stamp_path"'; set -eu
@@ -336,7 +399,10 @@ rm -f "$stamp_path"
 printf "%s %s\n" "$slept_at" "$woke_at"'
   remote_command="sh -c $(shell_quote "$remote_command")"
 
-  deadline=$((SECONDS + wait_timeout))
+  started_at="$SECONDS"
+  deadline=$((started_at + wait_timeout))
+  next_progress=$((started_at + 5))
+
   while (( SECONDS <= deadline )); do
     set +e
     output="$(ssh "${desktop_ssh_args[@]}" "$desktop_ssh_target" "$remote_command" 2>/dev/null)"
@@ -347,38 +413,47 @@ printf "%s %s\n" "$slept_at" "$woke_at"'
       read -r slept_at woke_at <<<"$output"
       if [[ "$slept_at" =~ ^[0-9]+$ && "$woke_at" =~ ^[0-9]+$ ]]; then
         duration=$((woke_at - slept_at))
-        echo "Desktop slept for $(human_duration "$duration")."
+        elapsed=$((SECONDS - started_at))
+        echo "Desktop SSH is ready after $(human_duration "$elapsed")."
+        echo "Sleep duration: $(human_duration "$duration")."
         return
       fi
 
-      echo "Woke desktop, but the sleep timestamp was unreadable."
+      echo "Desktop SSH is ready, but the sleep timestamp was unreadable."
       return
     fi
 
     if [[ "$status" -eq 3 ]]; then
-      echo "Woke desktop, but no sleep timestamp was found."
+      echo "Desktop SSH is ready, but no sleep timestamp was found."
       return
     fi
 
     if [[ "$status" -eq 4 ]]; then
-      echo "Woke desktop, but the sleep timestamp was invalid."
+      echo "Desktop SSH is ready, but the sleep timestamp was invalid."
       return
     fi
 
     if [[ "$status" -eq 5 ]]; then
-      echo "Woke desktop, but HOME was not set on the desktop SSH session."
+      echo "Desktop SSH is ready, but HOME was not set on the desktop SSH session."
       return
     fi
 
-    printf '.'
-    sleep 2
+    if (( SECONDS >= next_progress )); then
+      elapsed=$((SECONDS - started_at))
+      echo "  Still waiting... ${elapsed}s elapsed"
+      next_progress=$((SECONDS + 5))
+    fi
+
+    sleep "$probe_interval"
   done
 
-  printf '\n'
   echo "Wake packet sent; desktop SSH did not respond within ${wait_timeout}s."
 }
 
-echo "Waking desktop ${desktop_mac} via ${ssh_target} with etherwake..."
+echo "Wake desktop"
+echo "  Pi SSH:      $(display_target "$ssh_host" "$remote_host" "$ssh_user" "$ssh_port")"
+echo "  Desktop MAC: ${desktop_mac}"
+echo "Sending Wake-on-LAN packet..."
 
 ssh "${ssh_args[@]}" "$ssh_target" sh -s -- "$desktop_mac" <<'REMOTE'
 set -eu
@@ -407,4 +482,5 @@ echo "wake-desktop: etherwake not found on the Pi." >&2
 exit 127
 REMOTE
 
+echo "Wake-on-LAN packet sent."
 report_sleep_duration

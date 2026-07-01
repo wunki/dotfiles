@@ -69,9 +69,6 @@ function theme_apply -d "Apply tide+fzf colors for selected appearance"
         set -U tide_context_color_root FF7A77
         set -U tide_context_color_ssh 94a3b8
 
-        set -U tide_direnv_color FFE878
-        set -U tide_direnv_color_denied FF7A77
-
         set -U tide_vi_mode_color_default 83AEF8
         set -U tide_vi_mode_color_insert B9EC86
         set -U tide_vi_mode_color_replace FF7A77
@@ -129,9 +126,6 @@ function theme_apply -d "Apply tide+fzf colors for selected appearance"
         set -U tide_context_color_default 829181
         set -U tide_context_color_root aa544d
         set -U tide_context_color_ssh 829181
-
-        set -U tide_direnv_color 9b6e20
-        set -U tide_direnv_color_denied aa544d
 
         set -U tide_vi_mode_color_default 46778d
         set -U tide_vi_mode_color_insert 637827

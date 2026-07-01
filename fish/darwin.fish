@@ -87,9 +87,21 @@ function bup --description "Updates, upgrades and cleans Homebrew"
     brew cleanup
 end
 
-# Elixir: partition os_deps compile work by CPU cores / 2
-set -l physical_cpu_count (sysctl -n hw.physicalcpu 2>/dev/null)
-if test $status -eq 0; and string match -qr '^[0-9]+$' -- $physical_cpu_count
+# Elixir: partition os_deps compile work by CPU cores / 2.
+# Cache the physical CPU count; it is effectively static and `sysctl` costs a
+# few milliseconds on every shell startup. Erase __darwin_physical_cpu_count to
+# refresh it after moving this config to different hardware.
+set -l physical_cpu_count
+if set -q __darwin_physical_cpu_count[1]; and string match -qr '^[0-9]+$' -- $__darwin_physical_cpu_count
+    set physical_cpu_count $__darwin_physical_cpu_count
+else
+    set physical_cpu_count (sysctl -n hw.physicalcpu 2>/dev/null)
+    if test $status -eq 0; and string match -qr '^[0-9]+$' -- $physical_cpu_count
+        set -U __darwin_physical_cpu_count $physical_cpu_count
+    end
+end
+
+if string match -qr '^[0-9]+$' -- $physical_cpu_count
     set -l os_deps_partition_count (math --scale=0 "$physical_cpu_count / 2")
     if test $os_deps_partition_count -lt 1
         set os_deps_partition_count 1

@@ -14,7 +14,11 @@ fish_variables
 /conf.d/_tide_init.fish
 !/conf.d/[0-9]*.fish
 !/conf.d/tide.gondolin.fish
+!/conf.d/direnv.fish
+!/conf.d/vite-plus.fish
 !/completions/_*.fish
+!/completions/vp.fish
+!/completions/vpr.fish
 
 # Exempted functions
 !/functions/_tide_item_context.fish

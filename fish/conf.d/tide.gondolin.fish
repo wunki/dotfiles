@@ -3,7 +3,7 @@ if status is-interactive
     # Prompt structure
     set -g tide_left_prompt_items pwd git newline character
 
-    set -g tide_right_prompt_items status cmd_duration context jobs direnv pulumi kubectl distrobox toolbox terraform aws nix_shell
+    set -g tide_right_prompt_items status cmd_duration context jobs pulumi kubectl distrobox toolbox terraform aws nix_shell
 
     # Apply colors on startup
     theme_apply

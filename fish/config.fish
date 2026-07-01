@@ -5,9 +5,11 @@ set -g fish_greeting
 set -x LANG 'en_US.UTF-8'
 set -x LC_ALL 'en_US.UTF-8'
 set -x XDG_DATA_HOME "$HOME/.local/share"
-set -l gpg_tty (tty 2>/dev/null)
-if test $status -eq 0; and test -n "$gpg_tty"
-    set -x GPG_TTY $gpg_tty
+if status is-interactive
+    set -l gpg_tty (tty 2>/dev/null)
+    if test $status -eq 0; and test -n "$gpg_tty"
+        set -x GPG_TTY $gpg_tty
+    end
 end
 
 # keep my secret configuration files in here.
@@ -16,12 +18,16 @@ if test -f $HOME/.config/fish/secrets.fish
 end
 
 # system specific configuration
-switch (uname)
-    case Linux
+set -l fish_build_target (status buildinfo 2>/dev/null | string match --regex --groups-only '^Target.*: (.*)$')
+if test -z "$fish_build_target"
+    set fish_build_target (uname)
+end
+switch $fish_build_target
+    case '*linux*' Linux
         . $HOME/.config/fish/linux.fish
-    case Darwin
+    case '*darwin*' Darwin
         . $HOME/.config/fish/darwin.fish
-    case FreeBSD
+    case '*freebsd*' FreeBSD
         . $HOME/.config/fish/freebsd.fish
 end
 
@@ -186,14 +192,11 @@ if [ "$INSIDE_EMACS" = vterm ]
 end
 
 # environment managers (with performance guards)
-if type -q mise
-    mise activate fish | source
-    # Completions are cached in completions/mise.fish (fish lazy-loads them on
-    # first `mise <tab>`), instead of running `mise completion fish` every
-    # startup. Regenerate with: mise completion fish > ~/.config/fish/completions/mise.fish
+# Use mise shims only: avoids per-shell activation/env hooks while preserving
+# access to mise-managed tools. Regenerate completions with:
+# mise completion fish > ~/.config/fish/completions/mise.fish
+if test -d "$HOME/.local/share/mise/shims"
+    fish_add_path -pP "$HOME/.local/share/mise/shims"
 end
 
-if status is-interactive; and type -q direnv
-    direnv hook fish | source
-end
 

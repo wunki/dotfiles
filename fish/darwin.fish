@@ -32,7 +32,7 @@ fish_add_path -pP "$brew_prefix/opt/python3/bin"
 # Go
 fish_add_path -aP /usr/local/go/bin
 if type -q go
-    set -x GOPATH "$PROJECT_DIR/Go"
+    set -x GOPATH "$PROJECT_DIR/go"
     fish_add_path -aP "$GOPATH/bin"
 end
 

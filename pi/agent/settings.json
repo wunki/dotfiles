@@ -6,7 +6,5 @@
   "defaultThinkingLevel": "high",
   "theme": "gondolin-light/gondolin-dark",
   "enableInstallTelemetry": false,
-  "packages": [
-    "npm:pi-theme-sync"
-  ]
+  "packages": []
 }

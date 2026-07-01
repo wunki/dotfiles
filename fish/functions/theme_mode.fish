@@ -1,4 +1,29 @@
 function theme_mode -d "Print current system appearance: dark or light"
+    if set -q theme_mode_override; and contains -- $theme_mode_override dark light
+        echo $theme_mode_override
+        return 0
+    end
+
+    if set -q TMUX_THEME; and contains -- $TMUX_THEME dark light
+        echo $TMUX_THEME
+        return 0
+    end
+
+    # Match Pi's final fallback: COLORFGBG's last field is the terminal
+    # background color. theme-sync sets 15;0 for dark and 0;15 for light.
+    if set -q COLORFGBG
+        set -l colorfgbg_parts (string split ';' -- $COLORFGBG)
+        set -l bg $colorfgbg_parts[-1]
+        switch $bg
+            case 0 8
+                echo dark
+                return 0
+            case 7 15
+                echo light
+                return 0
+        end
+    end
+
     set -l fallback dark
     if set -q theme_mode_fallback; and contains -- $theme_mode_fallback dark light
         set fallback $theme_mode_fallback

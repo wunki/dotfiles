@@ -2,6 +2,7 @@
 experimental = true
 
 [tools]
+lua = "latest"
 lua-language-server = "latest"
 node = "lts"
 "npm:@mermaid-js/mermaid-cli" = "latest"
@@ -15,6 +16,8 @@ node = "lts"
 "npm:@earendil-works/pi-coding-agent" = "latest"
 clojure = "latest"
 babashka = "latest"
+elixir = "1.20.0-otp-29"
+erlang = "29"
 odin = "latest"
 zig = "latest"
 zls = "latest"
@@ -22,3 +25,6 @@ go = "latest"
 "go:golang.org/x/tools/gopls" = "latest"
 "go:golang.org/x/tools/cmd/goimports" = "latest"
 herdr = "latest"
+java = "latest"
+"aqua:remoteoss/dexter" = "latest"
+usage = "latest"

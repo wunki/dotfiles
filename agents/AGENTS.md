@@ -25,6 +25,17 @@ Correctness > maintainability > observability > simplicity > performance > speed
 - For bugs, reproduce with a failing test first when practical.
 - Run the narrowest meaningful checks; state anything skipped or unverified.
 
+## GitHub CLI
+
+When working with GitHub, prefer the `gh` CLI via bash over web/manual instructions.
+
+Before using GitHub:
+
+- Check auth with `gh auth status` if needed.
+- Use `gh pr view`, `gh pr diff`, `gh pr checks`, `gh issue view`, and `gh repo view` for discovery.
+- Never expose tokens or auth output containing secrets.
+- Ask before destructive or high-impact actions such as merging PRs, deleting branches, closing issues, editing releases, or changing repo settings.
+
 ## Safety
 
 - Never invent file contents, command output, links, test results, or execution status.

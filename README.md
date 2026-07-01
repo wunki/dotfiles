@@ -1,6 +1,6 @@
 # Dotfiles
 
-A carefully crafted collection of configuration files for Fish, Tmux, Ghostty, Helix, Zed, mise and more, optimized for cross-platform use.
+A carefully crafted collection of configuration files for Fish, Tmux, Ghostty, Helix, Zed, mise, and AI coding tools, optimized for cross-platform use.
 
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
@@ -11,7 +11,7 @@ A carefully crafted collection of configuration files for Fish, Tmux, Ghostty, H
 - **Modern tools**: Configuration for cutting-edge tools like Ghostty terminal and Zed editor
 - **Shell enhancements**: Fish shell with useful abbreviations, functions, and OS-specific configurations
 - **Development optimized**: Tmux with sensible defaults, theme switching, and mise-managed tool versions
-- **AI coding tools**: Shared skills and commands for Claude Code, OpenCode, Amp, and Codex
+- **AI coding tools**: Shared agent instructions and skills, plus Pi global configuration
 
 ## Components
 
@@ -27,7 +27,6 @@ A carefully crafted collection of configuration files for Fish, Tmux, Ghostty, H
 | Component                                       | Description                              |
 | ----------------------------------------------- | ---------------------------------------- |
 | [Ghostty](https://github.com/mitchellh/ghostty) | Modern GPU-accelerated terminal emulator |
-| [Rio](https://raphamorim.io/rio/)               | Hardware-accelerated terminal            |
 
 ### Editors & Tools
 
@@ -38,32 +37,26 @@ A carefully crafted collection of configuration files for Fish, Tmux, Ghostty, H
 | [Tmux](https://github.com/tmux/tmux)   | When editing remote I use Tmux to save sessions and manage windows |
 | [Lazygit](https://github.com/jesseduffield/lazygit) | Terminal UI for git commands                          |
 | [mise](https://mise.jdx.dev/)        | Runtime and developer tool version manager            |
+| [Herdr](https://github.com/ogulcan/herdr) | Lightweight host and command runner configuration |
 
 ### AI Coding Tools
 
 | Component                                    | Description                                      |
 | -------------------------------------------- | ------------------------------------------------ |
-| [Claude Code](https://claude.ai/)            | Anthropic's CLI for Claude (skills and commands) |
-| [OpenCode](https://opencode.ai/)             | AI coding assistant (shares skills with Claude)  |
-| [Amp](https://amp.dev/)                      | AI-powered editor (shares commands with Claude)  |
-| [Codex](https://github.com/openai/codex-cli) | OpenAI's CLI (shares skills with Claude)         |
-| [Pi](https://github.com/earendil-works/pi-coding-agent) | AI coding agent (global instructions and extensions) |
+| Shared agents | Tool-agnostic instructions and skills linked to `~/.agents` |
+| [Pi](https://github.com/earendil-works/pi-coding-agent) | AI coding agent global settings, models, themes, and extensions |
 
 ## AI Coding Tools
 
-This repository includes a shared ecosystem of skills, commands, and agent instructions for AI coding assistants. Shared Agent Skills and personal coding preferences live in `agents/` and are symlinked into tools that support them.
+This repository includes shared skills and agent instructions for AI coding assistants. Shared Agent Skills and personal coding preferences live in `agents/` and are symlinked into tools that support them.
 
 ### Available Skills
 
 | Skill | Description |
 | ----- | ----------- |
-| `dev-browser` | Browser automation with persistent page state |
-| `frontend-design` | Create distinctive, production-grade frontend interfaces |
-| `ship` | Create a concrete plan for finishing a project |
+| `ast-grep` | Syntax-aware code search and rewrite planning |
 | `guide` | Interactive guidance to complete a task themselves |
-| `solveit` | Generate structured learning guides using the Polya method |
-| `beads` | Track complex, multi-session work with dependency graphs |
-| `skill-creator` | Guide for creating new skills |
+| `smart-commit` | Group uncommitted changes into atomic commits |
 
 ### Sharing Architecture
 
@@ -73,7 +66,7 @@ agents/           <- Shared AGENTS.md and Agent Skills
      +-> ~/.agents (shared agents)
      +-> ~/.pi/agent/AGENTS.md (Pi global instructions, via make pi)
 
-pi/agent/ <- Pi global settings, models, themes, packages, and extensions
+pi/agent/ <- Pi global settings, models, themes, and extensions
      |
      +-> ~/.pi/agent
 ```
@@ -118,7 +111,7 @@ PLUG_EDITOR = "nvim://file/__FILE__:__LINE__?tmux-session={{ env.TMUX_SESSION_NA
 Clone this repository:
 
 ```bash
-git clone https://github.com/petar/dotfiles.git
+git clone git@github.com:wunki/dotfiles.git
 cd dotfiles
 ```
 
@@ -134,7 +127,6 @@ make zsh
 
 # Terminals
 make ghostty
-make rio
 
 # Editors & Tools
 make helix
@@ -142,6 +134,7 @@ make zed
 make tmux
 make lazygit
 make mise
+make herdr
 
 # AI Coding Tools
 make agents

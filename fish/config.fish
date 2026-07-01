@@ -5,7 +5,10 @@ set -g fish_greeting
 set -x LANG 'en_US.UTF-8'
 set -x LC_ALL 'en_US.UTF-8'
 set -x XDG_DATA_HOME "$HOME/.local/share"
-set -x GPG_TTY (tty)
+set -l gpg_tty (tty 2>/dev/null)
+if test $status -eq 0; and test -n "$gpg_tty"
+    set -x GPG_TTY $gpg_tty
+end
 
 # keep my secret configuration files in here.
 if test -f $HOME/.config/fish/secrets.fish
@@ -51,7 +54,14 @@ fish_add_path -aP /opt/nvim/bin
 abbr e $EDITOR
 abbr vim nvim
 abbr se sudoedit
-abbr cdr 'cd (git rev-parse --show-toplevel)'
+function cdr --description "Change to the current git repository root"
+    set -l root (git rev-parse --show-toplevel 2>/dev/null); or begin
+        echo "cdr: not inside a git repository" >&2
+        return 1
+    end
+
+    cd -- $root
+end
 
 # herdr stuff
 abbr hrd herdr --remote desktop
@@ -127,7 +137,12 @@ end
 
 # node.js ecosystem
 set -x NPM_PACKAGES "$HOME/.npm-packages"
-set -x NODE_PATH "$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+set -l npm_global_modules "$NPM_PACKAGES/lib/node_modules"
+if set -q NODE_PATH[1]; and string length -q -- "$NODE_PATH"
+    set -x NODE_PATH "$npm_global_modules:$NODE_PATH"
+else
+    set -x NODE_PATH "$npm_global_modules"
+end
 fish_add_path -aP "$NPM_PACKAGES/bin"
 
 # pnpm
@@ -182,5 +197,3 @@ if status is-interactive; and type -q direnv
     direnv hook fish | source
 end
 
-# opencode
-fish_add_path /home/petar/.opencode/bin

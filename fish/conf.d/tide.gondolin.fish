@@ -8,15 +8,9 @@ if status is-interactive
     # Apply colors on startup
     theme_apply
 
-    # Re-check appearance periodically; querying the desktop portal costs a few ms.
+    # Re-apply on each prompt so externally-run `theme-sync` updates existing shells.
+    # This is cheap because theme_mode is manual-only and theme_apply returns when unchanged.
     function __theme_check --on-event fish_prompt
-        set -q theme_check_interval; or set -g theme_check_interval 10
-        set -q __theme_check_count; or set -g __theme_check_count 0
-
-        set -g __theme_check_count (math $__theme_check_count + 1)
-        if test $__theme_check_count -ge $theme_check_interval
-            set -g __theme_check_count 0
-            theme_apply
-        end
+        theme_apply
     end
 end

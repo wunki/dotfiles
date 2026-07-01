@@ -2,7 +2,6 @@ fish_history
 fishd.*
 fish_read_history
 fish_variables
-fish_plugins
 /functions/*
 
 # These files are managed by fisherman, so let's ignore them
@@ -17,7 +16,7 @@ fish_plugins
 !/conf.d/tide.gondolin.fish
 !/completions/_*.fish
 
-# Excempted functions
+# Exempted functions
 !/functions/_tide_item_context.fish
 !/functions/ls!.fish
 !/functions/gg.fish

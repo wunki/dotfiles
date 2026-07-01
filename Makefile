@@ -120,6 +120,19 @@ mise: ensure-config-dir
 bin:
 	@echo "Linking bin scripts to ~/.local/bin..."
 	@mkdir -p $(HOME)/.local/bin
+	@for link in $(HOME)/.local/bin/*; do \
+		if [ -L "$$link" ]; then \
+			target=$$(readlink "$$link"); \
+			case "$$target" in \
+				$(DOTFILES)/bin/*) \
+					if [ ! -e "$$target" ]; then \
+						rm "$$link"; \
+						echo "  Removed stale $$(basename "$$link")"; \
+					fi; \
+					;; \
+			esac; \
+		fi; \
+	done
 	@for f in $(DOTFILES)/bin/*; do \
 		if [ -x "$$f" ] && [ -f "$$f" ]; then \
 			name=$$(basename "$$f"); \

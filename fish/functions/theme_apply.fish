@@ -1,18 +1,37 @@
-function theme_apply -d "Apply tide+fzf colors for current system appearance"
-    if not status is-interactive
+function theme_apply -d "Apply tide+fzf colors for selected appearance"
+    set -l force false
+    if contains -- --force $argv
+        set force true
+        set -l force_index (contains --index -- --force $argv)
+        set -e argv[$force_index]
+    end
+
+    if not status is-interactive; and test "$force" != true
         return
     end
 
-    # Accept override: theme_apply dark|light
+    # Accept override: theme_apply [--force] dark|light
     set -l mode $argv[1]
     if test -z "$mode"
         set mode (theme_mode)
     end
 
-    # Skip if mode hasn't changed.
-    if test "$mode" = "$__theme_current_mode"
+    set -l palette_version 1
+
+    # Skip if this shell is already using the requested mode.
+    if test "$force" != true; and test "$mode" = "$__theme_current_mode"
         return
     end
+
+    # New shells inherit universal tide colors. Avoid rewriting all of them on
+    # every startup unless the selected mode or palette version changed.
+    if test "$force" != true; and test "$mode" = "$__theme_applied_mode"; and test "$__theme_palette_version" = "$palette_version"
+        set -g __theme_current_mode $mode
+        functions -q _tide_cache_variables; and _tide_cache_variables
+        functions -q _tide_pwd; and source (functions --details _tide_pwd)
+        return
+    end
+
     set -g __theme_current_mode $mode
 
     set -U tide_character_icon λ
@@ -144,7 +163,11 @@ function theme_apply -d "Apply tide+fzf colors for current system appearance"
         end
     end
 
-    # Tide caches the branch/location color into _tide_location_color at init,
-    # so refresh it here or the prompt keeps the stale (universal) branch color.
-    functions -q _tide_cache_variables && _tide_cache_variables
+    set -U __theme_applied_mode $mode
+    set -U __theme_palette_version $palette_version
+
+    # Tide caches colors into generated functions/variables at init, so refresh
+    # them here or the prompt keeps stale colors after a manual theme switch.
+    functions -q _tide_cache_variables; and _tide_cache_variables
+    functions -q _tide_pwd; and source (functions --details _tide_pwd)
 end

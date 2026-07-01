@@ -7,7 +7,13 @@ if test -x /opt/homebrew/bin/fish
 end
 
 # Setup homebrew
-set -g brew_prefix /opt/homebrew
+if test -x /opt/homebrew/bin/brew
+    set -g brew_prefix /opt/homebrew
+else if test -x /usr/local/bin/brew
+    set -g brew_prefix /usr/local
+else
+    set -g brew_prefix /opt/homebrew
+end
 
 # Don't show me hints
 set -x HOMEBREW_NO_ENV_HINTS true
@@ -41,12 +47,12 @@ fish_add_path -aP /Applications/Emacs.app/Contents/MacOS
 fish_add_path -aP /Applications/Emacs.app/Contents/MacOS/bin
 
 # Auto completion
-if test -d "$brew_prefix/share/fish/completions"
-    set -p fish_complete_path "$brew_prefix/share/fish/completions"
-end
-
-if test -d "$brew_prefix/share/fish/vendor_completions.d"
-    set -p fish_complete_path "$brew_prefix/share/fish/vendor_completions.d"
+for completions_dir in \
+    "$brew_prefix/share/fish/completions" \
+    "$brew_prefix/share/fish/vendor_completions.d"
+    if test -d "$completions_dir"; and not contains -- "$completions_dir" $fish_complete_path
+        set -p fish_complete_path "$completions_dir"
+    end
 end
 
 # Setup Tailscale

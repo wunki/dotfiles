@@ -71,11 +71,11 @@ This repository includes a shared ecosystem of skills, commands, and agent instr
 agents/           <- Shared AGENTS.md and Agent Skills
      |
      +-> ~/.agents (shared agents)
-     +-> ~/.pi/agent/AGENTS.md (Pi global instructions)
+     +-> ~/.pi/agent/AGENTS.md (Pi global instructions, via make pi)
 
-pi/agent/extensions/ <- Pi global extensions
+pi/agent/ <- Pi global settings, models, themes, packages, and extensions
      |
-     +-> ~/.pi/agent/extensions
+     +-> ~/.pi/agent
 ```
 
 ## Neovim

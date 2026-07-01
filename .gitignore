@@ -25,6 +25,7 @@
 /OpenCode.md
 /.claude
 /lazygit/state.yml
+/pi/agent/npm/node_modules/
 
 # dev-browser skill artifacts
 /claude/skills/dev-browser/node_modules/

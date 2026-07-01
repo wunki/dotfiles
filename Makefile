@@ -145,11 +145,24 @@ agents:
 	@ln -fns $(DOTFILES)/agents $(HOME)/.agents
 	@echo "Shared agents linked."
 
-pi: agents
+pi:
 	@echo "Linking Pi global configuration..."
-	@mkdir -p $(HOME)/.pi/agent/extensions
-	@ln -fns $(HOME)/.agents/AGENTS.md $(HOME)/.pi/agent/AGENTS.md
-	@ln -fns $(DOTFILES)/pi/agent/extensions/tmux.ts $(HOME)/.pi/agent/extensions/tmux.ts
+	@mkdir -p $(HOME)/.pi/agent
+	@ln -fns $(DOTFILES)/agents/AGENTS.md $(HOME)/.pi/agent/AGENTS.md
+	@if [ -e $(HOME)/.pi/agent/extensions ] && [ ! -L $(HOME)/.pi/agent/extensions ]; then \
+		backup=$(HOME)/.pi/agent/extensions.bak.$$(date +%Y%m%d%H%M%S); \
+		mv $(HOME)/.pi/agent/extensions $$backup; \
+		echo "Backed up existing Pi extensions to $$backup"; \
+	fi
+	@ln -fns $(DOTFILES)/pi/agent/extensions $(HOME)/.pi/agent/extensions
+	@if [ -e $(HOME)/.pi/agent/themes ] && [ ! -L $(HOME)/.pi/agent/themes ]; then \
+		backup=$(HOME)/.pi/agent/themes.bak.$$(date +%Y%m%d%H%M%S); \
+		mv $(HOME)/.pi/agent/themes $$backup; \
+		echo "Backed up existing Pi themes to $$backup"; \
+	fi
+	@ln -fns $(DOTFILES)/pi/agent/themes $(HOME)/.pi/agent/themes
+	@ln -fns $(DOTFILES)/pi/agent/settings.json $(HOME)/.pi/agent/settings.json
+	@ln -fns $(DOTFILES)/pi/agent/models.json $(HOME)/.pi/agent/models.json
 	@echo "Pi linked."
 
 # --- Linux System Targets ---

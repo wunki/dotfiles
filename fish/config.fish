@@ -53,6 +53,9 @@ abbr vim nvim
 abbr se sudoedit
 abbr cdr 'cd (git rev-parse --show-toplevel)'
 
+# herdr stuff
+abbr hrd herdr --remote desktop
+
 # tree shortcuts
 abbr t1 'tree --dirsfirst -ChFL 1'
 abbr t2 'tree --dirsfirst -ChFL 2'

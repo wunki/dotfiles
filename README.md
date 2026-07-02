@@ -186,6 +186,25 @@ mise reshim
 | `hunkdiff` | Diff hunk formatting/review helper | `hunkdiff` |
 | Pi coding agent | AI coding agent CLI | `pi` |
 
+### Herdr Keybindings
+
+Herdr uses `Ctrl-h` as the prefix key. Reload config after changes with `Ctrl-h r`
+or `herdr server reload-config`.
+
+| Binding | Action |
+| ------- | ------ |
+| `Ctrl-h w` | Open workspace picker |
+| `Ctrl-h g` | Open goto/navigator |
+| `Ctrl-h Shift-c` | Create new workspace |
+| `Ctrl-h Shift-h` | Previous workspace |
+| `Ctrl-h Shift-l` | Next workspace |
+| `Ctrl-h Shift-1..9` | Switch directly to workspace 1-9 |
+| `j` / `k` in navigator | Move down/up between workspaces |
+| `Ctrl-h ,` | Rename tab |
+| `Ctrl-h s` | Split horizontally |
+| `Ctrl-h Shift-r` | Resize mode |
+| `Ctrl-h Shift-s` | Settings |
+
 ### Fish Setup
 
 1. Install Fisher (plugin manager):

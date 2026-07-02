@@ -70,7 +70,10 @@ function cdr --description "Change to the current git repository root"
 end
 
 # herdr stuff
-abbr hrd herdr --remote desktop
+function hrd --description "Connect to desktop with herdr and set terminal title"
+    printf '\e]2;desktop\a'
+    herdr --remote desktop $argv
+end
 
 # tree shortcuts
 abbr t1 'tree --dirsfirst -ChFL 1'

@@ -1,11 +1,11 @@
 ---
 name: smart-commit
-description: Analyzes all uncommitted changes (staged and unstaged), groups them into atomic commits by logical purpose, and generates conventional commit messages with user-facing bodies. Use when the user asks to "smart commit", "group my commits", "split into atomic commits", "organize my changes into commits", or when there are many uncommitted changes across multiple files that should be separated into well-scoped commits. Don't use for a single, simple commit message request, for push/pull operations, for rebasing or squashing existing commits, or when the user just says "commit this" without asking for grouping or splitting.
+description: Analyzes all uncommitted changes (staged and unstaged), groups them into atomic commits by logical purpose, and generates clear conventional commit messages with practical, context-rich bodies. Use when the user asks to "smart commit", "group my commits", "split into atomic commits", "organize my changes into commits", or when there are many uncommitted changes across multiple files that should be separated into well-scoped commits. Don't use for a single, simple commit message request, for push/pull operations, for rebasing or squashing existing commits, or when the user just says "commit this" without asking for grouping or splitting.
 ---
 
 # Smart Commit — Atomic Commit Grouping
 
-Analyze all uncommitted changes in the working directory, intelligently group related changes into atomic commits, and generate conventional commit messages for each group.
+Analyze all uncommitted changes in the working directory, intelligently group related changes into atomic commits, and generate conventional commit messages for each group with clear motivation and context.
 
 ## Step 1: Gather All Uncommitted Changes
 
@@ -68,7 +68,7 @@ Files:
 - src/auth/reset-password.test.ts
 - src/components/ResetPasswordForm.tsx
 
-Body: Users can now reset their password via email if they forget it.
+Body: Password reset now has a dedicated flow instead of relying on support or manual account recovery. The form, API call, and tests are kept together so the user-facing behavior and its coverage move as one change.
 
 ---
 
@@ -76,7 +76,7 @@ Body: Users can now reset their password via email if they forget it.
 Files:
 - src/api/users.ts
 
-Body: Fixes a crash that occurred when viewing a deleted user's profile.
+Body: Deleted users can produce an empty API response, which previously caused profile views to crash. Treating that response as a missing profile keeps the page stable and makes the fallback behavior explicit.
 
 ---
 
@@ -87,17 +87,24 @@ Files:
 Body: (none)
 ```
 
-### Commit Body Guidelines
+### Commit Message Guidelines
 
-The body appears in release notes and should be readable by non-technical users. Write one sentence describing user impact, not implementation.
+Use a short, imperative conventional-commit subject that names the concrete change.
 
-Skip the body entirely for `chore`, `style`, and `ci` commits.
+Write the body as clear prose for a future reader who knows the project's goal but not this change yet. Explain:
+- what problem or limitation motivated the change
+- why this shape of solution was chosen
+- any important tradeoffs, assumptions, or follow-up work
 
-Good: "Users can now export their data as a CSV file."
-Good: "Fixes an issue where the app would freeze when uploading large images."
+Prefer useful context over listing files. Keep the tone practical, calm, and direct. Avoid unexplained jargon and avoid restating the diff.
 
-Bad: "Added exportToCSV function to DataService." (implementation detail)
-Bad: "Fixed null pointer exception in handleUpload." (too technical)
+Skip the body entirely for small `chore`, `style`, and `ci` commits unless there is important context.
+
+Good: "Exports now stream rows instead of building the whole CSV in memory. Large exports were freezing the app, and streaming keeps memory usage bounded while preserving the existing file format."
+Good: "Deleted users can produce an empty API response, which previously crashed profile views. Treating that response as a missing profile keeps the page stable and makes the fallback behavior explicit."
+
+Bad: "Added exportToCSV function to DataService." (implementation detail without motivation)
+Bad: "Fixed null pointer exception in handleUpload." (too terse and jargon-heavy)
 
 ## Step 4: Get User Confirmation
 

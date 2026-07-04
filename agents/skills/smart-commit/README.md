@@ -1,6 +1,6 @@
 # Smart Commit
 
-A Claude Code skill that analyzes unstaged changes, groups them into logical atomic commits, and generates conventional commit messages.
+An agent skill that analyzes uncommitted changes, groups them into logical atomic commits, and generates clear conventional commit messages with practical context.
 
 ## When to use
 
@@ -10,7 +10,7 @@ When asked to "smart commit", "group commits", "atomic commits", or when there a
 
 - **Step 1**: Gather all unstaged changes
 - **Step 2**: Analyze and group by purpose, scope, and relationship
-- **Step 3**: Present commit plan with conventional commit messages
+- **Step 3**: Present commit plan with concise subjects and context-rich bodies
 - **Step 4**: Get user confirmation before executing
 - **Step 5**: Execute commits in dependency order
 
@@ -23,6 +23,4 @@ When asked to "smart commit", "group commits", "atomic commits", or when there a
 
 ## Usage
 
-```
-/smart-commit
-```
+Ask for "smart commit", "group commits", or "split these changes into atomic commits".

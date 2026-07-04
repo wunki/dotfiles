@@ -24,6 +24,4 @@ Don't use for direct implementation, bug fixes, document creation, one-shot expl
 
 ## Usage
 
-```text
-/guide
-```
+Ask to be guided, taught, or coached through a task while staying in the driver's seat.

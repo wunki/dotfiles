@@ -15,6 +15,7 @@ Correctness > maintainability > observability > simplicity > performance > speed
 - Inspect relevant code/docs before editing unfamiliar areas.
 - Make the smallest clean change that solves the root cause; use existing patterns and dependencies.
 - Use structural search/refactors for code shape; use text search for text.
+- Write comments for a reader who is new to the codebase but understands the project's goal: use plain language, avoid jargon, and explain why the code exists or behaves a certain way rather than restating what it does.
 - Decide on low-risk, reversible choices. Ask before high-impact or irreversible changes: auth, security, privacy, schemas, migrations, public APIs, cross-service contracts, destructive operations.
 - Stay scoped; note unrelated issues instead of fixing them.
 - Add useful error context/observability when touching critical failure paths.
@@ -24,6 +25,12 @@ Correctness > maintainability > observability > simplicity > performance > speed
 - Test behavior through real code paths; fake only boundaries like network, time, randomness, or third-party services.
 - For bugs, reproduce with a failing test first when practical.
 - Run the narrowest meaningful checks; state anything skipped or unverified.
+
+## Commits
+
+- Write commit messages with a short, imperative subject that names the concrete change.
+- In the body, explain the motivation and shape of the change in clear prose: what problem it solves, why this approach was chosen, and any notable tradeoffs or follow-up work.
+- Prefer useful context over exhaustively listing files; keep the tone practical, calm, and direct.
 
 ## GitHub CLI
 

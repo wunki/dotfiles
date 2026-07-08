@@ -4,7 +4,7 @@
   "defaultModel": "gpt-5.5",
   "hideThinkingBlock": true,
   "defaultThinkingLevel": "high",
-  "theme": "gondolin-light/gondolin-dark",
+  "theme": "gondolin",
   "enableInstallTelemetry": false,
   "packages": []
 }

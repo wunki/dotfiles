@@ -72,6 +72,23 @@ end
 # herdr stuff
 function hrd --description "Connect to desktop with herdr and set terminal title"
     printf '\e]2;desktop\a'
+
+    if not ssh -n -T \
+            -o BatchMode=yes \
+            -o ConnectTimeout=2 \
+            -o ConnectionAttempts=1 \
+            -o ControlMaster=no \
+            -o ControlPath=none \
+            -o NumberOfPasswordPrompts=0 \
+            desktop true >/dev/null 2>&1
+        if command -q wake-desktop
+            wake-desktop; or return $status
+        else
+            echo "hrd: desktop is not reachable and wake-desktop is not available" >&2
+            return 1
+        end
+    end
+
     herdr --remote desktop $argv
 end
 

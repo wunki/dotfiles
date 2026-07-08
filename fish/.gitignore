@@ -29,3 +29,4 @@ fish_variables
 !/functions/update-abbreviations-*.fish
 !/functions/theme_apply.fish
 !/functions/theme_mode.fish
+!/functions/cpu.fish

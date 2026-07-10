@@ -14,7 +14,7 @@
 /fish/conf.d/*
 !/fish/conf.d/tide.gondolin.fish
 !/fish/conf.d/[0-9]*.fish
-/fish/fish_variables
+/fish/fish_variables*
 /fish/completions/fzf_configure_bindings.fish
 /fish/completions/fisher.fish
 /fish/secrets.fish

@@ -4,7 +4,7 @@ CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
 # List all application targets here
-APP_TARGETS := fish zsh helix ghostty zed tmux herdr bin lazygit mise agents pi
+APP_TARGETS := fish zsh helix ghostty zed tmux herdr bin lazygit mise agents claude codex pi
 
 # Define the default target 'all' to depend on all application targets
 .PHONY: all
@@ -152,6 +152,28 @@ agents:
 	fi
 	@ln -fns $(DOTFILES)/agents $(HOME)/.agents
 	@echo "Shared agents linked."
+
+claude: agents
+	@echo "Linking shared writing skill for Claude..."
+	@mkdir -p $(HOME)/.claude/skills
+	@if [ -e $(HOME)/.claude/skills/petar-writing ] && [ ! -L $(HOME)/.claude/skills/petar-writing ]; then \
+		backup=$(HOME)/.claude/skills/petar-writing.bak.$$(date +%Y%m%d%H%M%S); \
+		mv $(HOME)/.claude/skills/petar-writing $$backup; \
+		echo "Backed up existing Claude writing skill to $$backup"; \
+	fi
+	@ln -fns $(DOTFILES)/agents/skills/petar-writing $(HOME)/.claude/skills/petar-writing
+	@echo "Claude writing skill linked."
+
+codex: agents
+	@echo "Linking Codex global instructions..."
+	@mkdir -p $(HOME)/.codex
+	@if [ -e $(HOME)/.codex/AGENTS.md ] && [ ! -L $(HOME)/.codex/AGENTS.md ]; then \
+		backup=$(HOME)/.codex/AGENTS.md.bak.$$(date +%Y%m%d%H%M%S); \
+		mv $(HOME)/.codex/AGENTS.md $$backup; \
+		echo "Backed up existing ~/.codex/AGENTS.md to $$backup"; \
+	fi
+	@ln -fns $(DOTFILES)/agents/AGENTS.md $(HOME)/.codex/AGENTS.md
+	@echo "Codex linked."
 
 pi:
 	@echo "Linking Pi global configuration..."

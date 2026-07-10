@@ -43,27 +43,34 @@ A carefully crafted collection of configuration files for Fish, Tmux, Ghostty, H
 
 | Component                                    | Description                                      |
 | -------------------------------------------- | ------------------------------------------------ |
-| Shared agents | Tool-agnostic instructions and skills linked to `~/.agents` |
+| Shared agents | Tool-agnostic instructions, writing style, and skills linked to `~/.agents` |
+| [Claude Code](https://docs.anthropic.com/en/docs/claude-code/) | Personal writing skill shared through `~/.claude/skills` |
+| [Codex](https://developers.openai.com/codex/) | Global instructions shared with Pi |
 | [Pi](https://github.com/earendil-works/pi-coding-agent) | AI coding agent global settings, models, themes, and extensions |
 
 ## AI Coding Tools
 
-This repository includes shared skills and agent instructions for AI coding assistants. Shared Agent Skills and personal coding preferences live in `agents/` and are symlinked into tools that support them.
+This repository includes shared skills and agent instructions for AI coding assistants. Shared Agent Skills and personal coding preferences live in `agents/` and are symlinked into tools that support them. The `petar-writing` skill captures the tone used on [petar.dev](https://petar.dev) and removes generic AI writing patterns.
 
 ### Available Skills
 
 | Skill | Description |
 | ----- | ----------- |
 | `ast-grep` | Syntax-aware code search and rewrite planning |
+| `devlog` | Maintain project developer logs between work sessions |
 | `guide` | Interactive guidance to complete a task themselves |
+| `petar-writing` | Draft and edit prose in my voice without generic AI slop |
+| `pr-description` | Draft context-first pull request descriptions |
 | `smart-commit` | Group uncommitted changes into atomic commits |
 
 ### Sharing Architecture
 
 ```
-agents/           <- Shared AGENTS.md and Agent Skills
+agents/           <- Shared AGENTS.md, writing style, and Agent Skills
      |
-     +-> ~/.agents (shared agents)
+     +-> ~/.agents (shared agents and Pi/Codex skills)
+     +-> ~/.claude/skills/petar-writing (via make claude)
+     +-> ~/.codex/AGENTS.md (Codex global instructions, via make codex)
      +-> ~/.pi/agent/AGENTS.md (Pi global instructions, via make pi)
 
 pi/agent/ <- Pi global settings, models, themes, and extensions
@@ -138,6 +145,8 @@ make herdr
 
 # AI Coding Tools
 make agents
+make claude
+make codex
 make pi
 
 # Scripts (nvim URL handler, etc.)

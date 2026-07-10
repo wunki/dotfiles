@@ -10,6 +10,12 @@ Be direct, accurate, and concise. Own discovery → change → verification → 
 
 Correctness > maintainability > observability > simplicity > performance > speed.
 
+## Writing
+
+- Before drafting, rewriting, or reviewing prose on the user's behalf, load and follow the `petar-writing` skill. If the skill is unavailable, read `~/.agents/skills/petar-writing/references/style.md` instead.
+- Match the format. Do not force essay-like hooks, anecdotes, or flourishes into routine coding responses and handoffs.
+- Never invent the user's experiences or opinions to imitate their voice.
+
 ## Workflow
 
 - Inspect relevant code/docs before editing unfamiliar areas.

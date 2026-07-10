@@ -14,10 +14,10 @@ Write PR descriptions that are precise, reviewer-friendly, and narrative: contex
 
 Good PR descriptions have a clear thesis, enough background to make the diff obvious, concrete examples where shape or behavior changed, explicit tradeoffs, and direct risk/edge callouts. They respect the reviewer's time by separating narrative from mechanics and leaving routine test status to CI/CD.
 
-This style is calibrated to the user's preferred PR shape:
+This style is calibrated to the user's preferred PR shape. Open directly with the context paragraph—do not add a `## Context` heading:
 
 ```markdown
-## Context
+<Context paragraph explaining why the PR exists.>
 
 ## What changed
 
@@ -32,7 +32,7 @@ Use this structure as a default, but shrink or expand it to fit the PR.
 
 ## Core Style Principles
 
-1. **Start with context, not implementation.** Explain the situation, constraint, or bug that made the change necessary.
+1. **Start directly with context, not a heading or implementation.** The opening paragraph should explain the situation, constraint, or bug that made the change necessary. Never prefix it with a `Context` heading.
 2. **Tell a story.** Move from problem → approach → important details → reason/tradeoffs → proof.
 3. **Group by concept, not file.** Use `###` subsections for meaningful units of change, such as migration, storage model, API behavior, UI state, tests, or rollout.
 4. **Be concrete.** Include names of important commands, paths, config keys, routes, state keys, data shapes, or user-visible behavior when they help review.
@@ -113,9 +113,7 @@ If any of these are important but unknown, ask a concise question before finaliz
 Use this for medium or large PRs:
 
 ```markdown
-## Context
-
-<1–3 paragraphs explaining the prior state, problem, constraint, or goal.>
+<1–3 opening paragraphs explaining the prior state, problem, constraint, or goal.>
 
 ## What changed
 
@@ -152,9 +150,7 @@ Do not include empty sections. Rename `## Notes` to `## Risks`, `## Rollout`, or
 For narrow bug fixes, docs changes, or small refactors:
 
 ```markdown
-## Context
-
-<What was wrong or why this small change exists.>
+<Opening paragraph explaining what was wrong or why this small change exists.>
 
 ## What changed
 
@@ -168,7 +164,7 @@ Optionally add `## Notes` only if there is a non-obvious caveat or manual check 
 For auth, privacy, persistence, migrations, schemas, public APIs, billing, security, or cross-service contracts, include more explicit sections:
 
 ```markdown
-## Context
+<Opening context paragraphs explaining why the PR exists.>
 
 ## What changed
 
@@ -251,7 +247,7 @@ Avoid:
 
 Before handing off, verify the draft:
 
-- Does the first paragraph explain why the PR exists?
+- Does the description open with an unheaded paragraph that explains why the PR exists?
 - Are changes grouped by reviewer-relevant concepts?
 - Are important boundaries and exclusions explicit?
 - Are manual checks omitted unless they add information beyond CI/CD?

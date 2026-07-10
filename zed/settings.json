@@ -226,7 +226,7 @@
     },
   },
   "theme": {
-    "mode": "dark",
+    "mode": "system",
     "light": "Melange Light",
     "dark": "Gruvbox ish Dark Hard",
   },

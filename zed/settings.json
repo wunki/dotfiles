@@ -1,5 +1,5 @@
 {
-  "buffer_font_weight": 300.0,
+  "markdown_preview_font_size": 13.0,
   "ssh_connections": [
     {
       "host": "desktop",
@@ -34,6 +34,12 @@
   },
   "text_rendering_mode": "platform_default",
   "agent": {
+    "sandbox_permissions": {
+      "network_hosts": [
+        "zed.dev",
+        "github.com"
+      ]
+    },
     "dock": "left",
     "enable_feedback": false,
     "default_model": {
@@ -67,7 +73,7 @@
   "gutter": {
     "line_numbers": false,
   },
-  "agent_buffer_font_size": 12.0,
+  "agent_buffer_font_size": 13.0,
   "auto_install_extensions": {
     "elixir": true,
     "fish": true,
@@ -75,7 +81,7 @@
     "toml": true,
     "svelte": true,
   },
-  "buffer_font_family": "AnonymicePro Nerd Font",
+  "buffer_font_family": "Inconsolata",
   "buffer_font_size": 13.0,
   "collaboration_panel": {
     "dock": "right",
@@ -200,8 +206,7 @@
     "metrics": false,
   },
   "terminal": {
-    "font_weight": 300.0,
-    "font_family": "AnonymicePro Nerd Font",
+    "font_family": "Inconsolata",
     "line_height": "comfortable",
     "scrollbar": {
       "show": "auto",
@@ -212,7 +217,7 @@
     "env": {
       "TERM_PROGRAM": "zed",
     },
-    "font_size": 12.0,
+    "font_size": 13.0,
     "option_as_meta": true,
     "shell": {
       "with_arguments": {
@@ -226,8 +231,8 @@
     },
   },
   "theme": {
-    "mode": "dark",
-    "light": "Melange Light",
+    "mode": "light",
+    "light": "Patina Light",
     "dark": "Patina Dark",
   },
   "toolbar": {

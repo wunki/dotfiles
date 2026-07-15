@@ -1,5 +1,15 @@
 {
-  "markdown_preview_font_size": 13.0,
+  "buffer_font_family": "Inconsolata",
+  "buffer_font_size": 13.0,
+  "agent_ui_font_size": 13.0,
+  "agent_buffer_font_size": 13.0,
+  "context_servers": {
+    "linear": {
+      "enabled": true,
+      "remote": false,
+      "settings": {}
+    }
+  },
   "ssh_connections": [
     {
       "host": "desktop",
@@ -27,17 +37,87 @@
     "dock": "right",
   },
   "semantic_tokens": "combined",
-  "icon_theme": {
-    "mode": "dark",
-    "light": "Zed (Default)",
-    "dark": "Zed (Default)",
-  },
+  "icon_theme": "Zed (Default)",
   "text_rendering_mode": "platform_default",
   "agent": {
+    "tool_permissions": {
+      "tools": {
+        "mcp:linear:list_diffs": {
+          "default": "allow"
+        },
+        "mcp:linear:get_diff": {
+          "default": "allow"
+        },
+        "skill": {
+          "default": "allow"
+        },
+        "mcp:linear:list_comments": {
+          "default": "allow"
+        },
+        "mcp:linear:get_issue": {
+          "default": "allow"
+        },
+        "mcp:linear:get_status_updates": {
+          "default": "allow"
+        },
+        "mcp:linear:list_issues": {
+          "default": "allow"
+        },
+        "mcp:linear:get_project": {
+          "default": "allow"
+        },
+        "fetch": {
+          "default": "allow"
+        },
+        "mcp:linear:save_issue": {
+          "default": "allow"
+        },
+        "mcp:linear:list_issue_statuses": {
+          "default": "allow"
+        },
+        "terminal": {
+          "default": "allow",
+          "always_allow": [
+            {
+              "pattern": "^git\\s+switch(\\s|$)"
+            },
+            {
+              "pattern": "^git\\b"
+            },
+            {
+              "pattern": "^printf\\s+%sn(\\s|$)"
+            },
+            {
+              "pattern": "^test\\b"
+            },
+            {
+              "pattern": "^echo\\s+all(\\s|$)"
+            },
+            {
+              "pattern": "^find\\s+\\.agents/skills(\\s|$)"
+            },
+            {
+              "pattern": "^git\\s+add(\\s|$)"
+            },
+            {
+              "pattern": "^shasum\\b"
+            },
+            {
+              "pattern": "^file\\s+AGENTS\\.md(\\s|$)"
+            },
+            {
+              "pattern": "^find\\s+\\.(\\s|$)"
+            }
+          ]
+        }
+      }
+    },
     "sandbox_permissions": {
       "network_hosts": [
         "zed.dev",
-        "github.com"
+        "github.com",
+        "linear.app",
+        "developers.openai.com"
       ]
     },
     "dock": "left",
@@ -69,11 +149,9 @@
       "type": "registry",
     },
   },
-  "agent_ui_font_size": 13.0,
   "gutter": {
     "line_numbers": false,
   },
-  "agent_buffer_font_size": 13.0,
   "auto_install_extensions": {
     "elixir": true,
     "fish": true,
@@ -81,8 +159,6 @@
     "toml": true,
     "svelte": true,
   },
-  "buffer_font_family": "Inconsolata",
-  "buffer_font_size": 13.0,
   "collaboration_panel": {
     "dock": "right",
     "button": false,
@@ -206,7 +282,6 @@
     "metrics": false,
   },
   "terminal": {
-    "font_family": "Inconsolata",
     "line_height": "comfortable",
     "scrollbar": {
       "show": "auto",
@@ -217,7 +292,6 @@
     "env": {
       "TERM_PROGRAM": "zed",
     },
-    "font_size": 13.0,
     "option_as_meta": true,
     "shell": {
       "with_arguments": {
@@ -231,16 +305,16 @@
     },
   },
   "theme": {
-    "mode": "light",
+    "mode": "system",
     "light": "Patina Light",
-    "dark": "Patina Dark",
+    "dark": "Everforest Dark Hard (material)"
   },
   "toolbar": {
     "breadcrumbs": true,
     "quick_actions": false,
   },
   "ui_font_family": "iA Writer Duospace",
-  "ui_font_size": 13.0,
+  "ui_font_size": 12.0,
   "use_autoclose": true,
   "vertical_scroll_margin": 5,
   "vim": {

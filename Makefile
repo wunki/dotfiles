@@ -40,7 +40,8 @@ endif
 	@printf "\tfisher install jorgebucaran/autopair.fish\n"
 	@printf "\tfisher install meaningful-ooo/sponge\n"
 	@printf "\tfisher install PatrickF1/fzf.fish\n"
-	@printf "\tfisher install IlanCosman/tide@v6\n\n"
+	@printf "\tfisher install IlanCosman/tide@v6\n"
+	@printf "\tThen run tide configure and choose Lean / 16 colors.\n\n"
 
 zsh:
 	@echo "Linking zsh configuration..."

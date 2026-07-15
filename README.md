@@ -234,6 +234,8 @@ fisher install IlanCosman/tide@v6
 tide configure
 ```
 
+Choose the Lean style and 16 colors so the terminal theme controls the palette.
+
 ### ZSH Setup
 
 1. Install tools:

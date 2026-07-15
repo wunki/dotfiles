@@ -155,15 +155,15 @@ agents:
 	@echo "Shared agents linked."
 
 claude: agents
-	@echo "Linking shared writing skill for Claude..."
-	@mkdir -p $(HOME)/.claude/skills
-	@if [ -e $(HOME)/.claude/skills/petar-writing ] && [ ! -L $(HOME)/.claude/skills/petar-writing ]; then \
-		backup=$(HOME)/.claude/skills/petar-writing.bak.$$(date +%Y%m%d%H%M%S); \
-		mv $(HOME)/.claude/skills/petar-writing $$backup; \
-		echo "Backed up existing Claude writing skill to $$backup"; \
+	@echo "Linking shared skills for Claude..."
+	@mkdir -p $(HOME)/.claude
+	@if [ -e $(HOME)/.claude/skills ] && [ ! -L $(HOME)/.claude/skills ]; then \
+		backup=$(HOME)/.claude/skills.bak.$$(date +%Y%m%d%H%M%S); \
+		mv $(HOME)/.claude/skills $$backup; \
+		echo "Backed up existing Claude skills to $$backup"; \
 	fi
-	@ln -fns $(DOTFILES)/agents/skills/petar-writing $(HOME)/.claude/skills/petar-writing
-	@echo "Claude writing skill linked."
+	@ln -fns $(DOTFILES)/agents/skills $(HOME)/.claude/skills
+	@echo "Claude skills linked."
 
 codex: agents
 	@echo "Linking Codex global instructions..."

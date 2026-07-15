@@ -1,0 +1,4 @@
+interface:
+  display_name: "Update Deps (Elixir)"
+  short_description: "Safely update Elixir Mix/Hex dependencies"
+  default_prompt: "Use $update-deps to upgrade outdated Mix dependencies safely, including major-version migrations and verification."

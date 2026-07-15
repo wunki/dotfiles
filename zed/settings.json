@@ -126,7 +126,9 @@
         "zed.dev",
         "github.com",
         "linear.app",
-        "developers.openai.com"
+        "developers.openai.com",
+        "www.electronjs.org",
+        "www.electronforge.io"
       ]
     },
     "dock": "left",

@@ -1,4 +1,6 @@
 {
+  "ui_font_weight": 400.0,
+  "buffer_font_weight": 300.0,
   "buffer_font_family": "Inconsolata",
   "buffer_font_size": 13.0,
   "agent_ui_font_size": 13.0,
@@ -37,11 +39,18 @@
     "dock": "right",
   },
   "semantic_tokens": "combined",
-  "icon_theme": "Zed (Default)",
+  "icon_theme": {
+    "mode": "light",
+    "light": "Zed (Default)",
+    "dark": "Zed (Default)"
+  },
   "text_rendering_mode": "platform_default",
   "agent": {
     "tool_permissions": {
       "tools": {
+        "mcp:linear:save_comment": {
+          "default": "allow"
+        },
         "mcp:linear:list_diffs": {
           "default": "allow"
         },
@@ -123,6 +132,7 @@
     "dock": "left",
     "enable_feedback": false,
     "default_model": {
+      "speed": "fast",
       "effort": "high",
       "provider": "openai-subscribed",
       "model": "gpt-5.6-sol",
@@ -282,6 +292,7 @@
     "metrics": false,
   },
   "terminal": {
+    "font_weight": 300.0,
     "line_height": "comfortable",
     "scrollbar": {
       "show": "auto",
@@ -306,8 +317,8 @@
   },
   "theme": {
     "mode": "system",
-    "light": "Patina Light",
-    "dark": "Everforest Dark Hard (material)"
+    "light": "Melange Light",
+    "dark": "Everforest Dark Medium (material)"
   },
   "toolbar": {
     "breadcrumbs": true,

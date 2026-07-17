@@ -6,5 +6,7 @@
   "defaultThinkingLevel": "high",
   "theme": "everforest-dark-hard",
   "enableInstallTelemetry": false,
-  "packages": []
+  "packages": [
+    "npm:pi-openai-fast-mode"
+  ]
 }

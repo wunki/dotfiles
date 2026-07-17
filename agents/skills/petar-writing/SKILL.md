@@ -1,6 +1,6 @@
 ---
 name: petar-writing
-description: Drafts, rewrites, and reviews prose in Petar's personal voice while removing generic AI writing patterns. Use whenever writing on Petar's behalf, including blog posts, technical notes, documentation, proposals, PR descriptions, emails, and messages. Do not use for code or routine assistant status updates.
+description: Drafts, rewrites, and reviews prose in Petar's personal voice while removing generic AI writing patterns. Use whenever writing on Petar's behalf - blog posts, technical notes, documentation, proposals, PR descriptions, emails, Slack messages, or when asked to "write this like me", "make this sound human", "de-slop this", or review a draft for voice. Do not use for code or routine assistant status updates.
 metadata:
   inspiration: https://github.com/hardikpandya/stop-slop
 ---
@@ -9,59 +9,67 @@ metadata:
 
 Write like Petar, then remove the slop. The goal is not prose that merely avoids AI tells. It should sound like a thoughtful builder with a clear point of view.
 
-## Source of Truth
+## Source of truth
 
-Read [references/style.md](references/style.md) before drafting or editing. Treat that guide as authoritative when it conflicts with generic writing advice.
+Read [references/style.md](references/style.md) before drafting or editing anything longer than a short message. It defines Petar's voice, shape, and language in detail. When it conflicts with generic writing advice, style.md wins.
 
-Never invent Petar's memories, opinions, results, or role in an event. Ask for missing personal context when it is important. Otherwise, write directly without manufacturing an anecdote.
+Never invent Petar's memories, opinions, results, or role in an event. If a missing personal detail would materially improve the piece, ask for it. Otherwise write directly without manufacturing an anecdote.
 
 ## Workflow
 
-1. Identify the format, audience, purpose, and central point. If one of these is missing and materially changes the draft, ask a concise question.
-2. Gather factual source material. Preserve technical meaning, uncertainty, and attribution.
-3. Draft in the shape appropriate to the format. Do not turn a short message into an essay.
+1. Identify format, audience, purpose, and the one central point. Ask a single concise question only if a missing answer would materially change the draft.
+2. Gather the factual source material. Preserve technical meaning, uncertainty, and attribution.
+3. Draft in the shape the format demands. A Slack reply is not an essay. See "Match the format" in style.md.
 4. Run the anti-slop pass below.
-5. Return the finished prose. Explain editorial choices only when asked.
+5. Return the finished prose only. Explain editorial choices when asked, not by default.
 
-## Anti-Slop Pass
+## Anti-slop pass
 
-Remove patterns that make the text sound generated:
+Delete or rewrite every instance of:
 
 - Ceremonial openings and previews before the actual point.
-- Corporate jargon, empty praise, fake enthusiasm, and motivational filler.
-- Vague claims of importance without the concrete consequence.
-- Repeated conclusions or a final summary that adds nothing.
-- Mechanical sets of three, excessive headings, and bullets that should be prose.
+- Corporate jargon, empty praise, fake enthusiasm, motivational filler.
+- Vague importance claims with no concrete consequence.
+- Repeated conclusions, or a final summary that adds nothing.
+- Mechanical sets of three, excessive headings, bullets that should be prose.
 - Rhetorical questions that only manufacture suspense.
-- Metaphors, bold text, fragments, or one-line paragraphs used as decoration rather than emphasis.
-- Softening and hedging that hide the actual claim.
-- Repeated sentence shapes or paragraph endings that create an obvious template rhythm.
+- Metaphors, bold text, fragments, or one-line paragraphs used as decoration.
+- Hedging that hides the actual claim.
+- Repeated sentence shapes or paragraph endings that create a template rhythm.
+- Em dashes. Prefer periods, colons, commas, and parentheses.
 
-Replace abstractions with the specific actor, decision, number, tool, failure, or result when the source supports it. Prefer active voice, but do not contort a natural sentence merely to satisfy a grammar rule.
+Replace abstractions with the specific actor, decision, number, tool, failure, or result whenever the source supports it. Prefer active voice, but never contort a natural sentence to satisfy a grammar rule.
 
-## Do Not Overcorrect
+### Examples
 
-Generic anti-slop rules can erase Petar's voice. Apply judgment rather than absolute bans.
+| Slop | Petar |
+|---|---|
+| "It's important to note that this approach has several benefits." | "This cut deploy time from 9 minutes to 40 seconds." |
+| "In today's fast-paced development landscape, observability is crucial." | "We shipped a bug that took three days to find. Structured logs would have made it three minutes." |
+| "This provides a robust and seamless solution." | "It restarts cleanly and hasn't dropped a message in two months." |
+| "Great question! There are a few factors to consider..." | "Use the queue. Cron can't give you retries." |
 
-Petar sometimes uses:
+## Do not overcorrect
+
+Generic anti-slop rules can erase Petar's voice. He deliberately uses:
 
 - A sharp contrast to expose a useful distinction.
 - A short standalone sentence to land an idea.
 - A rhetorical question that opens a real line of reasoning.
 - Dry humor, vivid comparisons, and inanimate metaphors.
 - Strong, quotable conclusions.
-- Adverbs when they carry meaning.
+- Adverbs that carry meaning.
 
-Keep these when they feel earned and specific. Cut them when they form a repetitive pattern or simulate profundity. The test is whether the device sharpens the idea, not whether a checklist permits it.
+Keep these when they are earned and specific. Cut them when they repeat or simulate profundity. The test: does the device sharpen the idea, or decorate it?
 
-## Final Check
+## Final check
 
-Before delivering the draft, confirm:
+Before delivering, confirm:
 
-- The point appears early and remains clear.
-- Concrete evidence supports the strongest claims.
-- The tone is direct, conversational, practical, and human.
+- The point appears early and stays clear.
+- The strongest claims rest on concrete evidence.
+- Tone is direct, conversational, practical, human.
 - Sentence and paragraph rhythm varies naturally.
-- Caveats are visible without taking over the piece.
+- Caveats are visible without taking over.
 - Nothing sounds like a brand, a LinkedIn template, or an imitation of Petar's catchphrases.
-- The ending leaves the reader with the implication rather than a recap.
+- The ending leaves the reader with the implication, not a recap.

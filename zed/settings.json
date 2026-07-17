@@ -6,6 +6,11 @@
   "agent_ui_font_size": 13.0,
   "agent_buffer_font_size": 13.0,
   "context_servers": {
+    "tidewave-mcp": {
+      "enabled": true,
+      "remote": false,
+      "settings": {}
+    },
     "linear": {
       "enabled": true,
       "remote": false,
@@ -48,6 +53,39 @@
   "agent": {
     "tool_permissions": {
       "tools": {
+        "mcp:linear:delete_attachment": {
+          "default": "allow"
+        },
+        "mcp:linear:list_milestones": {
+          "default": "allow"
+        },
+        "mcp:linear:list_issue_labels": {
+          "default": "allow"
+        },
+        "mcp:tidewave-mcp:get_docs": {
+          "default": "allow"
+        },
+        "mcp:tidewave-mcp:get_source_location": {
+          "default": "allow"
+        },
+        "mcp:tidewave-mcp:execute_sql_query": {
+          "default": "allow"
+        },
+        "mcp:tidewave-mcp:get_ecto_schemas": {
+          "default": "allow"
+        },
+        "mcp:tidewave-mcp:get_logs": {
+          "default": "allow"
+        },
+        "mcp:tidewave-mcp:project_eval": {
+          "default": "allow"
+        },
+        "mcp:linear:get_milestone": {
+          "default": "allow"
+        },
+        "mcp:linear:get_diff_threads": {
+          "default": "allow"
+        },
         "mcp:linear:save_comment": {
           "default": "allow"
         },
@@ -128,7 +166,11 @@
         "linear.app",
         "developers.openai.com",
         "www.electronjs.org",
-        "www.electronforge.io"
+        "www.electronforge.io",
+        "git-scm.com",
+        "raw.githubusercontent.com",
+        "mise.jdx.dev",
+        "hexdocs.pm"
       ]
     },
     "dock": "left",

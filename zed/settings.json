@@ -364,13 +364,6 @@
       "TERM_PROGRAM": "zed",
     },
     "option_as_meta": true,
-    "shell": {
-      "with_arguments": {
-        "title_override": null,
-        "args": ["-l", "-i"],
-        "program": "/opt/homebrew/bin/fish",
-      },
-    },
     "toolbar": {
       "breadcrumbs": false,
     },

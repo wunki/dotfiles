@@ -45,7 +45,7 @@
   },
   "semantic_tokens": "combined",
   "icon_theme": {
-    "mode": "light",
+    "mode": "dark",
     "light": "Zed (Default)",
     "dark": "Zed (Default)"
   },
@@ -372,7 +372,7 @@
     },
   },
   "theme": {
-    "mode": "system",
+    "mode": "dark",
     "light": "Melange Light",
     "dark": "Everforest Dark Hard (material)"
   },

@@ -1,10 +1,12 @@
 {
-  "ui_font_weight": 400.0,
-  "buffer_font_weight": 300.0,
-  "buffer_font_family": "Inconsolata",
-  "buffer_font_size": 13.0,
-  "agent_ui_font_size": 13.0,
-  "agent_buffer_font_size": 13.0,
+  "buffer_font_family": "Monaspace Argon",
+  "buffer_font_weight": 300,
+  "buffer_font_features": {
+    "calt": true
+  },
+  "buffer_font_size": 11.0,
+  "agent_ui_font_size": 12.0,
+  "agent_buffer_font_size": 11.0,
   "context_servers": {
     "tidewave-mcp": {
       "enabled": true,
@@ -189,7 +191,9 @@
     "notify_when_agent_waiting": "never",
     "model_parameters": [],
   },
-  "buffer_line_height": "comfortable",
+  "buffer_line_height": {
+    "custom": 1.7999999523162842
+  },
   "colorize_brackets": true,
   "agent_servers": {
     "opencode": {

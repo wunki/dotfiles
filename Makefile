@@ -93,6 +93,7 @@ tmux:
 	@ln -fns $(DOTFILES)/tmux/tmux-melange-light-theme.conf $(HOME)/.tmux-melange-light-theme.conf
 	@ln -fns $(DOTFILES)/tmux/tmux-rose-pine-dawn-theme.conf $(HOME)/.tmux-rose-pine-dawn-theme.conf
 	@ln -fns $(DOTFILES)/tmux/tmux-flexoki-light-theme.conf $(HOME)/.tmux-flexoki-light-theme.conf
+	@ln -fns $(DOTFILES)/tmux/tmux-everforest-dark-hard-theme.conf $(HOME)/.tmux-everforest-dark-hard-theme.conf
 	@echo "tmux linked."
 
 herdr: ensure-config-dir

@@ -363,7 +363,7 @@
   "theme": {
     "mode": "system",
     "light": "Melange Light",
-    "dark": "Everforest Dark Medium (material)"
+    "dark": "Everforest Dark Hard (material)"
   },
   "toolbar": {
     "breadcrumbs": true,

@@ -13,7 +13,7 @@ adjust-cell-height = 18%
 window-colorspace = display-p3
 selection-invert-fg-bg = true
 # These files mirror gondolin.nvim's generated Ghostty extras.
-theme = light:gondolin-light,dark:gondolin-dark
+theme = light:gondolin-light,dark:Everforest Dark Hard
 
 # padding
 window-padding-balance = true

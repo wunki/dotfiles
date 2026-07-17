@@ -4,7 +4,7 @@
   "defaultModel": "gpt-5.6-sol",
   "hideThinkingBlock": false,
   "defaultThinkingLevel": "high",
-  "theme": "dark",
+  "theme": "everforest-dark-hard",
   "enableInstallTelemetry": false,
   "packages": []
 }

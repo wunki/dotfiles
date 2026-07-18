@@ -1,0 +1,11 @@
+[Unit]
+Description=Check whether the computer has been inactive long enough to suspend
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=1min
+AccuracySec=15s
+Unit=auto-suspend-monitor.service
+
+[Install]
+WantedBy=timers.target

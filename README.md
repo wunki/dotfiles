@@ -153,9 +153,10 @@ make pi
 make bin
 
 # Linux system config (root-required, Linux-only; see "Linux System Config")
-make linux        # keyd + udev
+make linux          # keyd + udev
 make keyd
 make udev
+make auto-suspend   # desktop-only automatic suspend
 ```
 
 ## Shell Setup
@@ -288,24 +289,47 @@ Changes apply immediately (no logout needed). To tune:
 ## Linux System Config
 
 Most of this repo is cross-platform user config that symlinks into `~/.config`
-or `$HOME`. Anything that is **Linux-only** and installs into `/etc` (so it needs
-root) lives under `linux/`, organized by tool. The Makefile encodes each
-destination and symlinks the repo file into place, so edits in the repo are live
-after a reload.
+or `$HOME`. Linux-only system configuration lives under `linux/`, organized by
+tool. Static configuration is symlinked into `/etc`; root-executed scripts and
+systemd units are installed as root-owned copies.
 
 ```
 linux/
-  keyd/default.conf                   -> /etc/keyd/default.conf
-  udev/50-apple-studio-display.rules  -> /etc/udev/rules.d/50-apple-studio-display.rules
+  keyd/default.conf                                      -> /etc/keyd/default.conf
+  systemd/auto-suspend-monitor/auto-suspend-monitor      -> /usr/local/sbin/auto-suspend-monitor
+  systemd/auto-suspend-monitor/auto-suspend-monitor.*    -> /etc/systemd/system/
+  udev/50-apple-studio-display.rules                     -> /etc/udev/rules.d/50-apple-studio-display.rules
 ```
 
 These targets need `sudo` and are intentionally **not** part of `make all`. Run
 them explicitly on Linux:
 
 ```bash
-make linux   # everything below
-make keyd     # capslock/alt remaps + Studio Display brightness keys
-make udev     # stable /dev/apple-studio-display node + user access
+make linux          # keyd + udev
+make keyd           # capslock/alt remaps + Studio Display brightness keys
+make udev           # stable /dev/apple-studio-display node + user access
+make auto-suspend   # desktop-only automatic suspend
+```
+
+### Automatic desktop suspend
+
+`make auto-suspend` installs a systemd timer that checks for activity once per
+minute. It suspends the desktop after 30 minutes without an active session.
+Active SSH, Tailscale SSH, Zed remote, console, and non-idle graphical sessions
+reset the countdown. Sessions stuck in `closing` state do not. Sleep and idle
+inhibitors also prevent suspension.
+
+Before suspending, the monitor writes the same
+`~/.cache/dotfiles-desktop-sleep/slept-at` timestamp as `sleep-desktop`.
+`wake-desktop` uses it to report how long the machine slept.
+
+The installer requires `shellcheck`, Python 3, and `runuser`. It validates the
+monitor, installs root-owned files, reloads systemd, and enables the timer.
+Inspect it with:
+
+```bash
+systemctl status auto-suspend-monitor.timer
+journalctl -t auto-suspend-monitor
 ```
 
 ### Apple Studio Display brightness keys

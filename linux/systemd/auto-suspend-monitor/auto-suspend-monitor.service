@@ -1,0 +1,12 @@
+[Unit]
+Description=Suspend after 30 minutes without an active user session
+After=systemd-logind.service
+
+[Service]
+Type=oneshot
+Environment=AUTO_SUSPEND_STAMP_PATH=/home/petar/.cache/dotfiles-desktop-sleep/slept-at
+Environment=AUTO_SUSPEND_STAMP_USER=petar
+ExecStart=/usr/local/sbin/auto-suspend-monitor
+RuntimeDirectory=auto-suspend-monitor
+RuntimeDirectoryMode=0755
+RuntimeDirectoryPreserve=yes

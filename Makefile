@@ -199,14 +199,36 @@ pi:
 
 # --- Linux System Targets ---
 #
-# These install into /etc and require root, so they are Linux-only and NOT part
-# of `make all`. Run them explicitly: `make linux` (or `make keyd` / `make udev`).
-# Source files live under linux/<tool>/; the Makefile encodes each destination.
+# These install system configuration and require root, so they are Linux-only
+# and NOT part of `make all`. Source files live under linux/<tool>/; the
+# Makefile encodes each destination.
 
-# Install everything under linux/ on a Linux machine.
+# Install the shared Linux system configuration.
 .PHONY: linux
 linux: keyd udev
 	@echo "Linux system configuration linked."
+
+# auto-suspend: suspend this desktop after 30 minutes without an active session.
+# Install root-owned copies because systemd runs the monitor as root.
+.PHONY: auto-suspend
+auto-suspend:
+ifeq ($(UNAME),Linux)
+	@command -v shellcheck >/dev/null || { echo "shellcheck is required." >&2; exit 1; }
+	@command -v python3 >/dev/null || { echo "python3 is required." >&2; exit 1; }
+	@command -v runuser >/dev/null || { echo "runuser is required." >&2; exit 1; }
+	@shellcheck $(DOTFILES)/linux/systemd/auto-suspend-monitor/auto-suspend-monitor
+	@echo "Installing automatic suspend monitor (requires sudo)..."
+	@sudo install -d -o root -g root -m 0755 /usr/local/sbin /etc/systemd/system
+	@sudo install -o root -g root -m 0755 $(DOTFILES)/linux/systemd/auto-suspend-monitor/auto-suspend-monitor /usr/local/sbin/auto-suspend-monitor
+	@sudo install -o root -g root -m 0644 $(DOTFILES)/linux/systemd/auto-suspend-monitor/auto-suspend-monitor.service /etc/systemd/system/auto-suspend-monitor.service
+	@sudo install -o root -g root -m 0644 $(DOTFILES)/linux/systemd/auto-suspend-monitor/auto-suspend-monitor.timer /etc/systemd/system/auto-suspend-monitor.timer
+	@sudo systemctl daemon-reload
+	@sudo systemctl enable auto-suspend-monitor.timer
+	@sudo systemctl restart auto-suspend-monitor.timer
+	@echo "Automatic suspend monitor installed and enabled."
+else
+	@echo "auto-suspend target is Linux-only; skipping on $(UNAME)."
+endif
 
 # keyd: capslock/alt remaps + Apple Studio Display brightness keys
 # (F15/F14 -> asd-brightness). Depends on `bin` so the script is linked first.

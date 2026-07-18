@@ -1,0 +1,147 @@
+#!/usr/bin/env bash
+set -u
+
+readonly state_dir=/run/auto-suspend-monitor
+readonly last_activity_file="$state_dir/last-activity"
+readonly state_file="$state_dir/state"
+readonly timeout_seconds=$((30 * 60))
+readonly timeout_description='30 minutes'
+readonly sleep_stamp_path=${AUTO_SUSPEND_STAMP_PATH:-}
+readonly sleep_stamp_user=${AUTO_SUSPEND_STAMP_USER:-}
+
+log() {
+  logger --tag auto-suspend-monitor -- "$1"
+}
+
+monotonic_seconds() {
+  # This clock pauses during suspend, so time asleep does not consume the idle timeout.
+  python3 -c 'import time; print(int(time.monotonic()))'
+}
+
+save_activity_time() {
+  monotonic_seconds >"$last_activity_file"
+}
+
+write_sleep_stamp() {
+  local stamp_directory
+
+  [[ -n "$sleep_stamp_path" && -n "$sleep_stamp_user" ]] || return 0
+
+  # Write as the desktop user so this root service never follows user-owned links as root.
+  stamp_directory=$(dirname -- "$sleep_stamp_path")
+  runuser --user "$sleep_stamp_user" -- mkdir -p "$stamp_directory" || return 1
+  date +%s | runuser --user "$sleep_stamp_user" -- tee "$sleep_stamp_path" >/dev/null
+}
+
+set_state() {
+  local new_state=$1
+  local message=$2
+  local old_state=''
+
+  if [[ -r "$state_file" ]]; then
+    read -r old_state <"$state_file"
+  fi
+
+  if [[ "$old_state" != "$new_state" ]]; then
+    log "$message"
+  fi
+  printf '%s\n' "$new_state" >"$state_file"
+}
+
+record_activity() {
+  local reason=$1
+  save_activity_time
+  set_state active "Suspend countdown cancelled: $reason"
+}
+
+session_list=$(loginctl list-sessions --no-legend 2>/dev/null) || {
+  record_activity 'could not query login sessions'
+  exit 0
+}
+
+while read -r session_id _; do
+  [[ -n "${session_id:-}" ]] || continue
+
+  session_properties=$(loginctl show-session "$session_id" \
+    --property=Class --property=State --property=Remote --property=IdleHint 2>/dev/null) || continue
+
+  session_class=''
+  session_state=''
+  session_remote=''
+  session_idle=''
+  while IFS='=' read -r property value; do
+    case "$property" in
+      Class) session_class=$value ;;
+      State) session_state=$value ;;
+      Remote) session_remote=$value ;;
+      IdleHint) session_idle=$value ;;
+    esac
+  done <<<"$session_properties"
+
+  case "$session_class" in
+    user|user-early|user-light) ;;
+    *) continue ;;
+  esac
+
+  # Zed can leave processes in closing sessions, so only live sessions count.
+  [[ "$session_state" == active ]] || continue
+
+  # A Tailscale SSH/Zed proxy may have no TTY, making its connection the only reliable signal.
+  if [[ "$session_remote" == yes ]]; then
+    record_activity "remote session $session_id is active"
+    exit 0
+  fi
+
+  # Local graphical and console sessions remain open after logind marks them idle.
+  if [[ "$session_idle" != yes ]]; then
+    record_activity "local session $session_id is active"
+    exit 0
+  fi
+done <<<"$session_list"
+
+block_inhibitors=$(busctl get-property org.freedesktop.login1 /org/freedesktop/login1 \
+  org.freedesktop.login1.Manager BlockInhibited 2>/dev/null) || {
+  record_activity 'could not query system inhibitors'
+  exit 0
+}
+
+# busctl formats string properties as: s "idle:sleep"
+block_inhibitors=${block_inhibitors#*\"}
+block_inhibitors=${block_inhibitors%\"}
+case ":$block_inhibitors:" in
+  *:idle:*|*:sleep:*)
+    record_activity 'a sleep or idle inhibitor is active'
+    exit 0
+    ;;
+esac
+
+if [[ ! -s "$last_activity_file" ]]; then
+  save_activity_time
+fi
+set_state idle "No active user sessions; $timeout_description suspend countdown started"
+
+last_activity=$(<"$last_activity_file")
+now=$(monotonic_seconds)
+elapsed=$((now - last_activity))
+
+if (( elapsed < timeout_seconds )); then
+  exit 0
+fi
+
+log "No active user sessions for $timeout_description; requesting suspend"
+if ! write_sleep_stamp; then
+  log "Could not write sleep timestamp to $sleep_stamp_path"
+  [[ -z "$sleep_stamp_path" ]] || rm -f -- "$sleep_stamp_path"
+fi
+printf '%s\n' suspending >"$state_file"
+
+if systemctl suspend; then
+  save_activity_time
+  set_state active 'Suspend request accepted; countdown reset'
+else
+  status=$?
+  [[ -z "$sleep_stamp_path" ]] || rm -f -- "$sleep_stamp_path"
+  save_activity_time
+  set_state idle "Suspend request failed with status $status; retrying in $timeout_description"
+  exit "$status"
+fi

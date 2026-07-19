@@ -28,9 +28,9 @@ Correctness > maintainability > observability > simplicity > performance > speed
 
 ## Worktrees
 
-- Create Git worktrees outside the repository at `~/Code/worktrees/<repo>/<branch-or-task>`.
-- Never place worktrees inside the repository, including under `.worktrees/`.
-- Perform the work from the worktree and treat that directory as the project root. Open it as a standalone workspace so Git state, language tooling, tasks, and repo-scoped instructions resolve against the correct checkout.
+- Use a Git worktree only when explicitly requested.
+- Create it at `~/Code/worktrees/<repo>/<branch-or-task>`, never inside the repository.
+- Treat it as the project root and open it as a standalone workspace.
 
 ## Verification
 

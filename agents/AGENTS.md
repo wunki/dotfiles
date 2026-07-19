@@ -28,7 +28,7 @@ Correctness > maintainability > observability > simplicity > performance > speed
 
 ## Worktrees
 
-- Use a Git worktree only when explicitly requested.
+- Work in the current checkout by default. Use a Git worktree only when explicitly requested.
 - Create it at `~/Code/worktrees/<repo>/<branch-or-task>`, never inside the repository.
 - Treat it as the project root and open it as a standalone workspace.
 

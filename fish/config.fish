@@ -154,7 +154,7 @@ if type -q bat
     abbr cat bat
     set -x BAT_THEME Everforest-Dark-Hard
     set -x BAT_STYLE plain
-    set -x BAT_PAGER
+    set -x BAT_PAGING never
     set -x COLORTERM truecolor
 end
 

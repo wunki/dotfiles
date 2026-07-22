@@ -68,6 +68,7 @@ then
   alias cat='bat'
   export BAT_THEME='Everforest-Dark-Hard'
   export BAT_STYLE='plain'
+  export BAT_PAGING='never'
 fi
 
 # Magit on the commandline

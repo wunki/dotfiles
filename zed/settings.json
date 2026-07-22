@@ -53,6 +53,11 @@
   },
   "text_rendering_mode": "platform_default",
   "agent": {
+    "commit_message_instructions": "Write a concise Conventional Commit for the provided change. Format the subject as type(scope): imperative outcome. Start the description after the colon with a lowercase letter. Omit the scope when it adds no useful context. Use feat, fix, refactor, test, docs, chore, build, ci, or perf. Keep it under 72 characters with no trailing period. Use ! only for a breaking change. Describe the behavior, problem, or engineering outcome, not the files, symbols, or implementation steps. Add a short body only when it provides review context the subject cannot: the motivation, decision, or a material tradeoff. Prefer context, decision, and consequence over a tour of the code. Do not list changed files or functions, repeat the subject, add headings or bullets, or invent rationale that is not supported by the change. If the reason is unclear, omit the body rather than guess. Output only the commit message.",
+    "commit_message_model": {
+      "provider": "openai-subscribed",
+      "model": "gpt-5.6-terra",
+    },
     "tool_permissions": {
       "tools": {
         "move_path": {
@@ -252,6 +257,7 @@
     "CSS": ["scss"],
     "Shell Script": [".envrc", ".env"],
   },
+  "git_commit_buffer_font_size": 11.0,
   "git": {
     "inline_blame": {
       "enabled": false,

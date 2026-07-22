@@ -55,6 +55,9 @@
   "agent": {
     "tool_permissions": {
       "tools": {
+        "move_path": {
+          "default": "allow"
+        },
         "mcp:linear:delete_attachment": {
           "default": "allow"
         },
@@ -174,7 +177,12 @@
         "mise.jdx.dev",
         "hexdocs.pm",
         "www.google.com",
-        "agentclientprotocol.com"
+        "agentclientprotocol.com",
+        "svelte.dev",
+        "docs.github.com",
+        "www.hetzner.com",
+        "agentskills.io",
+        "api.github.com"
       ]
     },
     "dock": "left",

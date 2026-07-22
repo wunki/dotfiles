@@ -2,7 +2,8 @@
   "buffer_font_family": "Monaspace Argon",
   "buffer_font_weight": 300,
   "buffer_font_features": {
-    "calt": true
+    "calt": true,
+    "ss03": true
   },
   "buffer_font_size": 11.0,
   "agent_ui_font_size": 12.0,
@@ -60,6 +61,9 @@
     },
     "tool_permissions": {
       "tools": {
+        "mcp:linear:list_documents": {
+          "default": "allow"
+        },
         "move_path": {
           "default": "allow"
         },

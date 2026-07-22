@@ -152,7 +152,8 @@ end
 # tool configurations
 if type -q bat
     abbr cat bat
-    set -x BAT_THEME ansi
+    set -x BAT_THEME Everforest-Dark-Hard
+    set -x BAT_STYLE plain
     set -x BAT_PAGER
     set -x COLORTERM truecolor
 end

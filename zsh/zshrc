@@ -66,7 +66,8 @@ alias ssb="ssh -t bytebottom 'tmux attach || tmux new-session -s main'"
 if (( $+commands[bat] ))
 then
   alias cat='bat'
-  export BAT_THEME='base16'
+  export BAT_THEME='Everforest-Dark-Hard'
+  export BAT_STYLE='plain'
 fi
 
 # Magit on the commandline

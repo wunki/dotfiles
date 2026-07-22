@@ -138,6 +138,7 @@ make ghostty
 # Editors & Tools
 make helix
 make zed
+make bat
 make tmux
 make lazygit
 make mise

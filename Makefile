@@ -4,7 +4,7 @@ CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
 # List all application targets here
-APP_TARGETS := fish zsh helix ghostty zed tmux herdr bin lazygit mise agents claude codex pi
+APP_TARGETS := fish zsh bat helix ghostty zed tmux herdr bin lazygit mise agents claude codex pi
 
 # Define the default target 'all' to depend on all application targets
 .PHONY: all
@@ -64,6 +64,16 @@ endif
 	@printf "\tgit clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ~/.zsh/fast-syntax-highlighting\n"
 	@printf "\tgit clone https://github.com/hlissner/zsh-autopair.git ~/.zsh/zsh-autopair\n"
 	@printf "\tgit clone https://github.com/sindresorhus/pure.git ~/.zsh/pure\n\n"
+
+bat: ensure-config-dir
+	@echo "Linking bat configuration..."
+	@ln -fns $(DOTFILES)/bat $(CONFIG_DIR)/bat
+	@if command -v bat >/dev/null 2>&1; then \
+		bat cache --build; \
+		echo "Bat linked and theme cache rebuilt."; \
+	else \
+		echo "Bat linked; install bat to build the theme cache."; \
+	fi
 
 helix: ensure-config-dir
 	@echo "Linking helix configuration..."

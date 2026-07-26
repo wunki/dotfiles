@@ -61,6 +61,9 @@
     },
     "tool_permissions": {
       "tools": {
+        "mcp:linear:resolve_diff_thread": {
+          "default": "allow"
+        },
         "mcp:linear:list_documents": {
           "default": "allow"
         },

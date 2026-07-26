@@ -34,5 +34,24 @@ enabled = false
 pane_history = true
 
 [theme]
-name = "rose-pine"
-auto_switch = true
+name = "terminal"
+auto_switch = false
+
+# Everforest Dark Hard, matching Ghostty and the other terminal UI themes.
+[theme.custom]
+accent = "#a7c080"
+panel_bg = "#272e33"
+surface0 = "#2e383c"
+surface1 = "#374145"
+surface_dim = "#272e33"
+overlay0 = "#7a8478"
+overlay1 = "#859289"
+text = "#d3c6aa"
+subtext0 = "#859289"
+mauve = "#d699b6"
+green = "#a7c080"
+yellow = "#dbbc7f"
+red = "#e67e80"
+blue = "#7fbbb3"
+teal = "#83c092"
+peach = "#e69875"

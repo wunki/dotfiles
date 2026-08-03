@@ -90,20 +90,10 @@ zed: ensure-config-dir
 	@ln -fns $(DOTFILES)/zed $(CONFIG_DIR)/zed
 	@echo "Zed linked."
 
-tmux:
+tmux: ensure-config-dir
 	@echo "Linking tmux configuration..."
-	@ln -fns $(DOTFILES)/tmux/tmux.conf $(HOME)/.tmux.conf
-	@ln -fns $(DOTFILES)/tmux/tmux-lackluster-theme.conf $(HOME)/.tmux-lackluster-theme.conf
-	@ln -fns $(DOTFILES)/tmux/tmux-lackluster-hack-theme.conf $(HOME)/.tmux-lackluster-hack-theme.conf
-	@ln -fns $(DOTFILES)/tmux/tmux-gruvbox-material-theme.conf $(HOME)/.tmux-gruvbox-material-theme.conf
-	@ln -fns $(DOTFILES)/tmux/tmux-zenbones-theme.conf $(HOME)/.tmux-zenbones-theme.conf
-	@ln -fns $(DOTFILES)/tmux/tmux-github-dark-theme.conf $(HOME)/.tmux-github-dark-theme.conf
-	@ln -fns $(DOTFILES)/tmux/tmux-zed-dark-theme.conf $(HOME)/.tmux-zed-dark-theme.conf
-	@ln -fns $(DOTFILES)/tmux/tmux-ayu-dark-theme.conf $(HOME)/.tmux-ayu-dark-theme.conf
-	@ln -fns $(DOTFILES)/tmux/tmux-melange-light-theme.conf $(HOME)/.tmux-melange-light-theme.conf
-	@ln -fns $(DOTFILES)/tmux/tmux-rose-pine-dawn-theme.conf $(HOME)/.tmux-rose-pine-dawn-theme.conf
-	@ln -fns $(DOTFILES)/tmux/tmux-flexoki-light-theme.conf $(HOME)/.tmux-flexoki-light-theme.conf
-	@ln -fns $(DOTFILES)/tmux/tmux-everforest-dark-hard-theme.conf $(HOME)/.tmux-everforest-dark-hard-theme.conf
+	@ln -fns $(DOTFILES)/tmux $(CONFIG_DIR)/tmux
+	@ln -fns $(CONFIG_DIR)/tmux/tmux.conf $(HOME)/.tmux.conf
 	@echo "tmux linked."
 
 herdr: ensure-config-dir

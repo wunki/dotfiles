@@ -136,14 +136,19 @@ else
   compinit -Cu
 fi
 
-# The pure prompt
-fpath+=($HOME/.zsh/pure)
-PURE_PROMPT_SYMBOL='λ'
-zstyle ':prompt:pure:prompt:success' color blue
-zstyle ':prompt:pure:prompt:error' color red
+# TRAMP sets TERM=dumb and needs a conventional, unstyled prompt for its
+# connection handshake.  Keep Pure for real terminal sessions.
+if [[ $TERM == dumb ]]; then
+  PROMPT='$ '
+else
+  fpath+=($HOME/.zsh/pure)
+  PURE_PROMPT_SYMBOL='λ'
+  zstyle ':prompt:pure:prompt:success' color blue
+  zstyle ':prompt:pure:prompt:error' color red
 
-autoload -U promptinit; promptinit
-prompt pure
+  autoload -U promptinit; promptinit
+  prompt pure
+fi
 
 # Eat shell in Emacs
 [ -n "$EAT_SHELL_INTEGRATION_DIR" ] && \

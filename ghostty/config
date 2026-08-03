@@ -4,7 +4,7 @@
 shell-integration-features = sudo, title, ssh-terminfo
 
 # fonts
-font-family = Monaspace Argon
+font-family = Source Code Pro
 font-size = 11
 font-style-bold = Medium
 font-feature = calt, liga, ss01, ss02, ss03, ss04, ss05, ss06, ss07, ss08, ss09, ss10

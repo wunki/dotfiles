@@ -1,0 +1,22 @@
+\usepackage{microtype}
+\usepackage{fancyvrb}
+\fvset{fontsize=\footnotesize}
+\makeatletter
+\renewcommand{\verbatim@font}{\ttfamily\footnotesize}
+\makeatother
+% New Computer Modern, Book weight: the CM look with strokes heavy enough
+% for e-ink. Loaded by OTF filename because tectonic's bundled
+% newcomputermodern.sty predates the [book] package option.
+\usepackage{fontspec}
+\setmainfont{NewCM10-Book.otf}[%
+  ItalicFont=NewCM10-BookItalic.otf,
+  BoldFont=NewCM10-Bold.otf,
+  BoldItalicFont=NewCM10-BoldItalic.otf]
+\setmonofont{NewCMMono10-Book.otf}[%
+  ItalicFont=NewCMMono10-BookItalic.otf,
+  BoldFont=NewCMMono10-Bold.otf,
+  Scale=MatchLowercase]
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\large\scshape}{\thesection}{1em}{}
+% Narrow column: let justification breathe instead of overflowing the margin.
+\setlength{\emergencystretch}{3em}

@@ -194,7 +194,11 @@ abbr piex 'iex -S mix phx.server'
 set -x PGDATABASE postgres
 
 # other languages and tools
-abbr lisp 'rlwrap sbcl'
+function lisp --description 'Start an SBCL terminal REPL with Linedit'
+    command sbcl $argv \
+        --eval '(ql:quickload "linedit" :silent t)' \
+        --eval '(linedit:install-repl :wrap-current t :eof-quits t)'
+end
 fish_add_path -aP "$HOME/.local/share/lua-language-server/bin"
 
 # cloud and devops

@@ -177,6 +177,7 @@
       }
     },
     "sandbox_permissions": {
+      "allow_unsandboxed": true,
       "network_hosts": [
         "zed.dev",
         "github.com",

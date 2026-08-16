@@ -1,8 +1,10 @@
 \usepackage{microtype}
 \usepackage{fancyvrb}
-\fvset{fontsize=\footnotesize}
+% Code at \small (~9pt on the 10pt body): on e-ink, mono glyphs need size
+% more than prose does, so code gives up less than the body did.
+\fvset{fontsize=\small}
 \makeatletter
-\renewcommand{\verbatim@font}{\ttfamily\footnotesize}
+\renewcommand{\verbatim@font}{\ttfamily\small}
 \makeatother
 % New Computer Modern, Book weight: the CM look with strokes heavy enough
 % for e-ink. Loaded by OTF filename because tectonic's bundled
@@ -20,3 +22,6 @@
 \titleformat{\section}{\normalfont\large\scshape}{\thesection}{1em}{}
 % Narrow column: let justification breathe instead of overflowing the margin.
 \setlength{\emergencystretch}{3em}
+% Short pages make widows and orphans frequent; forbid them outright.
+\clubpenalty=10000
+\widowpenalty=10000

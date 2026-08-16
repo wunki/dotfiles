@@ -62,6 +62,11 @@ alias oc='opencode'
 alias e='nvim'
 alias tt='tmux attach || tmux new-session -s main'
 alias ssb="ssh -t bytebottom 'tmux attach || tmux new-session -s main'"
+lisp() {
+  command sbcl "$@" \
+    --eval '(ql:quickload "linedit" :silent t)' \
+    --eval '(linedit:install-repl :wrap-current t :eof-quits t)'
+}
 
 if (( $+commands[bat] ))
 then

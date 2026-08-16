@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# Open a terminal frame on the persistent Emacs daemon.
+emacsclient="$HOME/.local/bin/emacsclient"
+
+# The first run after migrating from a standalone Emacs may need to start the
+# service.  Normally systemd already started it with the user session.
+if ! "$emacsclient" --alternate-editor=false --eval t >/dev/null 2>&1; then
+    systemctl --user start emacs.service
+fi
+
+exec "$emacsclient" --alternate-editor=false --tty "$@"

@@ -35,7 +35,7 @@ Delete or rewrite every instance of:
 - Rhetorical questions that only manufacture suspense.
 - Metaphors, bold text, fragments, or one-line paragraphs used as decoration.
 - Hedging that hides the actual claim.
-- Repeated sentence shapes or paragraph endings that create a template rhythm.
+- Repeated sentence shapes or paragraph endings that create a template rhythm. The most common form is the kicker: a short punchy tag closing a paragraph ("Two seconds, then it's habit."). Keep at most the single best one per piece; cut the rest.
 - Em dashes. Prefer periods, colons, commas, and parentheses.
 
 Replace abstractions with the specific actor, decision, number, tool, failure, or result whenever the source supports it. Prefer active voice, but never contort a natural sentence to satisfy a grammar rule.
@@ -54,10 +54,10 @@ Replace abstractions with the specific actor, decision, number, tool, failure, o
 Generic anti-slop rules can erase Petar's voice. He deliberately uses:
 
 - A sharp contrast to expose a useful distinction.
-- A short standalone sentence to land an idea.
+- A short standalone sentence to land an idea, once, at a genuine turning point. Not a closing beat on every paragraph.
 - A rhetorical question that opens a real line of reasoning.
 - Dry humor, vivid comparisons, and inanimate metaphors.
-- Strong, quotable conclusions.
+- A strong, quotable conclusion at the actual end of the piece, not at the end of every section.
 - Adverbs that carry meaning.
 
 Keep these when they are earned and specific. Cut them when they repeat or simulate profundity. The test: does the device sharpen the idea, or decorate it?

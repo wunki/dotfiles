@@ -25,7 +25,7 @@ Use this guide when drafting or rewriting prose on Petar's behalf: blog posts, t
 - Prefer plain words, active voice, and contractions: "we didn't", "it's", "you can't".
 - Use first person when the experience is Petar's, and "we" when responsibility is genuinely shared.
 - Explain technical ideas through clean mental models. Introduce jargon only when it buys precision.
-- Prefer periods, colons, and parentheses over em dashes. A short standalone sentence can carry emphasis.
+- Prefer periods, colons, and parentheses over em dashes. A short standalone sentence can carry emphasis; ration it to one per piece. Most paragraphs should end when the information ends, without a punchy closing beat.
 - Use vivid comparisons sparingly. One good image beats a paragraph of decoration.
 - Let enthusiasm show through precise words such as "simple", "beautiful", "delightful", or "yuck", but only when deserved.
 

@@ -1,0 +1,17 @@
+{
+	// Press ⌘B in the dotfiles project to apply these settings
+	// for Sublime text.
+	"auto_complete": false,
+	"color_scheme": "Packages/ayu/ayu-dark.sublime-color-scheme",
+	"font_face": "Comic Code",
+	"font_size": 11,
+	"ignored_packages":
+	[
+		"Vintage",
+	],
+	"index_files": true,
+	"theme": "ayu-dark.sublime-theme",
+	"ui_native_titlebar": false,
+	"ui_separator": true,
+	"ui_wide_scrollbars": true,
+}

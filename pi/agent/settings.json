@@ -1,11 +1,13 @@
 {
-  "lastChangelogVersion": "0.83.0",
+  "lastChangelogVersion": "0.84.2",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.6-terra",
+  "defaultModel": "gpt-5.6-sol",
   "hideThinkingBlock": false,
   "defaultThinkingLevel": "high",
-  "theme": "everforest-dark-hard",
+  "theme": "ayu-dark",
   "enableInstallTelemetry": false,
-  "packages": ["npm:pi-openai-fast-mode"]
+  "packages": [
+    "npm:pi-openai-fast-mode",
+    "npm:@plannotator/pi-extension"
+  ]
 }
-

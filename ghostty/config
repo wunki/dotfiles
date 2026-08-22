@@ -4,7 +4,7 @@
 shell-integration-features = sudo, title, ssh-terminfo
 
 # fonts
-font-family = Source Code Pro
+font-family = Comic Code
 font-size = 11
 font-style-bold = Medium
 font-feature = calt, liga, ss01, ss02, ss03, ss04, ss05, ss06, ss07, ss08, ss09, ss10
@@ -13,8 +13,7 @@ adjust-cell-height = 21%
 # colors
 window-colorspace = display-p3
 selection-invert-fg-bg = true
-# These files mirror gondolin.nvim's generated Ghostty extras.
-theme = light:gondolin-light,dark:Everforest Dark Hard
+theme = ayu
 
 # padding
 window-padding-balance = true

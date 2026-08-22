@@ -1,0 +1,13 @@
+{
+	"odin":
+	{
+		"enabled": true,
+		"command": ["/opt/homebrew/bin/ols"],
+		"selector": "source.odin",
+		"initialization_options":
+		{
+			"odin_command": "/opt/homebrew/bin/odin",
+			"enable_semantic_tokens": true,
+		},
+	},
+}

@@ -4,7 +4,7 @@ CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
 # List all application targets here
-APP_TARGETS := fish zsh bat helix ghostty zed tmux herdr bin lazygit mise agents claude codex pi
+APP_TARGETS := fish zsh bat helix ghostty zed sublime tmux herdr bin lazygit mise agents claude codex pi
 
 # Define the default target 'all' to depend on all application targets
 .PHONY: all
@@ -89,6 +89,38 @@ zed: ensure-config-dir
 	@echo "Linking zed configuration..."
 	@ln -fns $(DOTFILES)/zed $(CONFIG_DIR)/zed
 	@echo "Zed linked."
+
+sublime:
+	@echo "Installing Sublime Text configuration..."
+ifeq ($(UNAME),Darwin)
+	@user_dir="$(HOME)/Library/Application Support/Sublime Text/Packages/User"; \
+		mkdir -p "$$user_dir"; \
+		for file in \
+			"Preferences.sublime-settings" \
+			"Package Control.sublime-settings" \
+			"LanguageServers.sublime-settings" \
+			"ayu-dark.sublime-theme" \
+			"Default (OSX).sublime-keymap"; do \
+			destination="$$user_dir/$$file"; \
+			if [ -L "$$destination" ]; then unlink "$$destination"; fi; \
+			install -m 0644 "$(DOTFILES)/sublime/$$file" "$$destination"; \
+		done
+	@mkdir -p $(HOME)/.local/bin
+	@ln -fns "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" $(HOME)/.local/bin/subl
+else
+	@user_dir="$(CONFIG_DIR)/sublime-text/Packages/User"; \
+		mkdir -p "$$user_dir"; \
+		for file in \
+			"Preferences.sublime-settings" \
+			"Package Control.sublime-settings" \
+			"LanguageServers.sublime-settings" \
+			"ayu-dark.sublime-theme"; do \
+			destination="$$user_dir/$$file"; \
+			if [ -L "$$destination" ]; then unlink "$$destination"; fi; \
+			install -m 0644 "$(DOTFILES)/sublime/$$file" "$$destination"; \
+		done
+endif
+	@echo "Sublime Text configuration installed."
 
 tmux: ensure-config-dir
 	@echo "Linking tmux configuration..."

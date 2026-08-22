@@ -1,5 +1,5 @@
 {
-  "buffer_font_family": "Monaspace Argon",
+  "buffer_font_family": "Maple Mono",
   "buffer_font_weight": 300,
   "buffer_font_features": {
     "calt": true,
@@ -272,7 +272,9 @@
     },
   },
   "inlay_hints": {
-    "enabled": false,
+    "show_background": false,
+    "show_parameter_hints": false,
+    "enabled": true,
   },
   "languages": {
     "Elixir": {
@@ -406,5 +408,5 @@
   "vim": {
     "toggle_relative_line_numbers": true,
   },
-  "vim_mode": true,
+  "vim_mode": false,
 }

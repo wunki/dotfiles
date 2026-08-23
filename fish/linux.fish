@@ -1,14 +1,14 @@
 # Where I store all my code
 set -x PROJECT_DIR "$HOME/Code"
 
-# Environment variables
+# Login shell
 if test -x /usr/bin/fish
     set -x SHELL /usr/bin/fish
 else if type -q fish
     set -x SHELL (command -s fish)
 end
 
-# Auto completion
+# Completions
 for completions_dir in \
     /usr/local/share/fish/completions \
     /usr/local/share/fish/vendor_completions.d \
@@ -82,7 +82,7 @@ if type -q nproc
     end
 end
 
-# Configuration specific to WSL2 Linux
+# WSL2
 if string match -q "*microsoft*" (uname -a)
     set -x GTK_THEME "Adwaita:dark"
     set -x BROWSER "/mnt/c/Program Files (x86)/Microsoft/Edge/Application/msedge.exe"

@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Set font across Zed and Ghostty configurations
+# Set the font in both Zed and Ghostty.
 # Usage: set-font <font-name> [size]
 #
 
@@ -26,13 +26,12 @@ fi
 FONT="$1"
 SIZE="$2"
 
-# Check for required tools
+# Zed uses JSONC with trailing commas, so edit both files with sed.
 if ! command -v sed &> /dev/null; then
     echo "Error: sed is required but not installed"
     exit 1
 fi
 
-# Update Zed settings (using sed because Zed uses JSONC with trailing commas)
 echo "Updating Zed settings..."
 
 sed -i '' "s/\"buffer_font_family\": \"[^\"]*\"/\"buffer_font_family\": \"$FONT\"/" "$ZED_CONFIG"
@@ -42,14 +41,13 @@ sed -i '' "s/\"font_family\": \"[^\"]*\"/\"font_family\": \"$FONT\"/" "$ZED_CONF
 if [[ -n "$SIZE" ]]; then
     sed -i '' "s/\"buffer_font_size\": [0-9]*/\"buffer_font_size\": $SIZE/" "$ZED_CONFIG"
     sed -i '' "s/\"agent_buffer_font_size\": [0-9]*/\"agent_buffer_font_size\": $SIZE/" "$ZED_CONFIG"
-    # Update terminal font_size (be specific to avoid matching other font_size fields)
+    # Limit font_size replacement to the terminal block.
     sed -i '' "/\"terminal\":/,/^  }/s/\"font_size\": [0-9]*/\"font_size\": $SIZE/" "$ZED_CONFIG"
 fi
 
 # Update Ghostty config
 echo "Updating Ghostty config..."
 
-# Update font-family
 sed -i '' "s/^font-family = .*/font-family = $FONT/" "$GHOSTTY_CONFIG"
 
 # Update font-size if provided
@@ -57,4 +55,4 @@ if [[ -n "$SIZE" ]]; then
     sed -i '' "s/^font-size = .*/font-size = $SIZE/" "$GHOSTTY_CONFIG"
 fi
 
-echo "Done! Font set to: $FONT${SIZE:+ (size: $SIZE)}"
+echo "Font set to $FONT${SIZE:+ at size $SIZE}."

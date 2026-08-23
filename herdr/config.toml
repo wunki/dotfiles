@@ -37,7 +37,7 @@ pane_history = true
 name = "terminal"
 auto_switch = false
 
-# Everforest Dark Hard, matching Ghostty and the other terminal UI themes.
+# Herdr still uses the Everforest Dark Hard custom palette.
 [theme.custom]
 accent = "#a7c080"
 panel_bg = "#272e33"

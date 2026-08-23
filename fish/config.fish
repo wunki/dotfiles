@@ -1,4 +1,4 @@
-# don't show a greeting
+# Keep startup quiet.
 set -g fish_greeting
 
 # environment
@@ -12,7 +12,7 @@ if status is-interactive
     end
 end
 
-# keep my secret configuration files in here.
+# Keep secrets outside the repository.
 if test -f $HOME/.config/fish/secrets.fish
     . $HOME/.config/fish/secrets.fish
 end
@@ -36,7 +36,7 @@ set -x EDITOR nvim
 set -x VISUAL "$EDITOR"
 set -x ALTERNATE_EDITOR vim
 
-# zed
+# Zed terminal
 if test "$TERM_PROGRAM" = zed
     set -x EDITOR zed
     set -x VISUAL zed --wait
@@ -69,7 +69,7 @@ function cdr --description "Change to the current git repository root"
     cd -- $root
 end
 
-# herdr stuff
+# Herdr
 function hrd --description "Connect to desktop with herdr and set terminal title"
     printf '\e]2;desktop\a'
 
@@ -124,7 +124,7 @@ abbr ssb "ssh -t bytebottom 'tmux attach || tmux new-session -s main'"
 # autossh
 abbr ash 'autossh -M 0 -q'
 
-# quality of life functions
+# Small shell helpers
 function mkcd
     if test (count $argv) -eq 0
         echo "mkcd: missing directory"
@@ -134,7 +134,7 @@ function mkcd
     mkdir -p -- $argv[1]; and cd -- $argv[1]
 end
 
-# tmux-aware nvim socket for nvim:// links
+# Give each tmux session a Neovim socket for nvim:// links.
 function nvs --description "Start nvim with tmux session socket"
     if not set -q TMUX
         echo "nvs: not in a tmux session, use nvim instead"
@@ -217,9 +217,8 @@ if [ "$INSIDE_EMACS" = vterm ]
     . $HOME/.config/fish/vterm.fish
 end
 
-# environment managers (with performance guards)
-# Use mise shims only: avoids per-shell activation/env hooks while preserving
-# access to mise-managed tools. Regenerate completions with:
+# Use mise shims without running activation hooks in every shell.
+# Regenerate completions with:
 # mise completion fish > ~/.config/fish/completions/mise.fish
 if test -d "$HOME/.local/share/mise/shims"
     fish_add_path -pP "$HOME/.local/share/mise/shims"

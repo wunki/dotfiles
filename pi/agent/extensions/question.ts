@@ -1,7 +1,6 @@
 /**
- * Question Tool - Single question with options
- * Full custom UI: options list + inline editor for "Type something..."
- * Escape in editor returns to options, Escape in options cancels
+ * Ask one question with a list of choices and an optional free-form answer.
+ * Escape leaves the editor first, then cancels the picker.
  */
 
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
@@ -30,7 +29,6 @@ interface QuestionDetails {
 	wasCustom?: boolean;
 }
 
-// Options with labels and optional descriptions
 const OptionSchema = Type.Object({
 	label: Type.String({ description: "Display label for the option" }),
 	description: Type.Optional(Type.String({ description: "Optional description shown below label" })),
@@ -45,7 +43,7 @@ export default function question(pi: ExtensionAPI) {
 	pi.registerTool({
 		name: "question",
 		label: "Question",
-		description: "Ask the user a question and let them pick from options. Use when you need user input to proceed.",
+		description: "Ask one question and let the user choose an option. Use when work needs user input to continue.",
 		parameters: QuestionParams,
 
 		async execute(_toolCallId, params, _signal, _onUpdate, ctx) {
@@ -180,7 +178,6 @@ export default function question(pi: ExtensionAPI) {
 
 							addWrappedWithPrefix(prefix, theme.fg(color, label));
 
-							// Show description if present
 							if (opt.description) {
 								addWrappedWithPrefix("     ", theme.fg("muted", opt.description));
 							}
@@ -216,7 +213,6 @@ export default function question(pi: ExtensionAPI) {
 				},
 			);
 
-			// Build simple options list for details
 			const simpleOptions = params.options.map((o) => o.label);
 
 			if (!result) {

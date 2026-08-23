@@ -11,14 +11,14 @@ path=("/opt/homebrew/bin" "/opt/homebrew/sbin" $path)
 export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
 export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
 
-# Orbstack -- Docker on the Mac
+# OrbStack
 source ~/.orbstack/shell/init.zsh 2>/dev/null || :
 
 # Shortcuts
 alias bup='brew update && brew upgrade && brew cleanup'
 alias ia='open -a "iA Writer"'
 
-# Use the Zed editor if the ZED_TERM environment variable is set
+# Use Zed for commands launched from its terminal.
 if [[ $ZED_TERM == "true" ]]
 then
   export EDITOR="zed --wait"
@@ -26,7 +26,7 @@ else
   export EDITOR=nvim
 fi
 
-# Autocompletion, including homebrew completions
+# Homebrew completions
 fpath+=("/opt/homebrew/share/zsh/site-functions")
 fpath+=("/opt/homebrew/share/zsh-completions")
 
@@ -36,9 +36,7 @@ export GOPATH="$HOME/Code/go"
 # PostgreSQL (Postgres.app)
 path+=("/Applications/Postgres.app/Contents/Versions/latest/bin")
 
-# Neovim with tmux-aware socket for nvim:// URL handler
-# Use `nvs` to start nvim listening on /tmp/nvim-$SESSION_NAME
-# This allows browser links (nvim://file/...) to open files in the right instance
+# Give each tmux session a Neovim socket for nvim:// links.
 nvs() {
     if [[ -z "$TMUX" ]]; then
         echo "nvs: not in a tmux session, use nvim instead"
@@ -48,7 +46,7 @@ nvs() {
     local session_name=$(tmux display-message -p '#S')
     local socket_path="/tmp/nvim-$session_name"
 
-    # Clean up stale socket if it exists but no nvim is listening
+    # Remove a socket left behind by a dead Neovim process.
     if [[ -e "$socket_path" ]]; then
         if ! nvim --server "$socket_path" --remote-expr "1" &>/dev/null; then
             rm -f "$socket_path"

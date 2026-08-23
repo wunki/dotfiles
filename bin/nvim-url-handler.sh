@@ -1,12 +1,10 @@
 #!/bin/bash
 #
-# nvim-url-handler.sh - Handle nvim:// URLs to open files in running Neovim instances
+# Open nvim:// file URLs in the Neovim process for a tmux session.
 #
-# URL Format: nvim://file//path/to/file.txt:42?tmux-session=session-name
-#
-# This script is called by the AppleScript URL handler app.
-# It looks for a running Neovim instance with a socket for the given tmux session,
-# and if found, opens the file there. Otherwise, it opens a new Ghostty window.
+# Format: nvim://file//path/to/file.txt:42?tmux-session=session-name
+# The AppleScript URL handler calls this script. A missing socket falls back to
+# a new Ghostty window.
 #
 
 TMUX_SESSION_NAME="$1"
@@ -40,10 +38,9 @@ select_tmux_nvim_pane() {
     local session="$1"
     local tmux="/opt/homebrew/bin/tmux"
 
-    # Switch client to the target session
+    # Bring the target session and Neovim pane forward.
     $tmux switch-client -t "$session" 2>/dev/null
 
-    # Find pane running nvim in this session
     local nvim_pane=$($tmux list-panes -s -t "$session" \
         -F '#{window_index}:#{pane_index} #{pane_current_command}' 2>/dev/null \
         | grep -i nvim | head -1 | cut -d' ' -f1)
@@ -60,7 +57,7 @@ if [ -n "$TMUX_SESSION_NAME" ] && [ -n "$FILE_PATH" ]; then
     SOCKET_PATH="/tmp/nvim-$TMUX_SESSION_NAME"
 
     if [ -e "$SOCKET_PATH" ]; then
-        # Try to open in existing Neovim instance
+        # Prefer the Neovim process already serving this tmux session.
         if [ -n "$LINE_NUM" ]; then
             $NVIM --server "$SOCKET_PATH" --remote-send "<Esc>:e +$LINE_NUM $FILE_PATH<CR>"
         else
@@ -68,20 +65,19 @@ if [ -n "$TMUX_SESSION_NAME" ] && [ -n "$FILE_PATH" ]; then
         fi
 
         if [ $? -ne 0 ]; then
-            # Fallback: open in new Ghostty window
+            # The socket is stale or unreachable. Open a fresh terminal.
             $GHOSTTY -e $NVIM $NVIM_ARGS "$FILE_PATH"
         else
-            # Switch to the correct tmux window/pane
             select_tmux_nvim_pane "$TMUX_SESSION_NAME"
         fi
         focus_ghostty
     else
-        # No socket found, open in new Ghostty window
+        # No process is listening for this session.
         $GHOSTTY -e $NVIM $NVIM_ARGS "$FILE_PATH"
         focus_ghostty
     fi
 elif [ -n "$FILE_PATH" ]; then
-    # No session specified, just open the file
+    # Without a session, open the file in a new terminal.
     $GHOSTTY -e $NVIM $NVIM_ARGS "$FILE_PATH"
     focus_ghostty
 fi

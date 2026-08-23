@@ -1,12 +1,10 @@
 #!/usr/bin/env bash
 #
-# boot-windows — reboot once into Windows, then revert to Ubuntu.
+# Reboot into Windows once, then return to Ubuntu on the following boot.
 #
-# Uses the UEFI BootNext variable: the firmware boots the Windows Boot
-# Manager entry exactly once on the next restart, then automatically
-# falls back to the normal BootOrder (Ubuntu). Nothing is changed
-# permanently, and no boot menu needs to be visible — handy when the
-# display stays dark until the OS loads.
+# UEFI BootNext selects Windows Boot Manager for the next restart only. The
+# normal BootOrder remains unchanged, so this also works when the display stays
+# dark until the operating system loads.
 #
 # Usage: boot-windows [-y]
 #   -y, --yes    reboot immediately without confirmation
@@ -45,12 +43,12 @@ if ! $assume_yes; then
   case "$ans" in
     y|Y|yes|YES) ;;
     *)
-      echo "Not rebooting now — Windows will start on your NEXT restart."
+      echo "Not rebooting. Windows will start on the next restart."
       echo "To cancel:  sudo efibootmgr --delete-bootnext"
       exit 0
       ;;
   esac
 fi
 
-echo "Rebooting into Windows…"
+echo "Rebooting into Windows..."
 sudo reboot

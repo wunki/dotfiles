@@ -4,11 +4,11 @@ fish_read_history
 fish_variables
 /functions/*
 
-# These files are managed by fisherman, so let's ignore them
+# Fisher manages these directories.
 /conf.d/*
 /completions/*
 
-# Allow some locally-managed configuration
+# Keep locally maintained configuration.
 !/conf.d/_*.fish
 /conf.d/_pure_init.fish
 /conf.d/_tide_init.fish
@@ -19,7 +19,7 @@ fish_variables
 !/completions/vp.fish
 !/completions/vpr.fish
 
-# Exempted functions
+# Keep locally maintained functions.
 !/functions/_tide_item_context.fish
 !/functions/ls!.fish
 !/functions/gg.fish

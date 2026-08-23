@@ -1,8 +1,6 @@
 /**
- * Questionnaire Tool - Unified tool for asking single or multiple questions
- *
- * Single question: simple options list
- * Multiple questions: tab bar navigation between questions
+ * Ask one or more questions in a single picker.
+ * Multiple questions use tabs and finish on a review screen.
  */
 
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
@@ -17,7 +15,6 @@ import {
 } from "@earendil-works/pi-tui";
 import { Type } from "typebox";
 
-// Types
 interface QuestionOption {
 	value: string;
 	label: string;
@@ -48,7 +45,6 @@ interface QuestionnaireResult {
 	cancelled: boolean;
 }
 
-// Schema
 const QuestionOptionSchema = Type.Object({
 	value: Type.String({ description: "The value returned when selected" }),
 	label: Type.String({ description: "Display label for the option" }),
@@ -86,7 +82,7 @@ export default function questionnaire(pi: ExtensionAPI) {
 		name: "questionnaire",
 		label: "Questionnaire",
 		description:
-			"Ask the user one or more questions. Use for clarifying requirements, getting preferences, or confirming decisions. For single questions, shows a simple option list. For multiple questions, shows a tab-based interface.",
+			"Ask one or more questions to clarify requirements, record preferences, or confirm a decision. Multiple questions use a tabbed picker.",
 		parameters: QuestionnaireParams,
 
 		async execute(_toolCallId, params, _signal, _onUpdate, ctx) {
@@ -97,7 +93,6 @@ export default function questionnaire(pi: ExtensionAPI) {
 				return errorResult("Error: No questions provided");
 			}
 
-			// Normalize questions with defaults
 			const questions: Question[] = params.questions.map((q, i) => ({
 				...q,
 				label: q.label || `Q${i + 1}`,
@@ -105,10 +100,9 @@ export default function questionnaire(pi: ExtensionAPI) {
 			}));
 
 			const isMulti = questions.length > 1;
-			const totalTabs = questions.length + 1; // questions + Submit
+			const totalTabs = questions.length + 1; // Include the final review tab.
 
 			const result = await ctx.ui.custom<QuestionnaireResult>((tui, theme, _kb, done) => {
-				// State
 				let currentTab = 0;
 				let optionIndex = 0;
 				let inputMode = false;
@@ -116,7 +110,6 @@ export default function questionnaire(pi: ExtensionAPI) {
 				let cachedLines: string[] | undefined;
 				const answers = new Map<string, Answer>();
 
-				// Editor for "Type something" option
 				const editorTheme: EditorTheme = {
 					borderColor: (s) => theme.fg("accent", s),
 					selectList: {
@@ -129,7 +122,6 @@ export default function questionnaire(pi: ExtensionAPI) {
 				};
 				const editor = new Editor(tui, editorTheme);
 
-				// Helpers
 				function refresh() {
 					cachedLines = undefined;
 					tui.requestRender();
@@ -175,7 +167,6 @@ export default function questionnaire(pi: ExtensionAPI) {
 					answers.set(questionId, { id: questionId, value, label, wasCustom, index });
 				}
 
-				// Editor submit callback
 				editor.onSubmit = (value) => {
 					if (!inputQuestionId) return;
 					const trimmed = value.trim() || "(no response)";
@@ -187,7 +178,6 @@ export default function questionnaire(pi: ExtensionAPI) {
 				};
 
 				function handleInput(data: string) {
-					// Input mode: route to editor
 					if (inputMode) {
 						if (matchesKey(data, Key.escape)) {
 							inputMode = false;
@@ -204,7 +194,6 @@ export default function questionnaire(pi: ExtensionAPI) {
 					const q = currentQuestion();
 					const opts = currentOptions();
 
-					// Tab navigation (multi-question only)
 					if (isMulti) {
 						if (matchesKey(data, Key.tab) || matchesKey(data, Key.right)) {
 							currentTab = (currentTab + 1) % totalTabs;
@@ -220,7 +209,6 @@ export default function questionnaire(pi: ExtensionAPI) {
 						}
 					}
 
-					// Submit tab
 					if (currentTab === questions.length) {
 						if (matchesKey(data, Key.enter) && allAnswered()) {
 							submit(false);
@@ -230,7 +218,6 @@ export default function questionnaire(pi: ExtensionAPI) {
 						return;
 					}
 
-					// Option navigation
 					if (matchesKey(data, Key.up)) {
 						optionIndex = Math.max(0, optionIndex - 1);
 						refresh();
@@ -242,7 +229,6 @@ export default function questionnaire(pi: ExtensionAPI) {
 						return;
 					}
 
-					// Select option
 					if (matchesKey(data, Key.enter) && q) {
 						const opt = opts[optionIndex];
 						if (opt.isOther) {
@@ -257,7 +243,6 @@ export default function questionnaire(pi: ExtensionAPI) {
 						return;
 					}
 
-					// Cancel
 					if (matchesKey(data, Key.escape)) {
 						submit(true);
 					}
@@ -290,7 +275,6 @@ export default function questionnaire(pi: ExtensionAPI) {
 
 					lines.push(theme.fg("accent", "─".repeat(renderWidth)));
 
-					// Tab bar (multi-question only)
 					if (isMulti) {
 						const tabs: string[] = ["← "];
 						for (let i = 0; i < questions.length; i++) {
@@ -314,7 +298,6 @@ export default function questionnaire(pi: ExtensionAPI) {
 						lines.push("");
 					}
 
-					// Helper to render options list
 					function renderOptions() {
 						for (let i = 0; i < opts.length; i++) {
 							const opt = opts[i];
@@ -331,11 +314,9 @@ export default function questionnaire(pi: ExtensionAPI) {
 						}
 					}
 
-					// Content
 					if (inputMode && q) {
 						addWrappedWithPrefix(" ", theme.fg("text", q.prompt));
 						lines.push("");
-						// Show options for reference
 						renderOptions();
 						lines.push("");
 						addWrappedWithPrefix(" ", theme.fg("muted", "Your answer:"));

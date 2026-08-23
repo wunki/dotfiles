@@ -1,22 +1,18 @@
-# Variables
 DOTFILES	:= $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
-# List all application targets here
+# User-level targets included in `make`.
 APP_TARGETS := fish zsh bat btop delta eza fzf helix ghostty zed sublime tmux herdr bin lazygit mise agents claude codex pi
 
-# Define the default target 'all' to depend on all application targets
 .PHONY: all
 all: $(APP_TARGETS)
-	@echo "All specified dotfiles linked."
+	@echo "All user-level dotfiles linked."
 
-# Declare all command targets as .PHONY
 .PHONY: $(APP_TARGETS) print-% ensure-config-dir setup-clojure-lsp setup-neil
 
-# --- Application Targets ---
+# --- Application configuration ---
 
-# Target to ensure the ~/.config directory exists
 .PHONY: ensure-config-dir
 ensure-config-dir:
 	@echo "Ensuring $(CONFIG_DIR) exists..."
@@ -259,19 +255,17 @@ pi:
 	@ln -fns $(DOTFILES)/pi/agent/models.json $(HOME)/.pi/agent/models.json
 	@echo "Pi linked."
 
-# --- Linux System Targets ---
+# --- Linux system configuration ---
 #
-# These install system configuration and require root, so they are Linux-only
-# and NOT part of `make all`. Source files live under linux/<tool>/; the
-# Makefile encodes each destination.
+# These root-owned targets only run on Linux and are not part of `make`.
+# Source files live under linux/<tool>/; each target names its destination.
 
-# Install the shared Linux system configuration.
 .PHONY: linux
 linux: keyd udev
 	@echo "Linux system configuration linked."
 
-# auto-suspend: suspend this desktop after 30 minutes without an active session.
-# Install root-owned copies because systemd runs the monitor as root.
+# Suspend this desktop after 30 minutes without an active session.
+# systemd runs the monitor as root, so install root-owned copies.
 .PHONY: auto-suspend
 auto-suspend:
 ifeq ($(UNAME),Linux)
@@ -292,8 +286,8 @@ else
 	@echo "auto-suspend target is Linux-only; skipping on $(UNAME)."
 endif
 
-# keyd: capslock/alt remaps + Apple Studio Display brightness keys
-# (F15/F14 -> asd-brightness). Depends on `bin` so the script is linked first.
+# Install keyd remaps and Apple Studio Display brightness keys.
+# `bin` runs first because F15/F14 call asd-brightness from ~/.local/bin.
 .PHONY: keyd
 keyd: bin
 ifeq ($(UNAME),Linux)
@@ -305,7 +299,7 @@ else
 	@echo "keyd target is Linux-only; skipping on $(UNAME)."
 endif
 
-# udev: stable /dev/apple-studio-display node + user access for asdcontrol.
+# Expose /dev/apple-studio-display and grant asdcontrol access.
 .PHONY: udev
 udev:
 ifeq ($(UNAME),Linux)
@@ -318,7 +312,7 @@ else
 	@echo "udev target is Linux-only; skipping on $(UNAME)."
 endif
 
-# --- Tool Installer Targets ---
+# --- Tool installers ---
 
 setup-clojure-lsp: bin
 	@echo "Installing/updating clojure-lsp..."
@@ -328,8 +322,8 @@ setup-neil: bin
 	@echo "Installing/updating neil..."
 	@$(DOTFILES)/bin/setup-neil $(ARGS)
 
-# --- Utility Targets ---
+# --- Utilities ---
 
-# Print the value of any make variable (e.g., make print-DOTFILES)
+# Print a Make variable, for example `make print-DOTFILES`.
 print-%:
 	@echo '$* = $($*)'

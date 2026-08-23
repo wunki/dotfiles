@@ -1,6 +1,5 @@
 {
-	// Press ⌘B in the dotfiles project to apply these settings
-	// for Sublime text.
+	// Press ⌘B in the dotfiles project to apply these Sublime Text settings.
 	"auto_complete": false,
 	"color_scheme": "Packages/ayu/ayu-dark.sublime-color-scheme",
 	"font_face": "Comic Code",

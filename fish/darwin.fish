@@ -1,12 +1,12 @@
 # Where I store all my code
 set -x PROJECT_DIR "$HOME/Code"
 
-# Setup environment
+# Login shell
 if test -x /opt/homebrew/bin/fish
     set -x SHELL /opt/homebrew/bin/fish
 end
 
-# Setup homebrew
+# Homebrew
 if test -x /opt/homebrew/bin/brew
     set -g brew_prefix /opt/homebrew
 else if test -x /usr/local/bin/brew
@@ -18,11 +18,11 @@ end
 # Don't show me hints
 set -x HOMEBREW_NO_ENV_HINTS true
 
-# Don't update so aggressively
+# Leave updates to the explicit `bup` command.
 set -x HOMEBREW_NO_AUTO_UPDATE 1
 set -x HOMEBREW_NO_INSTALL_UPGRADE 1
 
-# Mac specific paths
+# macOS paths
 fish_add_path -aP "$brew_prefix/bin"
 
 abbr cpwd 'pwd | pbcopy'
@@ -46,7 +46,7 @@ end
 fish_add_path -aP /Applications/Emacs.app/Contents/MacOS
 fish_add_path -aP /Applications/Emacs.app/Contents/MacOS/bin
 
-# Auto completion
+# Completions
 for completions_dir in \
     "$brew_prefix/share/fish/completions" \
     "$brew_prefix/share/fish/vendor_completions.d"
@@ -55,7 +55,7 @@ for completions_dir in \
     end
 end
 
-# Setup Tailscale
+# Tailscale
 alias tailscale "/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 # Ruby
@@ -76,7 +76,7 @@ set -x OPENSSL_INCLUDE_DIR "$brew_prefix/opt/openssl/include"
 set -x OPENSSL_LIB "$brew_prefix/opt/openssl/lib"
 set -x OPENSSL_ROOT_DIR "$brew_prefix/opt/openssl"
 
-# If I'm in the ZED shell, set the editor to Zed
+# Use Zed for commands launched from its terminal.
 if set -q ZED_TERM
     set -x EDITOR 'zed --wait'
 end

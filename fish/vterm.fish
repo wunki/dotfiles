@@ -1,8 +1,8 @@
-# Emacs VTERM configuration
-# This makes sure that the right escape sequences are sent.
+# Emacs vterm integration. Pass its escape sequences through terminal
+# multiplexers before they reach Emacs.
 function vterm_printf;
     if begin; [  -n "$TMUX" ]  ; and  string match -q -r "screen|tmux" "$TERM"; end 
-        # tell tmux to pass the escape sequences through
+        # tmux requires an extra escape layer.
         printf "\ePtmux;\e\e]%s\007\e\\" "$argv"
     else if string match -q -- "screen*" "$TERM"
         # GNU screen (screen, screen-256color, screen-256color-bce)
@@ -23,9 +23,7 @@ end
 functions --copy fish_prompt vterm_old_fish_prompt
 
 function fish_prompt --description 'Write out the prompt; do not replace this. Instead, put this at end of your file.'
-    # Remove the trailing newline from the original prompt. This is done
-    # using the string builtin from fish, but to make sure any escape codes
-    # are correctly interpreted, use %b for printf.
+    # Remove the original prompt's trailing newline while preserving escape codes.
     printf "%b" (string join "\n" (vterm_old_fish_prompt))
     vterm_prompt_end
 end

@@ -1,10 +1,8 @@
 #!/bin/zsh -f
 
-# My ZSH configuration which I try to keep as minimal and
-# fast as possible.
+# Keep Zsh minimal and quick to start.
 
-# Use Emacs key bindings, ZSH will default this to
-# Vim if the default editor is Vim.
+# Pin Emacs bindings instead of inheriting the editor's mode.
 bindkey -e
 
 # History
@@ -23,7 +21,7 @@ export XDG_DATA_HOME=$HOME/.local/share
 export GOPATH="$HOME/Code/go"
 os_name="$(uname)"
 
-# Mac-specific stuff
+# macOS configuration
 if [[ "$os_name" == "Darwin" ]]; then
   source ~/.zshrc.mac
 else
@@ -73,13 +71,13 @@ then
   alias cat='bat'
 fi
 
-# Magit on the commandline
+# Git TUI
 if (( $+commands[gitu] ))
 then
   alias gu='gitu'
 fi
 
-# Replace `ls` with `eza`, if installed
+# File listing
 if (( $+commands[eza] ))
 then
   source "$HOME/.config/eza/cendre.sh"
@@ -93,7 +91,7 @@ then
   source "$HOME/.config/fzf/cendre.sh"
 fi
 
-# Some useful Git shortcuts
+# Git shortcuts
 alias gho='gh browse'
 alias gc='git commit'
 alias gs='git status --ignore-submodules=dirty'
@@ -107,22 +105,22 @@ then
   eval "$(~/.local/bin/mise activate zsh)"
 fi
 
-# Setup environment variables per directory.
+# Load per-directory environment variables.
 if (( $+commands[direnv] ))
 then
   eval "$(direnv hook zsh)"
 fi
 
-# Quickly jump to directories with zoxide
+# Directory jumping
 if (( $+commands[zoxide] ))
 then
   eval "$(zoxide init zsh)"
 fi
 
-# Fish like auto-suggestions
+# Fish-style autosuggestions
 [[ -d "$HOME/.zsh/zsh-autosuggestions" ]] && source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-# Fish like highlighting (using fast-syntax-highlighting for better performance)
+# Fish-style syntax highlighting
 [[ -d "$HOME/.zsh/fast-syntax-highlighting" ]] && source ~/.zsh/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 # Automatically close, delete and skip matching delimiting pairs.
@@ -144,8 +142,8 @@ else
   compinit -Cu
 fi
 
-# TRAMP sets TERM=dumb and needs a conventional, unstyled prompt for its
-# connection handshake.  Keep Pure for real terminal sessions.
+# TRAMP sets TERM=dumb and needs a plain prompt for its connection handshake.
+# Keep Pure for interactive terminal sessions.
 if [[ $TERM == dumb ]]; then
   PROMPT='$ '
 else
@@ -158,7 +156,7 @@ else
   prompt pure
 fi
 
-# Eat shell in Emacs
+# Emacs Eat integration
 [ -n "$EAT_SHELL_INTEGRATION_DIR" ] && \
   source "$EAT_SHELL_INTEGRATION_DIR/zsh"
 

@@ -1,19 +1,20 @@
 # vim: filetype=conf
 
-# shell extra's
-shell-integration-features = sudo, title, ssh-terminfo
+# shell extras
+shell-integration-features = sudo, ssh-terminfo
 
 # fonts
-font-family = Comic Code
+font-family = Comic Code Ligatures
 font-size = 11
 font-style-bold = Medium
-font-feature = calt, liga, ss01, ss02, ss03, ss04, ss05, ss06, ss07, ss08, ss09, ss10
-adjust-cell-height = 21%
+font-feature = ss01, ss02
+adjust-cell-height = 28%
 
 # colors
 window-colorspace = display-p3
-selection-invert-fg-bg = true
-theme = ayu
+selection-foreground = cell-background
+selection-background = cell-foreground
+theme = cendre
 
 # padding
 window-padding-balance = true
@@ -32,7 +33,6 @@ confirm-close-surface = false
 # clipboard
 copy-on-select = clipboard
 clipboard-read = allow
-clipboard-write = allow
 
 # mac
 macos-option-as-alt = true
@@ -44,10 +44,6 @@ keybind = cmd+shift+u=check_for_updates
 
 # split settings
 unfocused-split-opacity = 0.75
-
-# Unbind default keybinds for Alt-left and Alt-right to restore their normal behavior
-keybind = alt+arrow_left=unbind
-keybind = alt+arrow_right=unbind
 
 # shift-enter in Claude
 keybind = shift+enter=text:\n

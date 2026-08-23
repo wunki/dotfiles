@@ -1,0 +1,21 @@
+# cendre theme for fzf · hard
+# https://github.com/Aejkatappaja/cendre
+
+set -gx FZF_DEFAULT_OPTS \
+    '--color=bg+:#201b19' \
+    '--color=bg:#171311' \
+    '--color=border:#362f2c' \
+    '--color=fg:#a09384' \
+    '--color=fg+:#e6d5c2' \
+    '--color=gutter:#171311' \
+    '--color=header:#4e89a2' \
+    '--color=hl:#ea9875' \
+    '--color=hl+:#fcba81' \
+    '--color=info:#73665b' \
+    '--color=marker:#43b16a' \
+    '--color=pointer:#ea9875' \
+    '--color=prompt:#d1766e' \
+    '--color=query:#e6d5c2' \
+    '--color=scrollbar:#362f2c' \
+    '--color=separator:#362f2c' \
+    '--color=spinner:#ea9875'

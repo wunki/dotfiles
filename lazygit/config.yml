@@ -14,7 +14,7 @@ gui:
 git:
   # Delta pager with clickable line numbers
   pagers:
-    - pager: delta --paging=never --syntax-theme=base16 --hunk-header-style=omit
+    - pager: delta --paging=never --syntax-theme=cendre --hunk-header-style=omit
       colorArg: always
     # Difftastic as alternative (press | to switch)
     - externalDiffCommand: difft --color=always

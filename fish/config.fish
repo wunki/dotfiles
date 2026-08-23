@@ -107,6 +107,10 @@ abbr gu gitu
 abbr gho 'gh browse'
 
 # file listing (eza)
+if type -q eza; and test -r ~/.config/eza/cendre.fish
+    source ~/.config/eza/cendre.fish
+end
+
 abbr l eza
 abbr ls eza
 abbr ll eza
@@ -152,9 +156,6 @@ end
 # tool configurations
 if type -q bat
     abbr cat bat
-    set -x BAT_THEME Everforest-Dark-Hard
-    set -x BAT_STYLE plain
-    set -x BAT_PAGING never
     set -x COLORTERM truecolor
 end
 
@@ -223,5 +224,4 @@ end
 if test -d "$HOME/.local/share/mise/shims"
     fish_add_path -pP "$HOME/.local/share/mise/shims"
 end
-
 

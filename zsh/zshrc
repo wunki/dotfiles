@@ -71,9 +71,6 @@ lisp() {
 if (( $+commands[bat] ))
 then
   alias cat='bat'
-  export BAT_THEME='Everforest-Dark-Hard'
-  export BAT_STYLE='plain'
-  export BAT_PAGING='never'
 fi
 
 # Magit on the commandline
@@ -85,9 +82,15 @@ fi
 # Replace `ls` with `eza`, if installed
 if (( $+commands[eza] ))
 then
+  source "$HOME/.config/eza/cendre.sh"
   alias ls='eza'                              # ls
   alias l='eza -lbF --git'                    # list, size, type, git
   alias ll='eza -lbGF --git'                  # long list
+fi
+
+if (( $+commands[fzf] ))
+then
+  source "$HOME/.config/fzf/cendre.sh"
 fi
 
 # Some useful Git shortcuts

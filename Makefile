@@ -4,7 +4,7 @@ CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
 # List all application targets here
-APP_TARGETS := fish zsh bat helix ghostty zed sublime tmux herdr bin lazygit mise agents claude codex pi
+APP_TARGETS := fish zsh bat btop delta eza fzf helix ghostty zed sublime tmux herdr bin lazygit mise agents claude codex pi
 
 # Define the default target 'all' to depend on all application targets
 .PHONY: all
@@ -74,6 +74,36 @@ bat: ensure-config-dir
 	else \
 		echo "Bat linked; install bat to build the theme cache."; \
 	fi
+
+btop: ensure-config-dir
+	@echo "Linking btop configuration..."
+	@if [ -e $(CONFIG_DIR)/btop ] && [ ! -L $(CONFIG_DIR)/btop ]; then \
+		backup="$(CONFIG_DIR)/btop.bak.$$(date +%Y%m%d%H%M%S)"; \
+		mv $(CONFIG_DIR)/btop "$$backup"; \
+		echo "Backed up existing btop configuration to $$backup"; \
+	fi
+	@ln -fns $(DOTFILES)/btop $(CONFIG_DIR)/btop
+	@echo "btop linked."
+
+delta: ensure-config-dir
+	@echo "Linking Delta theme..."
+	@ln -fns $(DOTFILES)/delta $(CONFIG_DIR)/delta
+	@if command -v git >/dev/null 2>&1; then \
+		theme_path="$(CONFIG_DIR)/delta/cendre.gitconfig"; \
+		git config --global --get-all include.path | grep -Fxq "$$theme_path" || \
+			git config --global --add include.path "$$theme_path"; \
+	fi
+	@echo "Delta linked and Cendre included in the global Git configuration."
+
+eza: ensure-config-dir
+	@echo "Linking eza theme..."
+	@ln -fns $(DOTFILES)/eza $(CONFIG_DIR)/eza
+	@echo "eza linked."
+
+fzf: ensure-config-dir
+	@echo "Linking fzf theme..."
+	@ln -fns $(DOTFILES)/fzf $(CONFIG_DIR)/fzf
+	@echo "fzf linked."
 
 helix: ensure-config-dir
 	@echo "Linking helix configuration..."

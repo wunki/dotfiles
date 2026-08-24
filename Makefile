@@ -89,7 +89,7 @@ delta: ensure-config-dir
 			git config --global --unset-all diff.external; \
 		fi; \
 		for config_file in cendre.gitconfig git.gitconfig; do \
-			config_path="$(CONFIG_DIR)/delta/$$config_file"; \
+			config_path="~/.config/delta/$$config_file"; \
 			git config --global --get-all include.path | grep -Fxq "$$config_path" || \
 				git config --global --add include.path "$$config_path"; \
 		done; \

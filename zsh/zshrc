@@ -16,7 +16,6 @@ typeset -U PATH path
 
 # Environment
 export LANG='en_US.UTF-8'
-export LC_ALL='en_US.UTF-8'
 export XDG_DATA_HOME=$HOME/.local/share
 export GOPATH="$HOME/Code/go"
 os_name="$(uname)"

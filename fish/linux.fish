@@ -1,10 +1,8 @@
 # Where I store all my code
 set -x PROJECT_DIR "$HOME/Code"
 
-# Login shell
-if test -x /usr/bin/fish
-    set -x SHELL /usr/bin/fish
-else if type -q fish
+# Shell used by terminal tools and subprocesses
+if type -q fish
     set -x SHELL (command -s fish)
 end
 
@@ -46,7 +44,11 @@ if type -q go
 end
 
 # PostgreSQL
-fish_add_path -aP /usr/lib/postgresql/*/bin
+for postgresql_bin in /usr/lib/postgresql/*/bin
+    if test -d "$postgresql_bin"
+        fish_add_path -aP "$postgresql_bin"
+    end
+end
 
 # SQLite
 if test -f /usr/include/sqlite3.h

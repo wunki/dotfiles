@@ -3,7 +3,6 @@ set -g fish_greeting
 
 # environment
 set -x LANG 'en_US.UTF-8'
-set -x LC_ALL 'en_US.UTF-8'
 set -x XDG_DATA_HOME "$HOME/.local/share"
 if status is-interactive
     set -l gpg_tty (tty 2>/dev/null)
@@ -160,6 +159,10 @@ if type -q bat
 end
 
 if status is-interactive; and type -q zoxide
+    # Standalone Fish embeds cd.fish, while zoxide 0.9.8 expects it on disk.
+    if not functions --query __zoxide_cd_internal
+        functions --copy cd __zoxide_cd_internal
+    end
     zoxide init fish | source
 end
 
@@ -223,4 +226,3 @@ end
 if test -d "$HOME/.local/share/mise/shims"
     fish_add_path -pP "$HOME/.local/share/mise/shims"
 end
-

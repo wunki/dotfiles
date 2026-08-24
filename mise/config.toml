@@ -2,6 +2,7 @@
 experimental = true
 
 [tools]
+odin = "latest"
 lua = "latest"
 lua-language-server = "latest"
 node = "lts"

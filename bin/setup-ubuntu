@@ -1,0 +1,369 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+readonly expected_ubuntu_version="26.04"
+readonly tmux_repository="https://github.com/tmux/tmux.git"
+readonly nvim_config_repository="https://github.com/wunki/dot-nvim.git"
+readonly github_key_url="https://cli.github.com/packages/githubcli-archive-keyring.gpg"
+
+dry_run=0
+work_dir=""
+
+usage() {
+  cat <<'USAGE'
+Usage: setup-ubuntu [--dry-run]
+
+Bootstraps the core development workstation on Ubuntu 26.04:
+  - installs system packages and APT repositories
+  - installs Neovim's official release in /opt/nvim
+  - builds tmux master in ~/dev/tools/tmux and installs it in /usr/local
+  - installs mise and the tools declared by this dotfiles repository
+  - installs Fish plugins and the separate Neovim configuration
+  - applies the relevant dotfile targets
+
+The script is safe to rerun. It does not change the login shell.
+
+Options:
+  -n, --dry-run  print the intended work without changing the machine
+  -h, --help     show this help
+USAGE
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    -n|--dry-run)
+      dry_run=1
+      shift
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "setup-ubuntu: unknown option: $1" >&2
+      usage >&2
+      exit 2
+      ;;
+  esac
+done
+
+log() {
+  printf '\n==> %s\n' "$*"
+}
+
+note() {
+  printf '    %s\n' "$*"
+}
+
+run() {
+  if [[ "$dry_run" -eq 1 ]]; then
+    printf '    +'
+    printf ' %q' "$@"
+    printf '\n'
+  else
+    "$@"
+  fi
+}
+
+ensure_work_dir() {
+  if [[ -z "$work_dir" ]]; then
+    work_dir="$(mktemp -d)"
+  fi
+}
+
+cleanup() {
+  if [[ -n "$work_dir" && -d "$work_dir" ]]; then
+    rm -rf "$work_dir"
+  fi
+}
+trap cleanup EXIT
+
+if [[ "$(id -u)" -eq 0 ]]; then
+  echo "setup-ubuntu: run this as your regular user, not as root" >&2
+  exit 1
+fi
+
+if [[ ! -r /etc/os-release ]]; then
+  echo "setup-ubuntu: cannot identify the operating system" >&2
+  exit 1
+fi
+
+# shellcheck disable=SC1091
+source /etc/os-release
+if [[ "${ID:-}" != "ubuntu" || "${VERSION_ID:-}" != "$expected_ubuntu_version" ]]; then
+  echo "setup-ubuntu: Ubuntu ${expected_ubuntu_version} is required; found ${PRETTY_NAME:-unknown}" >&2
+  exit 1
+fi
+
+script_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+dotfiles_dir="$(cd -- "${script_dir}/.." && pwd)"
+export PATH="${HOME}/.local/bin:/opt/nvim/bin:${PATH}"
+
+if [[ ! -f "${dotfiles_dir}/Makefile" || ! -x "${script_dir}/setup-neovim" ]]; then
+  echo "setup-ubuntu: run the installer from a complete dotfiles checkout" >&2
+  exit 1
+fi
+
+if [[ "$dry_run" -eq 0 ]]; then
+  command -v sudo >/dev/null 2>&1 || {
+    echo "setup-ubuntu: sudo is required" >&2
+    exit 1
+  }
+  sudo -v
+fi
+
+install_bootstrap_packages() {
+  local packages=(
+    ca-certificates
+    curl
+    git
+    gnupg
+    make
+    software-properties-common
+    tar
+    unzip
+    xz-utils
+  )
+
+  log "Installing bootstrap packages"
+  run sudo apt-get update
+  run sudo apt-get install --yes "${packages[@]}"
+}
+
+setup_fish_repository() {
+  log "Enabling the Fish 4.x PPA"
+  run sudo add-apt-repository --yes ppa:fish-shell/release-4
+}
+
+setup_github_cli_repository() {
+  local key_path keyring_path source_path architecture fingerprints
+  keyring_path="/etc/apt/keyrings/githubcli-archive-keyring.gpg"
+  source_path="/etc/apt/sources.list.d/github-cli.list"
+  architecture="$(dpkg --print-architecture)"
+
+  log "Enabling GitHub's official CLI repository"
+  if [[ "$dry_run" -eq 1 ]]; then
+    note "download and verify ${github_key_url}"
+    note "install the keyring at ${keyring_path}"
+    note "write ${source_path} for ${architecture}"
+    return
+  fi
+
+  ensure_work_dir
+  key_path="${work_dir}/githubcli-archive-keyring.gpg"
+  curl -fsSL "$github_key_url" -o "$key_path"
+
+  fingerprints="$(gpg --batch --show-keys --with-colons "$key_path" | awk -F: '$1 == "fpr" { print $10 }')"
+  grep -Fxq '2C6106201985B60E6C7AC87323F3D4EA75716059' <<<"$fingerprints" || {
+    echo "setup-ubuntu: GitHub CLI signing key fingerprint is missing" >&2
+    exit 1
+  }
+  grep -Fxq '7F38BBB59D064DBCB3D84D725612B36462313325' <<<"$fingerprints" || {
+    echo "setup-ubuntu: GitHub CLI signing key fingerprint is missing" >&2
+    exit 1
+  }
+
+  sudo install -d -m 0755 /etc/apt/keyrings /etc/apt/sources.list.d
+  sudo install -m 0644 "$key_path" "$keyring_path"
+
+  printf 'deb [arch=%s signed-by=%s] https://cli.github.com/packages stable main\n' \
+    "$architecture" "$keyring_path" >"${work_dir}/github-cli.list"
+  sudo install -m 0644 "${work_dir}/github-cli.list" "$source_path"
+}
+
+install_workstation_packages() {
+  local packages=(
+    autoconf
+    automake
+    autossh
+    bat
+    bison
+    btop
+    build-essential
+    eza
+    fd
+    fish
+    fzf
+    gh
+    ghostty
+    lazygit
+    libevent-dev
+    libncurses-dev
+    libreadline-dev
+    libssl-dev
+    m4
+    pkg-config
+    ripgrep
+    shellcheck
+    tree
+    unixodbc-dev
+    wl-clipboard
+    zlib1g-dev
+    zoxide
+  )
+
+  log "Installing workstation packages"
+  run sudo apt-get update
+  run sudo apt-get install --yes "${packages[@]}"
+}
+
+install_command_compatibility_links() {
+  log "Adding Ubuntu command compatibility links"
+  run mkdir -p "${HOME}/.local/bin"
+
+  if [[ "$dry_run" -eq 1 ]]; then
+    note "link batcat as ~/.local/bin/bat when Ubuntu does not provide bat"
+  elif ! command -v bat >/dev/null 2>&1 && command -v batcat >/dev/null 2>&1; then
+    ln -fns "$(command -v batcat)" "${HOME}/.local/bin/bat"
+  fi
+}
+
+install_neovim() {
+  log "Installing the latest Neovim release"
+  run "${script_dir}/setup-neovim" --yes
+}
+
+checkout_or_update() {
+  local repository="$1"
+  local destination="$2"
+  local name="$3"
+
+  if [[ "$dry_run" -eq 1 ]]; then
+    note "clone or fast-forward ${name} at ${destination}"
+    return
+  fi
+
+  if [[ ! -e "$destination" ]]; then
+    mkdir -p "$(dirname -- "$destination")"
+    git clone "$repository" "$destination"
+    return
+  fi
+
+  if ! git -C "$destination" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    echo "setup-ubuntu: ${destination} exists but is not a Git checkout" >&2
+    exit 1
+  fi
+
+  if [[ -n "$(git -C "$destination" status --porcelain)" ]]; then
+    note "leaving modified ${name} checkout unchanged: ${destination}"
+    return
+  fi
+
+  git -C "$destination" pull --ff-only
+}
+
+install_tmux() {
+  local tools_dir="${HOME}/dev/tools"
+  local tmux_dir="${tools_dir}/tmux"
+  local jobs
+  jobs="$(nproc 2>/dev/null || printf '1')"
+
+  log "Building tmux master in ${tmux_dir}"
+  run mkdir -p "$tools_dir"
+  checkout_or_update "$tmux_repository" "$tmux_dir" "tmux"
+
+  if [[ "$dry_run" -eq 1 ]]; then
+    note "run autogen.sh, configure, and make -j${jobs} in ${tmux_dir}"
+    note "install tmux into /usr/local with sudo make install"
+    return
+  fi
+
+  (
+    cd "$tmux_dir"
+    sh autogen.sh
+    ./configure
+    make -j"$jobs"
+    sudo make install
+  )
+}
+
+apply_dotfiles() {
+  local targets=(
+    fish
+    ghostty
+    tmux
+    bat
+    btop
+    eza
+    fzf
+    lazygit
+    hunk
+    herdr
+    mise
+    bin
+    agents
+    claude
+    codex
+    pi
+  )
+
+  log "Applying workstation dotfiles"
+  run make -C "$dotfiles_dir" "${targets[@]}"
+}
+
+install_mise_tools() {
+  local mise_bin="${HOME}/.local/bin/mise"
+
+  log "Installing mise and the configured development tools"
+  if [[ "$dry_run" -eq 1 ]]; then
+    note "install mise at ${mise_bin}"
+    note "trust ${dotfiles_dir}/mise/config.toml, install its tools, and reshim"
+    return
+  fi
+
+  if [[ ! -x "$mise_bin" ]]; then
+    ensure_work_dir
+    curl -fsSL https://mise.run -o "${work_dir}/install-mise.sh"
+    MISE_INSTALL_PATH="$mise_bin" sh "${work_dir}/install-mise.sh"
+  fi
+
+  "$mise_bin" trust --yes "${dotfiles_dir}/mise/config.toml"
+  KERL_CONFIGURE_OPTIONS='--disable-debug --without-javac --without-wx' \
+    "$mise_bin" install --yes
+  "$mise_bin" reshim
+}
+
+install_fish_plugins() {
+  log "Installing Fish plugins"
+  if [[ "$dry_run" -eq 1 ]]; then
+    note "install Fisher and reconcile plugins from fish/fish_plugins"
+    return
+  fi
+
+  ensure_work_dir
+  curl -fsSL \
+    https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish \
+    -o "${work_dir}/fisher.fish"
+  fish -c "source '${work_dir}/fisher.fish'; fisher install jorgebucaran/fisher; fisher update"
+}
+
+install_neovim_config() {
+  log "Installing the Neovim configuration"
+  checkout_or_update "$nvim_config_repository" "${HOME}/.config/nvim" "Neovim configuration"
+}
+
+print_summary() {
+  log "Bootstrap complete"
+  if [[ "$dry_run" -eq 1 ]]; then
+    note "Dry run only; no changes were made."
+    return
+  fi
+
+  note "Open a new shell so ~/.local/bin, /opt/nvim/bin, and mise shims are active."
+  note "The login shell was not changed. Run chsh yourself if desired."
+  note "The fonts referenced by the Ghostty configuration are intentionally not installed."
+  note "Authenticate GitHub separately with: gh auth login"
+}
+
+install_bootstrap_packages
+setup_fish_repository
+setup_github_cli_repository
+install_workstation_packages
+install_command_compatibility_links
+install_neovim
+install_tmux
+apply_dotfiles
+install_mise_tools
+install_fish_plugins
+install_neovim_config
+print_summary

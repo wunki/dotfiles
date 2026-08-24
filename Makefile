@@ -9,7 +9,7 @@ APP_TARGETS := fish zsh bat btop delta eza fzf helix ghostty hunk zed sublime tm
 all: $(APP_TARGETS)
 	@echo "All user-level dotfiles linked."
 
-.PHONY: $(APP_TARGETS) print-% ensure-config-dir setup-clojure-lsp setup-neil
+.PHONY: $(APP_TARGETS) print-% ensure-config-dir setup-clojure-lsp setup-neil setup-neovim setup-ubuntu
 
 # --- Application configuration ---
 
@@ -324,6 +324,13 @@ else
 endif
 
 # --- Tool installers ---
+
+setup-ubuntu:
+	@$(DOTFILES)/bin/setup-ubuntu $(ARGS)
+
+setup-neovim: bin
+	@echo "Installing/updating Neovim..."
+	@$(DOTFILES)/bin/setup-neovim $(ARGS)
 
 setup-clojure-lsp: bin
 	@echo "Installing/updating clojure-lsp..."

@@ -82,14 +82,19 @@ btop: ensure-config-dir
 	@echo "btop linked."
 
 delta: ensure-config-dir
-	@echo "Linking Delta theme..."
+	@echo "Linking Delta configuration..."
 	@ln -fns $(DOTFILES)/delta $(CONFIG_DIR)/delta
 	@if command -v git >/dev/null 2>&1; then \
-		theme_path="$(CONFIG_DIR)/delta/cendre.gitconfig"; \
-		git config --global --get-all include.path | grep -Fxq "$$theme_path" || \
-			git config --global --add include.path "$$theme_path"; \
+		if [ "$$(git config --global --get diff.external)" = "difft" ]; then \
+			git config --global --unset-all diff.external; \
+		fi; \
+		for config_file in cendre.gitconfig git.gitconfig; do \
+			config_path="$(CONFIG_DIR)/delta/$$config_file"; \
+			git config --global --get-all include.path | grep -Fxq "$$config_path" || \
+				git config --global --add include.path "$$config_path"; \
+		done; \
 	fi
-	@echo "Delta linked and Cendre included in the global Git configuration."
+	@echo "Delta linked and enabled with Cendre in the global Git configuration."
 
 eza: ensure-config-dir
 	@echo "Linking eza theme..."

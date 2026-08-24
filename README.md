@@ -81,7 +81,7 @@ make pi
 make bin
 ```
 
-`make btop` backs up an existing non-symlinked `~/.config/btop` directory before replacing it. `make delta` adds the checked-in Cendre config to Git's global `include.path` once.
+`make btop` backs up an existing non-symlinked `~/.config/btop` directory before replacing it. `make delta` enables Delta with Cendre for regular Git diffs and adds `git hdiff` and `git hshow` for opening reviews in Hunk. It removes the legacy global `diff.external=difft` override when present; LazyGit keeps its explicit Difftastic command.
 
 ## Shell setup
 

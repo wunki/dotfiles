@@ -1,0 +1,13 @@
+# Use Delta for quick terminal diffs and Hunk for deliberate reviews.
+[core]
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true
+
+[alias]
+  hdiff = -c core.pager=\"hunk pager\" diff
+  hshow = -c core.pager=\"hunk pager\" show

@@ -6,14 +6,14 @@ odin = "latest"
 lua = "latest"
 lua-language-server = "latest"
 node = "lts"
-"npm:@mermaid-js/mermaid-cli" = "latest"
+"npm:@mermaid-js/mermaid-cli" = { version = "latest", trust_policy_excludes = ["cytoscape@3.34.1"] }
 "npm:oxlint" = "latest"
 "npm:tree-sitter-cli" = { version = "latest", allow_builds = ["tree-sitter-cli"] }
 "npm:oxfmt" = "latest"
 "npm:vscode-langservers-extracted" = "latest"
 "npm:typescript-language-server" = "latest"
-"npm:svelte-language-server" = "latest"
-"npm:hunkdiff" = "latest"
+"npm:svelte-language-server" = { version = "latest", trust_policy_excludes = ["svelte@4.2.20"] }
+"npm:hunkdiff" = { version = "latest", trust_policy_excludes = ["@pierre/theme@2.0.0"] }
 "npm:@earendil-works/pi-coding-agent" = "latest"
 clojure = "latest"
 babashka = "latest"

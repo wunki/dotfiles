@@ -33,7 +33,7 @@ if status is-interactive
 
     set -U tide_context_color_default a09384
     set -U tide_context_color_root d25780
-    set -U tide_context_color_ssh 58bdff
+    set -U tide_context_color_ssh 73665b
 
     set -U tide_vi_mode_color_default 99af6b
     set -U tide_vi_mode_color_insert ea9875

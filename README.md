@@ -12,6 +12,22 @@ cd dotfiles
 make
 ```
 
+### Ubuntu 26.04 workstation
+
+On a clean Ubuntu 26.04 desktop, clone this repository and run the workstation bootstrap:
+
+```bash
+sudo apt update
+sudo apt install --yes git
+git clone https://github.com/wunki/dotfiles.git ~/Code/wunki/dotfiles
+cd ~/Code/wunki/dotfiles
+bin/setup-ubuntu
+```
+
+Use `bin/setup-ubuntu --dry-run` to review the work first. The script installs the core terminal workstation, Neovim, an upstream tmux build under `~/dev/tools/tmux`, mise's configured tools, Fish plugins, and the separate `wunki/dot-nvim` configuration. It is safe to rerun and deliberately does not change the login shell.
+
+Ghostty comes from Ubuntu 26.04, Fish from its release-4 PPA, and `gh` from GitHub's official APT repository. Fonts, Zed, Sublime Text, Helix, Docker, PostgreSQL, and machine services are outside the bootstrap's scope.
+
 `make` applies every user-level target. Run a specific target when you only want one tool:
 
 ```bash

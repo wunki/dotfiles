@@ -2,6 +2,7 @@
 set -euo pipefail
 
 readonly expected_ubuntu_version="26.04"
+readonly fish_version="4.8.1"
 readonly tmux_repository="https://github.com/tmux/tmux.git"
 readonly nvim_config_repository="https://github.com/wunki/dot-nvim.git"
 readonly github_key_url="https://cli.github.com/packages/githubcli-archive-keyring.gpg"
@@ -118,8 +119,8 @@ install_bootstrap_packages() {
     curl
     git
     gnupg
+    locales
     make
-    software-properties-common
     tar
     unzip
     xz-utils
@@ -130,9 +131,9 @@ install_bootstrap_packages() {
   run sudo apt-get install --yes "${packages[@]}"
 }
 
-setup_fish_repository() {
-  log "Enabling the Fish 4.x PPA"
-  run sudo add-apt-repository --yes ppa:fish-shell/release-4
+setup_locale() {
+  log "Generating the en_US.UTF-8 locale"
+  run sudo locale-gen en_US.UTF-8
 }
 
 setup_github_cli_repository() {
@@ -181,11 +182,9 @@ install_workstation_packages() {
     btop
     build-essential
     eza
-    fd
-    fish
+    fd-find
     fzf
     gh
-    ghostty
     lazygit
     libevent-dev
     libncurses-dev
@@ -207,14 +206,65 @@ install_workstation_packages() {
   run sudo apt-get install --yes "${packages[@]}"
 }
 
+install_fish() {
+  local architecture archive checksum download_url fish_dir
+  architecture="$(dpkg --print-architecture)"
+
+  case "$architecture" in
+    amd64)
+      architecture="x86_64"
+      checksum="39cab35242ab77bfdbce73b473000c3b045aaf2fe0951b042199bb7fdba3df78"
+      ;;
+    arm64)
+      architecture="aarch64"
+      checksum="a03c8a445570a2a37e114cb13cebe41842cf17c4dd67a6530a57f742db04eee4"
+      ;;
+    *)
+      echo "setup-ubuntu: unsupported Fish architecture: ${architecture}" >&2
+      exit 1
+      ;;
+  esac
+
+  download_url="https://github.com/fish-shell/fish-shell/releases/download/${fish_version}/fish-${fish_version}-linux-${architecture}.tar.xz"
+
+  log "Installing Fish ${fish_version} from its official standalone release"
+  if [[ "$dry_run" -eq 1 ]]; then
+    note "download and verify ${download_url}"
+    note "install Fish at /usr/local/bin/fish"
+    return
+  fi
+
+  if [[ "$(/usr/local/bin/fish --version 2>/dev/null || true)" == "fish, version ${fish_version}" ]]; then
+    return
+  fi
+
+  ensure_work_dir
+  archive="${work_dir}/fish.tar.xz"
+  fish_dir="${work_dir}/fish"
+  mkdir -p "$fish_dir"
+  curl -fsSL "$download_url" -o "$archive"
+  if [[ "$(sha256sum "$archive" | awk '{ print $1 }')" != "$checksum" ]]; then
+    echo "setup-ubuntu: Fish archive checksum mismatch" >&2
+    exit 1
+  fi
+
+  tar -xJf "$archive" -C "$fish_dir"
+  sudo install -m 0755 "${fish_dir}/fish" /usr/local/bin/fish
+}
+
 install_command_compatibility_links() {
   log "Adding Ubuntu command compatibility links"
   run mkdir -p "${HOME}/.local/bin"
 
   if [[ "$dry_run" -eq 1 ]]; then
     note "link batcat as ~/.local/bin/bat when Ubuntu does not provide bat"
+    note "link fdfind as ~/.local/bin/fd when Ubuntu does not provide fd"
   elif ! command -v bat >/dev/null 2>&1 && command -v batcat >/dev/null 2>&1; then
     ln -fns "$(command -v batcat)" "${HOME}/.local/bin/bat"
+  fi
+
+  if [[ "$dry_run" -eq 0 ]] && ! command -v fd >/dev/null 2>&1 && command -v fdfind >/dev/null 2>&1; then
+    ln -fns "$(command -v fdfind)" "${HOME}/.local/bin/fd"
   fi
 }
 
@@ -280,7 +330,6 @@ install_tmux() {
 apply_dotfiles() {
   local targets=(
     fish
-    ghostty
     tmux
     bat
     btop
@@ -351,15 +400,15 @@ print_summary() {
 
   note "Open a new shell so ~/.local/bin, /opt/nvim/bin, and mise shims are active."
   note "The login shell was not changed. Run chsh yourself if desired."
-  note "The fonts referenced by the Ghostty configuration are intentionally not installed."
   note "Authenticate GitHub separately with: gh auth login"
 }
 
 install_bootstrap_packages
-setup_fish_repository
+setup_locale
 setup_github_cli_repository
 install_workstation_packages
 install_command_compatibility_links
+install_fish
 install_neovim
 install_tmux
 apply_dotfiles

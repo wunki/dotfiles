@@ -3,7 +3,7 @@ CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
 # User-level targets included in `make`.
-APP_TARGETS := fish zsh bat btop delta eza fzf helix ghostty zed sublime tmux herdr bin lazygit mise agents claude codex pi
+APP_TARGETS := fish zsh bat btop delta eza fzf helix ghostty hunk zed sublime tmux herdr bin lazygit mise agents claude codex pi
 
 .PHONY: all
 all: $(APP_TARGETS)
@@ -110,6 +110,12 @@ ghostty: ensure-config-dir
 	@echo "Linking ghostty configuration..."
 	@ln -fns $(DOTFILES)/ghostty $(CONFIG_DIR)/ghostty
 	@echo "Ghostty linked."
+
+hunk: ensure-config-dir
+	@echo "Linking Hunk configuration..."
+	@mkdir -p $(CONFIG_DIR)/hunk
+	@ln -fns $(DOTFILES)/hunk/config.toml $(CONFIG_DIR)/hunk/config.toml
+	@echo "Hunk linked."
 
 zed: ensure-config-dir
 	@echo "Linking zed configuration..."

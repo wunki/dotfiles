@@ -6,7 +6,7 @@ shell-integration-features = sudo, ssh-terminfo
 # Font
 font-family = Comic Code Ligatures
 font-size = 11
-font-style-bold = Medium
+# font-style-bold = Medium
 font-feature = ss01, ss02
 adjust-cell-height = 28%
 

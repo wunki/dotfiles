@@ -265,6 +265,8 @@ Active SSH, Tailscale SSH, Zed remote, console, and non-idle graphical sessions 
 
 Before suspending, the monitor writes `~/.cache/dotfiles-desktop-sleep/slept-at`. `sleep-desktop` writes the same timestamp when suspension is requested manually. `wake-desktop` consumes it after the machine returns and reports the sleep duration.
 
+When the machine runs Windows with WSL2, `sleep-wsl` calls the Windows suspend API from an SSH session inside WSL. `wake-wsl` sends Wake-on-LAN through the Pi, waits for WSL SSH, and reports how long the machine slept. Windows must expose S3 sleep, and its Ethernet adapter must be armed for wake.
+
 The installer requires `shellcheck`, Python 3, and `runuser`. It validates the monitor, installs root-owned copies, reloads systemd, and enables the timer.
 
 ```bash

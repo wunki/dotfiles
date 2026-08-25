@@ -68,6 +68,7 @@ When working with GitHub, prefer the `gh` CLI via bash over web/manual instructi
 Before using GitHub:
 
 - Check auth with `gh auth status` if needed.
+- If `gh auth status` fails in a sandbox, retry it outside the sandbox before concluding that the credentials are invalid.
 - Use `gh pr view`, `gh pr diff`, `gh pr checks`, `gh issue view`, and `gh repo view` for discovery.
 - Never expose tokens or auth output containing secrets.
 - Ask before destructive or high-impact actions such as merging PRs, deleting branches, closing issues, editing releases, or changing repo settings.

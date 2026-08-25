@@ -185,6 +185,7 @@ install_workstation_packages() {
     fd-find
     fzf
     gh
+    gnome-shell-extension-user-theme
     lazygit
     libevent-dev
     libncurses-dev
@@ -330,6 +331,7 @@ install_tmux() {
 apply_dotfiles() {
   local targets=(
     fish
+    gtk
     tmux
     bat
     btop

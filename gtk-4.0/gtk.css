@@ -1,0 +1,14 @@
+/* Cendre surfaces for GTK 4 and libadwaita. */
+:root {
+  --window-bg-color: #171311;
+  --view-bg-color: #171311;
+
+  --headerbar-bg-color: #171311;
+  --headerbar-backdrop-color: #171311;
+
+  --sidebar-bg-color: #201b19;
+  --sidebar-backdrop-color: #171311;
+
+  --dialog-bg-color: #201b19;
+  --popover-bg-color: #201b19;
+}

@@ -33,6 +33,7 @@ Fish comes from its official standalone release, and `gh` comes from GitHub's of
 ```bash
 make fish
 make ghostty
+make gtk
 make helix
 make tmux
 make pi
@@ -50,7 +51,7 @@ make auto-suspend   # desktop suspend timer
 | Area | Configuration |
 | --- | --- |
 | Shells | Fish and Zsh, split into shared and OS-specific files |
-| Terminal | Ghostty and tmux |
+| Desktop and terminal | GTK 4, GNOME Shell, Ghostty, and tmux |
 | Editors | Helix, Zed, and Sublime Text |
 | CLI tools | Bat, btop, Delta, eza, fzf, Lazygit, mise, and Herdr |
 | AI tools | Shared agent instructions and skills, plus Claude Code, Codex, and Pi integration |
@@ -59,7 +60,7 @@ make auto-suspend   # desktop suspend timer
 
 ### Theme
 
-Cendre is the shared dark palette for Bat, btop, Delta, eza, fzf, Ghostty, Helix, Lazygit, Pi, and tmux. On macOS, tmux follows the system appearance and switches to Rose Pine Dawn in light mode.
+Cendre is the shared dark palette for Bat, btop, Delta, eza, fzf, Ghostty, GTK 4, GNOME Shell, Helix, Lazygit, Pi, and tmux. On macOS, tmux follows the system appearance and switches to Rose Pine Dawn in light mode.
 
 Most Cendre files come from the theme's generated extras and remain unchanged here. Shell and Makefile wiring selects the right file for each tool.
 
@@ -72,6 +73,7 @@ make zsh
 
 # Terminal and editors
 make ghostty
+make gtk
 make helix
 make zed
 make sublime
@@ -98,6 +100,8 @@ make bin
 ```
 
 `make btop` backs up an existing non-symlinked `~/.config/btop` directory before replacing it. `make delta` enables Delta with Cendre for regular Git diffs and adds `git hdiff` and `git hshow` for opening reviews in Hunk. It removes the legacy global `diff.external=difft` override when present; LazyGit keeps its explicit Difftastic command.
+
+`make gtk` links the GTK 4 overrides into `~/.config/gtk-4.0/gtk.css` and, on Linux, the GNOME Shell theme into `~/.themes/cendre`. It selects Cendre through the User Themes extension without replacing the rest of the enabled extension list. The Ubuntu bootstrap installs that extension; after its first installation, log out once before expecting the shell theme to appear. Restart GTK 4 applications to update their chrome.
 
 ## Shell setup
 

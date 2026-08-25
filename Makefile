@@ -3,7 +3,7 @@ CONFIG_DIR	:= ${HOME}/.config
 UNAME		:= $(shell uname -s)
 
 # User-level targets included in `make`.
-APP_TARGETS := fish zsh bat btop delta eza fzf helix ghostty hunk zed sublime tmux herdr bin lazygit mise agents claude codex pi
+APP_TARGETS := fish zsh bat btop delta eza fzf helix ghostty gtk hunk zed sublime tmux herdr bin lazygit mise agents claude codex pi
 
 .PHONY: all
 all: $(APP_TARGETS)
@@ -115,6 +115,38 @@ ghostty: ensure-config-dir
 	@echo "Linking ghostty configuration..."
 	@ln -fns $(DOTFILES)/ghostty $(CONFIG_DIR)/ghostty
 	@echo "Ghostty linked."
+
+gtk: ensure-config-dir
+	@echo "Linking GTK 4 Cendre theme override..."
+	@mkdir -p $(CONFIG_DIR)/gtk-4.0
+	@ln -fns $(DOTFILES)/gtk-4.0/gtk.css $(CONFIG_DIR)/gtk-4.0/gtk.css
+ifeq ($(UNAME),Linux)
+	@echo "Linking Cendre GNOME Shell theme..."
+	@mkdir -p $(HOME)/.themes
+	@if [ -e $(HOME)/.themes/cendre ] && [ ! -L $(HOME)/.themes/cendre ]; then \
+		backup="$(HOME)/.themes/cendre.bak.$$(date +%Y%m%d%H%M%S)"; \
+		mv $(HOME)/.themes/cendre "$$backup"; \
+		echo "Backed up existing GNOME Shell theme to $$backup"; \
+	fi
+	@ln -fns $(DOTFILES)/gnome-shell/cendre $(HOME)/.themes/cendre
+	@if command -v gsettings >/dev/null 2>&1 && \
+		gsettings list-schemas | grep -Fxq org.gnome.shell.extensions.user-theme; then \
+		uuid="user-theme@gnome-shell-extensions.gcampax.github.com"; \
+		enabled="$$(gsettings get org.gnome.shell enabled-extensions)"; \
+		if ! printf '%s\n' "$$enabled" | grep -Fq "'$$uuid'"; then \
+			case "$$enabled" in \
+				"@as []"|"[]") enabled="['$$uuid']" ;; \
+				*) enabled="$${enabled%]}"; enabled="$$enabled, '$$uuid']" ;; \
+			esac; \
+			gsettings set org.gnome.shell enabled-extensions "$$enabled"; \
+		fi; \
+		gsettings set org.gnome.shell.extensions.user-theme name cendre; \
+		echo "GNOME Shell configured; log out once if User Themes was just installed."; \
+	else \
+		echo "GNOME Shell theme linked but inactive; install gnome-shell-extension-user-theme."; \
+	fi
+endif
+	@echo "GTK 4 and GNOME Shell Cendre themes linked."
 
 hunk: ensure-config-dir
 	@echo "Linking Hunk configuration..."

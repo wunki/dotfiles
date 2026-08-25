@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#
+# wake-wsl - wake the Windows host and wait for WSL SSH.
+#
+set -euo pipefail
+
+script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+export WAKE_DESKTOP_COMMAND_NAME="wake-wsl"
+
+exec "${script_dir}/wake-desktop" \
+  --target-host "${WAKE_WSL_TARGET_SSH_HOST:-${WAKE_DESKTOP_TARGET_SSH_HOST:-wsl}}" \
+  --stamp-path "${WAKE_WSL_STAMP_PATH:-${WAKE_DESKTOP_STAMP_PATH:-.cache/dotfiles-wsl-sleep/slept-at}}" \
+  --target-name "WSL" \
+  "$@"

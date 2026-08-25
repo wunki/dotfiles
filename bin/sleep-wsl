@@ -1,0 +1,189 @@
+#!/usr/bin/env bash
+#
+# sleep-wsl - put the Windows host into S3 sleep over WSL SSH.
+#
+# The WSL distribution is assumed to be reachable through Tailscale/MagicDNS
+# as "wsl". Override it with --host or SLEEP_WSL_SSH_HOST.
+#
+set -euo pipefail
+
+ssh_host="${SLEEP_WSL_SSH_HOST:-wsl}"
+ssh_user="${SLEEP_WSL_SSH_USER:-}"
+ssh_port="${SLEEP_WSL_SSH_PORT:-}"
+stamp_path="${SLEEP_WSL_STAMP_PATH:-.cache/dotfiles-wsl-sleep/slept-at}"
+resolve_with_tailscale=true
+
+usage() {
+  cat <<'USAGE'
+Usage: sleep-wsl [options]
+
+Put the Windows host into S3 sleep by SSHing to WSL and calling the Windows
+suspend API. The request is delayed briefly so SSH can close cleanly.
+
+Options:
+  --host HOST      SSH/Tailscale host for WSL (default: wsl)
+  --user USER      SSH user for WSL
+  --port PORT      SSH port for WSL
+  --stamp-path PATH
+                   Path in WSL for the sleep timestamp
+                   (default: ~/.cache/dotfiles-wsl-sleep/slept-at)
+  --no-resolve     Do not resolve the host through the Tailscale CLI first
+  -h, --help       Show this help
+
+Environment overrides:
+  SLEEP_WSL_SSH_HOST
+  SLEEP_WSL_SSH_USER
+  SLEEP_WSL_SSH_PORT
+  SLEEP_WSL_STAMP_PATH
+USAGE
+}
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --host)
+      if [[ $# -lt 2 ]]; then
+        echo "sleep-wsl: --host requires an argument" >&2
+        exit 2
+      fi
+      ssh_host="$2"
+      shift 2
+      ;;
+    --user)
+      if [[ $# -lt 2 ]]; then
+        echo "sleep-wsl: --user requires an argument" >&2
+        exit 2
+      fi
+      ssh_user="$2"
+      shift 2
+      ;;
+    --port)
+      if [[ $# -lt 2 ]]; then
+        echo "sleep-wsl: --port requires an argument" >&2
+        exit 2
+      fi
+      ssh_port="$2"
+      shift 2
+      ;;
+    --stamp-path)
+      if [[ $# -lt 2 ]]; then
+        echo "sleep-wsl: --stamp-path requires an argument" >&2
+        exit 2
+      fi
+      stamp_path="$2"
+      shift 2
+      ;;
+    --no-resolve)
+      resolve_with_tailscale=false
+      shift
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    *)
+      echo "sleep-wsl: unknown option: $1" >&2
+      usage >&2
+      exit 2
+      ;;
+  esac
+done
+
+if [[ -z "$ssh_host" ]]; then
+  echo "sleep-wsl: SSH host cannot be empty" >&2
+  exit 2
+fi
+
+if [[ -n "$ssh_port" && ! "$ssh_port" =~ ^[0-9]+$ ]]; then
+  echo "sleep-wsl: SSH port must be numeric: $ssh_port" >&2
+  exit 2
+fi
+
+if [[ -z "$stamp_path" ]]; then
+  echo "sleep-wsl: stamp path cannot be empty" >&2
+  exit 2
+fi
+
+tailscale_cli() {
+  if command -v tailscale >/dev/null 2>&1; then
+    command -v tailscale
+  elif [[ -x /Applications/Tailscale.app/Contents/MacOS/Tailscale ]]; then
+    printf '%s\n' /Applications/Tailscale.app/Contents/MacOS/Tailscale
+  fi
+}
+
+resolve_ssh_host() {
+  local ts_cli resolved
+
+  if [[ "$resolve_with_tailscale" != true ]]; then
+    printf '%s\n' "$ssh_host"
+    return
+  fi
+
+  ts_cli="$(tailscale_cli || true)"
+  if [[ -n "$ts_cli" ]]; then
+    resolved="$("$ts_cli" ip -4 "$ssh_host" 2>/dev/null | awk 'NR == 1 { print; exit }')"
+    if [[ -n "$resolved" ]]; then
+      printf '%s\n' "$resolved"
+      return
+    fi
+  fi
+
+  printf '%s\n' "$ssh_host"
+}
+
+remote_host="$(resolve_ssh_host)"
+ssh_target="$remote_host"
+if [[ -n "$ssh_user" ]]; then
+  ssh_target="${ssh_user}@${remote_host}"
+fi
+
+ssh_args=(
+  -o ConnectTimeout=10
+  -o ControlMaster=no
+  -o ControlPath=none
+)
+if [[ -n "$ssh_port" ]]; then
+  ssh_args+=(-p "$ssh_port")
+fi
+
+echo "Scheduling Windows sleep via ${ssh_target}..."
+
+ssh "${ssh_args[@]}" "$ssh_target" sh -s -- "$stamp_path" <<'REMOTE'
+set -eu
+
+stamp_path="$1"
+case "$stamp_path" in
+  /*) ;;
+  *)
+    if [ -z "${HOME:-}" ]; then
+      echo "sleep-wsl: HOME is not set in the WSL SSH session." >&2
+      exit 1
+    fi
+    stamp_path="${HOME}/${stamp_path}"
+    ;;
+esac
+
+if ! command -v powershell.exe >/dev/null 2>&1; then
+  echo "sleep-wsl: powershell.exe is not available through WSL interop." >&2
+  exit 127
+fi
+
+if ! command -v setsid >/dev/null 2>&1; then
+  echo "sleep-wsl: setsid is required to detach the delayed sleep request." >&2
+  exit 127
+fi
+
+mkdir -p "$(dirname "$stamp_path")"
+date +%s > "$stamp_path"
+
+powershell_command='Add-Type -AssemblyName System.Windows.Forms; if (-not [System.Windows.Forms.Application]::SetSuspendState([System.Windows.Forms.PowerState]::Suspend, $false, $false)) { throw "Windows rejected the suspend request." }'
+
+# Detach before sleeping so the SSH client gets a successful response instead
+# of waiting for Windows to wake and resume the PowerShell process.
+setsid -f sh -c '
+  sleep 2
+  exec powershell.exe -NoProfile -NonInteractive -Command "$1"
+' sh "$powershell_command" </dev/null >/dev/null 2>&1
+REMOTE
+
+echo "Windows sleep scheduled."

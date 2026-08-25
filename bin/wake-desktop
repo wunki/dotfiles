@@ -14,6 +14,8 @@ ssh_port="${WAKE_DESKTOP_SSH_PORT:-}"
 desktop_ssh_host="${WAKE_DESKTOP_TARGET_SSH_HOST:-desktop}"
 desktop_ssh_user="${WAKE_DESKTOP_TARGET_SSH_USER:-}"
 desktop_ssh_port="${WAKE_DESKTOP_TARGET_SSH_PORT:-}"
+target_name="${WAKE_DESKTOP_TARGET_NAME:-Desktop}"
+command_name="${WAKE_DESKTOP_COMMAND_NAME:-wake-desktop}"
 stamp_path="${WAKE_DESKTOP_STAMP_PATH:-.cache/dotfiles-desktop-sleep/slept-at}"
 wait_for_desktop=true
 wait_timeout="${WAKE_DESKTOP_WAIT_TIMEOUT:-90}"
@@ -22,32 +24,34 @@ probe_interval="${WAKE_DESKTOP_PROBE_INTERVAL:-1}"
 resolve_with_tailscale=true
 
 usage() {
-  cat <<'USAGE'
-Usage: wake-desktop [options]
+  cat <<USAGE
+Usage: ${command_name} [options]
 
-Wake the desktop by SSHing to the Pi over Tailscale and running etherwake.
+Wake ${target_name} by SSHing to the Pi over Tailscale and running etherwake.
 
 Options:
   --host HOST      SSH/Tailscale host for the Pi (default: pi)
   --user USER      SSH user for the Pi
   --port PORT      SSH port for the Pi
-  --mac MAC        Desktop MAC address (default: 58:11:22:b6:b4:06)
-  --desktop-host HOST
-                   SSH/Tailscale host for the desktop after wake (default: desktop)
-  --desktop-user USER
-                   SSH user for the desktop after wake
-  --desktop-port PORT
-                   SSH port for the desktop after wake
+  --mac MAC        Target MAC address (default: 58:11:22:b6:b4:06)
+  --target-host HOST
+                   SSH/Tailscale host to probe after wake (default: ${desktop_ssh_host})
+  --target-user USER
+                   SSH user for the target after wake
+  --target-port PORT
+                   SSH port for the target after wake
+  --target-name NAME
+                   Name used for the target in status messages (default: ${target_name})
   --stamp-path PATH
-                   Path on the desktop for the sleep timestamp
-                   (default: ~/.cache/dotfiles-desktop-sleep/slept-at)
+                   Path on the target for the sleep timestamp
+                   (default: ${stamp_path})
   --wait-timeout SECONDS
-                   Seconds to wait for desktop SSH after Wake-on-LAN (default: 90)
+                   Seconds to wait for target SSH after Wake-on-LAN (default: 90)
   --probe-timeout SECONDS
-                   Seconds to allow each desktop SSH probe (default: 2)
+                   Seconds to allow each target SSH probe (default: 2)
   --probe-interval SECONDS
-                   Seconds to sleep between desktop SSH probes (default: 1)
-  --no-wait        Do not wait for desktop SSH or report sleep duration
+                   Seconds to sleep between target SSH probes (default: 1)
+  --no-wait        Do not wait for target SSH or report sleep duration
   --no-resolve     Do not resolve the host through the Tailscale CLI first
   -h, --help       Show this help
 
@@ -58,6 +62,7 @@ Environment overrides:
   WAKE_DESKTOP_TARGET_SSH_HOST
   WAKE_DESKTOP_TARGET_SSH_USER
   WAKE_DESKTOP_TARGET_SSH_PORT
+  WAKE_DESKTOP_TARGET_NAME
   WAKE_DESKTOP_STAMP_PATH
   WAKE_DESKTOP_WAIT_TIMEOUT
   WAKE_DESKTOP_PROBE_TIMEOUT
@@ -99,7 +104,7 @@ while [[ $# -gt 0 ]]; do
       desktop_mac="$2"
       shift 2
       ;;
-    --desktop-host)
+    --target-host|--desktop-host)
       if [[ $# -lt 2 ]]; then
         echo "wake-desktop: --desktop-host requires an argument" >&2
         exit 2
@@ -107,7 +112,7 @@ while [[ $# -gt 0 ]]; do
       desktop_ssh_host="$2"
       shift 2
       ;;
-    --desktop-user)
+    --target-user|--desktop-user)
       if [[ $# -lt 2 ]]; then
         echo "wake-desktop: --desktop-user requires an argument" >&2
         exit 2
@@ -115,12 +120,20 @@ while [[ $# -gt 0 ]]; do
       desktop_ssh_user="$2"
       shift 2
       ;;
-    --desktop-port)
+    --target-port|--desktop-port)
       if [[ $# -lt 2 ]]; then
         echo "wake-desktop: --desktop-port requires an argument" >&2
         exit 2
       fi
       desktop_ssh_port="$2"
+      shift 2
+      ;;
+    --target-name)
+      if [[ $# -lt 2 ]]; then
+        echo "wake-desktop: --target-name requires an argument" >&2
+        exit 2
+      fi
+      target_name="$2"
       shift 2
       ;;
     --stamp-path)
@@ -182,6 +195,11 @@ fi
 
 if [[ -z "$desktop_ssh_host" ]]; then
   echo "wake-desktop: desktop SSH host cannot be empty" >&2
+  exit 2
+fi
+
+if [[ -z "$target_name" ]]; then
+  echo "wake-desktop: target name cannot be empty" >&2
   exit 2
 fi
 
@@ -372,7 +390,7 @@ report_sleep_duration() {
     desktop_ssh_args+=(-p "$desktop_ssh_port")
   fi
 
-  echo "Waiting for desktop SSH..."
+  echo "Waiting for ${target_name} SSH..."
   echo "  Target:  $(display_target "$desktop_ssh_host" "$desktop_remote_host" "$desktop_ssh_user" "$desktop_ssh_port")"
   echo "  Timeout: ${wait_timeout}s"
 
@@ -414,27 +432,27 @@ printf "%s %s\n" "$slept_at" "$woke_at"'
       if [[ "$slept_at" =~ ^[0-9]+$ && "$woke_at" =~ ^[0-9]+$ ]]; then
         duration=$((woke_at - slept_at))
         elapsed=$((SECONDS - started_at))
-        echo "Desktop SSH is ready after $(human_duration "$elapsed")."
+        echo "${target_name} SSH is ready after $(human_duration "$elapsed")."
         echo "Sleep duration: $(human_duration "$duration")."
         return
       fi
 
-      echo "Desktop SSH is ready, but the sleep timestamp was unreadable."
+      echo "${target_name} SSH is ready, but the sleep timestamp was unreadable."
       return
     fi
 
     if [[ "$status" -eq 3 ]]; then
-      echo "Desktop SSH is ready, but no sleep timestamp was found."
+      echo "${target_name} SSH is ready, but no sleep timestamp was found."
       return
     fi
 
     if [[ "$status" -eq 4 ]]; then
-      echo "Desktop SSH is ready, but the sleep timestamp was invalid."
+      echo "${target_name} SSH is ready, but the sleep timestamp was invalid."
       return
     fi
 
     if [[ "$status" -eq 5 ]]; then
-      echo "Desktop SSH is ready, but HOME was not set on the desktop SSH session."
+      echo "${target_name} SSH is ready, but HOME was not set on the target SSH session."
       return
     fi
 
@@ -447,12 +465,12 @@ printf "%s %s\n" "$slept_at" "$woke_at"'
     sleep "$probe_interval"
   done
 
-  echo "Wake packet sent; desktop SSH did not respond within ${wait_timeout}s."
+  echo "Wake packet sent; ${target_name} SSH did not respond within ${wait_timeout}s."
 }
 
-echo "Wake desktop"
+echo "Wake ${target_name}"
 echo "  Pi SSH:      $(display_target "$ssh_host" "$remote_host" "$ssh_user" "$ssh_port")"
-echo "  Desktop MAC: ${desktop_mac}"
+echo "  Target MAC:  ${desktop_mac}"
 echo "Sending Wake-on-LAN packet..."
 
 ssh "${ssh_args[@]}" "$ssh_target" sh -s -- "$desktop_mac" <<'REMOTE'

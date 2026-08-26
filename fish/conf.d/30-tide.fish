@@ -1,7 +1,7 @@
 # Tide prompt layout and Cendre colors
 if status is-interactive
-    set -U tide_left_prompt_items pwd git newline character
-    set -U tide_right_prompt_items status cmd_duration context jobs pulumi kubectl distrobox toolbox terraform aws nix_shell
+    set -U tide_left_prompt_items context pwd git newline character
+    set -U tide_right_prompt_items status cmd_duration jobs pulumi kubectl distrobox toolbox terraform aws nix_shell
 
     set -U tide_character_icon λ
     set -U tide_character_vi_icon_default λ
@@ -33,7 +33,7 @@ if status is-interactive
 
     set -U tide_context_color_default a09384
     set -U tide_context_color_root d25780
-    set -U tide_context_color_ssh 73665b
+    set -U tide_context_color_ssh 58bdff
 
     set -U tide_vi_mode_color_default 99af6b
     set -U tide_vi_mode_color_insert ea9875

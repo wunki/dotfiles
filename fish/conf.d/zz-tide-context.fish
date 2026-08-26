@@ -9,7 +9,7 @@ function _tide_item_context
         return
     end
 
-    # Keep Tide's context item, but show only the host to reduce prompt noise.
+    # The username is constant across machines, so show only the useful context.
     string match -qr "^(?<h>(\.?[^\.]*){0,$tide_context_hostname_parts})" @$hostname
     _tide_print_item context (string replace -r '^@' '' -- $h)
 end

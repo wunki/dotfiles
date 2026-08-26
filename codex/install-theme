@@ -1,0 +1,97 @@
+#!/bin/sh
+
+set -eu
+
+codex_home=${CODEX_HOME:-"$HOME/.codex"}
+script_dir=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd)
+dotfiles_dir=$(dirname -- "$script_dir")
+theme_source="$dotfiles_dir/bat/themes/cendre.tmTheme"
+themes_dir="$codex_home/themes"
+theme_destination="$themes_dir/cendre.tmTheme"
+config_file="$codex_home/config.toml"
+timestamp=$(date +%Y%m%d%H%M%S)
+
+mkdir -p "$themes_dir"
+
+if [ -e "$theme_destination" ] && [ ! -L "$theme_destination" ]; then
+    backup="$theme_destination.bak.$timestamp"
+    mv "$theme_destination" "$backup"
+    echo "Backed up existing Cendre Codex theme to $backup"
+fi
+
+ln -fns "$theme_source" "$theme_destination"
+
+config_tmp="$config_file.tmp.$$"
+trap 'rm -f "$config_tmp"' EXIT HUP INT TERM
+
+if [ -e "$config_file" ] && [ ! -f "$config_file" ]; then
+    echo "Codex config is not a regular file: $config_file" >&2
+    exit 1
+fi
+
+config_input=/dev/null
+if [ -f "$config_file" ]; then
+    config_input=$config_file
+fi
+
+# Codex owns the rest of config.toml, including generated trust and UI state.
+# Update only tui.theme, creating the table when it does not exist.
+awk '
+BEGIN {
+    in_tui = 0
+    has_tui = 0
+    has_theme = 0
+}
+
+/^[[:space:]]*\[tui\][[:space:]]*$/ {
+    in_tui = 1
+    has_tui = 1
+    print
+    next
+}
+
+/^[[:space:]]*\[/ {
+    if (in_tui && !has_theme) {
+        print "theme = \"cendre\""
+        has_theme = 1
+    }
+    in_tui = 0
+}
+
+in_tui && /^[[:space:]]*theme[[:space:]]*=/ {
+    print "theme = \"cendre\""
+    has_theme = 1
+    next
+}
+
+!in_tui && /^[[:space:]]*tui\.theme[[:space:]]*=/ {
+    print "tui.theme = \"cendre\""
+    has_theme = 1
+    next
+}
+
+{
+    print
+}
+
+END {
+    if (in_tui && !has_theme) {
+        print "theme = \"cendre\""
+    } else if (!has_tui && !has_theme) {
+        if (NR > 0) {
+            print ""
+        }
+        print "[tui]"
+        print "theme = \"cendre\""
+    }
+}
+' "$config_input" > "$config_tmp"
+
+if [ -f "$config_file" ] && cmp -s "$config_tmp" "$config_file"; then
+    rm -f "$config_tmp"
+else
+    mv "$config_tmp" "$config_file"
+    echo "Configured Codex to use the Cendre theme."
+fi
+
+trap - EXIT HUP INT TERM

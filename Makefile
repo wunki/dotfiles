@@ -1,5 +1,8 @@
 DOTFILES	:= $(patsubst %/,%,$(dir $(abspath $(lastword $(MAKEFILE_LIST)))))
 CONFIG_DIR	:= ${HOME}/.config
+GNOME_EXTENSIONS_DIR := $(HOME)/.local/share/gnome-shell/extensions
+APPLICATION_SHORTCUTS_UUID := application-shortcuts@wunki
+APPLICATION_SHORTCUTS_DIR := $(DOTFILES)/gnome-shell/$(APPLICATION_SHORTCUTS_UUID)
 UNAME		:= $(shell uname -s)
 
 # User-level targets included in `make`.
@@ -129,19 +132,29 @@ ifeq ($(UNAME),Linux)
 		echo "Backed up existing GNOME Shell theme to $$backup"; \
 	fi
 	@ln -fns $(DOTFILES)/gnome-shell/cendre $(HOME)/.themes/cendre
+	@echo "Linking GNOME application shortcuts extension..."
+	@glib-compile-schemas $(APPLICATION_SHORTCUTS_DIR)/schemas
+	@mkdir -p $(GNOME_EXTENSIONS_DIR)
+	@if [ -e $(GNOME_EXTENSIONS_DIR)/$(APPLICATION_SHORTCUTS_UUID) ] && [ ! -L $(GNOME_EXTENSIONS_DIR)/$(APPLICATION_SHORTCUTS_UUID) ]; then \
+		backup="$(GNOME_EXTENSIONS_DIR)/$(APPLICATION_SHORTCUTS_UUID).bak.$$(date +%Y%m%d%H%M%S)"; \
+		mv $(GNOME_EXTENSIONS_DIR)/$(APPLICATION_SHORTCUTS_UUID) "$$backup"; \
+		echo "Backed up existing application shortcuts extension to $$backup"; \
+	fi
+	@ln -fns $(APPLICATION_SHORTCUTS_DIR) $(GNOME_EXTENSIONS_DIR)/$(APPLICATION_SHORTCUTS_UUID)
 	@if command -v gsettings >/dev/null 2>&1 && \
 		gsettings list-schemas | grep -Fxq org.gnome.shell.extensions.user-theme; then \
-		uuid="user-theme@gnome-shell-extensions.gcampax.github.com"; \
 		enabled="$$(gsettings get org.gnome.shell enabled-extensions)"; \
-		if ! printf '%s\n' "$$enabled" | grep -Fq "'$$uuid'"; then \
-			case "$$enabled" in \
-				"@as []"|"[]") enabled="['$$uuid']" ;; \
-				*) enabled="$${enabled%]}"; enabled="$$enabled, '$$uuid']" ;; \
-			esac; \
-			gsettings set org.gnome.shell enabled-extensions "$$enabled"; \
-		fi; \
+		for uuid in user-theme@gnome-shell-extensions.gcampax.github.com $(APPLICATION_SHORTCUTS_UUID); do \
+			if ! printf '%s\n' "$$enabled" | grep -Fq "'$$uuid'"; then \
+				case "$$enabled" in \
+					"@as []"|"[]") enabled="['$$uuid']" ;; \
+					*) enabled="$${enabled%]}"; enabled="$$enabled, '$$uuid']" ;; \
+				esac; \
+			fi; \
+		done; \
+		gsettings set org.gnome.shell enabled-extensions "$$enabled"; \
 		gsettings set org.gnome.shell.extensions.user-theme name cendre; \
-		echo "GNOME Shell configured; log out once if User Themes was just installed."; \
+		echo "GNOME Shell configured; log out once if an extension was just installed."; \
 	else \
 		echo "GNOME Shell theme linked but inactive; install gnome-shell-extension-user-theme."; \
 	fi
@@ -268,7 +281,7 @@ claude: agents
 	@echo "Claude skills linked."
 
 codex: agents
-	@echo "Linking Codex global instructions..."
+	@echo "Linking Codex global instructions and theme..."
 	@mkdir -p $(HOME)/.codex
 	@if [ -e $(HOME)/.codex/AGENTS.md ] && [ ! -L $(HOME)/.codex/AGENTS.md ]; then \
 		backup=$(HOME)/.codex/AGENTS.md.bak.$$(date +%Y%m%d%H%M%S); \
@@ -276,6 +289,7 @@ codex: agents
 		echo "Backed up existing ~/.codex/AGENTS.md to $$backup"; \
 	fi
 	@ln -fns $(DOTFILES)/agents/AGENTS.md $(HOME)/.codex/AGENTS.md
+	@$(DOTFILES)/codex/install-theme
 	@echo "Codex linked."
 
 pi:

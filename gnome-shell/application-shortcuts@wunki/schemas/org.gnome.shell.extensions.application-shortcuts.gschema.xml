@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.application-shortcuts"
+          path="/org/gnome/shell/extensions/application-shortcuts/">
+    <key name="raise-or-launch-ghostty" type="as">
+      <default>["&lt;Primary&gt;&lt;Alt&gt;t"]</default>
+      <summary>Raise or launch Ghostty</summary>
+    </key>
+    <key name="raise-or-launch-firefox" type="as">
+      <default>["&lt;Primary&gt;&lt;Alt&gt;f"]</default>
+      <summary>Raise or launch Firefox</summary>
+    </key>
+  </schema>
+</schemalist>

@@ -22,6 +22,7 @@
 /OpenCode.md
 /.claude
 /lazygit/state.yml
+/gnome-shell/application-shortcuts@wunki/schemas/gschemas.compiled
 # dev-browser skill artifacts
 /claude/skills/dev-browser/node_modules/
 /claude/skills/dev-browser/package-lock.json

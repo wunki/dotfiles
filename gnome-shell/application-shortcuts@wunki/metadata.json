@@ -1,0 +1,8 @@
+{
+  "uuid": "application-shortcuts@wunki",
+  "name": "Application Shortcuts",
+  "description": "Raises an existing application window or launches the application when none is open.",
+  "settings-schema": "org.gnome.shell.extensions.application-shortcuts",
+  "shell-version": ["50"],
+  "version": 2
+}

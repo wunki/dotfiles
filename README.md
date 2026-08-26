@@ -224,7 +224,11 @@ PLUG_EDITOR = "nvim://file/__FILE__:__LINE__?tmux-session={{ env.TMUX_SESSION_NA
 
 Start Neovim with `nvs` inside tmux.
 
-## Keyboard repeat on GNOME
+## GNOME input settings
+
+This section records the keyboard repeat, mouse movement, and scrolling values used on the Ubuntu workstation.
+
+### Keyboard repeat
 
 GNOME stores keyboard repeat settings in dconf rather than a dotfile, so these values must be applied on each machine.
 
@@ -241,6 +245,46 @@ gsettings set org.gnome.desktop.peripherals.keyboard delay 200
 ```
 
 The changes apply immediately. GNOME defaults are `repeat-interval 30` and `delay 500`.
+
+### MX Master 4 cursor and scrolling
+
+Let the Linux HID++ driver manage the MX Master 4's wheel resolution. Forcing `Scroll Wheel Resolution` on in Solaar makes the movement smooth but much too fast because both Solaar and the kernel try to control the same device setting.
+
+Install Solaar, then refresh the permissions of the Bolt receiver that was already connected. Replugging the receiver after installation has the same effect if the mouse can be disconnected safely.
+
+```bash
+sudo apt install solaar
+sudo udevadm control --reload-rules
+sudo udevadm trigger --action=add --subsystem-match=hidraw
+udevadm settle
+```
+
+Open Solaar and click the icon at the right edge of `Scroll Wheel Resolution` until its mode reads `Ignore this setting`. This is the default for new devices. Turn the mouse off and on after changing the mode so the kernel can reset the wheel correctly.
+
+Verify that Solaar will leave the setting alone:
+
+```bash
+rg _sensitive ~/.config/solaar/config.yaml
+```
+
+The result should include `hires-smooth-resolution: ignore`. The nearby `hires-smooth-resolution: true` or `false` line records the last value Solaar saw; it does not override the device while the sensitivity mode is `ignore`.
+
+Firefox already enables smooth scrolling and mass-spring-damper physics. Keep `mousewheel.default.delta_multiplier_y` at its default value of `100`; increasing it makes each wheel movement travel farther. If scrolling becomes aggressive again, confirm the Solaar mode is still `ignore`, power-cycle the mouse, and reset that Firefox preference from `about:config`.
+
+The current baseline keeps pointer movement responsive on the 5K display without changing the wheel behavior:
+
+| Setting | Value | Reason |
+| --- | --- | --- |
+| Connection | Logi Bolt receiver | Exposes the mouse to Solaar and avoids Bluetooth-specific configuration differences. |
+| Sensitivity | 1200 DPI | A modest 20% increase over Logitech's 1000 DPI default. Set `Sensitivity (DPI)` in Solaar. |
+| GNOME acceleration | Default profile, speed `0.573` | Keeps adaptive acceleration and fine control. Raise DPI before pushing the desktop speed slider further. |
+| Natural scrolling | On | Matches the macOS content direction. |
+| Wheel resolution | Ignore in Solaar | Leaves smooth scrolling to the Linux HID++ driver. |
+| Wheel mode | Ratcheted, torque `75`, switch speed `12` | Keeps deliberate steps while retaining the physical free-spin toggle. These values are about feel, not tracking accuracy. |
+| Wheel diversion | Off | Sends standard wheel events directly to applications. |
+| Haptic feedback | `60` | Current preference; it does not affect pointer or wheel tracking. |
+
+Logitech supports 200–8000 DPI in 50 DPI steps. Adjust DPI in 50–100 point increments when tuning further; changing one layer at a time makes the result easier to judge.
 
 ## Linux system configuration
 

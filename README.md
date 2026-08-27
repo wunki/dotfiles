@@ -183,6 +183,49 @@ Pi keeps its settings, models, extensions, and themes under `pi/agent/`. Claude 
 
 The repository includes skills for requirements gathering, structural search, code simplification, technical writing, PR descriptions, developer logs, tutoring, dependency updates, and atomic commits. The directory names under `agents/skills/` are the source of truth.
 
+### Image paste over SSH
+
+CleanShot X copies a local macOS path with the screenshot. That path does not exist on an SSH host. [cc-clip](https://github.com/ShunmeiCho/cc-clip) sends the clipboard image through an SSH reverse tunnel instead, then the tmux binding writes it to a real remote path and pastes that path into the active pane.
+
+Install the local pieces on the Mac:
+
+```bash
+brew install pngpaste
+curl -fsSL https://raw.githubusercontent.com/ShunmeiCho/cc-clip/main/scripts/install.sh | sh
+cc-clip service install
+```
+
+Add the tunnel to the named host in `~/.ssh/config`:
+
+```sshconfig
+Host desktop
+  RemoteForward 18339 127.0.0.1:18339
+  ControlMaster no
+  ControlPath none
+```
+
+Deploy only the remote clipboard transport. The `--claude` target installs the `xclip` shim used by Claude Code and Pi; it does not make the tmux path Claude-specific. `--no-notify` skips the agent notification integrations, but cc-clip still creates a session ID used for image-transfer notifications. Remove that file after every connect or redeploy to keep all notifications disabled:
+
+```bash
+cc-clip connect desktop --claude --no-notify
+ssh desktop 'rm -f ~/.cache/cc-clip/session.id ~/.cache/cc-clip/notify.nonce'
+```
+
+Apply the tmux configuration on the remote:
+
+```bash
+ssh desktop
+cd ~/Code/wunki/dotfiles
+make tmux
+tmux source-file ~/.tmux.conf
+```
+
+Copy an image in CleanShot X, then press `Ctrl-h Shift-I` inside the remote tmux session. The binding is enabled when tmux has `SSH_CONNECTION`, runs `cc-clip paste --out-dir /tmp/screenhots`, and pastes the resulting remote path into the current pane. Codex and other CLIs that accept image paths can read it without Xvfb or `DISPLAY`. Pi can also use its normal `Ctrl+V` path through the installed `xclip` shim.
+
+The Mac daemon listens only on `127.0.0.1:18339`. SSH exposes it on the remote loopback interface, and the token in `~/.cache/cc-clip/session.token` authenticates each request. cc-clip does not choose the server: the SSH `Host` block creates the tunnel, and the `cc-clip paste` process writes the file on whichever remote host runs it.
+
+Keep an SSH connection open while using the binding. A tmux session can survive disconnection, but the reverse tunnel cannot. The first live SSH connection owns port `18339`; a second connection may report `remote port forwarding failed for listen port 18339` while continuing to use the first connection's tunnel.
+
 ## Herdr
 
 Herdr uses `Ctrl-h` as its prefix. Reload the configuration with `Ctrl-h r` or `herdr server reload-config`.

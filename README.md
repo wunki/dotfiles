@@ -60,7 +60,7 @@ make auto-suspend   # desktop suspend timer
 
 ### Theme
 
-Cendre is the shared dark palette for Bat, btop, Delta, eza, fzf, Ghostty, GTK 4, GNOME Shell, Helix, Lazygit, Pi, and tmux. On macOS, tmux follows the system appearance and switches to Rose Pine Dawn in light mode.
+Cendre is the shared dark palette for Bat, btop, Delta, eza, fzf, Ghostty, GTK 4, GNOME Shell, Helix, Herdr, Lazygit, Pi, and tmux. On macOS, tmux follows the system appearance and switches to Rose Pine Dawn in light mode.
 
 Most Cendre files come from the theme's generated extras and remain unchanged here. Shell and Makefile wiring selects the right file for each tool.
 

@@ -53,14 +53,14 @@ make auto-suspend   # desktop suspend timer
 | Shells | Fish and Zsh, split into shared and OS-specific files |
 | Desktop and terminal | GTK 4, GNOME Shell, Ghostty, and tmux |
 | Editors | Helix, Zed, and Sublime Text |
-| CLI tools | Bat, btop, Delta, eza, fzf, Lazygit, mise, and Herdr |
+| CLI tools | Bat, btop, Delta, eza, fzf, Hunk, Lazygit, and mise |
 | AI tools | Shared agent instructions and skills, plus Claude Code, Codex, and Pi integration |
 | Linux system | keyd remaps, Apple Studio Display access, and automatic suspend |
 | Scripts | Tool installers, Neovim URL handling, Wake-on-LAN, and desktop suspend helpers |
 
 ### Theme
 
-Cendre is the shared dark palette for Bat, btop, Delta, eza, fzf, Ghostty, GTK 4, GNOME Shell, Helix, Herdr, Lazygit, Pi, and tmux. On macOS, tmux follows the system appearance and switches to Rose Pine Dawn in light mode.
+Cendre is the shared dark palette for Bat, btop, Delta, eza, fzf, Ghostty, GTK 4, GNOME Shell, Helix, Hunk, Lazygit, Pi, and tmux. Earlier tmux themes are archived under `tmux/themes/` for switching later.
 
 Most Cendre files come from the theme's generated extras and remain unchanged here. Shell and Makefile wiring selects the right file for each tool.
 
@@ -87,7 +87,7 @@ make eza
 make fzf
 make lazygit
 make mise
-make herdr
+make hunk
 
 # AI tools
 make agents
@@ -111,29 +111,25 @@ Install the tools you use before applying the shell configuration.
 
 ```bash
 # macOS
-brew install eza bat fzf zoxide tree autossh direnv mise gitu
+brew install eza bat fzf zoxide tree autossh mise gitu
 
 # Debian/Ubuntu
-sudo apt install eza bat fzf zoxide tree autossh direnv git gh tmux
+sudo apt install eza bat fzf zoxide tree autossh git gh tmux
 
 # Fedora
-sudo dnf install eza bat fzf zoxide tree autossh direnv git gh tmux
+sudo dnf install eza bat fzf zoxide tree autossh git gh tmux
 
 # Arch
-sudo pacman -S eza bat fzf zoxide tree autossh direnv github-cli tmux
+sudo pacman -S eza bat fzf zoxide tree autossh github-cli tmux
 ```
 
 ### Fish
 
-Install [Fisher](https://github.com/jorgebucaran/fisher), then add the plugins used by this config:
+Install [Fisher](https://github.com/jorgebucaran/fisher), then install the plugins listed in `fish/fish_plugins`:
 
 ```fish
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source
-fisher install jorgebucaran/fisher
-fisher install jorgebucaran/autopair.fish
-fisher install meaningful-ooo/sponge
-fisher install PatrickF1/fzf.fish
-fisher install IlanCosman/tide@v6
+fisher update
 ```
 
 Run `tide configure` and choose the Lean layout with 16 colors. That leaves the palette to the terminal theme.
@@ -143,7 +139,7 @@ Run `tide configure` and choose the Lean layout with 16 colors. That leaves the 
 Install the external tools and clone the plugins:
 
 ```bash
-brew install direnv mise gitu
+brew install mise gitu
 
 mkdir -p ~/.zsh
 git clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions
@@ -220,28 +216,11 @@ make tmux
 tmux source-file ~/.tmux.conf
 ```
 
-Copy an image in CleanShot X, then press `Ctrl-h Shift-I` inside the remote tmux session. The binding is enabled when tmux has `SSH_CONNECTION`, runs `cc-clip paste --out-dir /tmp/screenhots`, and pastes the resulting remote path into the current pane. Codex and other CLIs that accept image paths can read it without Xvfb or `DISPLAY`. Pi can also use its normal `Ctrl+V` path through the installed `xclip` shim.
+Copy an image in CleanShot X, then press `Ctrl-h Shift-I` inside the remote tmux session. The binding is enabled when tmux has `SSH_CONNECTION`, runs `cc-clip paste --out-dir /tmp/screenshots`, and pastes the resulting remote path into the current pane. Codex and other CLIs that accept image paths can read it without Xvfb or `DISPLAY`. Pi can also use its normal `Ctrl+V` path through the installed `xclip` shim.
 
 The Mac daemon listens only on `127.0.0.1:18339`. SSH exposes it on the remote loopback interface, and the token in `~/.cache/cc-clip/session.token` authenticates each request. cc-clip does not choose the server: the SSH `Host` block creates the tunnel, and the `cc-clip paste` process writes the file on whichever remote host runs it.
 
 Keep an SSH connection open while using the binding. A tmux session can survive disconnection, but the reverse tunnel cannot. The first live SSH connection owns port `18339`; a second connection may report `remote port forwarding failed for listen port 18339` while continuing to use the first connection's tunnel.
-
-## Herdr
-
-Herdr uses `Ctrl-h` as its prefix. Reload the configuration with `Ctrl-h r` or `herdr server reload-config`.
-
-| Binding | Action |
-| --- | --- |
-| `Ctrl-h w` | Open the workspace picker |
-| `Ctrl-h g` | Open the navigator |
-| `Ctrl-h Shift-c` | Create a workspace |
-| `Ctrl-h Shift-h` / `Ctrl-h Shift-l` | Move to the previous or next workspace |
-| `Ctrl-h Shift-1..9` | Switch directly to workspace 1 through 9 |
-| `j` / `k` in the navigator | Move between workspaces |
-| `Ctrl-h ,` | Rename the tab |
-| `Ctrl-h s` | Split horizontally |
-| `Ctrl-h Shift-r` | Enter resize mode |
-| `Ctrl-h Shift-s` | Open settings |
 
 ## Neovim URL handler
 
@@ -387,4 +366,4 @@ Install both pieces with `make keyd udev` or `make linux`. Change `STEP` in `bin
 
 ## License
 
-The repository is marked as MIT, but it does not currently include a `LICENSE` file.
+MIT. See [LICENSE](LICENSE).

@@ -33,7 +33,6 @@ end
 # editor configuration
 set -x EDITOR nvim
 set -x VISUAL "$EDITOR"
-set -x ALTERNATE_EDITOR vim
 
 # Zed terminal
 if test "$TERM_PROGRAM" = zed
@@ -41,15 +40,8 @@ if test "$TERM_PROGRAM" = zed
     set -x VISUAL zed --wait
 end
 
-# system paths
-fish_add_path -aP /bin
-fish_add_path -aP /usr/bin
-fish_add_path -aP /usr/local/bin
-
 # local paths
 fish_add_path -aP "$HOME/.local/bin"
-fish_add_path -aP "$HOME/.fly/bin"
-fish_add_path -aP "$HOME/.local/share/racket/bin"
 
 # development tools
 fish_add_path -aP "$HOME/.cargo/bin"
@@ -66,29 +58,6 @@ function cdr --description "Change to the current git repository root"
     end
 
     cd -- $root
-end
-
-# Herdr
-function hrd --description "Connect to desktop with herdr and set terminal title"
-    printf '\e]2;desktop\a'
-
-    if not ssh -n -T \
-            -o BatchMode=yes \
-            -o ConnectTimeout=2 \
-            -o ConnectionAttempts=1 \
-            -o ControlMaster=no \
-            -o ControlPath=none \
-            -o NumberOfPasswordPrompts=0 \
-            desktop true >/dev/null 2>&1
-        if command -q wake-desktop
-            wake-desktop; or return $status
-        else
-            echo "hrd: desktop is not reachable and wake-desktop is not available" >&2
-            return 1
-        end
-    end
-
-    herdr --remote desktop $argv
 end
 
 # tree shortcuts
@@ -152,10 +121,11 @@ function nvs --description "Start nvim with tmux session socket"
     nvim --listen "$socket_path" $argv
 end
 
-# tool configurations
+# Advertise 24-bit color to tools that check for it.
+set -x COLORTERM truecolor
+
 if type -q bat
     abbr cat bat
-    set -x COLORTERM truecolor
 end
 
 if status is-interactive; and type -q zoxide
@@ -166,21 +136,11 @@ if status is-interactive; and type -q zoxide
     zoxide init fish | source
 end
 
-# node.js ecosystem
-set -x NPM_PACKAGES "$HOME/.npm-packages"
-set -l npm_global_modules "$NPM_PACKAGES/lib/node_modules"
-if set -q NODE_PATH[1]; and string length -q -- "$NODE_PATH"
-    set -x NODE_PATH "$npm_global_modules:$NODE_PATH"
-else
-    set -x NODE_PATH "$npm_global_modules"
-end
-fish_add_path -aP "$NPM_PACKAGES/bin"
-
 # pnpm
 set -x PNPM_HOME "$HOME/.local/share/pnpm"
 fish_add_path -aP "$PNPM_HOME"
 abbr pp pnpm
-abbr ppx pnpmx
+abbr ppx pnpx
 
 # bun
 set -x BUN_INSTALL "$HOME/.bun"
@@ -194,6 +154,24 @@ set -x KERL_CONFIGURE_OPTIONS "--disable-debug --without-javac --without-wx"
 abbr miex 'iex -S mix'
 abbr piex 'iex -S mix phx.server'
 
+# Partition os_deps compile work by CPU cores / 2. The core count is cached in
+# a universal variable because sysctl costs a few milliseconds per startup on
+# macOS; erase __cpu_count after moving this config to different hardware.
+if not string match -qr '^[0-9]+$' -- "$__cpu_count"
+    set -l detected
+    if type -q nproc
+        set detected (nproc 2>/dev/null)
+    else if type -q sysctl
+        set detected (sysctl -n hw.physicalcpu 2>/dev/null)
+    end
+    if string match -qr '^[0-9]+$' -- "$detected"
+        set -U __cpu_count $detected
+    end
+end
+if string match -qr '^[0-9]+$' -- "$__cpu_count"
+    set -x MIX_OS_DEPS_COMPILE_PARTITION_COUNT (math --scale=0 "max(1, $__cpu_count / 2)")
+end
+
 # postgresql
 set -x PGDATABASE postgres
 
@@ -203,22 +181,13 @@ function lisp --description 'Start an SBCL terminal REPL with Linedit'
         --eval '(ql:quickload "linedit" :silent t)' \
         --eval '(linedit:install-repl :wrap-current t :eof-quits t)'
 end
-fish_add_path -aP "$HOME/.local/share/lua-language-server/bin"
 
-# cloud and devops
-fish_add_path -aP "$HOME/.aws/bin"
-set -x AWS_IAM_HOME "$HOME/.aws/iam"
-set -x AWS_CREDENTIALS_FILE "$HOME/.aws/credentials"
+# docker
 fish_add_path -aP "$HOME/.docker/cli-plugins"
 
 # development tools
 fish_add_path -aP "$HOME/.opencode/bin"
 abbr oc opencode
-
-# editor integrations
-if [ "$INSIDE_EMACS" = vterm ]
-    . $HOME/.config/fish/vterm.fish
-end
 
 # Use mise shims without running activation hooks in every shell.
 # Regenerate completions with:

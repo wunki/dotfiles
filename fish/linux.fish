@@ -26,9 +26,6 @@ else if type -q xsel
     abbr cpwd 'pwd | xsel --clipboard --input'
 end
 
-# Lua language server
-fish_add_path -aP "$HOME/.local/share/lua-language-server/bin"
-
 # Ruby
 for ruby_gem_bin in "$HOME"/.local/share/gem/ruby/*/bin
     if test -d "$ruby_gem_bin"
@@ -68,19 +65,6 @@ for openssl_lib_dir in /usr/lib /usr/lib64 /usr/lib/*-linux-gnu
     if test -f "$openssl_lib_dir/libssl.so"
         set -x OPENSSL_LIB_DIR "$openssl_lib_dir"
         break
-    end
-end
-
-# Elixir: partition os_deps compile work by CPU cores / 2
-if type -q nproc
-    set -l cpu_count (nproc 2>/dev/null)
-    if test $status -eq 0; and string match -qr '^[0-9]+$' -- $cpu_count
-        set -l os_deps_partition_count (math --scale=0 "$cpu_count / 2")
-        if test $os_deps_partition_count -lt 1
-            set os_deps_partition_count 1
-        end
-
-        set -x MIX_OS_DEPS_COMPILE_PARTITION_COUNT $os_deps_partition_count
     end
 end
 

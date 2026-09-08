@@ -1,27 +1,9 @@
-# AGENTS.md - Dotfiles Repository Guide
+# Dotfiles
 
-## Build, Lint, and Test Commands
+Repo-specific notes. The shared agent instructions live in `agents/AGENTS.md`.
 
-- **Apply dotfiles**: `make` (creates symlinks to ~/.config and ~/)
-- **Install specific tool**: `make fish`, `make tmux`, `make helix`, `make ghostty`, `make zed`, `make zsh`
-- **No linting/testing**: This is a configuration repository with no automated tests
-
-## Code Style Guidelines
-
-### General
-- This repository contains configuration files for development tools (fish, zsh, helix, tmux, ghostty, zed)
-- Follow existing conventions within each configuration file type
-- Use comments to explain complex logic or non-obvious configurations
-
-### Shell Scripts (Fish/Zsh)
-- Use lowercase with underscores for variables: `my_variable`
-- Comment complex functions and abbreviations
-- OS-specific code goes in separate files (darwin.fish, linux.fish, freebsd.fish)
-- Keep secrets in separate untracked files (secrets.fish)
-- Use `set -x` for exports in Fish, `export` in Zsh
-
-### Configuration Files
-- Maintain consistent indentation (spaces preferred)
-- Group related settings together with comments
-- Use descriptive names for custom themes and snippets
-- Follow each tool's native configuration format (TOML for Helix, JSON for Zed, etc.)
+- `make` symlinks every user-level config into place; `make <tool>` applies one target. The Linux system targets (`make linux`, `make auto-suspend`) need sudo and never run as part of `make`.
+- Cendre is the shared theme. The palette files under `bat/`, `eza/`, `fzf/`, `ghostty/`, `helix/`, `pi/`, and `tmux/` are mostly generated upstream; change the wiring around them, not the color values.
+- `agents/AGENTS.md` and `agents/skills/` are shared across Claude, Codex, and Pi. Skill directory names are the source of truth; `SKILL.md` is the only file a loader reads.
+- Fish is the primary shell and gets the theme and prompt work. Zsh is a daily shell on at least one machine, so keep its feature set in step with Fish rather than trimming it.
+- There are no tests. Verify shell changes by sourcing the file in a fresh shell and Makefile changes with `make -n <target>`.

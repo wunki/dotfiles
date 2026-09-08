@@ -1,11 +1,11 @@
 ---
 name: interview
-description: Conducts exhaustive requirements-gathering interviews for software features or systems. Reads existing context, then asks structured numbered questions covering purpose, technical design, UI/UX, edge cases, security, and rollout. Use when the user says "interview me", "deep dive on requirements", "spec this out", "fill out the spec", "help me think through this feature", or when a feature needs thorough requirements elicited before a spec or plan can be written. Don't use for quick clarifying questions during an in-progress task (use ask-questions-if-underspecified instead), for writing or updating a SPEC.md document (use create-spec instead), for generating a task plan (use create-plan instead), or for general architectural discussions that don't need structured requirements output.
+description: Conducts exhaustive requirements-gathering interviews for software features or systems. Reads existing context, then asks structured numbered questions covering purpose, technical design, UI/UX, edge cases, security, and rollout. Use when the user says "interview me", "deep dive on requirements", "spec this out", "fill out the spec", "help me think through this feature", or when a feature needs thorough requirements elicited before a spec or plan can be written. Don't use for quick clarifying questions during an in-progress task (use ask-questions-if-underspecified instead), for writing a SPEC.md or task plan directly when requirements are already clear, or for general architectural discussions that don't need structured requirements output.
 ---
 
 # Interview
 
-Exhaustive requirements elicitation through deep, structured questioning. This skill gathers requirements; it does not write specs or plans.
+Exhaustive requirements elicitation through deep, structured questioning. This skill gathers requirements; writing the spec or plan is a separate step that follows it.
 
 ## When to Use
 
@@ -78,16 +78,13 @@ Do not continue interviewing indefinitely. When coverage is sufficient across al
 
 ### 5) Hand Off
 
-After confirmation, determine the next action based on what the user has asked for. If not stated, ask via `AskUserQuestion` (single-select):
+After confirmation, determine the next action. If the user has not said, ask with a single-select question tool when one is available (Pi's `question`, Claude's `AskUserQuestion`), otherwise in prose:
 
-- "Write the spec" — invoke `create-spec` skill
-- "Build the plan" — invoke `create-plan` skill
-- "Jump to implementation" — proceed directly
+- "Write the spec" → write or update `SPEC.md` from the confirmed requirements
+- "Build the plan" → turn the requirements into an ordered task plan
+- "Start implementing" → summarize the agreed requirements as a short context block, then proceed
 
-- User asked for a spec, or SPEC.md exists and needs updating → invoke the `create-spec` skill
-- User asked for a task plan or implementation steps → invoke the `create-plan` skill
-- User asked to proceed directly with implementation → summarize the agreed requirements as a short context block, then proceed
-- User ends the conversation without a clear next step → output the requirements summary and note which skill to invoke when ready
+If the user ends the conversation without choosing, output the requirements summary so it can be picked up later.
 
 ## Anti-patterns
 
@@ -139,4 +136,4 @@ Follow-up on OAuth:
    c) Reject - must use original method
 ```
 
-Continue until requirements are complete, then use `create-spec` to write the spec.
+Continue until requirements are complete, then hand off as described in step 5.

@@ -1405,6 +1405,8 @@ StScrollBar {
 .notification-banner {
   min-height: 64px;
   width: 34em;
+  background-color: #2a2422;
+  border: 1px solid #362f2c;
   box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
   border-radius: 16px;
   margin: 4px; }

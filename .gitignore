@@ -1,31 +1,6 @@
-# -*- mode: gitignore; -*-
-.stignore
-*.spl
-*.dat
-.netrwhist
 *~
-/.sync
-/fish/functions/*
-!/fish/functions/_tide_item_context.fish
-/fish/fish_read_history
-/fish/secret_env.fish
-/fish/conf.d/*
-!/fish/conf.d/[0-9]*.fish
-/fish/fish_variables*
-/fish/completions/fzf_configure_bindings.fish
-/fish/completions/fisher.fish
-/fish/secrets.fish
-/zed/.tmp*
-/zed/conversations
-/zed/prompts
-/helix/runtime
-/OpenCode.md
 /.claude
+*.sublime-workspace
+/helix/runtime
 /lazygit/state.yml
 /gnome-shell/application-shortcuts@wunki/schemas/gschemas.compiled
-# dev-browser skill artifacts
-/claude/skills/dev-browser/node_modules/
-/claude/skills/dev-browser/package-lock.json
-/claude/skills/dev-browser/bun.lock
-/claude/skills/dev-browser/tmp/
-/claude/skills/dev-browser/profiles/

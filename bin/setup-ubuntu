@@ -339,7 +339,6 @@ apply_dotfiles() {
     fzf
     lazygit
     hunk
-    herdr
     mise
     bin
     agents

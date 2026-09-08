@@ -26,12 +26,7 @@
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
-      "space o": "tab_switcher::Toggle"
-    }
-  },
-  {
-    "context": "Editor && VimControl && !VimWaiting && !menu",
-    "bindings": {
+      "space o": "tab_switcher::Toggle",
       "space h": "pane::TogglePinTab"
     }
   }

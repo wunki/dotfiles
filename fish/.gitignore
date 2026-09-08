@@ -1,29 +1,20 @@
+# Fish runtime state
 fish_history
-fishd.*
 fish_read_history
-fish_variables
-/functions/*
+fish_variables*
+secrets.fish
 
 # Fisher manages these directories.
+/functions/*
 /conf.d/*
 /completions/*
 
-# Keep locally maintained configuration.
-!/conf.d/_*.fish
-/conf.d/_pure_init.fish
-/conf.d/_tide_init.fish
+# Locally maintained files inside them.
+!/functions/cpu.fish
+!/functions/smart-commit.fish
 !/conf.d/[0-9]*.fish
 !/conf.d/direnv.fish
 !/conf.d/vite-plus.fish
 !/conf.d/zz-tide-context.fish
-!/completions/_*.fish
 !/completions/vp.fish
 !/completions/vpr.fish
-
-# Keep locally maintained functions.
-!/functions/ls!.fish
-!/functions/gg.fish
-!/functions/_min*.fish
-!/functions/update-abbreviations.fish
-!/functions/update-abbreviations-*.fish
-!/functions/cpu.fish

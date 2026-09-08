@@ -142,36 +142,11 @@
         "terminal": {
           "default": "allow",
           "always_allow": [
-            {
-              "pattern": "^git\\s+switch(\\s|$)"
-            },
-            {
-              "pattern": "^git\\b"
-            },
-            {
-              "pattern": "^printf\\s+%sn(\\s|$)"
-            },
-            {
-              "pattern": "^test\\b"
-            },
-            {
-              "pattern": "^echo\\s+all(\\s|$)"
-            },
-            {
-              "pattern": "^find\\s+\\.agents/skills(\\s|$)"
-            },
-            {
-              "pattern": "^git\\s+add(\\s|$)"
-            },
-            {
-              "pattern": "^shasum\\b"
-            },
-            {
-              "pattern": "^file\\s+AGENTS\\.md(\\s|$)"
-            },
-            {
-              "pattern": "^find\\s+\\.(\\s|$)"
-            }
+            { "pattern": "^git\\b" },
+            { "pattern": "^test\\b" },
+            { "pattern": "^shasum\\b" },
+            { "pattern": "^find\\s+\\.(\\s|$)" },
+            { "pattern": "^find\\s+\\.agents/skills(\\s|$)" }
           ]
         }
       }
@@ -208,12 +183,10 @@
       "enable_thinking": true,
     },
     "play_sound_when_agent_done": "always",
-    "favorite_models": [],
     "notify_when_agent_waiting": "never",
-    "model_parameters": [],
   },
   "buffer_line_height": {
-    "custom": 1.7999999523162842
+    "custom": 1.8
   },
   "colorize_brackets": true,
   "agent_servers": {
@@ -347,12 +320,6 @@
         "followDelegates": true,
       },
     },
-    "expert": {
-      "binary": {
-        "path": "/Users/petar/.local/bin/expert_darwin_arm64",
-        "arguments": ["--stdio"],
-      },
-    },
   },
   "middle_click_paste": true,
   "preferred_line_length": 100,
@@ -408,5 +375,5 @@
   "vim": {
     "toggle_relative_line_numbers": true,
   },
-  "vim_mode": false,
+  "vim_mode": true,
 }

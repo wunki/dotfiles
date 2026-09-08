@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 #
-# sleep-desktop - suspend the desktop over SSH/Tailscale.
+# sleep-desktop - suspend a remote machine over SSH/Tailscale.
 #
-# The desktop is assumed to be reachable through Tailscale/MagicDNS as "desktop".
+# The target is assumed to be reachable through Tailscale/MagicDNS as "desktop".
 # Override with --host or SLEEP_DESKTOP_SSH_HOST if your node has another name.
+# sleep-wsl wraps this script with --mode windows to suspend a Windows host
+# from inside its WSL distribution.
 #
 set -euo pipefail
 
@@ -11,21 +13,28 @@ ssh_host="${SLEEP_DESKTOP_SSH_HOST:-desktop}"
 ssh_user="${SLEEP_DESKTOP_SSH_USER:-}"
 ssh_port="${SLEEP_DESKTOP_SSH_PORT:-}"
 stamp_path="${SLEEP_DESKTOP_STAMP_PATH:-.cache/dotfiles-desktop-sleep/slept-at}"
+target_name="${SLEEP_DESKTOP_TARGET_NAME:-desktop}"
+command_name="${SLEEP_DESKTOP_COMMAND_NAME:-sleep-desktop}"
+suspend_mode="${SLEEP_DESKTOP_MODE:-systemd}"
 resolve_with_tailscale=true
 
 usage() {
-  cat <<'USAGE'
-Usage: sleep-desktop [options]
+  cat <<USAGE
+Usage: ${command_name} [options]
 
-Suspend the desktop by SSHing to it over Tailscale and running systemctl suspend.
+Suspend the ${target_name} by SSHing to it over Tailscale.
 
 Options:
-  --host HOST      SSH/Tailscale host for the desktop (default: desktop)
-  --user USER      SSH user for the desktop
-  --port PORT      SSH port for the desktop
+  --host HOST      SSH/Tailscale host (default: ${ssh_host})
+  --user USER      SSH user
+  --port PORT      SSH port
   --stamp-path PATH
-                   Path on the desktop for the sleep timestamp
-                   (default: ~/.cache/dotfiles-desktop-sleep/slept-at)
+                   Path on the target for the sleep timestamp
+                   (default: ~/${stamp_path})
+  --mode MODE      systemd: run systemctl suspend (default)
+                   windows: call the Windows suspend API from WSL
+  --target-name NAME
+                   Name used in messages (default: ${target_name})
   --no-resolve     Do not resolve the host through the Tailscale CLI first
   -h, --help       Show this help
 
@@ -34,53 +43,29 @@ Environment overrides:
   SLEEP_DESKTOP_SSH_USER
   SLEEP_DESKTOP_SSH_PORT
   SLEEP_DESKTOP_STAMP_PATH
+  SLEEP_DESKTOP_MODE
 USAGE
+}
+
+require_argument() {
+  if [[ $# -lt 2 ]]; then
+    echo "${command_name}: $1 requires an argument" >&2
+    exit 2
+  fi
 }
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
-    --host)
-      if [[ $# -lt 2 ]]; then
-        echo "sleep-desktop: --host requires an argument" >&2
-        exit 2
-      fi
-      ssh_host="$2"
-      shift 2
-      ;;
-    --user)
-      if [[ $# -lt 2 ]]; then
-        echo "sleep-desktop: --user requires an argument" >&2
-        exit 2
-      fi
-      ssh_user="$2"
-      shift 2
-      ;;
-    --port)
-      if [[ $# -lt 2 ]]; then
-        echo "sleep-desktop: --port requires an argument" >&2
-        exit 2
-      fi
-      ssh_port="$2"
-      shift 2
-      ;;
-    --stamp-path)
-      if [[ $# -lt 2 ]]; then
-        echo "sleep-desktop: --stamp-path requires an argument" >&2
-        exit 2
-      fi
-      stamp_path="$2"
-      shift 2
-      ;;
-    --no-resolve)
-      resolve_with_tailscale=false
-      shift
-      ;;
-    -h|--help)
-      usage
-      exit 0
-      ;;
+    --host) require_argument "$@"; ssh_host="$2"; shift 2 ;;
+    --user) require_argument "$@"; ssh_user="$2"; shift 2 ;;
+    --port) require_argument "$@"; ssh_port="$2"; shift 2 ;;
+    --stamp-path) require_argument "$@"; stamp_path="$2"; shift 2 ;;
+    --mode) require_argument "$@"; suspend_mode="$2"; shift 2 ;;
+    --target-name) require_argument "$@"; target_name="$2"; shift 2 ;;
+    --no-resolve) resolve_with_tailscale=false; shift ;;
+    -h|--help) usage; exit 0 ;;
     *)
-      echo "sleep-desktop: unknown option: $1" >&2
+      echo "${command_name}: unknown option: $1" >&2
       usage >&2
       exit 2
       ;;
@@ -88,19 +73,27 @@ while [[ $# -gt 0 ]]; do
 done
 
 if [[ -z "$ssh_host" ]]; then
-  echo "sleep-desktop: SSH host cannot be empty" >&2
+  echo "${command_name}: SSH host cannot be empty" >&2
   exit 2
 fi
 
 if [[ -n "$ssh_port" && ! "$ssh_port" =~ ^[0-9]+$ ]]; then
-  echo "sleep-desktop: SSH port must be numeric: $ssh_port" >&2
+  echo "${command_name}: SSH port must be numeric: $ssh_port" >&2
   exit 2
 fi
 
 if [[ -z "$stamp_path" ]]; then
-  echo "sleep-desktop: stamp path cannot be empty" >&2
+  echo "${command_name}: stamp path cannot be empty" >&2
   exit 2
 fi
+
+case "$suspend_mode" in
+  systemd|windows) ;;
+  *)
+    echo "${command_name}: mode must be systemd or windows: $suspend_mode" >&2
+    exit 2
+    ;;
+esac
 
 tailscale_cli() {
   if command -v tailscale >/dev/null 2>&1; then
@@ -145,30 +138,58 @@ if [[ -n "$ssh_port" ]]; then
   ssh_args+=(-p "$ssh_port")
 fi
 
-echo "Suspending desktop via ${ssh_target}..."
+if [[ "$suspend_mode" == windows ]]; then
+  echo "Scheduling ${target_name} sleep via ${ssh_target}..."
+else
+  echo "Suspending ${target_name} via ${ssh_target}..."
+fi
 
-ssh "${ssh_args[@]}" "$ssh_target" sh -s -- "$stamp_path" <<'REMOTE'
+ssh "${ssh_args[@]}" "$ssh_target" sh -s -- "$stamp_path" "$suspend_mode" "$command_name" <<'REMOTE'
 set -eu
 
 stamp_path="$1"
+suspend_mode="$2"
+command_name="$3"
+
 case "$stamp_path" in
   /*) ;;
   *)
     if [ -z "${HOME:-}" ]; then
-      echo "sleep-desktop: HOME is not set on the desktop." >&2
+      echo "${command_name}: HOME is not set on the target." >&2
       exit 1
     fi
     stamp_path="${HOME}/${stamp_path}"
     ;;
 esac
 
-if ! command -v systemctl >/dev/null 2>&1; then
-  echo "sleep-desktop: systemctl not found on the desktop." >&2
+if [ "$suspend_mode" = windows ]; then
+  if ! command -v powershell.exe >/dev/null 2>&1; then
+    echo "${command_name}: powershell.exe is not available through WSL interop." >&2
+    exit 127
+  fi
+  if ! command -v setsid >/dev/null 2>&1; then
+    echo "${command_name}: setsid is required to detach the delayed sleep request." >&2
+    exit 127
+  fi
+elif ! command -v systemctl >/dev/null 2>&1; then
+  echo "${command_name}: systemctl not found on the target." >&2
   exit 127
 fi
 
 mkdir -p "$(dirname "$stamp_path")"
 date +%s > "$stamp_path"
+
+if [ "$suspend_mode" = windows ]; then
+  powershell_command='Add-Type -AssemblyName System.Windows.Forms; if (-not [System.Windows.Forms.Application]::SetSuspendState([System.Windows.Forms.PowerState]::Suspend, $false, $false)) { throw "Windows rejected the suspend request." }'
+
+  # Detach before sleeping so the SSH client gets a successful response instead
+  # of waiting for Windows to wake and resume the PowerShell process.
+  setsid -f sh -c '
+    sleep 2
+    exec powershell.exe -NoProfile -NonInteractive -Command "$1"
+  ' sh "$powershell_command" </dev/null >/dev/null 2>&1
+  exit
+fi
 
 if [ "$(id -u)" -eq 0 ]; then
   systemctl suspend
@@ -182,3 +203,7 @@ fi
 
 systemctl suspend
 REMOTE
+
+if [[ "$suspend_mode" == windows ]]; then
+  echo "${target_name} sleep scheduled."
+fi

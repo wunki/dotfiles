@@ -1,5 +1,3 @@
-# Shell workflows backed by AI tools.
-
 function smart-commit --description "Plan and approve atomic commits with Codex"
     for dependency in codex jq
         if not command -q $dependency

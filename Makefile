@@ -6,7 +6,7 @@ APPLICATION_SHORTCUTS_DIR := $(DOTFILES)/gnome-shell/$(APPLICATION_SHORTCUTS_UUI
 UNAME		:= $(shell uname -s)
 
 # User-level targets included in `make`.
-APP_TARGETS := fish zsh bat btop delta eza fzf helix ghostty gtk hunk zed sublime tmux herdr bin lazygit mise agents claude codex pi
+APP_TARGETS := fish zsh bat btop delta eza fzf helix ghostty gtk hunk zed sublime tmux bin lazygit mise agents claude codex pi
 
 .PHONY: all
 all: $(APP_TARGETS)
@@ -16,6 +16,15 @@ all: $(APP_TARGETS)
 
 # --- Application configuration ---
 
+# Move a real file or directory aside before replacing it with a symlink.
+define backup_real_path
+	@if [ -e "$(1)" ] && [ ! -L "$(1)" ]; then \
+		backup="$(1).bak.$$(date +%Y%m%d%H%M%S)"; \
+		mv "$(1)" "$$backup"; \
+		echo "Backed up existing $(2) to $$backup"; \
+	fi
+endef
+
 .PHONY: ensure-config-dir
 ensure-config-dir:
 	@echo "Ensuring $(CONFIG_DIR) exists..."
@@ -24,23 +33,7 @@ ensure-config-dir:
 fish: ensure-config-dir
 	@echo "Linking fish configuration..."
 	@ln -fns $(DOTFILES)/fish $(CONFIG_DIR)/fish
-	@printf "Fish linked.\n\n"
-ifeq ($(UNAME),Darwin)
-	@printf "Recommended tools:\n"
-	@printf "\tbrew install eza bat fzf zoxide tree autossh direnv mise gitu\n\n"
-else
-	@printf "Recommended tools:\n"
-	@printf "\tDebian/Ubuntu: sudo apt install eza bat fzf zoxide tree autossh direnv git gh tmux\n"
-	@printf "\tFedora:        sudo dnf install eza bat fzf zoxide tree autossh direnv git gh tmux\n"
-	@printf "\tArch:          sudo pacman -S eza bat fzf zoxide tree autossh direnv github-cli tmux\n"
-	@printf "\tInstall separately as needed: mise, gitu, bun, pnpm, opencode, lua-language-server\n\n"
-endif
-	@printf "Fisher plugins (run after installing fisher):\n"
-	@printf "\tfisher install jorgebucaran/autopair.fish\n"
-	@printf "\tfisher install meaningful-ooo/sponge\n"
-	@printf "\tfisher install PatrickF1/fzf.fish\n"
-	@printf "\tfisher install IlanCosman/tide@v6\n"
-	@printf "\tThen run tide configure and choose Lean / 16 colors.\n\n"
+	@echo "Fish linked. Run 'fisher update' to install the plugins in fish_plugins."
 
 zsh:
 	@echo "Linking zsh configuration..."
@@ -51,18 +44,6 @@ ifeq ($(UNAME),Darwin)
 else
 	@echo "ZSH linked."
 endif
-	@printf "Recommended tools (install via brew or package manager):\n"
-	@printf "\tbrew install zoxide     # Directory jumping\n"
-	@printf "\tbrew install eza        # Modern ls replacement\n"
-	@printf "\tbrew install bat        # Modern cat replacement\n"
-	@printf "\tbrew install direnv     # Per-directory environment\n"
-	@printf "\tbrew install mise       # Version manager\n"
-	@printf "\tbrew install gitu       # Terminal UI for git\n\n"
-	@printf "ZSH plugins (clone manually):\n"
-	@printf "\tgit clone https://github.com/zsh-users/zsh-autosuggestions.git ~/.zsh/zsh-autosuggestions\n"
-	@printf "\tgit clone https://github.com/zdharma-continuum/fast-syntax-highlighting.git ~/.zsh/fast-syntax-highlighting\n"
-	@printf "\tgit clone https://github.com/hlissner/zsh-autopair.git ~/.zsh/zsh-autopair\n"
-	@printf "\tgit clone https://github.com/sindresorhus/pure.git ~/.zsh/pure\n\n"
 
 bat: ensure-config-dir
 	@echo "Linking bat configuration..."
@@ -76,11 +57,7 @@ bat: ensure-config-dir
 
 btop: ensure-config-dir
 	@echo "Linking btop configuration..."
-	@if [ -e $(CONFIG_DIR)/btop ] && [ ! -L $(CONFIG_DIR)/btop ]; then \
-		backup="$(CONFIG_DIR)/btop.bak.$$(date +%Y%m%d%H%M%S)"; \
-		mv $(CONFIG_DIR)/btop "$$backup"; \
-		echo "Backed up existing btop configuration to $$backup"; \
-	fi
+	$(call backup_real_path,$(CONFIG_DIR)/btop,btop configuration)
 	@ln -fns $(DOTFILES)/btop $(CONFIG_DIR)/btop
 	@echo "btop linked."
 
@@ -126,20 +103,12 @@ gtk: ensure-config-dir
 ifeq ($(UNAME),Linux)
 	@echo "Linking Cendre GNOME Shell theme..."
 	@mkdir -p $(HOME)/.themes
-	@if [ -e $(HOME)/.themes/cendre ] && [ ! -L $(HOME)/.themes/cendre ]; then \
-		backup="$(HOME)/.themes/cendre.bak.$$(date +%Y%m%d%H%M%S)"; \
-		mv $(HOME)/.themes/cendre "$$backup"; \
-		echo "Backed up existing GNOME Shell theme to $$backup"; \
-	fi
+	$(call backup_real_path,$(HOME)/.themes/cendre,GNOME Shell theme)
 	@ln -fns $(DOTFILES)/gnome-shell/cendre $(HOME)/.themes/cendre
 	@echo "Linking GNOME application shortcuts extension..."
 	@glib-compile-schemas $(APPLICATION_SHORTCUTS_DIR)/schemas
 	@mkdir -p $(GNOME_EXTENSIONS_DIR)
-	@if [ -e $(GNOME_EXTENSIONS_DIR)/$(APPLICATION_SHORTCUTS_UUID) ] && [ ! -L $(GNOME_EXTENSIONS_DIR)/$(APPLICATION_SHORTCUTS_UUID) ]; then \
-		backup="$(GNOME_EXTENSIONS_DIR)/$(APPLICATION_SHORTCUTS_UUID).bak.$$(date +%Y%m%d%H%M%S)"; \
-		mv $(GNOME_EXTENSIONS_DIR)/$(APPLICATION_SHORTCUTS_UUID) "$$backup"; \
-		echo "Backed up existing application shortcuts extension to $$backup"; \
-	fi
+	$(call backup_real_path,$(GNOME_EXTENSIONS_DIR)/$(APPLICATION_SHORTCUTS_UUID),application shortcuts extension)
 	@ln -fns $(APPLICATION_SHORTCUTS_DIR) $(GNOME_EXTENSIONS_DIR)/$(APPLICATION_SHORTCUTS_UUID)
 	@if command -v gsettings >/dev/null 2>&1 && \
 		gsettings list-schemas | grep -Fxq org.gnome.shell.extensions.user-theme; then \
@@ -210,12 +179,6 @@ tmux: ensure-config-dir
 	@ln -fns $(CONFIG_DIR)/tmux/tmux.conf $(HOME)/.tmux.conf
 	@echo "tmux linked."
 
-herdr: ensure-config-dir
-	@echo "Linking Herdr configuration..."
-	@mkdir -p $(CONFIG_DIR)/herdr
-	@ln -fns $(DOTFILES)/herdr/config.toml $(CONFIG_DIR)/herdr/config.toml
-	@echo "Herdr linked."
-
 lazygit:
 	@echo "Linking lazygit configuration..."
 ifeq ($(UNAME),Darwin)
@@ -261,33 +224,21 @@ bin:
 
 agents:
 	@echo "Linking shared agent instructions and skills..."
-	@if [ -e $(HOME)/.agents ] && [ ! -L $(HOME)/.agents ]; then \
-		backup=$(HOME)/.agents.bak.$$(date +%Y%m%d%H%M%S); \
-		mv $(HOME)/.agents $$backup; \
-		echo "Backed up existing ~/.agents to $$backup"; \
-	fi
+	$(call backup_real_path,$(HOME)/.agents,~/.agents)
 	@ln -fns $(DOTFILES)/agents $(HOME)/.agents
 	@echo "Shared agents linked."
 
 claude: agents
 	@echo "Linking shared skills for Claude..."
 	@mkdir -p $(HOME)/.claude
-	@if [ -e $(HOME)/.claude/skills ] && [ ! -L $(HOME)/.claude/skills ]; then \
-		backup=$(HOME)/.claude/skills.bak.$$(date +%Y%m%d%H%M%S); \
-		mv $(HOME)/.claude/skills $$backup; \
-		echo "Backed up existing Claude skills to $$backup"; \
-	fi
+	$(call backup_real_path,$(HOME)/.claude/skills,Claude skills)
 	@ln -fns $(DOTFILES)/agents/skills $(HOME)/.claude/skills
 	@echo "Claude skills linked."
 
 codex: agents
 	@echo "Linking Codex global instructions and theme..."
 	@mkdir -p $(HOME)/.codex
-	@if [ -e $(HOME)/.codex/AGENTS.md ] && [ ! -L $(HOME)/.codex/AGENTS.md ]; then \
-		backup=$(HOME)/.codex/AGENTS.md.bak.$$(date +%Y%m%d%H%M%S); \
-		mv $(HOME)/.codex/AGENTS.md $$backup; \
-		echo "Backed up existing ~/.codex/AGENTS.md to $$backup"; \
-	fi
+	$(call backup_real_path,$(HOME)/.codex/AGENTS.md,~/.codex/AGENTS.md)
 	@ln -fns $(DOTFILES)/agents/AGENTS.md $(HOME)/.codex/AGENTS.md
 	@$(DOTFILES)/codex/install-theme
 	@echo "Codex linked."
@@ -296,17 +247,9 @@ pi:
 	@echo "Linking Pi global configuration..."
 	@mkdir -p $(HOME)/.pi/agent
 	@ln -fns $(DOTFILES)/agents/AGENTS.md $(HOME)/.pi/agent/AGENTS.md
-	@if [ -e $(HOME)/.pi/agent/extensions ] && [ ! -L $(HOME)/.pi/agent/extensions ]; then \
-		backup=$(HOME)/.pi/agent/extensions.bak.$$(date +%Y%m%d%H%M%S); \
-		mv $(HOME)/.pi/agent/extensions $$backup; \
-		echo "Backed up existing Pi extensions to $$backup"; \
-	fi
+	$(call backup_real_path,$(HOME)/.pi/agent/extensions,Pi extensions)
 	@ln -fns $(DOTFILES)/pi/agent/extensions $(HOME)/.pi/agent/extensions
-	@if [ -e $(HOME)/.pi/agent/themes ] && [ ! -L $(HOME)/.pi/agent/themes ]; then \
-		backup=$(HOME)/.pi/agent/themes.bak.$$(date +%Y%m%d%H%M%S); \
-		mv $(HOME)/.pi/agent/themes $$backup; \
-		echo "Backed up existing Pi themes to $$backup"; \
-	fi
+	$(call backup_real_path,$(HOME)/.pi/agent/themes,Pi themes)
 	@ln -fns $(DOTFILES)/pi/agent/themes $(HOME)/.pi/agent/themes
 	@ln -fns $(DOTFILES)/pi/agent/settings.json $(HOME)/.pi/agent/settings.json
 	@ln -fns $(DOTFILES)/pi/agent/models.json $(HOME)/.pi/agent/models.json

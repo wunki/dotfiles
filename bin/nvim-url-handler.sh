@@ -23,11 +23,10 @@ else
     LINE_NUM=""
 fi
 
-# Build nvim arguments
+# Optional arguments for a fresh Neovim; empty when no line was given.
+NVIM_ARGS=()
 if [ -n "$LINE_NUM" ]; then
-    NVIM_ARGS="+$LINE_NUM"
-else
-    NVIM_ARGS=""
+    NVIM_ARGS=("+$LINE_NUM")
 fi
 
 focus_ghostty() {
@@ -41,7 +40,8 @@ select_tmux_nvim_pane() {
     # Bring the target session and Neovim pane forward.
     $tmux switch-client -t "$session" 2>/dev/null
 
-    local nvim_pane=$($tmux list-panes -s -t "$session" \
+    local nvim_pane
+    nvim_pane=$($tmux list-panes -s -t "$session" \
         -F '#{window_index}:#{pane_index} #{pane_current_command}' 2>/dev/null \
         | grep -i nvim | head -1 | cut -d' ' -f1)
 
@@ -59,25 +59,25 @@ if [ -n "$TMUX_SESSION_NAME" ] && [ -n "$FILE_PATH" ]; then
     if [ -e "$SOCKET_PATH" ]; then
         # Prefer the Neovim process already serving this tmux session.
         if [ -n "$LINE_NUM" ]; then
-            $NVIM --server "$SOCKET_PATH" --remote-send "<Esc>:e +$LINE_NUM $FILE_PATH<CR>"
+            remote_ok=$($NVIM --server "$SOCKET_PATH" --remote-send "<Esc>:e +$LINE_NUM $FILE_PATH<CR>" && echo yes)
         else
-            $NVIM --server "$SOCKET_PATH" --remote "$FILE_PATH"
+            remote_ok=$($NVIM --server "$SOCKET_PATH" --remote "$FILE_PATH" && echo yes)
         fi
 
-        if [ $? -ne 0 ]; then
-            # The socket is stale or unreachable. Open a fresh terminal.
-            $GHOSTTY -e $NVIM $NVIM_ARGS "$FILE_PATH"
-        else
+        if [ "$remote_ok" = yes ]; then
             select_tmux_nvim_pane "$TMUX_SESSION_NAME"
+        else
+            # The socket is stale or unreachable. Open a fresh terminal.
+            $GHOSTTY -e $NVIM "${NVIM_ARGS[@]}" "$FILE_PATH"
         fi
         focus_ghostty
     else
         # No process is listening for this session.
-        $GHOSTTY -e $NVIM $NVIM_ARGS "$FILE_PATH"
+        $GHOSTTY -e $NVIM "${NVIM_ARGS[@]}" "$FILE_PATH"
         focus_ghostty
     fi
 elif [ -n "$FILE_PATH" ]; then
     # Without a session, open the file in a new terminal.
-    $GHOSTTY -e $NVIM $NVIM_ARGS "$FILE_PATH"
+    $GHOSTTY -e $NVIM "${NVIM_ARGS[@]}" "$FILE_PATH"
     focus_ghostty
 fi

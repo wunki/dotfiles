@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-# Export current tmux session name for use in mise templates
+# Export the current tmux session name for use in mise templates.
 
+TMUX_SESSION_NAME=""
 if [ -n "$TMUX" ]; then
-    export TMUX_SESSION_NAME=$(tmux display-message -p '#S')
-else
-    export TMUX_SESSION_NAME=""
+    TMUX_SESSION_NAME="$(tmux display-message -p '#S')"
 fi
+export TMUX_SESSION_NAME

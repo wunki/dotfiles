@@ -281,15 +281,6 @@ duration_part() {
   fi
 }
 
-shell_quote() {
-  local value
-
-  value="$1"
-  printf "'"
-  printf '%s' "$value" | sed "s/'/'\\\\''/g"
-  printf "'"
-}
-
 human_duration() {
   local total days hours minutes seconds
   local parts=()
@@ -361,7 +352,7 @@ fi
 
 report_sleep_duration() {
   local desktop_remote_host desktop_ssh_target deadline output status started_at
-  local slept_at woke_at duration remote_stamp_path remote_command
+  local slept_at woke_at duration
   local desktop_ssh_args elapsed next_progress
 
   if [[ "$wait_for_desktop" != true ]]; then
@@ -375,7 +366,6 @@ report_sleep_duration() {
   fi
 
   desktop_ssh_args=(
-    -n
     -T
     -o BatchMode=yes
     -o ConnectTimeout="$probe_timeout"
@@ -394,8 +384,17 @@ report_sleep_duration() {
   echo "  Target:  $(display_target "$desktop_ssh_host" "$desktop_remote_host" "$desktop_ssh_user" "$desktop_ssh_port")"
   echo "  Timeout: ${wait_timeout}s"
 
-  remote_stamp_path="$(shell_quote "$stamp_path")"
-  remote_command='stamp_path='"$remote_stamp_path"'; set -eu
+
+  started_at="$SECONDS"
+  deadline=$((started_at + wait_timeout))
+  next_progress=$((started_at + 5))
+
+  while (( SECONDS <= deadline )); do
+    # The probe script travels over stdin; ssh forwards it to the remote sh.
+    set +e
+    output="$(ssh "${desktop_ssh_args[@]}" "$desktop_ssh_target" sh -s -- "$stamp_path" 2>/dev/null <<'REMOTE'
+set -eu
+stamp_path="$1"
 case "$stamp_path" in
   /*) ;;
   *)
@@ -414,16 +413,9 @@ case "$slept_at" in
 esac
 woke_at="$(date +%s)"
 rm -f "$stamp_path"
-printf "%s %s\n" "$slept_at" "$woke_at"'
-  remote_command="sh -c $(shell_quote "$remote_command")"
-
-  started_at="$SECONDS"
-  deadline=$((started_at + wait_timeout))
-  next_progress=$((started_at + 5))
-
-  while (( SECONDS <= deadline )); do
-    set +e
-    output="$(ssh "${desktop_ssh_args[@]}" "$desktop_ssh_target" "$remote_command" 2>/dev/null)"
+printf "%s %s\n" "$slept_at" "$woke_at"
+REMOTE
+)"
     status=$?
     set -e
 

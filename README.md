@@ -1,10 +1,10 @@
 # Dotfiles
 
-These are the dotfiles I use across macOS, Linux, and FreeBSD. `make` links each tool's configuration into place, Cendre keeps the terminal stack visually consistent, and OS-specific or root-owned configuration stays isolated.
+These are the dotfiles I use on macOS, Linux, and FreeBSD. `make` links the configuration of each tool into place. Cendre, the shared color theme, gives the terminal tools the same look. Configuration that belongs to one OS, or that root owns, stays in its own directory.
 
 ## Quick start
 
-You need Git, Make, and the applications you want to configure. The Makefile links configuration; it does not install the applications themselves.
+You need Git, Make, and the applications that you want to configure. The Makefile links configuration. It does not install the applications.
 
 ```bash
 git clone git@github.com:wunki/dotfiles.git
@@ -24,11 +24,11 @@ cd ~/Code/wunki/dotfiles
 bin/setup-ubuntu
 ```
 
-Use `bin/setup-ubuntu --dry-run` to review the work first. The script installs the core terminal workstation, Neovim, an upstream tmux build under `~/dev/tools/tmux`, mise's configured tools, Fish plugins, and the separate `wunki/dot-nvim` configuration. It is safe to rerun and deliberately does not change the login shell.
+If you want to see the planned work first, run `bin/setup-ubuntu --dry-run`. The script installs the core terminal workstation, Neovim, an upstream tmux build under `~/dev/tools/tmux`, the tools that mise manages, the Fish plugins, and the separate `wunki/dot-nvim` configuration. You can run the script again at any time. It does not change the login shell.
 
-Fish comes from its official standalone release, and `gh` comes from GitHub's official APT repository. Fonts, terminal emulators, Zed, Sublime Text, Helix, Docker, PostgreSQL, and machine services are outside the bootstrap's scope.
+Fish comes from its official standalone release. `gh` comes from the official APT repository of GitHub. The bootstrap does not install fonts, terminal emulators, Zed, Sublime Text, Helix, Docker, PostgreSQL, or machine services.
 
-`make` applies every user-level target. Run a specific target when you only want one tool:
+`make` applies every user-level target. If you want one tool only, run its target:
 
 ```bash
 make fish
@@ -39,14 +39,14 @@ make tmux
 make pi
 ```
 
-The Linux system targets require `sudo` and never run as part of `make`:
+The Linux system targets need `sudo`. `make` never runs them:
 
 ```bash
 make linux          # keyd and udev
 make auto-suspend   # desktop suspend timer
 ```
 
-## What's here
+## What is here
 
 | Area | Configuration |
 | --- | --- |
@@ -60,9 +60,9 @@ make auto-suspend   # desktop suspend timer
 
 ### Theme
 
-Cendre is the shared dark palette for Bat, btop, Delta, eza, fzf, Ghostty, GTK 4, GNOME Shell, Helix, Hunk, Lazygit, Pi, and tmux. Earlier tmux themes are archived under `tmux/themes/` for switching later.
+Cendre is the shared dark palette for Bat, btop, Delta, eza, fzf, Ghostty, GTK 4, GNOME Shell, Helix, Hunk, Lazygit, Pi, and tmux. The earlier tmux themes stay under `tmux/themes/`, so you can switch back later.
 
-Most Cendre files come from the theme's generated extras and remain unchanged here. Shell and Makefile wiring selects the right file for each tool.
+Most Cendre files come from the generated extras of the theme. This repository does not change them. The shell and Makefile wiring selects the correct file for each tool.
 
 ## Installation targets
 
@@ -99,15 +99,15 @@ make pi
 make bin
 ```
 
-`make btop` backs up an existing non-symlinked `~/.config/btop` directory before replacing it. `make delta` enables Delta with Cendre for regular Git diffs and adds `git hdiff` and `git hshow` for opening reviews in Hunk. It removes the legacy global `diff.external=difft` override when present; LazyGit keeps its explicit Difftastic command.
+If `~/.config/btop` is a real directory and not a symlink, `make btop` backs it up before it replaces it. `make delta` enables Delta with Cendre for normal Git diffs. It also adds `git hdiff` and `git hshow`, which open a review in Hunk. If the legacy global `diff.external=difft` override is present, the target removes it. LazyGit keeps its own Difftastic command.
 
-`make gtk` links the GTK 4 overrides into `~/.config/gtk-4.0/gtk.css` and, on Linux, the GNOME Shell theme into `~/.themes/cendre`. It selects Cendre through the User Themes extension without replacing the rest of the enabled extension list. The Ubuntu bootstrap installs that extension; after its first installation, log out once before expecting the shell theme to appear. Restart GTK 4 applications to update their chrome.
+`make gtk` links the GTK 4 overrides into `~/.config/gtk-4.0/gtk.css`. On Linux, it also links the GNOME Shell theme into `~/.themes/cendre`. It selects Cendre through the User Themes extension and keeps the rest of the enabled extensions. The Ubuntu bootstrap installs that extension. After the first installation of the extension, log out once before you expect the shell theme to appear. Restart GTK 4 applications to update their window chrome.
 
 ## Shell setup
 
 ### Shared tools
 
-Install the tools you use before applying the shell configuration.
+Install the tools that you use before you apply the shell configuration.
 
 ```bash
 # macOS
@@ -125,14 +125,14 @@ sudo pacman -S eza bat fzf zoxide tree autossh github-cli tmux
 
 ### Fish
 
-Install [Fisher](https://github.com/jorgebucaran/fisher), then install the plugins listed in `fish/fish_plugins`:
+Install [Fisher](https://github.com/jorgebucaran/fisher), the Fish plugin manager. Then install the plugins listed in `fish/fish_plugins`:
 
 ```fish
 curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source
 fisher update
 ```
 
-Run `tide configure` and choose the Lean layout with 16 colors. That leaves the palette to the terminal theme.
+Run `tide configure` and select the Lean layout with 16 colors. The terminal theme then controls the palette.
 
 ### Zsh
 
@@ -150,7 +150,7 @@ git clone https://github.com/sindresorhus/pure.git ~/.zsh/pure
 
 ### mise-managed CLIs
 
-Global npm CLIs use mise's npm backend rather than Node's deprecated default package files. This keeps them stable across Node upgrades.
+Global npm CLIs use the npm backend of mise, not the deprecated default package files of Node. The CLIs then keep working when Node upgrades.
 
 ```bash
 mise use -g \
@@ -162,7 +162,7 @@ mise reshim
 
 ## AI coding tools
 
-Shared instructions and skills live in `agents/`. The `petar-writing` skill captures the voice used on [petar.dev](https://petar.dev) and removes generic AI phrasing without inventing personal context.
+The shared instructions and skills live in `agents/`. The `petar-writing` skill describes the voice used on [petar.dev](https://petar.dev). It removes generic AI phrasing and does not invent personal context.
 
 ```text
 agents/
@@ -175,13 +175,13 @@ agents/
 ~/.pi/agent              assembled by make pi
 ```
 
-Pi keeps its settings, models, extensions, and themes under `pi/agent/`. Claude and Codex only receive the shared pieces they support.
+Pi keeps its configuration, models, extensions, and themes under `pi/agent/`. Claude and Codex receive only the shared pieces that they support.
 
 The repository includes skills for requirements gathering, structural search, code simplification, technical and personal writing, PR descriptions, developer logs, tutoring, Elixir dependency updates, atomic commits, fetching GitHub files, and rendering reMarkable PDFs. The directory names under `agents/skills/` are the source of truth.
 
 ### Image paste over SSH
 
-CleanShot X copies a local macOS path with the screenshot. That path does not exist on an SSH host. [cc-clip](https://github.com/ShunmeiCho/cc-clip) sends the clipboard image through an SSH reverse tunnel instead, then the tmux binding writes it to a real remote path and pastes that path into the active pane.
+CleanShot X copies a local macOS path together with the screenshot. That path does not exist on an SSH host. [cc-clip](https://github.com/ShunmeiCho/cc-clip) sends the clipboard image through an SSH reverse tunnel instead. The tmux binding then writes the image to a real remote path and pastes that path into the active pane.
 
 Install the local pieces on the Mac:
 
@@ -200,7 +200,7 @@ Host desktop
   ControlPath none
 ```
 
-Deploy only the remote clipboard transport. The `--claude` target installs the `xclip` shim used by Claude Code and Pi; it does not make the tmux path Claude-specific. `--no-notify` skips the agent notification integrations, but cc-clip still creates a session ID used for image-transfer notifications. Remove that file after every connect or redeploy to keep all notifications disabled:
+Deploy only the remote clipboard transport. The `--claude` target installs the `xclip` shim that Claude Code and Pi use. It does not make the tmux path specific to Claude. `--no-notify` skips the agent notification integrations. cc-clip still creates a session ID that it uses for image-transfer notifications. If you want all notifications off, remove that file after every connect or redeploy:
 
 ```bash
 cc-clip connect desktop --claude --no-notify
@@ -216,17 +216,17 @@ make tmux
 tmux source-file ~/.tmux.conf
 ```
 
-Copy an image in CleanShot X, then press `Ctrl-h Shift-I` inside the remote tmux session. The binding is enabled when tmux has `SSH_CONNECTION`, runs `cc-clip paste --out-dir /tmp/screenshots`, and pastes the resulting remote path into the current pane. Codex and other CLIs that accept image paths can read it without Xvfb or `DISPLAY`. Pi can also use its normal `Ctrl+V` path through the installed `xclip` shim.
+Copy an image in CleanShot X. Then press `Ctrl-h Shift-I` inside the remote tmux session. The binding is active when tmux has `SSH_CONNECTION`. It runs `cc-clip paste --out-dir /tmp/screenshots` and pastes the remote path into the current pane. Codex and other CLIs that accept image paths can read the file without Xvfb or `DISPLAY`. Pi can also use its normal `Ctrl+V` path through the installed `xclip` shim.
 
-The Mac daemon listens only on `127.0.0.1:18339`. SSH exposes it on the remote loopback interface, and the token in `~/.cache/cc-clip/session.token` authenticates each request. cc-clip does not choose the server: the SSH `Host` block creates the tunnel, and the `cc-clip paste` process writes the file on whichever remote host runs it.
+The Mac daemon listens only on `127.0.0.1:18339`. SSH exposes it on the loopback interface of the remote. The token in `~/.cache/cc-clip/session.token` authenticates each request. cc-clip does not select the server. The SSH `Host` block creates the tunnel, and the `cc-clip paste` process writes the file on the remote host that runs it.
 
-Keep an SSH connection open while using the binding. A tmux session can survive disconnection, but the reverse tunnel cannot. The first live SSH connection owns port `18339`; a second connection may report `remote port forwarding failed for listen port 18339` while continuing to use the first connection's tunnel.
+Keep an SSH connection open while you use the binding. A tmux session can survive a disconnect, but the reverse tunnel cannot. The first live SSH connection owns port `18339`. A second connection can report `remote port forwarding failed for listen port 18339` and still use the tunnel of the first connection.
 
 ## Neovim URL handler
 
-Neovim itself is configured in a separate repository. This one contains the macOS and tmux integration that opens browser stack traces in the correct Neovim process.
+Neovim itself is configured in a separate repository. This repository contains the macOS and tmux integration that opens a stack trace from the browser in the correct Neovim process.
 
-`nvs` starts Neovim with a socket at `/tmp/nvim-$SESSION_NAME`. A registered `nvim://` handler sends the file to that socket, selects the matching tmux pane, and focuses Ghostty. If the socket is unavailable, it opens a new Ghostty window instead.
+`nvs` starts Neovim with a socket at `/tmp/nvim-$SESSION_NAME`. A registered `nvim://` handler sends the file to that socket, selects the matching tmux pane, and focuses Ghostty. If the socket is not available, the handler opens a new Ghostty window instead.
 
 Apply the scripts first:
 
@@ -234,9 +234,9 @@ Apply the scripts first:
 make bin
 ```
 
-The URL handler app lives at `~/Applications/Nvim URL Handler.app` and must register the `nvim` URL scheme. Its AppleScript source is `bin/NvimURLHandler.applescript`; app creation and URL registration are not automated by the Makefile.
+The URL handler app lives at `~/Applications/Nvim URL Handler.app` and must register the `nvim` URL scheme. Its AppleScript source is `bin/NvimURLHandler.applescript`. The Makefile does not create the app and does not register the URL.
 
-Add the editor URL to the project's `.mise.toml`:
+Add the editor URL to the `.mise.toml` of the project:
 
 ```toml
 [env]
@@ -248,42 +248,42 @@ Start Neovim with `nvs` inside tmux.
 
 ## GNOME input settings
 
-This section records the keyboard repeat, mouse movement, and scrolling values used on the Ubuntu workstation.
+This section records the keyboard repeat, mouse movement, and scrolling values that I use on the Ubuntu workstation.
 
 ### Keyboard repeat
 
-GNOME stores keyboard repeat settings in dconf rather than a dotfile, so these values must be applied on each machine.
+GNOME stores the keyboard repeat values in dconf, its settings database, and not in a dotfile. You must apply these values on each machine.
 
 | Key | Meaning |
 | --- | --- |
-| `repeat-interval` | Milliseconds between repeated characters. Lower is faster. Use `1` or higher because `0` can break Wayland login. |
-| `delay` | Delay before repetition starts. Raise it when normal taps produce duplicate characters. |
+| `repeat-interval` | Milliseconds between repeated characters. A lower value is faster. Use `1` or higher, because `0` can break the Wayland login. |
+| `delay` | Delay before the repeat starts. If normal taps produce double characters, raise it. |
 
-My current values produce roughly 55 repeated characters per second without making normal taps unreliable:
+My current values give about 55 repeated characters per second, and normal taps stay reliable:
 
 ```bash
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 18
 gsettings set org.gnome.desktop.peripherals.keyboard delay 200
 ```
 
-The changes apply immediately. GNOME defaults are `repeat-interval 30` and `delay 500`.
+The changes apply at once. The GNOME defaults are `repeat-interval 30` and `delay 500`.
 
 ### Notification banner position
 
-GNOME shows notification banners at the top center and has no setting to move them. The Just Perfection extension adds one, stored in dconf, so apply it on each machine after installing the extension.
+GNOME shows notification banners at the top center and has no setting to move them. The Just Perfection extension adds one and stores it in dconf. Install the extension on each machine, then apply the setting.
 
 ```bash
 gsettings --schemadir ~/.local/share/gnome-shell/extensions/just-perfection-desktop@just-perfection/schemas \
   set org.gnome.shell.extensions.just-perfection notification-banner-position 2
 ```
 
-Values: `0` top left, `1` top center (default), `2` top right, `3` bottom left, `4` bottom center, `5` bottom right. The change applies immediately.
+The values are `0` top left, `1` top center (default), `2` top right, `3` bottom left, `4` bottom center, and `5` bottom right. The change applies at once.
 
 ### MX Master 4 cursor and scrolling
 
-Let the Linux HID++ driver manage the MX Master 4's wheel resolution. Forcing `Scroll Wheel Resolution` on in Solaar makes the movement smooth but much too fast because both Solaar and the kernel try to control the same device setting.
+Let the Linux HID++ driver manage the wheel resolution of the MX Master 4. If you force `Scroll Wheel Resolution` on in Solaar, the movement is smooth but much too fast. Solaar and the kernel then both try to control the same device setting.
 
-Install Solaar, then refresh the permissions of the Bolt receiver that was already connected. Replugging the receiver after installation has the same effect if the mouse can be disconnected safely.
+Install Solaar, the Logitech device manager for Linux. Then refresh the permissions of the Bolt receiver that is already connected. If you can disconnect the mouse safely, you can also unplug and replug the receiver after the installation. The result is the same.
 
 ```bash
 sudo apt install solaar
@@ -292,36 +292,36 @@ sudo udevadm trigger --action=add --subsystem-match=hidraw
 udevadm settle
 ```
 
-Open Solaar and click the icon at the right edge of `Scroll Wheel Resolution` until its mode reads `Ignore this setting`. This is the default for new devices. Turn the mouse off and on after changing the mode so the kernel can reset the wheel correctly.
+Open Solaar. Click the icon at the right edge of `Scroll Wheel Resolution` until its mode reads `Ignore this setting`. This is the default for new devices. After you change the mode, turn the mouse off and on, so that the kernel can reset the wheel.
 
-Verify that Solaar will leave the setting alone:
+Make sure that Solaar will not touch the setting:
 
 ```bash
 rg _sensitive ~/.config/solaar/config.yaml
 ```
 
-The result should include `hires-smooth-resolution: ignore`. The nearby `hires-smooth-resolution: true` or `false` line records the last value Solaar saw; it does not override the device while the sensitivity mode is `ignore`.
+The result must include `hires-smooth-resolution: ignore`. The nearby `hires-smooth-resolution: true` or `false` line records the last value that Solaar saw. It does not override the device while the sensitivity mode is `ignore`.
 
-Firefox already enables smooth scrolling and mass-spring-damper physics. Keep `mousewheel.default.delta_multiplier_y` at its default value of `100`; increasing it makes each wheel movement travel farther. If scrolling becomes aggressive again, confirm the Solaar mode is still `ignore`, power-cycle the mouse, and reset that Firefox preference from `about:config`.
+Firefox already enables smooth scrolling and mass-spring-damper physics. Keep `mousewheel.default.delta_multiplier_y` at its default value of `100`. A higher value makes each wheel movement travel farther. If scrolling becomes too fast again, make sure that the Solaar mode is still `ignore`, turn the mouse off and on, and reset that Firefox preference from `about:config`.
 
-The current baseline keeps pointer movement responsive on the 5K display without changing the wheel behavior:
+The current baseline keeps pointer movement responsive on the 5K display and does not change the wheel behavior:
 
 | Setting | Value | Reason |
 | --- | --- | --- |
 | Connection | Logi Bolt receiver | Exposes the mouse to Solaar and avoids Bluetooth-specific configuration differences. |
-| Sensitivity | 1200 DPI | A modest 20% increase over Logitech's 1000 DPI default. Set `Sensitivity (DPI)` in Solaar. |
-| GNOME acceleration | Default profile, speed `0.573` | Keeps adaptive acceleration and fine control. Raise DPI before pushing the desktop speed slider further. |
+| Sensitivity | 1200 DPI | A 20% increase over the 1000 DPI default of Logitech. Set `Sensitivity (DPI)` in Solaar. |
+| GNOME acceleration | Default profile, speed `0.573` | Keeps adaptive acceleration and fine control. Raise the DPI before you push the desktop speed slider further. |
 | Natural scrolling | On | Matches the macOS content direction. |
 | Wheel resolution | Ignore in Solaar | Leaves smooth scrolling to the Linux HID++ driver. |
-| Wheel mode | Ratcheted, torque `75`, switch speed `12` | Keeps deliberate steps while retaining the physical free-spin toggle. These values are about feel, not tracking accuracy. |
+| Wheel mode | Ratcheted, torque `75`, switch speed `12` | Keeps clear steps and keeps the physical free-spin toggle. These values are about feel, not tracking accuracy. |
 | Wheel diversion | Off | Sends standard wheel events directly to applications. |
-| Haptic feedback | `60` | Current preference; it does not affect pointer or wheel tracking. |
+| Haptic feedback | `60` | Current preference. It does not affect pointer or wheel tracking. |
 
-Logitech supports 200–8000 DPI in 50 DPI steps. Adjust DPI in 50–100 point increments when tuning further; changing one layer at a time makes the result easier to judge.
+Logitech supports 200 to 8000 DPI in steps of 50 DPI. When you tune further, change the DPI in steps of 50 to 100 points. Change one layer at a time, so that you can judge the result.
 
 ## Linux system configuration
 
-Most targets link files into the current user's home directory. Linux system configuration lives under `linux/` and has explicit installation targets because it writes to `/etc` or `/usr/local`.
+Most targets link files into the home directory of the current user. The Linux system configuration lives under `linux/` and has its own installation targets, because it writes to `/etc` or `/usr/local`.
 
 ```text
 linux/
@@ -340,15 +340,15 @@ make auto-suspend   # automatic desktop suspend
 
 ### Automatic suspend
 
-`make auto-suspend` installs a systemd timer that checks activity once per minute. It suspends the desktop after 30 minutes without an active session.
+`make auto-suspend` installs a systemd timer that checks for activity once per minute. If there is no active session for 30 minutes, it suspends the desktop.
 
-Active SSH, Tailscale SSH, Zed remote, console, and non-idle graphical sessions reset the countdown. Sessions stuck in `closing` do not. Sleep and idle inhibitors prevent suspension.
+Active SSH, Tailscale SSH, Zed remote, console, and non-idle graphical sessions reset the countdown. Sessions stuck in `closing` do not. Sleep and idle inhibitors prevent the suspend.
 
-Before suspending, the monitor writes `~/.cache/dotfiles-desktop-sleep/slept-at`. `sleep-desktop` writes the same timestamp when suspension is requested manually. `wake-desktop` consumes it after the machine returns and reports the sleep duration.
+Before the suspend, the monitor writes `~/.cache/dotfiles-desktop-sleep/slept-at`. `sleep-desktop` writes the same timestamp when you request the suspend by hand. `wake-desktop` reads and removes it after the machine returns, and reports how long the machine slept.
 
 When the machine runs Windows with WSL2, `sleep-wsl` calls the Windows suspend API from an SSH session inside WSL. `wake-wsl` sends Wake-on-LAN through the Pi, waits for WSL SSH, and reports how long the machine slept. Windows must expose S3 sleep, and its Ethernet adapter must be armed for wake.
 
-The installer requires `shellcheck`, Python 3, and `runuser`. It validates the monitor, installs root-owned copies, reloads systemd, and enables the timer.
+The installer needs `shellcheck`, Python 3, and `runuser`. It validates the monitor, installs root-owned copies, reloads systemd, and enables the timer.
 
 ```bash
 systemctl status auto-suspend-monitor.timer
@@ -357,23 +357,31 @@ journalctl -t auto-suspend-monitor
 
 ### Apple Studio Display brightness
 
-The Studio Display exposes no `/sys/class/backlight` device and does not support DDC/CI. Brightness is available through Apple's USB HID protocol using [`asdcontrol`](https://github.com/nikosdion/asdcontrol), installed at `/usr/local/bin/asdcontrol`.
+The Studio Display has no `/sys/class/backlight` device and does not support DDC/CI. Brightness is available through the USB HID protocol of Apple with [`asdcontrol`](https://github.com/nikosdion/asdcontrol), installed at `/usr/local/bin/asdcontrol`.
 
-- `bin/asd-brightness` supports `up`, `down`, and `get`, with a 6% step.
-- `linux/udev/50-apple-studio-display.rules` exposes `/dev/apple-studio-display` with `users` group access. It targets USB interface 07, the display's brightness HID.
-- `linux/keyd/default.conf` maps the keyboard's `F15` and `F14` events to `asd-brightness`. This works outside the desktop environment and does not require `sudo` at runtime.
+- `bin/asd-brightness` supports `up`, `down`, and `get`, with a step of 6%.
+- `linux/udev/50-apple-studio-display.rules` exposes `/dev/apple-studio-display` with access for the `users` group. It targets USB interface 07, the brightness HID of the display.
+- `linux/keyd/default.conf` maps the `F15` and `F14` events of the keyboard to `asd-brightness`. This works outside the desktop environment and does not need `sudo` at runtime.
 
-Install both pieces with `make keyd udev` or `make linux`. Change `STEP` in `bin/asd-brightness` to adjust the increment.
+Install both pieces with `make keyd udev` or `make linux`. To change the step size, change `STEP` in `bin/asd-brightness`.
 
 ## Troubleshooting
 
-**A target did not create its symlink.** Check permissions on the destination and run that target again. Some targets back up an existing real directory rather than replacing it silently.
+### A target did not create its symlink
 
-**Fish plugins are missing.** Install Fisher, run `fisher update`, and restart Fish.
+Make sure that you can write to the destination, then run the target again. Some targets back up an existing real directory instead of replacing it without notice.
 
-**Cendre is not active.** Confirm the tool's config directory points into this repository. For Bat, run `bat cache --build` after adding or updating the theme.
+### Fish plugins are missing
 
-**An OS-specific Fish file did not load.** Run `status buildinfo` and compare its target with the cases in `fish/config.fish`.
+Install Fisher, run `fisher update`, and restart Fish.
+
+### Cendre is not active
+
+Make sure that the configuration directory of the tool points into this repository. For Bat, run `bat cache --build` after you add or update the theme.
+
+### An OS-specific Fish file did not load
+
+Run `status buildinfo` and compare its target with the cases in `fish/config.fish`.
 
 ## License
 

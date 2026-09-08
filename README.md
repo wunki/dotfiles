@@ -177,7 +177,7 @@ agents/
 
 Pi keeps its settings, models, extensions, and themes under `pi/agent/`. Claude and Codex only receive the shared pieces they support.
 
-The repository includes skills for requirements gathering, structural search, code simplification, technical writing, PR descriptions, developer logs, tutoring, dependency updates, and atomic commits. The directory names under `agents/skills/` are the source of truth.
+The repository includes skills for requirements gathering, structural search, code simplification, technical and personal writing, PR descriptions, developer logs, tutoring, Elixir dependency updates, atomic commits, fetching GitHub files, and rendering reMarkable PDFs. The directory names under `agents/skills/` are the source of truth.
 
 ### Image paste over SSH
 
@@ -358,7 +358,7 @@ Install both pieces with `make keyd udev` or `make linux`. Change `STEP` in `bin
 
 **A target did not create its symlink.** Check permissions on the destination and run that target again. Some targets back up an existing real directory rather than replacing it silently.
 
-**Fish plugins are missing.** Install Fisher, run the plugin commands above, and restart Fish.
+**Fish plugins are missing.** Install Fisher, run `fisher update`, and restart Fish.
 
 **Cendre is not active.** Confirm the tool's config directory points into this repository. For Bat, run `bat cache --build` after adding or updating the theme.
 

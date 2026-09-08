@@ -46,6 +46,8 @@ fish_add_path -aP "$HOME/.local/bin"
 # development tools
 fish_add_path -aP "$HOME/.cargo/bin"
 fish_add_path -aP /opt/nvim/bin
+fish_add_path -aP "$HOME/.opencode/bin"
+abbr oc opencode
 
 # abbreviations and aliases
 abbr e $EDITOR
@@ -184,10 +186,6 @@ end
 
 # docker
 fish_add_path -aP "$HOME/.docker/cli-plugins"
-
-# development tools
-fish_add_path -aP "$HOME/.opencode/bin"
-abbr oc opencode
 
 # Use mise shims without running activation hooks in every shell.
 # Regenerate completions with:

@@ -25,7 +25,6 @@ define backup_real_path
 	fi
 endef
 
-.PHONY: ensure-config-dir
 ensure-config-dir:
 	@echo "Ensuring $(CONFIG_DIR) exists..."
 	@mkdir -p $(CONFIG_DIR)

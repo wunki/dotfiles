@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=Slack
+StartupWMClass=Slack
+Comment=Slack Desktop
+GenericName=Slack Client for Linux
+# Native Wayland so notification clicks can focus the window via xdg-activation.
+Exec=/usr/bin/slack --ozone-platform-hint=auto --enable-features=WaylandWindowDecorations %U
+Icon=/usr/share/pixmaps/slack.png
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Network;InstantMessaging;
+MimeType=x-scheme-handler/slack;

@@ -6,7 +6,7 @@ APPLICATION_SHORTCUTS_DIR := $(DOTFILES)/gnome-shell/$(APPLICATION_SHORTCUTS_UUI
 UNAME		:= $(shell uname -s)
 
 # User-level targets included in `make`.
-APP_TARGETS := fish zsh bat btop delta eza fzf helix ghostty gtk hunk zed sublime tmux bin lazygit mise agents claude codex pi
+APP_TARGETS := fish zsh bat btop delta eza fzf helix ghostty gtk hunk zed sublime tmux bin lazygit mise agents claude codex pi applications
 
 .PHONY: all
 all: $(APP_TARGETS)
@@ -309,6 +309,18 @@ ifeq ($(UNAME),Linux)
 	@echo "udev rules linked and reloaded."
 else
 	@echo "udev target is Linux-only; skipping on $(UNAME)."
+endif
+
+# User-level .desktop overrides (e.g. Slack with native Wayland flags).
+applications:
+ifeq ($(UNAME),Linux)
+	@echo "Linking application launcher overrides..."
+	@mkdir -p $(HOME)/.local/share/applications
+	@ln -fns $(DOTFILES)/linux/applications/slack.desktop $(HOME)/.local/share/applications/slack.desktop
+	@update-desktop-database $(HOME)/.local/share/applications 2>/dev/null || true
+	@echo "Application launcher overrides linked."
+else
+	@echo "applications target is Linux-only; skipping on $(UNAME)."
 endif
 
 # --- Tool installers ---

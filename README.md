@@ -268,6 +268,17 @@ gsettings set org.gnome.desktop.peripherals.keyboard delay 200
 
 The changes apply immediately. GNOME defaults are `repeat-interval 30` and `delay 500`.
 
+### Notification banner position
+
+GNOME shows notification banners at the top center and has no setting to move them. The Just Perfection extension adds one, stored in dconf, so apply it on each machine after installing the extension.
+
+```bash
+gsettings --schemadir ~/.local/share/gnome-shell/extensions/just-perfection-desktop@just-perfection/schemas \
+  set org.gnome.shell.extensions.just-perfection notification-banner-position 2
+```
+
+Values: `0` top left, `1` top center (default), `2` top right, `3` bottom left, `4` bottom center, `5` bottom right. The change applies immediately.
+
 ### MX Master 4 cursor and scrolling
 
 Let the Linux HID++ driver manage the MX Master 4's wheel resolution. Forcing `Scroll Wheel Resolution` on in Solaar makes the movement smooth but much too fast because both Solaar and the kernel try to control the same device setting.

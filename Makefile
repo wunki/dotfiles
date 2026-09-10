@@ -329,6 +329,9 @@ ifeq ($(UNAME),Linux)
 	@echo "Linking WirePlumber configuration..."
 	$(call backup_real_path,$(CONFIG_DIR)/wireplumber,WirePlumber configuration)
 	@ln -fns $(DOTFILES)/wireplumber $(CONFIG_DIR)/wireplumber
+	@echo "Linking ALSA card profiles..."
+	$(call backup_real_path,$(CONFIG_DIR)/alsa-card-profile,ALSA card profiles)
+	@ln -fns $(DOTFILES)/alsa-card-profile $(CONFIG_DIR)/alsa-card-profile
 	@echo "WirePlumber linked. Restart WirePlumber to apply audio device rules."
 else
 	@echo "wireplumber target is Linux-only; skipping on $(UNAME)."

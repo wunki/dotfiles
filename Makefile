@@ -6,7 +6,7 @@ APPLICATION_SHORTCUTS_DIR := $(DOTFILES)/gnome-shell/$(APPLICATION_SHORTCUTS_UUI
 UNAME		:= $(shell uname -s)
 
 # User-level targets included in `make`.
-APP_TARGETS := fish zsh bat btop delta eza fzf helix ghostty gtk hunk zed sublime tmux bin lazygit mise agents claude codex pi applications
+APP_TARGETS := fish zsh bat btop delta eza fzf helix ghostty gtk hunk zed sublime tmux bin lazygit mise agents claude codex pi applications wireplumber
 
 .PHONY: all
 all: $(APP_TARGETS)
@@ -321,6 +321,17 @@ ifeq ($(UNAME),Linux)
 	@echo "Application launcher overrides linked."
 else
 	@echo "applications target is Linux-only; skipping on $(UNAME)."
+endif
+
+# Expose one clearly named playback node for each USB audio device.
+wireplumber: ensure-config-dir
+ifeq ($(UNAME),Linux)
+	@echo "Linking WirePlumber configuration..."
+	$(call backup_real_path,$(CONFIG_DIR)/wireplumber,WirePlumber configuration)
+	@ln -fns $(DOTFILES)/wireplumber $(CONFIG_DIR)/wireplumber
+	@echo "WirePlumber linked. Restart WirePlumber to apply audio device rules."
+else
+	@echo "wireplumber target is Linux-only; skipping on $(UNAME)."
 endif
 
 # --- Tool installers ---

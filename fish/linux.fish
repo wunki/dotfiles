@@ -76,6 +76,7 @@ if string match -q "*microsoft*" (uname -a)
     fish_add_path -aP "/mnt/c/Program Files/Docker/Docker/resources/bin"
     fish_add_path -aP "/mnt/c/Users/petar/AppData/Local/Programs/Microsoft VS Code/bin"
     fish_add_path -aP /mnt/c/Windows/System32
+    fish_add_path -aP /mnt/c/Windows/System32/WindowsPowerShell/v1.0
 
     abbr clip 'clip.exe'
 end

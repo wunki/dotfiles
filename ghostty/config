@@ -10,6 +10,10 @@ font-size = 11
 font-feature = ss01, ss02
 adjust-cell-height = 28%
 
+# Cursor
+cursor-style = bar
+adjust-cursor-thickness = 3
+
 # Colors
 window-colorspace = display-p3
 selection-foreground = cell-background

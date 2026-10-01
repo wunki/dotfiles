@@ -78,7 +78,7 @@ fi
 # File listing
 if (( $+commands[eza] ))
 then
-  source "$HOME/.config/eza/cendre.sh"
+  [[ -r "$HOME/.config/eza/cendre.sh" ]] && source "$HOME/.config/eza/cendre.sh"
   alias ls='eza'                              # ls
   alias l='eza -lbF --git'                    # list, size, type, git
   alias ll='eza -lbGF --git'                  # long list
@@ -86,7 +86,7 @@ fi
 
 if (( $+commands[fzf] ))
 then
-  source "$HOME/.config/fzf/cendre.sh"
+  [[ -r "$HOME/.config/fzf/cendre.sh" ]] && source "$HOME/.config/fzf/cendre.sh"
 fi
 
 # Git shortcuts

@@ -34,7 +34,7 @@ fish: ensure-config-dir
 	@ln -fns $(DOTFILES)/fish $(CONFIG_DIR)/fish
 	@echo "Fish linked. Run 'fisher update' to install the plugins in fish_plugins."
 
-zsh:
+zsh: eza fzf
 	@echo "Linking zsh configuration..."
 	@ln -fns $(DOTFILES)/zsh/zshrc $(HOME)/.zshrc
 ifeq ($(UNAME),Darwin)

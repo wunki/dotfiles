@@ -43,6 +43,12 @@ You are talking to a human with a limited attention span. Optimize for what they
 - Stay scoped; note unrelated issues instead of fixing them.
 - Add useful error context/observability when touching critical failure paths.
 
+## Codex command approvals
+
+- Run approved commands directly. Avoid shell redirection or wrappers around them: Codex can match the entire shell string, so changing a log filename can trigger another approval.
+- Use captured tool output by default. If persistent logs are needed, prefer an existing logging option in the command; otherwise propose logging inside the project script within the authorized scope.
+- When requesting reusable approval, use the narrow command prefix that covers the intended operation. Never allow a general shell interpreter just to suppress prompts.
+
 ## Worktrees
 
 - Work in the current checkout by default. Use a Git worktree only when explicitly requested.

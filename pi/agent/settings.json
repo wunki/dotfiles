@@ -8,5 +8,7 @@
   "packages": [
     "npm:pi-openai-fast-mode",
     "npm:@plannotator/pi-extension"
-  ]
+  ],
+  "lastChangelogVersion": "0.99.1",
+  "deviceId": "eb3c2403-c48a-4710-b8a7-c00ed981adc0"
 }

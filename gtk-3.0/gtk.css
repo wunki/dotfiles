@@ -1,0 +1,10 @@
+/* Cendre surfaces for GTK 3 client-side decorations (Emacs pgtk and friends). */
+.titlebar,
+.titlebar:backdrop,
+headerbar,
+headerbar:backdrop {
+  background: #171311;
+  color: #d9cfc7;
+  border-color: #171311;
+  box-shadow: none;
+}

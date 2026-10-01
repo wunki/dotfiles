@@ -96,8 +96,9 @@ ghostty: ensure-config-dir
 	@echo "Ghostty linked."
 
 gtk: ensure-config-dir
-	@echo "Linking GTK 4 Cendre theme override..."
-	@mkdir -p $(CONFIG_DIR)/gtk-4.0
+	@echo "Linking GTK 3 and GTK 4 Cendre theme overrides..."
+	@mkdir -p $(CONFIG_DIR)/gtk-3.0 $(CONFIG_DIR)/gtk-4.0
+	@ln -fns $(DOTFILES)/gtk-3.0/gtk.css $(CONFIG_DIR)/gtk-3.0/gtk.css
 	@ln -fns $(DOTFILES)/gtk-4.0/gtk.css $(CONFIG_DIR)/gtk-4.0/gtk.css
 ifeq ($(UNAME),Linux)
 	@echo "Linking Cendre GNOME Shell theme..."
@@ -127,7 +128,7 @@ ifeq ($(UNAME),Linux)
 		echo "GNOME Shell theme linked but inactive; install gnome-shell-extension-user-theme."; \
 	fi
 endif
-	@echo "GTK 4 and GNOME Shell Cendre themes linked."
+	@echo "GTK 3, GTK 4 and GNOME Shell Cendre themes linked."
 
 hunk: ensure-config-dir
 	@echo "Linking Hunk configuration..."

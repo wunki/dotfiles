@@ -268,6 +268,16 @@ gsettings set org.gnome.desktop.peripherals.keyboard delay 200
 
 The changes apply at once. The GNOME defaults are `repeat-interval 30` and `delay 500`.
 
+### Interface font size
+
+Chromium-based browsers such as Helium draw their tabs and menus with the GNOME interface font. At 200% scale the default `Ubuntu Sans 11` makes them much larger than on macOS, so I use one point less:
+
+```bash
+gsettings set org.gnome.desktop.interface font-name 'Ubuntu Sans 10'
+```
+
+GTK apps change at once. Restart Helium to pick it up.
+
 ### Notification banner position
 
 GNOME shows notification banners at the top center and has no setting to move them. The Just Perfection extension adds one and stores it in dconf. Install the extension on each machine, then apply the setting.

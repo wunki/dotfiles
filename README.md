@@ -344,7 +344,7 @@ linux/
 ```bash
 make linux          # keyd and udev
 make keyd           # keyboard remaps and Studio Display brightness keys
-make udev           # stable Studio Display device and user access
+make udev           # Studio Display brightness access and speaker level
 make auto-suspend   # automatic desktop suspend
 ```
 
@@ -374,6 +374,10 @@ The Studio Display has no `/sys/class/backlight` device and does not support DDC
 - `linux/keyd/default.conf` maps the `F15` and `F14` events of the keyboard to `asd-brightness`. This works outside the desktop environment and does not need `sudo` at runtime.
 
 Install both pieces with `make keyd udev` or `make linux`. To change the step size, change `STEP` in `bin/asd-brightness`.
+
+### Apple Studio Display speakers
+
+WirePlumber drives the Studio Display speakers with a soft mixer, so the GNOME slider is their only volume control. PipeWire therefore never touches the hardware `PCM` level of the display, and a level that `alsactl` saved low stays low, with no sign in GNOME. The same udev rule sets that level to full scale each time the display connects. To check it, run `amixer -c Display sget PCM`. The level should read 127.
 
 ## Troubleshooting
 

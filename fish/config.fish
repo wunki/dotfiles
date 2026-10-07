@@ -45,6 +45,7 @@ fish_add_path -aP "$HOME/.local/bin"
 
 # development tools
 fish_add_path -aP "$HOME/.cargo/bin"
+set -x HELIX_RUNTIME "$HOME/Code/tools/helix/runtime"
 fish_add_path -aP /opt/nvim/bin
 fish_add_path -aP "$HOME/.opencode/bin"
 abbr oc opencode

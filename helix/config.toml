@@ -2,20 +2,15 @@ theme = "cendre"
 
 [editor]
 line-number = "relative"
-auto-completion = true
-auto-format = true
 color-modes = true
-true-color = true
 auto-pairs = false
 
 [editor.cursor-shape]
 insert = "bar"
-normal = "block"
 select = "underline"
 
 [editor.lsp]
-display-messages = true
 auto-signature-help = false
 
 [keys.insert]
-"C-y" = "completion"
+C-y = "completion"

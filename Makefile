@@ -87,6 +87,7 @@ fzf: ensure-config-dir
 
 helix: ensure-config-dir
 	@echo "Linking helix configuration..."
+	$(call backup_real_path,$(CONFIG_DIR)/helix,helix configuration)
 	@ln -fns $(DOTFILES)/helix $(CONFIG_DIR)/helix
 	@echo "Helix linked."
 

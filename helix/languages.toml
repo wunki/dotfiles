@@ -1,7 +1,7 @@
 [[language]]
 name = "elixir"
 auto-format = true
-language-servers = [{name = "expert"}]
+language-servers = ["expert"]
 
 [[language]]
 name = "svelte"

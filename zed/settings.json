@@ -1,12 +1,15 @@
 {
-  "buffer_font_family": "Maple Mono",
+  "markdown_preview": {
+    "font_size": 12.0
+  },
+  "buffer_font_family": "JetBrains Mono",
   "buffer_font_weight": 300,
   "buffer_font_features": {
     "calt": true,
     "ss03": true
   },
-  "buffer_font_size": 11.0,
-  "agent_ui_font_size": 12.0,
+  "buffer_font_size": 12.0,
+  "agent_ui_font_size": 13.0,
   "agent_buffer_font_size": 11.0,
   "context_servers": {
     "tidewave-mcp": {
@@ -61,6 +64,24 @@
     },
     "tool_permissions": {
       "tools": {
+        "mcp:tonen-dev:inspect": {
+          "default": "allow"
+        },
+        "mcp:tonen-dev:screenshot": {
+          "default": "allow"
+        },
+        "mcp:tonen-dev:logs": {
+          "default": "allow"
+        },
+        "mcp:tonen-dev:wait_for": {
+          "default": "allow"
+        },
+        "mcp:tonen-dev:act": {
+          "default": "allow"
+        },
+        "mcp:tonen-dev:open": {
+          "default": "allow"
+        },
         "mcp:linear:resolve_diff_thread": {
           "default": "allow"
         },
@@ -179,7 +200,7 @@
       "speed": "fast",
       "effort": "high",
       "provider": "openai-subscribed",
-      "model": "gpt-5.6-sol",
+      "model": "gpt-6.1-sol",
       "enable_thinking": true,
     },
     "play_sound_when_agent_done": "always",
@@ -194,6 +215,9 @@
       "type": "registry",
     },
     "claude-acp": {
+      "default_config_options": {
+        "mode": "auto"
+      },
       "type": "registry",
     },
     "gemini": {
@@ -230,6 +254,7 @@
   "current_line_highlight": "line",
   "cursor_blink": true,
   "edit_predictions": {
+    "allow_data_collection": "no",
     "provider": "zed",
     "disabled_globs": [".env", "**/journal"],
     "mode": "eager",
@@ -343,6 +368,7 @@
     "metrics": false,
   },
   "terminal": {
+    "font_family": "JetBrains Mono",
     "font_weight": 300.0,
     "line_height": "comfortable",
     "scrollbar": {
@@ -362,7 +388,7 @@
   "theme": {
     "mode": "dark",
     "light": "Melange Light",
-    "dark": "Everforest Dark Hard (material)"
+    "dark": "Gondolin Dark"
   },
   "toolbar": {
     "breadcrumbs": true,

@@ -170,14 +170,15 @@ agents/
   skills/                shared Agent Skills
 
 ~/.agents                linked by make agents
-~/.claude/skills         linked by make claude
+~/.claude/CLAUDE.md      linked by make claude
+~/.claude/skills         real directory with links to shared skills
 ~/.codex/AGENTS.md       linked by make codex
 ~/.pi/agent              assembled by make pi
 ```
 
-Pi keeps its configuration, models, extensions, and themes under `pi/agent/`. Claude and Codex receive only the shared pieces that they support.
+Pi discovers the shared skills through `~/.agents/skills`, so it needs no second copy under `~/.pi/agent`. Claude keeps `~/.claude/skills` as a real directory because it writes account-synced skills there. `make claude` links each shared skill into that directory without exposing Claude's generated state to Pi or Git.
 
-The repository includes skills for requirements gathering, structural search, code simplification, technical and personal writing, PR descriptions, developer logs, tutoring, Elixir dependency updates, atomic commits, fetching GitHub files, and rendering reMarkable PDFs. The directory names under `agents/skills/` are the source of truth.
+The repository includes skills for requirements gathering, structural search, code simplification, technical and personal writing, PR descriptions, developer logs, tutoring, Elixir dependency updates, atomic commits, fetching GitHub files, rendering reMarkable PDFs, and copying Slack-ready messages to the clipboard. The directory names under `agents/skills/` are the source of truth.
 
 ### Image paste over SSH
 

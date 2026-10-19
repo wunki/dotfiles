@@ -230,11 +230,47 @@ agents:
 	@echo "Shared agents linked."
 
 claude: agents
-	@echo "Linking shared skills for Claude..."
+	@echo "Linking Claude global instructions and shared skills..."
 	@mkdir -p $(HOME)/.claude
-	$(call backup_real_path,$(HOME)/.claude/skills,Claude skills)
-	@ln -fns $(DOTFILES)/agents/skills $(HOME)/.claude/skills
-	@echo "Claude skills linked."
+	$(call backup_real_path,$(HOME)/.claude/CLAUDE.md,~/.claude/CLAUDE.md)
+	@ln -fns $(DOTFILES)/agents/AGENTS.md $(HOME)/.claude/CLAUDE.md
+	@if [ -L "$(HOME)/.claude/skills" ]; then unlink "$(HOME)/.claude/skills"; fi
+	@if [ -e "$(HOME)/.claude/skills" ] && [ ! -d "$(HOME)/.claude/skills" ]; then \
+		backup="$(HOME)/.claude/skills.bak.$$(date +%Y%m%d%H%M%S)"; \
+		mv "$(HOME)/.claude/skills" "$$backup"; \
+		echo "Backed up existing Claude skills file to $$backup"; \
+	fi
+	@mkdir -p $(HOME)/.claude/skills
+	@for generated in synced .trash; do \
+		source="$(DOTFILES)/agents/skills/$$generated"; \
+		destination="$(HOME)/.claude/skills/$$generated"; \
+		if [ -e "$$source" ] && [ ! -e "$$destination" ]; then \
+			mv "$$source" "$$destination"; \
+			echo "Moved Claude-managed $$generated out of the shared skill directory"; \
+		fi; \
+	done
+	@for link in $(HOME)/.claude/skills/*; do \
+		if [ -L "$$link" ]; then \
+			target=$$(readlink "$$link"); \
+			case "$$target" in \
+				$(DOTFILES)/agents/skills/*) \
+					if [ ! -e "$$target" ]; then rm "$$link"; fi; \
+					;; \
+			esac; \
+		fi; \
+	done
+	@for skill in $(DOTFILES)/agents/skills/*; do \
+		if [ ! -d "$$skill" ] || [ "$$(basename "$$skill")" = "synced" ]; then continue; fi; \
+		name=$$(basename "$$skill"); \
+		destination="$(HOME)/.claude/skills/$$name"; \
+		if [ -e "$$destination" ] && [ ! -L "$$destination" ]; then \
+			backup="$$destination.bak.$$(date +%Y%m%d%H%M%S)"; \
+			mv "$$destination" "$$backup"; \
+			echo "Backed up existing Claude skill $$name to $$backup"; \
+		fi; \
+		ln -fns "$$skill" "$$destination"; \
+	done
+	@echo "Claude linked. Synced Claude skills remain local to ~/.claude/skills."
 
 codex: agents
 	@echo "Linking Codex global instructions and theme..."
@@ -244,7 +280,7 @@ codex: agents
 	@$(DOTFILES)/codex/install-theme
 	@echo "Codex linked."
 
-pi:
+pi: agents
 	@echo "Linking Pi global configuration..."
 	@mkdir -p $(HOME)/.pi/agent
 	@ln -fns $(DOTFILES)/agents/AGENTS.md $(HOME)/.pi/agent/AGENTS.md

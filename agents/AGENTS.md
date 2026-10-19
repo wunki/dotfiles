@@ -43,6 +43,14 @@ You are talking to a human with a limited attention span. Optimize for what they
 - Stay scoped; note unrelated issues instead of fixing them.
 - Add useful error context/observability when touching critical failure paths.
 
+## Types and errors
+
+- Treat types as evidence of what is already known about a value. Parse untrusted input (request bodies, rows, env, files, third-party payloads) once, at the boundary, into the strongest type that fits, and pass that parsed value inward unchanged.
+- Never widen a known value to `unknown`, `any`, `object` or a generic record to make code easier to write, and never cast it back afterwards (`as unknown as T`). A cast proves nothing at runtime.
+- When a cast or non-null assertion really can't be avoided (a platform or library limit), put a comment directly above it that says why the value has that type at runtime and names the test that fails if it doesn't.
+- Handle each known error case by name. Leave out the catch-all that would quietly sort future errors, so a new kind of failure breaks the build until someone decides what it means.
+- An error says what failed, the most specific safe reason, and what the caller can do next (fix the input, retry, escalate). Put its context in typed fields (operation, ids, reason), not only in the message text.
+
 ## Codex command approvals
 
 - Run approved commands directly. Avoid shell redirection or wrappers around them: Codex can match the entire shell string, so changing a log filename can trigger another approval.
@@ -59,6 +67,7 @@ You are talking to a human with a limited attention span. Optimize for what they
 
 - Test behavior through real code paths; fake only boundaries like network, time, randomness, or third-party services.
 - For bugs, reproduce with a failing test first when practical.
+- Don't write tests that only repeat a schema's declaration (a valid value passes, a bad one fails). Test a schema where it carries your own behavior: a transform, a custom rule, a round trip, or a past regression.
 - Run the narrowest meaningful checks; state anything skipped or unverified.
 
 ## Commits

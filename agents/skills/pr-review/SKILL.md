@@ -16,6 +16,15 @@ The question behind every review: **will the next engineer, six months from now,
 
 Read [LENSES.md](LENSES.md) before reviewing anything non-trivial. It holds the checklists and the smell-to-fix examples for each lens.
 
+## Review modes
+
+- **Review someone else's change:** inspect and report. Don't edit unless asked.
+- **Pre-handoff self-review:** inspect the final diff against the task's acceptance criteria. Look for missing requirements as well as defects.
+
+For self-review, prefer a fresh session when available and authorized. Give it the task, relevant constraints, repo rules, and diff, not the implementer's conclusions about correctness. Switching models within the same conversation does not create an independent review.
+
+A review request alone does not authorize fixes. When implementation is already authorized, verify findings before fixing them and stay within the agreed scope.
+
 ## 1. Orient
 
 - Read the PR description, linked tickets and any design notes. Know what "done" was supposed to mean.
@@ -68,16 +77,25 @@ Don't report what a formatter, linter or type checker already enforces. Don't re
 ```
 Verdict: Approve | Approve with follow-ups | Request changes
 
-<2–3 sentences: what the PR does, how it's built, and the single biggest risk.>
+Reviewer briefing
+- What changes for users or callers.
+- How it works and why this approach was chosen.
+- API, storage, migration, or compatibility changes, when present.
+- Biggest risk and the decision that needs human judgment.
 
-Blockers / Should fix / Consider / Questions
+Findings: Blockers / Should fix / Consider / Questions
 - <file:line> <one-line claim>
   Why: <the concrete failure or cost>
+  Evidence: <reproduction, traced scenario, or specific dependency>
   Fix: <the specific change, with a short snippet when it helps>
 
-What I checked: <areas read in full, tests or scenarios run>
-What I didn't: <what was out of reach, e.g. not run against real data>
+Verification
+- Checked: <areas inspected and checks actually run>
+- Not checked: <gaps and why>
+- Review context: <implementation session or fresh reviewer session>
 ```
+
+For small changes, keep the briefing to 2–3 sentences. For larger changes, include a short data-flow sketch and explicit contract changes. Reuse the map from step 2 rather than repeating it.
 
 Keep it direct and specific. One sentence on what's genuinely well done is fine when it's notable and useful to know. Skip praise padding and filler.
 

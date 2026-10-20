@@ -69,6 +69,9 @@ You are talking to a human with a limited attention span. Optimize for what they
 - For bugs, reproduce with a failing test first when practical.
 - Don't write tests that only repeat a schema's declaration (a valid value passes, a bad one fails). Test a schema where it carries your own behavior: a transform, a custom rule, a round trip, or a past regression.
 - Run the narrowest meaningful checks; state anything skipped or unverified.
+- Before handing a non-trivial code change to a human reviewer, use `pr-review` on the final diff. Treat changes to behavior, ownership, persistence, concurrency, security, or public contracts as non-trivial.
+- Verify reported findings before fixing them. After fixes, rerun affected checks and review the changed paths again.
+- Report unresolved risks and checks not run. If the review used the implementation session, say so; don't describe it as independent.
 
 ## Commits
 

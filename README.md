@@ -178,7 +178,7 @@ agents/
 
 Pi discovers the shared skills through `~/.agents/skills`, so it needs no second copy under `~/.pi/agent`. Claude keeps `~/.claude/skills` as a real directory because it writes account-synced skills there. `make claude` links each shared skill into that directory without exposing Claude's generated state to Pi or Git.
 
-The repository includes skills for requirements gathering, structural search, code simplification, technical and personal writing, PR descriptions, developer logs, tutoring, Elixir dependency updates, atomic commits, fetching GitHub files, rendering reMarkable PDFs, and copying Slack-ready messages to the clipboard. The directory names under `agents/skills/` are the source of truth.
+The repository includes skills for requirements gathering, structural search, code simplification, technical and personal writing, PR descriptions, developer logs, tutoring, Elixir dependency updates, atomic commits, fetching GitHub files, rendering reMarkable PDFs, copying Slack-ready messages to the clipboard, and pushing a task to a deeper version of itself (`/better`). The directory names under `agents/skills/` are the source of truth.
 
 ### Image paste over SSH
 

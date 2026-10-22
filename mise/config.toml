@@ -1,6 +1,6 @@
 [settings]
 experimental = true
-auto_update = true
+self_update.auto = true
 
 [tools]
 odin = "latest"

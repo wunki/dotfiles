@@ -6,7 +6,7 @@
   "theme": "cendre",
   "enableInstallTelemetry": false,
   "packages": [
-    "npm:pi-openai-fast-mode",
+    "./extensions/pi-openai-fast-mode",
     "npm:pi-subagents"
   ],
   "lastChangelogVersion": "1.3.0",

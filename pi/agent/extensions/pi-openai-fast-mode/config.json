@@ -1,5 +1,5 @@
 {
-  "enabled": false,
+  "enabled": true,
   "targets": [
     {
       "provider": "openai",
@@ -37,6 +37,11 @@
       "serviceTier": "priority"
     },
     {
+      "provider": "openai",
+      "model": "gpt-6.1-sol",
+      "serviceTier": "priority"
+    },
+    {
       "provider": "openai-codex",
       "model": "gpt-5.4",
       "serviceTier": "priority"
@@ -69,6 +74,11 @@
     {
       "provider": "openai-codex",
       "model": "gpt-6-astra",
+      "serviceTier": "priority"
+    },
+    {
+      "provider": "openai-codex",
+      "model": "gpt-6.1-sol",
       "serviceTier": "priority"
     }
   ]

@@ -162,14 +162,14 @@ mise reshim
 
 ## AI coding tools
 
-The shared instructions and skills live in `agents/`. The `petar-writing` skill describes the voice used on [petar.dev](https://petar.dev). It removes generic AI phrasing and does not invent personal context.
+The shared instructions live in `agents/AGENTS.md`. The skills live in their own private repository, `petar-skills`, which `make agents` expects at `~/Code/petar-skills`. Clone it before running `make`, or point `SKILLS=` at another checkout.
 
 ```text
 agents/
   AGENTS.md              shared working instructions
-  skills/                shared Agent Skills
 
-~/.agents                linked by make agents
+~/.agents/AGENTS.md      linked by make agents
+~/.agents/skills         linked to petar-skills/skills by make agents
 ~/.claude/CLAUDE.md      linked by make claude
 ~/.claude/skills         real directory with links to shared skills
 ~/.codex/AGENTS.md       linked by make codex
@@ -177,8 +177,6 @@ agents/
 ```
 
 Pi discovers the shared skills through `~/.agents/skills`, so it needs no second copy under `~/.pi/agent`. Claude keeps `~/.claude/skills` as a real directory because it writes account-synced skills there. `make claude` links each shared skill into that directory without exposing Claude's generated state to Pi or Git.
-
-The repository includes skills for requirements gathering, structural search, code simplification, technical and personal writing, PR descriptions, developer logs, tutoring, Elixir dependency updates, atomic commits, fetching GitHub files, rendering reMarkable PDFs, copying Slack-ready messages to the clipboard, and pushing a task to a deeper version of itself (`/better`, or `/be-ambitious` to rewrite a prompt only). The directory names under `agents/skills/` are the source of truth.
 
 ### Image paste over SSH
 

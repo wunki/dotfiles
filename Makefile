@@ -4,6 +4,7 @@ GNOME_EXTENSIONS_DIR := $(HOME)/.local/share/gnome-shell/extensions
 APPLICATION_SHORTCUTS_UUID := application-shortcuts@wunki
 APPLICATION_SHORTCUTS_DIR := $(DOTFILES)/gnome-shell/$(APPLICATION_SHORTCUTS_UUID)
 UNAME		:= $(shell uname -s)
+SKILLS		?= $(HOME)/Code/petar-skills
 
 # User-level targets included in `make`.
 APP_TARGETS := fish zsh bat btop delta eza fzf helix ghostty gtk hunk zed sublime tmux bin lazygit mise agents claude codex pi applications wireplumber
@@ -223,10 +224,21 @@ bin:
 	done
 	@echo "Bin scripts linked."
 
+# Skills live in their own repository. ~/.agents used to be a single link to
+# $(DOTFILES)/agents; it is now a real directory so its two entries can come
+# from different checkouts.
 agents:
 	@echo "Linking shared agent instructions and skills..."
-	$(call backup_real_path,$(HOME)/.agents,~/.agents)
-	@ln -fns $(DOTFILES)/agents $(HOME)/.agents
+	@if [ ! -d "$(SKILLS)/skills" ]; then \
+		echo "Skills checkout not found at $(SKILLS). Clone it with: git clone git@github.com:wunki/petar-skills.git $(SKILLS)" >&2; \
+		exit 1; \
+	fi
+	@if [ -L "$(HOME)/.agents" ]; then unlink "$(HOME)/.agents"; fi
+	@mkdir -p $(HOME)/.agents
+	$(call backup_real_path,$(HOME)/.agents/AGENTS.md,~/.agents/AGENTS.md)
+	@ln -fns $(DOTFILES)/agents/AGENTS.md $(HOME)/.agents/AGENTS.md
+	$(call backup_real_path,$(HOME)/.agents/skills,~/.agents/skills)
+	@ln -fns $(SKILLS)/skills $(HOME)/.agents/skills
 	@echo "Shared agents linked."
 
 claude: agents
@@ -253,13 +265,13 @@ claude: agents
 		if [ -L "$$link" ]; then \
 			target=$$(readlink "$$link"); \
 			case "$$target" in \
-				$(DOTFILES)/agents/skills/*) \
+				$(DOTFILES)/agents/skills/*|$(SKILLS)/skills/*) \
 					if [ ! -e "$$target" ]; then rm "$$link"; fi; \
 					;; \
 			esac; \
 		fi; \
 	done
-	@for skill in $(DOTFILES)/agents/skills/*; do \
+	@for skill in $(SKILLS)/skills/*; do \
 		if [ ! -d "$$skill" ] || [ "$$(basename "$$skill")" = "synced" ]; then continue; fi; \
 		name=$$(basename "$$skill"); \
 		destination="$(HOME)/.claude/skills/$$name"; \

@@ -76,7 +76,7 @@ You are talking to a human with a limited attention span. Optimize for what they
 
 ## Commits
 
-- After implementing changes, commit them, push the branch, and open or update a PR once verification and review are complete. Do not ask again for routine PR delivery: this is standing authorization for scoped commits and branch pushes, not merges or destructive operations.
+- After implementing changes and completing verification and review, commit and push them following the repository's own workflow. Check recent history and the repo's instructions first: in trunk-based repos, commit to the default branch and push; in branch-based repos, push a branch and open or update a PR. If the history doesn't make it clear, ask. This is standing authorization for scoped commits and pushes, not merges or destructive operations.
 - Write commit messages with a short, imperative subject that names the concrete change.
 - In the body, explain the motivation and shape of the change in clear prose: what problem it solves, why this approach was chosen, and any notable tradeoffs or follow-up work.
 - Prefer useful context over exhaustively listing files; keep the tone practical, calm, and direct.

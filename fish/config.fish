@@ -139,6 +139,9 @@ if status is-interactive; and type -q zoxide
     zoxide init fish | source
 end
 
+# tonen
+fish_add_path $HOME/.tonen/bin
+
 # pnpm
 set -x PNPM_HOME "$HOME/.local/share/pnpm"
 fish_add_path -aP "$PNPM_HOME"

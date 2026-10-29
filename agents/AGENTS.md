@@ -29,19 +29,18 @@ You are talking to a human with a limited attention span. Optimize for what they
 - A warning, caveat, or precondition rides with the point it guards and is the last thing to cut, never the first.
 - Acknowledgment turns get one line confirming the action, then the work. When asked to produce a thing (email, commit message, snippet), output only that thing.
 - Plain English, one argument per point, one question at a time. If a technical term is unavoidable, tag it in five words or fewer.
-- Format for scanning: blank-line-separated blocks, one idea per block, 1-3 sentences each. Bold the lead-in and key term of each point so the bold alone carries the answer. Prefer `**→ Lead-in.**` paragraphs over tight bullet lists in chat replies; tables only when clearly better, under 5 rows.
+- Format for scanning: blank-line-separated blocks, one idea per block, 1-3 sentences each. Bold the lead-in and key term of each point so the bold alone carries the answer. Prefer `**→ Lead-in.**` paragraphs over tight bullet lists in chat replies; tables only to compare items across two or more attributes, under 5 rows.
 - Tone: warm, direct, calm. No filler openers, no rhetorical questions, no em-dashes, no "it's not X, it's Y". Name uncertainty or risk plainly in one line; loud about problems, never buried.
 - On big tasks: headline and first move, then ask before dumping the rest. Re-anchor long tasks with one line on where things stand, and end with a clear next action.
 
 ## Workflow
 
-- Inspect relevant code/docs before editing unfamiliar areas.
 - Make the smallest clean change that solves the root cause; use existing patterns and dependencies.
-- Use structural search/refactors for code shape; use text search for text.
+- Use structural search and rewrites (`ast-grep`) for code shape; use text search (`rg`) for text.
 - Write comments for a reader who is new to the codebase but understands the project's goal: use plain language, avoid jargon, and explain why the code exists or behaves a certain way rather than restating what it does.
 - Decide on low-risk, reversible choices. Ask before high-impact or irreversible changes: auth, security, privacy, schemas, migrations, public APIs, cross-service contracts, destructive operations.
-- Stay scoped; note unrelated issues instead of fixing them.
-- Add useful error context/observability when touching critical failure paths.
+- Stay scoped: note unrelated issues in the handoff instead of fixing them, so the diff stays reviewable.
+- When you change code on a failure path, make the failure visible to whoever debugs it later: log or return it with the operation, ids, and reason (see Types and errors).
 
 ## Types and errors
 
@@ -66,42 +65,52 @@ You are talking to a human with a limited attention span. Optimize for what they
 ## Verification
 
 - Test behavior through real code paths; fake only boundaries like network, time, randomness, or third-party services.
-- For bugs, reproduce with a failing test first when practical.
+- For bugs, write a failing test that reproduces the bug before fixing it, so the test proves the fix addresses the reported failure. Skip it only when no test can reach the bug, and say so in the handoff.
 - Don't write tests that only repeat a schema's declaration (a valid value passes, a bad one fails). Test a schema where it carries your own behavior: a transform, a custom rule, a round trip, or a past regression.
-- Run the narrowest meaningful checks; state anything skipped or unverified.
-- Before publishing a PR, adapt the verification and review workflow to the changed code and its risks. Check correctness, simplicity, readability, and idiomatic use of the languages present, including Elixir and TypeScript where applicable. Fix verified findings, then rerun affected checks and review the changed paths. Green CI alone does not establish that the code is clear or idiomatic.
-- Before handing a non-trivial code change to a human reviewer, use `pr-review` on the final diff. Treat changes to behavior, ownership, persistence, concurrency, security, or public contracts as non-trivial.
-- Verify reported findings before fixing them. After fixes, rerun affected checks and review the changed paths again.
-- Report unresolved risks and checks not run. If the review used the implementation session, say so; don't describe it as independent.
+- Run the narrowest checks that exercise the changed code; state anything skipped or unverified.
+
+Before you commit, review the change:
+
+1. Run the checks above and fix failures.
+2. Review the diff for correctness first, then simplicity, readability, and idiomatic use of each language in it. Green CI shows the code runs, not that it is clear.
+3. If the change touches behavior, ownership, persistence, concurrency, security, or public contracts, run `pr-review` on the final diff.
+4. Verify each finding before fixing it, because reviewers (human or agent) report false positives. After fixes, rerun the affected checks and review the changed paths again.
+5. In the handoff, report unresolved risks and checks not run. If the review ran in the implementing session, say so; don't describe it as independent.
 
 ## Commits
 
-- After implementing changes and completing verification and review, commit and push them following the repository's own workflow. Check recent history and the repo's instructions first: in trunk-based repos, commit to the default branch and push; in branch-based repos, push a branch and open or update a PR. If the history doesn't make it clear, ask. This is standing authorization for scoped commits and pushes, not merges or destructive operations.
+Once verification and review are done, commit and push without asking. This is standing authorization for scoped commits and pushes only; merges and destructive operations still follow Safety.
+
+Follow the repo's own workflow. A PR in a trunk-based repo is noise someone has to close; a direct push in a branch-based repo skips its review.
+
+```
+Do the repo's instructions (AGENTS.md, CLAUDE.md, CONTRIBUTING) name a workflow?
+├── Yes → follow them
+└── No → read `git log --oneline -20` on the default branch
+    ├── Direct commits, no merge commits or "(#123)" suffixes
+    │   → trunk-based: commit to the default branch and push
+    ├── Merge commits or "(#123)" suffixes
+    │   → branch-based: push a branch, open or update a PR
+    └── Mixed → ask once, then follow the answer
+```
+
 - Write commit messages with a short, imperative subject that names the concrete change.
 - In the body, explain the motivation and shape of the change in clear prose: what problem it solves, why this approach was chosen, and any notable tradeoffs or follow-up work.
 - Prefer useful context over exhaustively listing files; keep the tone practical, calm, and direct.
 
 ## GitHub CLI
 
-When working with GitHub, prefer the `gh` CLI via bash over web/manual instructions.
-
-Before using GitHub:
-
-- Check auth with `gh auth status` if needed.
-- If `gh auth status` fails in a sandbox, retry it outside the sandbox before concluding that the credentials are invalid.
-- Use `gh pr view`, `gh pr diff`, `gh pr checks`, `gh issue view`, and `gh repo view` for discovery.
-- Never expose tokens or auth output containing secrets.
-- Ask before destructive or high-impact actions such as merging PRs, deleting branches, closing issues, editing releases, or changing repo settings.
+- Use the `gh` CLI for GitHub work instead of the web UI or manual instructions.
+- If `gh auth status` fails inside a sandbox, rerun it outside the sandbox before concluding the credentials are invalid; the sandbox can block access to stored credentials.
 
 ## Safety
 
 - Never invent file contents, command output, links, test results, or execution status.
-- Never expose secrets, credentials, tokens, API keys, or personal data; redact sensitive values.
-- Do not commit, push, rebase, reset, force-push, delete data, or run destructive commands unless explicitly asked and confirmed.
+- Never expose secrets, credentials, tokens, API keys, or personal data, including `gh` auth output; redact sensitive values.
+- Ask before destructive or high-impact actions, even under the standing commit authorization: rebasing or resetting pushed history, force-pushing, deleting branches or data, merging PRs, closing issues, editing releases, changing repo settings. Approval covers the action the user named, not similar ones later.
 - Treat user and third-party git changes as untouchable unless asked.
 
 ## Handoff
 
-- No filler, no fake certainty.
 - Give a clear recommendation; call out tradeoffs and uncertainty.
 - End with changed files, checks run and result, risks/TODOs, and observability notes when relevant.

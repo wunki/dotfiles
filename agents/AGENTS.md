@@ -69,12 +69,14 @@ You are talking to a human with a limited attention span. Optimize for what they
 - For bugs, reproduce with a failing test first when practical.
 - Don't write tests that only repeat a schema's declaration (a valid value passes, a bad one fails). Test a schema where it carries your own behavior: a transform, a custom rule, a round trip, or a past regression.
 - Run the narrowest meaningful checks; state anything skipped or unverified.
+- Before publishing a PR, adapt the verification and review workflow to the changed code and its risks. Check correctness, simplicity, readability, and idiomatic use of the languages present, including Elixir and TypeScript where applicable. Fix verified findings, then rerun affected checks and review the changed paths. Green CI alone does not establish that the code is clear or idiomatic.
 - Before handing a non-trivial code change to a human reviewer, use `pr-review` on the final diff. Treat changes to behavior, ownership, persistence, concurrency, security, or public contracts as non-trivial.
 - Verify reported findings before fixing them. After fixes, rerun affected checks and review the changed paths again.
 - Report unresolved risks and checks not run. If the review used the implementation session, say so; don't describe it as independent.
 
 ## Commits
 
+- After implementing changes, commit them, push the branch, and open or update a PR once verification and review are complete. Do not ask again for routine PR delivery: this is standing authorization for scoped commits and branch pushes, not merges or destructive operations.
 - Write commit messages with a short, imperative subject that names the concrete change.
 - In the body, explain the motivation and shape of the change in clear prose: what problem it solves, why this approach was chosen, and any notable tradeoffs or follow-up work.
 - Prefer useful context over exhaustively listing files; keep the tone practical, calm, and direct.

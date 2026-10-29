@@ -186,6 +186,7 @@ install_workstation_packages() {
     fzf
     gh
     gnome-shell-extension-user-theme
+    jq
     lazygit
     libevent-dev
     libncurses-dev

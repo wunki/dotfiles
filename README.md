@@ -337,11 +337,7 @@ make auto-suspend   # automatic desktop suspend
 
 Active SSH, Tailscale SSH, Zed remote, console, and non-idle graphical sessions reset the countdown. Sessions stuck in `closing` do not. Sleep and idle inhibitors prevent the suspend.
 
-Before the suspend, the monitor writes `~/.cache/dotfiles-desktop-sleep/slept-at`. `sleep-desktop` writes the same timestamp when you request the suspend by hand. `wake-desktop` reads and removes it after the machine returns, and reports how long the machine slept.
-
-When the machine runs Windows with WSL2, `sleep-wsl` calls the Windows suspend API from an SSH session inside WSL. `wake-wsl` sends Wake-on-LAN through the Pi, waits for WSL SSH, and reports how long the machine slept. Windows must expose S3 sleep, and its Ethernet adapter must be armed for wake.
-
-`wake-win` wakes the same machine and waits for Windows' own SSH server (`desktop-win`) instead, since WSL doesn't start on its own after boot. Windows has no POSIX shell, so it doesn't report how long the machine slept.
+Before the suspend, the monitor writes `~/.cache/dotfiles-desktop-sleep/slept-at`.
 
 The installer needs `shellcheck`, Python 3, and `runuser`. It validates the monitor, installs root-owned copies, reloads systemd, and enables the timer.
 
@@ -349,6 +345,19 @@ The installer needs `shellcheck`, Python 3, and `runuser`. It validates the moni
 systemctl status auto-suspend-monitor.timer
 journalctl -t auto-suspend-monitor
 ```
+
+### Waking and sleeping the desktop remotely
+
+The desktop dual-boots Windows (`desktop-win`) and Ubuntu (`desktop-unix`). `desktop` finds out which one is running:
+
+```bash
+desktop wake    # Wake-on-LAN through the Pi, then wait for either OS's SSH
+desktop sleep   # suspend whichever OS is running
+```
+
+`desktop wake` sends the packet from the Pi, because Wake-on-LAN only travels on the home network. It reports how long the machine slept: on Ubuntu from the timestamp above, which `desktop sleep` also writes, and on Windows from the resume event Windows logs. `desktop sleep` waits until SSH stops answering, so a suspend that didn't happen shows up as an error.
+
+On Windows, `desktop sleep` starts the suspend through WMI, because Windows ends every process an SSH session started when the session closes. Windows must expose S3 sleep, and its Ethernet adapter must be armed for wake.
 
 ### Apple Studio Display brightness
 

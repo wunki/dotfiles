@@ -1,0 +1,263 @@
+#!/usr/bin/env bash
+#
+# desktop - wake or sleep the dual-boot desktop from another machine.
+#
+# The desktop runs either Windows (SSH host "desktop-win") or Ubuntu
+# ("desktop-unix"), and both commands find out which one is up. The
+# Wake-on-LAN packet only travels on the home network, so it is sent from the
+# Pi ("pi"), which is always home. Each name comes from ~/.ssh/config or
+# Tailscale MagicDNS.
+#
+set -euo pipefail
+
+mac="${DESKTOP_MAC:-58:11:22:b6:b4:06}"
+pi_host="${DESKTOP_PI_HOST:-pi}"
+win_host="${DESKTOP_WIN_HOST:-desktop-win}"
+unix_host="${DESKTOP_UNIX_HOST:-desktop-unix}"
+wait_timeout="${DESKTOP_WAIT_TIMEOUT:-90}"
+# Relative to the Ubuntu home. The auto-suspend monitor writes it too.
+ubuntu_stamp_path=".cache/dotfiles-desktop-sleep/slept-at"
+
+usage() {
+  cat <<USAGE
+Usage: desktop wake [--no-wait]
+       desktop sleep
+
+  wake    Send Wake-on-LAN through ${pi_host}, then wait up to ${wait_timeout}s
+          for Windows (${win_host}) or Ubuntu (${unix_host}) to answer SSH
+          and report how long it slept.
+  sleep   Suspend whichever of Windows or Ubuntu is running.
+
+Environment overrides: DESKTOP_MAC, DESKTOP_PI_HOST, DESKTOP_WIN_HOST,
+DESKTOP_UNIX_HOST, DESKTOP_WAIT_TIMEOUT.
+USAGE
+}
+
+# A shared control connection could answer for a host that has gone to sleep,
+# so every call opens its own.
+ssh_opts=(-T -o ConnectTimeout=10 -o ControlMaster=no -o ControlPath=none)
+probe_opts=(
+  -T
+  -o BatchMode=yes
+  -o ConnectTimeout=2
+  -o ConnectionAttempts=1
+  -o ControlMaster=no
+  -o ControlPath=none
+)
+
+answers_ssh() {
+  # "exit 0" works in sh, cmd and PowerShell alike.
+  ssh "${probe_opts[@]}" "$1" exit 0 </dev/null >/dev/null 2>&1
+}
+
+# Prints "windows" or "ubuntu", or fails when neither answers.
+running_os() {
+  if answers_ssh "$win_host"; then
+    echo windows
+  elif answers_ssh "$unix_host"; then
+    echo ubuntu
+  else
+    return 1
+  fi
+}
+
+os_label() {
+  case "$1" in
+    windows) echo Windows ;;
+    ubuntu) echo Ubuntu ;;
+  esac
+}
+
+# Runs a PowerShell script on Windows. -EncodedCommand (base64 UTF-16LE) gets
+# it past the remote shell without any quoting.
+windows_powershell() {
+  local encoded
+  encoded="$(printf '%s' "$1" | iconv -t UTF-16LE | base64 | tr -d '\n')"
+  ssh "${ssh_opts[@]}" "$win_host" \
+    powershell.exe -NoProfile -NonInteractive -EncodedCommand "$encoded" 2>/dev/null |
+    tr -d '\r'
+}
+
+duration_part() {
+  if (( $1 == 1 )); then
+    printf '1 %s\n' "$2"
+  else
+    printf '%s %ss\n' "$1" "$2"
+  fi
+}
+
+human_duration() {
+  local total=$1 parts=()
+  (( total < 0 )) && total=0
+
+  (( total >= 86400 )) && parts+=("$(duration_part $((total / 86400)) day)")
+  (( total % 86400 >= 3600 )) && parts+=("$(duration_part $((total % 86400 / 3600)) hour)")
+  (( total % 3600 >= 60 )) && parts+=("$(duration_part $((total % 3600 / 60)) minute)")
+  (( ${#parts[@]} == 0 )) && parts+=("$(duration_part $((total % 60)) second)")
+
+  local IFS=" "
+  printf '%s\n' "${parts[*]}"
+}
+
+# Prints how many seconds Windows slept before this wake, or nothing after a
+# cold boot. Windows logs each resume as Power-Troubleshooter event 1, a few
+# seconds after SSH may already answer, so it polls briefly.
+windows_slept_seconds() {
+  # shellcheck disable=SC2016 # PowerShell variables, expanded on Windows.
+  windows_powershell '
+    $ProgressPreference = "SilentlyContinue"
+    $boot = (Get-CimInstance Win32_OperatingSystem).LastBootUpTime
+    if (((Get-Date) - $boot).TotalMinutes -lt 10) { exit }
+    for ($i = 0; $i -lt 10; $i++) {
+      $event = Get-WinEvent -MaxEvents 1 -ErrorAction SilentlyContinue -FilterHashtable @{
+        LogName = "System"; ProviderName = "Microsoft-Windows-Power-Troubleshooter"; Id = 1
+      }
+      if ($event) {
+        $data = @{}
+        ([xml]$event.ToXml()).Event.EventData.Data | ForEach-Object { $data[$_.Name] = $_."#text" }
+        $woke = [datetimeoffset]$data.WakeTime
+        if (([datetimeoffset]::UtcNow - $woke).TotalMinutes -lt 10) {
+          [int]($woke - [datetimeoffset]$data.SleepTime).TotalSeconds
+          exit
+        }
+      }
+      Start-Sleep 1
+    }
+  '
+}
+
+# Prints how many seconds Ubuntu slept, from the timestamp that `desktop sleep`
+# or the auto-suspend monitor wrote, and removes it. Prints nothing without one.
+ubuntu_slept_seconds() {
+  ssh "${ssh_opts[@]}" "$unix_host" sh -s -- "$ubuntu_stamp_path" <<'REMOTE'
+set -eu
+stamp="${HOME}/$1"
+[ -r "$stamp" ] || exit 0
+slept_at="$(sed -n 1p "$stamp")"
+rm -f "$stamp"
+case "$slept_at" in
+  ""|*[!0-9]*) exit 0 ;;
+esac
+echo $(( $(date +%s) - slept_at ))
+REMOTE
+}
+
+cmd_wake() {
+  local wait=true os started slept probes=0
+
+  case "${1:-}" in
+    --no-wait) wait=false ;;
+    "") ;;
+    *) usage >&2; exit 2 ;;
+  esac
+
+  echo "Sending Wake-on-LAN to ${mac} through ${pi_host}..."
+  ssh "${ssh_opts[@]}" "$pi_host" sh -s -- "$mac" <<'REMOTE'
+set -eu
+PATH="$PATH:/usr/sbin"
+if ! command -v etherwake >/dev/null 2>&1; then
+  echo "desktop: etherwake is not installed on the Pi." >&2
+  exit 127
+fi
+if [ "$(id -u)" -eq 0 ]; then
+  etherwake "$1"
+else
+  sudo -n etherwake "$1"
+fi
+REMOTE
+
+  [[ "$wait" == true ]] || return 0
+
+  echo "Waiting up to ${wait_timeout}s for ${win_host} or ${unix_host}..."
+  started=$SECONDS
+  until probes=$((probes + 1)) && os="$(running_os)"; do
+    if (( SECONDS - started >= wait_timeout )); then
+      echo "desktop: neither ${win_host} nor ${unix_host} answered SSH within ${wait_timeout}s." >&2
+      exit 1
+    fi
+    sleep 1
+  done
+  # No machine resumes within a second of the packet, so an answer to the
+  # first probe means it never slept.
+  if (( probes == 1 )); then
+    echo "$(os_label "$os") was already awake."
+    return 0
+  fi
+  echo "$(os_label "$os") is up after $(human_duration $((SECONDS - started)))."
+
+  case "$os" in
+    windows) slept="$(windows_slept_seconds || true)" ;;
+    ubuntu) slept="$(ubuntu_slept_seconds || true)" ;;
+  esac
+  if [[ "$slept" =~ ^[0-9]+$ ]]; then
+    echo "It slept for $(human_duration "$slept")."
+  fi
+}
+
+sleep_windows() {
+  local suspend encoded
+
+  # Windows ends every process an SSH session started when the session
+  # closes, so the suspend is started through WMI instead, after a pause that
+  # lets this session finish cleanly.
+  # shellcheck disable=SC2016 # PowerShell variables, expanded on Windows.
+  suspend='Start-Sleep 2; Add-Type -AssemblyName System.Windows.Forms; [void][System.Windows.Forms.Application]::SetSuspendState("Suspend", $false, $false)'
+  encoded="$(printf '%s' "$suspend" | iconv -t UTF-16LE | base64 | tr -d '\n')"
+  windows_powershell "
+    \$command = 'powershell.exe -NoProfile -NonInteractive -WindowStyle Hidden -EncodedCommand ${encoded}'
+    \$result = Invoke-CimMethod -ClassName Win32_Process -MethodName Create -Arguments @{ CommandLine = \$command }
+    exit \$result.ReturnValue
+  "
+}
+
+sleep_ubuntu() {
+  ssh "${ssh_opts[@]}" "$unix_host" sh -s -- "$ubuntu_stamp_path" <<'REMOTE'
+set -eu
+stamp="${HOME}/$1"
+mkdir -p "$(dirname "$stamp")"
+date +%s > "$stamp"
+if [ "$(id -u)" -eq 0 ]; then
+  systemctl suspend
+elif sudo -n true 2>/dev/null; then
+  sudo -n systemctl suspend
+else
+  systemctl suspend
+fi
+REMOTE
+}
+
+cmd_sleep() {
+  local os host started
+
+  [[ $# -eq 0 ]] || { usage >&2; exit 2; }
+
+  if ! os="$(running_os)"; then
+    echo "desktop: neither ${win_host} nor ${unix_host} answers SSH; it may already be asleep." >&2
+    exit 1
+  fi
+
+  echo "Suspending $(os_label "$os")..."
+  case "$os" in
+    windows) host="$win_host"; sleep_windows ;;
+    ubuntu) host="$unix_host"; sleep_ubuntu ;;
+  esac
+
+  # Neither OS reports a failed suspend back over SSH, so confirm that SSH
+  # stops answering.
+  started=$SECONDS
+  while answers_ssh "$host"; do
+    if (( SECONDS - started >= 30 )); then
+      echo "desktop: $(os_label "$os") still answers SSH 30s after the suspend request." >&2
+      exit 1
+    fi
+    sleep 1
+  done
+  echo "$(os_label "$os") is asleep."
+}
+
+case "${1:-}" in
+  wake) shift; cmd_wake "$@" ;;
+  sleep) shift; cmd_sleep "$@" ;;
+  -h|--help) usage ;;
+  *) usage >&2; exit 2 ;;
+esac

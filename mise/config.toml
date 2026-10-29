@@ -27,4 +27,6 @@ go = "latest"
 "go:golang.org/x/tools/cmd/goimports" = "latest"
 java = "latest"
 "aqua:remoteoss/dexter" = "latest"
+# The agent instructions use ast-grep for structural code search on every machine.
+ast-grep = "latest"
 usage = "latest"

@@ -7,7 +7,7 @@ odin = "latest"
 lua = "latest"
 lua-language-server = "latest"
 node = "lts"
-"npm:@mermaid-js/mermaid-cli" = { version = "latest", trust_policy_excludes = ["cytoscape@3.34.1"] }
+"npm:@mermaid-js/mermaid-cli" = { version = "11.16.0", trust_policy_excludes = ["cytoscape@3.34.1"] }
 "npm:oxlint" = "latest"
 "npm:tree-sitter-cli" = { version = "latest", allow_builds = ["tree-sitter-cli"] }
 "npm:oxfmt" = "latest"

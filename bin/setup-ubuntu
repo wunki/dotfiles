@@ -341,14 +341,13 @@ apply_dotfiles() {
     hunk
     mise
     bin
-    agents
-    claude
     codex
     pi
   )
 
   log "Applying workstation dotfiles"
   run make -C "$dotfiles_dir" "${targets[@]}"
+  log "Agent instructions and skills are not part of dotfiles: clone petar-skills to ~/Code/petar-skills and run make there"
 }
 
 install_mise_tools() {

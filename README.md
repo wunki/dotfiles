@@ -54,7 +54,7 @@ make auto-suspend   # desktop suspend timer
 | Desktop and terminal | GTK 4, GNOME Shell, Ghostty, and tmux |
 | Editors | Helix, Zed, and Sublime Text |
 | CLI tools | Bat, btop, Delta, eza, fzf, Hunk, Lazygit, and mise |
-| AI tools | Shared agent instructions and skills, plus Claude Code, Codex, and Pi integration |
+| AI tools | Cendre theme for Codex and Pi, and image paste over SSH |
 | Linux system | keyd remaps, Apple Studio Display access, and automatic suspend |
 | Scripts | Tool installers, Neovim URL handling, Wake-on-LAN, and desktop suspend helpers |
 
@@ -89,9 +89,7 @@ make lazygit
 make mise
 make hunk
 
-# AI tools
-make agents
-make claude
+# AI tool themes
 make codex
 make pi
 
@@ -162,21 +160,7 @@ mise reshim
 
 ## AI coding tools
 
-The shared instructions live in `agents/AGENTS.md`. The skills live in their own private repository, `petar-skills`, which `make agents` expects at `~/Code/petar-skills`. Clone it before running `make`, or point `SKILLS=` at another checkout.
-
-```text
-agents/
-  AGENTS.md              shared working instructions
-
-~/.agents/AGENTS.md      linked by make agents
-~/.agents/skills         linked to petar-skills/skills by make agents
-~/.claude/CLAUDE.md      linked by make claude
-~/.claude/skills         real directory with links to shared skills
-~/.codex/AGENTS.md       linked by make codex
-~/.pi/agent              assembled by make pi
-```
-
-Pi discovers the shared skills through `~/.agents/skills`, so it needs no second copy under `~/.pi/agent`. Claude keeps `~/.claude/skills` as a real directory because it writes account-synced skills there. `make claude` links each shared skill into that directory without exposing Claude's generated state to Pi or Git.
+Agent instructions, skills, and Pi config live in the private `petar-skills` repository. Clone it to `~/Code/petar-skills` and run `make` there; on a machine set up before the move, run it once after pulling this repository to replace the old links. This repository only installs the Cendre theme for Codex (`make codex`) and links the Pi themes (`make pi`).
 
 ### Image paste over SSH
 

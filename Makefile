@@ -4,10 +4,9 @@ GNOME_EXTENSIONS_DIR := $(HOME)/.local/share/gnome-shell/extensions
 APPLICATION_SHORTCUTS_UUID := application-shortcuts@wunki
 APPLICATION_SHORTCUTS_DIR := $(DOTFILES)/gnome-shell/$(APPLICATION_SHORTCUTS_UUID)
 UNAME		:= $(shell uname -s)
-SKILLS		?= $(HOME)/Code/petar-skills
 
 # User-level targets included in `make`.
-APP_TARGETS := fish zsh bat btop delta eza fzf helix ghostty gtk hunk zed sublime tmux bin lazygit mise agents claude codex pi applications wireplumber
+APP_TARGETS := fish zsh bat btop delta eza fzf helix ghostty gtk hunk zed sublime tmux bin lazygit mise codex pi applications wireplumber
 
 .PHONY: all
 all: $(APP_TARGETS)
@@ -224,85 +223,19 @@ bin:
 	done
 	@echo "Bin scripts linked."
 
-# Skills live in their own repository. ~/.agents used to be a single link to
-# $(DOTFILES)/agents; it is now a real directory so its two entries can come
-# from different checkouts.
-agents:
-	@echo "Linking shared agent instructions and skills..."
-	@if [ ! -d "$(SKILLS)/skills" ]; then \
-		echo "Skills checkout not found at $(SKILLS). Clone it with: git clone git@github.com:wunki/petar-skills.git $(SKILLS)" >&2; \
-		exit 1; \
-	fi
-	@if [ -L "$(HOME)/.agents" ]; then unlink "$(HOME)/.agents"; fi
-	@mkdir -p $(HOME)/.agents
-	$(call backup_real_path,$(HOME)/.agents/AGENTS.md,~/.agents/AGENTS.md)
-	@ln -fns $(DOTFILES)/agents/AGENTS.md $(HOME)/.agents/AGENTS.md
-	$(call backup_real_path,$(HOME)/.agents/skills,~/.agents/skills)
-	@ln -fns $(SKILLS)/skills $(HOME)/.agents/skills
-	@echo "Shared agents linked."
-
-claude: agents
-	@echo "Linking Claude global instructions and shared skills..."
-	@mkdir -p $(HOME)/.claude
-	$(call backup_real_path,$(HOME)/.claude/CLAUDE.md,~/.claude/CLAUDE.md)
-	@ln -fns $(DOTFILES)/agents/AGENTS.md $(HOME)/.claude/CLAUDE.md
-	@if [ -L "$(HOME)/.claude/skills" ]; then unlink "$(HOME)/.claude/skills"; fi
-	@if [ -e "$(HOME)/.claude/skills" ] && [ ! -d "$(HOME)/.claude/skills" ]; then \
-		backup="$(HOME)/.claude/skills.bak.$$(date +%Y%m%d%H%M%S)"; \
-		mv "$(HOME)/.claude/skills" "$$backup"; \
-		echo "Backed up existing Claude skills file to $$backup"; \
-	fi
-	@mkdir -p $(HOME)/.claude/skills
-	@for generated in synced .trash; do \
-		source="$(DOTFILES)/agents/skills/$$generated"; \
-		destination="$(HOME)/.claude/skills/$$generated"; \
-		if [ -e "$$source" ] && [ ! -e "$$destination" ]; then \
-			mv "$$source" "$$destination"; \
-			echo "Moved Claude-managed $$generated out of the shared skill directory"; \
-		fi; \
-	done
-	@for link in $(HOME)/.claude/skills/*; do \
-		if [ -L "$$link" ]; then \
-			target=$$(readlink "$$link"); \
-			case "$$target" in \
-				$(DOTFILES)/agents/skills/*|$(SKILLS)/skills/*) \
-					if [ ! -e "$$target" ]; then rm "$$link"; fi; \
-					;; \
-			esac; \
-		fi; \
-	done
-	@for skill in $(SKILLS)/skills/*; do \
-		if [ ! -d "$$skill" ] || [ "$$(basename "$$skill")" = "synced" ]; then continue; fi; \
-		name=$$(basename "$$skill"); \
-		destination="$(HOME)/.claude/skills/$$name"; \
-		if [ -e "$$destination" ] && [ ! -L "$$destination" ]; then \
-			backup="$$destination.bak.$$(date +%Y%m%d%H%M%S)"; \
-			mv "$$destination" "$$backup"; \
-			echo "Backed up existing Claude skill $$name to $$backup"; \
-		fi; \
-		ln -fns "$$skill" "$$destination"; \
-	done
-	@echo "Claude linked. Synced Claude skills remain local to ~/.claude/skills."
-
-codex: agents
-	@echo "Linking Codex global instructions and theme..."
-	@mkdir -p $(HOME)/.codex
-	$(call backup_real_path,$(HOME)/.codex/AGENTS.md,~/.codex/AGENTS.md)
-	@ln -fns $(DOTFILES)/agents/AGENTS.md $(HOME)/.codex/AGENTS.md
+# Agent instructions, skills, and Pi config live in petar-skills, which links
+# itself. Only the Cendre theme wiring for Codex and Pi stays here.
+codex:
+	@echo "Installing Codex theme..."
 	@$(DOTFILES)/codex/install-theme
-	@echo "Codex linked."
+	@echo "Codex theme installed."
 
-pi: agents
-	@echo "Linking Pi global configuration..."
+pi:
+	@echo "Linking Pi themes..."
 	@mkdir -p $(HOME)/.pi/agent
-	@ln -fns $(DOTFILES)/agents/AGENTS.md $(HOME)/.pi/agent/AGENTS.md
-	$(call backup_real_path,$(HOME)/.pi/agent/extensions,Pi extensions)
-	@ln -fns $(DOTFILES)/pi/agent/extensions $(HOME)/.pi/agent/extensions
 	$(call backup_real_path,$(HOME)/.pi/agent/themes,Pi themes)
 	@ln -fns $(DOTFILES)/pi/agent/themes $(HOME)/.pi/agent/themes
-	@ln -fns $(DOTFILES)/pi/agent/settings.json $(HOME)/.pi/agent/settings.json
-	@ln -fns $(DOTFILES)/pi/agent/models.json $(HOME)/.pi/agent/models.json
-	@echo "Pi linked."
+	@echo "Pi themes linked."
 
 # --- Linux system configuration ---
 #

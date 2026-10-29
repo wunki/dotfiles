@@ -38,7 +38,7 @@ function smart-commit --description "Plan and approve atomic commits with Codex"
         --sandbox read-only \
         --output-schema "$schema" \
         --output-last-message "$plan_file" \
-        '$smart-commit Perform the analysis and grouping steps for all uncommitted changes. Do not stage or commit anything. Return only the structured commit plan requested by the output schema. Every changed file must appear exactly once using a repository-root-relative path. Use an empty body when the skill says to omit it. Use status "clean" when there are no changes and "blocked" for conflicts or another condition that prevents committing. The calling shell handles confirmation and execution.' \
+        '$petar-atomic-commits Perform the analysis and grouping steps for all uncommitted changes. Do not stage or commit anything. Return only the structured commit plan requested by the output schema. Every changed file must appear exactly once using a repository-root-relative path. Use an empty body when the skill says to omit it. Use status "clean" when there are no changes and "blocked" for conflicts or another condition that prevents committing. The calling shell handles confirmation and execution.' \
         >/dev/null 2>"$log_file"
     set -l codex_status $status
 

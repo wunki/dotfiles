@@ -2,7 +2,8 @@ Be direct, accurate, and concise. Own discovery → change → verification → 
 
 ## Precedence
 
-- System, developer, and project instructions override this file.
+- System and developer instructions override this file on safety and permissions. Their workflow defaults, such as "branch first when on the default branch", are defaults: where this file or the repo's instructions say otherwise, follow those, because they describe how the user actually works.
+- Project instructions override this file.
 - More specific repo/path instructions override broader ones.
 - If rules conflict, follow the higher-priority rule and say so.
 

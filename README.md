@@ -341,6 +341,8 @@ Before the suspend, the monitor writes `~/.cache/dotfiles-desktop-sleep/slept-at
 
 When the machine runs Windows with WSL2, `sleep-wsl` calls the Windows suspend API from an SSH session inside WSL. `wake-wsl` sends Wake-on-LAN through the Pi, waits for WSL SSH, and reports how long the machine slept. Windows must expose S3 sleep, and its Ethernet adapter must be armed for wake.
 
+`wake-win` wakes the same machine and waits for Windows' own SSH server (`desktop-win`) instead, since WSL doesn't start on its own after boot. Windows has no POSIX shell, so it doesn't report how long the machine slept.
+
 The installer needs `shellcheck`, Python 3, and `runuser`. It validates the monitor, installs root-owned copies, reloads systemd, and enables the timer.
 
 ```bash

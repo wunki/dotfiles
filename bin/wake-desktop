@@ -18,6 +18,7 @@ target_name="${WAKE_DESKTOP_TARGET_NAME:-Desktop}"
 command_name="${WAKE_DESKTOP_COMMAND_NAME:-wake-desktop}"
 stamp_path="${WAKE_DESKTOP_STAMP_PATH:-.cache/dotfiles-desktop-sleep/slept-at}"
 wait_for_desktop=true
+read_sleep_stamp=true
 wait_timeout="${WAKE_DESKTOP_WAIT_TIMEOUT:-90}"
 probe_timeout="${WAKE_DESKTOP_PROBE_TIMEOUT:-2}"
 probe_interval="${WAKE_DESKTOP_PROBE_INTERVAL:-1}"
@@ -52,6 +53,8 @@ Options:
   --probe-interval SECONDS
                    Seconds to sleep between target SSH probes (default: 1)
   --no-wait        Do not wait for target SSH or report sleep duration
+  --no-stamp       Wait for target SSH but skip the sleep timestamp, for
+                   targets without a POSIX shell such as native Windows
   --no-resolve     Do not resolve the host through the Tailscale CLI first
   -h, --help       Show this help
 
@@ -170,6 +173,10 @@ while [[ $# -gt 0 ]]; do
       ;;
     --no-wait)
       wait_for_desktop=false
+      shift
+      ;;
+    --no-stamp)
+      read_sleep_stamp=false
       shift
       ;;
     --no-resolve)
@@ -390,9 +397,20 @@ report_sleep_duration() {
   next_progress=$((started_at + 5))
 
   while (( SECONDS <= deadline )); do
-    # The probe script travels over stdin; ssh forwards it to the remote sh.
     set +e
-    output="$(ssh "${desktop_ssh_args[@]}" "$desktop_ssh_target" sh -s -- "$stamp_path" 2>/dev/null <<'REMOTE'
+    if [[ "$read_sleep_stamp" != true ]]; then
+      # A target without a POSIX sh (native Windows) can't run the stamp
+      # probe, so only check that SSH answers. "exit 0" works in sh, cmd and
+      # PowerShell alike.
+      if ssh "${desktop_ssh_args[@]}" "$desktop_ssh_target" exit 0 </dev/null >/dev/null 2>&1; then
+        elapsed=$((SECONDS - started_at))
+        echo "${target_name} SSH is ready after $(human_duration "$elapsed")."
+        return
+      fi
+      status=1
+    else
+      # The probe script travels over stdin; ssh forwards it to the remote sh.
+      output="$(ssh "${desktop_ssh_args[@]}" "$desktop_ssh_target" sh -s -- "$stamp_path" 2>/dev/null <<'REMOTE'
 set -eu
 stamp_path="$1"
 case "$stamp_path" in
@@ -416,7 +434,8 @@ rm -f "$stamp_path"
 printf "%s %s\n" "$slept_at" "$woke_at"
 REMOTE
 )"
-    status=$?
+      status=$?
+    fi
     set -e
 
     if [[ "$status" -eq 0 ]]; then
